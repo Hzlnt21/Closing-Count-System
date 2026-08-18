@@ -89,12 +89,20 @@ fun ClosingScreen(
     val scope = rememberCoroutineScope()
     var selectedTab by rememberSaveable { mutableIntStateOf(0) }
     var showDatePicker by remember { mutableStateOf(false) }
+    var confirmDiscardForDatePicker by remember { mutableStateOf(false) }
+    var pendingRequestedDate by remember { mutableStateOf<LocalDate?>(null) }
     val saveLabel = if (state.closingExists) "Simpan perubahan" else "Simpan closing"
 
-    LaunchedEffect(requestedDate) {
-        requestedDate?.let {
-            viewModel.selectDate(it)
-            onRequestedDateHandled()
+    LaunchedEffect(requestedDate, state.hasUnsavedChanges) {
+        requestedDate?.let { date ->
+            when {
+                date == state.date -> onRequestedDateHandled()
+                state.hasUnsavedChanges -> pendingRequestedDate = date
+                else -> {
+                    viewModel.selectDate(date)
+                    onRequestedDateHandled()
+                }
+            }
         }
     }
 
@@ -121,7 +129,13 @@ fun ClosingScreen(
                 date = state.date,
                 exists = state.closingExists,
                 saved = state.isSaved,
-                onChooseDate = { showDatePicker = true },
+                onChooseDate = {
+                    if (state.hasUnsavedChanges) {
+                        confirmDiscardForDatePicker = true
+                    } else {
+                        showDatePicker = true
+                    }
+                },
             )
             PrimaryTabRow(selectedTabIndex = selectedTab) {
                 ClosingTab.entries.forEachIndexed { index, tab ->
@@ -171,6 +185,57 @@ fun ClosingScreen(
         ) {
             DatePicker(state = datePickerState)
         }
+    }
+
+    if (confirmDiscardForDatePicker) {
+        androidx.compose.material3.AlertDialog(
+            onDismissRequest = { confirmDiscardForDatePicker = false },
+            title = { Text("Perubahan belum disimpan") },
+            text = {
+                Text("Jumlah menu yang baru diubah akan hilang jika kamu memilih tanggal lain.")
+            },
+            confirmButton = {
+                Button(
+                    onClick = {
+                        confirmDiscardForDatePicker = false
+                        showDatePicker = true
+                    },
+                ) { Text("Pilih tanggal lain") }
+            },
+            dismissButton = {
+                TextButton(onClick = { confirmDiscardForDatePicker = false }) { Text("Kembali") }
+            },
+        )
+    }
+
+    pendingRequestedDate?.let { date ->
+        androidx.compose.material3.AlertDialog(
+            onDismissRequest = {
+                pendingRequestedDate = null
+                onRequestedDateHandled()
+            },
+            title = { Text("Perubahan belum disimpan") },
+            text = {
+                Text("Simpan perubahan closing saat ini sebelum membuka closing dari riwayat, atau lanjutkan tanpa menyimpan.")
+            },
+            confirmButton = {
+                Button(
+                    onClick = {
+                        pendingRequestedDate = null
+                        viewModel.selectDate(date)
+                        onRequestedDateHandled()
+                    },
+                ) { Text("Lanjut tanpa simpan") }
+            },
+            dismissButton = {
+                TextButton(
+                    onClick = {
+                        pendingRequestedDate = null
+                        onRequestedDateHandled()
+                    },
+                ) { Text("Kembali") }
+            },
+        )
     }
 }
 

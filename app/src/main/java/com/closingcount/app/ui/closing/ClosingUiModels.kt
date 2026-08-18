@@ -51,6 +51,7 @@ data class ClosingUiState(
     val isLoading: Boolean = true,
     val isSaved: Boolean = false,
     val closingExists: Boolean = false,
+    val hasUnsavedChanges: Boolean = false,
 )
 
 object ClosingCalculator {

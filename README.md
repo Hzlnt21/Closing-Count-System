@@ -4,9 +4,11 @@ Closing Count System adalah aplikasi Android offline untuk menghitung penggunaan
 
 ## Status
 
-Versi aktif: `0.0.6` (export, backup, and restore)
+Versi aktif: `0.0.7` (hardening and device testing)
 
 Roadmap lengkap tersedia di [ROADMAP.md](ROADMAP.md).
+
+Hasil pengujian perangkat tersedia di [TESTING.md](TESTING.md).
 
 ## Teknologi
 

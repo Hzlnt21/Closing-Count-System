@@ -45,6 +45,7 @@ class ClosingViewModel(application: Application) : AndroidViewModel(application)
             quantities = newQuantities,
             resultGroups = ClosingCalculator.calculate(state.menuGroups, newQuantities),
             isSaved = false,
+            hasUnsavedChanges = true,
         )
     }
 
@@ -104,6 +105,7 @@ class ClosingViewModel(application: Application) : AndroidViewModel(application)
             mutableUiState.value = mutableUiState.value.copy(
                 isSaved = true,
                 closingExists = true,
+                hasUnsavedChanges = false,
             )
         }.exceptionOrNull()?.let { "Closing gagal disimpan. Coba kembali." }
     }
@@ -154,6 +156,7 @@ class ClosingViewModel(application: Application) : AndroidViewModel(application)
                 isLoading = false,
                 isSaved = closing != null,
                 closingExists = closing != null,
+                hasUnsavedChanges = false,
             )
         }
     }
