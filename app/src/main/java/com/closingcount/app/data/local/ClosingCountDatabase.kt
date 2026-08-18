@@ -15,14 +15,18 @@ import androidx.sqlite.db.SupportSQLiteDatabase
         MenuCategoryEntity::class,
         MenuEntity::class,
         MenuIngredientCrossRef::class,
+        ClosingEntity::class,
+        ClosingMenuEntryEntity::class,
+        ClosingIngredientResultEntity::class,
     ],
-    version = 3,
+    version = 5,
     exportSchema = true,
 )
 abstract class ClosingCountDatabase : RoomDatabase() {
     abstract fun appMetadataDao(): AppMetadataDao
     abstract fun ingredientDao(): IngredientDao
     abstract fun menuDao(): MenuDao
+    abstract fun closingDao(): ClosingDao
 
     companion object {
         @Volatile
@@ -37,6 +41,8 @@ abstract class ClosingCountDatabase : RoomDatabase() {
                 )
                     .addMigrations(Migration1To2)
                     .addMigrations(Migration2To3)
+                    .addMigrations(Migration3To5)
+                    .addMigrations(Migration4To5)
                     .addCallback(
                         object : Callback() {
                             override fun onCreate(db: SupportSQLiteDatabase) {
@@ -59,6 +65,21 @@ abstract class ClosingCountDatabase : RoomDatabase() {
         private val Migration2To3 = object : Migration(2, 3) {
             override fun migrate(db: SupportSQLiteDatabase) {
                 MenuDatabaseSetup.createTables(db)
+            }
+        }
+
+        private val Migration3To5 = object : Migration(3, 5) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                ClosingDatabaseSetup.createTables(db)
+            }
+        }
+
+        private val Migration4To5 = object : Migration(4, 5) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL(
+                    "ALTER TABLE `closing_ingredient_results` " +
+                        "ADD COLUMN `ingredientCategoryId` INTEGER NOT NULL DEFAULT 0",
+                )
             }
         }
     }

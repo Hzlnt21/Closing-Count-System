@@ -24,7 +24,7 @@ enum class AppDestination(
         label = "Closing",
         title = "Closing Harian",
         icon = Icons.Default.Checklist,
-        description = "Form jumlah menu terjual akan tersedia pada v0.0.4.",
+        description = "Masukkan jumlah menu terjual dan lihat total bahan Terjual/Out.",
     ),
     History(
         label = "Riwayat",

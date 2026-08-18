@@ -37,6 +37,7 @@ import androidx.compose.ui.unit.dp
 import com.closingcount.app.BuildConfig
 import com.closingcount.app.ui.ingredients.IngredientsScreen
 import com.closingcount.app.ui.menus.MenusScreen
+import com.closingcount.app.ui.closing.ClosingScreen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -86,6 +87,7 @@ fun ClosingCountApp() {
     ) { innerPadding ->
         when (currentDestination) {
             AppDestination.Home -> HomeScreen(innerPadding)
+            AppDestination.Closing -> ClosingScreen(innerPadding)
             AppDestination.Menus -> MenusScreen(innerPadding)
             AppDestination.Ingredients -> IngredientsScreen(innerPadding)
             else -> PlaceholderScreen(
@@ -139,13 +141,13 @@ private fun HomeScreen(contentPadding: PaddingValues) {
         }
 
         Text(
-            text = "Master menu dan bahan siap digunakan",
+            text = "Closing harian siap digunakan",
             style = MaterialTheme.typography.titleLarge,
             fontWeight = FontWeight.SemiBold,
         )
 
         Text(
-            text = "Versi ${BuildConfig.VERSION_NAME} menyediakan kategori menu, resep, dan master bahan offline yang bisa dikelola langsung dari HP.",
+            text = "Versi ${BuildConfig.VERSION_NAME} dapat mencatat jumlah menu terjual dan menghitung total bahan Terjual/Out secara otomatis.",
             style = MaterialTheme.typography.bodyLarge,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
