@@ -2,10 +2,10 @@
 
 ## Checkpoint
 
-- Version: `0.0.7`
+- Version: `0.1.0`
 - Date: 18 August 2026
 - Device: Xiaomi/Redmi `23122PCD1G`
-- Screen resolution: 1220 × 2712
+- Screen resolution: 1220 x 2712
 - Orientation: Portrait
 - Operation mode: Fully offline
 
@@ -14,7 +14,7 @@
 The following Gradle tasks completed successfully:
 
 ```powershell
-.\gradlew.bat testDebugUnitTest assembleDebug lintDebug connectedDebugAndroidTest
+.\gradlew.bat testDebugUnitTest assembleDebug lintDebug connectedDebugAndroidTest assembleRelease
 ```
 
 Coverage includes:
@@ -54,6 +54,18 @@ Test master data and generated files were removed after verification by restorin
 - Confirmed accessibility descriptions for primary action buttons and switches.
 - Confirmed database migrations, cold launch, update installation, and offline operation.
 
+## Stable Release Verification
+
+- Generated a dedicated 4096-bit RSA release key stored outside Git tracking.
+- Built a signed release APK and verified its APK Signature Scheme v2 certificate.
+- Installed a release-signed `0.0.7` test build on the target phone.
+- Cold-launched it and confirmed the initial ingredient data was available.
+- Updated in place to release-signed `0.1.0` using Android's replace/update flow.
+- Confirmed `firstInstallTime` remained unchanged while `lastUpdateTime` advanced.
+- Confirmed the application reported `versionCode 8` and `versionName 0.1.0` after update.
+- Compared ingredient-screen UI snapshots before and after update; the local ingredient data remained available.
+- Confirmed the final application identity is `Closing Count System` with package ID `com.closingcount.app`.
+
 ## Result
 
-No critical issue remains in the main workflow for checkpoint `0.0.7`.
+No critical issue remains in the agreed MVP scope for stable release `0.1.0`.

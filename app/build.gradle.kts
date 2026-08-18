@@ -4,6 +4,39 @@ plugins {
     id("com.google.devtools.ksp")
 }
 
+val releaseKeystorePath = System.getenv("CLOSING_COUNT_KEYSTORE_PATH")
+val releaseKeystorePassword = System.getenv("CLOSING_COUNT_KEYSTORE_PASSWORD")
+val releaseKeyAlias = System.getenv("CLOSING_COUNT_KEY_ALIAS")
+val releaseKeyPassword = System.getenv("CLOSING_COUNT_KEY_PASSWORD")
+val appVersionCode = providers.gradleProperty("versionCodeOverride").orNull?.toInt() ?: 8
+val appVersionName = providers.gradleProperty("versionNameOverride").orNull ?: "0.1.0"
+val hasReleaseSigning = listOf(
+    releaseKeystorePath,
+    releaseKeystorePassword,
+    releaseKeyAlias,
+    releaseKeyPassword,
+).all { !it.isNullOrBlank() }
+
+if (
+    gradle.startParameter.taskNames.any { it.contains("release", ignoreCase = true) } &&
+    !hasReleaseSigning
+) {
+    throw GradleException(
+        "Release signing belum dikonfigurasi. Lihat RELEASE.md untuk environment variable yang diperlukan.",
+    )
+}
+
+gradle.taskGraph.whenReady {
+    val packagesReleaseArtifact = allTasks.any {
+        it.name == "packageRelease" || it.name == "bundleRelease"
+    }
+    if (packagesReleaseArtifact && !hasReleaseSigning) {
+        throw GradleException(
+            "Release artifact tidak boleh dibuat tanpa signing. Lihat RELEASE.md.",
+        )
+    }
+}
+
 android {
     namespace = "com.closingcount.app"
     compileSdk {
@@ -16,15 +49,29 @@ android {
         applicationId = "com.closingcount.app"
         minSdk = 26
         targetSdk = 36
-        versionCode = 7
-        versionName = "0.0.7"
+        versionCode = appVersionCode
+        versionName = appVersionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
 
+    signingConfigs {
+        if (hasReleaseSigning) {
+            create("release") {
+                storeFile = file(requireNotNull(releaseKeystorePath))
+                storePassword = releaseKeystorePassword
+                keyAlias = releaseKeyAlias
+                keyPassword = releaseKeyPassword
+            }
+        }
+    }
+
     buildTypes {
         release {
+            if (hasReleaseSigning) {
+                signingConfig = signingConfigs.getByName("release")
+            }
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),

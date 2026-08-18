@@ -4,11 +4,13 @@ Closing Count System adalah aplikasi Android offline untuk menghitung penggunaan
 
 ## Status
 
-Versi aktif: `0.0.7` (hardening and device testing)
+Versi stabil: `0.1.0` (first stable MVP)
 
 Roadmap lengkap tersedia di [ROADMAP.md](ROADMAP.md).
 
 Hasil pengujian perangkat tersedia di [TESTING.md](TESTING.md).
+
+Panduan penggunaan dan pembaruan tersedia di [USER_GUIDE.md](USER_GUIDE.md). Proses build release untuk pengembang tersedia di [RELEASE.md](RELEASE.md).
 
 ## Teknologi
 
@@ -31,6 +33,8 @@ Debug APK akan dibuat di:
 ```text
 app/build/outputs/apk/debug/app-debug.apk
 ```
+
+Build APK release memerlukan signing key. Ikuti [RELEASE.md](RELEASE.md); jangan pernah memasukkan keystore atau password ke Git.
 
 ## Privasi data
 

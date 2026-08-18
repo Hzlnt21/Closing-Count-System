@@ -238,6 +238,8 @@ Definition of done:
 
 ### v0.1.0 - First Stable MVP
 
+Status: Completed on 18 August 2026.
+
 Target:
 
 - Menetapkan identitas final aplikasi.

@@ -1,5 +1,6 @@
 # Gradle
 .gradle/
+.kotlin/
 build/
 **/build/
 
@@ -14,6 +15,7 @@ local.properties
 *.jks
 *.keystore
 keystore.properties
+release-signing/
 
 # Native build output
 .cxx/
