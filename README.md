@@ -4,7 +4,7 @@ Closing Count System adalah aplikasi Android offline untuk menghitung penggunaan
 
 ## Status
 
-Versi aktif: `0.0.1` (project foundation)
+Versi aktif: `0.0.2` (ingredient management)
 
 Roadmap lengkap tersedia di [ROADMAP.md](ROADMAP.md).
 
@@ -33,4 +33,3 @@ app/build/outputs/apk/debug/app-debug.apk
 ## Privasi data
 
 Seluruh data aplikasi disimpan secara lokal pada perangkat. Aplikasi tidak memerlukan akun, koneksi internet, atau layanan cloud.
-

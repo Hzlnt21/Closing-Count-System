@@ -34,6 +34,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import com.closingcount.app.BuildConfig
+import com.closingcount.app.ui.ingredients.IngredientsScreen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -83,6 +85,7 @@ fun ClosingCountApp() {
     ) { innerPadding ->
         when (currentDestination) {
             AppDestination.Home -> HomeScreen(innerPadding)
+            AppDestination.Ingredients -> IngredientsScreen(innerPadding)
             else -> PlaceholderScreen(
                 destination = currentDestination,
                 contentPadding = innerPadding,
@@ -134,13 +137,13 @@ private fun HomeScreen(contentPadding: PaddingValues) {
         }
 
         Text(
-            text = "Fondasi aplikasi siap",
+            text = "Master bahan siap digunakan",
             style = MaterialTheme.typography.titleLarge,
             fontWeight = FontWeight.SemiBold,
         )
 
         Text(
-            text = "Versi 0.0.1 menyiapkan navigasi, tema, dan database offline. Master bahan mulai tersedia pada checkpoint berikutnya.",
+            text = "Versi ${BuildConfig.VERSION_NAME} menyediakan kategori dan bahan offline yang bisa ditambah, diedit, atau dinonaktifkan.",
             style = MaterialTheme.typography.bodyLarge,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
@@ -182,4 +185,3 @@ private fun PlaceholderScreen(
         }
     }
 }
-

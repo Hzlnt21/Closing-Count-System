@@ -42,7 +42,6 @@ enum class AppDestination(
         label = "Bahan",
         title = "Data Bahan",
         icon = Icons.Default.Category,
-        description = "Pengelolaan kategori dan bahan akan tersedia pada v0.0.2.",
+        description = "Kelola kategori dan bahan yang digunakan oleh menu.",
     ),
 }
-
