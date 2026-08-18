@@ -21,6 +21,9 @@ data class ClosingMenuEntryEntity(
     val closingId: Long,
     val menuId: Long,
     val menuName: String,
+    val menuSortOrder: Int,
+    val menuCategoryId: Long,
     val menuCategoryName: String,
+    val menuCategorySortOrder: Int,
     val quantity: Int,
 )

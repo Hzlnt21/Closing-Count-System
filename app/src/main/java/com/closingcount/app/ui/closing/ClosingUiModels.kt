@@ -1,6 +1,8 @@
 package com.closingcount.app.ui.closing
 
 import com.closingcount.app.data.local.ClosingSourceRow
+import com.closingcount.app.data.local.ClosingMenuEntryEntity
+import com.closingcount.app.data.local.ClosingMenuRecipeEntity
 import java.time.LocalDate
 
 data class ClosingIngredient(
@@ -120,5 +122,44 @@ object ClosingCalculator {
                     ),
                 )
             }.sortedWith(compareBy(ClosingResultGroup::sortOrder, ClosingResultGroup::name))
+    }
+
+    fun buildSnapshotMenuGroups(
+        entries: List<ClosingMenuEntryEntity>,
+        recipes: List<ClosingMenuRecipeEntity>,
+    ): List<ClosingMenuGroup> {
+        if (entries.isEmpty() || recipes.isEmpty()) return emptyList()
+        val recipesByMenu = recipes.groupBy { it.menuId }
+        return entries.groupBy { it.menuCategoryId }.values.map { categoryEntries ->
+            val first = categoryEntries.first()
+            ClosingMenuGroup(
+                id = first.menuCategoryId,
+                name = first.menuCategoryName,
+                sortOrder = first.menuCategorySortOrder,
+                menus = categoryEntries.mapNotNull { entry ->
+                    val menuRecipes = recipesByMenu[entry.menuId].orEmpty()
+                    if (menuRecipes.isEmpty()) return@mapNotNull null
+                    ClosingMenu(
+                        id = entry.menuId,
+                        name = entry.menuName,
+                        sortOrder = entry.menuSortOrder,
+                        categoryId = entry.menuCategoryId,
+                        categoryName = entry.menuCategoryName,
+                        categorySortOrder = entry.menuCategorySortOrder,
+                        ingredients = menuRecipes.map { recipe ->
+                            ClosingIngredient(
+                                id = recipe.ingredientId,
+                                name = recipe.ingredientName,
+                                sortOrder = recipe.ingredientSortOrder,
+                                categoryId = recipe.ingredientCategoryId,
+                                categoryName = recipe.ingredientCategoryName,
+                                categorySortOrder = recipe.ingredientCategorySortOrder,
+                            )
+                        },
+                    )
+                }.sortedWith(compareBy(ClosingMenu::sortOrder, ClosingMenu::name)),
+            )
+        }.filter { it.menus.isNotEmpty() }
+            .sortedWith(compareBy(ClosingMenuGroup::sortOrder, ClosingMenuGroup::name))
     }
 }

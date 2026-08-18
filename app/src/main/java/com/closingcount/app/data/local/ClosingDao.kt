@@ -38,10 +38,32 @@ interface ClosingDao {
     )
     fun observeClosingSourceRows(): Flow<List<ClosingSourceRow>>
 
+    @Query(
+        """
+        SELECT closing.id AS id, closing.date AS date, closing.updatedAt AS updatedAt,
+               (SELECT COALESCE(SUM(entry.quantity), 0)
+                FROM closing_menu_entries AS entry
+                WHERE entry.closingId = closing.id) AS totalMenusSold,
+               (SELECT COUNT(*) FROM closing_menu_entries AS entry
+                WHERE entry.closingId = closing.id AND entry.quantity > 0) AS soldMenuTypes,
+               (SELECT COUNT(*) FROM closing_ingredient_results AS result
+                WHERE result.closingId = closing.id) AS ingredientCount
+        FROM closings AS closing
+        ORDER BY closing.date DESC
+        """,
+    )
+    fun observeHistoryRows(): Flow<List<ClosingHistoryRow>>
+
     @Query("SELECT * FROM closings WHERE date = :date LIMIT 1")
     suspend fun getClosingByDate(date: String): ClosingEntity?
 
-    @Query("SELECT * FROM closing_menu_entries WHERE closingId = :closingId")
+    @Query(
+        """
+        SELECT * FROM closing_menu_entries WHERE closingId = :closingId
+        ORDER BY menuCategorySortOrder, menuCategoryName COLLATE NOCASE,
+                 menuSortOrder, menuName COLLATE NOCASE
+        """,
+    )
     suspend fun getMenuEntries(closingId: Long): List<ClosingMenuEntryEntity>
 
     @Query(
@@ -52,6 +74,15 @@ interface ClosingDao {
         """,
     )
     suspend fun getIngredientResults(closingId: Long): List<ClosingIngredientResultEntity>
+
+    @Query(
+        """
+        SELECT * FROM closing_menu_recipes
+        WHERE closingId = :closingId
+        ORDER BY menuId, ingredientCategorySortOrder, ingredientSortOrder, ingredientName COLLATE NOCASE
+        """,
+    )
+    suspend fun getMenuRecipes(closingId: Long): List<ClosingMenuRecipeEntity>
 
     @Insert
     suspend fun insertClosing(closing: ClosingEntity): Long
@@ -65,11 +96,17 @@ interface ClosingDao {
     @Insert
     suspend fun insertIngredientResults(results: List<ClosingIngredientResultEntity>)
 
+    @Insert
+    suspend fun insertMenuRecipes(recipes: List<ClosingMenuRecipeEntity>)
+
     @Query("DELETE FROM closing_menu_entries WHERE closingId = :closingId")
     suspend fun deleteMenuEntries(closingId: Long)
 
     @Query("DELETE FROM closing_ingredient_results WHERE closingId = :closingId")
     suspend fun deleteIngredientResults(closingId: Long)
+
+    @Query("DELETE FROM closing_menu_recipes WHERE closingId = :closingId")
+    suspend fun deleteMenuRecipes(closingId: Long)
 
     @Transaction
     suspend fun replaceClosing(
@@ -77,6 +114,7 @@ interface ClosingDao {
         updatedAt: Long,
         entries: List<ClosingMenuEntryEntity>,
         results: List<ClosingIngredientResultEntity>,
+        recipes: List<ClosingMenuRecipeEntity>,
     ): Long {
         val current = getClosingByDate(date)
         val closingId = if (current == null) {
@@ -87,11 +125,15 @@ interface ClosingDao {
         }
         deleteMenuEntries(closingId)
         deleteIngredientResults(closingId)
+        deleteMenuRecipes(closingId)
         if (entries.isNotEmpty()) {
             insertMenuEntries(entries.map { it.copy(closingId = closingId) })
         }
         if (results.isNotEmpty()) {
             insertIngredientResults(results.map { it.copy(closingId = closingId) })
+        }
+        if (recipes.isNotEmpty()) {
+            insertMenuRecipes(recipes.map { it.copy(closingId = closingId) })
         }
         return closingId
     }

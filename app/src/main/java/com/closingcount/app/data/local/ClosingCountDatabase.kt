@@ -18,8 +18,9 @@ import androidx.sqlite.db.SupportSQLiteDatabase
         ClosingEntity::class,
         ClosingMenuEntryEntity::class,
         ClosingIngredientResultEntity::class,
+        ClosingMenuRecipeEntity::class,
     ],
-    version = 5,
+    version = 6,
     exportSchema = true,
 )
 abstract class ClosingCountDatabase : RoomDatabase() {
@@ -43,6 +44,7 @@ abstract class ClosingCountDatabase : RoomDatabase() {
                     .addMigrations(Migration2To3)
                     .addMigrations(Migration3To5)
                     .addMigrations(Migration4To5)
+                    .addMigrations(Migration5To6)
                     .addCallback(
                         object : Callback() {
                             override fun onCreate(db: SupportSQLiteDatabase) {
@@ -79,6 +81,48 @@ abstract class ClosingCountDatabase : RoomDatabase() {
                 db.execSQL(
                     "ALTER TABLE `closing_ingredient_results` " +
                         "ADD COLUMN `ingredientCategoryId` INTEGER NOT NULL DEFAULT 0",
+                )
+            }
+        }
+
+        private val Migration5To6 = object : Migration(5, 6) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL(
+                    "ALTER TABLE `closing_menu_entries` " +
+                        "ADD COLUMN `menuSortOrder` INTEGER NOT NULL DEFAULT 0",
+                )
+                db.execSQL(
+                    "ALTER TABLE `closing_menu_entries` " +
+                        "ADD COLUMN `menuCategoryId` INTEGER NOT NULL DEFAULT 0",
+                )
+                db.execSQL(
+                    "ALTER TABLE `closing_menu_entries` " +
+                        "ADD COLUMN `menuCategorySortOrder` INTEGER NOT NULL DEFAULT 0",
+                )
+                db.execSQL(
+                    """
+                    CREATE TABLE IF NOT EXISTS `closing_menu_recipes` (
+                        `closingId` INTEGER NOT NULL,
+                        `menuId` INTEGER NOT NULL,
+                        `ingredientId` INTEGER NOT NULL,
+                        `ingredientName` TEXT NOT NULL,
+                        `ingredientSortOrder` INTEGER NOT NULL,
+                        `ingredientCategoryId` INTEGER NOT NULL,
+                        `ingredientCategoryName` TEXT NOT NULL,
+                        `ingredientCategorySortOrder` INTEGER NOT NULL,
+                        PRIMARY KEY(`closingId`, `menuId`, `ingredientId`),
+                        FOREIGN KEY(`closingId`) REFERENCES `closings`(`id`)
+                            ON UPDATE NO ACTION ON DELETE CASCADE
+                    )
+                    """.trimIndent(),
+                )
+                db.execSQL(
+                    "CREATE INDEX IF NOT EXISTS `index_closing_menu_recipes_menuId` " +
+                        "ON `closing_menu_recipes` (`menuId`)",
+                )
+                db.execSQL(
+                    "CREATE INDEX IF NOT EXISTS `index_closing_menu_recipes_ingredientId` " +
+                        "ON `closing_menu_recipes` (`ingredientId`)",
                 )
             }
         }

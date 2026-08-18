@@ -7,6 +7,8 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.closingcount.app.data.local.ClosingCountDatabase
 import com.closingcount.app.data.local.ClosingIngredientResultEntity
 import com.closingcount.app.data.local.ClosingMenuEntryEntity
+import com.closingcount.app.data.local.ClosingMenuRecipeEntity
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Assert.assertEquals
@@ -41,12 +43,14 @@ class ClosingDaoInstrumentedTest {
             updatedAt = 100,
             entries = listOf(menuEntry(quantity = 2)),
             results = listOf(ingredientResult(total = 2)),
+            recipes = listOf(recipe()),
         )
         val secondId = dao.replaceClosing(
             date = "2026-08-18",
             updatedAt = 200,
             entries = listOf(menuEntry(quantity = 3)),
             results = listOf(ingredientResult(total = 3)),
+            recipes = listOf(recipe()),
         )
 
         assertEquals(firstId, secondId)
@@ -54,13 +58,21 @@ class ClosingDaoInstrumentedTest {
         assertEquals(200L, dao.getClosingByDate("2026-08-18")?.updatedAt)
         assertEquals(3, dao.getMenuEntries(firstId).single().quantity)
         assertEquals(3, dao.getIngredientResults(firstId).single().total)
+        assertEquals("Fresh Milk", dao.getMenuRecipes(firstId).single().ingredientName)
+        val history = dao.observeHistoryRows().first().single()
+        assertEquals(3, history.totalMenusSold)
+        assertEquals(1, history.soldMenuTypes)
+        assertEquals(1, history.ingredientCount)
     }
 
     private fun menuEntry(quantity: Int) = ClosingMenuEntryEntity(
         closingId = 0,
         menuId = 1,
         menuName = "Latte",
+        menuSortOrder = 1,
+        menuCategoryId = 1,
         menuCategoryName = "Coffee",
+        menuCategorySortOrder = 1,
         quantity = quantity,
     )
 
@@ -73,5 +85,16 @@ class ClosingDaoInstrumentedTest {
         ingredientCategorySortOrder = 1,
         ingredientSortOrder = 1,
         total = total,
+    )
+
+    private fun recipe() = ClosingMenuRecipeEntity(
+        closingId = 0,
+        menuId = 1,
+        ingredientId = 1,
+        ingredientName = "Fresh Milk",
+        ingredientSortOrder = 1,
+        ingredientCategoryId = 1,
+        ingredientCategoryName = "Bahan Baku",
+        ingredientCategorySortOrder = 1,
     )
 }

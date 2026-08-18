@@ -1,14 +1,11 @@
 package com.closingcount.app.ui
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -38,6 +35,8 @@ import com.closingcount.app.BuildConfig
 import com.closingcount.app.ui.ingredients.IngredientsScreen
 import com.closingcount.app.ui.menus.MenusScreen
 import com.closingcount.app.ui.closing.ClosingScreen
+import com.closingcount.app.ui.history.HistoryScreen
+import java.time.LocalDate
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -45,6 +44,7 @@ fun ClosingCountApp() {
     var currentDestinationName by rememberSaveable {
         mutableStateOf(AppDestination.Home.name)
     }
+    var requestedClosingDate by rememberSaveable { mutableStateOf<String?>(null) }
     val currentDestination = AppDestination.valueOf(currentDestinationName)
 
     Scaffold(
@@ -87,13 +87,20 @@ fun ClosingCountApp() {
     ) { innerPadding ->
         when (currentDestination) {
             AppDestination.Home -> HomeScreen(innerPadding)
-            AppDestination.Closing -> ClosingScreen(innerPadding)
+            AppDestination.Closing -> ClosingScreen(
+                contentPadding = innerPadding,
+                requestedDate = requestedClosingDate?.let(LocalDate::parse),
+                onRequestedDateHandled = { requestedClosingDate = null },
+            )
+            AppDestination.History -> HistoryScreen(
+                contentPadding = innerPadding,
+                onEditClosing = { date ->
+                    requestedClosingDate = date.toString()
+                    currentDestinationName = AppDestination.Closing.name
+                },
+            )
             AppDestination.Menus -> MenusScreen(innerPadding)
             AppDestination.Ingredients -> IngredientsScreen(innerPadding)
-            else -> PlaceholderScreen(
-                destination = currentDestination,
-                contentPadding = innerPadding,
-            )
         }
     }
 }
@@ -141,51 +148,15 @@ private fun HomeScreen(contentPadding: PaddingValues) {
         }
 
         Text(
-            text = "Closing harian siap digunakan",
+            text = "Closing dan riwayat siap digunakan",
             style = MaterialTheme.typography.titleLarge,
             fontWeight = FontWeight.SemiBold,
         )
 
         Text(
-            text = "Versi ${BuildConfig.VERSION_NAME} dapat mencatat jumlah menu terjual dan menghitung total bahan Terjual/Out secara otomatis.",
+            text = "Versi ${BuildConfig.VERSION_NAME} dapat menyimpan, membuka, dan mengedit riwayat closing tanpa mengubah hasil lama saat resep diperbarui.",
             style = MaterialTheme.typography.bodyLarge,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
-    }
-}
-
-@Composable
-private fun PlaceholderScreen(
-    destination: AppDestination,
-    contentPadding: PaddingValues,
-) {
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(contentPadding)
-            .padding(24.dp),
-        contentAlignment = Alignment.Center,
-    ) {
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-            Icon(
-                imageVector = destination.icon,
-                contentDescription = null,
-                tint = MaterialTheme.colorScheme.primary,
-            )
-            Spacer(modifier = Modifier.height(16.dp))
-            Text(
-                text = destination.title,
-                style = MaterialTheme.typography.headlineSmall,
-                fontWeight = FontWeight.Bold,
-            )
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(
-                text = destination.description,
-                style = MaterialTheme.typography.bodyLarge,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-        }
     }
 }

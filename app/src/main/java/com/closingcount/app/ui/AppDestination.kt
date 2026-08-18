@@ -30,7 +30,7 @@ enum class AppDestination(
         label = "Riwayat",
         title = "Riwayat Closing",
         icon = Icons.Default.History,
-        description = "Riwayat closing akan tersedia pada v0.0.5.",
+        description = "Lihat detail penjualan, hasil bahan, dan edit closing lama.",
     ),
     Menus(
         label = "Menu",

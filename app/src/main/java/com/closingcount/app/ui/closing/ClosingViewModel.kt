@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.closingcount.app.ClosingCountApplication
 import com.closingcount.app.data.local.ClosingIngredientResultEntity
 import com.closingcount.app.data.local.ClosingMenuEntryEntity
+import com.closingcount.app.data.local.ClosingMenuRecipeEntity
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -17,12 +18,13 @@ class ClosingViewModel(application: Application) : AndroidViewModel(application)
     private val dao = (application as ClosingCountApplication).database.closingDao()
     private val mutableUiState = MutableStateFlow(ClosingUiState())
     val uiState: StateFlow<ClosingUiState> = mutableUiState.asStateFlow()
+    private var activeMenuGroups: List<ClosingMenuGroup> = emptyList()
 
     init {
         viewModelScope.launch {
             dao.observeClosingSourceRows().collectLatest { rows ->
                 val groups = ClosingCalculator.buildMenuGroups(rows)
-                mutableUiState.value = mutableUiState.value.copy(menuGroups = groups)
+                activeMenuGroups = groups
                 loadDate(mutableUiState.value.date)
             }
         }
@@ -50,15 +52,32 @@ class ClosingViewModel(application: Application) : AndroidViewModel(application)
         val state = mutableUiState.value
         if (state.menuGroups.isEmpty()) return "Belum ada menu aktif untuk closing."
         val menus = state.menuGroups.flatMap { it.menus }
-        val entries = menus.mapNotNull { menu ->
+        val entries = menus.map { menu ->
             val quantity = state.quantities[menu.id] ?: 0
-            if (quantity <= 0) null else ClosingMenuEntryEntity(
+            ClosingMenuEntryEntity(
                 closingId = 0,
                 menuId = menu.id,
                 menuName = menu.name,
+                menuSortOrder = menu.sortOrder,
+                menuCategoryId = menu.categoryId,
                 menuCategoryName = menu.categoryName,
+                menuCategorySortOrder = menu.categorySortOrder,
                 quantity = quantity,
             )
+        }
+        val recipes = menus.flatMap { menu ->
+            menu.ingredients.map { ingredient ->
+                ClosingMenuRecipeEntity(
+                    closingId = 0,
+                    menuId = menu.id,
+                    ingredientId = ingredient.id,
+                    ingredientName = ingredient.name,
+                    ingredientSortOrder = ingredient.sortOrder,
+                    ingredientCategoryId = ingredient.categoryId,
+                    ingredientCategoryName = ingredient.categoryName,
+                    ingredientCategorySortOrder = ingredient.categorySortOrder,
+                )
+            }
         }
         val results = state.resultGroups.flatMap { group ->
             group.results.map { result ->
@@ -80,6 +99,7 @@ class ClosingViewModel(application: Application) : AndroidViewModel(application)
                 updatedAt = System.currentTimeMillis(),
                 entries = entries,
                 results = results,
+                recipes = recipes,
             )
             mutableUiState.value = mutableUiState.value.copy(
                 isSaved = true,
@@ -89,18 +109,17 @@ class ClosingViewModel(application: Application) : AndroidViewModel(application)
     }
 
     private suspend fun loadDate(date: LocalDate) {
-        val currentState = mutableUiState.value
         val closing = dao.getClosingByDate(date.toString())
-        val savedQuantities = if (closing == null) {
-            emptyMap()
-        } else {
-            dao.getMenuEntries(closing.id).associate { it.menuId to it.quantity }
-        }
-        val quantities = currentState.menuGroups.flatMap { it.menus }.associate { menu ->
+        val savedEntries = if (closing == null) emptyList() else dao.getMenuEntries(closing.id)
+        val savedRecipes = if (closing == null) emptyList() else dao.getMenuRecipes(closing.id)
+        val snapshotGroups = ClosingCalculator.buildSnapshotMenuGroups(savedEntries, savedRecipes)
+        val menuGroups = snapshotGroups.ifEmpty { activeMenuGroups }
+        val savedQuantities = savedEntries.associate { it.menuId to it.quantity }
+        val quantities = menuGroups.flatMap { it.menus }.associate { menu ->
             menu.id to (savedQuantities[menu.id] ?: 0)
         }
         val resultGroups = if (closing == null) {
-            ClosingCalculator.calculate(currentState.menuGroups, quantities)
+            ClosingCalculator.calculate(menuGroups, quantities)
         } else {
             dao.getIngredientResults(closing.id)
                 .groupBy { it.ingredientCategoryId }
@@ -129,6 +148,7 @@ class ClosingViewModel(application: Application) : AndroidViewModel(application)
         }
         if (mutableUiState.value.date == date) {
             mutableUiState.value = mutableUiState.value.copy(
+                menuGroups = menuGroups,
                 quantities = quantities,
                 resultGroups = resultGroups,
                 isLoading = false,

@@ -45,6 +45,7 @@ import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateMapOf
@@ -79,6 +80,8 @@ private enum class ClosingTab(val label: String) {
 @Composable
 fun ClosingScreen(
     contentPadding: PaddingValues,
+    requestedDate: LocalDate? = null,
+    onRequestedDateHandled: () -> Unit = {},
     viewModel: ClosingViewModel = viewModel(),
 ) {
     val state by viewModel.uiState.collectAsStateWithLifecycle()
@@ -87,6 +90,13 @@ fun ClosingScreen(
     var selectedTab by rememberSaveable { mutableIntStateOf(0) }
     var showDatePicker by remember { mutableStateOf(false) }
     val saveLabel = if (state.closingExists) "Simpan perubahan" else "Simpan closing"
+
+    LaunchedEffect(requestedDate) {
+        requestedDate?.let {
+            viewModel.selectDate(it)
+            onRequestedDateHandled()
+        }
+    }
 
     Scaffold(
         modifier = Modifier.padding(contentPadding).fillMaxSize(),
