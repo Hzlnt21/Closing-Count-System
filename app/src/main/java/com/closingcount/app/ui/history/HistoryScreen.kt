@@ -1,6 +1,8 @@
 package com.closingcount.app.ui.history
 
 import androidx.activity.compose.BackHandler
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -21,6 +23,7 @@ import androidx.compose.material.icons.filled.CalendarMonth
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.ExpandLess
 import androidx.compose.material.icons.filled.ExpandMore
+import androidx.compose.material.icons.filled.FileDownload
 import androidx.compose.material.icons.filled.RestaurantMenu
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -31,10 +34,13 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -53,6 +59,7 @@ import java.time.LocalDate
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import java.util.Locale
+import kotlinx.coroutines.launch
 
 private val historyDateFormatter = DateTimeFormatter.ofPattern(
     "EEEE, d MMMM yyyy",
@@ -67,6 +74,20 @@ fun HistoryScreen(
 ) {
     val history by viewModel.history.collectAsStateWithLifecycle()
     val detail by viewModel.detail.collectAsStateWithLifecycle()
+    val snackbar = remember { SnackbarHostState() }
+    val scope = rememberCoroutineScope()
+    val exportLauncher = rememberLauncherForActivityResult(
+        ActivityResultContracts.CreateDocument(
+            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        ),
+    ) { uri ->
+        uri?.let {
+            scope.launch {
+                val error = viewModel.exportCurrentDetail(it)
+                snackbar.showSnackbar(error ?: "File Excel berhasil disimpan.")
+            }
+        }
+    }
 
     if (detail == null) {
         HistoryList(contentPadding, history, viewModel::open)
@@ -81,6 +102,10 @@ fun HistoryScreen(
                 viewModel.closeDetail()
                 onEditClosing(date)
             },
+            onExport = {
+                exportLauncher.launch("closing-${checkNotNull(detail).summary.date}.xlsx")
+            },
+            snackbar = snackbar,
         )
     }
 }
@@ -156,17 +181,31 @@ private fun HistoryDetail(
     state: HistoryDetailState,
     onBack: () -> Unit,
     onEdit: () -> Unit,
+    onExport: () -> Unit,
+    snackbar: SnackbarHostState,
 ) {
     Scaffold(
         modifier = Modifier.fillMaxSize().padding(contentPadding),
         contentWindowInsets = WindowInsets(0, 0, 0, 0),
+        snackbarHost = { SnackbarHost(snackbar) },
         floatingActionButton = {
-            ExtendedFloatingActionButton(
-                modifier = Modifier.semantics { contentDescription = "Edit closing" },
-                onClick = onEdit,
-                icon = { Icon(Icons.Default.Edit, contentDescription = null) },
-                text = { Text("Edit closing") },
-            )
+            Column(
+                horizontalAlignment = Alignment.End,
+                verticalArrangement = Arrangement.spacedBy(10.dp),
+            ) {
+                ExtendedFloatingActionButton(
+                    modifier = Modifier.semantics { contentDescription = "Export Excel" },
+                    onClick = onExport,
+                    icon = { Icon(Icons.Default.FileDownload, contentDescription = null) },
+                    text = { Text("Export Excel") },
+                )
+                ExtendedFloatingActionButton(
+                    modifier = Modifier.semantics { contentDescription = "Edit closing" },
+                    onClick = onEdit,
+                    icon = { Icon(Icons.Default.Edit, contentDescription = null) },
+                    text = { Text("Edit closing") },
+                )
+            }
         },
     ) { innerPadding ->
         if (state.isLoading) {
@@ -177,7 +216,7 @@ private fun HistoryDetail(
         }
         LazyColumn(
             modifier = Modifier.fillMaxSize().padding(innerPadding),
-            contentPadding = PaddingValues(16.dp, 8.dp, 16.dp, 104.dp),
+            contentPadding = PaddingValues(16.dp, 8.dp, 16.dp, 176.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
             item {

@@ -28,6 +28,7 @@ abstract class ClosingCountDatabase : RoomDatabase() {
     abstract fun ingredientDao(): IngredientDao
     abstract fun menuDao(): MenuDao
     abstract fun closingDao(): ClosingDao
+    abstract fun backupDao(): BackupDao
 
     companion object {
         @Volatile

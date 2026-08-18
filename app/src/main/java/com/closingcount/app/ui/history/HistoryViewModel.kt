@@ -1,12 +1,14 @@
 package com.closingcount.app.ui.history
 
 import android.app.Application
+import android.net.Uri
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.closingcount.app.ClosingCountApplication
 import com.closingcount.app.data.local.ClosingHistoryRow
 import com.closingcount.app.data.local.ClosingIngredientResultEntity
 import com.closingcount.app.data.local.ClosingMenuEntryEntity
+import com.closingcount.app.data.transfer.ClosingExcelExporter
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -22,7 +24,8 @@ data class HistoryDetailState(
 )
 
 class HistoryViewModel(application: Application) : AndroidViewModel(application) {
-    private val dao = (application as ClosingCountApplication).database.closingDao()
+    private val app = application as ClosingCountApplication
+    private val dao = app.database.closingDao()
 
     val history = dao.observeHistoryRows().stateIn(
         scope = viewModelScope,
@@ -51,5 +54,20 @@ class HistoryViewModel(application: Application) : AndroidViewModel(application)
 
     fun closeDetail() {
         mutableDetail.value = null
+    }
+
+    suspend fun exportCurrentDetail(uri: Uri): String? {
+        val state = mutableDetail.value
+            ?: return "Detail closing belum siap untuk diekspor."
+        if (state.isLoading) return "Tunggu sampai detail closing selesai dimuat."
+        return runCatching {
+            val bytes = ClosingExcelExporter.create(
+                date = state.summary.date,
+                entries = state.entries,
+                results = state.results,
+            )
+            app.contentResolver.openOutputStream(uri, "wt")?.use { it.write(bytes) }
+                ?: error("File tujuan tidak dapat dibuka.")
+        }.exceptionOrNull()?.let { "Export Excel gagal. Coba pilih lokasi lain." }
     }
 }

@@ -1,5 +1,8 @@
 package com.closingcount.app.ui
 
+import android.net.Uri
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -10,6 +13,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Coffee
+import androidx.compose.material.icons.filled.Restore
+import androidx.compose.material.icons.filled.SaveAlt
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -18,12 +25,17 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -31,11 +43,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.closingcount.app.BuildConfig
 import com.closingcount.app.ui.ingredients.IngredientsScreen
 import com.closingcount.app.ui.menus.MenusScreen
 import com.closingcount.app.ui.closing.ClosingScreen
 import com.closingcount.app.ui.history.HistoryScreen
+import com.closingcount.app.ui.transfer.DataTransferViewModel
+import kotlinx.coroutines.launch
 import java.time.LocalDate
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -106,14 +121,37 @@ fun ClosingCountApp() {
 }
 
 @Composable
-private fun HomeScreen(contentPadding: PaddingValues) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(contentPadding)
-            .padding(horizontal = 20.dp, vertical = 16.dp),
-        verticalArrangement = Arrangement.spacedBy(16.dp),
-    ) {
+private fun HomeScreen(
+    contentPadding: PaddingValues,
+    viewModel: DataTransferViewModel = viewModel(),
+) {
+    val snackbar = remember { SnackbarHostState() }
+    val scope = rememberCoroutineScope()
+    var pendingRestoreUri by remember { mutableStateOf<Uri?>(null) }
+    val backupLauncher = rememberLauncherForActivityResult(
+        ActivityResultContracts.CreateDocument("application/json"),
+    ) { uri ->
+        uri?.let {
+            scope.launch {
+                val error = viewModel.writeBackup(it)
+                snackbar.showSnackbar(error ?: "Backup berhasil disimpan.")
+            }
+        }
+    }
+    val restoreLauncher = rememberLauncherForActivityResult(
+        ActivityResultContracts.OpenDocument(),
+    ) { uri -> pendingRestoreUri = uri }
+
+    Scaffold(
+        modifier = Modifier.padding(contentPadding).fillMaxSize(),
+        contentWindowInsets = androidx.compose.foundation.layout.WindowInsets(0, 0, 0, 0),
+        snackbarHost = { SnackbarHost(snackbar) },
+    ) { innerPadding ->
+        Column(
+            modifier = Modifier.fillMaxSize().padding(innerPadding)
+                .padding(horizontal = 20.dp, vertical = 16.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp),
+        ) {
         Card(
             modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(24.dp),
@@ -148,15 +186,74 @@ private fun HomeScreen(contentPadding: PaddingValues) {
         }
 
         Text(
-            text = "Closing dan riwayat siap digunakan",
+            text = "Closing, riwayat, dan file data",
             style = MaterialTheme.typography.titleLarge,
             fontWeight = FontWeight.SemiBold,
         )
 
         Text(
-            text = "Versi ${BuildConfig.VERSION_NAME} dapat menyimpan, membuka, dan mengedit riwayat closing tanpa mengubah hasil lama saat resep diperbarui.",
+            text = "Versi ${BuildConfig.VERSION_NAME} dapat mengekspor closing ke Excel serta membuat dan memulihkan backup seluruh data.",
             style = MaterialTheme.typography.bodyLarge,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+
+        Card(
+            modifier = Modifier.fillMaxWidth(),
+            shape = RoundedCornerShape(18.dp),
+            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerLow),
+        ) {
+            Column(
+                modifier = Modifier.padding(18.dp),
+                verticalArrangement = Arrangement.spacedBy(12.dp),
+            ) {
+                Text("Backup & Restore", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+                Text(
+                    "Backup mencakup kategori, bahan, menu, resep, dan seluruh riwayat closing.",
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                Button(
+                    onClick = {
+                        backupLauncher.launch("closing-count-backup-${LocalDate.now()}.json")
+                    },
+                    modifier = Modifier.fillMaxWidth(),
+                ) {
+                    Icon(Icons.Default.SaveAlt, contentDescription = null)
+                    Text("Buat backup", modifier = Modifier.padding(start = 8.dp))
+                }
+                TextButton(
+                    onClick = { restoreLauncher.launch(arrayOf("application/json", "text/plain")) },
+                    modifier = Modifier.fillMaxWidth(),
+                ) {
+                    Icon(Icons.Default.Restore, contentDescription = null)
+                    Text("Restore dari backup", modifier = Modifier.padding(start = 8.dp))
+                }
+            }
+        }
+        }
+    }
+
+    if (pendingRestoreUri != null) {
+        AlertDialog(
+            onDismissRequest = { pendingRestoreUri = null },
+            title = { Text("Restore seluruh data?") },
+            text = {
+                Text("Data aplikasi saat ini akan diganti dengan isi file backup. Proses ini tidak dapat dibatalkan.")
+            },
+            confirmButton = {
+                Button(
+                    onClick = {
+                        val uri = pendingRestoreUri ?: return@Button
+                        pendingRestoreUri = null
+                        scope.launch {
+                            val error = viewModel.restoreBackup(uri)
+                            snackbar.showSnackbar(error ?: "Restore berhasil. Seluruh data telah dimuat ulang.")
+                        }
+                    },
+                ) { Text("Restore") }
+            },
+            dismissButton = {
+                TextButton(onClick = { pendingRestoreUri = null }) { Text("Batal") }
+            },
         )
     }
 }
