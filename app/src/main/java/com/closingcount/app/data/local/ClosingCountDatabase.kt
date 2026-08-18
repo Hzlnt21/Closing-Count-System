@@ -12,13 +12,17 @@ import androidx.sqlite.db.SupportSQLiteDatabase
         AppMetadataEntity::class,
         IngredientCategoryEntity::class,
         IngredientEntity::class,
+        MenuCategoryEntity::class,
+        MenuEntity::class,
+        MenuIngredientCrossRef::class,
     ],
-    version = 2,
+    version = 3,
     exportSchema = true,
 )
 abstract class ClosingCountDatabase : RoomDatabase() {
     abstract fun appMetadataDao(): AppMetadataDao
     abstract fun ingredientDao(): IngredientDao
+    abstract fun menuDao(): MenuDao
 
     companion object {
         @Volatile
@@ -32,6 +36,7 @@ abstract class ClosingCountDatabase : RoomDatabase() {
                     "closing_count.db",
                 )
                     .addMigrations(Migration1To2)
+                    .addMigrations(Migration2To3)
                     .addCallback(
                         object : Callback() {
                             override fun onCreate(db: SupportSQLiteDatabase) {
@@ -48,6 +53,12 @@ abstract class ClosingCountDatabase : RoomDatabase() {
             override fun migrate(db: SupportSQLiteDatabase) {
                 IngredientDatabaseSetup.createTables(db)
                 IngredientDatabaseSetup.seed(db)
+            }
+        }
+
+        private val Migration2To3 = object : Migration(2, 3) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                MenuDatabaseSetup.createTables(db)
             }
         }
     }

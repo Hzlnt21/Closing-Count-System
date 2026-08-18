@@ -36,7 +36,7 @@ enum class AppDestination(
         label = "Menu",
         title = "Data Menu",
         icon = Icons.Default.RestaurantMenu,
-        description = "Pengelolaan menu dan resep akan tersedia pada v0.0.3.",
+        description = "Kelola kategori menu, daftar menu, dan bahan yang digunakan.",
     ),
     Ingredients(
         label = "Bahan",

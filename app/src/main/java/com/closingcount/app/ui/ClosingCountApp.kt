@@ -36,6 +36,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.closingcount.app.BuildConfig
 import com.closingcount.app.ui.ingredients.IngredientsScreen
+import com.closingcount.app.ui.menus.MenusScreen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -85,6 +86,7 @@ fun ClosingCountApp() {
     ) { innerPadding ->
         when (currentDestination) {
             AppDestination.Home -> HomeScreen(innerPadding)
+            AppDestination.Menus -> MenusScreen(innerPadding)
             AppDestination.Ingredients -> IngredientsScreen(innerPadding)
             else -> PlaceholderScreen(
                 destination = currentDestination,
@@ -137,13 +139,13 @@ private fun HomeScreen(contentPadding: PaddingValues) {
         }
 
         Text(
-            text = "Master bahan siap digunakan",
+            text = "Master menu dan bahan siap digunakan",
             style = MaterialTheme.typography.titleLarge,
             fontWeight = FontWeight.SemiBold,
         )
 
         Text(
-            text = "Versi ${BuildConfig.VERSION_NAME} menyediakan kategori dan bahan offline yang bisa ditambah, diedit, atau dinonaktifkan.",
+            text = "Versi ${BuildConfig.VERSION_NAME} menyediakan kategori menu, resep, dan master bahan offline yang bisa dikelola langsung dari HP.",
             style = MaterialTheme.typography.bodyLarge,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
