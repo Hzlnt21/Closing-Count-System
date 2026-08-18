@@ -1,0 +1,31 @@
+# Gradle
+.gradle/
+build/
+**/build/
+
+# Local Android configuration
+local.properties
+
+# Android Studio / IntelliJ
+.idea/
+*.iml
+
+# Signing and credentials
+*.jks
+*.keystore
+keystore.properties
+
+# Native build output
+.cxx/
+externalNativeBuild/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Local product references (not for the public repository)
+WhatsApp Image*.jpeg
+
+# Generated APKs and bundles
+*.apk
+*.aab
