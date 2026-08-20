@@ -2,10 +2,11 @@ package com.closingcount.app.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val CoffeeBrown = Color(0xFF6F4E37)
-val CoffeeBrownDark = Color(0xFF4A3326)
-val Cream = Color(0xFFFFF7ED)
-val Caramel = Color(0xFFD6A66B)
-val Espresso = Color(0xFF241A15)
-val Sage = Color(0xFF5D7257)
-
+val ExveNavy = Color(0xFF003459)
+val ExveBlue = Color(0xFF007EA7)
+val OceanBlue = Color(0xFF006687)
+val SkyBlue = Color(0xFF71D0FF)
+val PaleBlue = Color(0xFFC4E8FA)
+val IceBlue = Color(0xFFF6FAFD)
+val DeepBlue = Color(0xFF0E1418)
+val DarkBlueSurface = Color(0xFF152129)

@@ -8,8 +8,8 @@ val releaseKeystorePath = System.getenv("CLOSING_COUNT_KEYSTORE_PATH")
 val releaseKeystorePassword = System.getenv("CLOSING_COUNT_KEYSTORE_PASSWORD")
 val releaseKeyAlias = System.getenv("CLOSING_COUNT_KEY_ALIAS")
 val releaseKeyPassword = System.getenv("CLOSING_COUNT_KEY_PASSWORD")
-val appVersionCode = providers.gradleProperty("versionCodeOverride").orNull?.toInt() ?: 8
-val appVersionName = providers.gradleProperty("versionNameOverride").orNull ?: "0.1.0"
+val appVersionCode = providers.gradleProperty("versionCodeOverride").orNull?.toInt() ?: 9
+val appVersionName = providers.gradleProperty("versionNameOverride").orNull ?: "0.1.1"
 val hasReleaseSigning = listOf(
     releaseKeystorePath,
     releaseKeystorePassword,

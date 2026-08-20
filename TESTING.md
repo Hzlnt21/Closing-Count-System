@@ -69,3 +69,13 @@ Test master data and generated files were removed after verification by restorin
 ## Result
 
 No critical issue remains in the agreed MVP scope for stable release `0.1.0`.
+
+## v0.1.1 Visual Identity Verification
+
+- Date: 20 August 2026.
+- Unit tests, debug APK build, and Android lint completed successfully.
+- Signed release APK compiled with `versionCode 9` and `versionName 0.1.1`.
+- Release certificate SHA-256 matches the v0.1.0 signing certificate.
+- Android resource compilation confirms the EXVE Labs VectorDrawable is valid.
+- No database, calculation, export, backup, or restore implementation was changed.
+- Physical-device visual inspection is pending because the target device was not connected during this checkpoint.

@@ -255,6 +255,24 @@ Definition of done:
 - Fitur dalam agreed scope telah selesai dan lolos pengujian.
 - Source code, tag, release notes, dan APK release tersedia di GitHub.
 
+### v0.1.1 - Blue Theme and About
+
+Status: Completed on 20 August 2026.
+
+Target:
+
+- Mengganti tema visual menjadi palette biru tanpa mengubah alur aplikasi.
+- Menambahkan informasi versi yang mengikuti metadata build secara otomatis.
+- Menambahkan atribusi Ivannovic Bachtiar dan EXVE Labs.
+- Menampilkan logo warna EXVE Labs pada panel Tentang Aplikasi.
+
+Definition of done:
+
+- Seluruh layar menggunakan skema warna biru yang konsisten pada light dan dark theme.
+- Panel Tentang dapat dibuka dari semua layar melalui app bar.
+- Versi, mode aplikasi, developer, dan logo tampil dengan benar.
+- Kalkulasi, penyimpanan, export, backup, dan restore tidak berubah.
+
 ## Git and Release Workflow
 
 - Repository GitHub bersifat public.

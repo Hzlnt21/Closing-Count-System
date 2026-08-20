@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.1.1 - 2026-08-20
+
+Visual identity update without changes to the closing workflow or stored data.
+
+### Changed
+
+- Replaced the coffee-brown color scheme with an EXVE-inspired blue palette for light and dark themes.
+- Added an About dialog accessible from the information icon in the top app bar.
+- Added automatic app version information, Android APK/offline mode, and developer attribution.
+- Added the EXVE Labs color logo and copyright attribution.
+- Finalized the visible application name as Closing Count System.
+
 ## 0.1.0 - 2026-08-18
 
 First stable MVP release.
