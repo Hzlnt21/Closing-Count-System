@@ -1,8 +1,8 @@
-# Closing Count service: CCS-02B/03
+# Closing Count service: CCS-04
 
-Version 0.2.0-dev.2 is an isolated QA checkpoint, not a public demo or an Android release. The existing Kotlin application remains offline 0.1.1. [The collaborative contract](../docs/ONLINE_CONTRACT.md) remains the full implementation target.
+Version 0.2.0-dev.3 is an isolated QA checkpoint, not a public demo or an Android release. The existing Kotlin application remains offline 0.1.1. [The collaborative contract](../docs/ONLINE_CONTRACT.md) remains the full implementation target.
 
-This checkpoint adds immutable catalog versions, one shared closing per outlet/date, frozen menu/recipe/settings snapshots, idempotent quantity operations, per-item revision conflicts, ingredient results, history and attribution audit. Accounts/memberships/auth from dev.1 remain. Lifecycle review/lock/reopen, Room outbox and native integration are next checkpoints. The visual prototype does not call this service.
+This checkpoint adds submit/return/review-and-lock/reopen, exact-revision lifecycle permissions, captured submitter/reviewer identity/time, and immutable reports per locked generation. Catalog/shared closing/quantity/conflict/receipt/account features from dev.1/2 remain. Room outbox, native integration, legacy import/export and final demo are next checkpoints. The archived visual prototype does not call this service; the owner selected a new [FINORA reference](../docs/VISUAL_REFERENCE.md).
 
 ## Run and verify
 
@@ -68,4 +68,25 @@ Receipt keys are bound to outlet+actor+operationId; a normalized request fingerp
 
 Different-menu edits can merge without a global expected revision. Same-menu changes, including change-away-and-back (ABA), return ENTRY_CONFLICT with current quantity, entryRevision, editor/time and closingRevision. New operations require current generation and DRAFT; no-op same-quantity operations still check both plus expected revision and membership, then receive a receipt without an extra revision/audit. Entry response is `{closingId,generation,closingRevision,entry:{menuId,quantity,entryRevision,updatedBy,updatedAt}}`.
 
-No real submit/review/lock/reopen routes yet. Integration tests shift state/generation directly in their private fixture to test those guards; this does not prove lifecycle implementation. Tests also label synthetic bigint cursor events and injected driver failure/read barriers explicitly. Fault injection happens after actual PostgreSQL entry/audit statements, and rollback/persisted results are inspected. It is not a physical network failure or native offline-sync test.
+Core regression tests still include explicit state/generation fixtures, synthetic bigint audit rows and injected driver/read barriers. The separate CCS-04 suite now exercises actual lifecycle HTTP endpoints and real PostgreSQL, including concurrent actions and rollback after report/audit writes. These remain server tests, not a physical network failure or native offline-sync acceptance.
+
+## Lifecycle and immutable reports
+
+| Method/path | Permission / behavior |
+| --- | --- |
+| POST /api/v1/closings/:id/submit | Any active member; DRAFT -> SUBMITTED |
+| POST /api/v1/closings/:id/return | SUPERVISOR/ADMIN; SUBMITTED -> DRAFT, required reason, generation+1 |
+| POST /api/v1/closings/:id/lock | SUPERVISOR/ADMIN reviews exact SUBMITTED revision and locks it in one transaction; creates report |
+| POST /api/v1/closings/:id/reopen | SUPERVISOR/ADMIN; LOCKED -> DRAFT, required reason, generation+1 |
+| GET /api/v1/closings/:id/reports?limit=20&beforeGeneration=2 | Active member; immutable report metadata pages in generation-descending order |
+| GET /api/v1/closings/:id/reports/:generation | Active member; complete frozen report; absent generation404 |
+
+Every lifecycle body has `operationId,generation,expectedRevision,deviceSyncState`; return/reopen additionally require `reason` (trimmed1..500characters). Only `deviceSyncState: "SYNCED"` is accepted. This is a declaration about the submitting device; the server cannot know another device's unsent drafts or verify a client's local Room queue. The native client must enforce its real queue/conflict state at CCS-05/06. Known pending/conflict/auth states return LOCAL_CHANGES_PENDING; an old server revision/generation is rejected independently of the declaration.
+
+All lifecycle mutations use the same scoped operation receipts and ordered locks as entry edits. Permissions and sessions are rechecked after waiting for locks and before receipt replay. Each transition increments closingRevision. Return/reopen clear current submitted/locked metadata and start a new edit generation; entry revisions and the closing's frozen recipe stay intact. Old drafts cannot bypass the generation boundary, including unchanged-quantity operations.
+
+Lock computes all results on the server and atomically stores state, captured actor/time, a report snapshot, audit and receipt. Report schemaVersion1 includes format, report ID, closing/outlet/generation/revision, reviewer/time and the full locked closing/catalog/entries/ingredient totals. Reopen preserves previous reports; a later lock creates a separate report for its generation. A returned-but-never-locked generation has no report. Database checks enforce state/actor metadata; triggers reject report update/delete. Existing rows are not destructively migrated; migration003 is additive and keeps001/002 checksums.
+
+Original operation replay returns the original acknowledgement even if today's state/generation is newer. It never repeats a reopen, restores old quantities or creates another report. Native clients must reconcile monotonically and pull current state. The service does not expose report rewrite/delete, client-supplied totals or reviewer impersonation.
+
+Verified at this checkpoint:20unit tests and55real HTTP/PostgreSQL scenarios (58Node tests including three parent suites). Driver failures after actual report/audit statements, queued membership/session revocation and concurrent lifecycle races are controlled tests. Android/Room, physical HP, budget/provider, public demo and final portfolio acceptance remain separate program phases.

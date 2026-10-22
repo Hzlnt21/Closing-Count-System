@@ -154,9 +154,9 @@ test('CCS-02B/03 real catalog and collaborative closing',async t=>{
     });
     await t.test('state/generation guards reject new stale operations while old receipts remain acknowledgements only',async()=>{
       const before=await get(closingId),quantity=before.entries.find(e=>e.menuId===ids.latte).quantity;
-      await pool.query("UPDATE ccs.closings SET state='SUBMITTED' WHERE id=$1",[closingId]);
+      await pool.query("UPDATE ccs.closings SET state='SUBMITTED',submitted_by=$2,submitted_at=clock_timestamp(),submitted_actor=$3::jsonb WHERE id=$1",[closingId,accounts.employee,JSON.stringify({id:accounts.employee,username:prefix+'.employee',displayName:'QA employee'})]);
       assert.equal((await operation(ids.latte,bodyFor(before,ids.latte,quantity))).body.error.code,'CLOSING_STATE_CONFLICT');
-      await pool.query("UPDATE ccs.closings SET state='DRAFT',generation=generation+1 WHERE id=$1",[closingId]);
+      await pool.query("UPDATE ccs.closings SET state='DRAFT',generation=generation+1,submitted_by=NULL,submitted_at=NULL,submitted_actor=NULL WHERE id=$1",[closingId]);
       assert.equal((await operation(ids.latte,bodyFor(before,ids.latte,quantity))).body.error.code,'GENERATION_CONFLICT');
       const replay=await operation(ids.latte,duplicateRequest);assert.equal(replay.status,200);assert.deepEqual(replay.body.data,duplicateAck);
       assert.equal((await get(closingId)).generation,before.generation+1);

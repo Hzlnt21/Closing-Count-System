@@ -1,5 +1,14 @@
 # Service changelog
 
+## 0.2.0-dev.3 — CCS-04
+
+- Additive003 submitted/reviewer metadata and immutable per-generation report storage;001/002 preserved.
+- Real submit/return/review-and-lock/reopen endpoints with exact revision/generation, role checks, required correction reason and declared local sync state.
+- Server-generated locked reports preserve recipe, quantities/results, contributor and reviewer/time snapshots after reopen or master/account label changes.
+- Shared receipt/lock policy prevents duplicate lifecycle effects; queued actions recheck membership/session. Report/audit/receipt failure injection proves transaction rollback before retry.
+-20unit/55HTTP-PG scenarios pass (58Node tests including three parents). Room/native, legacy/export and demo/UAT remain pending.
+- Owner selected FINORA project257247565 as the visual reference. Initial blue HTML proposal is archived/unapproved; source images currently return403 and have not been inspected.
+
 ## 0.2.0-dev.2 — CCS-02B/03
 
 - Additive002 schema: immutable catalog, closing snapshots, scoped receipts, entry revisions and attributed audit. Migration001 checksum is preserved.

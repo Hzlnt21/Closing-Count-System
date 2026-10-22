@@ -2,7 +2,7 @@
 
 ## Pengembangan kolaborasi online
 
-CCS-02B/03 menambahkan [service QA0.2.0-dev.2](service/README.md): katalog berversi, satu closing outlet/tanggal, snapshot resep historis, perubahan jumlah transaksional, retry tanpa duplikasi, konflik per menu dan attribution audit. Akun/akses dari CCS-02A tetap. Android masih offline0.1.1; lifecycle review/lock/reopen, Room outbox, integrasi UI dan demo utuh belum tersedia.
+CCS-04 menambahkan [service QA0.2.0-dev.3](service/README.md): submit/return/review-lock/reopen dan laporan immutable per generasi, melanjutkan katalog/closing bersama serta operasi jumlah transaksional. Android masih offline0.1.1; Room outbox, integrasi UI, legacy/export dan demo utuh belum tersedia. [Referensi visual terbaru](docs/VISUAL_REFERENCE.md) mengikuti FINORA pilihan pengguna; preview biru awal kini arsip, belum disetujui.
 
 Branch `portfolio/closing-online` menyiapkan rilis portofolio berdasarkan keputusan satu closing bersama per outlet/tanggal, akun individual, draft offline, konflik terlihat dan supervisor review/lock/reopen. [Kontrak implementasi](docs/ONLINE_CONTRACT.md) merinci invariant, izin, outbox, idempotency, migrasi dan acceptance. [Usulan visual interaktif](docs/visual-review.html) merupakan preview desain yang perlu direview sebelum redesign Compose.
 

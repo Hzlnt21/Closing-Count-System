@@ -1,6 +1,7 @@
 import {createHash,randomUUID} from 'node:crypto';
 import {ApiError,exactObject,forbidden,invalid} from './errors.mjs';
 import {uuid,revision,normalizeCatalog,closingSnapshot,ingredientTotals,businessDateInput,emptyCatalog} from './catalog.mjs';
+import {createLifecycleRoutes} from './lifecycle-routes.mjs';
 
 const conflict=(code,message,details)=>new ApiError(409,code,message,details);
 const hash=value=>createHash('sha256').update(JSON.stringify(value)).digest('hex');
@@ -32,13 +33,13 @@ export function createClosingRoutes({pool,authenticate,member,readJson,transacti
   }
   async function audit(db,closing,actor,action,operationId=null,change={}){
     await db.query(`INSERT INTO ccs.closing_audit(closing_id,outlet_id,actor_id,actor_username,actor_name,operation_id,action,
-      menu_id,before_quantity,after_quantity,entry_revision,closing_revision,generation)
-      VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13)`,[closing.id,closing.outlet_id,actor.id,actor.username,actor.display_name,
-      operationId,action,change.menuId??null,change.before??null,change.after??null,change.entryRevision??null,closing.revision,closing.generation]);
+      menu_id,before_quantity,after_quantity,entry_revision,closing_revision,generation,reason)
+      VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14)`,[closing.id,closing.outlet_id,actor.id,actor.username,actor.display_name,
+      operationId,action,change.menuId??null,change.before??null,change.after??null,change.entryRevision??null,closing.revision,closing.generation,change.reason??null]);
   }
   async function header(db,id,lock=false){
     const {rows:[row]}=await db.query(`SELECT id,outlet_id,business_date::text,state,revision,generation,catalog_version_id,snapshot,
-      timezone,cutoff_minutes,created_at,updated_at FROM ccs.closings WHERE id=$1${lock?' FOR UPDATE':''}`,[id]);
+      timezone,cutoff_minutes,created_at,updated_at,submitted_by,submitted_at,submitted_actor,locked_by,locked_at,locked_actor FROM ccs.closings WHERE id=$1${lock?' FOR UPDATE':''}`,[id]);
     if(!row)throw forbidden();return row;
   }
   async function closingView(db,row){
@@ -46,9 +47,11 @@ export function createClosingRoutes({pool,authenticate,member,readJson,transacti
       LEFT JOIN ccs.accounts u ON u.id=e.updated_by WHERE e.closing_id=$1 ORDER BY e.menu_id`,[row.id])).rows.map(entryDto);
     return {id:row.id,outletId:row.outlet_id,businessDate:row.business_date,state:row.state,closingRevision:Number(row.revision),
       generation:Number(row.generation),catalogVersionId:row.catalog_version_id,catalog:row.snapshot,timezone:row.timezone,
-      cutoffMinutes:row.cutoff_minutes,entries,ingredientTotals:ingredientTotals(row.snapshot,entries),createdAt:row.created_at,updatedAt:row.updated_at};
+      cutoffMinutes:row.cutoff_minutes,submittedBy:row.submitted_actor,submittedAt:row.submitted_at,lockedBy:row.locked_actor,lockedAt:row.locked_at,
+      entries,ingredientTotals:ingredientTotals(row.snapshot,entries),createdAt:row.created_at,updatedAt:row.updated_at};
   }
   async function permittedClosing(req,actor,id){const row=await header(pool,id);await member(pool,actor.id,row.outlet_id);return row;}
+  const lifecycleRoutes=createLifecycleRoutes({pool,authenticate,member,readJson,transaction,access,lockOperation,receipt,saveReceipt,audit,header,closingView});
   return async(req,url,outerActor)=>{
     let match=/^\/api\/v1\/outlets\/([^/]+)\/(catalog|closings)$/.exec(url.pathname);
     if(match){
@@ -104,6 +107,7 @@ export function createClosingRoutes({pool,authenticate,member,readJson,transacti
         return {status:200,data:{items,nextBefore:result.rowCount>limit?items.at(-1).businessDate:null}};
       }
     }
+    const lifecycleResponse=await lifecycleRoutes(req,url,outerActor);if(lifecycleResponse)return lifecycleResponse;
     match=/^\/api\/v1\/closings\/([^/]+)(?:\/(audit|entries)(?:\/([^/]+)\/operations)?)?$/.exec(url.pathname);
     if(!match)return;
     const id=uuid(match[1]),kind=match[2],menuId=match[3]?uuid(match[3]):null;
