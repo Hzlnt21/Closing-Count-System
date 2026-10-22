@@ -56,10 +56,16 @@ import com.closingcount.app.ui.history.HistoryScreen
 import com.closingcount.app.ui.transfer.DataTransferViewModel
 import kotlinx.coroutines.launch
 import java.time.LocalDate
+import com.closingcount.app.ui.online.OnlineClosingApp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ClosingCountApp() {
+    var showOnline by rememberSaveable { mutableStateOf(false) }
+    if (showOnline) {
+        OnlineClosingApp(onExit = { showOnline = false })
+        return
+    }
     var currentDestinationName by rememberSaveable {
         mutableStateOf(AppDestination.Home.name)
     }
@@ -114,7 +120,7 @@ fun ClosingCountApp() {
         },
     ) { innerPadding ->
         when (currentDestination) {
-            AppDestination.Home -> HomeScreen(innerPadding)
+            AppDestination.Home -> HomeScreen(innerPadding, onOpenOnline = { showOnline = true })
             AppDestination.Closing -> ClosingScreen(
                 contentPadding = innerPadding,
                 requestedDate = requestedClosingDate?.let(LocalDate::parse),
@@ -140,6 +146,7 @@ fun ClosingCountApp() {
 @Composable
 private fun HomeScreen(
     contentPadding: PaddingValues,
+    onOpenOnline: () -> Unit,
     viewModel: DataTransferViewModel = viewModel(),
 ) {
     val snackbar = remember { SnackbarHostState() }
@@ -170,6 +177,9 @@ private fun HomeScreen(
                 .padding(horizontal = 20.dp, vertical = 16.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
+        Button(onClick = onOpenOnline, modifier = Modifier.fillMaxWidth()) {
+            Text("Closing bersama")
+        }
         Card(
             modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(24.dp),

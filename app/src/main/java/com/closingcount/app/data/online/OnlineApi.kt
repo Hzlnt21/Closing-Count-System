@@ -119,6 +119,13 @@ class OnlineApi(val endpoint: OnlineEndpoint, private val timeoutMillis: Int = 1
         request("POST", "/auth/logout", session.token, JSONObject())
     }
 
+    suspend fun businessDate(session: OnlineSession, outletId: String): String {
+        checkSession(session); uuid(outletId); session.scope(outletId)
+        val value = request("GET", "/outlets/$outletId/business-date", session.token).getString("businessDate")
+        require(java.time.LocalDate.parse(value).toString() == value)
+        return value
+    }
+
     suspend fun create(session: OnlineSession, outletId: String, businessDate: String): OnlineSnapshot {
         checkSession(session); uuid(outletId)
         require(java.time.LocalDate.parse(businessDate).toString() == businessDate)

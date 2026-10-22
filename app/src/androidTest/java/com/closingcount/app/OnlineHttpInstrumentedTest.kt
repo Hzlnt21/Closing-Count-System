@@ -150,6 +150,30 @@ class OnlineHttpInstrumentedTest {
         assertEquals(OnlineSyncResult.Synced, OnlineSyncEngine(dao, api) { active }.sync(a, outlet, id))
     }
 
+    @Test fun newerServerValueAfterConflictReviewRequiresAnotherDeliberateReview() = runBlocking {
+        val a = login(); val b = login(colleague)
+        val da = database().onlineSyncDao(); val db = database().onlineSyncDao()
+        val initial = api.create(a, outlet, "2026-10-06"); val id = initial.header.closingId; val menu = initial.entries.first().menuId
+        da.pull(initial.header, initial.entries)
+        val rb = api.fetch(b, outlet, id); db.pull(rb.header, rb.entries)
+        da.edit(a.scope(outlet), id, menu, 2); db.edit(b.scope(outlet), id, menu, 3)
+        val ea = OnlineSyncEngine(da, api) { a }; val eb = OnlineSyncEngine(db, api) { b }
+        assertEquals(OnlineSyncResult.Synced, ea.sync(a, outlet, id))
+        assertTrue(eb.sync(b, outlet, id) is OnlineSyncResult.Blocked)
+        val reviewed = db.entry(b.scope(outlet), id, menu)!!
+        da.edit(a.scope(outlet), id, menu, 5); assertEquals(OnlineSyncResult.Synced, ea.sync(a, outlet, id))
+        var warned = false
+        try { eb.resolve(b, outlet, id, menu, true, reviewed.serverRevision, reviewed.generation) }
+        catch (_: OnlineConflictChangedException) { warned = true }
+        assertTrue(warned)
+        assertEquals(5, api.fetch(a, outlet, id).entries.first { it.menuId == menu }.serverQuantity)
+        val latest = db.entry(b.scope(outlet), id, menu)!!
+        assertEquals(3, latest.localQuantity); assertEquals("CONFLICT", latest.status)
+        eb.resolve(b, outlet, id, menu, true, latest.serverRevision, latest.generation)
+        assertEquals(OnlineSyncResult.Synced, eb.sync(b, outlet, id))
+        assertEquals(3, api.fetch(a, outlet, id).entries.first { it.menuId == menu }.serverQuantity)
+    }
+
     @Test fun sessionCiphertextSurvivesStoreReopenWithoutPlainTokenOrPassword() = runBlocking {
         val session = login(); val alias = "ccs-qa-session-${UUID.randomUUID()}"
         val store = OnlineSessionStore(context, alias)

@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased — CCS-06 native draft slice R1, 2026-10-22
+
+- Applied approved R2 direction/logo in connected Compose login, outlet/date, summary, draft, conflict, cached-history and account screens, accessible from legacy Home.
+- Added atomic multi-menu saving, unsaved navigation confirmation, scoped foreground retry/status and online-screen disposal cancellation. Reapply now requires review again if the server base changed after the dialog was reviewed.
+-12JVM+19Room+7HTTP+1real native UI scenario pass; PostgreSQL attribution/receipts checked and five actual screenshots reviewed. Added batch rollback and second-change-after-review tests. Supervisor/full-history/admin/process-kill/two-installation/physical/public acceptance remain open; APK metadata stays0.1.1.
+
 ## Unreleased — CCS-05 HTTP/session foundation, 2026-10-22
 
 - Added canonical HTTPS transport, debug-only loopback HTTP, bounded JSON and closing/receipt identity checks against the existing service.

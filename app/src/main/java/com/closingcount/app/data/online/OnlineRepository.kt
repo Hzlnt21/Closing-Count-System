@@ -44,6 +44,20 @@ class OnlineRepository(private val dao: OnlineSyncDao, private val store: Online
 
     suspend fun pendingCount(): Int = active?.let { dao.pendingForAccount(prefix(it)) } ?: 0
 
+    suspend fun cancelPreparedLogin(candidate: OnlineSession) {
+        try { api(candidate).logout(candidate) } catch (_: IOException) { }
+    }
+
+    suspend fun businessDate(outletId: String): String {
+        val session = requireNotNull(active)
+        return api(session).businessDate(session, outletId)
+    }
+
+    suspend fun save(outletId: String, closingId: String, quantities: Map<String, Int>) = sessionMutex.withLock {
+        val session = requireNotNull(active)
+        dao.editBatch(session.scope(outletId), closingId, quantities)
+    }
+
     /** Local credentials are cleared even if server logout is unreachable. Drafts remain scoped. */
     suspend fun logout(confirmPending: Boolean = false): Boolean {
         val old = sessionMutex.withLock {
@@ -74,8 +88,9 @@ class OnlineRepository(private val dao: OnlineSyncDao, private val store: Online
         return engine(session).sync(session, outletId, closingId)
     }
 
-    suspend fun resolve(outletId: String, closingId: String, menuId: String, reapply: Boolean): String? {
+    suspend fun resolve(outletId: String, closingId: String, menuId: String, reapply: Boolean,
+        reviewedRevision: Long? = null, reviewedGeneration: Long? = null): String? {
         val session = requireNotNull(active)
-        return engine(session).resolve(session, outletId, closingId, menuId, reapply)
+        return engine(session).resolve(session, outletId, closingId, menuId, reapply, reviewedRevision, reviewedGeneration)
     }
 }

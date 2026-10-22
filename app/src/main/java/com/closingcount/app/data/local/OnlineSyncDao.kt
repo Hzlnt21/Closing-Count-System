@@ -7,9 +7,34 @@ import androidx.room.Query
 import androidx.room.Transaction
 import androidx.room.Update
 import java.util.UUID
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 abstract class OnlineSyncDao {
+    @Query("SELECT * FROM online_closings WHERE scope=:scope")
+    abstract fun observeClosings(scope: String): Flow<List<OnlineClosingEntity>>
+
+    @Query("SELECT * FROM online_closings WHERE scope=:scope AND closingId=:closingId")
+    abstract fun observeClosing(scope: String, closingId: String): Flow<OnlineClosingEntity?>
+
+    @Query("SELECT * FROM online_entries WHERE scope=:scope AND closingId=:closingId")
+    abstract fun observeEntries(scope: String, closingId: String): Flow<List<OnlineEntryEntity>>
+
+    @Query("SELECT * FROM online_operations WHERE scope=:scope AND closingId=:closingId ORDER BY sequence")
+    abstract fun observeOperations(scope: String, closingId: String): Flow<List<OnlineOperationEntity>>
+
+    @Query("SELECT * FROM online_entries WHERE scope=:scope AND closingId=:closingId")
+    abstract suspend fun entries(scope: String, closingId: String): List<OnlineEntryEntity>
+
+    @Transaction
+    open suspend fun editBatch(scope: String, closingId: String, quantities: Map<String, Int>) {
+        require(quantities.values.all { it in 0..9999 })
+        for ((menuId, quantity) in quantities) {
+            val current = requireNotNull(entry(scope, closingId, menuId))
+            if (current.localQuantity != quantity) edit(scope, closingId, menuId, quantity)
+        }
+    }
+
     @Query("SELECT COUNT(*) FROM online_operations WHERE substr(scope,1,length(:accountPrefix))=:accountPrefix")
     abstract suspend fun pendingForAccount(accountPrefix: String): Int
 

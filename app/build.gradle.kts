@@ -51,6 +51,7 @@ android {
         targetSdk = 36
         versionCode = appVersionCode
         versionName = appVersionName
+        buildConfigField("String", "ONLINE_API_ORIGIN", "\"${providers.gradleProperty("closingApiOrigin").orNull ?: ""}\"")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
@@ -68,6 +69,9 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField("String", "ONLINE_API_ORIGIN", "\"${providers.gradleProperty("closingApiOrigin").orNull ?: "http://10.0.2.2:4371"}\"")
+        }
         release {
             if (hasReleaseSigning) {
                 signingConfig = signingConfigs.getByName("release")

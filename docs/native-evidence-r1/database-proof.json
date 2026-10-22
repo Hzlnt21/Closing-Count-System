@@ -1,0 +1,278 @@
+{
+  "passed": true,
+  "outlet": "24d8aaf3-1ae7-4976-87f3-d7f38fac3a70",
+  "entries": [
+    {
+      "business_date": "2026-10-01",
+      "generation": "1",
+      "revision": "2",
+      "menu_id": "988683d6-6ef1-4e46-8ed7-68697aa7b608",
+      "quantity": 3,
+      "entry_revision": "2",
+      "updated_by": "610b478c-64bf-4122-8625-fed6972ca281"
+    },
+    {
+      "business_date": "2026-10-01",
+      "generation": "1",
+      "revision": "2",
+      "menu_id": "a64942fe-706b-44f1-95bb-1943c10134ad",
+      "quantity": 0,
+      "entry_revision": "0",
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-10-02",
+      "generation": "1",
+      "revision": "1",
+      "menu_id": "988683d6-6ef1-4e46-8ed7-68697aa7b608",
+      "quantity": 7,
+      "entry_revision": "1",
+      "updated_by": "c6c0f983-a263-43ac-90d9-08cf80f5da51"
+    },
+    {
+      "business_date": "2026-10-02",
+      "generation": "1",
+      "revision": "1",
+      "menu_id": "a64942fe-706b-44f1-95bb-1943c10134ad",
+      "quantity": 0,
+      "entry_revision": "0",
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-10-03",
+      "generation": "1",
+      "revision": "1",
+      "menu_id": "988683d6-6ef1-4e46-8ed7-68697aa7b608",
+      "quantity": 9,
+      "entry_revision": "1",
+      "updated_by": "c6c0f983-a263-43ac-90d9-08cf80f5da51"
+    },
+    {
+      "business_date": "2026-10-03",
+      "generation": "1",
+      "revision": "1",
+      "menu_id": "a64942fe-706b-44f1-95bb-1943c10134ad",
+      "quantity": 0,
+      "entry_revision": "0",
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-10-04",
+      "generation": "1",
+      "revision": "1",
+      "menu_id": "988683d6-6ef1-4e46-8ed7-68697aa7b608",
+      "quantity": 5,
+      "entry_revision": "1",
+      "updated_by": "c6c0f983-a263-43ac-90d9-08cf80f5da51"
+    },
+    {
+      "business_date": "2026-10-04",
+      "generation": "1",
+      "revision": "1",
+      "menu_id": "a64942fe-706b-44f1-95bb-1943c10134ad",
+      "quantity": 0,
+      "entry_revision": "0",
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-10-05",
+      "generation": "1",
+      "revision": "1",
+      "menu_id": "988683d6-6ef1-4e46-8ed7-68697aa7b608",
+      "quantity": 17,
+      "entry_revision": "1",
+      "updated_by": "c6c0f983-a263-43ac-90d9-08cf80f5da51"
+    },
+    {
+      "business_date": "2026-10-05",
+      "generation": "1",
+      "revision": "1",
+      "menu_id": "a64942fe-706b-44f1-95bb-1943c10134ad",
+      "quantity": 0,
+      "entry_revision": "0",
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-10-06",
+      "generation": "1",
+      "revision": "3",
+      "menu_id": "988683d6-6ef1-4e46-8ed7-68697aa7b608",
+      "quantity": 3,
+      "entry_revision": "3",
+      "updated_by": "610b478c-64bf-4122-8625-fed6972ca281"
+    },
+    {
+      "business_date": "2026-10-06",
+      "generation": "1",
+      "revision": "3",
+      "menu_id": "a64942fe-706b-44f1-95bb-1943c10134ad",
+      "quantity": 0,
+      "entry_revision": "0",
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-10-22",
+      "generation": "1",
+      "revision": "2",
+      "menu_id": "988683d6-6ef1-4e46-8ed7-68697aa7b608",
+      "quantity": 12,
+      "entry_revision": "2",
+      "updated_by": "610b478c-64bf-4122-8625-fed6972ca281"
+    },
+    {
+      "business_date": "2026-10-22",
+      "generation": "1",
+      "revision": "2",
+      "menu_id": "a64942fe-706b-44f1-95bb-1943c10134ad",
+      "quantity": 0,
+      "entry_revision": "0",
+      "updated_by": null
+    }
+  ],
+  "receipts": [
+    {
+      "business_date": "2026-10-01",
+      "actor_id": "610b478c-64bf-4122-8625-fed6972ca281",
+      "operation_id": "957fe3c8-d9bf-4f66-824b-c36005044e5c"
+    },
+    {
+      "business_date": "2026-10-01",
+      "actor_id": "c6c0f983-a263-43ac-90d9-08cf80f5da51",
+      "operation_id": "a4c3870d-e371-41b4-b552-2d6bc16ee29d"
+    },
+    {
+      "business_date": "2026-10-02",
+      "actor_id": "c6c0f983-a263-43ac-90d9-08cf80f5da51",
+      "operation_id": "ff921fd8-d9c7-49c7-9312-d17cc1cf8e92"
+    },
+    {
+      "business_date": "2026-10-03",
+      "actor_id": "c6c0f983-a263-43ac-90d9-08cf80f5da51",
+      "operation_id": "221f4e04-aef9-40c3-a109-eb5c0b626e5b"
+    },
+    {
+      "business_date": "2026-10-04",
+      "actor_id": "c6c0f983-a263-43ac-90d9-08cf80f5da51",
+      "operation_id": "07a93e4d-0701-4b6f-bc90-e154b95e79c9"
+    },
+    {
+      "business_date": "2026-10-05",
+      "actor_id": "c6c0f983-a263-43ac-90d9-08cf80f5da51",
+      "operation_id": "a4f49c86-dc89-472b-93bc-17b816a9c4ba"
+    },
+    {
+      "business_date": "2026-10-06",
+      "actor_id": "c6c0f983-a263-43ac-90d9-08cf80f5da51",
+      "operation_id": "5b175e62-7176-43ae-9325-98cbc920cc0b"
+    },
+    {
+      "business_date": "2026-10-06",
+      "actor_id": "c6c0f983-a263-43ac-90d9-08cf80f5da51",
+      "operation_id": "946d583d-a2b3-472e-b756-40ba6a35af8a"
+    },
+    {
+      "business_date": "2026-10-06",
+      "actor_id": "610b478c-64bf-4122-8625-fed6972ca281",
+      "operation_id": "e03fbf39-7c3d-49b5-94b7-44938d9f7784"
+    },
+    {
+      "business_date": "2026-10-22",
+      "actor_id": "c6c0f983-a263-43ac-90d9-08cf80f5da51",
+      "operation_id": "267c2f12-43da-4b53-a320-83a21150baf8"
+    },
+    {
+      "business_date": "2026-10-22",
+      "actor_id": "610b478c-64bf-4122-8625-fed6972ca281",
+      "operation_id": "0c5ebece-0442-4878-8665-a1ecd8f63190"
+    }
+  ],
+  "audit": [
+    {
+      "business_date": "2026-10-22",
+      "actor_id": "c6c0f983-a263-43ac-90d9-08cf80f5da51",
+      "operation_id": "267c2f12-43da-4b53-a320-83a21150baf8",
+      "before_quantity": 0,
+      "after_quantity": 8
+    },
+    {
+      "business_date": "2026-10-22",
+      "actor_id": "610b478c-64bf-4122-8625-fed6972ca281",
+      "operation_id": "0c5ebece-0442-4878-8665-a1ecd8f63190",
+      "before_quantity": 8,
+      "after_quantity": 12
+    },
+    {
+      "business_date": "2026-10-01",
+      "actor_id": "c6c0f983-a263-43ac-90d9-08cf80f5da51",
+      "operation_id": "a4c3870d-e371-41b4-b552-2d6bc16ee29d",
+      "before_quantity": 0,
+      "after_quantity": 2
+    },
+    {
+      "business_date": "2026-10-01",
+      "actor_id": "610b478c-64bf-4122-8625-fed6972ca281",
+      "operation_id": "957fe3c8-d9bf-4f66-824b-c36005044e5c",
+      "before_quantity": 2,
+      "after_quantity": 3
+    },
+    {
+      "business_date": "2026-10-06",
+      "actor_id": "c6c0f983-a263-43ac-90d9-08cf80f5da51",
+      "operation_id": "5b175e62-7176-43ae-9325-98cbc920cc0b",
+      "before_quantity": 0,
+      "after_quantity": 2
+    },
+    {
+      "business_date": "2026-10-06",
+      "actor_id": "c6c0f983-a263-43ac-90d9-08cf80f5da51",
+      "operation_id": "946d583d-a2b3-472e-b756-40ba6a35af8a",
+      "before_quantity": 2,
+      "after_quantity": 5
+    },
+    {
+      "business_date": "2026-10-06",
+      "actor_id": "610b478c-64bf-4122-8625-fed6972ca281",
+      "operation_id": "e03fbf39-7c3d-49b5-94b7-44938d9f7784",
+      "before_quantity": 5,
+      "after_quantity": 3
+    },
+    {
+      "business_date": "2026-10-02",
+      "actor_id": "c6c0f983-a263-43ac-90d9-08cf80f5da51",
+      "operation_id": "ff921fd8-d9c7-49c7-9312-d17cc1cf8e92",
+      "before_quantity": 0,
+      "after_quantity": 7
+    },
+    {
+      "business_date": "2026-10-03",
+      "actor_id": "c6c0f983-a263-43ac-90d9-08cf80f5da51",
+      "operation_id": "221f4e04-aef9-40c3-a109-eb5c0b626e5b",
+      "before_quantity": 0,
+      "after_quantity": 9
+    },
+    {
+      "business_date": "2026-10-05",
+      "actor_id": "c6c0f983-a263-43ac-90d9-08cf80f5da51",
+      "operation_id": "a4f49c86-dc89-472b-93bc-17b816a9c4ba",
+      "before_quantity": 0,
+      "after_quantity": 17
+    },
+    {
+      "business_date": "2026-10-04",
+      "actor_id": "c6c0f983-a263-43ac-90d9-08cf80f5da51",
+      "operation_id": "07a93e4d-0701-4b6f-bc90-e154b95e79c9",
+      "before_quantity": 0,
+      "after_quantity": 5
+    }
+  ],
+  "nativeDate": "2026-10-22",
+  "checks": [
+    "native save8 and colleague12 accepted; local9 discarded explicitly without server mutation",
+    "reviewed server base changed again; reapply waited for fresh deliberate review",
+    "lost receipt one accepted operation",
+    "old account draft never delivered as new account",
+    "pending18 did not replace accepted17"
+  ],
+  "fixturesRetained": true,
+  "physicalOrPublicAcceptance": false
+}

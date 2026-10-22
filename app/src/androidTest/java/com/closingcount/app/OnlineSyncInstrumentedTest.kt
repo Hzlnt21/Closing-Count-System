@@ -221,6 +221,24 @@ class OnlineSyncInstrumentedTest {
         assertEquals(4L, dao.closing(scope, closingId)!!.revision)
     }
 
+    @Test fun batchEditRollsBackEarlierMenusIfAnyMenuIsBlocked() = runBlocking {
+        val dao = db.onlineSyncDao()
+        dao.pull(header(), listOf(remote(), remote(menu = "menu-b")))
+        val blocked = dao.edit(scope, closingId, "menu-b", 1)
+        dao.next(scope, closingId); dao.block(scope, closingId, blocked, "FAILED", "VALIDATION_ERROR")
+        var failed = false
+        try { dao.editBatch(scope, closingId, linkedMapOf("menu-a" to 3, "menu-b" to 4)) }
+        catch (_: IllegalStateException) { failed = true }
+        assertTrue(failed)
+        assertEquals(0, dao.entry(scope, closingId, "menu-a")!!.localQuantity)
+        assertEquals(blocked, dao.operations(scope, closingId).single().operationId)
+        dao.resolve(scope, closingId, "menu-b", false)
+        dao.editBatch(scope, closingId, mapOf("menu-a" to 2, "menu-b" to 3))
+        assertEquals(2, dao.entry(scope, closingId, "menu-a")!!.localQuantity)
+        assertEquals(3, dao.entry(scope, closingId, "menu-b")!!.localQuantity)
+        assertEquals(2, dao.operations(scope, closingId).size)
+    }
+
     @Test fun realVersion6MigrationPreservesLegacyRowsAndDoesNotUploadHistory() = runBlocking {
         db.close()
         val schema = JSONObject(InstrumentationRegistry.getInstrumentation().context.assets

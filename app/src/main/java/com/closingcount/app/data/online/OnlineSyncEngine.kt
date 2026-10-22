@@ -13,6 +13,8 @@ sealed interface OnlineSyncResult {
     data object MorePending : OnlineSyncResult
 }
 
+class OnlineConflictChangedException : IllegalStateException("Angka server berubah lagi. Periksa pilihan terbaru sebelum mengirim ulang.")
+
 /** One instance per app repository. Manual/foreground callers share this mutex. */
 class OnlineSyncEngine(private val dao: OnlineSyncDao, private val gateway: OnlineGateway,
     private val currentSession: () -> OnlineSession?) {
@@ -72,11 +74,16 @@ class OnlineSyncEngine(private val dao: OnlineSyncDao, private val gateway: Onli
         } catch (_: IOException) { retry(scope) }
     }
 
-    suspend fun resolve(session: OnlineSession, outletId: String, closingId: String, menuId: String, reapply: Boolean): String? =
+    suspend fun resolve(session: OnlineSession, outletId: String, closingId: String, menuId: String, reapply: Boolean,
+        reviewedRevision: Long? = null, reviewedGeneration: Long? = null): String? =
         mutex.withLock {
             check(same(session))
+            val before = requireNotNull(dao.entry(session.scope(outletId), closingId, menuId))
             val latest = gateway.fetch(session, outletId, closingId)
             check(same(session)); dao.pull(latest.header, latest.entries)
+            val now = requireNotNull(dao.entry(session.scope(outletId), closingId, menuId))
+            if (reapply && (now.serverRevision != (reviewedRevision ?: before.serverRevision) ||
+                    now.generation != (reviewedGeneration ?: before.generation))) throw OnlineConflictChangedException()
             dao.resolve(session.scope(outletId), closingId, menuId, reapply)
         }
 

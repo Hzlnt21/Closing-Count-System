@@ -1,0 +1,253 @@
+package com.closingcount.app.ui.online
+
+import android.app.Application
+import android.content.Context
+import androidx.core.content.edit
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.viewModelScope
+import com.closingcount.app.BuildConfig
+import com.closingcount.app.ClosingCountApplication
+import com.closingcount.app.data.local.OnlineClosingEntity
+import com.closingcount.app.data.online.*
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.launch
+import org.json.JSONObject
+import java.io.IOException
+import java.time.LocalDate
+
+data class OnlineMenuUi(val id: String, val name: String, val category: String, val quantity: Int,
+    val serverQuantity: Int, val revision: Long, val generation: Long, val status: String, val actor: String)
+data class OnlineHistoryUi(val id: String, val date: String, val state: String)
+data class OnlineUiState(val initialized: Boolean = false, val identity: OnlineIdentity? = null, val loginVisible: Boolean = true,
+    val outletId: String = "", val date: String = LocalDate.now().toString(), val closingId: String? = null,
+    val closingState: String = "", val menus: List<OnlineMenuUi> = emptyList(), val history: List<OnlineHistoryUi> = emptyList(),
+    val buffers: Map<String, String> = emptyMap(), val pending: Int = 0, val working: Boolean = false,
+    val syncing: Boolean = false, val syncVerified: Boolean = false, val connectionUnavailable: Boolean = false, val error: String? = null,
+    val notice: String? = null, val authRequired: Boolean = false, val confirmSwitch: String? = null, val confirmLogout: Boolean = false) {
+    val dirty get() = buffers.isNotEmpty()
+    val valid get() = buffers.values.all { it.matches(Regex("[0-9]+")) && (it.toIntOrNull()?.let { n -> n in 0..9999 } == true) }
+    val total get() = menus.sumOf { it.quantity.toLong() }
+}
+
+class OnlineViewModel(application: Application) : AndroidViewModel(application) {
+    private val app = application as ClosingCountApplication
+    private val repo = app.onlineRepository
+    private val dao = app.database.onlineSyncDao()
+    private val preferences = app.getSharedPreferences("ccs_online_ui", Context.MODE_PRIVATE)
+    private val mutable = MutableStateFlow(OnlineUiState())
+    val state: StateFlow<OnlineUiState> = mutable.asStateFlow()
+    private var historyJob: Job? = null
+    private var closingJob: Job? = null
+    private var syncJob: Job? = null
+    private var epoch = 0
+    private var foreground = false
+    private var candidate: OnlineSession? = null
+    private var cached = emptyList<OnlineClosingEntity>()
+
+    init { viewModelScope.launch {
+        try { repo.initialize(); val session = repo.session()
+            mutable.update { it.copy(initialized = true, identity = session?.identity, loginVisible = session == null) }
+            if (session != null) startOutlet(session.identity.outlets.firstOrNull { it.id == preferences.getString("outlet", "") }?.id
+                ?: session.identity.outlets.firstOrNull()?.id.orEmpty())
+        } catch (e: Exception) { mutable.update { it.copy(initialized = true, error = message(e)) } }
+    } }
+
+    fun login(username: String, password: String) {
+        if (state.value.working) return
+        mutable.update { it.copy(working = true, error = null) }
+        viewModelScope.launch {
+            try {
+                require(BuildConfig.ONLINE_API_ORIGIN.isNotBlank()) { "Layanan belum dikonfigurasi. Hubungi pengelola." }
+                candidate = repo.login(BuildConfig.ONLINE_API_ORIGIN, username.trim(), password)
+                activateCandidate(false)
+            } catch (_: PendingOnlineDraftsException) {
+                mutable.update { it.copy(confirmSwitch = candidate?.identity?.displayName) }
+            } catch (e: Exception) { mutable.update { it.copy(error = message(e)) }
+            } finally { mutable.update { it.copy(working = false) } }
+        }
+    }
+
+    private suspend fun activateCandidate(confirmed: Boolean) {
+        val prepared = requireNotNull(candidate)
+        val previousOutlet = state.value.outletId.ifBlank { preferences.getString("outlet", "").orEmpty() }
+        repo.activate(prepared, confirmed); candidate = null; stopSync()
+        mutable.update { OnlineUiState(initialized = true, identity = prepared.identity, loginVisible = false) }
+        startOutlet(prepared.identity.outlets.firstOrNull { it.id == previousOutlet }?.id ?: prepared.identity.outlets.firstOrNull()?.id.orEmpty())
+    }
+
+    fun confirmSwitch(confirmed: Boolean) { viewModelScope.launch {
+        mutable.update { it.copy(confirmSwitch = null) }
+        try { if (confirmed) activateCandidate(true) else { candidate?.let { repo.cancelPreparedLogin(it) }; candidate = null } }
+        catch (e: Exception) { mutable.update { it.copy(error = message(e)) } }
+    } }
+
+    fun showLogin() { stopSync(); mutable.update { it.copy(loginVisible = true, error = null) } }
+    fun cancelLogin() { if (repo.session() != null) mutable.update { it.copy(loginVisible = false, error = null) } }
+    fun discardForm() { mutable.update { it.copy(buffers = emptyMap()) } }
+
+    fun selectOutlet(id: String) { if (!state.value.dirty) startOutlet(id) }
+    private fun startOutlet(id: String) {
+        historyJob?.cancel(); closingJob?.cancel(); stopSync(); cached = emptyList()
+        val session = repo.session() ?: return
+        val scope = session.identity.outlets.firstOrNull { it.id == id }?.let { session.scope(id) } ?: run {
+            mutable.update { it.copy(outletId = "", error = "Akun ini belum memiliki akses outlet aktif.") }; return
+        }
+        val remembered = if (preferences.getString("scope", "") == scope) preferences.getString("date", null) else null
+        val date = remembered?.takeIf { runCatching { LocalDate.parse(it) }.isSuccess } ?: LocalDate.now().toString()
+        mutable.update { it.copy(outletId = id, date = date, closingId = null, menus = emptyList(), closingState = "",
+            buffers = emptyMap(), history = emptyList(), pending = 0, error = null, notice = null) }
+        rememberSelection()
+        historyJob = viewModelScope.launch {
+            dao.observeClosings(scope).collect { headers ->
+                cached = headers
+                val history = headers.mapNotNull { h -> runCatching {
+                    OnlineHistoryUi(h.closingId, JSONObject(h.snapshotJson).getString("businessDate"), h.state)
+                }.getOrNull() }.sortedByDescending { it.date }
+                mutable.update { it.copy(history = history) }
+                val selected = history.firstOrNull { it.date == state.value.date }
+                if (selected != null && selected.id != state.value.closingId) bind(selected.id)
+            }
+        }
+        if (remembered == null) viewModelScope.launch {
+            try { val serverDate = repo.businessDate(id)
+                if (state.value.outletId == id && state.value.date == date && state.value.closingId == null && !state.value.dirty) selectDate(serverDate)
+            } catch (cancel: CancellationException) { throw cancel
+            } catch (e: Exception) { mutable.update { it.copy(connectionUnavailable = e is IOException,
+                error = if (e is OnlineApiException) message(e) else it.error, authRequired = e is OnlineApiException && needsLogin(e.code)) } }
+        }
+    }
+
+    fun selectDate(date: String) {
+        if (state.value.dirty) return
+        LocalDate.parse(date); closingJob?.cancel(); stopSync()
+        mutable.update { it.copy(date = date, closingId = null, menus = emptyList(), closingState = "", pending = 0, error = null, notice = null) }
+        rememberSelection()
+        state.value.history.firstOrNull { it.date == date }?.let { bind(it.id) }
+    }
+
+    private fun rememberSelection() { repo.session()?.let { session ->
+        val s = state.value; if (s.outletId.isNotEmpty()) preferences.edit {
+            putString("scope", session.scope(s.outletId)); putString("outlet", s.outletId); putString("date", s.date)
+        }
+    } }
+
+    fun openClosing() {
+        val current = state.value; if (current.working || current.outletId.isEmpty()) return
+        mutable.update { it.copy(working = true, error = null) }
+        viewModelScope.launch {
+            try { val id = repo.create(current.outletId, current.date)
+                if (state.value.outletId == current.outletId && state.value.date == current.date) bind(id)
+            } catch (e: Exception) { mutable.update { it.copy(error = message(e)) }
+            } finally { mutable.update { it.copy(working = false) } }
+        }
+    }
+
+    private fun bind(id: String) {
+        closingJob?.cancel(); stopSync()
+        val selected = state.value; val session = repo.session() ?: return
+        val scope = session.scope(selected.outletId)
+        mutable.update { it.copy(closingId = id, buffers = emptyMap(), syncVerified = false, error = null) }
+        closingJob = viewModelScope.launch {
+            combine(dao.observeClosing(scope, id), dao.observeEntries(scope, id), dao.observeOperations(scope, id)) { header, entries, ops ->
+                if (header == null) return@combine null
+                val json = JSONObject(header.snapshotJson); val catalog = json.getJSONObject("catalog")
+                val categories = catalog.getJSONArray("menuCategories")
+                val names = (0 until categories.length()).associate { val item = categories.getJSONObject(it); item.getString("id") to item.getString("name") }
+                val raw = catalog.getJSONArray("menus"); val actors = json.getJSONArray("entries")
+                val actorNames = (0 until actors.length()).associate { val item = actors.getJSONObject(it)
+                    item.getString("menuId") to (item.optJSONObject("updatedBy")?.optString("displayName") ?: "Belum diubah") }
+                val menus = (0 until raw.length()).mapNotNull { index ->
+                    val item = raw.getJSONObject(index); val row = entries.firstOrNull { it.menuId == item.getString("id") } ?: return@mapNotNull null
+                    OnlineMenuUi(row.menuId, item.getString("name"), names[item.getString("categoryId")] ?: "Menu", row.localQuantity,
+                        row.serverQuantity, row.serverRevision, row.generation, row.status, actorNames[row.menuId].orEmpty())
+                }
+                Triple(header.state, menus, ops.size)
+            }.catch { mutable.update { it.copy(error = "Data tersimpan belum dapat dibaca. Coba muat ulang.") } }
+                .collect { value -> if (value != null) mutable.update { it.copy(closingState = value.first, menus = value.second, pending = value.third) } }
+        }
+        if (foreground) sync()
+    }
+
+    fun change(menuId: String, value: String) { mutable.update {
+        val buffers = if (it.menus.firstOrNull { m -> m.id == menuId }?.quantity?.toString() == value) it.buffers - menuId else it.buffers + (menuId to value)
+        it.copy(buffers = buffers, error = null, notice = null)
+    } }
+    fun save() {
+        val s = state.value; val id = s.closingId ?: return
+        if (s.working || !s.valid || !s.dirty) return
+        val quantities = s.buffers.mapValues { it.value.toInt() }
+        mutable.update { it.copy(working = true, syncVerified = false, error = null) }
+        viewModelScope.launch {
+            try { repo.save(s.outletId, id, quantities)
+                mutable.update { it.copy(buffers = emptyMap(), notice = "Draft tersimpan di perangkat.") }; sync()
+            } catch (e: Exception) { mutable.update { it.copy(error = message(e)) }
+            } finally { mutable.update { it.copy(working = false) } }
+        }
+    }
+
+    fun resume() { foreground = true; sync() }
+    fun pause() { foreground = false; stopSync() }
+    private fun stopSync() { epoch++; syncJob?.cancel(); mutable.update { it.copy(syncing = false) } }
+    fun sync() {
+        val s = state.value; val id = s.closingId ?: return
+        if (!foreground || s.loginVisible || s.syncing) return
+        stopSync(); val run = epoch
+        syncJob = viewModelScope.launch {
+            try {
+                repeat(4) {
+                    if (!foreground || run != epoch) return@launch
+                    mutable.update { it.copy(syncing = true) }
+                    val result = repo.sync(s.outletId, id)
+                    if (run != epoch) return@launch
+                    mutable.update { it.copy(syncing = false) }
+                    when (result) {
+                        OnlineSyncResult.Synced -> { mutable.update { it.copy(connectionUnavailable = false, syncVerified = true, authRequired = false, error = null) }; return@launch }
+                        is OnlineSyncResult.Blocked -> { mutable.update { it.copy(connectionUnavailable = false, authRequired = needsLogin(result.code), error = codeMessage(result.code)) }; return@launch }
+                        is OnlineSyncResult.Retry -> { mutable.update { it.copy(connectionUnavailable = true) }; delay(result.afterMillis) }
+                        OnlineSyncResult.MorePending -> delay(250)
+                    }
+                }
+            } catch (cancel: CancellationException) { throw cancel
+            } catch (e: Exception) { if (run == epoch) mutable.update { it.copy(error = message(e)) }
+            } finally { if (run == epoch) mutable.update { it.copy(syncing = false) } }
+        }
+    }
+
+    fun resolve(menu: OnlineMenuUi, reapply: Boolean) {
+        val s = state.value; val id = s.closingId ?: return
+        if (s.working) return
+        stopSync(); mutable.update { it.copy(working = true, error = null) }
+        viewModelScope.launch {
+            try { repo.resolve(s.outletId, id, menu.id, reapply, menu.revision, menu.generation); sync()
+            } catch (e: Exception) { mutable.update { it.copy(error = message(e)) }
+            } finally { mutable.update { it.copy(working = false) } }
+        }
+    }
+
+    fun logout(confirmed: Boolean = false) {
+        stopSync(); viewModelScope.launch {
+            try { val revoked = repo.logout(confirmed); historyJob?.cancel(); closingJob?.cancel()
+                mutable.value = OnlineUiState(initialized = true, notice = if (revoked) null else "Keluar dari perangkat. Koneksi server belum tersedia.")
+            } catch (_: PendingOnlineDraftsException) { mutable.update { it.copy(confirmLogout = true) }
+            } catch (e: Exception) { mutable.update { it.copy(error = message(e)) } }
+        }
+    }
+    fun cancelLogout() { mutable.update { it.copy(confirmLogout = false) } }
+    private fun needsLogin(code: String) = code in setOf("SESSION_REQUIRED", "SESSION_CHANGED", "AUTH_REQUIRED", "ACCOUNT_DISABLED", "OUTLET_FORBIDDEN")
+    private fun message(e: Exception): String = when (e) {
+        is OnlineApiException -> codeMessage(e.code)
+        is OnlineConflictChangedException -> e.message.orEmpty()
+        is IOException -> "Koneksi belum tersedia. Draft yang sudah disimpan tetap aman di perangkat ini."
+        else -> "Tindakan belum berhasil. Periksa data dan coba lagi."
+    }
+    private fun codeMessage(code: String): String = when (code) {
+        "INVALID_CREDENTIALS" -> "Username atau password tidak sesuai."
+        "SESSION_REQUIRED", "SESSION_CHANGED", "AUTH_REQUIRED", "ACCOUNT_DISABLED", "OUTLET_FORBIDDEN" -> "Sesi atau akses akun perlu diperiksa. Masuk kembali dengan akun yang sama untuk melanjutkan draft."
+        "ENTRY_CONFLICT", "PULL_CONFLICT", "CONFLICT", "STALE_ACK", "GENERATION_CONFLICT" -> "Ada perubahan dari tim. Tinjau perbedaan angka sebelum mengirim ulang."
+        "CLOSING_STATE_CONFLICT" -> "Closing sudah diajukan atau dikunci. Draft perangkat tetap disimpan untuk diperiksa."
+        else -> "Perubahan belum dapat dikirim. Periksa jumlah, akses akun, dan status closing."
+    }
+}
