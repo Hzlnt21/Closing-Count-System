@@ -137,6 +137,25 @@ class OnlineApi(val endpoint: OnlineEndpoint, private val timeoutMillis: Int = 1
         return value
     }
 
+    private fun catalogVersion(row:JSONObject):OnlineCatalogVersion = decode {
+        val revision=number(row,"revision")
+        val id=if(row.isNull("versionId"))null else uuid(row.getString("versionId"))
+        require((revision==0L)==(id==null))
+        OnlineCatalogVersion(id,revision,OnlineCatalog.parse(row.getJSONObject("catalog")))
+    }
+    suspend fun catalog(session:OnlineSession,outlet:String):OnlineCatalogVersion{
+        checkSession(session);uuid(outlet);session.scope(outlet)
+        return catalogVersion(request("GET","/outlets/$outlet/catalog",session.token))
+    }
+    suspend fun publishCatalog(session:OnlineSession,op:OnlineCatalogOperation):OnlineCatalogVersion{
+        checkSession(session);uuid(op.operationId)
+        val parts=op.scope.split('|');require(parts.size==3&&parts[0]==session.origin&&parts[1]==session.identity.id)
+        val outlet=uuid(parts[2]);require(session.scope(outlet)==op.scope)
+        val body=OnlineCatalogStore.requestBody(op);require(body.toString().toByteArray(Charsets.UTF_8).size<=524288)
+        val result=catalogVersion(request("POST","/outlets/$outlet/catalog",session.token,body))
+        return decode{require(result.revision==op.expectedRevision+1&&result.catalog==OnlineCatalog.parse(JSONObject(op.catalogJson)));result}
+    }
+
     suspend fun outletSettings(session: OnlineSession, outletId: String): OnlineOutletSettings {
         checkSession(session); uuid(outletId); session.scope(outletId)
         val row = request("GET","/outlets/$outletId",session.token)

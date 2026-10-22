@@ -11,7 +11,7 @@ class PendingOnlineDraftsException : IllegalStateException("Konfirmasi diperluka
 
 /** Application-owned session and engines. No automatic network call at application startup. */
 class OnlineRepository(private val dao: OnlineSyncDao, private val store: OnlineSessionStore,
-    private val settingsStore: OnlineSettingsStore? = null, private val teamStore:OnlineTeamStore?=null) {
+    private val settingsStore: OnlineSettingsStore? = null, private val teamStore:OnlineTeamStore?=null, private val catalogStore:OnlineCatalogStore?=null) {
     @Volatile private var active: OnlineSession? = null
     private val sessionMutex = Mutex()
     private val engines = mutableMapOf<String, OnlineSyncEngine>()
@@ -46,6 +46,9 @@ class OnlineRepository(private val dao: OnlineSyncDao, private val store: Online
         for (outlet in candidate.identity.outlets) {
             val scope = candidate.scope(outlet.id)
             for (id in dao.closingIds(scope)) dao.resumeAfterLogin(scope, id)
+            withContext(Dispatchers.IO){catalogStore?.load(scope)?.takeIf{it.status=="AUTH_REQUIRED"}?.let{
+                catalogStore.save(it.copy(status=if(it.wasSent)"SENT" else "QUEUED",error=null))
+            }}
             withContext(Dispatchers.IO) { settingsStore?.load(scope)?.takeIf { it.status == "AUTH_REQUIRED" }?.let {
                 settingsStore.save(it.copy(status=if(it.wasSent) "SENT" else "QUEUED",error=null))
             } }
@@ -56,7 +59,7 @@ class OnlineRepository(private val dao: OnlineSyncDao, private val store: Online
     }
 
     private suspend fun pending(session: OnlineSession) = dao.pendingForAccount(prefix(session)) +
-        withContext(Dispatchers.IO) { (settingsStore?.pendingForAccount(prefix(session)) ?: 0)+(teamStore?.forAccount(prefix(session))?.size?:0) }
+        withContext(Dispatchers.IO) { (settingsStore?.pendingForAccount(prefix(session)) ?: 0)+(teamStore?.forAccount(prefix(session))?.size?:0)+(catalogStore?.pendingForAccount(prefix(session))?:0) }
     suspend fun pendingCount(): Int = active?.let { pending(it) } ?: 0
     suspend fun team(outlet:String,after:String?=null):OnlineTeamPage{
         val session=requireNotNull(active);val value=api(session).team(session,outlet,after);check(active===session);return value
@@ -116,6 +119,46 @@ class OnlineRepository(private val dao: OnlineSyncDao, private val store: Online
             val receipt=api(session).teamReceipt(session,op);check(receipt.member.id==session.identity.id)
             withContext(Dispatchers.IO){storage.remove(op.scope,op.operationId,true)};confirmed++
         };confirmed
+    }
+
+    suspend fun catalog(outlet:String):OnlineCatalogVersion{
+        val session=requireNotNull(active);val result=api(session).catalog(session,outlet);check(active===session);return result
+    }
+    suspend fun pendingCatalog(outlet:String):OnlineCatalogOperation?{
+        val session=requireNotNull(active);return withContext(Dispatchers.IO){catalogStore?.load(session.scope(outlet))}
+    }
+    suspend fun prepareCatalog(outlet:String,reviewedRevision:Long,catalog:OnlineCatalog)=sessionMutex.withLock{
+        val session=requireNotNull(active);val storage=requireNotNull(catalogStore)
+        val settings=api(session).outletSettings(session,outlet);check(settings.role=="ADMIN")
+        val fresh=api(session).catalog(session,outlet)
+        if(fresh.revision!=reviewedRevision)throw OnlineConflictChangedException()
+        val op=OnlineCatalogOperation(session.scope(outlet),java.util.UUID.randomUUID().toString(),reviewedRevision,catalog.json().toString())
+        withContext(Dispatchers.IO){check(storage.load(op.scope)==null);storage.save(op)}
+    }
+    suspend fun syncCatalog(outlet:String):OnlineCatalogVersion=sessionMutex.withLock{
+        val session=requireNotNull(active);val storage=requireNotNull(catalogStore);val scope=session.scope(outlet)
+        var op=withContext(Dispatchers.IO){requireNotNull(storage.load(scope))};check(op.status in setOf("QUEUED","SENT"))
+        var acknowledged=false
+        try{
+            if(!op.wasSent){
+                val fresh=api(session).catalog(session,outlet)
+                if(fresh.revision!=op.expectedRevision){op=op.copy(status="CONFLICT",error="CATALOG_CONFLICT");withContext(Dispatchers.IO){storage.save(op)};throw OnlineConflictChangedException()}
+            }
+            op=op.copy(status="SENT",wasSent=true,error=null);withContext(Dispatchers.IO){storage.save(op)}
+            val receipt=api(session).publishCatalog(session,op);acknowledged=true
+            val fresh=api(session).catalog(session,outlet);check(fresh.revision>=receipt.revision)
+            withContext(Dispatchers.IO){storage.remove(scope,op.operationId,true)};fresh
+        }catch(e:OnlineApiException){
+            val status=when{e.status in setOf(401,403)->"AUTH_REQUIRED"
+                acknowledged||e.status>=500||e.status in setOf(408,429)||e.code=="NOT_FOUND"->null
+                e.status==409->"CONFLICT"
+                else->"FAILED"}
+            if(status!=null)withContext(Dispatchers.IO){storage.save(op.copy(status=status,error=e.code))};throw e
+        }
+    }
+    suspend fun dismissCatalog(outlet:String)=sessionMutex.withLock{
+        val session=requireNotNull(active);val storage=requireNotNull(catalogStore)
+        withContext(Dispatchers.IO){storage.load(session.scope(outlet))?.let{storage.remove(it.scope,it.operationId)}}
     }
 
     suspend fun outletSettings(outletId: String): OnlineOutletSettings {

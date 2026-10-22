@@ -15,7 +15,7 @@ class ClosingCountApplication : Application() {
         ClosingCountDatabase.getInstance(this)
     }
     val onlineRepository: OnlineRepository by lazy {
-        OnlineRepository(database.onlineSyncDao(), OnlineSessionStore(this), OnlineSettingsStore(this), OnlineTeamStore(this))
+        OnlineRepository(database.onlineSyncDao(), OnlineSessionStore(this), OnlineSettingsStore(this), OnlineTeamStore(this), com.closingcount.app.data.online.OnlineCatalogStore(this))
     }
 
     override fun attachBaseContext(base: Context) {

@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased - catalog client foundation R1, 2026-10-23
+
+- Added typed whole-catalog validation, strict JSON decoding, backup-excluded immutable publication intents and catalog account-switch/logout guards.
+- Publication retry validates the original acknowledgement and reads the latest version; stale review requires explicit resolution and same-account reauthentication resumes paused work.
+- 19 JVM tests, three emulator storage cases and real HTTP/PostgreSQL publication recovery passed. Native catalog editor remains open. [Evidence and limits](docs/CATALOG_CLIENT_R1.md).
+
 ## Unreleased - native team R1, 2026-10-23
 
 - Added paged team administration, account creation, reviewed role/access changes and own-role refresh in the approved R2 direction.
