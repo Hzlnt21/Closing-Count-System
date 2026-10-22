@@ -1,5 +1,5 @@
 // Dedicated owned PostgreSQL fixture, retained after tests. No operational configuration.
-import {writeFileSync,mkdirSync,existsSync} from 'node:fs';
+import {writeFileSync,mkdirSync,existsSync,readFileSync,unlinkSync} from 'node:fs';
 import path from 'node:path';
 import {randomUUID} from 'node:crypto';
 import pg from 'pg';
@@ -15,7 +15,7 @@ const pool=new pg.Pool({connectionString:config.databaseUrl,max:4,connectionTime
 const out=process.env.CCS_HTTP_EVIDENCE_DIR,fixtureFile=process.env.CCS_HTTP_FIXTURE_FILE;
 if(!out||!fixtureFile||!path.isAbsolute(out)||!path.isAbsolute(fixtureFile))throw Error('Explicit absolute QA output paths required');
 mkdirSync(out,{recursive:true});
-let server,stopping=false,stopTimer;const internal=[];
+let server,stopping=false,stopTimer;const internal=[],heldResponses=new Set();
 const outlet=randomUUID(),admin=randomUUID(),a=randomUUID(),b=randomUUID(),supervisor=randomUUID(),prefix='qah'+Date.now().toString(36),password='QA Http Closing!2026';
 try{
  await assertOwnedDatabase(pool,config);await migrate(pool,config);
@@ -32,6 +32,29 @@ try{
  // Injected advancing limiter clock avoids test order/wall-clock waits; no rate-limit acceptance claim.
  let tick=0;
  server=await createApp({pool,limiter:new LoginLimiter({now:()=>Date.now()+(tick++)*61000}),onInternalError:e=>internal.push(e.requestId)});
+ // Opt-in test boundary: hold one real committed operation's HTTP reply until the OS kills its client.
+ // No production handler or database transaction is replaced; gate is absent in normal fixtures.
+ if(process.env.CCS_HTTP_RECOVERY_GATE==='true'){
+  const handlers=server.listeners('request');server.removeAllListeners('request');
+  server.on('request',(req,res)=>{
+   if(existsSync(fixtureFile+'.offline')){res.writeHead(503,{'content-type':'application/json'});res.end(JSON.stringify({error:{code:'QA_OFFLINE',message:'Owned QA transport unavailable'}}));return;}
+   const hold=fixtureFile+'.hold-next';
+   if(req.method==='POST'&&existsSync(hold)){
+    const kind=readFileSync(hold,'utf8').trim();
+    const matches=kind==='quantity'?/\/entries\/[^/]+\/operations$/.test(req.url):kind==='lifecycle'&&/\/(submit|return|lock|reopen)$/.test(req.url);
+    if(matches){
+     unlinkSync(hold);const end=res.end.bind(res);
+     res.end=(...args)=>{
+      if(res.statusCode<200||res.statusCode>=300)return end(...args);
+      heldResponses.add(res);res.once('close',()=>heldResponses.delete(res));
+      writeFileSync(fixtureFile+'.held',JSON.stringify({kind,url:req.url,status:res.statusCode,committedBeforeReply:true,at:new Date().toISOString()}));
+      return res;
+     };
+    }
+   }
+   for(const handler of handlers)handler(req,res);
+  });
+ }
  await new Promise((resolve,reject)=>{server.once('error',reject);server.listen(4371,'127.0.0.1',resolve)});
  const fixture={origin:'http://10.0.2.2:4371',outlet,employee:prefix+'.rani',colleague:prefix+'.dimas',supervisor:prefix+'.arif',password};
  writeFileSync(fixtureFile,JSON.stringify(fixture,null,2));
@@ -44,6 +67,7 @@ try{
 }catch(e){console.error('Owned HTTP fixture failed: '+(e.code&&/^[A-Z0-9_]+$/.test(e.code)?e.code:'CONTROLLED_FAILURE'));await pool.end();process.exitCode=1;}
 async function stop(){
  if(stopping)return;stopping=true;clearInterval(stopTimer);
+ for(const response of heldResponses)response.destroy();
  if(server)await new Promise(resolve=>server.close(resolve));
  const entries=await pool.query(`SELECT c.business_date::text,c.generation::text,c.revision::text,e.menu_id,e.quantity,e.revision::text AS entry_revision,e.updated_by
    FROM ccs.closings c JOIN ccs.closing_entries e ON e.closing_id=c.id WHERE c.outlet_id=$1 ORDER BY c.business_date,e.menu_id`,[outlet]);

@@ -1,0 +1,12 @@
+﻿{
+    "passed":  true,
+    "outlet":  "d4f2e55c-d55d-4890-9922-5f9af34d24b9",
+    "phases":  10,
+    "actualForceStops":  5,
+    "twoIndependentPackages":  true,
+    "twoPhysicalDevices":  false,
+    "emulator":  "PortfolioQA_Phone_API36",
+    "physicalPhoneAccessed":  false,
+    "publicAcceptance":  false,
+    "finishedAt":  "2026-10-22T15:42:03.5819004Z"
+}

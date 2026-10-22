@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased ? Android process recovery R1, 2026-10-22
+
+- Added opt-in QA peer debug identity and multi-process Room/repository/session instrumentation. Default/release app identity is preserved.
+- Verified five real Android force-stops, HTTP outage, retries after committed quantity/submit replies are held, and conflict reconciliation between separately installed package UIDs. Independent PostgreSQL checks confirm no duplicate accepted mutations.
+- Fixture-only fault boundaries do not change production service handlers. This is integration proof, not native restoration UI or physical-device acceptance; see [scope and evidence](docs/PROCESS_RECOVERY_R1.md).
+
 ## Unreleased ? native supervisor lifecycle R1, 2026-10-22
 
 - Connected Review tab, role-scoped submit/return/lock/reopen and reason confirmations following approved R2.

@@ -1,0 +1,173 @@
+﻿[
+    {
+        "phase":  "seed",
+        "package":  "com.closingcount.app",
+        "forceStopped":  true,
+        "beforePid":  "3007",
+        "afterPid":  "",
+        "heldResponse":  null,
+        "proof":  {
+                      "closingId":  "3e518dbc-0a1c-42e3-922a-5864661cbf1c",
+                      "menuId":  "53639f65-8f9c-424b-92a3-aaa4f531e657",
+                      "quantityOperation":  "2a4c43d5-3a5c-492c-803d-3dc27bf905ba",
+                      "accountId":  "5ee0f890-f107-45c3-a0a6-b8cfdfef463d",
+                      "phase":  "seed",
+                      "pid":  3007,
+                      "package":  "com.closingcount.app",
+                      "outlet":  "d4f2e55c-d55d-4890-9922-5f9af34d24b9",
+                      "waitingForHostKill":  true
+                  }
+    },
+    {
+        "phase":  "offline",
+        "package":  "com.closingcount.app",
+        "forceStopped":  false,
+        "proof":  {
+                      "closingId":  "3e518dbc-0a1c-42e3-922a-5864661cbf1c",
+                      "menuId":  "53639f65-8f9c-424b-92a3-aaa4f531e657",
+                      "quantityOperation":  "2a4c43d5-3a5c-492c-803d-3dc27bf905ba",
+                      "accountId":  "5ee0f890-f107-45c3-a0a6-b8cfdfef463d",
+                      "phase":  "offline",
+                      "pid":  3715,
+                      "package":  "com.closingcount.app",
+                      "outlet":  "d4f2e55c-d55d-4890-9922-5f9af34d24b9",
+                      "waitingForHostKill":  false
+                  }
+    },
+    {
+        "phase":  "sendQuantity",
+        "package":  "com.closingcount.app",
+        "forceStopped":  true,
+        "beforePid":  "3794",
+        "afterPid":  "",
+        "heldResponse":  {
+                             "kind":  "quantity",
+                             "url":  "/api/v1/closings/3e518dbc-0a1c-42e3-922a-5864661cbf1c/entries/53639f65-8f9c-424b-92a3-aaa4f531e657/operations",
+                             "status":  200,
+                             "committedBeforeReply":  true,
+                             "at":  "2026-10-22T15:41:36.517Z"
+                         },
+        "proof":  null
+    },
+    {
+        "phase":  "recoverQuantity",
+        "package":  "com.closingcount.app",
+        "forceStopped":  false,
+        "proof":  {
+                      "closingId":  "3e518dbc-0a1c-42e3-922a-5864661cbf1c",
+                      "menuId":  "53639f65-8f9c-424b-92a3-aaa4f531e657",
+                      "quantityOperation":  "2a4c43d5-3a5c-492c-803d-3dc27bf905ba",
+                      "accountId":  "5ee0f890-f107-45c3-a0a6-b8cfdfef463d",
+                      "phase":  "recoverQuantity",
+                      "pid":  3843,
+                      "package":  "com.closingcount.app",
+                      "outlet":  "d4f2e55c-d55d-4890-9922-5f9af34d24b9",
+                      "waitingForHostKill":  false
+                  }
+    },
+    {
+        "phase":  "peerSeed",
+        "package":  "com.closingcount.app.qapeer",
+        "forceStopped":  true,
+        "beforePid":  "3889",
+        "afterPid":  "",
+        "heldResponse":  null,
+        "proof":  {
+                      "closingId":  "3e518dbc-0a1c-42e3-922a-5864661cbf1c",
+                      "menuId":  "53639f65-8f9c-424b-92a3-aaa4f531e657",
+                      "quantityOperation":  "1af8026d-2f75-44b3-ad2c-eb5ff48f14b3",
+                      "accountId":  "77bcc894-11f3-40eb-99e1-7b37f3fbc9bb",
+                      "phase":  "peerSeed",
+                      "pid":  3889,
+                      "package":  "com.closingcount.app.qapeer",
+                      "outlet":  "d4f2e55c-d55d-4890-9922-5f9af34d24b9",
+                      "waitingForHostKill":  true
+                  }
+    },
+    {
+        "phase":  "editA",
+        "package":  "com.closingcount.app",
+        "forceStopped":  false,
+        "proof":  {
+                      "closingId":  "3e518dbc-0a1c-42e3-922a-5864661cbf1c",
+                      "menuId":  "53639f65-8f9c-424b-92a3-aaa4f531e657",
+                      "quantityOperation":  "2a4c43d5-3a5c-492c-803d-3dc27bf905ba",
+                      "accountId":  "5ee0f890-f107-45c3-a0a6-b8cfdfef463d",
+                      "phase":  "editA",
+                      "pid":  3953,
+                      "package":  "com.closingcount.app",
+                      "outlet":  "d4f2e55c-d55d-4890-9922-5f9af34d24b9",
+                      "waitingForHostKill":  false
+                  }
+    },
+    {
+        "phase":  "peerRecover",
+        "package":  "com.closingcount.app.qapeer",
+        "forceStopped":  false,
+        "proof":  {
+                      "closingId":  "3e518dbc-0a1c-42e3-922a-5864661cbf1c",
+                      "menuId":  "53639f65-8f9c-424b-92a3-aaa4f531e657",
+                      "quantityOperation":  "1af8026d-2f75-44b3-ad2c-eb5ff48f14b3",
+                      "accountId":  "77bcc894-11f3-40eb-99e1-7b37f3fbc9bb",
+                      "phase":  "peerRecover",
+                      "pid":  3995,
+                      "package":  "com.closingcount.app.qapeer",
+                      "outlet":  "d4f2e55c-d55d-4890-9922-5f9af34d24b9",
+                      "waitingForHostKill":  false,
+                      "conflictLocal":  9,
+                      "conflictServer":  11
+                  }
+    },
+    {
+        "phase":  "queueLifecycle",
+        "package":  "com.closingcount.app",
+        "forceStopped":  true,
+        "beforePid":  "4041",
+        "afterPid":  "",
+        "heldResponse":  null,
+        "proof":  {
+                      "closingId":  "3e518dbc-0a1c-42e3-922a-5864661cbf1c",
+                      "menuId":  "53639f65-8f9c-424b-92a3-aaa4f531e657",
+                      "quantityOperation":  "2a4c43d5-3a5c-492c-803d-3dc27bf905ba",
+                      "accountId":  "5ee0f890-f107-45c3-a0a6-b8cfdfef463d",
+                      "phase":  "queueLifecycle",
+                      "pid":  4041,
+                      "package":  "com.closingcount.app",
+                      "outlet":  "d4f2e55c-d55d-4890-9922-5f9af34d24b9",
+                      "waitingForHostKill":  true,
+                      "lifecycleOperation":  "0ba5d713-397f-49e7-839c-00c45978edd2"
+                  }
+    },
+    {
+        "phase":  "sendLifecycle",
+        "package":  "com.closingcount.app",
+        "forceStopped":  true,
+        "beforePid":  "4105",
+        "afterPid":  "",
+        "heldResponse":  {
+                             "kind":  "lifecycle",
+                             "url":  "/api/v1/closings/3e518dbc-0a1c-42e3-922a-5864661cbf1c/submit",
+                             "status":  200,
+                             "committedBeforeReply":  true,
+                             "at":  "2026-10-22T15:41:59.154Z"
+                         },
+        "proof":  null
+    },
+    {
+        "phase":  "recoverLifecycle",
+        "package":  "com.closingcount.app",
+        "forceStopped":  false,
+        "proof":  {
+                      "closingId":  "3e518dbc-0a1c-42e3-922a-5864661cbf1c",
+                      "menuId":  "53639f65-8f9c-424b-92a3-aaa4f531e657",
+                      "quantityOperation":  "2a4c43d5-3a5c-492c-803d-3dc27bf905ba",
+                      "accountId":  "5ee0f890-f107-45c3-a0a6-b8cfdfef463d",
+                      "phase":  "recoverLifecycle",
+                      "pid":  4157,
+                      "package":  "com.closingcount.app",
+                      "outlet":  "d4f2e55c-d55d-4890-9922-5f9af34d24b9",
+                      "waitingForHostKill":  false,
+                      "lifecycleOperation":  "0ba5d713-397f-49e7-839c-00c45978edd2"
+                  }
+    }
+]

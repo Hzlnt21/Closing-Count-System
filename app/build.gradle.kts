@@ -10,6 +10,11 @@ val releaseKeyAlias = System.getenv("CLOSING_COUNT_KEY_ALIAS")
 val releaseKeyPassword = System.getenv("CLOSING_COUNT_KEY_PASSWORD")
 val appVersionCode = providers.gradleProperty("versionCodeOverride").orNull?.toInt() ?: 9
 val appVersionName = providers.gradleProperty("versionNameOverride").orNull ?: "0.1.1"
+// Explicit QA-only second installation; release application identity never changes.
+val qaPeer = providers.gradleProperty("closingQaPeer").orNull == "true"
+if (qaPeer && gradle.startParameter.taskNames.any { it.contains("release", ignoreCase = true) }) {
+    throw GradleException("closingQaPeer is restricted to debug acceptance builds")
+}
 val hasReleaseSigning = listOf(
     releaseKeystorePath,
     releaseKeystorePassword,
@@ -70,6 +75,7 @@ android {
 
     buildTypes {
         debug {
+            if (qaPeer) applicationIdSuffix = ".qapeer"
             buildConfigField("String", "ONLINE_API_ORIGIN", "\"${providers.gradleProperty("closingApiOrigin").orNull ?: "http://10.0.2.2:4371"}\"")
         }
         release {

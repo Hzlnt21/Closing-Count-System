@@ -1,0 +1,115 @@
+{
+  "passed": true,
+  "outlet": "d4f2e55c-d55d-4890-9922-5f9af34d24b9",
+  "closings": [
+    {
+      "id": "3e518dbc-0a1c-42e3-922a-5864661cbf1c",
+      "business_date": "2026-10-20",
+      "state": "SUBMITTED",
+      "generation": "1",
+      "revision": "3"
+    }
+  ],
+  "entries": [
+    {
+      "menu_id": "9ce551db-860a-4b96-b702-f8b805dc0cfa",
+      "quantity": 0,
+      "revision": "0",
+      "updated_by": null
+    },
+    {
+      "menu_id": "53639f65-8f9c-424b-92a3-aaa4f531e657",
+      "quantity": 11,
+      "revision": "2",
+      "updated_by": "5ee0f890-f107-45c3-a0a6-b8cfdfef463d"
+    }
+  ],
+  "receipts": [
+    {
+      "operation_id": "0ba5d713-397f-49e7-839c-00c45978edd2",
+      "actor_id": "5ee0f890-f107-45c3-a0a6-b8cfdfef463d",
+      "response": {
+        "state": "SUBMITTED",
+        "report": null,
+        "lockedAt": null,
+        "lockedBy": null,
+        "closingId": "3e518dbc-0a1c-42e3-922a-5864661cbf1c",
+        "generation": 1,
+        "submittedAt": "2026-10-22T15:41:59.142Z",
+        "submittedBy": {
+          "id": "5ee0f890-f107-45c3-a0a6-b8cfdfef463d",
+          "username": "qahmvjpi5xc.rani",
+          "displayName": "Dummy rani"
+        },
+        "closingRevision": 3
+      }
+    },
+    {
+      "operation_id": "2a4c43d5-3a5c-492c-803d-3dc27bf905ba",
+      "actor_id": "5ee0f890-f107-45c3-a0a6-b8cfdfef463d",
+      "response": {
+        "entry": {
+          "menuId": "53639f65-8f9c-424b-92a3-aaa4f531e657",
+          "quantity": 7,
+          "updatedAt": "2026-10-22T15:41:36.504Z",
+          "updatedBy": {
+            "id": "5ee0f890-f107-45c3-a0a6-b8cfdfef463d",
+            "username": "qahmvjpi5xc.rani",
+            "displayName": "Dummy rani"
+          },
+          "entryRevision": 1
+        },
+        "closingId": "3e518dbc-0a1c-42e3-922a-5864661cbf1c",
+        "generation": 1,
+        "closingRevision": 1
+      }
+    },
+    {
+      "operation_id": "d81e3392-bda2-45d8-a070-fbceaf83a217",
+      "actor_id": "5ee0f890-f107-45c3-a0a6-b8cfdfef463d",
+      "response": {
+        "entry": {
+          "menuId": "53639f65-8f9c-424b-92a3-aaa4f531e657",
+          "quantity": 11,
+          "updatedAt": "2026-10-22T15:41:48.029Z",
+          "updatedBy": {
+            "id": "5ee0f890-f107-45c3-a0a6-b8cfdfef463d",
+            "username": "qahmvjpi5xc.rani",
+            "displayName": "Dummy rani"
+          },
+          "entryRevision": 2
+        },
+        "closingId": "3e518dbc-0a1c-42e3-922a-5864661cbf1c",
+        "generation": 1,
+        "closingRevision": 2
+      }
+    }
+  ],
+  "audit": [
+    {
+      "action": "ENTRY_UPDATED",
+      "actor_id": "5ee0f890-f107-45c3-a0a6-b8cfdfef463d",
+      "operation_id": "2a4c43d5-3a5c-492c-803d-3dc27bf905ba",
+      "before_quantity": 0,
+      "after_quantity": 7
+    },
+    {
+      "action": "ENTRY_UPDATED",
+      "actor_id": "5ee0f890-f107-45c3-a0a6-b8cfdfef463d",
+      "operation_id": "d81e3392-bda2-45d8-a070-fbceaf83a217",
+      "before_quantity": 7,
+      "after_quantity": 11
+    },
+    {
+      "action": "SUBMIT",
+      "actor_id": "5ee0f890-f107-45c3-a0a6-b8cfdfef463d",
+      "operation_id": "0ba5d713-397f-49e7-839c-00c45978edd2",
+      "before_quantity": null,
+      "after_quantity": null
+    }
+  ],
+  "actualForceStops": 5,
+  "twoIndependentPackages": true,
+  "twoPhysicalDevices": false,
+  "fixturesRetained": true
+}

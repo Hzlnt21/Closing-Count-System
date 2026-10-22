@@ -1,5 +1,7 @@
 # Closing Count System
 
+Newest integration evidence: [actual Android force-stop recovery and two independent QA installations](docs/PROCESS_RECOVERY_R1.md). Five deliberate process interruptions and five passing continuation phases preserve queued/SENT IDs, encrypted sessions and visible-conflict data; independent PostgreSQL proof shows exactly three accepted mutations. Native restoration UI and physical-device acceptance remain open.
+
 Latest source slice: [native supervisor lifecycle R1](docs/NATIVE_LIFECYCLE_R1.md), [six actual screenshots](docs/lifecycle-review-r1.html). Submit/return/lock/reopen now use a durable Room lifecycle outbox and reviewed revisions. 12 JVM, 26 storage, 10 HTTP and two native UI scenarios passed; lint 0 errors/16 warnings. Physical/process-kill/two-installation/full history/online transfer/demo acceptance remains open. Earlier checkpoint paragraphs are historical.
 
 Newest source slice: [native draft R1](docs/NATIVE_DRAFT_R1.md), [actual Android screenshots](docs/native-review-r1.html). Home → Closing bersama opens real login/outlet/date/summary/input/conflict/cached-history/account flows.12JVM+19Room+7HTTP+1native UI scenario pass. Supervisor lifecycle UI, process-kill/two-installation/reconnect acceptance and legacy/online transfer remain open. Historical descriptions below are checkpoints, not a claim that the connected app is complete.

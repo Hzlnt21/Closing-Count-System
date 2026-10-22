@@ -1,0 +1,18 @@
+﻿[
+    {
+        "Path":  "D:\\Code\\Documents\\Career-Portfolio-2026\\evidence\\closing-count-process-recovery-r1\\apks\\main\\app.apk",
+        "Hash":  "B6BDA32C331FAE2C5CA9581C948F1885C90E7BA4E064BC3B76762CC01D5C166E"
+    },
+    {
+        "Path":  "D:\\Code\\Documents\\Career-Portfolio-2026\\evidence\\closing-count-process-recovery-r1\\apks\\main\\test.apk",
+        "Hash":  "8CD99B99E0A2FF4C691BDB432DB5638B651A2EFAF5D83032B2922444D6E41A85"
+    },
+    {
+        "Path":  "D:\\Code\\Documents\\Career-Portfolio-2026\\evidence\\closing-count-process-recovery-r1\\apks\\peer\\app.apk",
+        "Hash":  "A62D4907C540402314B4C1D0B9B585A07B481F461B015368B497716AB11ED781"
+    },
+    {
+        "Path":  "D:\\Code\\Documents\\Career-Portfolio-2026\\evidence\\closing-count-process-recovery-r1\\apks\\peer\\test.apk",
+        "Hash":  "2F15650C80ADE21DDC19801D8111FB91D44EE745B6A01A639EF9E74D6F51C085"
+    }
+]
