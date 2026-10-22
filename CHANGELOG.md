@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased — CCS-05 Room foundation, 2026-10-22
+
+- Added non-destructive schema6→7 online namespace and scoped durable operations with transactional edit/ack/pull/conflict/auth recovery.
+- Added14 real Room instrumentation tests;18 including legacy backup/menu/closing regressions pass on the owned emulator. Fixture context/index parsing issues were corrected before acceptance.
+- Preserved Android version metadata0.1.1 and existing offline UI. This is a source foundation checkpoint, not connected online feature availability, a release or phone UAT.
+- Recorded approved FINORA-inspired visual R2 separately; Compose application remains next.
+
 ## 0.1.1 - 2026-08-20
 
 Visual identity update without changes to the closing workflow or stored data.

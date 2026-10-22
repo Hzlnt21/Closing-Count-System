@@ -1,5 +1,7 @@
 # Closing Count System
 
+Latest portfolio checkpoint: [CCS-05 Room foundation R1](docs/ONLINE_ROOM_R1.md) adds additive schema7 and durable scoped outbox/ack/pull primitives;18 emulator instrumentation tests pass. No HTTP/native online integration yet. [Visual R2](docs/VISUAL_REFERENCE_R2.md) is now explicitly approved for application after inspecting the local FINORA screenshot. Old403/review-pending paragraphs below remain checkpoint history; they do not describe current reference availability. App metadata stays0.1.1 until the connected candidate is assembled and verified.
+
 ## Pengembangan kolaborasi online
 
 CCS-04 menambahkan [service QA0.2.0-dev.3](service/README.md): submit/return/review-lock/reopen dan laporan immutable per generasi, melanjutkan katalog/closing bersama serta operasi jumlah transaksional. Android masih offline0.1.1; Room outbox, integrasi UI, legacy/export dan demo utuh belum tersedia. [Referensi visual terbaru](docs/VISUAL_REFERENCE.md) mengikuti FINORA pilihan pengguna; preview biru awal kini arsip, belum disetujui.

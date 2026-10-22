@@ -19,8 +19,11 @@ import androidx.sqlite.db.SupportSQLiteDatabase
         ClosingMenuEntryEntity::class,
         ClosingIngredientResultEntity::class,
         ClosingMenuRecipeEntity::class,
+        OnlineClosingEntity::class,
+        OnlineEntryEntity::class,
+        OnlineOperationEntity::class,
     ],
-    version = 6,
+    version = 7,
     exportSchema = true,
 )
 abstract class ClosingCountDatabase : RoomDatabase() {
@@ -29,6 +32,7 @@ abstract class ClosingCountDatabase : RoomDatabase() {
     abstract fun menuDao(): MenuDao
     abstract fun closingDao(): ClosingDao
     abstract fun backupDao(): BackupDao
+    abstract fun onlineSyncDao(): OnlineSyncDao
 
     companion object {
         @Volatile
@@ -46,6 +50,7 @@ abstract class ClosingCountDatabase : RoomDatabase() {
                     .addMigrations(Migration3To5)
                     .addMigrations(Migration4To5)
                     .addMigrations(Migration5To6)
+                    .addMigrations(Migration6To7)
                     .addCallback(
                         object : Callback() {
                             override fun onCreate(db: SupportSQLiteDatabase) {
