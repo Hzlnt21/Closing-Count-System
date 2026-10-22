@@ -1,0 +1,3 @@
+service/sql/*.sql text eol=lf
+service/**/*.mjs text eol=lf
+service/*.json text eol=lf

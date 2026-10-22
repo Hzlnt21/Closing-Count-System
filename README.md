@@ -2,6 +2,8 @@
 
 ## Pengembangan kolaborasi online
 
+CCS-02A menambahkan [fondasi service QA](service/README.md): akun individual, login/sesi, membership outlet, pengelolaan anggota oleh admin dan tanggal bisnis server. Backend `0.2.0-dev.1` terpisah dari versi Android. Aplikasi Android tetap offline0.1.1; catalog/closing bersama, transaksi sync, Room outbox dan integrasi UI belum tersedia.
+
 Branch `portfolio/closing-online` menyiapkan rilis portofolio berdasarkan keputusan satu closing bersama per outlet/tanggal, akun individual, draft offline, konflik terlihat dan supervisor review/lock/reopen. [Kontrak implementasi](docs/ONLINE_CONTRACT.md) merinci invariant, izin, outbox, idempotency, migrasi dan acceptance. [Usulan visual interaktif](docs/visual-review.html) merupakan preview desain yang perlu direview sebelum redesign Compose.
 
 Checkpoint spesifikasi `ccs-online-plan-r1` belum mengubah aplikasi Android 0.1.1. Kontrak/preview bukan bukti implementasi backend, sinkronisasi atau UAT. Perilaku baseline offline di bawah tetap berlaku sampai implementasi berikutnya terverifikasi. Provider/budget/deployment dan uji HP fisik tetap tahap program bersama.
