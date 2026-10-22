@@ -46,7 +46,11 @@ try{
    const hold=fixtureFile+'.hold-next';
    if(req.method==='POST'&&existsSync(hold)){
     const kind=readFileSync(hold,'utf8').trim();
-    const matches=kind==='quantity'?/\/entries\/[^/]+\/operations$/.test(req.url):kind==='lifecycle'&&/\/(submit|return|lock|reopen)$/.test(req.url);
+    const matches=kind==='quantity'?/\/entries\/[^/]+\/operations$/.test(req.url):
+     kind==='lifecycle'?/\/(submit|return|lock|reopen)$/.test(req.url):
+     kind==='settings'?/\/outlets\/[^/]+\/settings$/.test(req.url):
+     kind==='team'?/\/outlets\/[^/]+\/team-operations$/.test(req.url):
+     kind==='catalog'&&/\/outlets\/[^/]+\/catalog$/.test(req.url);
     if(matches){
      unlinkSync(hold);const end=res.end.bind(res);
      res.end=(...args)=>{

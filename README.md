@@ -1,10 +1,12 @@
 # Closing Count System
 
+Newest verification: [actual native recovery after six force-stops](docs/NATIVE_PROCESS_RECOVERY_R1.md), [six recovery screenshots](docs/native-recovery-review-r1.html). Five committed-operation replies are deliberately interrupted; the native screens recover their original intents with no duplicate receipts. A saved catalog draft also returns through the editor.
+
 Current connected checkpoint: [native catalog and recipe editor](docs/NATIVE_CATALOG_R1.md), following approved R2. Members read the catalog; administrators manage categories, ingredients, menus, active status, ordering and recipe selections. Valid row saves persist an editable local draft; publication freezes its identity and payload. The [typed catalog client foundation](docs/CATALOG_CLIENT_R1.md) supplies validation and receipt recovery.
 
 Already integrated: [native team administration](docs/NATIVE_TEAM_R1.md) ([eight screenshots](docs/team-review-r1.html)), [outlet settings](docs/NATIVE_SETTINGS_R1.md), [history/audit/immutable reports](docs/NATIVE_HISTORY_R1.md), [supervisor lifecycle](docs/NATIVE_LIFECYCLE_R1.md) and [draft/conflict UI](docs/NATIVE_DRAFT_R1.md), following [approved R2](docs/VISUAL_REFERENCE_R2.md). [Repository process recovery](docs/PROCESS_RECOVERY_R1.md) is separate evidence from full native restoration or physical-phone acceptance.
 
-The eight-project program remains in progress. Transfer, full native process recovery, responsive validation and complete demo packaging remain open. Android metadata stays0.1.1; the existing service stays0.2.0-dev.5. Older implementation descriptions below are historical checkpoints and scope context.
+The eight-project program remains in progress. Transfer, responsive validation, wider recovery permutations and complete demo packaging remain open. Android metadata stays0.1.1; the existing service stays0.2.0-dev.5. Older implementation descriptions below are historical checkpoints and scope context.
 
 ## Riwayat fondasi dan scope kolaborasi online
 

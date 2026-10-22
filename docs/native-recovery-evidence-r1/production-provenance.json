@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "baseline": "3737c6ab871da21103b62a1cab8791740b663b86",
+  "androidProductionSourceUnchanged": true,
+  "serviceImplementationSqlDependenciesUnchanged": true,
+  "productApkIdenticalToNativeCatalogCheckpoint": true,
+  "productApkSha256": "2DBC353F39977A607A5CD040CBB581514012D2D5FC14148154C0664096D9C12A",
+  "installedApksMatchBuildFiles": true
+}

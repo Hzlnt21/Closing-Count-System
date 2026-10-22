@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased - native process recovery R1, 2026-10-23
+
+- Added native acceptance across six actual force-stops: quantity, submit, settings, team creation, editable catalog draft and committed catalog publication.
+- Dedicated QA fixture can hold successful settings/team/catalog replies after commit. Independent PID, installed APK fingerprints and PostgreSQL evidence verify same-ID recovery without duplicate mutation.
+- Eleven phases, five normal continuation runs and six inspected recovery screenshots. [Evidence, harness finalization and limits](docs/NATIVE_PROCESS_RECOVERY_R1.md).
+
 ## Unreleased - native catalog R1, 2026-10-23
 
 - Added role-based native category/ingredient/menu/recipe editing, search, bounded ingredient selection and reference/deactivation guards in the approved R2 direction.
