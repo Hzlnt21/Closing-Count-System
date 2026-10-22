@@ -44,3 +44,18 @@ data class OnlineOperationEntity(
     val status: String,
     val errorCode: String?,
 )
+
+@Entity(tableName = "online_lifecycle_operations", primaryKeys = ["scope", "closingId"],
+    indices = [Index(value = ["operationId"], unique = true)])
+data class OnlineLifecycleEntity(
+    val scope: String,
+    val closingId: String,
+    val operationId: String,
+    val action: String,
+    val generation: Long,
+    val expectedRevision: Long,
+    val reason: String,
+    val status: String,
+    val wasSent: Boolean,
+    val errorCode: String?,
+)

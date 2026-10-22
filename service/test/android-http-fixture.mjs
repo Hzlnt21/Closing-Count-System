@@ -16,13 +16,13 @@ const out=process.env.CCS_HTTP_EVIDENCE_DIR,fixtureFile=process.env.CCS_HTTP_FIX
 if(!out||!fixtureFile||!path.isAbsolute(out)||!path.isAbsolute(fixtureFile))throw Error('Explicit absolute QA output paths required');
 mkdirSync(out,{recursive:true});
 let server,stopping=false,stopTimer;const internal=[];
-const outlet=randomUUID(),admin=randomUUID(),a=randomUUID(),b=randomUUID(),prefix='qah'+Date.now().toString(36),password='QA Http Closing!2026';
+const outlet=randomUUID(),admin=randomUUID(),a=randomUUID(),b=randomUUID(),supervisor=randomUUID(),prefix='qah'+Date.now().toString(36),password='QA Http Closing!2026';
 try{
  await assertOwnedDatabase(pool,config);await migrate(pool,config);
  const hash=await hashPassword(password),catalog=normalizeCatalog(catalogFixture().catalog);
  const db=await pool.connect();try{
   await db.query('BEGIN');await db.query('INSERT INTO ccs.outlets(id,name) VALUES ($1,$2)',[outlet,'HTTP QA '+prefix]);
-  for(const [id,suffix,role] of [[admin,'admin','ADMIN'],[a,'rani','EMPLOYEE'],[b,'dimas','EMPLOYEE']]){
+  for(const [id,suffix,role] of [[admin,'admin','ADMIN'],[a,'rani','EMPLOYEE'],[b,'dimas','EMPLOYEE'],[supervisor,'arif','SUPERVISOR']]){
    await db.query('INSERT INTO ccs.accounts(id,username,display_name,password_hash) VALUES ($1,$2,$3,$4)',[id,prefix+'.'+suffix,'Dummy '+suffix,hash]);
    await db.query('INSERT INTO ccs.memberships(outlet_id,account_id,role) VALUES ($1,$2,$3)',[outlet,id,role]);
   }
@@ -33,9 +33,9 @@ try{
  let tick=0;
  server=await createApp({pool,limiter:new LoginLimiter({now:()=>Date.now()+(tick++)*61000}),onInternalError:e=>internal.push(e.requestId)});
  await new Promise((resolve,reject)=>{server.once('error',reject);server.listen(4371,'127.0.0.1',resolve)});
- const fixture={origin:'http://10.0.2.2:4371',outlet,employee:prefix+'.rani',colleague:prefix+'.dimas',password};
+ const fixture={origin:'http://10.0.2.2:4371',outlet,employee:prefix+'.rani',colleague:prefix+'.dimas',supervisor:prefix+'.arif',password};
  writeFileSync(fixtureFile,JSON.stringify(fixture,null,2));
- writeFileSync(out+'/fixture-identity.json',JSON.stringify({outlet,employee:a,colleague:b,ownedDatabase:true,retained:true,limiterClockInjected:true},null,2));
+ writeFileSync(out+'/fixture-identity.json',JSON.stringify({outlet,employee:a,colleague:b,supervisor,ownedDatabase:true,retained:true,limiterClockInjected:true},null,2));
  console.log(JSON.stringify({ready:true,port:4371,outlet,ownedDatabase:true,fixtureCredentialsPrinted:false}));
  process.stdin.resume();process.stdin.on('data',data=>{if(data.toString().trim()==='stop')stop().catch(()=>process.exitCode=1)});
  process.on('SIGINT',()=>stop());process.on('SIGTERM',()=>stop());

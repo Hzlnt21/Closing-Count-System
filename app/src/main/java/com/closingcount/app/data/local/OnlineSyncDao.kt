@@ -11,6 +11,84 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 abstract class OnlineSyncDao {
+    @Query("SELECT * FROM online_lifecycle_operations WHERE scope=:scope AND closingId=:closingId")
+    abstract suspend fun lifecycle(scope: String, closingId: String): OnlineLifecycleEntity?
+
+    @Query("SELECT * FROM online_lifecycle_operations WHERE scope=:scope AND closingId=:closingId")
+    abstract fun observeLifecycle(scope: String, closingId: String): Flow<OnlineLifecycleEntity?>
+
+    @Insert
+    protected abstract suspend fun insertLifecycle(value: OnlineLifecycleEntity)
+
+    @Update
+    protected abstract suspend fun updateLifecycle(value: OnlineLifecycleEntity)
+
+    @Query("DELETE FROM online_lifecycle_operations WHERE scope=:scope AND closingId=:closingId AND operationId=:operationId")
+    protected abstract suspend fun deleteLifecycle(scope: String, closingId: String, operationId: String)
+
+    @Transaction
+    open suspend fun prepareLifecycle(scope: String, closingId: String, action: String, reason: String,
+        reviewedGeneration: Long, reviewedRevision: Long, role: String): String {
+        require(action in setOf("submit", "return", "lock", "reopen"))
+        require(role in setOf("EMPLOYEE", "SUPERVISOR", "ADMIN"))
+        check(action == "submit" || role != "EMPLOYEE")
+        check(lifecycle(scope, closingId) == null && operations(scope, closingId).isEmpty())
+        val rows = entries(scope, closingId)
+        check(rows.isNotEmpty() && rows.all { it.status == "SYNCED" })
+        val header = requireNotNull(closing(scope, closingId))
+        check(header.generation == reviewedGeneration && header.revision == reviewedRevision) { "REVIEW_CHANGED" }
+        check(header.state == lifecycleSourceState(action))
+        val trimmed = reason.trim()
+        if (action in setOf("return", "reopen")) require(trimmed.isNotBlank() && trimmed.length <= 500)
+        else require(trimmed.isEmpty())
+        val id = UUID.randomUUID().toString()
+        insertLifecycle(OnlineLifecycleEntity(scope, closingId, id, action, reviewedGeneration, reviewedRevision,
+            trimmed, "QUEUED", false, null))
+        return id
+    }
+
+    @Transaction
+    open suspend fun nextLifecycle(scope: String, closingId: String): OnlineLifecycleEntity? {
+        val op = lifecycle(scope, closingId) ?: return null
+        if (op.status !in setOf("QUEUED", "SENT")) return null
+        check(operations(scope, closingId).isEmpty())
+        val header = requireNotNull(closing(scope, closingId))
+        if (!op.wasSent && (header.generation != op.generation || header.revision != op.expectedRevision ||
+                header.state != lifecycleSourceState(op.action))) {
+            updateLifecycle(op.copy(status = "CONFLICT", errorCode = "LIFECYCLE_REVIEW_CHANGED")); return null
+        }
+        return op.copy(status = "SENT", wasSent = true).also { updateLifecycle(it) }
+    }
+
+    @Transaction
+    open suspend fun blockLifecycle(scope: String, closingId: String, operationId: String, status: String, code: String) {
+        require(status in setOf("AUTH_REQUIRED", "CONFLICT", "FAILED"))
+        val op = lifecycle(scope, closingId) ?: return
+        check(op.operationId == operationId)
+        updateLifecycle(op.copy(status = status, errorCode = code))
+    }
+
+    @Transaction
+    open suspend fun completeLifecycle(scope: String, closingId: String, operationId: String, ackState: String,
+        ackGeneration: Long, ackRevision: Long, remote: OnlineClosingEntity, rows: List<OnlineEntryEntity>) {
+        val op = lifecycle(scope, closingId) ?: return
+        if (op.operationId != operationId) return // an old callback must not remove a new action
+        check(op.status == "SENT" && op.wasSent)
+        val expectedState = when (op.action) { "submit" -> "SUBMITTED"; "lock" -> "LOCKED"; else -> "DRAFT" }
+        val nextGeneration = op.generation + if (op.action in setOf("return", "reopen")) 1 else 0
+        require(ackState == expectedState && ackGeneration == nextGeneration && ackRevision == op.expectedRevision + 1)
+        require(remote.scope == scope && remote.closingId == closingId && remote.generation >= ackGeneration && remote.revision >= ackRevision)
+        pull(remote, rows)
+        deleteLifecycle(scope, closingId, operationId)
+    }
+
+    @Transaction
+    open suspend fun dismissLifecycle(scope: String, closingId: String, operationId: String) {
+        val op = requireNotNull(lifecycle(scope, closingId))
+        check(op.operationId == operationId && op.status in setOf("CONFLICT", "FAILED"))
+        deleteLifecycle(scope, closingId, operationId)
+    }
+
     @Query("SELECT * FROM online_closings WHERE scope=:scope")
     abstract fun observeClosings(scope: String): Flow<List<OnlineClosingEntity>>
 
@@ -35,7 +113,7 @@ abstract class OnlineSyncDao {
         }
     }
 
-    @Query("SELECT COUNT(*) FROM online_operations WHERE substr(scope,1,length(:accountPrefix))=:accountPrefix")
+    @Query("SELECT (SELECT COUNT(*) FROM online_operations WHERE substr(scope,1,length(:accountPrefix))=:accountPrefix) + (SELECT COUNT(*) FROM online_lifecycle_operations WHERE substr(scope,1,length(:accountPrefix))=:accountPrefix)")
     abstract suspend fun pendingForAccount(accountPrefix: String): Int
 
     @Query("SELECT closingId FROM online_closings WHERE scope=:scope")
@@ -101,6 +179,7 @@ abstract class OnlineSyncDao {
     @Transaction
     open suspend fun edit(scope: String, closingId: String, menuId: String, quantity: Int): String {
         require(quantity in 0..9999)
+        check(lifecycle(scope, closingId) == null) { "LIFECYCLE_PENDING" }
         val header = requireNotNull(closing(scope, closingId))
         check(header.state == "DRAFT")
         val current = requireNotNull(entry(scope, closingId, menuId))
@@ -174,6 +253,9 @@ abstract class OnlineSyncDao {
     // Called only after login to the SAME scope. SENT operations keep their original payload/base.
     @Transaction
     open suspend fun resumeAfterLogin(scope: String, closingId: String) {
+        lifecycle(scope, closingId)?.takeIf { it.status == "AUTH_REQUIRED" }?.let {
+            updateLifecycle(it.copy(status = if (it.wasSent) "SENT" else "QUEUED", errorCode = null))
+        }
         for (op in operations(scope, closingId).filter { it.status == "AUTH_REQUIRED" }) {
             updateOperation(op.copy(status = if (op.expectedRevision == null) "QUEUED" else "SENT", errorCode = null))
             entry(scope, closingId, op.menuId)?.let { putEntry(it.copy(status = "PENDING")) }
@@ -182,6 +264,7 @@ abstract class OnlineSyncDao {
 
     @Transaction
     open suspend fun resolve(scope: String, closingId: String, menuId: String, reapply: Boolean): String? {
+        check(lifecycle(scope, closingId) == null) { "LIFECYCLE_PENDING" }
         val current = requireNotNull(entry(scope, closingId, menuId))
         check(current.status in setOf("CONFLICT", "FAILED"))
         val queue = operations(scope, closingId).filter { it.menuId == menuId }
@@ -190,5 +273,10 @@ abstract class OnlineSyncDao {
         for (op in queue) deleteOperation(op.sequence)
         putEntry(current.copy(localQuantity = current.serverQuantity, status = "SYNCED"))
         return if (reapply) edit(scope, closingId, menuId, current.localQuantity) else null
+    }
+
+    private fun lifecycleSourceState(action: String) = when (action) {
+        "submit" -> "DRAFT"; "return", "lock" -> "SUBMITTED"; "reopen" -> "LOCKED"
+        else -> error("Unsupported lifecycle action")
     }
 }

@@ -1,0 +1,731 @@
+{
+  "passed": true,
+  "mode": "regression",
+  "outlet": "e7bee9a5-56ff-413a-a86f-ead2c60be278",
+  "closings": [
+    {
+      "id": "5c3c9995-fa2d-413d-90a4-ab70d69a95d7",
+      "business_date": "2026-10-01",
+      "state": "DRAFT",
+      "generation": "1",
+      "revision": "2"
+    },
+    {
+      "id": "947be257-364c-4d28-a552-e7992143c2cf",
+      "business_date": "2026-10-02",
+      "state": "DRAFT",
+      "generation": "1",
+      "revision": "1"
+    },
+    {
+      "id": "8ca7f1b1-51e8-489b-b771-30e76e11c846",
+      "business_date": "2026-10-03",
+      "state": "DRAFT",
+      "generation": "1",
+      "revision": "1"
+    },
+    {
+      "id": "ae4dcc65-948a-4706-a4fb-dd9ff9466aa7",
+      "business_date": "2026-10-04",
+      "state": "DRAFT",
+      "generation": "1",
+      "revision": "1"
+    },
+    {
+      "id": "d92383ea-3d82-4074-9651-77a0bd3a642d",
+      "business_date": "2026-10-05",
+      "state": "DRAFT",
+      "generation": "1",
+      "revision": "1"
+    },
+    {
+      "id": "11aca9c0-f6e1-4ce3-8cf1-f987144a660b",
+      "business_date": "2026-10-06",
+      "state": "DRAFT",
+      "generation": "1",
+      "revision": "3"
+    },
+    {
+      "id": "69cf2f3a-02a6-4b2b-baa6-4c6c462fdd38",
+      "business_date": "2026-10-10",
+      "state": "SUBMITTED",
+      "generation": "1",
+      "revision": "1"
+    },
+    {
+      "id": "84e40284-2eb4-4524-9ba9-ce91a189a49e",
+      "business_date": "2026-10-11",
+      "state": "DRAFT",
+      "generation": "3",
+      "revision": "7"
+    },
+    {
+      "id": "b45d77ae-83fa-45e5-95ca-b256510dae13",
+      "business_date": "2026-10-12",
+      "state": "SUBMITTED",
+      "generation": "1",
+      "revision": "2"
+    },
+    {
+      "id": "1e4f0175-ce66-4505-ad17-7a167cc7f9e9",
+      "business_date": "2026-10-22",
+      "state": "DRAFT",
+      "generation": "1",
+      "revision": "2"
+    }
+  ],
+  "entries": [
+    {
+      "business_date": "2026-10-01",
+      "menu_id": "75d51493-cef5-43f8-92df-03eb1c1ec7c5",
+      "quantity": 3,
+      "revision": "2",
+      "updated_by": "f1604f7c-ca95-47ce-9aad-3fed71108287"
+    },
+    {
+      "business_date": "2026-10-01",
+      "menu_id": "cd05cbce-46b1-466f-9a4e-32d2f82c6344",
+      "quantity": 0,
+      "revision": "0",
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-10-02",
+      "menu_id": "75d51493-cef5-43f8-92df-03eb1c1ec7c5",
+      "quantity": 7,
+      "revision": "1",
+      "updated_by": "427d6c77-4d70-4d0e-8f5d-5cb1711327b0"
+    },
+    {
+      "business_date": "2026-10-02",
+      "menu_id": "cd05cbce-46b1-466f-9a4e-32d2f82c6344",
+      "quantity": 0,
+      "revision": "0",
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-10-03",
+      "menu_id": "75d51493-cef5-43f8-92df-03eb1c1ec7c5",
+      "quantity": 9,
+      "revision": "1",
+      "updated_by": "427d6c77-4d70-4d0e-8f5d-5cb1711327b0"
+    },
+    {
+      "business_date": "2026-10-03",
+      "menu_id": "cd05cbce-46b1-466f-9a4e-32d2f82c6344",
+      "quantity": 0,
+      "revision": "0",
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-10-04",
+      "menu_id": "75d51493-cef5-43f8-92df-03eb1c1ec7c5",
+      "quantity": 5,
+      "revision": "1",
+      "updated_by": "427d6c77-4d70-4d0e-8f5d-5cb1711327b0"
+    },
+    {
+      "business_date": "2026-10-04",
+      "menu_id": "cd05cbce-46b1-466f-9a4e-32d2f82c6344",
+      "quantity": 0,
+      "revision": "0",
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-10-05",
+      "menu_id": "75d51493-cef5-43f8-92df-03eb1c1ec7c5",
+      "quantity": 17,
+      "revision": "1",
+      "updated_by": "427d6c77-4d70-4d0e-8f5d-5cb1711327b0"
+    },
+    {
+      "business_date": "2026-10-05",
+      "menu_id": "cd05cbce-46b1-466f-9a4e-32d2f82c6344",
+      "quantity": 0,
+      "revision": "0",
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-10-06",
+      "menu_id": "75d51493-cef5-43f8-92df-03eb1c1ec7c5",
+      "quantity": 3,
+      "revision": "3",
+      "updated_by": "f1604f7c-ca95-47ce-9aad-3fed71108287"
+    },
+    {
+      "business_date": "2026-10-06",
+      "menu_id": "cd05cbce-46b1-466f-9a4e-32d2f82c6344",
+      "quantity": 0,
+      "revision": "0",
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-10-10",
+      "menu_id": "75d51493-cef5-43f8-92df-03eb1c1ec7c5",
+      "quantity": 0,
+      "revision": "0",
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-10-10",
+      "menu_id": "cd05cbce-46b1-466f-9a4e-32d2f82c6344",
+      "quantity": 0,
+      "revision": "0",
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-10-11",
+      "menu_id": "75d51493-cef5-43f8-92df-03eb1c1ec7c5",
+      "quantity": 6,
+      "revision": "2",
+      "updated_by": "427d6c77-4d70-4d0e-8f5d-5cb1711327b0"
+    },
+    {
+      "business_date": "2026-10-11",
+      "menu_id": "cd05cbce-46b1-466f-9a4e-32d2f82c6344",
+      "quantity": 0,
+      "revision": "0",
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-10-12",
+      "menu_id": "75d51493-cef5-43f8-92df-03eb1c1ec7c5",
+      "quantity": 5,
+      "revision": "1",
+      "updated_by": "f1604f7c-ca95-47ce-9aad-3fed71108287"
+    },
+    {
+      "business_date": "2026-10-12",
+      "menu_id": "cd05cbce-46b1-466f-9a4e-32d2f82c6344",
+      "quantity": 0,
+      "revision": "0",
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-10-22",
+      "menu_id": "75d51493-cef5-43f8-92df-03eb1c1ec7c5",
+      "quantity": 12,
+      "revision": "2",
+      "updated_by": "f1604f7c-ca95-47ce-9aad-3fed71108287"
+    },
+    {
+      "business_date": "2026-10-22",
+      "menu_id": "cd05cbce-46b1-466f-9a4e-32d2f82c6344",
+      "quantity": 0,
+      "revision": "0",
+      "updated_by": null
+    }
+  ],
+  "receipts": [
+    {
+      "operation_id": "19730f67-2055-4595-ba9c-464c9f5d0001",
+      "actor_id": "4faa852e-9c58-4041-8312-56a4f689664d",
+      "state": "DRAFT",
+      "closing_id": "84e40284-2eb4-4524-9ba9-ce91a189a49e"
+    },
+    {
+      "operation_id": "27b23d4b-746e-4dae-a0e5-301f9104f422",
+      "actor_id": "427d6c77-4d70-4d0e-8f5d-5cb1711327b0",
+      "state": null,
+      "closing_id": "11aca9c0-f6e1-4ce3-8cf1-f987144a660b"
+    },
+    {
+      "operation_id": "2f830141-16e9-41b1-9288-2395138988f6",
+      "actor_id": "f1604f7c-ca95-47ce-9aad-3fed71108287",
+      "state": null,
+      "closing_id": "1e4f0175-ce66-4505-ad17-7a167cc7f9e9"
+    },
+    {
+      "operation_id": "33830588-a37f-48dd-ad7e-5f90db026824",
+      "actor_id": "f1604f7c-ca95-47ce-9aad-3fed71108287",
+      "state": null,
+      "closing_id": "b45d77ae-83fa-45e5-95ca-b256510dae13"
+    },
+    {
+      "operation_id": "3818de7a-b344-4bc6-b228-0a9d077fc185",
+      "actor_id": "427d6c77-4d70-4d0e-8f5d-5cb1711327b0",
+      "state": "SUBMITTED",
+      "closing_id": "84e40284-2eb4-4524-9ba9-ce91a189a49e"
+    },
+    {
+      "operation_id": "3adebf59-d2a0-4e8e-a6ca-35aef50499c8",
+      "actor_id": "427d6c77-4d70-4d0e-8f5d-5cb1711327b0",
+      "state": null,
+      "closing_id": "5c3c9995-fa2d-413d-90a4-ab70d69a95d7"
+    },
+    {
+      "operation_id": "4510cb86-a45d-4fdf-9a17-23d0f300aecc",
+      "actor_id": "427d6c77-4d70-4d0e-8f5d-5cb1711327b0",
+      "state": null,
+      "closing_id": "ae4dcc65-948a-4706-a4fb-dd9ff9466aa7"
+    },
+    {
+      "operation_id": "4d419bf5-3c21-4fdf-a41b-aa6de96cf040",
+      "actor_id": "427d6c77-4d70-4d0e-8f5d-5cb1711327b0",
+      "state": null,
+      "closing_id": "84e40284-2eb4-4524-9ba9-ce91a189a49e"
+    },
+    {
+      "operation_id": "52eac2b4-9cd8-4424-b23e-8240bba9e4d4",
+      "actor_id": "427d6c77-4d70-4d0e-8f5d-5cb1711327b0",
+      "state": "SUBMITTED",
+      "closing_id": "b45d77ae-83fa-45e5-95ca-b256510dae13"
+    },
+    {
+      "operation_id": "65ce8481-725b-4d2a-a535-6acffa7c3c2f",
+      "actor_id": "427d6c77-4d70-4d0e-8f5d-5cb1711327b0",
+      "state": null,
+      "closing_id": "947be257-364c-4d28-a552-e7992143c2cf"
+    },
+    {
+      "operation_id": "69447755-788e-4f9d-8fe0-a051e04480d7",
+      "actor_id": "f1604f7c-ca95-47ce-9aad-3fed71108287",
+      "state": null,
+      "closing_id": "5c3c9995-fa2d-413d-90a4-ab70d69a95d7"
+    },
+    {
+      "operation_id": "6c37fe9e-e862-4e02-8317-934d8665a59c",
+      "actor_id": "4faa852e-9c58-4041-8312-56a4f689664d",
+      "state": "DRAFT",
+      "closing_id": "84e40284-2eb4-4524-9ba9-ce91a189a49e"
+    },
+    {
+      "operation_id": "6cdffe1f-c340-48e0-92af-a024de7b3c99",
+      "actor_id": "427d6c77-4d70-4d0e-8f5d-5cb1711327b0",
+      "state": "SUBMITTED",
+      "closing_id": "69cf2f3a-02a6-4b2b-baa6-4c6c462fdd38"
+    },
+    {
+      "operation_id": "8fd728b0-8909-406f-96a1-eed5a5f7ed1b",
+      "actor_id": "427d6c77-4d70-4d0e-8f5d-5cb1711327b0",
+      "state": null,
+      "closing_id": "11aca9c0-f6e1-4ce3-8cf1-f987144a660b"
+    },
+    {
+      "operation_id": "afb9d157-c494-4385-8344-350635181470",
+      "actor_id": "427d6c77-4d70-4d0e-8f5d-5cb1711327b0",
+      "state": null,
+      "closing_id": "1e4f0175-ce66-4505-ad17-7a167cc7f9e9"
+    },
+    {
+      "operation_id": "d8000859-34dd-4f09-9556-3f8bf705e54b",
+      "actor_id": "4faa852e-9c58-4041-8312-56a4f689664d",
+      "state": "LOCKED",
+      "closing_id": "84e40284-2eb4-4524-9ba9-ce91a189a49e"
+    },
+    {
+      "operation_id": "ea332dd4-2e59-410c-a9fc-1b48d5a40da6",
+      "actor_id": "f1604f7c-ca95-47ce-9aad-3fed71108287",
+      "state": null,
+      "closing_id": "11aca9c0-f6e1-4ce3-8cf1-f987144a660b"
+    },
+    {
+      "operation_id": "ec65b5f3-c356-47d7-b6b6-d46bc98411f1",
+      "actor_id": "427d6c77-4d70-4d0e-8f5d-5cb1711327b0",
+      "state": null,
+      "closing_id": "8ca7f1b1-51e8-489b-b771-30e76e11c846"
+    },
+    {
+      "operation_id": "eff21d21-b365-47ad-8d76-31ce98f74b18",
+      "actor_id": "427d6c77-4d70-4d0e-8f5d-5cb1711327b0",
+      "state": null,
+      "closing_id": "84e40284-2eb4-4524-9ba9-ce91a189a49e"
+    },
+    {
+      "operation_id": "f223ac61-0e1f-4767-a5fd-0bfbe45cf922",
+      "actor_id": "427d6c77-4d70-4d0e-8f5d-5cb1711327b0",
+      "state": null,
+      "closing_id": "d92383ea-3d82-4074-9651-77a0bd3a642d"
+    },
+    {
+      "operation_id": "f7a8592f-c6cb-4ac3-9535-181cb611d3eb",
+      "actor_id": "427d6c77-4d70-4d0e-8f5d-5cb1711327b0",
+      "state": "SUBMITTED",
+      "closing_id": "84e40284-2eb4-4524-9ba9-ce91a189a49e"
+    }
+  ],
+  "audit": [
+    {
+      "business_date": "2026-10-22",
+      "action": "ENTRY_UPDATED",
+      "actor_id": "427d6c77-4d70-4d0e-8f5d-5cb1711327b0",
+      "operation_id": "afb9d157-c494-4385-8344-350635181470",
+      "generation": "1",
+      "closing_revision": "1",
+      "reason": null,
+      "before_quantity": 0,
+      "after_quantity": 8
+    },
+    {
+      "business_date": "2026-10-22",
+      "action": "ENTRY_UPDATED",
+      "actor_id": "f1604f7c-ca95-47ce-9aad-3fed71108287",
+      "operation_id": "2f830141-16e9-41b1-9288-2395138988f6",
+      "generation": "1",
+      "closing_revision": "2",
+      "reason": null,
+      "before_quantity": 8,
+      "after_quantity": 12
+    },
+    {
+      "business_date": "2026-10-01",
+      "action": "ENTRY_UPDATED",
+      "actor_id": "427d6c77-4d70-4d0e-8f5d-5cb1711327b0",
+      "operation_id": "3adebf59-d2a0-4e8e-a6ca-35aef50499c8",
+      "generation": "1",
+      "closing_revision": "1",
+      "reason": null,
+      "before_quantity": 0,
+      "after_quantity": 2
+    },
+    {
+      "business_date": "2026-10-01",
+      "action": "ENTRY_UPDATED",
+      "actor_id": "f1604f7c-ca95-47ce-9aad-3fed71108287",
+      "operation_id": "69447755-788e-4f9d-8fe0-a051e04480d7",
+      "generation": "1",
+      "closing_revision": "2",
+      "reason": null,
+      "before_quantity": 2,
+      "after_quantity": 3
+    },
+    {
+      "business_date": "2026-10-06",
+      "action": "ENTRY_UPDATED",
+      "actor_id": "427d6c77-4d70-4d0e-8f5d-5cb1711327b0",
+      "operation_id": "8fd728b0-8909-406f-96a1-eed5a5f7ed1b",
+      "generation": "1",
+      "closing_revision": "1",
+      "reason": null,
+      "before_quantity": 0,
+      "after_quantity": 2
+    },
+    {
+      "business_date": "2026-10-06",
+      "action": "ENTRY_UPDATED",
+      "actor_id": "427d6c77-4d70-4d0e-8f5d-5cb1711327b0",
+      "operation_id": "27b23d4b-746e-4dae-a0e5-301f9104f422",
+      "generation": "1",
+      "closing_revision": "2",
+      "reason": null,
+      "before_quantity": 2,
+      "after_quantity": 5
+    },
+    {
+      "business_date": "2026-10-06",
+      "action": "ENTRY_UPDATED",
+      "actor_id": "f1604f7c-ca95-47ce-9aad-3fed71108287",
+      "operation_id": "ea332dd4-2e59-410c-a9fc-1b48d5a40da6",
+      "generation": "1",
+      "closing_revision": "3",
+      "reason": null,
+      "before_quantity": 5,
+      "after_quantity": 3
+    },
+    {
+      "business_date": "2026-10-02",
+      "action": "ENTRY_UPDATED",
+      "actor_id": "427d6c77-4d70-4d0e-8f5d-5cb1711327b0",
+      "operation_id": "65ce8481-725b-4d2a-a535-6acffa7c3c2f",
+      "generation": "1",
+      "closing_revision": "1",
+      "reason": null,
+      "before_quantity": 0,
+      "after_quantity": 7
+    },
+    {
+      "business_date": "2026-10-03",
+      "action": "ENTRY_UPDATED",
+      "actor_id": "427d6c77-4d70-4d0e-8f5d-5cb1711327b0",
+      "operation_id": "ec65b5f3-c356-47d7-b6b6-d46bc98411f1",
+      "generation": "1",
+      "closing_revision": "1",
+      "reason": null,
+      "before_quantity": 0,
+      "after_quantity": 9
+    },
+    {
+      "business_date": "2026-10-05",
+      "action": "ENTRY_UPDATED",
+      "actor_id": "427d6c77-4d70-4d0e-8f5d-5cb1711327b0",
+      "operation_id": "f223ac61-0e1f-4767-a5fd-0bfbe45cf922",
+      "generation": "1",
+      "closing_revision": "1",
+      "reason": null,
+      "before_quantity": 0,
+      "after_quantity": 17
+    },
+    {
+      "business_date": "2026-10-04",
+      "action": "ENTRY_UPDATED",
+      "actor_id": "427d6c77-4d70-4d0e-8f5d-5cb1711327b0",
+      "operation_id": "4510cb86-a45d-4fdf-9a17-23d0f300aecc",
+      "generation": "1",
+      "closing_revision": "1",
+      "reason": null,
+      "before_quantity": 0,
+      "after_quantity": 5
+    },
+    {
+      "business_date": "2026-10-12",
+      "action": "ENTRY_UPDATED",
+      "actor_id": "f1604f7c-ca95-47ce-9aad-3fed71108287",
+      "operation_id": "33830588-a37f-48dd-ad7e-5f90db026824",
+      "generation": "1",
+      "closing_revision": "1",
+      "reason": null,
+      "before_quantity": 0,
+      "after_quantity": 5
+    },
+    {
+      "business_date": "2026-10-12",
+      "action": "SUBMIT",
+      "actor_id": "427d6c77-4d70-4d0e-8f5d-5cb1711327b0",
+      "operation_id": "52eac2b4-9cd8-4424-b23e-8240bba9e4d4",
+      "generation": "1",
+      "closing_revision": "2",
+      "reason": null,
+      "before_quantity": null,
+      "after_quantity": null
+    },
+    {
+      "business_date": "2026-10-10",
+      "action": "SUBMIT",
+      "actor_id": "427d6c77-4d70-4d0e-8f5d-5cb1711327b0",
+      "operation_id": "6cdffe1f-c340-48e0-92af-a024de7b3c99",
+      "generation": "1",
+      "closing_revision": "1",
+      "reason": null,
+      "before_quantity": null,
+      "after_quantity": null
+    },
+    {
+      "business_date": "2026-10-11",
+      "action": "ENTRY_UPDATED",
+      "actor_id": "427d6c77-4d70-4d0e-8f5d-5cb1711327b0",
+      "operation_id": "eff21d21-b365-47ad-8d76-31ce98f74b18",
+      "generation": "1",
+      "closing_revision": "1",
+      "reason": null,
+      "before_quantity": 0,
+      "after_quantity": 4
+    },
+    {
+      "business_date": "2026-10-11",
+      "action": "SUBMIT",
+      "actor_id": "427d6c77-4d70-4d0e-8f5d-5cb1711327b0",
+      "operation_id": "f7a8592f-c6cb-4ac3-9535-181cb611d3eb",
+      "generation": "1",
+      "closing_revision": "2",
+      "reason": null,
+      "before_quantity": null,
+      "after_quantity": null
+    },
+    {
+      "business_date": "2026-10-11",
+      "action": "RETURN",
+      "actor_id": "4faa852e-9c58-4041-8312-56a4f689664d",
+      "operation_id": "6c37fe9e-e862-4e02-8317-934d8665a59c",
+      "generation": "2",
+      "closing_revision": "3",
+      "reason": "Periksa rekap",
+      "before_quantity": null,
+      "after_quantity": null
+    },
+    {
+      "business_date": "2026-10-11",
+      "action": "SUBMIT",
+      "actor_id": "427d6c77-4d70-4d0e-8f5d-5cb1711327b0",
+      "operation_id": "3818de7a-b344-4bc6-b228-0a9d077fc185",
+      "generation": "2",
+      "closing_revision": "4",
+      "reason": null,
+      "before_quantity": null,
+      "after_quantity": null
+    },
+    {
+      "business_date": "2026-10-11",
+      "action": "LOCK",
+      "actor_id": "4faa852e-9c58-4041-8312-56a4f689664d",
+      "operation_id": "d8000859-34dd-4f09-9556-3f8bf705e54b",
+      "generation": "2",
+      "closing_revision": "5",
+      "reason": null,
+      "before_quantity": null,
+      "after_quantity": null
+    },
+    {
+      "business_date": "2026-10-11",
+      "action": "REOPEN",
+      "actor_id": "4faa852e-9c58-4041-8312-56a4f689664d",
+      "operation_id": "19730f67-2055-4595-ba9c-464c9f5d0001",
+      "generation": "3",
+      "closing_revision": "6",
+      "reason": "Koreksi jumlah",
+      "before_quantity": null,
+      "after_quantity": null
+    },
+    {
+      "business_date": "2026-10-11",
+      "action": "ENTRY_UPDATED",
+      "actor_id": "427d6c77-4d70-4d0e-8f5d-5cb1711327b0",
+      "operation_id": "4d419bf5-3c21-4fdf-a41b-aa6de96cf040",
+      "generation": "3",
+      "closing_revision": "7",
+      "reason": null,
+      "before_quantity": 4,
+      "after_quantity": 6
+    }
+  ],
+  "reports": [
+    {
+      "generation": "2",
+      "closing_revision": "5",
+      "locked_by": "4faa852e-9c58-4041-8312-56a4f689664d",
+      "snapshot": {
+        "id": "f332bcb0-0c27-456c-9cb3-3a9f82037613",
+        "format": "closing-count-report",
+        "closing": {
+          "id": "84e40284-2eb4-4524-9ba9-ce91a189a49e",
+          "state": "LOCKED",
+          "catalog": {
+            "menus": [
+              {
+                "id": "75d51493-cef5-43f8-92df-03eb1c1ec7c5",
+                "name": "Latte",
+                "active": true,
+                "sortOrder": 1,
+                "categoryId": "d6dd26e2-8941-4166-ace3-69c4853da131",
+                "ingredientIds": [
+                  "2bca8370-9563-4308-8ad2-93f04b72f469",
+                  "d41c4723-38be-47e9-9ad4-98f02497a136"
+                ]
+              },
+              {
+                "id": "cd05cbce-46b1-466f-9a4e-32d2f82c6344",
+                "name": "Cappuccino",
+                "active": true,
+                "sortOrder": 0,
+                "categoryId": "d6dd26e2-8941-4166-ace3-69c4853da131",
+                "ingredientIds": [
+                  "0fbfac12-7362-477d-a506-df360ff8d8a5",
+                  "2bca8370-9563-4308-8ad2-93f04b72f469",
+                  "d41c4723-38be-47e9-9ad4-98f02497a136"
+                ]
+              }
+            ],
+            "ingredients": [
+              {
+                "id": "0fbfac12-7362-477d-a506-df360ff8d8a5",
+                "name": "Powder cokelat",
+                "active": true,
+                "sortOrder": 2,
+                "categoryId": "c9572abe-8599-4843-9525-c2fb02d8aa75"
+              },
+              {
+                "id": "2bca8370-9563-4308-8ad2-93f04b72f469",
+                "name": "Biji kopi",
+                "active": true,
+                "sortOrder": 0,
+                "categoryId": "c9572abe-8599-4843-9525-c2fb02d8aa75"
+              },
+              {
+                "id": "d41c4723-38be-47e9-9ad4-98f02497a136",
+                "name": "Fresh milk",
+                "active": true,
+                "sortOrder": 1,
+                "categoryId": "c9572abe-8599-4843-9525-c2fb02d8aa75"
+              }
+            ],
+            "menuCategories": [
+              {
+                "id": "d6dd26e2-8941-4166-ace3-69c4853da131",
+                "name": "Coffee",
+                "sortOrder": 0
+              }
+            ],
+            "ingredientCategories": [
+              {
+                "id": "c9572abe-8599-4843-9525-c2fb02d8aa75",
+                "name": "Bahan baku",
+                "sortOrder": 0
+              }
+            ]
+          },
+          "entries": [
+            {
+              "menuId": "75d51493-cef5-43f8-92df-03eb1c1ec7c5",
+              "quantity": 4,
+              "updatedAt": "2026-10-22T15:24:58.079Z",
+              "updatedBy": {
+                "id": "427d6c77-4d70-4d0e-8f5d-5cb1711327b0",
+                "username": "qahmvjox32t.rani",
+                "displayName": "Dummy rani"
+              },
+              "entryRevision": 1
+            },
+            {
+              "menuId": "cd05cbce-46b1-466f-9a4e-32d2f82c6344",
+              "quantity": 0,
+              "updatedAt": "2026-10-22T15:24:57.965Z",
+              "updatedBy": null,
+              "entryRevision": 0
+            }
+          ],
+          "lockedAt": "2026-10-22T15:24:58.923Z",
+          "lockedBy": {
+            "id": "4faa852e-9c58-4041-8312-56a4f689664d",
+            "username": "qahmvjox32t.arif",
+            "displayName": "Dummy arif"
+          },
+          "outletId": "e7bee9a5-56ff-413a-a86f-ead2c60be278",
+          "timezone": "Asia/Jakarta",
+          "createdAt": "2026-10-22T15:24:57.963Z",
+          "updatedAt": "2026-10-22T15:24:58.923Z",
+          "generation": 2,
+          "submittedAt": "2026-10-22T15:24:58.699Z",
+          "submittedBy": {
+            "id": "427d6c77-4d70-4d0e-8f5d-5cb1711327b0",
+            "username": "qahmvjox32t.rani",
+            "displayName": "Dummy rani"
+          },
+          "businessDate": "2026-10-11",
+          "cutoffMinutes": 0,
+          "closingRevision": 5,
+          "catalogVersionId": "26775123-aea5-4658-b2bb-b44169ec998d",
+          "ingredientTotals": [
+            {
+              "id": "2bca8370-9563-4308-8ad2-93f04b72f469",
+              "name": "Biji kopi",
+              "total": 4,
+              "active": true,
+              "sortOrder": 0,
+              "categoryId": "c9572abe-8599-4843-9525-c2fb02d8aa75"
+            },
+            {
+              "id": "d41c4723-38be-47e9-9ad4-98f02497a136",
+              "name": "Fresh milk",
+              "total": 4,
+              "active": true,
+              "sortOrder": 1,
+              "categoryId": "c9572abe-8599-4843-9525-c2fb02d8aa75"
+            }
+          ]
+        },
+        "outletId": "e7bee9a5-56ff-413a-a86f-ead2c60be278",
+        "closingId": "84e40284-2eb4-4524-9ba9-ce91a189a49e",
+        "generation": 2,
+        "reviewedAt": "2026-10-22T15:24:58.923Z",
+        "reviewedBy": {
+          "id": "4faa852e-9c58-4041-8312-56a4f689664d",
+          "username": "qahmvjox32t.arif",
+          "displayName": "Dummy arif"
+        },
+        "schemaVersion": 1,
+        "closingRevision": 5
+      }
+    }
+  ],
+  "fixturesRetained": true,
+  "physicalOrPublicAcceptance": false
+}

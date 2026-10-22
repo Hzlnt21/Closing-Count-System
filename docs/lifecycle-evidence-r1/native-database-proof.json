@@ -1,0 +1,312 @@
+{
+  "passed": true,
+  "mode": "native",
+  "outlet": "d1dd4c6b-5a2d-4513-a081-993f07728611",
+  "closings": [
+    {
+      "id": "50ef0393-2a83-4f42-bf52-86230933107e",
+      "business_date": "2026-10-22",
+      "state": "DRAFT",
+      "generation": "3",
+      "revision": "7"
+    }
+  ],
+  "entries": [
+    {
+      "business_date": "2026-10-22",
+      "menu_id": "817c96a0-25eb-43c6-a99c-f7924851366d",
+      "quantity": 9,
+      "revision": "2",
+      "updated_by": "85bdff35-f851-45be-a56d-eb32aedc50ae"
+    },
+    {
+      "business_date": "2026-10-22",
+      "menu_id": "8c9fb591-414d-4dbf-9946-3c129dde94af",
+      "quantity": 0,
+      "revision": "0",
+      "updated_by": null
+    }
+  ],
+  "receipts": [
+    {
+      "operation_id": "248fc7a1-dd07-4a47-816c-54747aea55bd",
+      "actor_id": "1c811d94-3dc3-44a7-94b6-9b8ca68db86f",
+      "state": "SUBMITTED",
+      "closing_id": "50ef0393-2a83-4f42-bf52-86230933107e"
+    },
+    {
+      "operation_id": "54c56224-0fdb-4b81-9d40-522c128ef0d9",
+      "actor_id": "85bdff35-f851-45be-a56d-eb32aedc50ae",
+      "state": "DRAFT",
+      "closing_id": "50ef0393-2a83-4f42-bf52-86230933107e"
+    },
+    {
+      "operation_id": "a9225b94-67fc-40ca-a49b-22a98d9c68ab",
+      "actor_id": "85bdff35-f851-45be-a56d-eb32aedc50ae",
+      "state": null,
+      "closing_id": "50ef0393-2a83-4f42-bf52-86230933107e"
+    },
+    {
+      "operation_id": "c610c8ac-446f-4c16-b381-048aa5c29a9d",
+      "actor_id": "85bdff35-f851-45be-a56d-eb32aedc50ae",
+      "state": "LOCKED",
+      "closing_id": "50ef0393-2a83-4f42-bf52-86230933107e"
+    },
+    {
+      "operation_id": "d067dfa3-001b-44fe-80a2-3ecfc6958645",
+      "actor_id": "85bdff35-f851-45be-a56d-eb32aedc50ae",
+      "state": "DRAFT",
+      "closing_id": "50ef0393-2a83-4f42-bf52-86230933107e"
+    },
+    {
+      "operation_id": "e0969198-8541-4b4f-8abc-815e5d39f549",
+      "actor_id": "85bdff35-f851-45be-a56d-eb32aedc50ae",
+      "state": "SUBMITTED",
+      "closing_id": "50ef0393-2a83-4f42-bf52-86230933107e"
+    },
+    {
+      "operation_id": "f471b448-2b5d-4221-8fde-a89e987a97ca",
+      "actor_id": "1c811d94-3dc3-44a7-94b6-9b8ca68db86f",
+      "state": null,
+      "closing_id": "50ef0393-2a83-4f42-bf52-86230933107e"
+    }
+  ],
+  "audit": [
+    {
+      "business_date": "2026-10-22",
+      "action": "ENTRY_UPDATED",
+      "actor_id": "1c811d94-3dc3-44a7-94b6-9b8ca68db86f",
+      "operation_id": "f471b448-2b5d-4221-8fde-a89e987a97ca",
+      "generation": "1",
+      "closing_revision": "1",
+      "reason": null,
+      "before_quantity": 0,
+      "after_quantity": 8
+    },
+    {
+      "business_date": "2026-10-22",
+      "action": "SUBMIT",
+      "actor_id": "1c811d94-3dc3-44a7-94b6-9b8ca68db86f",
+      "operation_id": "248fc7a1-dd07-4a47-816c-54747aea55bd",
+      "generation": "1",
+      "closing_revision": "2",
+      "reason": null,
+      "before_quantity": null,
+      "after_quantity": null
+    },
+    {
+      "business_date": "2026-10-22",
+      "action": "RETURN",
+      "actor_id": "85bdff35-f851-45be-a56d-eb32aedc50ae",
+      "operation_id": "d067dfa3-001b-44fe-80a2-3ecfc6958645",
+      "generation": "2",
+      "closing_revision": "3",
+      "reason": "Periksa rekap outlet",
+      "before_quantity": null,
+      "after_quantity": null
+    },
+    {
+      "business_date": "2026-10-22",
+      "action": "SUBMIT",
+      "actor_id": "85bdff35-f851-45be-a56d-eb32aedc50ae",
+      "operation_id": "e0969198-8541-4b4f-8abc-815e5d39f549",
+      "generation": "2",
+      "closing_revision": "4",
+      "reason": null,
+      "before_quantity": null,
+      "after_quantity": null
+    },
+    {
+      "business_date": "2026-10-22",
+      "action": "LOCK",
+      "actor_id": "85bdff35-f851-45be-a56d-eb32aedc50ae",
+      "operation_id": "c610c8ac-446f-4c16-b381-048aa5c29a9d",
+      "generation": "2",
+      "closing_revision": "5",
+      "reason": null,
+      "before_quantity": null,
+      "after_quantity": null
+    },
+    {
+      "business_date": "2026-10-22",
+      "action": "REOPEN",
+      "actor_id": "85bdff35-f851-45be-a56d-eb32aedc50ae",
+      "operation_id": "54c56224-0fdb-4b81-9d40-522c128ef0d9",
+      "generation": "3",
+      "closing_revision": "6",
+      "reason": "Koreksi jumlah setelah review",
+      "before_quantity": null,
+      "after_quantity": null
+    },
+    {
+      "business_date": "2026-10-22",
+      "action": "ENTRY_UPDATED",
+      "actor_id": "85bdff35-f851-45be-a56d-eb32aedc50ae",
+      "operation_id": "a9225b94-67fc-40ca-a49b-22a98d9c68ab",
+      "generation": "3",
+      "closing_revision": "7",
+      "reason": null,
+      "before_quantity": 8,
+      "after_quantity": 9
+    }
+  ],
+  "reports": [
+    {
+      "generation": "2",
+      "closing_revision": "5",
+      "locked_by": "85bdff35-f851-45be-a56d-eb32aedc50ae",
+      "snapshot": {
+        "id": "9709127b-8522-4b67-b908-84009187455e",
+        "format": "closing-count-report",
+        "closing": {
+          "id": "50ef0393-2a83-4f42-bf52-86230933107e",
+          "state": "LOCKED",
+          "catalog": {
+            "menus": [
+              {
+                "id": "817c96a0-25eb-43c6-a99c-f7924851366d",
+                "name": "Cappuccino",
+                "active": true,
+                "sortOrder": 0,
+                "categoryId": "416b2973-3349-497a-b15f-cfbf31a7f0ab",
+                "ingredientIds": [
+                  "3cda8089-1f31-44ca-9335-29bcb3181bc3",
+                  "7804c3d5-ebff-4779-bfc3-5c0da0e452dd",
+                  "8cb36063-a0eb-4e62-902a-cda5c0b6153b"
+                ]
+              },
+              {
+                "id": "8c9fb591-414d-4dbf-9946-3c129dde94af",
+                "name": "Latte",
+                "active": true,
+                "sortOrder": 1,
+                "categoryId": "416b2973-3349-497a-b15f-cfbf31a7f0ab",
+                "ingredientIds": [
+                  "3cda8089-1f31-44ca-9335-29bcb3181bc3",
+                  "8cb36063-a0eb-4e62-902a-cda5c0b6153b"
+                ]
+              }
+            ],
+            "ingredients": [
+              {
+                "id": "3cda8089-1f31-44ca-9335-29bcb3181bc3",
+                "name": "Biji kopi",
+                "active": true,
+                "sortOrder": 0,
+                "categoryId": "1b89a3ca-2e6f-422c-8a7d-8981f8f3a263"
+              },
+              {
+                "id": "7804c3d5-ebff-4779-bfc3-5c0da0e452dd",
+                "name": "Powder cokelat",
+                "active": true,
+                "sortOrder": 2,
+                "categoryId": "1b89a3ca-2e6f-422c-8a7d-8981f8f3a263"
+              },
+              {
+                "id": "8cb36063-a0eb-4e62-902a-cda5c0b6153b",
+                "name": "Fresh milk",
+                "active": true,
+                "sortOrder": 1,
+                "categoryId": "1b89a3ca-2e6f-422c-8a7d-8981f8f3a263"
+              }
+            ],
+            "menuCategories": [
+              {
+                "id": "416b2973-3349-497a-b15f-cfbf31a7f0ab",
+                "name": "Coffee",
+                "sortOrder": 0
+              }
+            ],
+            "ingredientCategories": [
+              {
+                "id": "1b89a3ca-2e6f-422c-8a7d-8981f8f3a263",
+                "name": "Bahan baku",
+                "sortOrder": 0
+              }
+            ]
+          },
+          "entries": [
+            {
+              "menuId": "817c96a0-25eb-43c6-a99c-f7924851366d",
+              "quantity": 8,
+              "updatedAt": "2026-10-22T15:20:04.380Z",
+              "updatedBy": {
+                "id": "1c811d94-3dc3-44a7-94b6-9b8ca68db86f",
+                "username": "qahmvjoqu90.rani",
+                "displayName": "Dummy rani"
+              },
+              "entryRevision": 1
+            },
+            {
+              "menuId": "8c9fb591-414d-4dbf-9946-3c129dde94af",
+              "quantity": 0,
+              "updatedAt": "2026-10-22T15:20:01.843Z",
+              "updatedBy": null,
+              "entryRevision": 0
+            }
+          ],
+          "lockedAt": "2026-10-22T15:20:13.015Z",
+          "lockedBy": {
+            "id": "85bdff35-f851-45be-a56d-eb32aedc50ae",
+            "username": "qahmvjoqu90.arif",
+            "displayName": "Dummy arif"
+          },
+          "outletId": "d1dd4c6b-5a2d-4513-a081-993f07728611",
+          "timezone": "Asia/Jakarta",
+          "createdAt": "2026-10-22T15:20:01.839Z",
+          "updatedAt": "2026-10-22T15:20:13.015Z",
+          "generation": 2,
+          "submittedAt": "2026-10-22T15:20:12.257Z",
+          "submittedBy": {
+            "id": "85bdff35-f851-45be-a56d-eb32aedc50ae",
+            "username": "qahmvjoqu90.arif",
+            "displayName": "Dummy arif"
+          },
+          "businessDate": "2026-10-22",
+          "cutoffMinutes": 0,
+          "closingRevision": 5,
+          "catalogVersionId": "e05644d3-cd02-4327-b6af-a2aace2029e9",
+          "ingredientTotals": [
+            {
+              "id": "3cda8089-1f31-44ca-9335-29bcb3181bc3",
+              "name": "Biji kopi",
+              "total": 8,
+              "active": true,
+              "sortOrder": 0,
+              "categoryId": "1b89a3ca-2e6f-422c-8a7d-8981f8f3a263"
+            },
+            {
+              "id": "8cb36063-a0eb-4e62-902a-cda5c0b6153b",
+              "name": "Fresh milk",
+              "total": 8,
+              "active": true,
+              "sortOrder": 1,
+              "categoryId": "1b89a3ca-2e6f-422c-8a7d-8981f8f3a263"
+            },
+            {
+              "id": "7804c3d5-ebff-4779-bfc3-5c0da0e452dd",
+              "name": "Powder cokelat",
+              "total": 8,
+              "active": true,
+              "sortOrder": 2,
+              "categoryId": "1b89a3ca-2e6f-422c-8a7d-8981f8f3a263"
+            }
+          ]
+        },
+        "outletId": "d1dd4c6b-5a2d-4513-a081-993f07728611",
+        "closingId": "50ef0393-2a83-4f42-bf52-86230933107e",
+        "generation": 2,
+        "reviewedAt": "2026-10-22T15:20:13.015Z",
+        "reviewedBy": {
+          "id": "85bdff35-f851-45be-a56d-eb32aedc50ae",
+          "username": "qahmvjoqu90.arif",
+          "displayName": "Dummy arif"
+        },
+        "schemaVersion": 1,
+        "closingRevision": 5
+      }
+    }
+  ],
+  "fixturesRetained": true,
+  "physicalOrPublicAcceptance": false
+}

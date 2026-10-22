@@ -13,7 +13,7 @@ sealed interface OnlineSyncResult {
     data object MorePending : OnlineSyncResult
 }
 
-class OnlineConflictChangedException : IllegalStateException("Angka server berubah lagi. Periksa pilihan terbaru sebelum mengirim ulang.")
+class OnlineConflictChangedException : IllegalStateException("Data server berubah lagi. Periksa data terbaru sebelum mengirim ulang.")
 
 /** One instance per app repository. Manual/foreground callers share this mutex. */
 class OnlineSyncEngine(private val dao: OnlineSyncDao, private val gateway: OnlineGateway,
@@ -28,12 +28,31 @@ class OnlineSyncEngine(private val dao: OnlineSyncDao, private val gateway: Onli
         val scope = session.scope(outletId)
         if (!same(session)) return@withLock OnlineSyncResult.Blocked("SESSION_CHANGED")
         var sending: String? = null
+        var sendingLifecycle: String? = null
         try {
             val initial = gateway.fetch(session, outletId, closingId)
             if (!same(session)) return@withLock OnlineSyncResult.Blocked("SESSION_CHANGED")
             dao.pull(initial.header, initial.entries)
             repeat(100) {
                 if (!same(session)) return@withLock OnlineSyncResult.Blocked("SESSION_CHANGED")
+                if (dao.lifecycle(scope, closingId) != null) {
+                    if (dao.operations(scope, closingId).isNotEmpty()) return@withLock OnlineSyncResult.Blocked("LOCAL_CHANGES_PENDING")
+                    val action = dao.nextLifecycle(scope, closingId)
+                    if (action == null) {
+                        val blocked = requireNotNull(dao.lifecycle(scope, closingId))
+                        return@withLock OnlineSyncResult.Blocked(blocked.errorCode ?: blocked.status)
+                    }
+                    if (!same(session)) return@withLock OnlineSyncResult.Blocked("SESSION_CHANGED")
+                    sendingLifecycle = action.operationId
+                    val receipt = gateway.lifecycle(session, action)
+                    if (!same(session)) return@withLock OnlineSyncResult.Blocked("SESSION_CHANGED")
+                    val latest = gateway.fetch(session, outletId, closingId)
+                    if (!same(session)) return@withLock OnlineSyncResult.Blocked("SESSION_CHANGED")
+                    dao.completeLifecycle(scope, closingId, action.operationId, receipt.state, receipt.generation,
+                        receipt.revision, latest.header, latest.entries)
+                    sendingLifecycle = null
+                    return@repeat
+                }
                 val op = dao.next(scope, closingId)
                 if (op == null) {
                     val blocked = dao.operations(scope, closingId).firstOrNull()
@@ -58,6 +77,10 @@ class OnlineSyncEngine(private val dao: OnlineSyncDao, private val gateway: Onli
             if (!same(session)) return@withLock OnlineSyncResult.Blocked("SESSION_CHANGED")
             if (error.status >= 500 || error.status in setOf(408, 429)) return@withLock retry(scope)
             val status = when (error.status) {401, 403 -> "AUTH_REQUIRED"; 409 -> "CONFLICT"; else -> "FAILED"}
+            val action = dao.lifecycle(scope, closingId)
+            if (action != null && (status == "AUTH_REQUIRED" || sendingLifecycle == action.operationId)) {
+                dao.blockLifecycle(scope, closingId, action.operationId, status, error.code)
+            }
             val head = dao.operations(scope, closingId).firstOrNull()
             if (head != null && (sending == head.operationId || status == "AUTH_REQUIRED")) {
                 dao.block(scope, closingId, head.operationId, status, error.code)
@@ -72,6 +95,20 @@ class OnlineSyncEngine(private val dao: OnlineSyncDao, private val gateway: Onli
             OnlineSyncResult.Blocked(error.code)
         } catch (cancel: CancellationException) { throw cancel
         } catch (_: IOException) { retry(scope) }
+    }
+
+    suspend fun prepareLifecycle(session: OnlineSession, outletId: String, closingId: String, action: String, reason: String,
+        reviewedGeneration: Long, reviewedRevision: Long): String = mutex.withLock {
+        check(same(session))
+        val latest = gateway.fetch(session, outletId, closingId)
+        check(same(session)); dao.pull(latest.header, latest.entries)
+        if (latest.header.generation != reviewedGeneration || latest.header.revision != reviewedRevision) throw OnlineConflictChangedException()
+        val role = session.identity.outlets.first { it.id == outletId }.role
+        dao.prepareLifecycle(session.scope(outletId), closingId, action, reason, reviewedGeneration, reviewedRevision, role)
+    }
+
+    suspend fun dismissLifecycle(session: OnlineSession, outletId: String, closingId: String, operationId: String) = mutex.withLock {
+        check(same(session)); dao.dismissLifecycle(session.scope(outletId), closingId, operationId)
     }
 
     suspend fun resolve(session: OnlineSession, outletId: String, closingId: String, menuId: String, reapply: Boolean,

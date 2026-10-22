@@ -1,5 +1,7 @@
 # Closing Count System
 
+Latest source slice: [native supervisor lifecycle R1](docs/NATIVE_LIFECYCLE_R1.md), [six actual screenshots](docs/lifecycle-review-r1.html). Submit/return/lock/reopen now use a durable Room lifecycle outbox and reviewed revisions. 12 JVM, 26 storage, 10 HTTP and two native UI scenarios passed; lint 0 errors/16 warnings. Physical/process-kill/two-installation/full history/online transfer/demo acceptance remains open. Earlier checkpoint paragraphs are historical.
+
 Newest source slice: [native draft R1](docs/NATIVE_DRAFT_R1.md), [actual Android screenshots](docs/native-review-r1.html). Home → Closing bersama opens real login/outlet/date/summary/input/conflict/cached-history/account flows.12JVM+19Room+7HTTP+1native UI scenario pass. Supervisor lifecycle UI, process-kill/two-installation/reconnect acceptance and legacy/online transfer remain open. Historical descriptions below are checkpoints, not a claim that the connected app is complete.
 
 Latest source foundation: [CCS-05 HTTP/session R1](docs/ONLINE_HTTP_R1.md) connects the Room outbox to existing service handlers, adds encrypted sessions and account-switch guards.12JVM+18Room/legacy+6HTTP emulator tests pass; actual PostgreSQL receipts/audit were checked. Two accounts use separate databases inside one QA installation; UI/two-installation/process-kill/reconnect acceptance remain open. R2 native screens are next, not already delivered. Offline app metadata stays0.1.1.

@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased ? native supervisor lifecycle R1, 2026-10-22
+
+- Connected Review tab, role-scoped submit/return/lock/reopen and reason confirmations following approved R2.
+- Added additive schema 8 durable lifecycle operations, immutable retries, exact reviewed revisions and atomic receipt/snapshot application.
+- 12 JVM, 26 storage, 10 real-service HTTP and two native UI scenarios passed; six screenshots inspected; lint 0 errors/16 warnings. See [checkpoint](docs/NATIVE_LIFECYCLE_R1.md) for limits.
+
 ## Unreleased — CCS-06 native draft slice R1, 2026-10-22
 
 - Applied approved R2 direction/logo in connected Compose login, outlet/date, summary, draft, conflict, cached-history and account screens, accessible from legacy Home.

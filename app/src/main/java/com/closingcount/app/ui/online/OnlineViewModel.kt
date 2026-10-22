@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.closingcount.app.BuildConfig
 import com.closingcount.app.ClosingCountApplication
 import com.closingcount.app.data.local.OnlineClosingEntity
+import com.closingcount.app.data.local.OnlineLifecycleEntity
 import com.closingcount.app.data.online.*
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Job
@@ -21,9 +22,16 @@ import java.time.LocalDate
 data class OnlineMenuUi(val id: String, val name: String, val category: String, val quantity: Int,
     val serverQuantity: Int, val revision: Long, val generation: Long, val status: String, val actor: String)
 data class OnlineHistoryUi(val id: String, val date: String, val state: String)
+data class OnlineReviewLine(val name: String, val quantity: Long)
+private data class RenderedClosing(val state: String, val revision: Long, val generation: Long, val menus: List<OnlineMenuUi>,
+    val pending: Int, val lifecycle: OnlineLifecycleEntity?, val reviewMenus: List<OnlineReviewLine>,
+    val ingredients: List<OnlineReviewLine>, val submittedBy: String?, val lockedBy: String?)
 data class OnlineUiState(val initialized: Boolean = false, val identity: OnlineIdentity? = null, val loginVisible: Boolean = true,
     val outletId: String = "", val date: String = LocalDate.now().toString(), val closingId: String? = null,
-    val closingState: String = "", val menus: List<OnlineMenuUi> = emptyList(), val history: List<OnlineHistoryUi> = emptyList(),
+    val closingState: String = "", val revision: Long = 0, val generation: Long = 1,
+    val lifecycle: OnlineLifecycleEntity? = null, val reviewMenus: List<OnlineReviewLine> = emptyList(),
+    val ingredients: List<OnlineReviewLine> = emptyList(), val submittedBy: String? = null, val lockedBy: String? = null,
+    val menus: List<OnlineMenuUi> = emptyList(), val history: List<OnlineHistoryUi> = emptyList(),
     val buffers: Map<String, String> = emptyMap(), val pending: Int = 0, val working: Boolean = false,
     val syncing: Boolean = false, val syncVerified: Boolean = false, val connectionUnavailable: Boolean = false, val error: String? = null,
     val notice: String? = null, val authRequired: Boolean = false, val confirmSwitch: String? = null, val confirmLogout: Boolean = false) {
@@ -98,7 +106,8 @@ class OnlineViewModel(application: Application) : AndroidViewModel(application) 
         val remembered = if (preferences.getString("scope", "") == scope) preferences.getString("date", null) else null
         val date = remembered?.takeIf { runCatching { LocalDate.parse(it) }.isSuccess } ?: LocalDate.now().toString()
         mutable.update { it.copy(outletId = id, date = date, closingId = null, menus = emptyList(), closingState = "",
-            buffers = emptyMap(), history = emptyList(), pending = 0, error = null, notice = null) }
+            buffers = emptyMap(), history = emptyList(), pending = 0, lifecycle = null, reviewMenus = emptyList(), ingredients = emptyList(),
+            submittedBy = null, lockedBy = null, syncVerified = false, error = null, notice = null) }
         rememberSelection()
         historyJob = viewModelScope.launch {
             dao.observeClosings(scope).collect { headers ->
@@ -123,7 +132,8 @@ class OnlineViewModel(application: Application) : AndroidViewModel(application) 
     fun selectDate(date: String) {
         if (state.value.dirty) return
         LocalDate.parse(date); closingJob?.cancel(); stopSync()
-        mutable.update { it.copy(date = date, closingId = null, menus = emptyList(), closingState = "", pending = 0, error = null, notice = null) }
+        mutable.update { it.copy(date = date, closingId = null, menus = emptyList(), closingState = "", pending = 0, lifecycle = null,
+            reviewMenus = emptyList(), ingredients = emptyList(), submittedBy = null, lockedBy = null, syncVerified = false, error = null, notice = null) }
         rememberSelection()
         state.value.history.firstOrNull { it.date == date }?.let { bind(it.id) }
     }
@@ -151,7 +161,7 @@ class OnlineViewModel(application: Application) : AndroidViewModel(application) 
         val scope = session.scope(selected.outletId)
         mutable.update { it.copy(closingId = id, buffers = emptyMap(), syncVerified = false, error = null) }
         closingJob = viewModelScope.launch {
-            combine(dao.observeClosing(scope, id), dao.observeEntries(scope, id), dao.observeOperations(scope, id)) { header, entries, ops ->
+            combine(dao.observeClosing(scope, id), dao.observeEntries(scope, id), dao.observeOperations(scope, id), dao.observeLifecycle(scope, id)) { header, entries, ops, lifecycle ->
                 if (header == null) return@combine null
                 val json = JSONObject(header.snapshotJson); val catalog = json.getJSONObject("catalog")
                 val categories = catalog.getJSONArray("menuCategories")
@@ -159,14 +169,24 @@ class OnlineViewModel(application: Application) : AndroidViewModel(application) 
                 val raw = catalog.getJSONArray("menus"); val actors = json.getJSONArray("entries")
                 val actorNames = (0 until actors.length()).associate { val item = actors.getJSONObject(it)
                     item.getString("menuId") to (item.optJSONObject("updatedBy")?.optString("displayName") ?: "Belum diubah") }
+                val byId = entries.associateBy { it.menuId }
                 val menus = (0 until raw.length()).mapNotNull { index ->
-                    val item = raw.getJSONObject(index); val row = entries.firstOrNull { it.menuId == item.getString("id") } ?: return@mapNotNull null
+                    val item = raw.getJSONObject(index); val row = byId[item.getString("id")] ?: return@mapNotNull null
                     OnlineMenuUi(row.menuId, item.getString("name"), names[item.getString("categoryId")] ?: "Menu", row.localQuantity,
                         row.serverQuantity, row.serverRevision, row.generation, row.status, actorNames[row.menuId].orEmpty())
                 }
-                Triple(header.state, menus, ops.size)
+                val serverQuantities = (0 until actors.length()).associate { val item = actors.getJSONObject(it); item.getString("menuId") to item.getLong("quantity") }
+                val reviewMenus = (0 until raw.length()).map { val item = raw.getJSONObject(it)
+                    OnlineReviewLine(item.getString("name"), serverQuantities[item.getString("id")] ?: 0L) }
+                val rawTotals = json.getJSONArray("ingredientTotals")
+                val ingredients = (0 until rawTotals.length()).map { val item = rawTotals.getJSONObject(it)
+                    OnlineReviewLine(item.getString("name"), item.getLong("total")) }
+                RenderedClosing(header.state, header.revision, header.generation, menus, ops.size, lifecycle, reviewMenus,
+                    ingredients, json.optJSONObject("submittedBy")?.optString("displayName"), json.optJSONObject("lockedBy")?.optString("displayName"))
             }.catch { mutable.update { it.copy(error = "Data tersimpan belum dapat dibaca. Coba muat ulang.") } }
-                .collect { value -> if (value != null) mutable.update { it.copy(closingState = value.first, menus = value.second, pending = value.third) } }
+                .collect { value -> if (value != null) mutable.update { it.copy(closingState = value.state, revision = value.revision,
+                    generation = value.generation, menus = value.menus, pending = value.pending, lifecycle = value.lifecycle,
+                    reviewMenus = value.reviewMenus, ingredients = value.ingredients, submittedBy = value.submittedBy, lockedBy = value.lockedBy) } }
         }
         if (foreground) sync()
     }
@@ -204,7 +224,7 @@ class OnlineViewModel(application: Application) : AndroidViewModel(application) 
                     if (run != epoch) return@launch
                     mutable.update { it.copy(syncing = false) }
                     when (result) {
-                        OnlineSyncResult.Synced -> { mutable.update { it.copy(connectionUnavailable = false, syncVerified = true, authRequired = false, error = null) }; return@launch }
+                        OnlineSyncResult.Synced -> { mutable.update { it.copy(connectionUnavailable = false, syncVerified = true, authRequired = false, notice = null, error = null) }; return@launch }
                         is OnlineSyncResult.Blocked -> { mutable.update { it.copy(connectionUnavailable = false, authRequired = needsLogin(result.code), error = codeMessage(result.code)) }; return@launch }
                         is OnlineSyncResult.Retry -> { mutable.update { it.copy(connectionUnavailable = true) }; delay(result.afterMillis) }
                         OnlineSyncResult.MorePending -> delay(250)
@@ -236,6 +256,30 @@ class OnlineViewModel(application: Application) : AndroidViewModel(application) 
         }
     }
     fun cancelLogout() { mutable.update { it.copy(confirmLogout = false) } }
+
+    fun lifecycle(action: String, reason: String, reviewed: OnlineUiState) {
+        val current = state.value; val id = current.closingId ?: return
+        if (current.working || current.dirty || !current.syncVerified || current.pending != 0 || current.lifecycle != null) return
+        if (current.closingId != reviewed.closingId || current.outletId != reviewed.outletId) return
+        stopSync(); mutable.update { it.copy(working = true, syncVerified = false, error = null) }
+        viewModelScope.launch {
+            try { repo.lifecycle(current.outletId, id, action, reason, reviewed.generation, reviewed.revision)
+                mutable.update { it.copy(notice = "Tindakan tersimpan di perangkat. Menunggu konfirmasi server.") }; sync()
+            } catch (e: Exception) { mutable.update { it.copy(error = message(e)) }
+            } finally { mutable.update { it.copy(working = false) } }
+        }
+    }
+
+    fun dismissLifecycle() {
+        val s = state.value; val id = s.closingId ?: return; val op = s.lifecycle ?: return
+        if (s.working || op.status !in setOf("CONFLICT", "FAILED")) return
+        stopSync(); mutable.update { it.copy(working = true, syncVerified = false) }
+        viewModelScope.launch {
+            try { repo.dismissLifecycle(s.outletId, id, op.operationId); mutable.update { it.copy(error = null) }; sync()
+            } catch (e: Exception) { mutable.update { it.copy(error = message(e)) }
+            } finally { mutable.update { it.copy(working = false) } }
+        }
+    }
     private fun needsLogin(code: String) = code in setOf("SESSION_REQUIRED", "SESSION_CHANGED", "AUTH_REQUIRED", "ACCOUNT_DISABLED", "OUTLET_FORBIDDEN")
     private fun message(e: Exception): String = when (e) {
         is OnlineApiException -> codeMessage(e.code)
@@ -246,7 +290,7 @@ class OnlineViewModel(application: Application) : AndroidViewModel(application) 
     private fun codeMessage(code: String): String = when (code) {
         "INVALID_CREDENTIALS" -> "Username atau password tidak sesuai."
         "SESSION_REQUIRED", "SESSION_CHANGED", "AUTH_REQUIRED", "ACCOUNT_DISABLED", "OUTLET_FORBIDDEN" -> "Sesi atau akses akun perlu diperiksa. Masuk kembali dengan akun yang sama untuk melanjutkan draft."
-        "ENTRY_CONFLICT", "PULL_CONFLICT", "CONFLICT", "STALE_ACK", "GENERATION_CONFLICT" -> "Ada perubahan dari tim. Tinjau perbedaan angka sebelum mengirim ulang."
+        "ENTRY_CONFLICT", "PULL_CONFLICT", "CONFLICT", "STALE_ACK", "GENERATION_CONFLICT", "LIFECYCLE_REVIEW_CHANGED", "REVISION_CONFLICT" -> "Ada perubahan dari tim. Tinjau data terbaru sebelum mengirim ulang."
         "CLOSING_STATE_CONFLICT" -> "Closing sudah diajukan atau dikunci. Draft perangkat tetap disimpan untuk diperiksa."
         else -> "Perubahan belum dapat dikirim. Periksa jumlah, akses akun, dan status closing."
     }

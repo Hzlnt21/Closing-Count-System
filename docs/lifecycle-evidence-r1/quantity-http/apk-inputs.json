@@ -1,0 +1,10 @@
+﻿[
+    {
+        "name":  "app-debug.apk",
+        "sha256":  "B6BDA32C331FAE2C5CA9581C948F1885C90E7BA4E064BC3B76762CC01D5C166E"
+    },
+    {
+        "name":  "app-debug-androidTest.apk",
+        "sha256":  "2EC82ED40E5108E52AB89D57549D7FD11A796DDC5A4D38D13FAED0520B95C7B7"
+    }
+]

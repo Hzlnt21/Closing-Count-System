@@ -1,0 +1,101 @@
+INSTRUMENTATION_STATUS: class=com.closingcount.app.OnlineLifecycleHttpInstrumentedTest
+
+INSTRUMENTATION_STATUS: current=1
+
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+
+INSTRUMENTATION_STATUS: numtests=3
+
+INSTRUMENTATION_STATUS: stream=
+
+com.closingcount.app.OnlineLifecycleHttpInstrumentedTest:
+
+INSTRUMENTATION_STATUS: test=queuedReviewDoesNotSilentlyRebaseWhenColleagueChangesServer
+
+INSTRUMENTATION_STATUS_CODE: 1
+
+INSTRUMENTATION_STATUS: class=com.closingcount.app.OnlineLifecycleHttpInstrumentedTest
+
+INSTRUMENTATION_STATUS: current=1
+
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+
+INSTRUMENTATION_STATUS: numtests=3
+
+INSTRUMENTATION_STATUS: stream=.
+
+INSTRUMENTATION_STATUS: test=queuedReviewDoesNotSilentlyRebaseWhenColleagueChangesServer
+
+INSTRUMENTATION_STATUS_CODE: 0
+
+INSTRUMENTATION_STATUS: class=com.closingcount.app.OnlineLifecycleHttpInstrumentedTest
+
+INSTRUMENTATION_STATUS: current=2
+
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+
+INSTRUMENTATION_STATUS: numtests=3
+
+INSTRUMENTATION_STATUS: stream=
+
+INSTRUMENTATION_STATUS: test=lostLifecycleResponseRetriesExactReceiptAfterReopenWithoutDuplicateSubmit
+
+INSTRUMENTATION_STATUS_CODE: 1
+
+INSTRUMENTATION_STATUS: class=com.closingcount.app.OnlineLifecycleHttpInstrumentedTest
+
+INSTRUMENTATION_STATUS: current=2
+
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+
+INSTRUMENTATION_STATUS: numtests=3
+
+INSTRUMENTATION_STATUS: stream=.
+
+INSTRUMENTATION_STATUS: test=lostLifecycleResponseRetriesExactReceiptAfterReopenWithoutDuplicateSubmit
+
+INSTRUMENTATION_STATUS_CODE: 0
+
+INSTRUMENTATION_STATUS: class=com.closingcount.app.OnlineLifecycleHttpInstrumentedTest
+
+INSTRUMENTATION_STATUS: current=3
+
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+
+INSTRUMENTATION_STATUS: numtests=3
+
+INSTRUMENTATION_STATUS: stream=
+
+INSTRUMENTATION_STATUS: test=submitReturnLockReopenPreserveImmutableReportAndActorScope
+
+INSTRUMENTATION_STATUS_CODE: 1
+
+INSTRUMENTATION_STATUS: class=com.closingcount.app.OnlineLifecycleHttpInstrumentedTest
+
+INSTRUMENTATION_STATUS: current=3
+
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+
+INSTRUMENTATION_STATUS: numtests=3
+
+INSTRUMENTATION_STATUS: stream=.
+
+INSTRUMENTATION_STATUS: test=submitReturnLockReopenPreserveImmutableReportAndActorScope
+
+INSTRUMENTATION_STATUS_CODE: 0
+
+INSTRUMENTATION_RESULT: stream=
+
+
+
+Time: 3,567
+
+
+
+OK (3 tests)
+
+
+
+
+
+INSTRUMENTATION_CODE: -1

@@ -52,6 +52,8 @@ fun OnlineClosingApp(onExit: () -> Unit, vm: OnlineViewModel = viewModel()) {
     var tab by rememberSaveable { mutableStateOf("Ringkasan") }
     var pendingNavigation by remember { mutableStateOf<(() -> Unit)?>(null) }
     var conflict by remember { mutableStateOf<OnlineMenuUi?>(null) }
+    var lifecycleReview by remember { mutableStateOf<Pair<String, OnlineUiState>?>(null) }
+    LaunchedEffect(s.identity?.id) { if (s.identity != null) tab = "Ringkasan" }
     val dark = isSystemInDarkTheme()
     val scheme = if (dark) darkColorScheme(primary = Color(0xFF86D0F3), onPrimary = Ink, background = Color(0xFF0E1E2C),
         surface = Color(0xFF142838), surfaceContainer = Color(0xFF1C3344), surfaceContainerHigh = Color(0xFF203B4D), secondaryContainer = Color(0xFF24475D),
@@ -86,7 +88,7 @@ fun OnlineClosingApp(onExit: () -> Unit, vm: OnlineViewModel = viewModel()) {
         }, bottomBar = {
             if (s.identity != null && !s.loginVisible) NavigationBar(containerColor = scheme.surface) {
                 listOf("Ringkasan" to Icons.Outlined.Home, "Input" to Icons.Outlined.EditNote,
-                    "Riwayat" to Icons.Outlined.History, "Akun" to Icons.Outlined.PersonOutline).forEach { (name, icon) ->
+                    "Review" to Icons.Outlined.FactCheck, "Riwayat" to Icons.Outlined.History, "Akun" to Icons.Outlined.PersonOutline).forEach { (name, icon) ->
                     NavigationBarItem(selected = tab == name, onClick = { navigate { tab = name } },
                         icon = { Icon(icon, null) }, label = { Text(name, fontSize = 11.sp) }, modifier = Modifier.testTag("online.nav.$name"))
                 }
@@ -105,6 +107,7 @@ fun OnlineClosingApp(onExit: () -> Unit, vm: OnlineViewModel = viewModel()) {
                         when (tab) {
                             "Akun" -> AccountContent(s, vm, onNavigate = ::navigate)
                             "Riwayat" -> HistoryContent(s) { row -> navigate { vm.selectDate(row.date); tab = "Ringkasan" } }
+                            "Review" -> ReviewContent(s, vm, onAction = { action -> navigate { lifecycleReview = action to s } })
                             else -> {
                                 OutletDate(s, onOutlet = { id -> navigate { vm.selectOutlet(id) } }, onDate = { date -> navigate { vm.selectDate(date) } })
                                 if (s.closingId == null) {
@@ -126,7 +129,7 @@ fun OnlineClosingApp(onExit: () -> Unit, vm: OnlineViewModel = viewModel()) {
                                     Paper {
                                         Text("Jumlah per menu", fontWeight = FontWeight.Bold)
                                         s.menus.forEach { menu ->
-                                            MenuInput(menu, s.buffers[menu.id], enabled = !s.working && s.closingState == "DRAFT",
+                                            MenuInput(menu, s.buffers[menu.id], enabled = !s.working && s.lifecycle == null && s.closingState == "DRAFT",
                                                 onChange = { vm.change(menu.id, it) }, onConflict = { navigate { conflict = menu } })
                                             HorizontalDivider(color = scheme.outlineVariant.copy(alpha = .5f))
                                         }
@@ -136,7 +139,7 @@ fun OnlineClosingApp(onExit: () -> Unit, vm: OnlineViewModel = viewModel()) {
                                         style = MaterialTheme.typography.bodySmall, color = scheme.onSurfaceVariant)
                                     if (!s.valid) Text("Jumlah harus bilangan bulat 0–9999; kolom tidak boleh kosong.", color = scheme.error, style = MaterialTheme.typography.bodySmall)
                                     if (s.closingState == "DRAFT") Button(onClick = vm::save,
-                                        enabled = s.dirty && s.valid && !s.working,
+                                        enabled = s.dirty && s.valid && !s.working && s.lifecycle == null,
                                         modifier = Modifier.fillMaxWidth().heightIn(min = 50.dp).testTag("online.save"), shape = RoundedCornerShape(13.dp)) {
                                         Text(if (s.working) "Menyimpan…" else "Simpan draft")
                                     }
@@ -171,13 +174,15 @@ fun OnlineClosingApp(onExit: () -> Unit, vm: OnlineViewModel = viewModel()) {
             text = { Text("Angka yang sedang diketik belum menjadi draft tersimpan. Kembali untuk menyimpan, atau buang perubahan kolom ini.") },
             confirmButton = { TextButton(onClick = { vm.discardForm(); pendingNavigation = null; action() }) { Text("Buang perubahan") } },
             dismissButton = { TextButton(onClick = { pendingNavigation = null }) { Text("Kembali mengedit") } }) }
-        if (s.confirmLogout) AlertDialog(onDismissRequest = vm::cancelLogout, title = { Text("Masih ada draft belum terkirim") },
-            text = { Text("Draft tetap disimpan untuk akun ini. Masuk kembali dengan akun yang sama untuk melanjutkan sinkronisasi.") },
-            confirmButton = { TextButton(onClick = { vm.logout(true) }) { Text("Keluar, simpan draft") } }, dismissButton = { TextButton(onClick = vm::cancelLogout) { Text("Batal") } })
+        if (s.confirmLogout) AlertDialog(onDismissRequest = vm::cancelLogout, title = { Text("Masih ada pekerjaan belum terkonfirmasi") },
+            text = { Text("Draft atau tindakan tetap disimpan untuk akun ini. Masuk kembali dengan akun yang sama untuk melanjutkan pemeriksaan server.") },
+            confirmButton = { TextButton(onClick = { vm.logout(true) }) { Text("Keluar, simpan pekerjaan") } }, dismissButton = { TextButton(onClick = vm::cancelLogout) { Text("Batal") } })
         s.confirmSwitch?.let { name -> AlertDialog(onDismissRequest = { vm.confirmSwitch(false) }, title = { Text("Beralih ke $name?") },
             text = { Text("Akun sebelumnya masih memiliki draft belum terkirim. Draft tetap terpisah dan tidak akan dikirim atas nama akun baru.") },
             confirmButton = { TextButton(onClick = { vm.confirmSwitch(true) }) { Text("Beralih akun") } }, dismissButton = { TextButton(onClick = { vm.confirmSwitch(false) }) { Text("Batal") } }) }
         conflict?.let { menu -> ConflictDialog(menu, onDismiss = { conflict = null }, onResolve = { reapply -> conflict = null; vm.resolve(menu, reapply) }) }
+        lifecycleReview?.let { (action, reviewed) -> LifecycleDialog(action, reviewed, onDismiss = { lifecycleReview = null },
+            onConfirm = { reason -> lifecycleReview = null; vm.lifecycle(action, reason, reviewed) }) }
     }
 }
 
@@ -266,6 +271,9 @@ fun OnlineClosingApp(onExit: () -> Unit, vm: OnlineViewModel = viewModel()) {
     val conflict = s.menus.any { it.status in setOf("CONFLICT", "FAILED", "AUTH_REQUIRED") }
     val text = when {
         s.dirty -> "Perubahan kolom belum disimpan"
+        s.lifecycle?.status in setOf("CONFLICT", "FAILED") -> "Tindakan ditolak · periksa di Review"
+        s.lifecycle?.status == "AUTH_REQUIRED" -> "Tindakan menunggu pemeriksaan sesi"
+        s.lifecycle != null -> "Input menunggu konfirmasi tindakan"
         s.syncing -> "Memeriksa dan mengirim perubahan…"
         conflict -> "Ada perubahan yang perlu ditinjau"
         s.connectionUnavailable && s.pending == 0 -> "Menampilkan data tersimpan · koneksi belum tersedia"
@@ -284,6 +292,69 @@ fun OnlineClosingApp(onExit: () -> Unit, vm: OnlineViewModel = viewModel()) {
             }
         }
     }
+}
+
+private fun actionLabel(action: String) = when (action) { "submit" -> "Kirim untuk review"; "return" -> "Kembalikan ke draft"; "lock" -> "Kunci closing"; "reopen" -> "Buka kembali closing"; else -> "Tindakan closing" }
+
+@Composable private fun ReviewContent(s: OnlineUiState, vm: OnlineViewModel, onAction: (String) -> Unit) {
+    Text("Periksa. Lalu pastikan.", fontSize = 28.sp, fontWeight = FontWeight.Bold)
+    if (s.closingId == null) { Paper { Text("Buka closing dari Ringkasan untuk memeriksa jumlah dan statusnya.") }; return }
+    Text("${displayDate(s.date)} · ${stateLabel(s.closingState)}", color = MaterialTheme.colorScheme.onSurfaceVariant, style = MaterialTheme.typography.bodySmall)
+    SyncStatus(s, vm::sync)
+    s.lifecycle?.let { op -> Paper {
+        Text(actionLabel(op.action), fontWeight = FontWeight.Bold)
+        Text(if (op.status in setOf("CONFLICT", "FAILED")) "Tindakan ditolak dan belum diterapkan. Tutup tindakan ini, lalu periksa data terbaru sebelum mencoba lagi."
+            else "Hasil belum terkonfirmasi. Jangan mengulang sebagai tindakan baru; aplikasi akan memeriksa ID yang sama.", style = MaterialTheme.typography.bodySmall)
+        if (op.status in setOf("CONFLICT", "FAILED")) TextButton(onClick = vm::dismissLifecycle, enabled = !s.working) { Text("Tutup tindakan yang ditolak") }
+        else TextButton(onClick = vm::sync, enabled = !s.syncing && !s.working) { Text("Periksa konfirmasi") }
+    } }
+    Paper {
+        Text("Menu pada server terakhir", fontWeight = FontWeight.Bold)
+        s.reviewMenus.forEach { line -> Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
+            Text(line.name, Modifier.weight(1f)); Text(line.quantity.toString(), fontWeight = FontWeight.SemiBold)
+        } }
+        HorizontalDivider(); Text("Total ${s.reviewMenus.sumOf { it.quantity }} porsi", fontWeight = FontWeight.Bold)
+    }
+    Paper {
+        Text("Pemakaian bahan", fontWeight = FontWeight.Bold)
+        if (s.ingredients.isEmpty()) Text("Belum ada pemakaian pada snapshot server ini.", style = MaterialTheme.typography.bodySmall)
+        s.ingredients.forEach { line -> Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
+            Text(line.name, Modifier.weight(1f)); Text(line.quantity.toString(), fontWeight = FontWeight.SemiBold)
+        } }
+        Text("Sesuai resep yang tersimpan pada closing ini.", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+    }
+    s.submittedBy?.let { Text("Dikirim oleh $it", style = MaterialTheme.typography.bodySmall) }
+    s.lockedBy?.let { Text("Dikunci oleh $it", style = MaterialTheme.typography.bodySmall) }
+    val supervisor = s.identity?.outlets?.firstOrNull { it.id == s.outletId }?.role in setOf("SUPERVISOR", "ADMIN")
+    val ready = s.syncVerified && !s.dirty && s.pending == 0 && s.lifecycle == null && !s.working && !s.syncing
+    val actions = when (s.closingState) { "DRAFT" -> listOf("submit"); "SUBMITTED" -> if (supervisor) listOf("lock", "return") else emptyList()
+        "LOCKED" -> if (supervisor) listOf("reopen") else emptyList(); else -> emptyList() }
+    if (s.closingState == "SUBMITTED" && !supervisor) Text("Menunggu pemeriksaan supervisor. Jumlah tidak dapat diedit setelah diajukan.", style = MaterialTheme.typography.bodySmall)
+    if (!ready && s.lifecycle == null) Text("Simpan perubahan dan selesaikan sinkronisasi/konflik di perangkat ini sebelum mengubah status.", style = MaterialTheme.typography.bodySmall)
+    actions.forEach { action ->
+        val modifier = Modifier.fillMaxWidth().heightIn(min = 49.dp).testTag("online.action.$action")
+        if (action in setOf("return", "reopen")) OutlinedButton(onClick = { onAction(action) }, enabled = ready,
+            modifier = modifier, shape = RoundedCornerShape(13.dp)) { Text(actionLabel(action)) }
+        else Button(onClick = { onAction(action) }, enabled = ready, modifier = modifier, shape = RoundedCornerShape(13.dp)) { Text(actionLabel(action)) }
+    }
+}
+
+@Composable private fun LifecycleDialog(action: String, reviewed: OnlineUiState, onDismiss: () -> Unit, onConfirm: (String) -> Unit) {
+    var reason by remember { mutableStateOf("") }; val needsReason = action in setOf("return", "reopen")
+    AlertDialog(onDismissRequest = onDismiss, title = { Text("${actionLabel(action)}?") }, text = {
+        Column(Modifier.verticalScroll(rememberScrollState()), verticalArrangement = Arrangement.spacedBy(13.dp)) {
+            Text("${displayDate(reviewed.date)} · ${reviewed.reviewMenus.sumOf { it.quantity }} porsi", fontWeight = FontWeight.SemiBold)
+            Text(when (action) {
+                "submit" -> "Jumlah server yang direview akan diajukan. Perangkat lain mungkin masih memiliki draft offline."
+                "lock" -> "Penguncian menyimpan snapshot laporan. Perubahan berikutnya memerlukan pembukaan ulang dengan alasan."
+                "return" -> "Closing menjadi draft revisi baru. Alasan pengembalian dicatat dalam riwayat."
+                else -> "Snapshot terkunci sebelumnya tetap disimpan. Alasan pembukaan ulang dicatat dalam riwayat."
+            }, style = MaterialTheme.typography.bodyMedium)
+            if (needsReason) OutlinedTextField(reason, { reason = it }, label = { Text("Alasan") }, modifier = Modifier.fillMaxWidth().testTag("online.lifecycle.reason"),
+                supportingText = { Text("${reason.trim().length}/500 karakter · wajib diisi") }, isError = reason.trim().length > 500, minLines = 2, maxLines = 4)
+        }
+    }, confirmButton = { TextButton(onClick = { onConfirm(reason.trim()) }, enabled = !needsReason || reason.trim().length in 1..500,
+        modifier = Modifier.testTag("online.lifecycle.confirm")) { Text("Ya, lanjutkan") } }, dismissButton = { TextButton(onClick = onDismiss) { Text("Periksa lagi") } })
 }
 
 @Composable private fun MenuInput(menu: OnlineMenuUi, buffer: String?, enabled: Boolean, onChange: (String) -> Unit, onConflict: () -> Unit) {

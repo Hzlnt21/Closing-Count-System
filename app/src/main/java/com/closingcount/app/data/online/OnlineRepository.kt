@@ -58,6 +58,17 @@ class OnlineRepository(private val dao: OnlineSyncDao, private val store: Online
         dao.editBatch(session.scope(outletId), closingId, quantities)
     }
 
+    suspend fun lifecycle(outletId: String, closingId: String, action: String, reason: String,
+        reviewedGeneration: Long, reviewedRevision: Long): String = sessionMutex.withLock {
+        val session = requireNotNull(active)
+        engine(session).prepareLifecycle(session, outletId, closingId, action, reason, reviewedGeneration, reviewedRevision)
+    }
+
+    suspend fun dismissLifecycle(outletId: String, closingId: String, operationId: String) {
+        val session = requireNotNull(active)
+        engine(session).dismissLifecycle(session, outletId, closingId, operationId)
+    }
+
     /** Local credentials are cleared even if server logout is unreachable. Drafts remain scoped. */
     suspend fun logout(confirmPending: Boolean = false): Boolean {
         val old = sessionMutex.withLock {

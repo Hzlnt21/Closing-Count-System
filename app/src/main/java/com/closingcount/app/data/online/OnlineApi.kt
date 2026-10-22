@@ -4,6 +4,7 @@ import com.closingcount.app.BuildConfig
 import com.closingcount.app.data.local.OnlineClosingEntity
 import com.closingcount.app.data.local.OnlineEntryEntity
 import com.closingcount.app.data.local.OnlineOperationEntity
+import com.closingcount.app.data.local.OnlineLifecycleEntity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.json.JSONObject
@@ -46,10 +47,13 @@ class OnlineSession(val origin: String, val identity: OnlineIdentity, val token:
 
 data class OnlineSnapshot(val header: OnlineClosingEntity, val entries: List<OnlineEntryEntity>)
 data class OnlineReceipt(val generation: Long, val closingRevision: Long, val entryRevision: Long, val quantity: Int)
+data class OnlineLifecycleReceipt(val state: String, val generation: Long, val revision: Long)
 
 interface OnlineGateway {
     suspend fun fetch(session: OnlineSession, outletId: String, closingId: String): OnlineSnapshot
     suspend fun send(session: OnlineSession, operation: OnlineOperationEntity): OnlineReceipt
+    suspend fun lifecycle(session: OnlineSession, operation: OnlineLifecycleEntity): OnlineLifecycleReceipt =
+        throw IOException("Lifecycle transport not available")
 }
 
 class OnlineApi(val endpoint: OnlineEndpoint, private val timeoutMillis: Int = 10000) : OnlineGateway {
@@ -154,6 +158,35 @@ class OnlineApi(val endpoint: OnlineEndpoint, private val timeoutMillis: Int = 1
             require(ack.getString("closingId") == operation.closingId && entry.getString("menuId") == operation.menuId)
             OnlineReceipt(number(ack, "generation", 1), number(ack, "closingRevision"), number(entry, "entryRevision"),
                 quantity(entry)).also { require(it.generation == operation.generation && it.quantity == operation.quantity) }
+        }
+    }
+
+    override suspend fun lifecycle(session: OnlineSession, operation: OnlineLifecycleEntity): OnlineLifecycleReceipt {
+        checkSession(session); uuid(operation.closingId); uuid(operation.operationId)
+        require(operation.scope == session.scope(operation.scope.substringAfterLast('|')))
+        require(operation.status == "SENT" && operation.wasSent)
+        require(operation.action in setOf("submit", "return", "lock", "reopen"))
+        val body = JSONObject().put("operationId", operation.operationId).put("generation", operation.generation)
+            .put("expectedRevision", operation.expectedRevision).put("deviceSyncState", "SYNCED")
+        if (operation.action in setOf("return", "reopen")) body.put("reason", operation.reason)
+        val response = request("POST", "/closings/${operation.closingId}/${operation.action}", session.token, body)
+        return decode {
+            require(response.getString("closingId") == operation.closingId)
+            val expectedState = when (operation.action) { "submit" -> "SUBMITTED"; "lock" -> "LOCKED"; else -> "DRAFT" }
+            val expectedGeneration = operation.generation + if (operation.action in setOf("return", "reopen")) 1 else 0
+            OnlineLifecycleReceipt(response.getString("state"), number(response, "generation", 1), number(response, "closingRevision")).also {
+                require(it.state == expectedState && it.generation == expectedGeneration && it.revision == operation.expectedRevision + 1)
+            }
+        }
+    }
+
+    suspend fun report(session: OnlineSession, outletId: String, closingId: String, generation: Long): String {
+        checkSession(session); uuid(closingId); session.scope(outletId); require(generation >= 1)
+        val response = request("GET", "/closings/$closingId/reports/$generation", session.token)
+        return decode {
+            require(response.getString("format") == "closing-count-report" && response.getInt("schemaVersion") == 1)
+            require(response.getString("closingId") == closingId && response.getString("outletId") == outletId && number(response, "generation", 1) == generation)
+            response.toString()
         }
     }
 

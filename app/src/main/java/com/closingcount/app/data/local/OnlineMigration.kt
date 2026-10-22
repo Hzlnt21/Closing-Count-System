@@ -23,3 +23,14 @@ val Migration6To7 = object : Migration(6, 7) {
         db.execSQL("CREATE INDEX IF NOT EXISTS `index_online_operations_scope_closingId` ON `online_operations` (`scope`, `closingId`)")
     }
 }
+
+val Migration7To8 = object : Migration(7, 8) {
+    override fun migrate(db: SupportSQLiteDatabase) {
+        db.execSQL("""CREATE TABLE IF NOT EXISTS `online_lifecycle_operations` (
+            `scope` TEXT NOT NULL, `closingId` TEXT NOT NULL, `operationId` TEXT NOT NULL,
+            `action` TEXT NOT NULL, `generation` INTEGER NOT NULL, `expectedRevision` INTEGER NOT NULL,
+            `reason` TEXT NOT NULL, `status` TEXT NOT NULL, `wasSent` INTEGER NOT NULL, `errorCode` TEXT,
+            PRIMARY KEY(`scope`, `closingId`))""")
+        db.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS `index_online_lifecycle_operations_operationId` ON `online_lifecycle_operations` (`operationId`)")
+    }
+}
