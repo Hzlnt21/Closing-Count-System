@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased - native catalog R1, 2026-10-23
+
+- Added role-based native category/ingredient/menu/recipe editing, search, bounded ingredient selection and reference/deactivation guards in the approved R2 direction.
+- Valid row saves persist EDITING workspace records atomically. Review freezes the same ID/payload; frozen work cannot return to an editable state. Stale drafts require explicit resolution.
+- Form Activity recreation, local draft restoration and publication preserve old closing snapshots. [Evidence and limits](docs/NATIVE_CATALOG_R1.md).
+
 ## Unreleased - catalog client foundation R1, 2026-10-23
 
 - Added typed whole-catalog validation, strict JSON decoding, backup-excluded immutable publication intents and catalog account-switch/logout guards.

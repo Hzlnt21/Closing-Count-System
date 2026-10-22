@@ -1,0 +1,13 @@
+{
+    "passed":  true,
+    "expectedHttpTests":  7,
+    "ownedEmulator":  "PortfolioQA_Phone_API36",
+    "endpoint":  "http://10.0.2.2:4371",
+    "outlet":  "38f90771-b768-4799-94e5-84d90d17679a",
+    "physicalPhoneAccessed":  false,
+    "publicAcceptance":  false,
+    "twoSeparateRoomDatabases":  true,
+    "twoSeparateAppInstallations":  false,
+    "lostResponseInjectedAfterRealCommit":  true,
+    "finishedAt":  "2026-10-22T18:36:13.0918895Z"
+}

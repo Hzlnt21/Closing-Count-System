@@ -24,8 +24,8 @@ class OnlineCatalogStore(context: Context) {
         require(op.expectedRevision in 0..9007199254740990L)
         OnlineCatalog.parse(JSONObject(op.catalogJson))
         require(OnlineCatalogStore.requestBody(op).toString().toByteArray(Charsets.UTF_8).size<=524288){"Katalog terlalu besar untuk disimpan ke server."}
-        require(op.status in setOf("QUEUED","SENT","AUTH_REQUIRED","CONFLICT","FAILED"))
-        require(!op.wasSent || op.status != "QUEUED")
+        require(op.status in setOf("EDITING","QUEUED","SENT","AUTH_REQUIRED","CONFLICT","FAILED"))
+        require(!op.wasSent || op.status !in setOf("EDITING","QUEUED"))
         require(op.status != "SENT" || op.wasSent)
         return op
     }
@@ -43,7 +43,13 @@ class OnlineCatalogStore(context: Context) {
         val previous = load(op.scope)
         if (previous != null) {
             check(previous.operationId == op.operationId)
-            check(previous.copy(status=op.status,wasSent=op.wasSent,error=op.error) == op) { "Catalog payload is immutable" }
+            if(previous.status=="EDITING"){
+                check(op.status in setOf("EDITING","QUEUED")&&!op.wasSent)
+                check(previous.expectedRevision==op.expectedRevision)
+            }else{
+                check(op.status!="EDITING") { "A frozen catalog action cannot become editable" }
+                check(previous.copy(status=op.status,wasSent=op.wasSent,error=op.error) == op) { "Catalog payload is immutable" }
+            }
             check(!previous.wasSent || op.wasSent)
         }
         val target = file(op.scope); val stream = target.startWrite()
@@ -54,7 +60,7 @@ class OnlineCatalogStore(context: Context) {
     @Synchronized fun remove(scope: String, operationId: String, confirmed: Boolean = false) {
         val op = load(scope) ?: return
         check(op.operationId == operationId)
-        check(confirmed || op.status in setOf("CONFLICT","FAILED")) { "Uncertain catalog action must not be discarded" }
+        check(confirmed || op.status in setOf("EDITING","CONFLICT","FAILED")) { "Uncertain catalog action must not be discarded" }
         file(scope).delete()
         if (load(scope) != null) throw IOException("Acknowledged catalog intent could not be removed")
     }

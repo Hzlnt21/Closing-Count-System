@@ -132,9 +132,24 @@ class OnlineRepository(private val dao: OnlineSyncDao, private val store: Online
         val settings=api(session).outletSettings(session,outlet);check(settings.role=="ADMIN")
         val fresh=api(session).catalog(session,outlet)
         if(fresh.revision!=reviewedRevision)throw OnlineConflictChangedException()
-        val op=OnlineCatalogOperation(session.scope(outlet),java.util.UUID.randomUUID().toString(),reviewedRevision,catalog.json().toString())
+        val scope=session.scope(outlet);val existing=withContext(Dispatchers.IO){storage.load(scope)}
+        val json=catalog.json().toString()
+        val op=if(existing==null)OnlineCatalogOperation(scope,java.util.UUID.randomUUID().toString(),reviewedRevision,json)
+            else{check(existing.status=="EDITING"&&existing.expectedRevision==reviewedRevision&&existing.catalogJson==json);existing.copy(status="QUEUED")}
+        withContext(Dispatchers.IO){storage.save(op)}
+    }
+    suspend fun startCatalogDraft(outlet:String,reviewed:OnlineCatalogVersion)=sessionMutex.withLock{
+        val session=requireNotNull(active);val storage=requireNotNull(catalogStore)
+        check(api(session).outletSettings(session,outlet).role=="ADMIN")
+        if(api(session).catalog(session,outlet).revision!=reviewed.revision)throw OnlineConflictChangedException()
+        val op=OnlineCatalogOperation(session.scope(outlet),java.util.UUID.randomUUID().toString(),reviewed.revision,reviewed.catalog.json().toString(),"EDITING")
         withContext(Dispatchers.IO){check(storage.load(op.scope)==null);storage.save(op)}
     }
+    suspend fun editCatalogDraft(outlet:String,catalog:OnlineCatalog)=sessionMutex.withLock{
+        val session=requireNotNull(active);val storage=requireNotNull(catalogStore)
+        withContext(Dispatchers.IO){val op=requireNotNull(storage.load(session.scope(outlet)));check(op.status=="EDITING");storage.save(op.copy(catalogJson=catalog.json().toString()))}
+    }
+
     suspend fun syncCatalog(outlet:String):OnlineCatalogVersion=sessionMutex.withLock{
         val session=requireNotNull(active);val storage=requireNotNull(catalogStore);val scope=session.scope(outlet)
         var op=withContext(Dispatchers.IO){requireNotNull(storage.load(scope))};check(op.status in setOf("QUEUED","SENT"))

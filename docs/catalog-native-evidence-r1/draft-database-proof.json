@@ -1,0 +1,365 @@
+{
+  "passed": true,
+  "mode": "draft",
+  "outlet": "9a68a89e-9519-4780-b5fe-106c1f462973",
+  "versions": [
+    {
+      "id": "46c631e5-30b1-488c-a5cb-ef11a5903e9d",
+      "revision": "1",
+      "snapshot": {
+        "menus": [
+          {
+            "id": "65c8d2d1-6ca9-463e-a50b-4150bd89cdb7",
+            "name": "Latte",
+            "active": true,
+            "sortOrder": 1,
+            "categoryId": "14690b9c-aec1-43b2-b2e5-a58ed5553f8c",
+            "ingredientIds": [
+              "747c8f98-d92d-4eee-bc25-f741c0c2807e",
+              "b81842a9-cfac-4283-964c-3cdc63db73ac"
+            ]
+          },
+          {
+            "id": "b16e2d30-a875-4b3b-9111-e643678c85de",
+            "name": "Cappuccino",
+            "active": true,
+            "sortOrder": 0,
+            "categoryId": "14690b9c-aec1-43b2-b2e5-a58ed5553f8c",
+            "ingredientIds": [
+              "747c8f98-d92d-4eee-bc25-f741c0c2807e",
+              "843984f7-2c69-4f21-93e8-8667136ac9f6",
+              "b81842a9-cfac-4283-964c-3cdc63db73ac"
+            ]
+          }
+        ],
+        "ingredients": [
+          {
+            "id": "747c8f98-d92d-4eee-bc25-f741c0c2807e",
+            "name": "Fresh milk",
+            "active": true,
+            "sortOrder": 1,
+            "categoryId": "2863060b-b130-4278-971c-be7773726be1"
+          },
+          {
+            "id": "843984f7-2c69-4f21-93e8-8667136ac9f6",
+            "name": "Powder cokelat",
+            "active": true,
+            "sortOrder": 2,
+            "categoryId": "2863060b-b130-4278-971c-be7773726be1"
+          },
+          {
+            "id": "b81842a9-cfac-4283-964c-3cdc63db73ac",
+            "name": "Biji kopi",
+            "active": true,
+            "sortOrder": 0,
+            "categoryId": "2863060b-b130-4278-971c-be7773726be1"
+          }
+        ],
+        "menuCategories": [
+          {
+            "id": "14690b9c-aec1-43b2-b2e5-a58ed5553f8c",
+            "name": "Coffee",
+            "sortOrder": 0
+          }
+        ],
+        "ingredientCategories": [
+          {
+            "id": "2863060b-b130-4278-971c-be7773726be1",
+            "name": "Bahan baku",
+            "sortOrder": 0
+          }
+        ]
+      },
+      "created_by": "c71158df-f8a0-4588-9df6-c0d5749098c1"
+    },
+    {
+      "id": "42d82d0f-30d2-4cca-93f4-83afd5f0321c",
+      "revision": "2",
+      "snapshot": {
+        "menus": [
+          {
+            "id": "65c8d2d1-6ca9-463e-a50b-4150bd89cdb7",
+            "name": "Latte",
+            "active": true,
+            "sortOrder": 1,
+            "categoryId": "14690b9c-aec1-43b2-b2e5-a58ed5553f8c",
+            "ingredientIds": [
+              "747c8f98-d92d-4eee-bc25-f741c0c2807e",
+              "b81842a9-cfac-4283-964c-3cdc63db73ac"
+            ]
+          },
+          {
+            "id": "b16e2d30-a875-4b3b-9111-e643678c85de",
+            "name": "Cappuccino",
+            "active": true,
+            "sortOrder": 0,
+            "categoryId": "14690b9c-aec1-43b2-b2e5-a58ed5553f8c",
+            "ingredientIds": [
+              "747c8f98-d92d-4eee-bc25-f741c0c2807e",
+              "843984f7-2c69-4f21-93e8-8667136ac9f6",
+              "b81842a9-cfac-4283-964c-3cdc63db73ac"
+            ]
+          }
+        ],
+        "ingredients": [
+          {
+            "id": "747c8f98-d92d-4eee-bc25-f741c0c2807e",
+            "name": "Fresh milk",
+            "active": true,
+            "sortOrder": 1,
+            "categoryId": "2863060b-b130-4278-971c-be7773726be1"
+          },
+          {
+            "id": "843984f7-2c69-4f21-93e8-8667136ac9f6",
+            "name": "Powder cokelat",
+            "active": true,
+            "sortOrder": 2,
+            "categoryId": "2863060b-b130-4278-971c-be7773726be1"
+          },
+          {
+            "id": "b81842a9-cfac-4283-964c-3cdc63db73ac",
+            "name": "Biji kopi",
+            "active": true,
+            "sortOrder": 0,
+            "categoryId": "2863060b-b130-4278-971c-be7773726be1"
+          }
+        ],
+        "menuCategories": [
+          {
+            "id": "14690b9c-aec1-43b2-b2e5-a58ed5553f8c",
+            "name": "Coffee",
+            "sortOrder": 0
+          }
+        ],
+        "ingredientCategories": [
+          {
+            "id": "2863060b-b130-4278-971c-be7773726be1",
+            "name": "Bahan baku",
+            "sortOrder": 0
+          }
+        ]
+      },
+      "created_by": "c71158df-f8a0-4588-9df6-c0d5749098c1"
+    },
+    {
+      "id": "a914e4fb-51c3-4601-af8f-d7477a4ef446",
+      "revision": "3",
+      "snapshot": {
+        "menus": [
+          {
+            "id": "65c8d2d1-6ca9-463e-a50b-4150bd89cdb7",
+            "name": "Draft Latte",
+            "active": true,
+            "sortOrder": 1,
+            "categoryId": "14690b9c-aec1-43b2-b2e5-a58ed5553f8c",
+            "ingredientIds": [
+              "747c8f98-d92d-4eee-bc25-f741c0c2807e",
+              "b81842a9-cfac-4283-964c-3cdc63db73ac"
+            ]
+          },
+          {
+            "id": "b16e2d30-a875-4b3b-9111-e643678c85de",
+            "name": "Draft Cappuccino",
+            "active": true,
+            "sortOrder": 0,
+            "categoryId": "14690b9c-aec1-43b2-b2e5-a58ed5553f8c",
+            "ingredientIds": [
+              "747c8f98-d92d-4eee-bc25-f741c0c2807e",
+              "843984f7-2c69-4f21-93e8-8667136ac9f6",
+              "b81842a9-cfac-4283-964c-3cdc63db73ac"
+            ]
+          }
+        ],
+        "ingredients": [
+          {
+            "id": "747c8f98-d92d-4eee-bc25-f741c0c2807e",
+            "name": "Fresh milk",
+            "active": true,
+            "sortOrder": 1,
+            "categoryId": "2863060b-b130-4278-971c-be7773726be1"
+          },
+          {
+            "id": "843984f7-2c69-4f21-93e8-8667136ac9f6",
+            "name": "Powder cokelat",
+            "active": true,
+            "sortOrder": 2,
+            "categoryId": "2863060b-b130-4278-971c-be7773726be1"
+          },
+          {
+            "id": "b81842a9-cfac-4283-964c-3cdc63db73ac",
+            "name": "Biji kopi",
+            "active": true,
+            "sortOrder": 0,
+            "categoryId": "2863060b-b130-4278-971c-be7773726be1"
+          }
+        ],
+        "menuCategories": [
+          {
+            "id": "14690b9c-aec1-43b2-b2e5-a58ed5553f8c",
+            "name": "Coffee",
+            "sortOrder": 0
+          }
+        ],
+        "ingredientCategories": [
+          {
+            "id": "2863060b-b130-4278-971c-be7773726be1",
+            "name": "Bahan baku",
+            "sortOrder": 0
+          }
+        ]
+      },
+      "created_by": "c71158df-f8a0-4588-9df6-c0d5749098c1"
+    }
+  ],
+  "receipts": [
+    {
+      "operation_id": "035c424d-482a-4beb-af22-b1e93edc1546",
+      "actor_id": "c71158df-f8a0-4588-9df6-c0d5749098c1",
+      "response": {
+        "catalog": {
+          "menus": [
+            {
+              "id": "65c8d2d1-6ca9-463e-a50b-4150bd89cdb7",
+              "name": "Latte",
+              "active": true,
+              "sortOrder": 1,
+              "categoryId": "14690b9c-aec1-43b2-b2e5-a58ed5553f8c",
+              "ingredientIds": [
+                "747c8f98-d92d-4eee-bc25-f741c0c2807e",
+                "b81842a9-cfac-4283-964c-3cdc63db73ac"
+              ]
+            },
+            {
+              "id": "b16e2d30-a875-4b3b-9111-e643678c85de",
+              "name": "Cappuccino",
+              "active": true,
+              "sortOrder": 0,
+              "categoryId": "14690b9c-aec1-43b2-b2e5-a58ed5553f8c",
+              "ingredientIds": [
+                "747c8f98-d92d-4eee-bc25-f741c0c2807e",
+                "843984f7-2c69-4f21-93e8-8667136ac9f6",
+                "b81842a9-cfac-4283-964c-3cdc63db73ac"
+              ]
+            }
+          ],
+          "ingredients": [
+            {
+              "id": "747c8f98-d92d-4eee-bc25-f741c0c2807e",
+              "name": "Fresh milk",
+              "active": true,
+              "sortOrder": 1,
+              "categoryId": "2863060b-b130-4278-971c-be7773726be1"
+            },
+            {
+              "id": "843984f7-2c69-4f21-93e8-8667136ac9f6",
+              "name": "Powder cokelat",
+              "active": true,
+              "sortOrder": 2,
+              "categoryId": "2863060b-b130-4278-971c-be7773726be1"
+            },
+            {
+              "id": "b81842a9-cfac-4283-964c-3cdc63db73ac",
+              "name": "Biji kopi",
+              "active": true,
+              "sortOrder": 0,
+              "categoryId": "2863060b-b130-4278-971c-be7773726be1"
+            }
+          ],
+          "menuCategories": [
+            {
+              "id": "14690b9c-aec1-43b2-b2e5-a58ed5553f8c",
+              "name": "Coffee",
+              "sortOrder": 0
+            }
+          ],
+          "ingredientCategories": [
+            {
+              "id": "2863060b-b130-4278-971c-be7773726be1",
+              "name": "Bahan baku",
+              "sortOrder": 0
+            }
+          ]
+        },
+        "revision": 2,
+        "createdAt": "2026-10-22T18:33:34.739Z",
+        "versionId": "42d82d0f-30d2-4cca-93f4-83afd5f0321c"
+      }
+    },
+    {
+      "operation_id": "11fb5c4f-f8cd-4b45-a48a-fd23e15f5f75",
+      "actor_id": "c71158df-f8a0-4588-9df6-c0d5749098c1",
+      "response": {
+        "catalog": {
+          "menus": [
+            {
+              "id": "65c8d2d1-6ca9-463e-a50b-4150bd89cdb7",
+              "name": "Draft Latte",
+              "active": true,
+              "sortOrder": 1,
+              "categoryId": "14690b9c-aec1-43b2-b2e5-a58ed5553f8c",
+              "ingredientIds": [
+                "747c8f98-d92d-4eee-bc25-f741c0c2807e",
+                "b81842a9-cfac-4283-964c-3cdc63db73ac"
+              ]
+            },
+            {
+              "id": "b16e2d30-a875-4b3b-9111-e643678c85de",
+              "name": "Draft Cappuccino",
+              "active": true,
+              "sortOrder": 0,
+              "categoryId": "14690b9c-aec1-43b2-b2e5-a58ed5553f8c",
+              "ingredientIds": [
+                "747c8f98-d92d-4eee-bc25-f741c0c2807e",
+                "843984f7-2c69-4f21-93e8-8667136ac9f6",
+                "b81842a9-cfac-4283-964c-3cdc63db73ac"
+              ]
+            }
+          ],
+          "ingredients": [
+            {
+              "id": "747c8f98-d92d-4eee-bc25-f741c0c2807e",
+              "name": "Fresh milk",
+              "active": true,
+              "sortOrder": 1,
+              "categoryId": "2863060b-b130-4278-971c-be7773726be1"
+            },
+            {
+              "id": "843984f7-2c69-4f21-93e8-8667136ac9f6",
+              "name": "Powder cokelat",
+              "active": true,
+              "sortOrder": 2,
+              "categoryId": "2863060b-b130-4278-971c-be7773726be1"
+            },
+            {
+              "id": "b81842a9-cfac-4283-964c-3cdc63db73ac",
+              "name": "Biji kopi",
+              "active": true,
+              "sortOrder": 0,
+              "categoryId": "2863060b-b130-4278-971c-be7773726be1"
+            }
+          ],
+          "menuCategories": [
+            {
+              "id": "14690b9c-aec1-43b2-b2e5-a58ed5553f8c",
+              "name": "Coffee",
+              "sortOrder": 0
+            }
+          ],
+          "ingredientCategories": [
+            {
+              "id": "2863060b-b130-4278-971c-be7773726be1",
+              "name": "Bahan baku",
+              "sortOrder": 0
+            }
+          ]
+        },
+        "revision": 3,
+        "createdAt": "2026-10-22T18:33:34.963Z",
+        "versionId": "a914e4fb-51c3-4601-af8f-d7477a4ef446"
+      }
+    }
+  ],
+  "closings": [],
+  "fixturesRetained": true,
+  "scope": "Selected emulator catalog workflow; no physical-phone or public acceptance"
+}

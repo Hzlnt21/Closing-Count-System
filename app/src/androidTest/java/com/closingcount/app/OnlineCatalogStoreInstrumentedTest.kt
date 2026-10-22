@@ -14,6 +14,19 @@ class OnlineCatalogStoreInstrumentedTest{
     private val context=ApplicationProvider.getApplicationContext<Context>()
     private fun op()=OnlineCatalogOperation("https://qa.example.test|${UUID.randomUUID()}|${UUID.randomUUID()}",UUID.randomUUID().toString(),0,OnlineCatalog.empty().json().toString())
     private fun rejects(action:()->Unit){assertThrows(IllegalArgumentException::class.java){action()}}
+    @Test fun editableDraftCanChangeUntilItIsFrozenAndConfirmedCommandsStayImmutable(){
+        val store=OnlineCatalogStore(context);val draft=op().copy(status="EDITING");store.save(draft)
+        val changed=draft.copy(catalogJson=OnlineCatalog(listOf(CatalogCategory(UUID.randomUUID().toString(),"Bahan baru",0)),emptyList(),emptyList(),emptyList()).json().toString())
+        try{
+            store.save(changed);assertEquals(changed,OnlineCatalogStore(context).load(draft.scope))
+            assertThrows(IllegalStateException::class.java){store.save(changed.copy(expectedRevision=1))}
+            val frozen=changed.copy(status="QUEUED");store.save(frozen)
+            assertThrows(IllegalStateException::class.java){store.save(frozen.copy(catalogJson=draft.catalogJson))}
+            assertThrows(IllegalStateException::class.java){store.save(changed)}
+            store.save(frozen.copy(status="CONFLICT"));store.remove(draft.scope,draft.operationId);assertNull(store.load(draft.scope))
+            store.save(draft);store.remove(draft.scope,draft.operationId);assertNull(store.load(draft.scope))
+        }finally{store.remove(draft.scope,draft.operationId,true)}
+    }
     @Test fun exactJsonTypesAndUnknownFieldsAreRejected(){
         val id=UUID.randomUUID().toString();val category=UUID.randomUUID().toString()
         val c=OnlineCatalog(listOf(CatalogCategory(category,"Bahan",0)),listOf(CatalogIngredient(id,category,"Kopi",0,true)),emptyList(),emptyList())
