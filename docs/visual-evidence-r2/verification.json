@@ -1,0 +1,84 @@
+{
+  "artifact": "visual-review-r2.html",
+  "runtimeAcceptance": false,
+  "errors": [],
+  "results": [
+    {
+      "width": 1440,
+      "screen": "overview",
+      "violations": []
+    },
+    {
+      "width": 1440,
+      "screen": "input",
+      "violations": []
+    },
+    {
+      "width": 1440,
+      "screen": "review",
+      "violations": []
+    },
+    {
+      "width": 1440,
+      "screen": "conflict",
+      "violations": []
+    },
+    {
+      "width": 1440,
+      "screen": "history",
+      "violations": []
+    },
+    {
+      "width": 1440,
+      "interactions": "PASS",
+      "checks": [
+        "negative/fraction/out-of-range rejected",
+        "dirty submit blocked",
+        "offline save and submit guard",
+        "online save then submit",
+        "dialog Escape",
+        "lock edit guard",
+        "conflict explicit choice and offline guard"
+      ]
+    },
+    {
+      "width": 390,
+      "screen": "overview",
+      "violations": []
+    },
+    {
+      "width": 390,
+      "screen": "input",
+      "violations": []
+    },
+    {
+      "width": 390,
+      "screen": "review",
+      "violations": []
+    },
+    {
+      "width": 390,
+      "screen": "conflict",
+      "violations": []
+    },
+    {
+      "width": 390,
+      "screen": "history",
+      "violations": []
+    },
+    {
+      "width": 390,
+      "interactions": "PASS",
+      "checks": [
+        "negative/fraction/out-of-range rejected",
+        "dirty submit blocked",
+        "offline save and submit guard",
+        "online save then submit",
+        "dialog Escape",
+        "lock edit guard",
+        "conflict explicit choice and offline guard"
+      ]
+    }
+  ],
+  "passed": true
+}

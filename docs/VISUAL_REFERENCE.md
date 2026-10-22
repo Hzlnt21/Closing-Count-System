@@ -1,5 +1,7 @@
 # Closing Count visual reference update
 
+**Superseded status below:** the owner's local FINORA screenshot has now been inspected. [R2](VISUAL_REFERENCE_R2.md) and [interactive mockup](visual-review-r2.html) replace the earlier proposal. Owner explicitly approved R2 and authorized its application on22October2026. Historical403 notes below do not describe current reference availability.
+
 22 October 2026 — Owner direction D36 supersedes the initial blue proposal as an unapproved design direction.
 
 Chosen source: [FINORA — AI-Powered Fintech App UI/UX Case Study](https://www.behance.net/gallery/257247565/FINORA-AI-Powered-Fintech-App-UI-UX-Case-Study), project257247565. Other projects named Finora are not substitutes.
