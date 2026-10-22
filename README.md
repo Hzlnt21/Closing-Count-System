@@ -1,5 +1,7 @@
 # Closing Count System
 
+Latest source foundation: [CCS-05 HTTP/session R1](docs/ONLINE_HTTP_R1.md) connects the Room outbox to existing service handlers, adds encrypted sessions and account-switch guards.12JVM+18Room/legacy+6HTTP emulator tests pass; actual PostgreSQL receipts/audit were checked. Two accounts use separate databases inside one QA installation; UI/two-installation/process-kill/reconnect acceptance remain open. R2 native screens are next, not already delivered. Offline app metadata stays0.1.1.
+
 Latest portfolio checkpoint: [CCS-05 Room foundation R1](docs/ONLINE_ROOM_R1.md) adds additive schema7 and durable scoped outbox/ack/pull primitives;18 emulator instrumentation tests pass. No HTTP/native online integration yet. [Visual R2](docs/VISUAL_REFERENCE_R2.md) is now explicitly approved for application after inspecting the local FINORA screenshot. Old403/review-pending paragraphs below remain checkpoint history; they do not describe current reference availability. App metadata stays0.1.1 until the connected candidate is assembled and verified.
 
 ## Pengembangan kolaborasi online

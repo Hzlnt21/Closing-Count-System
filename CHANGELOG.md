@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased — CCS-05 HTTP/session foundation, 2026-10-22
+
+- Added canonical HTTPS transport, debug-only loopback HTTP, bounded JSON and closing/receipt identity checks against the existing service.
+- Added Keystore AES-GCM session persistence, pending-account/logout confirmation and scoped queue sync/retry/error handling. Session preferences and databases are excluded from automatic transfer to prevent token/queue replay; manual legacy backup remains available, online migration/export remains open.
+-12JVM,18Room/legacy and6real-service HTTP scenarios pass. Independent PostgreSQL proof confirms receipt/audit attribution and duplicate retry behavior. No native connected UI, two-installation/process-kill or physical/public acceptance claimed; APK metadata remains0.1.1.
+
 ## Unreleased — CCS-05 Room foundation, 2026-10-22
 
 - Added non-destructive schema6→7 online namespace and scoped durable operations with transactional edit/ack/pull/conflict/auth recovery.

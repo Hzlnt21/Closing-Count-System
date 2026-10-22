@@ -1,0 +1,10 @@
+﻿{
+    "passed":  true,
+    "serial":  "emulator-5580",
+    "avd":  "PortfolioQA_Phone_API36",
+    "scope":  "all-instrumentation",
+    "expectedTests":  18,
+    "phoneUat":  false,
+    "realHttpSync":  false,
+    "finishedAt":  "2026-10-22T11:58:52.5325382Z"
+}

@@ -1,0 +1,180 @@
+{
+  "passed": true,
+  "entries": [
+    {
+      "business_date": "2026-10-01",
+      "generation": "1",
+      "revision": "2",
+      "menu_id": "77ff24de-354b-4be5-a5df-17f920c44e88",
+      "quantity": 3,
+      "entry_revision": "2",
+      "updated_by": "2623881d-c7c0-42b8-93d9-cc1723648d74"
+    },
+    {
+      "business_date": "2026-10-01",
+      "generation": "1",
+      "revision": "2",
+      "menu_id": "d7e96f0f-7d91-4fb8-9ce3-b9ca561c89f0",
+      "quantity": 0,
+      "entry_revision": "0",
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-10-02",
+      "generation": "1",
+      "revision": "1",
+      "menu_id": "77ff24de-354b-4be5-a5df-17f920c44e88",
+      "quantity": 7,
+      "entry_revision": "1",
+      "updated_by": "da67b0d4-8a97-476e-a65c-0aa024faffcf"
+    },
+    {
+      "business_date": "2026-10-02",
+      "generation": "1",
+      "revision": "1",
+      "menu_id": "d7e96f0f-7d91-4fb8-9ce3-b9ca561c89f0",
+      "quantity": 0,
+      "entry_revision": "0",
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-10-03",
+      "generation": "1",
+      "revision": "1",
+      "menu_id": "77ff24de-354b-4be5-a5df-17f920c44e88",
+      "quantity": 9,
+      "entry_revision": "1",
+      "updated_by": "da67b0d4-8a97-476e-a65c-0aa024faffcf"
+    },
+    {
+      "business_date": "2026-10-03",
+      "generation": "1",
+      "revision": "1",
+      "menu_id": "d7e96f0f-7d91-4fb8-9ce3-b9ca561c89f0",
+      "quantity": 0,
+      "entry_revision": "0",
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-10-04",
+      "generation": "1",
+      "revision": "1",
+      "menu_id": "77ff24de-354b-4be5-a5df-17f920c44e88",
+      "quantity": 5,
+      "entry_revision": "1",
+      "updated_by": "da67b0d4-8a97-476e-a65c-0aa024faffcf"
+    },
+    {
+      "business_date": "2026-10-04",
+      "generation": "1",
+      "revision": "1",
+      "menu_id": "d7e96f0f-7d91-4fb8-9ce3-b9ca561c89f0",
+      "quantity": 0,
+      "entry_revision": "0",
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-10-05",
+      "generation": "1",
+      "revision": "1",
+      "menu_id": "77ff24de-354b-4be5-a5df-17f920c44e88",
+      "quantity": 17,
+      "entry_revision": "1",
+      "updated_by": "da67b0d4-8a97-476e-a65c-0aa024faffcf"
+    },
+    {
+      "business_date": "2026-10-05",
+      "generation": "1",
+      "revision": "1",
+      "menu_id": "d7e96f0f-7d91-4fb8-9ce3-b9ca561c89f0",
+      "quantity": 0,
+      "entry_revision": "0",
+      "updated_by": null
+    }
+  ],
+  "receipts": [
+    {
+      "business_date": "2026-10-01",
+      "actor_id": "2623881d-c7c0-42b8-93d9-cc1723648d74",
+      "operation_id": "76403c81-89f0-46b2-95a3-025169bea326"
+    },
+    {
+      "business_date": "2026-10-01",
+      "actor_id": "da67b0d4-8a97-476e-a65c-0aa024faffcf",
+      "operation_id": "648cc231-4006-470a-8fd9-14ed9e6a2ec0"
+    },
+    {
+      "business_date": "2026-10-02",
+      "actor_id": "da67b0d4-8a97-476e-a65c-0aa024faffcf",
+      "operation_id": "9daf9273-bb15-4cf8-8358-d463e65ce168"
+    },
+    {
+      "business_date": "2026-10-03",
+      "actor_id": "da67b0d4-8a97-476e-a65c-0aa024faffcf",
+      "operation_id": "3fc00cf3-c8be-4494-b6e4-1ff63aabca25"
+    },
+    {
+      "business_date": "2026-10-04",
+      "actor_id": "da67b0d4-8a97-476e-a65c-0aa024faffcf",
+      "operation_id": "da3e3db3-fa74-4e77-b2dd-73bedca79b6b"
+    },
+    {
+      "business_date": "2026-10-05",
+      "actor_id": "da67b0d4-8a97-476e-a65c-0aa024faffcf",
+      "operation_id": "ce03e927-4ce6-40cd-9175-953bcba5a29a"
+    }
+  ],
+  "audit": [
+    {
+      "business_date": "2026-10-01",
+      "actor_id": "da67b0d4-8a97-476e-a65c-0aa024faffcf",
+      "operation_id": "648cc231-4006-470a-8fd9-14ed9e6a2ec0",
+      "before_quantity": 0,
+      "after_quantity": 2
+    },
+    {
+      "business_date": "2026-10-01",
+      "actor_id": "2623881d-c7c0-42b8-93d9-cc1723648d74",
+      "operation_id": "76403c81-89f0-46b2-95a3-025169bea326",
+      "before_quantity": 2,
+      "after_quantity": 3
+    },
+    {
+      "business_date": "2026-10-02",
+      "actor_id": "da67b0d4-8a97-476e-a65c-0aa024faffcf",
+      "operation_id": "9daf9273-bb15-4cf8-8358-d463e65ce168",
+      "before_quantity": 0,
+      "after_quantity": 7
+    },
+    {
+      "business_date": "2026-10-03",
+      "actor_id": "da67b0d4-8a97-476e-a65c-0aa024faffcf",
+      "operation_id": "3fc00cf3-c8be-4494-b6e4-1ff63aabca25",
+      "before_quantity": 0,
+      "after_quantity": 9
+    },
+    {
+      "business_date": "2026-10-05",
+      "actor_id": "da67b0d4-8a97-476e-a65c-0aa024faffcf",
+      "operation_id": "ce03e927-4ce6-40cd-9175-953bcba5a29a",
+      "before_quantity": 0,
+      "after_quantity": 17
+    },
+    {
+      "business_date": "2026-10-04",
+      "actor_id": "da67b0d4-8a97-476e-a65c-0aa024faffcf",
+      "operation_id": "da3e3db3-fa74-4e77-b2dd-73bedca79b6b",
+      "before_quantity": 0,
+      "after_quantity": 5
+    }
+  ],
+  "checks": [
+    "two-account final value attributed to colleague",
+    "lost receipt has one mutation/receipt/audit",
+    "revoked session recovered under original identity",
+    "switch during receipt did not duplicate mutation",
+    "unconfirmed pending18 never reached server17"
+  ],
+  "fixturesRetained": true,
+  "physicalOrPublicAcceptance": false
+}

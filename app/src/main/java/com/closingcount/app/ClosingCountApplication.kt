@@ -4,11 +4,16 @@ import android.app.Application
 import android.content.Context
 import android.content.res.Configuration
 import com.closingcount.app.data.local.ClosingCountDatabase
+import com.closingcount.app.data.online.OnlineRepository
+import com.closingcount.app.data.online.OnlineSessionStore
 import java.util.Locale
 
 class ClosingCountApplication : Application() {
     val database: ClosingCountDatabase by lazy {
         ClosingCountDatabase.getInstance(this)
+    }
+    val onlineRepository: OnlineRepository by lazy {
+        OnlineRepository(database.onlineSyncDao(), OnlineSessionStore(this))
     }
 
     override fun attachBaseContext(base: Context) {

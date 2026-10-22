@@ -10,6 +10,12 @@ import java.util.UUID
 
 @Dao
 abstract class OnlineSyncDao {
+    @Query("SELECT COUNT(*) FROM online_operations WHERE substr(scope,1,length(:accountPrefix))=:accountPrefix")
+    abstract suspend fun pendingForAccount(accountPrefix: String): Int
+
+    @Query("SELECT closingId FROM online_closings WHERE scope=:scope")
+    abstract suspend fun closingIds(scope: String): List<String>
+
     @Query("SELECT * FROM online_closings WHERE scope=:scope AND closingId=:closingId")
     abstract suspend fun closing(scope: String, closingId: String): OnlineClosingEntity?
 

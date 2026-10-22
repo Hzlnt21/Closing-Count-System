@@ -1,0 +1,198 @@
+package com.closingcount.app.data.online
+
+import com.closingcount.app.BuildConfig
+import com.closingcount.app.data.local.OnlineClosingEntity
+import com.closingcount.app.data.local.OnlineEntryEntity
+import com.closingcount.app.data.local.OnlineOperationEntity
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+import org.json.JSONObject
+import java.io.IOException
+import java.io.ByteArrayOutputStream
+import java.net.HttpURLConnection
+import java.net.URI
+import java.time.Instant
+
+class OnlineApiException(val status: Int, val code: String) : IOException("Closing Count API: $status $code")
+
+/** Only origin URLs are accepted. Redirects never forward credentials to a new host. */
+class OnlineEndpoint(raw: String, allowLocalQa: Boolean = false) {
+    val origin: String
+    init {
+        val uri = URI(raw.trim())
+        require(uri.userInfo == null && uri.query == null && uri.fragment == null)
+        require(uri.path.isNullOrEmpty() || uri.path == "/")
+        require(!uri.host.isNullOrEmpty() && uri.port in -1..65535 && uri.port != 0)
+        val scheme = uri.scheme?.lowercase()
+        require(scheme == "https" || (scheme == "http" && BuildConfig.DEBUG && allowLocalQa &&
+            uri.host.lowercase() in setOf("127.0.0.1", "10.0.2.2", "localhost")))
+        val port = if (uri.port == -1 || (scheme == "https" && uri.port == 443) ||
+            (scheme == "http" && uri.port == 80)) "" else ":${uri.port}"
+        val host = uri.host.lowercase().let { if (it.contains(':') && !it.startsWith('[')) "[$it]" else it }
+        origin = "$scheme://$host$port"
+    }
+}
+
+data class OnlineOutlet(val id: String, val name: String, val role: String)
+data class OnlineIdentity(val id: String, val username: String, val displayName: String, val outlets: List<OnlineOutlet>)
+
+class OnlineSession(val origin: String, val identity: OnlineIdentity, val token: String, val expiresAt: Instant) {
+    fun scope(outletId: String): String {
+        require(identity.outlets.any { it.id == outletId })
+        return "$origin|${identity.id}|$outletId"
+    }
+    override fun toString() = "OnlineSession(redacted)"
+}
+
+data class OnlineSnapshot(val header: OnlineClosingEntity, val entries: List<OnlineEntryEntity>)
+data class OnlineReceipt(val generation: Long, val closingRevision: Long, val entryRevision: Long, val quantity: Int)
+
+interface OnlineGateway {
+    suspend fun fetch(session: OnlineSession, outletId: String, closingId: String): OnlineSnapshot
+    suspend fun send(session: OnlineSession, operation: OnlineOperationEntity): OnlineReceipt
+}
+
+class OnlineApi(val endpoint: OnlineEndpoint, private val timeoutMillis: Int = 10000) : OnlineGateway {
+    private suspend fun request(method: String, path: String, token: String? = null, body: JSONObject? = null): JSONObject =
+        withContext(Dispatchers.IO) {
+            val connection = URI(endpoint.origin + "/api/v1" + path).toURL().openConnection() as HttpURLConnection
+            try {
+                connection.requestMethod = method
+                connection.connectTimeout = timeoutMillis
+                connection.readTimeout = timeoutMillis
+                connection.instanceFollowRedirects = false
+                connection.useCaches = false
+                connection.setRequestProperty("Accept", "application/json")
+                token?.let {
+                    require(Regex("[a-f0-9]{64}").matches(it))
+                    connection.setRequestProperty("Authorization", "Bearer $it")
+                }
+                if (body != null) {
+                    connection.doOutput = true
+                    connection.setRequestProperty("Content-Type", "application/json; charset=utf-8")
+                    val bytes = body.toString().toByteArray(Charsets.UTF_8)
+                    connection.setFixedLengthStreamingMode(bytes.size)
+                    connection.outputStream.use { it.write(bytes) }
+                }
+                val status = connection.responseCode
+                if (status in 300..399) throw IOException("Redirect refused")
+                val stream = if (status in 200..299) connection.inputStream else connection.errorStream
+                val bytes = stream?.use { input ->
+                    val buffer = ByteArray(8192); val output = ByteArrayOutputStream()
+                    while (true) {
+                        val size = input.read(buffer); if (size < 0) break
+                        if (output.size() + size > 2 * 1024 * 1024) throw IOException("Response limit exceeded")
+                        output.write(buffer, 0, size)
+                    }
+                    output.toByteArray()
+                } ?: byteArrayOf()
+                if (bytes.size > 2 * 1024 * 1024) throw IOException("Response limit exceeded")
+                val json = try { JSONObject(bytes.toString(Charsets.UTF_8)) } catch (_: Exception) {
+                    throw IOException("Invalid JSON response")
+                }
+                if (status !in 200..299) {
+                    val code = json.optJSONObject("error")?.optString("code")
+                        ?.takeIf { Regex("[A-Z_]{1,64}").matches(it) } ?: "API_ERROR"
+                    throw OnlineApiException(status, code)
+                }
+                json.optJSONObject("data") ?: throw IOException("Missing response data")
+            } finally { connection.disconnect() }
+        }
+
+    suspend fun login(username: String, password: String): OnlineSession {
+        val login = request("POST", "/auth/login", body = JSONObject().put("username", username).put("password", password))
+        val token = login.getString("accessToken")
+        require(Regex("[a-f0-9]{64}").matches(token) && login.getString("tokenType") == "Bearer")
+        val identity = identity(request("GET", "/me", token))
+        return OnlineSession(endpoint.origin, identity, token, Instant.parse(login.getString("expiresAt")))
+    }
+
+    suspend fun refreshIdentity(session: OnlineSession): OnlineSession {
+        checkSession(session)
+        val identity = identity(request("GET", "/me", session.token))
+        require(identity.id == session.identity.id)
+        return OnlineSession(endpoint.origin, identity, session.token, session.expiresAt)
+    }
+
+    suspend fun logout(session: OnlineSession) {
+        checkSession(session)
+        request("POST", "/auth/logout", session.token, JSONObject())
+    }
+
+    suspend fun create(session: OnlineSession, outletId: String, businessDate: String): OnlineSnapshot {
+        checkSession(session); uuid(outletId)
+        require(java.time.LocalDate.parse(businessDate).toString() == businessDate)
+        val data = request("POST", "/outlets/$outletId/closings", session.token, JSONObject().put("businessDate", businessDate))
+        return decode { snapshot(session, outletId, data) }
+    }
+
+    override suspend fun fetch(session: OnlineSession, outletId: String, closingId: String): OnlineSnapshot {
+        checkSession(session); uuid(outletId); uuid(closingId)
+        val data = request("GET", "/closings/$closingId", session.token)
+        return decode { snapshot(session, outletId, data).also {
+            require(it.header.closingId == closingId)
+        } }
+    }
+
+    override suspend fun send(session: OnlineSession, operation: OnlineOperationEntity): OnlineReceipt {
+        checkSession(session); uuid(operation.closingId); uuid(operation.menuId); uuid(operation.operationId)
+        require(operation.scope.startsWith("${session.origin}|${session.identity.id}|"))
+        require(operation.scope == session.scope(operation.scope.substringAfterLast('|')))
+        require(operation.status == "SENT" && operation.quantity in 0..9999)
+        val body = JSONObject().put("operationId", operation.operationId).put("generation", operation.generation)
+            .put("expectedEntryRevision", requireNotNull(operation.expectedRevision)).put("quantity", operation.quantity)
+        val ack = request("POST", "/closings/${operation.closingId}/entries/${operation.menuId}/operations", session.token, body)
+        return decode {
+            val entry = ack.getJSONObject("entry")
+            require(ack.getString("closingId") == operation.closingId && entry.getString("menuId") == operation.menuId)
+            OnlineReceipt(number(ack, "generation", 1), number(ack, "closingRevision"), number(entry, "entryRevision"),
+                quantity(entry)).also { require(it.generation == operation.generation && it.quantity == operation.quantity) }
+        }
+    }
+
+    private fun checkSession(session: OnlineSession) { require(session.origin == endpoint.origin) }
+
+    private fun snapshot(session: OnlineSession, outletId: String, data: JSONObject): OnlineSnapshot {
+        val id = uuid(data.getString("id")); require(data.getString("outletId") == outletId)
+        val scope = session.scope(outletId)
+        val generation = number(data, "generation", 1)
+        val revision = number(data, "closingRevision")
+        val state = data.getString("state"); require(state in setOf("DRAFT", "SUBMITTED", "LOCKED"))
+        val raw = data.getJSONArray("entries"); require(raw.length() <= 10000)
+        val entries = (0 until raw.length()).map { index ->
+            val item = raw.getJSONObject(index); val qty = quantity(item)
+            OnlineEntryEntity(scope, id, uuid(item.getString("menuId")), generation, qty,
+                number(item, "entryRevision"), qty, "SYNCED")
+        }
+        require(entries.map { it.menuId }.distinct().size == entries.size)
+        val menus = data.getJSONObject("catalog").getJSONArray("menus")
+        require((0 until menus.length()).map { uuid(menus.getJSONObject(it).getString("id")) }.toSet() == entries.map { it.menuId }.toSet())
+        return OnlineSnapshot(OnlineClosingEntity(scope, id, generation, revision, state, data.toString()), entries)
+    }
+
+    private fun identity(data: JSONObject): OnlineIdentity {
+        val raw = data.getJSONArray("outlets")
+        val outlets = (0 until raw.length()).map { i -> val item = raw.getJSONObject(i)
+            OnlineOutlet(uuid(item.getString("outlet_id")), item.getString("name"), item.getString("role").also {
+                require(it in setOf("EMPLOYEE", "SUPERVISOR", "ADMIN"))
+            })
+        }
+        require(outlets.map { it.id }.distinct().size == outlets.size)
+        return OnlineIdentity(uuid(data.getString("id")), data.getString("username"), data.getString("displayName"), outlets)
+    }
+
+    companion object {
+        private fun <T> decode(block: () -> T): T = try { block() } catch (_: IllegalArgumentException) {
+            throw IOException("Invalid response payload")
+        } catch (_: org.json.JSONException) { throw IOException("Invalid response payload") }
+        fun uuid(value: String): String {
+            require(Regex("[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}").matches(value))
+            return value
+        }
+        private fun number(json: JSONObject, key: String, minimum: Long = 0): Long {
+            val value = json.get(key); require(value is Int || value is Long)
+            return (value as Number).toLong().also { require(it in minimum..9007199254740991L) }
+        }
+        private fun quantity(json: JSONObject) = number(json, "quantity").also { require(it <= 9999) }.toInt()
+    }
+}
