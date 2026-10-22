@@ -1,5 +1,9 @@
 # Closing Count System Roadmap
 
+## Portfolio collaborative release (22 October 2026)
+
+The historical offline scope below describes shipped baseline 0.1.1. The approved portfolio direction adds one shared closing per outlet/business date, individual accounts, offline drafts, explicit conflicts and supervisor review/lock/reopen while preserving the original ingredient formula and historical snapshots. [ONLINE_CONTRACT.md](docs/ONLINE_CONTRACT.md) defines the new target and CCS-01..08 acceptance sequence. [Visual proposal](docs/visual-review.html) is a design review artifact. Neither document means online functionality is implemented; physical UAT, hosting and deployment remain later gates.
+
 ## Product Goal
 
 Closing Count System adalah aplikasi Android offline untuk menghitung jumlah penggunaan bahan pada kolom **Terjual/Out** berdasarkan jumlah menu yang terjual pada suatu tanggal.
