@@ -1,5 +1,5 @@
 export class ApiError extends Error {
-  constructor(status, code, message) { super(message); this.status=status; this.code=code; }
+  constructor(status, code, message, details) { super(message); this.status=status; this.code=code; this.details=details; }
 }
 export const invalid = (message='Data yang dikirim tidak valid.') => new ApiError(400,'VALIDATION_ERROR',message);
 export const forbidden = () => new ApiError(403,'OUTLET_FORBIDDEN','Akses outlet tidak diizinkan.');

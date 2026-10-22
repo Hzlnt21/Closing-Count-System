@@ -43,7 +43,7 @@ test('CCS-02 real database/HTTP acceptance',async t=>{
 
     await t.test('guard rejects wrong ownership before a migration can write',async()=>{
       await assert.rejects(()=>migrate(pool,{...config,instance:'f'.repeat(48)}),{message:'Refusing unowned QA database'});
-      assert.equal((await pool.query('SELECT count(*)::int AS n FROM ccs.migrations')).rows[0].n,1);
+      assert.equal((await pool.query('SELECT count(*)::int AS n FROM ccs.migrations')).rows[0].n,second.migrations.length);
     });
     await t.test('anonymous/unknown/wrong password are denied; private data never echoed',async()=>{
       assert.equal((await api('GET','/me')).status,401);

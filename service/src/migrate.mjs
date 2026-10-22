@@ -4,8 +4,10 @@ import {createHash} from 'node:crypto';
 import {pathToFileURL} from 'node:url';
 import {assertOwnedDatabase,configFromEnvironment} from './config.mjs';
 export async function migrate(pool,config) {
-  const sql=(await readFile(new URL('../sql/001-foundation.sql',import.meta.url),'utf8')).replace(/\r\n/g,'\n');
-  const checksum=createHash('sha256').update(sql).digest('hex');
+  const scripts=await Promise.all(['001-foundation','002-collaborative-closing'].map(async id=>{
+    const sql=(await readFile(new URL('../sql/'+id+'.sql',import.meta.url),'utf8')).replace(/\r\n/g,'\n');
+    return {id,sql,checksum:createHash('sha256').update(sql).digest('hex')};
+  }));
   const client=await pool.connect();
   try {
     await client.query('BEGIN');
@@ -18,15 +20,18 @@ export async function migrate(pool,config) {
     if(schemas.rowCount && schemas.rows[0].rolname!=='ccs_portfolio_app') throw new Error('Refusing foreign schema owner');
     await client.query('CREATE SCHEMA IF NOT EXISTS ccs AUTHORIZATION ccs_portfolio_app');
     await client.query('CREATE TABLE IF NOT EXISTS ccs.migrations (id text PRIMARY KEY, checksum text NOT NULL, applied_at timestamptz NOT NULL DEFAULT clock_timestamp())');
-    const prior=await client.query("SELECT checksum FROM ccs.migrations WHERE id='001-foundation'");
-    if(prior.rowCount) {
-      if(prior.rows[0].checksum!==checksum) throw new Error('Applied migration checksum changed');
-    } else {
-      await client.query(sql);
-      await client.query("INSERT INTO ccs.migrations(id,checksum) VALUES ('001-foundation',$1)",[checksum]);
+    const migrations=[];
+    for(const {id,sql,checksum} of scripts){
+      const prior=await client.query('SELECT checksum FROM ccs.migrations WHERE id=$1',[id]);
+      if(prior.rowCount) {
+        if(prior.rows[0].checksum!==checksum) throw new Error('Applied migration checksum changed');
+      }else{
+        await client.query(sql);await client.query('INSERT INTO ccs.migrations(id,checksum) VALUES ($1,$2)',[id,checksum]);
+      }
+      migrations.push({id,checksum,alreadyApplied:prior.rowCount===1});
     }
     await client.query('COMMIT');
-    return {migration:'001-foundation',checksum,alreadyApplied:prior.rowCount===1};
+    return {migrations,alreadyApplied:migrations.every(row=>row.alreadyApplied)};
   } catch(error) { await client.query('ROLLBACK').catch(()=>{});throw error; }
   finally { client.release(); }
 }
