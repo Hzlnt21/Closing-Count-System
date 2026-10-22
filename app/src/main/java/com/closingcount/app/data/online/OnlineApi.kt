@@ -48,6 +48,13 @@ class OnlineSession(val origin: String, val identity: OnlineIdentity, val token:
 data class OnlineSnapshot(val header: OnlineClosingEntity, val entries: List<OnlineEntryEntity>)
 data class OnlineReceipt(val generation: Long, val closingRevision: Long, val entryRevision: Long, val quantity: Int)
 data class OnlineLifecycleReceipt(val state: String, val generation: Long, val revision: Long)
+data class OnlineHistoryRecord(val id: String, val date: String, val state: String, val generation: Long, val revision: Long)
+data class OnlineHistoryPage(val items: List<OnlineHistoryRecord>, val nextBefore: String?)
+data class OnlineAuditRecord(val id: String, val action: String, val actor: String, val menuId: String?,
+    val before: Int?, val after: Int?, val generation: Long, val revision: Long, val reason: String?, val at: String)
+data class OnlineAuditPage(val items: List<OnlineAuditRecord>, val nextAfter: String?)
+data class OnlineReportRecord(val generation: Long, val revision: Long, val reviewer: String, val at: String)
+data class OnlineReportPage(val items: List<OnlineReportRecord>, val nextBefore: Long?)
 
 interface OnlineGateway {
     suspend fun fetch(session: OnlineSession, outletId: String, closingId: String): OnlineSnapshot
@@ -186,7 +193,81 @@ class OnlineApi(val endpoint: OnlineEndpoint, private val timeoutMillis: Int = 1
         return decode {
             require(response.getString("format") == "closing-count-report" && response.getInt("schemaVersion") == 1)
             require(response.getString("closingId") == closingId && response.getString("outletId") == outletId && number(response, "generation", 1) == generation)
+            val frozen = snapshot(session, outletId, response.getJSONObject("closing"))
+            require(frozen.header.closingId == closingId && frozen.header.generation == generation && frozen.header.state == "LOCKED")
+            require(frozen.header.revision == number(response, "closingRevision"))
+            Instant.parse(response.getString("reviewedAt")); uuid(response.getJSONObject("reviewedBy").getString("id"))
+            require(response.getJSONObject("reviewedBy").getString("displayName").length in 1..200)
+            val closing = response.getJSONObject("closing")
+            require(closing.getJSONObject("lockedBy").getString("id") == response.getJSONObject("reviewedBy").getString("id"))
+            val date = closing.getString("businessDate"); require(java.time.LocalDate.parse(date).toString() == date)
+            java.time.ZoneId.of(closing.getString("timezone"))
+            val menus = closing.getJSONObject("catalog").getJSONArray("menus")
+            for (i in 0 until menus.length()) require(menus.getJSONObject(i).getString("name").length in 1..200)
+            val totals = closing.getJSONArray("ingredientTotals"); require(totals.length() <= 10000)
+            for (i in 0 until totals.length()) { val line = totals.getJSONObject(i)
+                uuid(line.getString("id")); require(line.getString("name").length in 1..200); number(line,"total") }
             response.toString()
+        }
+    }
+
+    suspend fun history(session: OnlineSession, outletId: String, before: String? = null, limit: Int = 20): OnlineHistoryPage {
+        checkSession(session); uuid(outletId); session.scope(outletId); require(limit in 1..100)
+        before?.let { require(java.time.LocalDate.parse(it).toString() == it) }
+        val response = request("GET", "/outlets/$outletId/closings?limit=$limit" + (before?.let { "&before=$it" } ?: ""), session.token)
+        return decode {
+            val raw = response.getJSONArray("items"); require(raw.length() <= limit)
+            val items = (0 until raw.length()).map { i -> val row = raw.getJSONObject(i)
+                val date = row.getString("businessDate"); require(java.time.LocalDate.parse(date).toString() == date && (before == null || date < before))
+                val state = row.getString("state"); require(state in setOf("DRAFT", "SUBMITTED", "LOCKED"))
+                OnlineHistoryRecord(uuid(row.getString("id")), date, state, number(row,"generation",1), number(row,"closingRevision"))
+            }
+            require(items.map { it.id }.distinct().size == items.size && items.zipWithNext().all { (a,b) -> a.date > b.date })
+            val next = if (response.isNull("nextBefore")) null else response.getString("nextBefore")
+            require(next == null || (items.size == limit && next == items.last().date))
+            OnlineHistoryPage(items, next)
+        }
+    }
+
+    suspend fun audit(session: OnlineSession, outletId: String, closingId: String, after: String = "0", limit: Int = 50): OnlineAuditPage {
+        checkSession(session); uuid(closingId); session.scope(outletId); require(limit in 1..100)
+        require(after.matches(Regex("0|[1-9][0-9]{0,18}")) && after.toLongOrNull() != null)
+        val response = request("GET", "/closings/$closingId/audit?after=$after&limit=$limit", session.token)
+        return decode {
+            val raw = response.getJSONArray("items"); require(raw.length() <= limit)
+            val items = (0 until raw.length()).map { i -> val row = raw.getJSONObject(i)
+                val id = row.getString("id"); require(id.matches(Regex("[1-9][0-9]{0,18}")) && (id.toLongOrNull() ?: -1) > after.toLong())
+                val action = row.getString("action"); require(action in setOf("CREATE", "ENTRY_UPDATED", "SUBMIT", "RETURN", "LOCK", "REOPEN"))
+                uuid(row.getString("actor_id")); val actor = row.getString("actor_name"); require(actor.length in 1..200)
+                val menu = if (row.isNull("menu_id")) null else uuid(row.getString("menu_id"))
+                fun count(key: String): Int? = if (row.isNull(key)) null else number(row,key).also { require(it <= 9999) }.toInt()
+                fun revision(key: String): Long { val value = row.getString(key); require(value.matches(Regex("0|[1-9][0-9]{0,18}"))); return requireNotNull(value.toLongOrNull()) }
+                val reason = if (row.isNull("reason")) null else row.getString("reason").also { require(it.length <= 500) }
+                val time = row.getString("created_at"); Instant.parse(time)
+                OnlineAuditRecord(id, action, actor, menu, count("before_quantity"), count("after_quantity"), revision("generation"), revision("closing_revision"), reason, time)
+            }
+            require(items.zipWithNext().all { (a,b) -> a.id.toLong() < b.id.toLong() })
+            val next = if (response.isNull("nextAfter")) null else response.getString("nextAfter")
+            require(next == null || (items.size == limit && next == items.last().id))
+            OnlineAuditPage(items,next)
+        }
+    }
+
+    suspend fun reports(session: OnlineSession, outletId: String, closingId: String, before: Long? = null, limit: Int = 20): OnlineReportPage {
+        checkSession(session); uuid(closingId); session.scope(outletId); require(limit in 1..100 && (before == null || before >= 1))
+        val response = request("GET", "/closings/$closingId/reports?limit=$limit" + (before?.let { "&beforeGeneration=$it" } ?: ""), session.token)
+        return decode {
+            val raw = response.getJSONArray("items"); require(raw.length() <= limit)
+            val items = (0 until raw.length()).map { i -> val row = raw.getJSONObject(i)
+                uuid(row.getString("id")); val generation = number(row,"generation",1); require(before == null || generation < before)
+                val actor = row.getJSONObject("reviewedBy"); uuid(actor.getString("id")); val name = actor.getString("displayName"); require(name.length in 1..200)
+                val time = row.getString("reviewedAt"); Instant.parse(time)
+                OnlineReportRecord(generation,number(row,"closingRevision"),name,time)
+            }
+            require(items.zipWithNext().all { (a,b) -> a.generation > b.generation })
+            val next = if (response.isNull("nextBeforeGeneration")) null else number(response,"nextBeforeGeneration",1)
+            require(next == null || (items.size == limit && next == items.last().generation))
+            OnlineReportPage(items,next)
         }
     }
 
@@ -224,7 +305,8 @@ class OnlineApi(val endpoint: OnlineEndpoint, private val timeoutMillis: Int = 1
     companion object {
         private fun <T> decode(block: () -> T): T = try { block() } catch (_: IllegalArgumentException) {
             throw IOException("Invalid response payload")
-        } catch (_: org.json.JSONException) { throw IOException("Invalid response payload") }
+        } catch (_: org.json.JSONException) { throw IOException("Invalid response payload")
+        } catch (_: java.time.DateTimeException) { throw IOException("Invalid response payload") }
         fun uuid(value: String): String {
             require(Regex("[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}").matches(value))
             return value

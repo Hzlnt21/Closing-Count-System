@@ -34,6 +34,12 @@ data class OnlineUiState(val initialized: Boolean = false, val identity: OnlineI
     val menus: List<OnlineMenuUi> = emptyList(), val history: List<OnlineHistoryUi> = emptyList(),
     val buffers: Map<String, String> = emptyMap(), val pending: Int = 0, val working: Boolean = false,
     val syncing: Boolean = false, val syncVerified: Boolean = false, val connectionUnavailable: Boolean = false, val error: String? = null,
+    val serverHistory: List<OnlineHistoryUi> = emptyList(), val historyCursor: String? = null,
+    val historyLoaded: Boolean = false, val historyLoading: Boolean = false, val historyError: String? = null,
+    val historyDetail: OnlineHistoryUi? = null, val audit: List<OnlineAuditRecord> = emptyList(), val auditCursor: String? = null,
+    val reports: List<OnlineReportRecord> = emptyList(), val reportCursor: Long? = null, val frozenReport: String? = null,
+    val historyMenuNames: Map<String, String> = emptyMap(), val historyTimezone: String = "Asia/Jakarta",
+    val detailLoading: Boolean = false, val detailError: String? = null,
     val notice: String? = null, val authRequired: Boolean = false, val confirmSwitch: String? = null, val confirmLogout: Boolean = false) {
     val dirty get() = buffers.isNotEmpty()
     val valid get() = buffers.values.all { it.matches(Regex("[0-9]+")) && (it.toIntOrNull()?.let { n -> n in 0..9999 } == true) }
@@ -48,6 +54,10 @@ class OnlineViewModel(application: Application) : AndroidViewModel(application) 
     private val mutable = MutableStateFlow(OnlineUiState())
     val state: StateFlow<OnlineUiState> = mutable.asStateFlow()
     private var historyJob: Job? = null
+    private var serverHistoryJob: Job? = null
+    private var detailJob: Job? = null
+    private var historyEpoch = 0
+    private var detailEpoch = 0
     private var closingJob: Job? = null
     private var syncJob: Job? = null
     private var epoch = 0
@@ -92,13 +102,13 @@ class OnlineViewModel(application: Application) : AndroidViewModel(application) 
         catch (e: Exception) { mutable.update { it.copy(error = message(e)) } }
     } }
 
-    fun showLogin() { stopSync(); mutable.update { it.copy(loginVisible = true, error = null) } }
+    fun showLogin() { clearRemoteHistory(); stopSync(); mutable.update { it.copy(loginVisible = true, error = null) } }
     fun cancelLogin() { if (repo.session() != null) mutable.update { it.copy(loginVisible = false, error = null) } }
     fun discardForm() { mutable.update { it.copy(buffers = emptyMap()) } }
 
     fun selectOutlet(id: String) { if (!state.value.dirty) startOutlet(id) }
     private fun startOutlet(id: String) {
-        historyJob?.cancel(); closingJob?.cancel(); stopSync(); cached = emptyList()
+        clearRemoteHistory(); historyJob?.cancel(); closingJob?.cancel(); stopSync(); cached = emptyList()
         val session = repo.session() ?: return
         val scope = session.identity.outlets.firstOrNull { it.id == id }?.let { session.scope(id) } ?: run {
             mutable.update { it.copy(outletId = "", error = "Akun ini belum memiliki akses outlet aktif.") }; return
@@ -191,6 +201,102 @@ class OnlineViewModel(application: Application) : AndroidViewModel(application) 
         if (foreground) sync()
     }
 
+    private fun clearRemoteHistory() {
+        historyEpoch++; detailEpoch++; serverHistoryJob?.cancel(); detailJob?.cancel()
+        mutable.update { it.copy(serverHistory = emptyList(), historyCursor = null, historyLoaded = false,
+            historyLoading = false, historyError = null, historyDetail = null, audit = emptyList(), auditCursor = null,
+            reports = emptyList(), reportCursor = null, frozenReport = null, historyMenuNames = emptyMap(), detailLoading = false, detailError = null) }
+    }
+
+    fun loadHistory(more: Boolean = false) {
+        val s = state.value
+        if (s.historyLoading || s.outletId.isEmpty() || s.loginVisible || (more && s.historyCursor == null)) return
+        val run = historyEpoch; val cursor = if (more) s.historyCursor else null
+        mutable.update { it.copy(historyLoading = true, historyError = null) }
+        serverHistoryJob = viewModelScope.launch {
+            try { val page = repo.history(s.outletId, cursor)
+                if (run != historyEpoch) return@launch
+                val rows = page.items.map { OnlineHistoryUi(it.id,it.date,it.state) }
+                mutable.update { it.copy(serverHistory = (if (more) it.serverHistory + rows else rows).distinctBy { row -> row.id },
+                    historyLoaded = true, historyCursor = page.nextBefore) }
+            } catch (cancel: CancellationException) { throw cancel
+            } catch (e: Exception) { if (run == historyEpoch) mutable.update { it.copy(historyError = message(e),
+                authRequired = it.authRequired || (e is OnlineApiException && needsLogin(e.code))) }
+            } finally { if (run == historyEpoch) mutable.update { it.copy(historyLoading = false) } }
+        }
+    }
+
+    fun closeHistoryDetail() {
+        detailEpoch++; detailJob?.cancel(); mutable.update { it.copy(historyDetail = null, audit = emptyList(), reports = emptyList(),
+            auditCursor = null, reportCursor = null, frozenReport = null, detailLoading = false, detailError = null) }
+    }
+    fun closeFrozenReport() { mutable.update { it.copy(frozenReport = null) } }
+    fun inspectHistory(row: OnlineHistoryUi) {
+        detailJob?.cancel(); val s = state.value; val run = historyEpoch; val detailRun = ++detailEpoch
+        mutable.update { it.copy(historyDetail = row, audit = emptyList(), reports = emptyList(), auditCursor = null,
+            reportCursor = null, frozenReport = null, historyMenuNames = emptyMap(), detailLoading = true, detailError = null) }
+        detailJob = viewModelScope.launch {
+            try { val snapshot = repo.readClosing(s.outletId,row.id)
+                val json = JSONObject(snapshot.header.snapshotJson)
+                val timezone = java.time.ZoneId.of(json.getString("timezone")).id
+                val raw = json.getJSONObject("catalog").getJSONArray("menus")
+                val names = (0 until raw.length()).associate { val menu = raw.getJSONObject(it); menu.getString("id") to menu.getString("name") }
+                val audit = repo.audit(s.outletId,row.id); val reports = repo.reports(s.outletId,row.id)
+                if (run == historyEpoch && detailRun == detailEpoch && state.value.historyDetail?.id == row.id) mutable.update { it.copy(
+                    historyDetail = row.copy(state = snapshot.header.state), historyMenuNames = names, historyTimezone = timezone,
+                    audit = audit.items, auditCursor = audit.nextAfter, reports = reports.items, reportCursor = reports.nextBefore) }
+            } catch (cancel: CancellationException) { throw cancel
+            } catch (e: Exception) { if (run == historyEpoch && detailRun == detailEpoch) mutable.update { it.copy(detailError = message(e), authRequired = it.authRequired || (e is OnlineApiException && needsLogin(e.code))) }
+            } finally { if (run == historyEpoch && detailRun == detailEpoch && state.value.historyDetail?.id == row.id) mutable.update { it.copy(detailLoading = false) } }
+        }
+    }
+    fun loadMoreDetail(reports: Boolean) {
+        val s = state.value; val row = s.historyDetail ?: return; val run = historyEpoch
+        if (s.detailLoading || (if (reports) s.reportCursor == null else s.auditCursor == null)) return
+        val detailRun = ++detailEpoch
+        mutable.update { it.copy(detailLoading = true, detailError = null) }
+        detailJob = viewModelScope.launch {
+            try {
+                if (reports) { val page = repo.reports(s.outletId,row.id,s.reportCursor)
+                    if (run == historyEpoch && detailRun == detailEpoch && state.value.historyDetail?.id == row.id) mutable.update { it.copy(
+                        reports = (it.reports + page.items).distinctBy { report -> report.generation }, reportCursor = page.nextBefore) }
+                } else { val page = repo.audit(s.outletId,row.id,requireNotNull(s.auditCursor))
+                    if (run == historyEpoch && detailRun == detailEpoch && state.value.historyDetail?.id == row.id) mutable.update { it.copy(
+                        audit = (it.audit + page.items).distinctBy { audit -> audit.id }, auditCursor = page.nextAfter) }
+                }
+            } catch (cancel: CancellationException) { throw cancel
+            } catch (e: Exception) { if (run == historyEpoch && detailRun == detailEpoch) mutable.update { it.copy(detailError = message(e), authRequired = it.authRequired || (e is OnlineApiException && needsLogin(e.code))) }
+            } finally { if (run == historyEpoch && detailRun == detailEpoch && state.value.historyDetail?.id == row.id) mutable.update { it.copy(detailLoading = false) } }
+        }
+    }
+    fun openReport(generation: Long) {
+        val s = state.value; val row = s.historyDetail ?: return; val run = historyEpoch
+        if (s.detailLoading) return
+        val detailRun = ++detailEpoch
+        mutable.update { it.copy(detailLoading = true, detailError = null, frozenReport = null) }
+        detailJob = viewModelScope.launch {
+            try { val report = repo.report(s.outletId,row.id,generation)
+                if (run == historyEpoch && detailRun == detailEpoch && state.value.historyDetail?.id == row.id) mutable.update { it.copy(frozenReport = report) }
+            } catch (cancel: CancellationException) { throw cancel
+            } catch (e: Exception) { if (run == historyEpoch && detailRun == detailEpoch) mutable.update { it.copy(detailError = message(e), authRequired = it.authRequired || (e is OnlineApiException && needsLogin(e.code))) }
+            } finally { if (run == historyEpoch && detailRun == detailEpoch && state.value.historyDetail?.id == row.id) mutable.update { it.copy(detailLoading = false) } }
+        }
+    }
+    fun openHistory(row: OnlineHistoryUi) {
+        if (state.value.working || state.value.dirty) return
+        selectDate(row.date)
+        if (state.value.closingId == row.id) return
+        val s = state.value; val run = historyEpoch
+        mutable.update { it.copy(working = true, error = null) }
+        viewModelScope.launch {
+            try { repo.readClosing(s.outletId,row.id)
+                if (run == historyEpoch && state.value.date == row.date) bind(row.id)
+            } catch (cancel: CancellationException) { throw cancel
+            } catch (e: Exception) { if (run == historyEpoch) mutable.update { it.copy(error = message(e), authRequired = it.authRequired || (e is OnlineApiException && needsLogin(e.code))) }
+            } finally { if (run == historyEpoch) mutable.update { it.copy(working = false) } }
+        }
+    }
+
     fun change(menuId: String, value: String) { mutable.update {
         val buffers = if (it.menus.firstOrNull { m -> m.id == menuId }?.quantity?.toString() == value) it.buffers - menuId else it.buffers + (menuId to value)
         it.copy(buffers = buffers, error = null, notice = null)
@@ -248,7 +354,7 @@ class OnlineViewModel(application: Application) : AndroidViewModel(application) 
     }
 
     fun logout(confirmed: Boolean = false) {
-        stopSync(); viewModelScope.launch {
+        clearRemoteHistory(); stopSync(); viewModelScope.launch {
             try { val revoked = repo.logout(confirmed); historyJob?.cancel(); closingJob?.cancel()
                 mutable.value = OnlineUiState(initialized = true, notice = if (revoked) null else "Keluar dari perangkat. Koneksi server belum tersedia.")
             } catch (_: PendingOnlineDraftsException) { mutable.update { it.copy(confirmLogout = true) }

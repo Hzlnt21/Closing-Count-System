@@ -1,0 +1,1483 @@
+{
+  "passed": true,
+  "outlet": "9808f541-3877-4199-b2c4-445b1aab4021",
+  "closings": [
+    {
+      "id": "c3c1d6f3-f572-44bb-9124-b1a058bebecc",
+      "business_date": "2026-08-01",
+      "state": "LOCKED",
+      "generation": "2",
+      "revision": "7"
+    },
+    {
+      "id": "84a2418f-191a-4856-8b55-ca41056bdb48",
+      "business_date": "2026-08-02",
+      "state": "DRAFT",
+      "generation": "1",
+      "revision": "0"
+    },
+    {
+      "id": "3cf3e317-02fb-42e2-8f6c-74cf5467ed3f",
+      "business_date": "2026-08-03",
+      "state": "DRAFT",
+      "generation": "1",
+      "revision": "0"
+    },
+    {
+      "id": "c474bb87-ffcc-41de-997e-fad9208a7ba3",
+      "business_date": "2026-09-01",
+      "state": "DRAFT",
+      "generation": "1",
+      "revision": "0"
+    },
+    {
+      "id": "2f607a9c-2ffd-4a19-a752-a1ab86b108a5",
+      "business_date": "2026-09-02",
+      "state": "DRAFT",
+      "generation": "1",
+      "revision": "0"
+    },
+    {
+      "id": "a28dfd1f-f055-4f65-83a9-599da0b0c1bb",
+      "business_date": "2026-09-03",
+      "state": "DRAFT",
+      "generation": "1",
+      "revision": "0"
+    },
+    {
+      "id": "d1918004-2ddf-4598-80b9-575a5b45b6b8",
+      "business_date": "2026-09-04",
+      "state": "DRAFT",
+      "generation": "1",
+      "revision": "0"
+    },
+    {
+      "id": "52c41666-073a-4c78-b56b-ab71e3cc3b4b",
+      "business_date": "2026-09-05",
+      "state": "DRAFT",
+      "generation": "1",
+      "revision": "0"
+    },
+    {
+      "id": "19c884bb-6a97-48e7-b683-91b77a46ffbf",
+      "business_date": "2026-09-06",
+      "state": "DRAFT",
+      "generation": "1",
+      "revision": "0"
+    },
+    {
+      "id": "f6518638-8408-4840-bc38-f9fc1fdff3e1",
+      "business_date": "2026-09-07",
+      "state": "DRAFT",
+      "generation": "1",
+      "revision": "0"
+    },
+    {
+      "id": "5cfa80e8-2aa6-4ea3-8a0e-b7c8d00b6b34",
+      "business_date": "2026-09-08",
+      "state": "DRAFT",
+      "generation": "1",
+      "revision": "0"
+    },
+    {
+      "id": "3f204450-b85e-4524-bb6e-c4fddfa089dc",
+      "business_date": "2026-09-09",
+      "state": "DRAFT",
+      "generation": "1",
+      "revision": "0"
+    },
+    {
+      "id": "eed255ad-cccc-4dd0-ac20-a37b21b0d10d",
+      "business_date": "2026-09-10",
+      "state": "DRAFT",
+      "generation": "1",
+      "revision": "0"
+    },
+    {
+      "id": "47eb8422-280d-409c-9d0c-c3987a94fe02",
+      "business_date": "2026-09-11",
+      "state": "DRAFT",
+      "generation": "1",
+      "revision": "0"
+    },
+    {
+      "id": "fc022039-3f8f-4844-8eaf-4b3d67005337",
+      "business_date": "2026-09-12",
+      "state": "DRAFT",
+      "generation": "1",
+      "revision": "0"
+    },
+    {
+      "id": "f5c5f0f3-2366-4cd6-8b00-2818a2e2539d",
+      "business_date": "2026-09-13",
+      "state": "DRAFT",
+      "generation": "1",
+      "revision": "0"
+    },
+    {
+      "id": "4c9f2d77-3d5d-4bf0-9fdf-b9507614e4ca",
+      "business_date": "2026-09-14",
+      "state": "DRAFT",
+      "generation": "1",
+      "revision": "0"
+    },
+    {
+      "id": "d7a408e1-afb5-4ac3-8ead-d41a7e38acac",
+      "business_date": "2026-09-15",
+      "state": "DRAFT",
+      "generation": "1",
+      "revision": "0"
+    },
+    {
+      "id": "ca7a8207-90e8-4edf-b1fd-db8bd0e92297",
+      "business_date": "2026-09-16",
+      "state": "DRAFT",
+      "generation": "1",
+      "revision": "0"
+    },
+    {
+      "id": "f0f699c7-6e84-49c6-b975-5244df417916",
+      "business_date": "2026-09-17",
+      "state": "DRAFT",
+      "generation": "1",
+      "revision": "0"
+    },
+    {
+      "id": "135e16c8-d714-4a4a-b43e-025b8e038e20",
+      "business_date": "2026-09-18",
+      "state": "DRAFT",
+      "generation": "1",
+      "revision": "0"
+    },
+    {
+      "id": "94687b8b-1bb4-49f2-bc2b-cca4cf76d703",
+      "business_date": "2026-09-19",
+      "state": "DRAFT",
+      "generation": "1",
+      "revision": "0"
+    },
+    {
+      "id": "af82efe0-6508-4bc6-8729-46fd7710638d",
+      "business_date": "2026-09-20",
+      "state": "DRAFT",
+      "generation": "1",
+      "revision": "0"
+    },
+    {
+      "id": "a2d84a18-6c2a-4043-b9a1-78aa09d439fc",
+      "business_date": "2026-09-21",
+      "state": "DRAFT",
+      "generation": "2",
+      "revision": "5"
+    }
+  ],
+  "entries": [
+    {
+      "business_date": "2026-08-01",
+      "quantity": 6,
+      "updated_by": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c"
+    },
+    {
+      "business_date": "2026-08-01",
+      "quantity": 0,
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-08-02",
+      "quantity": 0,
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-08-02",
+      "quantity": 0,
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-08-03",
+      "quantity": 0,
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-08-03",
+      "quantity": 0,
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-09-01",
+      "quantity": 0,
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-09-01",
+      "quantity": 0,
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-09-02",
+      "quantity": 0,
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-09-02",
+      "quantity": 0,
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-09-03",
+      "quantity": 0,
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-09-03",
+      "quantity": 0,
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-09-04",
+      "quantity": 0,
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-09-04",
+      "quantity": 0,
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-09-05",
+      "quantity": 0,
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-09-05",
+      "quantity": 0,
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-09-06",
+      "quantity": 0,
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-09-06",
+      "quantity": 0,
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-09-07",
+      "quantity": 0,
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-09-07",
+      "quantity": 0,
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-09-08",
+      "quantity": 0,
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-09-08",
+      "quantity": 0,
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-09-09",
+      "quantity": 0,
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-09-09",
+      "quantity": 0,
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-09-10",
+      "quantity": 0,
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-09-10",
+      "quantity": 0,
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-09-11",
+      "quantity": 0,
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-09-11",
+      "quantity": 0,
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-09-12",
+      "quantity": 0,
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-09-12",
+      "quantity": 0,
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-09-13",
+      "quantity": 0,
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-09-13",
+      "quantity": 0,
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-09-14",
+      "quantity": 0,
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-09-14",
+      "quantity": 0,
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-09-15",
+      "quantity": 0,
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-09-15",
+      "quantity": 0,
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-09-16",
+      "quantity": 0,
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-09-16",
+      "quantity": 0,
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-09-17",
+      "quantity": 0,
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-09-17",
+      "quantity": 0,
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-09-18",
+      "quantity": 0,
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-09-18",
+      "quantity": 0,
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-09-19",
+      "quantity": 0,
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-09-19",
+      "quantity": 0,
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-09-20",
+      "quantity": 0,
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-09-20",
+      "quantity": 0,
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-09-21",
+      "quantity": 6,
+      "updated_by": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c"
+    },
+    {
+      "business_date": "2026-09-21",
+      "quantity": 0,
+      "updated_by": null
+    }
+  ],
+  "receipts": [
+    {
+      "operation_id": "60481544-af9b-494b-9a6d-368ccac6ec20",
+      "actor_id": "58b3c5db-a913-4722-84cd-6b8cac7e65aa",
+      "response": {
+        "state": "LOCKED",
+        "report": {
+          "id": "c9879e45-2720-44a8-999c-73776946b969",
+          "generation": 1,
+          "reviewedAt": "2026-10-22T16:11:49.541Z",
+          "reviewedBy": {
+            "id": "58b3c5db-a913-4722-84cd-6b8cac7e65aa",
+            "username": "qahmvjqm1xq.arif",
+            "displayName": "Dummy arif"
+          },
+          "closingRevision": 3
+        },
+        "lockedAt": "2026-10-22T16:11:49.541Z",
+        "lockedBy": {
+          "id": "58b3c5db-a913-4722-84cd-6b8cac7e65aa",
+          "username": "qahmvjqm1xq.arif",
+          "displayName": "Dummy arif"
+        },
+        "closingId": "c3c1d6f3-f572-44bb-9124-b1a058bebecc",
+        "generation": 1,
+        "submittedAt": "2026-10-22T16:11:49.329Z",
+        "submittedBy": {
+          "id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+          "username": "qahmvjqm1xq.rani",
+          "displayName": "Dummy rani"
+        },
+        "closingRevision": 3
+      }
+    },
+    {
+      "operation_id": "75a7746b-b610-4d35-92b9-57c12e1b17d7",
+      "actor_id": "58b3c5db-a913-4722-84cd-6b8cac7e65aa",
+      "response": {
+        "state": "LOCKED",
+        "report": {
+          "id": "0fbd6c6c-571b-4bfc-ac50-d409a2faefee",
+          "generation": 1,
+          "reviewedAt": "2026-10-22T16:12:07.241Z",
+          "reviewedBy": {
+            "id": "58b3c5db-a913-4722-84cd-6b8cac7e65aa",
+            "username": "qahmvjqm1xq.arif",
+            "displayName": "Dummy arif"
+          },
+          "closingRevision": 3
+        },
+        "lockedAt": "2026-10-22T16:12:07.241Z",
+        "lockedBy": {
+          "id": "58b3c5db-a913-4722-84cd-6b8cac7e65aa",
+          "username": "qahmvjqm1xq.arif",
+          "displayName": "Dummy arif"
+        },
+        "closingId": "a2d84a18-6c2a-4043-b9a1-78aa09d439fc",
+        "generation": 1,
+        "submittedAt": "2026-10-22T16:12:07.170Z",
+        "submittedBy": {
+          "id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+          "username": "qahmvjqm1xq.rani",
+          "displayName": "Dummy rani"
+        },
+        "closingRevision": 3
+      }
+    },
+    {
+      "operation_id": "8bac505f-2936-41cb-b2e7-c4ed3e5eb697",
+      "actor_id": "58b3c5db-a913-4722-84cd-6b8cac7e65aa",
+      "response": {
+        "state": "DRAFT",
+        "report": null,
+        "lockedAt": null,
+        "lockedBy": null,
+        "closingId": "c3c1d6f3-f572-44bb-9124-b1a058bebecc",
+        "generation": 2,
+        "submittedAt": null,
+        "submittedBy": null,
+        "closingRevision": 4
+      }
+    },
+    {
+      "operation_id": "b17e8304-b186-4f5b-92ce-d95f3dab8ab3",
+      "actor_id": "58b3c5db-a913-4722-84cd-6b8cac7e65aa",
+      "response": {
+        "state": "DRAFT",
+        "report": null,
+        "lockedAt": null,
+        "lockedBy": null,
+        "closingId": "a2d84a18-6c2a-4043-b9a1-78aa09d439fc",
+        "generation": 2,
+        "submittedAt": null,
+        "submittedBy": null,
+        "closingRevision": 4
+      }
+    },
+    {
+      "operation_id": "c2eea20a-7e16-495c-bcea-a347e08eb0da",
+      "actor_id": "58b3c5db-a913-4722-84cd-6b8cac7e65aa",
+      "response": {
+        "state": "LOCKED",
+        "report": {
+          "id": "4a2742ff-8ec7-4108-be5c-2bcd262326e5",
+          "generation": 2,
+          "reviewedAt": "2026-10-22T16:11:50.394Z",
+          "reviewedBy": {
+            "id": "58b3c5db-a913-4722-84cd-6b8cac7e65aa",
+            "username": "qahmvjqm1xq.arif",
+            "displayName": "Dummy arif"
+          },
+          "closingRevision": 7
+        },
+        "lockedAt": "2026-10-22T16:11:50.394Z",
+        "lockedBy": {
+          "id": "58b3c5db-a913-4722-84cd-6b8cac7e65aa",
+          "username": "qahmvjqm1xq.arif",
+          "displayName": "Dummy arif"
+        },
+        "closingId": "c3c1d6f3-f572-44bb-9124-b1a058bebecc",
+        "generation": 2,
+        "submittedAt": "2026-10-22T16:11:50.101Z",
+        "submittedBy": {
+          "id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+          "username": "qahmvjqm1xq.rani",
+          "displayName": "Dummy rani"
+        },
+        "closingRevision": 7
+      }
+    },
+    {
+      "operation_id": "3231cbf3-55a2-4231-bcfd-76248c11e916",
+      "actor_id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+      "response": {
+        "entry": {
+          "menuId": "bf6f9854-33af-42b6-884d-316c471af5f9",
+          "quantity": 6,
+          "updatedAt": "2026-10-22T16:12:07.378Z",
+          "updatedBy": {
+            "id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+            "username": "qahmvjqm1xq.rani",
+            "displayName": "Dummy rani"
+          },
+          "entryRevision": 2
+        },
+        "closingId": "a2d84a18-6c2a-4043-b9a1-78aa09d439fc",
+        "generation": 2,
+        "closingRevision": 5
+      }
+    },
+    {
+      "operation_id": "370c3028-61b5-4260-a7c9-f4468816328c",
+      "actor_id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+      "response": {
+        "state": "SUBMITTED",
+        "report": null,
+        "lockedAt": null,
+        "lockedBy": null,
+        "closingId": "c3c1d6f3-f572-44bb-9124-b1a058bebecc",
+        "generation": 2,
+        "submittedAt": "2026-10-22T16:11:50.101Z",
+        "submittedBy": {
+          "id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+          "username": "qahmvjqm1xq.rani",
+          "displayName": "Dummy rani"
+        },
+        "closingRevision": 6
+      }
+    },
+    {
+      "operation_id": "6f478c20-144d-4206-b1a4-a0dc285b54ec",
+      "actor_id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+      "response": {
+        "entry": {
+          "menuId": "bf6f9854-33af-42b6-884d-316c471af5f9",
+          "quantity": 4,
+          "updatedAt": "2026-10-22T16:12:07.096Z",
+          "updatedBy": {
+            "id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+            "username": "qahmvjqm1xq.rani",
+            "displayName": "Dummy rani"
+          },
+          "entryRevision": 1
+        },
+        "closingId": "a2d84a18-6c2a-4043-b9a1-78aa09d439fc",
+        "generation": 1,
+        "closingRevision": 1
+      }
+    },
+    {
+      "operation_id": "c390a91e-841f-4d3b-a3b2-29cc48226dfd",
+      "actor_id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+      "response": {
+        "entry": {
+          "menuId": "bf6f9854-33af-42b6-884d-316c471af5f9",
+          "quantity": 4,
+          "updatedAt": "2026-10-22T16:11:49.067Z",
+          "updatedBy": {
+            "id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+            "username": "qahmvjqm1xq.rani",
+            "displayName": "Dummy rani"
+          },
+          "entryRevision": 1
+        },
+        "closingId": "c3c1d6f3-f572-44bb-9124-b1a058bebecc",
+        "generation": 1,
+        "closingRevision": 1
+      }
+    },
+    {
+      "operation_id": "d628f38e-e2e6-4194-9cd7-39dedaddb626",
+      "actor_id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+      "response": {
+        "entry": {
+          "menuId": "bf6f9854-33af-42b6-884d-316c471af5f9",
+          "quantity": 6,
+          "updatedAt": "2026-10-22T16:11:49.919Z",
+          "updatedBy": {
+            "id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+            "username": "qahmvjqm1xq.rani",
+            "displayName": "Dummy rani"
+          },
+          "entryRevision": 2
+        },
+        "closingId": "c3c1d6f3-f572-44bb-9124-b1a058bebecc",
+        "generation": 2,
+        "closingRevision": 5
+      }
+    },
+    {
+      "operation_id": "d63c79f7-50fb-4736-9583-5fc9fcc956f4",
+      "actor_id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+      "response": {
+        "state": "SUBMITTED",
+        "report": null,
+        "lockedAt": null,
+        "lockedBy": null,
+        "closingId": "a2d84a18-6c2a-4043-b9a1-78aa09d439fc",
+        "generation": 1,
+        "submittedAt": "2026-10-22T16:12:07.170Z",
+        "submittedBy": {
+          "id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+          "username": "qahmvjqm1xq.rani",
+          "displayName": "Dummy rani"
+        },
+        "closingRevision": 2
+      }
+    },
+    {
+      "operation_id": "e3a267fd-a454-42e8-91c2-18355330148e",
+      "actor_id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+      "response": {
+        "state": "SUBMITTED",
+        "report": null,
+        "lockedAt": null,
+        "lockedBy": null,
+        "closingId": "c3c1d6f3-f572-44bb-9124-b1a058bebecc",
+        "generation": 1,
+        "submittedAt": "2026-10-22T16:11:49.329Z",
+        "submittedBy": {
+          "id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+          "username": "qahmvjqm1xq.rani",
+          "displayName": "Dummy rani"
+        },
+        "closingRevision": 2
+      }
+    }
+  ],
+  "audit": [
+    {
+      "business_date": "2026-08-01",
+      "action": "CREATE",
+      "actor_id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+      "operation_id": null,
+      "before_quantity": null,
+      "after_quantity": null,
+      "reason": null
+    },
+    {
+      "business_date": "2026-08-02",
+      "action": "CREATE",
+      "actor_id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+      "operation_id": null,
+      "before_quantity": null,
+      "after_quantity": null,
+      "reason": null
+    },
+    {
+      "business_date": "2026-08-03",
+      "action": "CREATE",
+      "actor_id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+      "operation_id": null,
+      "before_quantity": null,
+      "after_quantity": null,
+      "reason": null
+    },
+    {
+      "business_date": "2026-08-01",
+      "action": "ENTRY_UPDATED",
+      "actor_id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+      "operation_id": "c390a91e-841f-4d3b-a3b2-29cc48226dfd",
+      "before_quantity": 0,
+      "after_quantity": 4,
+      "reason": null
+    },
+    {
+      "business_date": "2026-08-01",
+      "action": "SUBMIT",
+      "actor_id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+      "operation_id": "e3a267fd-a454-42e8-91c2-18355330148e",
+      "before_quantity": null,
+      "after_quantity": null,
+      "reason": null
+    },
+    {
+      "business_date": "2026-08-01",
+      "action": "LOCK",
+      "actor_id": "58b3c5db-a913-4722-84cd-6b8cac7e65aa",
+      "operation_id": "60481544-af9b-494b-9a6d-368ccac6ec20",
+      "before_quantity": null,
+      "after_quantity": null,
+      "reason": null
+    },
+    {
+      "business_date": "2026-08-01",
+      "action": "REOPEN",
+      "actor_id": "58b3c5db-a913-4722-84cd-6b8cac7e65aa",
+      "operation_id": "8bac505f-2936-41cb-b2e7-c4ed3e5eb697",
+      "before_quantity": null,
+      "after_quantity": null,
+      "reason": "Koreksi laporan historis"
+    },
+    {
+      "business_date": "2026-08-01",
+      "action": "ENTRY_UPDATED",
+      "actor_id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+      "operation_id": "d628f38e-e2e6-4194-9cd7-39dedaddb626",
+      "before_quantity": 4,
+      "after_quantity": 6,
+      "reason": null
+    },
+    {
+      "business_date": "2026-08-01",
+      "action": "SUBMIT",
+      "actor_id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+      "operation_id": "370c3028-61b5-4260-a7c9-f4468816328c",
+      "before_quantity": null,
+      "after_quantity": null,
+      "reason": null
+    },
+    {
+      "business_date": "2026-08-01",
+      "action": "LOCK",
+      "actor_id": "58b3c5db-a913-4722-84cd-6b8cac7e65aa",
+      "operation_id": "c2eea20a-7e16-495c-bcea-a347e08eb0da",
+      "before_quantity": null,
+      "after_quantity": null,
+      "reason": null
+    },
+    {
+      "business_date": "2026-09-01",
+      "action": "CREATE",
+      "actor_id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+      "operation_id": null,
+      "before_quantity": null,
+      "after_quantity": null,
+      "reason": null
+    },
+    {
+      "business_date": "2026-09-02",
+      "action": "CREATE",
+      "actor_id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+      "operation_id": null,
+      "before_quantity": null,
+      "after_quantity": null,
+      "reason": null
+    },
+    {
+      "business_date": "2026-09-03",
+      "action": "CREATE",
+      "actor_id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+      "operation_id": null,
+      "before_quantity": null,
+      "after_quantity": null,
+      "reason": null
+    },
+    {
+      "business_date": "2026-09-04",
+      "action": "CREATE",
+      "actor_id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+      "operation_id": null,
+      "before_quantity": null,
+      "after_quantity": null,
+      "reason": null
+    },
+    {
+      "business_date": "2026-09-05",
+      "action": "CREATE",
+      "actor_id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+      "operation_id": null,
+      "before_quantity": null,
+      "after_quantity": null,
+      "reason": null
+    },
+    {
+      "business_date": "2026-09-06",
+      "action": "CREATE",
+      "actor_id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+      "operation_id": null,
+      "before_quantity": null,
+      "after_quantity": null,
+      "reason": null
+    },
+    {
+      "business_date": "2026-09-07",
+      "action": "CREATE",
+      "actor_id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+      "operation_id": null,
+      "before_quantity": null,
+      "after_quantity": null,
+      "reason": null
+    },
+    {
+      "business_date": "2026-09-08",
+      "action": "CREATE",
+      "actor_id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+      "operation_id": null,
+      "before_quantity": null,
+      "after_quantity": null,
+      "reason": null
+    },
+    {
+      "business_date": "2026-09-09",
+      "action": "CREATE",
+      "actor_id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+      "operation_id": null,
+      "before_quantity": null,
+      "after_quantity": null,
+      "reason": null
+    },
+    {
+      "business_date": "2026-09-10",
+      "action": "CREATE",
+      "actor_id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+      "operation_id": null,
+      "before_quantity": null,
+      "after_quantity": null,
+      "reason": null
+    },
+    {
+      "business_date": "2026-09-11",
+      "action": "CREATE",
+      "actor_id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+      "operation_id": null,
+      "before_quantity": null,
+      "after_quantity": null,
+      "reason": null
+    },
+    {
+      "business_date": "2026-09-12",
+      "action": "CREATE",
+      "actor_id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+      "operation_id": null,
+      "before_quantity": null,
+      "after_quantity": null,
+      "reason": null
+    },
+    {
+      "business_date": "2026-09-13",
+      "action": "CREATE",
+      "actor_id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+      "operation_id": null,
+      "before_quantity": null,
+      "after_quantity": null,
+      "reason": null
+    },
+    {
+      "business_date": "2026-09-14",
+      "action": "CREATE",
+      "actor_id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+      "operation_id": null,
+      "before_quantity": null,
+      "after_quantity": null,
+      "reason": null
+    },
+    {
+      "business_date": "2026-09-15",
+      "action": "CREATE",
+      "actor_id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+      "operation_id": null,
+      "before_quantity": null,
+      "after_quantity": null,
+      "reason": null
+    },
+    {
+      "business_date": "2026-09-16",
+      "action": "CREATE",
+      "actor_id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+      "operation_id": null,
+      "before_quantity": null,
+      "after_quantity": null,
+      "reason": null
+    },
+    {
+      "business_date": "2026-09-17",
+      "action": "CREATE",
+      "actor_id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+      "operation_id": null,
+      "before_quantity": null,
+      "after_quantity": null,
+      "reason": null
+    },
+    {
+      "business_date": "2026-09-18",
+      "action": "CREATE",
+      "actor_id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+      "operation_id": null,
+      "before_quantity": null,
+      "after_quantity": null,
+      "reason": null
+    },
+    {
+      "business_date": "2026-09-19",
+      "action": "CREATE",
+      "actor_id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+      "operation_id": null,
+      "before_quantity": null,
+      "after_quantity": null,
+      "reason": null
+    },
+    {
+      "business_date": "2026-09-20",
+      "action": "CREATE",
+      "actor_id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+      "operation_id": null,
+      "before_quantity": null,
+      "after_quantity": null,
+      "reason": null
+    },
+    {
+      "business_date": "2026-09-21",
+      "action": "CREATE",
+      "actor_id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+      "operation_id": null,
+      "before_quantity": null,
+      "after_quantity": null,
+      "reason": null
+    },
+    {
+      "business_date": "2026-09-21",
+      "action": "ENTRY_UPDATED",
+      "actor_id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+      "operation_id": "6f478c20-144d-4206-b1a4-a0dc285b54ec",
+      "before_quantity": 0,
+      "after_quantity": 4,
+      "reason": null
+    },
+    {
+      "business_date": "2026-09-21",
+      "action": "SUBMIT",
+      "actor_id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+      "operation_id": "d63c79f7-50fb-4736-9583-5fc9fcc956f4",
+      "before_quantity": null,
+      "after_quantity": null,
+      "reason": null
+    },
+    {
+      "business_date": "2026-09-21",
+      "action": "LOCK",
+      "actor_id": "58b3c5db-a913-4722-84cd-6b8cac7e65aa",
+      "operation_id": "75a7746b-b610-4d35-92b9-57c12e1b17d7",
+      "before_quantity": null,
+      "after_quantity": null,
+      "reason": null
+    },
+    {
+      "business_date": "2026-09-21",
+      "action": "REOPEN",
+      "actor_id": "58b3c5db-a913-4722-84cd-6b8cac7e65aa",
+      "operation_id": "b17e8304-b186-4f5b-92ce-d95f3dab8ab3",
+      "before_quantity": null,
+      "after_quantity": null,
+      "reason": "Koreksi dari supervisor"
+    },
+    {
+      "business_date": "2026-09-21",
+      "action": "ENTRY_UPDATED",
+      "actor_id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+      "operation_id": "3231cbf3-55a2-4231-bcfd-76248c11e916",
+      "before_quantity": 4,
+      "after_quantity": 6,
+      "reason": null
+    }
+  ],
+  "reports": [
+    {
+      "business_date": "2026-08-01",
+      "generation": "1",
+      "closing_revision": "3",
+      "locked_by": "58b3c5db-a913-4722-84cd-6b8cac7e65aa",
+      "snapshot": {
+        "id": "c9879e45-2720-44a8-999c-73776946b969",
+        "format": "closing-count-report",
+        "closing": {
+          "id": "c3c1d6f3-f572-44bb-9124-b1a058bebecc",
+          "state": "LOCKED",
+          "catalog": {
+            "menus": [
+              {
+                "id": "bf6f9854-33af-42b6-884d-316c471af5f9",
+                "name": "Cappuccino",
+                "active": true,
+                "sortOrder": 0,
+                "categoryId": "9e60cfa9-b4f1-4d20-93cb-1846620fdabc",
+                "ingredientIds": [
+                  "163c48ec-8cef-4d94-ad0b-5be9fedcd001",
+                  "cc7f7aad-015a-495d-bc38-bc5699734eb1",
+                  "f1b5f6f1-b567-4c19-958a-6a2e5708f0f0"
+                ]
+              },
+              {
+                "id": "d881511f-a7d6-45ff-8302-09d5a8b2b303",
+                "name": "Latte",
+                "active": true,
+                "sortOrder": 1,
+                "categoryId": "9e60cfa9-b4f1-4d20-93cb-1846620fdabc",
+                "ingredientIds": [
+                  "cc7f7aad-015a-495d-bc38-bc5699734eb1",
+                  "f1b5f6f1-b567-4c19-958a-6a2e5708f0f0"
+                ]
+              }
+            ],
+            "ingredients": [
+              {
+                "id": "163c48ec-8cef-4d94-ad0b-5be9fedcd001",
+                "name": "Powder cokelat",
+                "active": true,
+                "sortOrder": 2,
+                "categoryId": "5ca3bf8e-8fa9-4dd8-b7fa-cf36d5128f0c"
+              },
+              {
+                "id": "cc7f7aad-015a-495d-bc38-bc5699734eb1",
+                "name": "Fresh milk",
+                "active": true,
+                "sortOrder": 1,
+                "categoryId": "5ca3bf8e-8fa9-4dd8-b7fa-cf36d5128f0c"
+              },
+              {
+                "id": "f1b5f6f1-b567-4c19-958a-6a2e5708f0f0",
+                "name": "Biji kopi",
+                "active": true,
+                "sortOrder": 0,
+                "categoryId": "5ca3bf8e-8fa9-4dd8-b7fa-cf36d5128f0c"
+              }
+            ],
+            "menuCategories": [
+              {
+                "id": "9e60cfa9-b4f1-4d20-93cb-1846620fdabc",
+                "name": "Coffee",
+                "sortOrder": 0
+              }
+            ],
+            "ingredientCategories": [
+              {
+                "id": "5ca3bf8e-8fa9-4dd8-b7fa-cf36d5128f0c",
+                "name": "Bahan baku",
+                "sortOrder": 0
+              }
+            ]
+          },
+          "entries": [
+            {
+              "menuId": "bf6f9854-33af-42b6-884d-316c471af5f9",
+              "quantity": 4,
+              "updatedAt": "2026-10-22T16:11:49.067Z",
+              "updatedBy": {
+                "id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+                "username": "qahmvjqm1xq.rani",
+                "displayName": "Dummy rani"
+              },
+              "entryRevision": 1
+            },
+            {
+              "menuId": "d881511f-a7d6-45ff-8302-09d5a8b2b303",
+              "quantity": 0,
+              "updatedAt": "2026-10-22T16:11:48.521Z",
+              "updatedBy": null,
+              "entryRevision": 0
+            }
+          ],
+          "lockedAt": "2026-10-22T16:11:49.541Z",
+          "lockedBy": {
+            "id": "58b3c5db-a913-4722-84cd-6b8cac7e65aa",
+            "username": "qahmvjqm1xq.arif",
+            "displayName": "Dummy arif"
+          },
+          "outletId": "9808f541-3877-4199-b2c4-445b1aab4021",
+          "timezone": "Asia/Jakarta",
+          "createdAt": "2026-10-22T16:11:48.516Z",
+          "updatedAt": "2026-10-22T16:11:49.541Z",
+          "generation": 1,
+          "submittedAt": "2026-10-22T16:11:49.329Z",
+          "submittedBy": {
+            "id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+            "username": "qahmvjqm1xq.rani",
+            "displayName": "Dummy rani"
+          },
+          "businessDate": "2026-08-01",
+          "cutoffMinutes": 0,
+          "closingRevision": 3,
+          "catalogVersionId": "40acc2eb-e930-4cf7-ae6c-05081248ab8c",
+          "ingredientTotals": [
+            {
+              "id": "f1b5f6f1-b567-4c19-958a-6a2e5708f0f0",
+              "name": "Biji kopi",
+              "total": 4,
+              "active": true,
+              "sortOrder": 0,
+              "categoryId": "5ca3bf8e-8fa9-4dd8-b7fa-cf36d5128f0c"
+            },
+            {
+              "id": "cc7f7aad-015a-495d-bc38-bc5699734eb1",
+              "name": "Fresh milk",
+              "total": 4,
+              "active": true,
+              "sortOrder": 1,
+              "categoryId": "5ca3bf8e-8fa9-4dd8-b7fa-cf36d5128f0c"
+            },
+            {
+              "id": "163c48ec-8cef-4d94-ad0b-5be9fedcd001",
+              "name": "Powder cokelat",
+              "total": 4,
+              "active": true,
+              "sortOrder": 2,
+              "categoryId": "5ca3bf8e-8fa9-4dd8-b7fa-cf36d5128f0c"
+            }
+          ]
+        },
+        "outletId": "9808f541-3877-4199-b2c4-445b1aab4021",
+        "closingId": "c3c1d6f3-f572-44bb-9124-b1a058bebecc",
+        "generation": 1,
+        "reviewedAt": "2026-10-22T16:11:49.541Z",
+        "reviewedBy": {
+          "id": "58b3c5db-a913-4722-84cd-6b8cac7e65aa",
+          "username": "qahmvjqm1xq.arif",
+          "displayName": "Dummy arif"
+        },
+        "schemaVersion": 1,
+        "closingRevision": 3
+      }
+    },
+    {
+      "business_date": "2026-08-01",
+      "generation": "2",
+      "closing_revision": "7",
+      "locked_by": "58b3c5db-a913-4722-84cd-6b8cac7e65aa",
+      "snapshot": {
+        "id": "4a2742ff-8ec7-4108-be5c-2bcd262326e5",
+        "format": "closing-count-report",
+        "closing": {
+          "id": "c3c1d6f3-f572-44bb-9124-b1a058bebecc",
+          "state": "LOCKED",
+          "catalog": {
+            "menus": [
+              {
+                "id": "bf6f9854-33af-42b6-884d-316c471af5f9",
+                "name": "Cappuccino",
+                "active": true,
+                "sortOrder": 0,
+                "categoryId": "9e60cfa9-b4f1-4d20-93cb-1846620fdabc",
+                "ingredientIds": [
+                  "163c48ec-8cef-4d94-ad0b-5be9fedcd001",
+                  "cc7f7aad-015a-495d-bc38-bc5699734eb1",
+                  "f1b5f6f1-b567-4c19-958a-6a2e5708f0f0"
+                ]
+              },
+              {
+                "id": "d881511f-a7d6-45ff-8302-09d5a8b2b303",
+                "name": "Latte",
+                "active": true,
+                "sortOrder": 1,
+                "categoryId": "9e60cfa9-b4f1-4d20-93cb-1846620fdabc",
+                "ingredientIds": [
+                  "cc7f7aad-015a-495d-bc38-bc5699734eb1",
+                  "f1b5f6f1-b567-4c19-958a-6a2e5708f0f0"
+                ]
+              }
+            ],
+            "ingredients": [
+              {
+                "id": "163c48ec-8cef-4d94-ad0b-5be9fedcd001",
+                "name": "Powder cokelat",
+                "active": true,
+                "sortOrder": 2,
+                "categoryId": "5ca3bf8e-8fa9-4dd8-b7fa-cf36d5128f0c"
+              },
+              {
+                "id": "cc7f7aad-015a-495d-bc38-bc5699734eb1",
+                "name": "Fresh milk",
+                "active": true,
+                "sortOrder": 1,
+                "categoryId": "5ca3bf8e-8fa9-4dd8-b7fa-cf36d5128f0c"
+              },
+              {
+                "id": "f1b5f6f1-b567-4c19-958a-6a2e5708f0f0",
+                "name": "Biji kopi",
+                "active": true,
+                "sortOrder": 0,
+                "categoryId": "5ca3bf8e-8fa9-4dd8-b7fa-cf36d5128f0c"
+              }
+            ],
+            "menuCategories": [
+              {
+                "id": "9e60cfa9-b4f1-4d20-93cb-1846620fdabc",
+                "name": "Coffee",
+                "sortOrder": 0
+              }
+            ],
+            "ingredientCategories": [
+              {
+                "id": "5ca3bf8e-8fa9-4dd8-b7fa-cf36d5128f0c",
+                "name": "Bahan baku",
+                "sortOrder": 0
+              }
+            ]
+          },
+          "entries": [
+            {
+              "menuId": "bf6f9854-33af-42b6-884d-316c471af5f9",
+              "quantity": 6,
+              "updatedAt": "2026-10-22T16:11:49.919Z",
+              "updatedBy": {
+                "id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+                "username": "qahmvjqm1xq.rani",
+                "displayName": "Dummy rani"
+              },
+              "entryRevision": 2
+            },
+            {
+              "menuId": "d881511f-a7d6-45ff-8302-09d5a8b2b303",
+              "quantity": 0,
+              "updatedAt": "2026-10-22T16:11:48.521Z",
+              "updatedBy": null,
+              "entryRevision": 0
+            }
+          ],
+          "lockedAt": "2026-10-22T16:11:50.394Z",
+          "lockedBy": {
+            "id": "58b3c5db-a913-4722-84cd-6b8cac7e65aa",
+            "username": "qahmvjqm1xq.arif",
+            "displayName": "Dummy arif"
+          },
+          "outletId": "9808f541-3877-4199-b2c4-445b1aab4021",
+          "timezone": "Asia/Jakarta",
+          "createdAt": "2026-10-22T16:11:48.516Z",
+          "updatedAt": "2026-10-22T16:11:50.394Z",
+          "generation": 2,
+          "submittedAt": "2026-10-22T16:11:50.101Z",
+          "submittedBy": {
+            "id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+            "username": "qahmvjqm1xq.rani",
+            "displayName": "Dummy rani"
+          },
+          "businessDate": "2026-08-01",
+          "cutoffMinutes": 0,
+          "closingRevision": 7,
+          "catalogVersionId": "40acc2eb-e930-4cf7-ae6c-05081248ab8c",
+          "ingredientTotals": [
+            {
+              "id": "f1b5f6f1-b567-4c19-958a-6a2e5708f0f0",
+              "name": "Biji kopi",
+              "total": 6,
+              "active": true,
+              "sortOrder": 0,
+              "categoryId": "5ca3bf8e-8fa9-4dd8-b7fa-cf36d5128f0c"
+            },
+            {
+              "id": "cc7f7aad-015a-495d-bc38-bc5699734eb1",
+              "name": "Fresh milk",
+              "total": 6,
+              "active": true,
+              "sortOrder": 1,
+              "categoryId": "5ca3bf8e-8fa9-4dd8-b7fa-cf36d5128f0c"
+            },
+            {
+              "id": "163c48ec-8cef-4d94-ad0b-5be9fedcd001",
+              "name": "Powder cokelat",
+              "total": 6,
+              "active": true,
+              "sortOrder": 2,
+              "categoryId": "5ca3bf8e-8fa9-4dd8-b7fa-cf36d5128f0c"
+            }
+          ]
+        },
+        "outletId": "9808f541-3877-4199-b2c4-445b1aab4021",
+        "closingId": "c3c1d6f3-f572-44bb-9124-b1a058bebecc",
+        "generation": 2,
+        "reviewedAt": "2026-10-22T16:11:50.394Z",
+        "reviewedBy": {
+          "id": "58b3c5db-a913-4722-84cd-6b8cac7e65aa",
+          "username": "qahmvjqm1xq.arif",
+          "displayName": "Dummy arif"
+        },
+        "schemaVersion": 1,
+        "closingRevision": 7
+      }
+    },
+    {
+      "business_date": "2026-09-21",
+      "generation": "1",
+      "closing_revision": "3",
+      "locked_by": "58b3c5db-a913-4722-84cd-6b8cac7e65aa",
+      "snapshot": {
+        "id": "0fbd6c6c-571b-4bfc-ac50-d409a2faefee",
+        "format": "closing-count-report",
+        "closing": {
+          "id": "a2d84a18-6c2a-4043-b9a1-78aa09d439fc",
+          "state": "LOCKED",
+          "catalog": {
+            "menus": [
+              {
+                "id": "bf6f9854-33af-42b6-884d-316c471af5f9",
+                "name": "Cappuccino",
+                "active": true,
+                "sortOrder": 0,
+                "categoryId": "9e60cfa9-b4f1-4d20-93cb-1846620fdabc",
+                "ingredientIds": [
+                  "163c48ec-8cef-4d94-ad0b-5be9fedcd001",
+                  "cc7f7aad-015a-495d-bc38-bc5699734eb1",
+                  "f1b5f6f1-b567-4c19-958a-6a2e5708f0f0"
+                ]
+              },
+              {
+                "id": "d881511f-a7d6-45ff-8302-09d5a8b2b303",
+                "name": "Latte",
+                "active": true,
+                "sortOrder": 1,
+                "categoryId": "9e60cfa9-b4f1-4d20-93cb-1846620fdabc",
+                "ingredientIds": [
+                  "cc7f7aad-015a-495d-bc38-bc5699734eb1",
+                  "f1b5f6f1-b567-4c19-958a-6a2e5708f0f0"
+                ]
+              }
+            ],
+            "ingredients": [
+              {
+                "id": "163c48ec-8cef-4d94-ad0b-5be9fedcd001",
+                "name": "Powder cokelat",
+                "active": true,
+                "sortOrder": 2,
+                "categoryId": "5ca3bf8e-8fa9-4dd8-b7fa-cf36d5128f0c"
+              },
+              {
+                "id": "cc7f7aad-015a-495d-bc38-bc5699734eb1",
+                "name": "Fresh milk",
+                "active": true,
+                "sortOrder": 1,
+                "categoryId": "5ca3bf8e-8fa9-4dd8-b7fa-cf36d5128f0c"
+              },
+              {
+                "id": "f1b5f6f1-b567-4c19-958a-6a2e5708f0f0",
+                "name": "Biji kopi",
+                "active": true,
+                "sortOrder": 0,
+                "categoryId": "5ca3bf8e-8fa9-4dd8-b7fa-cf36d5128f0c"
+              }
+            ],
+            "menuCategories": [
+              {
+                "id": "9e60cfa9-b4f1-4d20-93cb-1846620fdabc",
+                "name": "Coffee",
+                "sortOrder": 0
+              }
+            ],
+            "ingredientCategories": [
+              {
+                "id": "5ca3bf8e-8fa9-4dd8-b7fa-cf36d5128f0c",
+                "name": "Bahan baku",
+                "sortOrder": 0
+              }
+            ]
+          },
+          "entries": [
+            {
+              "menuId": "bf6f9854-33af-42b6-884d-316c471af5f9",
+              "quantity": 4,
+              "updatedAt": "2026-10-22T16:12:07.096Z",
+              "updatedBy": {
+                "id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+                "username": "qahmvjqm1xq.rani",
+                "displayName": "Dummy rani"
+              },
+              "entryRevision": 1
+            },
+            {
+              "menuId": "d881511f-a7d6-45ff-8302-09d5a8b2b303",
+              "quantity": 0,
+              "updatedAt": "2026-10-22T16:12:06.992Z",
+              "updatedBy": null,
+              "entryRevision": 0
+            }
+          ],
+          "lockedAt": "2026-10-22T16:12:07.241Z",
+          "lockedBy": {
+            "id": "58b3c5db-a913-4722-84cd-6b8cac7e65aa",
+            "username": "qahmvjqm1xq.arif",
+            "displayName": "Dummy arif"
+          },
+          "outletId": "9808f541-3877-4199-b2c4-445b1aab4021",
+          "timezone": "Asia/Jakarta",
+          "createdAt": "2026-10-22T16:12:06.990Z",
+          "updatedAt": "2026-10-22T16:12:07.241Z",
+          "generation": 1,
+          "submittedAt": "2026-10-22T16:12:07.170Z",
+          "submittedBy": {
+            "id": "984f910c-e6b4-43f4-bef5-f1fd512a3a4c",
+            "username": "qahmvjqm1xq.rani",
+            "displayName": "Dummy rani"
+          },
+          "businessDate": "2026-09-21",
+          "cutoffMinutes": 0,
+          "closingRevision": 3,
+          "catalogVersionId": "40acc2eb-e930-4cf7-ae6c-05081248ab8c",
+          "ingredientTotals": [
+            {
+              "id": "f1b5f6f1-b567-4c19-958a-6a2e5708f0f0",
+              "name": "Biji kopi",
+              "total": 4,
+              "active": true,
+              "sortOrder": 0,
+              "categoryId": "5ca3bf8e-8fa9-4dd8-b7fa-cf36d5128f0c"
+            },
+            {
+              "id": "cc7f7aad-015a-495d-bc38-bc5699734eb1",
+              "name": "Fresh milk",
+              "total": 4,
+              "active": true,
+              "sortOrder": 1,
+              "categoryId": "5ca3bf8e-8fa9-4dd8-b7fa-cf36d5128f0c"
+            },
+            {
+              "id": "163c48ec-8cef-4d94-ad0b-5be9fedcd001",
+              "name": "Powder cokelat",
+              "total": 4,
+              "active": true,
+              "sortOrder": 2,
+              "categoryId": "5ca3bf8e-8fa9-4dd8-b7fa-cf36d5128f0c"
+            }
+          ]
+        },
+        "outletId": "9808f541-3877-4199-b2c4-445b1aab4021",
+        "closingId": "a2d84a18-6c2a-4043-b9a1-78aa09d439fc",
+        "generation": 1,
+        "reviewedAt": "2026-10-22T16:12:07.241Z",
+        "reviewedBy": {
+          "id": "58b3c5db-a913-4722-84cd-6b8cac7e65aa",
+          "username": "qahmvjqm1xq.arif",
+          "displayName": "Dummy arif"
+        },
+        "schemaVersion": 1,
+        "closingRevision": 3
+      }
+    }
+  ],
+  "readUiAddedNoMutations": true,
+  "fixturesRetained": true,
+  "physicalOrPublicAcceptance": false
+}

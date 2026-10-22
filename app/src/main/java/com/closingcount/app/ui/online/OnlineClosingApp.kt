@@ -54,6 +54,14 @@ fun OnlineClosingApp(onExit: () -> Unit, vm: OnlineViewModel = viewModel()) {
     var conflict by remember { mutableStateOf<OnlineMenuUi?>(null) }
     var lifecycleReview by remember { mutableStateOf<Pair<String, OnlineUiState>?>(null) }
     LaunchedEffect(s.identity?.id) { if (s.identity != null) tab = "Ringkasan" }
+    LaunchedEffect(tab, s.identity?.id, s.outletId, s.loginVisible, s.historyDetail?.id, s.frozenReport != null) {
+        if (tab == "Riwayat" && s.identity != null && !s.loginVisible) {
+            val detail = s.historyDetail
+            if (detail == null) vm.loadHistory()
+            else if (s.frozenReport == null && !s.detailLoading) vm.inspectHistory(detail)
+        }
+    }
+    val pageScroll = remember(tab, s.closingId, s.historyDetail?.id, s.frozenReport != null) { androidx.compose.foundation.ScrollState(0) }
     val dark = isSystemInDarkTheme()
     val scheme = if (dark) darkColorScheme(primary = Color(0xFF86D0F3), onPrimary = Ink, background = Color(0xFF0E1E2C),
         surface = Color(0xFF142838), surfaceContainer = Color(0xFF1C3344), surfaceContainerHigh = Color(0xFF203B4D), secondaryContainer = Color(0xFF24475D),
@@ -65,7 +73,12 @@ fun OnlineClosingApp(onExit: () -> Unit, vm: OnlineViewModel = viewModel()) {
     LifecycleEventEffect(Lifecycle.Event.ON_RESUME) { vm.resume() }
     LifecycleEventEffect(Lifecycle.Event.ON_PAUSE) { vm.pause() }
     DisposableEffect(vm) { onDispose { vm.pause() } }
-    BackHandler { navigate { if (s.loginVisible && s.identity != null) vm.cancelLogin() else onExit() } }
+    BackHandler { navigate {
+        when { s.loginVisible && s.identity != null -> vm.cancelLogin()
+            tab == "Riwayat" && s.frozenReport != null -> vm.closeFrozenReport()
+            tab == "Riwayat" && s.historyDetail != null -> vm.closeHistoryDetail()
+            else -> onExit() }
+    } }
     MaterialTheme(colorScheme = scheme) {
         Scaffold(containerColor = scheme.background, topBar = {
             Surface(color = scheme.background) {
@@ -95,7 +108,7 @@ fun OnlineClosingApp(onExit: () -> Unit, vm: OnlineViewModel = viewModel()) {
             }
         }) { padding ->
             Box(Modifier.fillMaxSize().padding(padding).imePadding(), contentAlignment = Alignment.TopCenter) {
-                Column(Modifier.widthIn(max = 680.dp).fillMaxWidth().fillMaxHeight().verticalScroll(rememberScrollState())
+                Column(Modifier.widthIn(max = 680.dp).fillMaxWidth().fillMaxHeight().verticalScroll(pageScroll)
                     .padding(horizontal = 22.dp, vertical = 18.dp), verticalArrangement = Arrangement.spacedBy(18.dp)) {
                     if (!s.initialized) { CircularProgressIndicator(Modifier.align(Alignment.CenterHorizontally)); Text("Menyiapkan data perangkat…") }
                     else if (s.loginVisible || s.identity == null) {
@@ -106,7 +119,7 @@ fun OnlineClosingApp(onExit: () -> Unit, vm: OnlineViewModel = viewModel()) {
                         } }
                         when (tab) {
                             "Akun" -> AccountContent(s, vm, onNavigate = ::navigate)
-                            "Riwayat" -> HistoryContent(s) { row -> navigate { vm.selectDate(row.date); tab = "Ringkasan" } }
+                            "Riwayat" -> HistoryContent(s, vm) { row -> navigate { vm.openHistory(row); tab = "Ringkasan" } }
                             "Review" -> ReviewContent(s, vm, onAction = { action -> navigate { lifecycleReview = action to s } })
                             else -> {
                                 OutletDate(s, onOutlet = { id -> navigate { vm.selectOutlet(id) } }, onDate = { date -> navigate { vm.selectDate(date) } })
@@ -375,12 +388,123 @@ private fun actionLabel(action: String) = when (action) { "submit" -> "Kirim unt
     }
 }
 
-@Composable private fun HistoryContent(s: OnlineUiState, onSelect: (OnlineHistoryUi) -> Unit) {
+private fun displayTime(at: String, zone: String = java.time.ZoneId.systemDefault().id): String = runCatching {
+    java.time.Instant.parse(at).atZone(java.time.ZoneId.of(zone)).format(DateTimeFormatter.ofPattern("d MMM yyyy, HH:mm z", Locale.forLanguageTag("id-ID")))
+}.getOrDefault(at)
+private fun auditLabel(action: String) = when(action) {
+    "CREATE" -> "Closing dibuka"; "ENTRY_UPDATED" -> "Jumlah diperbarui"; "SUBMIT" -> "Diajukan untuk review"
+    "RETURN" -> "Dikembalikan ke draft"; "LOCK" -> "Closing dikunci"; "REOPEN" -> "Closing dibuka kembali"; else -> "Perubahan closing"
+}
+
+@Composable private fun HistoryContent(s: OnlineUiState, vm: OnlineViewModel, onSelect: (OnlineHistoryUi) -> Unit) {
+    if (s.frozenReport != null) { FrozenReportContent(s.frozenReport, vm::closeFrozenReport); return }
+    val detail = s.historyDetail
+    if (detail != null) {
+        TextButton(onClick = vm::closeHistoryDetail, modifier = Modifier.testTag("online.history.back")) {
+            Icon(Icons.Outlined.ArrowBack, null, Modifier.size(18.dp)); Spacer(Modifier.width(8.dp)); Text("Semua riwayat")
+        }
+        Text(displayDate(detail.date), fontSize = 27.sp, fontWeight = FontWeight.Bold)
+        Text("${stateLabel(detail.state)} · jejak perubahan server", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+        if (s.detailLoading) LinearProgressIndicator(Modifier.fillMaxWidth())
+        s.detailError?.let { MessageCard("Jejak dan laporan belum dapat dimuat. $it", error = true) {
+            TextButton(onClick = { vm.inspectHistory(detail) }, enabled = !s.detailLoading) { Text("Muat ulang detail") }
+            if (s.authRequired) TextButton(onClick = vm::showLogin) { Text("Masuk kembali") }
+        } }
+        Paper {
+            Text("Laporan terkunci", fontWeight = FontWeight.Bold, fontSize = 18.sp)
+            Text("Snapshot saat dikunci tetap sama setelah closing dibuka ulang.", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+            if (s.reports.isEmpty() && !s.detailLoading && s.detailError == null) Text("Belum ada laporan terkunci.", style = MaterialTheme.typography.bodySmall)
+            s.reports.forEach { report ->
+                HorizontalDivider()
+                Text("Generasi ${report.generation} · revisi ${report.revision}", fontWeight = FontWeight.SemiBold)
+                Text("${report.reviewer} · ${displayTime(report.at,s.historyTimezone)}", style = MaterialTheme.typography.bodySmall)
+                OutlinedButton(onClick = { vm.openReport(report.generation) }, enabled = !s.detailLoading,
+                    modifier = Modifier.fillMaxWidth().heightIn(min = 48.dp).testTag("online.report.${report.generation}")) { Text("Lihat laporan generasi ${report.generation}") }
+            }
+            if (s.reportCursor != null) TextButton(onClick = { vm.loadMoreDetail(true) }, enabled = !s.detailLoading) { Text("Laporan sebelumnya") }
+        }
+        Paper {
+            Text("Jejak perubahan", fontSize = 18.sp, fontWeight = FontWeight.Bold)
+            Text("Urutan dari awal. Hanya tindakan yang diterima server yang ditampilkan.", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+            s.audit.forEach { event ->
+                HorizontalDivider()
+                Text(auditLabel(event.action), fontWeight = FontWeight.SemiBold)
+                Text("${event.actor} · ${displayTime(event.at,s.historyTimezone)}", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                if (event.menuId != null) Text("${s.historyMenuNames[event.menuId] ?: "Menu"}: ${event.before} → ${event.after}", style = MaterialTheme.typography.bodyMedium,
+                    modifier = Modifier.testTag("online.audit.${event.id}"))
+                event.reason?.let { Text("Alasan: $it", style = MaterialTheme.typography.bodyMedium) }
+                Text("Generasi ${event.generation} · revisi ${event.revision}", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+            }
+            if (s.auditCursor != null) TextButton(onClick = { vm.loadMoreDetail(false) }, enabled = !s.detailLoading,
+                modifier = Modifier.testTag("online.audit.more")) { Text("Perubahan berikutnya") }
+        }
+        Button(onClick = { onSelect(detail) }, enabled = !s.working && !s.detailLoading,
+            modifier = Modifier.fillMaxWidth().heightIn(min = 48.dp).testTag("online.history.open")) { Text("Buka closing ini") }
+        return
+    }
     Text("Jejak tetap tersimpan.", fontSize = 28.sp, fontWeight = FontWeight.Bold)
-    Text("Closing yang pernah dibuka di perangkat ini. Pilih tanggal untuk memeriksa data dan menyinkronkan kembali.", color = MaterialTheme.colorScheme.onSurfaceVariant, style = MaterialTheme.typography.bodySmall)
-    if (s.history.isEmpty()) Paper { Text("Belum ada closing tersimpan untuk outlet ini.") }
+    Text("Riwayat tim dari server dan salinan yang tersedia di perangkat ini.", color = MaterialTheme.colorScheme.onSurfaceVariant, style = MaterialTheme.typography.bodySmall)
+    Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+        Text("Dari server", Modifier.weight(1f), fontSize = 18.sp, fontWeight = FontWeight.Bold)
+        TextButton(onClick = { vm.loadHistory() }, enabled = !s.historyLoading, modifier = Modifier.testTag("online.history.refresh")) {
+            Icon(Icons.Outlined.Sync, null, Modifier.size(18.dp)); Spacer(Modifier.width(6.dp)); Text("Muat ulang")
+        }
+    }
+    if (s.historyLoading) LinearProgressIndicator(Modifier.fillMaxWidth())
+    s.historyError?.let { MessageCard("Riwayat server belum dapat dimuat. $it", error = true) {
+        if (s.authRequired) TextButton(onClick = vm::showLogin) { Text("Masuk kembali") }
+    } }
+    if (s.historyLoaded && s.serverHistory.isEmpty() && s.historyError == null) Paper { Text("Belum ada closing di server untuk outlet ini.") }
+    s.serverHistory.forEach { row -> Paper {
+        Text(displayDate(row.date), fontWeight = FontWeight.Bold)
+        Text(stateLabel(row.state), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+        TextButton(onClick = { vm.inspectHistory(row) }, modifier = Modifier.testTag("online.history.detail.${row.id}")) { Text("Lihat jejak & laporan") }
+    } }
+    if (s.historyCursor != null) OutlinedButton(onClick = { vm.loadHistory(true) }, enabled = !s.historyLoading,
+        modifier = Modifier.fillMaxWidth().heightIn(min = 48.dp).testTag("online.history.more")) { Text("Tanggal sebelumnya") }
+    Text("Tersimpan di perangkat", fontSize = 18.sp, fontWeight = FontWeight.Bold)
+    Text("Salinan terakhir untuk akun dan outlet ini. Buka closing untuk memeriksa sinkronisasi terbaru.", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+    if (s.history.isEmpty()) Paper { Text("Belum ada salinan closing di perangkat ini.") }
     s.history.forEach { row -> Paper { Text(displayDate(row.date), fontWeight = FontWeight.Bold); Text(stateLabel(row.state), style = MaterialTheme.typography.bodySmall)
         TextButton(onClick = { onSelect(row) }) { Text("Buka closing") } } }
+}
+
+@Composable private fun FrozenReportContent(raw: String, onBack: () -> Unit) {
+    val report = remember(raw) { org.json.JSONObject(raw) }; val closing = report.getJSONObject("closing")
+    val quantities = closing.getJSONArray("entries").let { entries -> (0 until entries.length()).associate {
+        val row = entries.getJSONObject(it); row.getString("menuId") to row.getLong("quantity") } }
+    val menus = closing.getJSONObject("catalog").getJSONArray("menus"); val totals = closing.getJSONArray("ingredientTotals")
+    TextButton(onClick = onBack, modifier = Modifier.testTag("online.report.back")) {
+        Icon(Icons.Outlined.ArrowBack, null, Modifier.size(18.dp)); Spacer(Modifier.width(8.dp)); Text("Jejak & laporan")
+    }
+    Text("Laporan terkunci", fontSize = 28.sp, fontWeight = FontWeight.Bold)
+    Text(displayDate(closing.getString("businessDate")), color = MaterialTheme.colorScheme.onSurfaceVariant)
+    Paper {
+        Icon(Icons.Outlined.Lock, null, tint = MaterialTheme.colorScheme.primary)
+        Text("Generasi ${report.getLong("generation")} · revisi ${report.getLong("closingRevision")}", fontWeight = FontWeight.Bold)
+        Text("Dikunci oleh ${report.getJSONObject("reviewedBy").getString("displayName")}", style = MaterialTheme.typography.bodyMedium)
+        Text(displayTime(report.getString("reviewedAt"),closing.getString("timezone")), style = MaterialTheme.typography.bodySmall)
+        Text("Snapshot tersimpan saat penguncian. Angka di sini tidak mengikuti perubahan closing berikutnya.", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+    }
+    Paper {
+        Text("Menu pada laporan", fontWeight = FontWeight.Bold)
+        for (i in 0 until menus.length()) { val menu = menus.getJSONObject(i)
+            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
+                Text(menu.getString("name"),Modifier.weight(1f)); Text(quantities[menu.getString("id")].toString(), fontWeight = FontWeight.SemiBold,
+                    modifier = Modifier.testTag("online.report.quantity.${menu.getString("id")}"))
+            }
+        }
+        HorizontalDivider(); Text("Total ${quantities.values.sum()} porsi", fontWeight = FontWeight.Bold)
+    }
+    Paper {
+        Text("Pemakaian bahan pada laporan", fontWeight = FontWeight.Bold)
+        for (i in 0 until totals.length()) { val line = totals.getJSONObject(i)
+            Row(Modifier.fillMaxWidth(),horizontalArrangement = Arrangement.SpaceBetween) {
+                Text(line.getString("name"),Modifier.weight(1f)); Text(line.getLong("total").toString(),fontWeight = FontWeight.SemiBold)
+            }
+        }
+        Text("Menggunakan resep historis closing ini.", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+    }
 }
 
 @Composable private fun AccountContent(s: OnlineUiState, vm: OnlineViewModel, onNavigate: (() -> Unit) -> Unit) {

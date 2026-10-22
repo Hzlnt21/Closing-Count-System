@@ -53,6 +53,28 @@ class OnlineRepository(private val dao: OnlineSyncDao, private val store: Online
         return api(session).businessDate(session, outletId)
     }
 
+    suspend fun history(outletId: String, before: String? = null): OnlineHistoryPage {
+        val session = requireNotNull(active); val result = api(session).history(session, outletId, before)
+        check(active === session) { "Session changed" }; return result
+    }
+    suspend fun audit(outletId: String, closingId: String, after: String = "0"): OnlineAuditPage {
+        val session = requireNotNull(active); val result = api(session).audit(session, outletId, closingId, after)
+        check(active === session) { "Session changed" }; return result
+    }
+    suspend fun reports(outletId: String, closingId: String, before: Long? = null): OnlineReportPage {
+        val session = requireNotNull(active); val result = api(session).reports(session, outletId, closingId, before)
+        check(active === session) { "Session changed" }; return result
+    }
+    suspend fun report(outletId: String, closingId: String, generation: Long): String {
+        val session = requireNotNull(active); val result = api(session).report(session, outletId, closingId, generation)
+        check(active === session) { "Session changed" }; return result
+    }
+    suspend fun readClosing(outletId: String, closingId: String): OnlineSnapshot {
+        val session = requireNotNull(active); val result = api(session).fetch(session, outletId, closingId)
+        check(active === session) { "Session changed" }; dao.pull(result.header, result.entries)
+        return result
+    }
+
     suspend fun save(outletId: String, closingId: String, quantities: Map<String, Int>) = sessionMutex.withLock {
         val session = requireNotNull(active)
         dao.editBatch(session.scope(outletId), closingId, quantities)

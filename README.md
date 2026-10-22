@@ -1,5 +1,7 @@
 # Closing Count System
 
+Newest user-facing slice: [server history, attributed audit and immutable reports](docs/NATIVE_HISTORY_R1.md), [seven actual screenshots](docs/history-review-r1.html). History now includes server dates never opened on this installation, with pagination and separate device-cache labels. Native expiry/reauthentication and draft/conflict regression passed; history reads added no mutations. Admin/settings, transfer, native recovery and full demo remain open.
+
 Newest integration evidence: [actual Android force-stop recovery and two independent QA installations](docs/PROCESS_RECOVERY_R1.md). Five deliberate process interruptions and five passing continuation phases preserve queued/SENT IDs, encrypted sessions and visible-conflict data; independent PostgreSQL proof shows exactly three accepted mutations. Native restoration UI and physical-device acceptance remain open.
 
 Latest source slice: [native supervisor lifecycle R1](docs/NATIVE_LIFECYCLE_R1.md), [six actual screenshots](docs/lifecycle-review-r1.html). Submit/return/lock/reopen now use a durable Room lifecycle outbox and reviewed revisions. 12 JVM, 26 storage, 10 HTTP and two native UI scenarios passed; lint 0 errors/16 warnings. Physical/process-kill/two-installation/full history/online transfer/demo acceptance remains open. Earlier checkpoint paragraphs are historical.

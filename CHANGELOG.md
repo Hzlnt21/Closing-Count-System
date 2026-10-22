@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased - native history and reports R1, 2026-10-22
+
+- Added paginated server history, attributed audit/reopen reasons and immutable report generations in native UI, following the approved visual direction.
+- Added strict client decoding, scoped request invalidation and refreshing detail on reentry, including inline reauthentication after expiry.
+- 12 JVM, one history HTTP scenario, one native history/auth scenario and original draft/conflict native regression passed. Seven screenshots inspected; PostgreSQL proves historical 4/current 6 and no read-generated mutations. [Evidence and remaining gates](docs/NATIVE_HISTORY_R1.md).
+
 ## Unreleased ? Android process recovery R1, 2026-10-22
 
 - Added opt-in QA peer debug identity and multi-process Room/repository/session instrumentation. Default/release app identity is preserved.

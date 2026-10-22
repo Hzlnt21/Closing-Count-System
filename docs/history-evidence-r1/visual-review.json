@@ -1,0 +1,40 @@
+{
+  "inspected": true,
+  "method": "Actual captured emulator screenshots viewed by Codex",
+  "scenes": [
+    {
+      "file": "audit-reopen.png",
+      "sha256": "4d9197b54f91b0780340e2579cbc8065f9eda70ef5d1ec50d148892e76e6ff5c"
+    },
+    {
+      "file": "current-six.png",
+      "sha256": "9d816848ae1347cdd6df26cd126dacd151e91d828775a33d8a72233c73d72777"
+    },
+    {
+      "file": "detail.png",
+      "sha256": "49db4ec463dce904a69d72f4baf9ae3c3f2845e4133236c5c2855e3c65e1c760"
+    },
+    {
+      "file": "expired-session.png",
+      "sha256": "f480ada4ee7c53ac24cfc4a73d986769afc3b0a4c2b4180d62eb50532867e231"
+    },
+    {
+      "file": "frozen-report.png",
+      "sha256": "b556f2474e643846a57a64f1c1b59d002d107bd67797089c67b97731add8c42f"
+    },
+    {
+      "file": "server-list.png",
+      "sha256": "3232d5991fdaf218e9231665dddacc36e03a486c80514ed4c9344960bb585d7f"
+    },
+    {
+      "file": "session-recovered.png",
+      "sha256": "3232d5991fdaf218e9231665dddacc36e03a486c80514ed4c9344960bb585d7f"
+    }
+  ],
+  "theme": "light",
+  "device": "PortfolioQA_Phone_API36",
+  "historicalQuantity": 4,
+  "currentQuantity": 6,
+  "expiredAndRecoveredSessionVisible": true,
+  "physicalAcceptance": false
+}

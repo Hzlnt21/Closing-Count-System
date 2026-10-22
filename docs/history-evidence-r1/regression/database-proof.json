@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "outlet": "ebeb21a8-a9f8-4373-88a2-1a1363a220a2",
+  "quantity": 12,
+  "actor": "4080c5bd-b327-475e-bd6b-af8b09554ead",
+  "receipts": 2,
+  "acceptedEntryAudits": 2,
+  "internalErrors": 0,
+  "source": "retained PostgreSQL query from owned fixture shutdown"
+}
