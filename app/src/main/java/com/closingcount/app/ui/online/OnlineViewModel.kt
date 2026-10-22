@@ -27,6 +27,7 @@ private data class RenderedClosing(val state: String, val revision: Long, val ge
     val pending: Int, val lifecycle: OnlineLifecycleEntity?, val reviewMenus: List<OnlineReviewLine>,
     val ingredients: List<OnlineReviewLine>, val submittedBy: String?, val lockedBy: String?)
 data class OnlineUiState(val initialized: Boolean = false, val identity: OnlineIdentity? = null, val loginVisible: Boolean = true,
+    val savedWork:Int=0,val pendingOwnAccess:Int=0,
     val outletId: String = "", val date: String = LocalDate.now().toString(), val closingId: String? = null,
     val closingState: String = "", val revision: Long = 0, val generation: Long = 1,
     val lifecycle: OnlineLifecycleEntity? = null, val reviewMenus: List<OnlineReviewLine> = emptyList(),
@@ -119,6 +120,7 @@ class OnlineViewModel(application: Application) : AndroidViewModel(application) 
     private fun startOutlet(id: String) {
         clearRemoteHistory(); historyJob?.cancel(); closingJob?.cancel(); stopSync(); cached = emptyList()
         val session = repo.session() ?: return
+        checkSavedAccess()
         val scope = session.identity.outlets.firstOrNull { it.id == id }?.let { session.scope(id) } ?: run {
             mutable.update { it.copy(outletId = "", error = "Akun ini belum memiliki akses outlet aktif.") }; return
         }
@@ -146,6 +148,19 @@ class OnlineViewModel(application: Application) : AndroidViewModel(application) 
             } catch (e: Exception) { mutable.update { it.copy(connectionUnavailable = e is IOException,
                 error = if (e is OnlineApiException) message(e) else it.error, authRequired = e is OnlineApiException && needsLogin(e.code)) } }
         }
+    }
+
+    private fun checkSavedAccess(){
+        val actor=repo.session()?.identity?.id?:return
+        viewModelScope.launch{try{val count=repo.pendingCount();val own=repo.pendingOwnTeamAccessCount()
+            if(state.value.identity?.id==actor)mutable.update{it.copy(savedWork=count,pendingOwnAccess=own)}
+        }catch(c:CancellationException){throw c}catch(e:Exception){if(state.value.identity?.id==actor)mutable.update{it.copy(error=message(e))}}}
+    }
+    fun reconcileOwnTeamAccess(){
+        if(state.value.working)return
+        mutable.update{it.copy(working=true,error=null)}
+        viewModelScope.launch{try{val n=repo.reconcileOwnTeamAccess();mutable.update{it.copy(notice="$n tindakan akses akun terkonfirmasi.")};checkSavedAccess()}
+            catch(c:CancellationException){throw c}catch(e:Exception){mutable.update{it.copy(error=message(e))}}finally{mutable.update{it.copy(working=false)}}}
     }
 
     fun selectDate(date: String) {

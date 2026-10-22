@@ -26,6 +26,11 @@ try{
    await db.query('INSERT INTO ccs.accounts(id,username,display_name,password_hash) VALUES ($1,$2,$3,$4)',[id,prefix+'.'+suffix,'Dummy '+suffix,hash]);
    await db.query('INSERT INTO ccs.memberships(outlet_id,account_id,role) VALUES ($1,$2,$3)',[outlet,id,role]);
   }
+  if(process.env.CCS_TEAM_QA_EXTRA==='31')for(let i=0;i<31;i++){
+   const id=randomUUID(),suffix='extra'+String(i).padStart(2,'0');
+   await db.query('INSERT INTO ccs.accounts(id,username,display_name,password_hash) VALUES ($1,$2,$3,$4)',[id,prefix+'.'+suffix,'Dummy '+suffix,hash]);
+   await db.query("INSERT INTO ccs.memberships(outlet_id,account_id,role) VALUES ($1,$2,'EMPLOYEE')",[outlet,id]);
+  }
   await db.query('INSERT INTO ccs.catalog_versions(id,outlet_id,revision,snapshot,created_by) VALUES ($1,$2,1,$3::jsonb,$4)',[randomUUID(),outlet,JSON.stringify(catalog),admin]);
   await db.query('COMMIT');
  }catch(e){await db.query('ROLLBACK');throw e;}finally{db.release()}
@@ -58,7 +63,7 @@ try{
  await new Promise((resolve,reject)=>{server.once('error',reject);server.listen(4371,'127.0.0.1',resolve)});
  const fixture={origin:'http://10.0.2.2:4371',outlet,employee:prefix+'.rani',colleague:prefix+'.dimas',supervisor:prefix+'.arif',admin:prefix+'.admin',password};
  writeFileSync(fixtureFile,JSON.stringify(fixture,null,2));
- writeFileSync(out+'/fixture-identity.json',JSON.stringify({outlet,employee:a,colleague:b,supervisor,admin,ownedDatabase:true,retained:true,limiterClockInjected:true},null,2));
+ writeFileSync(out+'/fixture-identity.json',JSON.stringify({outlet,employee:a,colleague:b,supervisor,admin,extraTeamMembers:process.env.CCS_TEAM_QA_EXTRA==='31'?31:0,ownedDatabase:true,retained:true,limiterClockInjected:true},null,2));
  console.log(JSON.stringify({ready:true,port:4371,outlet,ownedDatabase:true,fixtureCredentialsPrinted:false}));
  process.stdin.resume();process.stdin.on('data',data=>{if(data.toString().trim()==='stop')stop().catch(()=>process.exitCode=1)});
  process.on('SIGINT',()=>stop());process.on('SIGTERM',()=>stop());
@@ -76,6 +81,7 @@ async function stop(){
  const audit=await pool.query(`SELECT c.business_date::text,a.actor_id,a.operation_id,a.before_quantity,a.after_quantity FROM ccs.closing_audit a
    JOIN ccs.closings c ON c.id=a.closing_id WHERE a.outlet_id=$1 AND action='ENTRY_UPDATED' ORDER BY a.id`,[outlet]);
  const settingsReceipts=await pool.query("SELECT operation_id,actor_id,response FROM ccs.operation_receipts WHERE outlet_id=$1 AND response ? 'settingsRevision'",[outlet]);
- writeFileSync(out+'/database-after.json',JSON.stringify({entries:entries.rows,receipts:receipts.rows,audit:audit.rows,settingsReceipts:settingsReceipts.rows,internalErrorCount:internal.length,fixturesRetained:true},null,2));
- await pool.end();process.stdin.pause();console.log(JSON.stringify({stopped:true,internalErrors:internal.length,entries:entries.rowCount,receipts:receipts.rowCount,settingsReceipts:settingsReceipts.rowCount,auditChanges:audit.rowCount}));
+ const teamReceipts=await pool.query("SELECT operation_id,actor_id,response FROM ccs.operation_receipts WHERE outlet_id=$1 AND response->>'kind' IN ('CREATE_ACCOUNT','UPDATE_MEMBERSHIP')",[outlet]);
+ writeFileSync(out+'/database-after.json',JSON.stringify({entries:entries.rows,receipts:receipts.rows,audit:audit.rows,settingsReceipts:settingsReceipts.rows,teamReceipts:teamReceipts.rows,internalErrorCount:internal.length,fixturesRetained:true},null,2));
+ await pool.end();process.stdin.pause();console.log(JSON.stringify({stopped:true,internalErrors:internal.length,entries:entries.rowCount,receipts:receipts.rowCount,settingsReceipts:settingsReceipts.rowCount,teamReceipts:teamReceipts.rowCount,auditChanges:audit.rowCount}));
 }

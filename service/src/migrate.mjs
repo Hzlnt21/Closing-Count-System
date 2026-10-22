@@ -4,7 +4,7 @@ import {createHash} from 'node:crypto';
 import {pathToFileURL} from 'node:url';
 import {assertOwnedDatabase,configFromEnvironment} from './config.mjs';
 export async function migrate(pool,config) {
-  const scripts=await Promise.all(['001-foundation','002-collaborative-closing','003-closing-lifecycle','004-outlet-settings'].map(async id=>{
+  const scripts=await Promise.all(['001-foundation','002-collaborative-closing','003-closing-lifecycle','004-outlet-settings','005-team-revisions'].map(async id=>{
     const sql=(await readFile(new URL('../sql/'+id+'.sql',import.meta.url),'utf8')).replace(/\r\n/g,'\n');
     return {id,sql,checksum:createHash('sha256').update(sql).digest('hex')};
   }));

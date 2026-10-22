@@ -1,0 +1,11 @@
+{
+    "passed":  true,
+    "mode":  "Native",
+    "outlet":  "04fa85d9-c4e8-468c-8f28-995bd47d7868",
+    "emulator":  "PortfolioQA_Phone_API36",
+    "actualProcessKill":  false,
+    "twoInstallations":  false,
+    "physicalPhoneAccessed":  false,
+    "publicAcceptance":  false,
+    "finishedAt":  "2026-10-22T17:48:37.9144519Z"
+}

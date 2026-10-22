@@ -8,8 +8,11 @@ export function validatePassword(password) {
   }
 }
 export async function hashPassword(password) {
+  return hashPasswordWithSalt(password,randomBytes(16).toString('hex'));
+}
+export async function hashPasswordWithSalt(password,salt) {
   validatePassword(password);
-  const salt=randomBytes(16).toString('hex');
+  if(!/^[a-f0-9]{32}$/.test(salt))throw invalid();
   const key=await scrypt(password,salt,64,{N:16384,r:8,p:1,maxmem:32*1024*1024});
   return `scrypt$v1$${salt}$${key.toString('hex')}`;
 }

@@ -1,3 +1,7 @@
+# Team R1: 0.2.0-dev.5 (2026-10-23)
+
+Migration005, revision-checked team operations, transactional receipts/audit and narrow own-access-loss receipt recovery. Service20unit/72Node integration passed. See ../docs/NATIVE_TEAM_R1.md.
+
 # Service changelog
 
 ## 0.2.0-dev.3 — CCS-04

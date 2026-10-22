@@ -1,8 +1,10 @@
-# Closing Count service: outlet settings R1
+# Closing Count service: team management R1
 
-Version 0.2.0-dev.4 is an isolated QA checkpoint, not a public demo or final Android release. It adds administrator-only outlet settings with exact reviewed revisions, idempotent operation receipts and immutable settings audit. Migration 004 is additive; existing migration checksums and closing snapshots are preserved.
+Version 0.2.0-dev.5 is an isolated QA checkpoint. Migration 005 adds membership revisions and immutable audit. Team operations atomically create accounts or update reviewed membership with idempotent receipts. See [native team evidence and recovery boundary](../docs/NATIVE_TEAM_R1.md).
 
-Connected native draft, supervisor lifecycle and history/report clients exist on this branch. Team/catalog editing in native UI, transfer and complete demo acceptance remain program work. Android distribution metadata stays 0.1.1 until the local candidate is assembled and verified. [The collaborative contract](../docs/ONLINE_CONTRACT.md) remains the full target.
+GET /api/v1/outlets/:id/team supports limit and after pagination; GET team/:accountId returns a reviewed member. POST team-operations accepts CREATE_ACCOUNT or UPDATE_MEMBERSHIP; GET team-operations/:operationId retrieves a bound receipt. Normal reads/mutations require current ADMIN access. A former administrator may read only their own recorded access-loss update receipt; no roster, foreign result or mutation access follows. Password fingerprints use scoped scrypt and Android persists only non-secret metadata.
+
+Android metadata remains 0.1.1. Native catalog/recipe editing, transfer and complete demo acceptance remain open. [Collaborative contract](../docs/ONLINE_CONTRACT.md).
 
 ## Run and verify
 

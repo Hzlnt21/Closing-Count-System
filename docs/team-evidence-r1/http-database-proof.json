@@ -1,0 +1,223 @@
+{
+  "passed": true,
+  "mode": "http",
+  "outlet": "abf1e0dc-821e-447e-ae3f-669bbfc1dadf",
+  "members": [
+    {
+      "id": "8c294115-7d76-434b-87d3-fc0556e46a74",
+      "username": "qahmvjttqse.admin",
+      "display_name": "Dummy admin",
+      "role": "EMPLOYEE",
+      "active": false,
+      "account_active": true,
+      "revision": "1"
+    },
+    {
+      "id": "fdcab67d-5c7f-424f-8260-1ba075eadb9d",
+      "username": "qahmvjttqse.arif",
+      "display_name": "Dummy arif",
+      "role": "SUPERVISOR",
+      "active": true,
+      "account_active": true,
+      "revision": "0"
+    },
+    {
+      "id": "d27f2d56-0c1a-4caf-aaa1-a5aebee5b759",
+      "username": "qahmvjttqse.backup",
+      "display_name": "Backup Admin",
+      "role": "ADMIN",
+      "active": true,
+      "account_active": true,
+      "revision": "0"
+    },
+    {
+      "id": "9e520794-c386-46c7-b791-e4f60a0a2651",
+      "username": "qahmvjttqse.dimas",
+      "display_name": "Dummy dimas",
+      "role": "EMPLOYEE",
+      "active": true,
+      "account_active": true,
+      "revision": "0"
+    },
+    {
+      "id": "4a29c3e3-a9f0-4af4-a5a4-d578a7627c91",
+      "username": "qahmvjttqse.http-worker",
+      "display_name": "HTTP worker",
+      "role": "SUPERVISOR",
+      "active": false,
+      "account_active": true,
+      "revision": "2"
+    },
+    {
+      "id": "6408f1c8-c1f6-484b-b335-5f33b5b5ea8e",
+      "username": "qahmvjttqse.rani",
+      "display_name": "Dummy rani",
+      "role": "EMPLOYEE",
+      "active": true,
+      "account_active": true,
+      "revision": "0"
+    }
+  ],
+  "receipts": [
+    {
+      "operation_id": "202d2897-0d01-45a8-8275-da471e1fb1f8",
+      "actor_id": "8c294115-7d76-434b-87d3-fc0556e46a74",
+      "response": {
+        "kind": "UPDATE_MEMBERSHIP",
+        "member": {
+          "id": "4a29c3e3-a9f0-4af4-a5a4-d578a7627c91",
+          "role": "SUPERVISOR",
+          "active": false,
+          "revision": 2,
+          "username": "qahmvjttqse.http-worker",
+          "displayName": "HTTP worker",
+          "accountActive": true
+        },
+        "changed": true,
+        "outletId": "abf1e0dc-821e-447e-ae3f-669bbfc1dadf",
+        "operationId": "202d2897-0d01-45a8-8275-da471e1fb1f8"
+      }
+    },
+    {
+      "operation_id": "6464861e-2b49-4c0d-8643-d7fccb7497cb",
+      "actor_id": "8c294115-7d76-434b-87d3-fc0556e46a74",
+      "response": {
+        "kind": "CREATE_ACCOUNT",
+        "member": {
+          "id": "4a29c3e3-a9f0-4af4-a5a4-d578a7627c91",
+          "role": "EMPLOYEE",
+          "active": true,
+          "revision": 0,
+          "username": "qahmvjttqse.http-worker",
+          "displayName": "HTTP worker",
+          "accountActive": true
+        },
+        "changed": true,
+        "outletId": "abf1e0dc-821e-447e-ae3f-669bbfc1dadf",
+        "operationId": "6464861e-2b49-4c0d-8643-d7fccb7497cb"
+      }
+    },
+    {
+      "operation_id": "67b3d42c-0b46-47a9-a9b5-c7fc70ad7076",
+      "actor_id": "8c294115-7d76-434b-87d3-fc0556e46a74",
+      "response": {
+        "kind": "UPDATE_MEMBERSHIP",
+        "member": {
+          "id": "4a29c3e3-a9f0-4af4-a5a4-d578a7627c91",
+          "role": "SUPERVISOR",
+          "active": true,
+          "revision": 1,
+          "username": "qahmvjttqse.http-worker",
+          "displayName": "HTTP worker",
+          "accountActive": true
+        },
+        "changed": true,
+        "outletId": "abf1e0dc-821e-447e-ae3f-669bbfc1dadf",
+        "operationId": "67b3d42c-0b46-47a9-a9b5-c7fc70ad7076"
+      }
+    },
+    {
+      "operation_id": "b6cd3e52-3fdb-43b1-b8b4-7fe1e36750cf",
+      "actor_id": "8c294115-7d76-434b-87d3-fc0556e46a74",
+      "response": {
+        "kind": "UPDATE_MEMBERSHIP",
+        "member": {
+          "id": "8c294115-7d76-434b-87d3-fc0556e46a74",
+          "role": "EMPLOYEE",
+          "active": false,
+          "revision": 1,
+          "username": "qahmvjttqse.admin",
+          "displayName": "Dummy admin",
+          "accountActive": true
+        },
+        "changed": true,
+        "outletId": "abf1e0dc-821e-447e-ae3f-669bbfc1dadf",
+        "operationId": "b6cd3e52-3fdb-43b1-b8b4-7fe1e36750cf"
+      }
+    },
+    {
+      "operation_id": "dfe9e0d6-b4d9-45f4-949c-abcc42c914d1",
+      "actor_id": "8c294115-7d76-434b-87d3-fc0556e46a74",
+      "response": {
+        "kind": "CREATE_ACCOUNT",
+        "member": {
+          "id": "d27f2d56-0c1a-4caf-aaa1-a5aebee5b759",
+          "role": "ADMIN",
+          "active": true,
+          "revision": 0,
+          "username": "qahmvjttqse.backup",
+          "displayName": "Backup Admin",
+          "accountActive": true
+        },
+        "changed": true,
+        "outletId": "abf1e0dc-821e-447e-ae3f-669bbfc1dadf",
+        "operationId": "dfe9e0d6-b4d9-45f4-949c-abcc42c914d1"
+      }
+    }
+  ],
+  "audit": [
+    {
+      "actor_id": "8c294115-7d76-434b-87d3-fc0556e46a74",
+      "subject_id": "4a29c3e3-a9f0-4af4-a5a4-d578a7627c91",
+      "action": "CREATE_ACCOUNT",
+      "before_value": null,
+      "after_value": {
+        "role": "EMPLOYEE",
+        "active": true,
+        "username": "qahmvjttqse.http-worker"
+      }
+    },
+    {
+      "actor_id": "8c294115-7d76-434b-87d3-fc0556e46a74",
+      "subject_id": "4a29c3e3-a9f0-4af4-a5a4-d578a7627c91",
+      "action": "UPDATE_MEMBERSHIP",
+      "before_value": {
+        "role": "EMPLOYEE",
+        "active": true
+      },
+      "after_value": {
+        "role": "SUPERVISOR",
+        "active": true
+      }
+    },
+    {
+      "actor_id": "8c294115-7d76-434b-87d3-fc0556e46a74",
+      "subject_id": "4a29c3e3-a9f0-4af4-a5a4-d578a7627c91",
+      "action": "UPDATE_MEMBERSHIP",
+      "before_value": {
+        "role": "SUPERVISOR",
+        "active": true
+      },
+      "after_value": {
+        "role": "SUPERVISOR",
+        "active": false
+      }
+    },
+    {
+      "actor_id": "8c294115-7d76-434b-87d3-fc0556e46a74",
+      "subject_id": "d27f2d56-0c1a-4caf-aaa1-a5aebee5b759",
+      "action": "CREATE_ACCOUNT",
+      "before_value": null,
+      "after_value": {
+        "role": "ADMIN",
+        "active": true,
+        "username": "qahmvjttqse.backup"
+      }
+    },
+    {
+      "actor_id": "8c294115-7d76-434b-87d3-fc0556e46a74",
+      "subject_id": "8c294115-7d76-434b-87d3-fc0556e46a74",
+      "action": "UPDATE_MEMBERSHIP",
+      "before_value": {
+        "role": "ADMIN",
+        "active": true
+      },
+      "after_value": {
+        "role": "EMPLOYEE",
+        "active": false
+      }
+    }
+  ],
+  "fixturesRetained": true,
+  "physicalOrPublicAcceptance": false
+}

@@ -1,0 +1,28 @@
+âœ” catalog normalization is canonical without changing IDs/formula or input object (19.1161ms)
+âœ” catalog refuses duplicate IDs/recipes, missing categories and inactive recipe references (4.7639ms)
+âœ” inactive menus do not enter new closing snapshots; old snapshots remain independent (0.9782ms)
+âœ” ingredient formula matches Android baseline and handles zero/max quantities (0.9821ms)
+âœ” inconsistent stored entries fail closed instead of producing partial ingredient reports (0.9041ms)
+âœ” ISO business dates and revisions reject normalization, ambiguous dates and unsafe integers (1.9526ms)
+âœ” lifecycle role matrix permits employee submit and supervisor/admin review actions only (4.962ms)
+âœ” lifecycle graph increments every revision and opens a new edit generation on return/reopen (2.6588ms)
+âœ” return/reopen reasons are required, bounded and normalized without accepting injected reviewer/totals (2.0138ms)
+âœ” device sync declaration rejects all pending/conflict/auth states and unknown values (0.6918ms)
+âœ” lifecycle rejects stale generation/revision with current server metadata (1.3124ms)
+âœ” unsupported current states cannot be skipped by supplying the correct revision (0.526ms)
+âœ” revision/generation limits fail without unsafe-number increments (0.5229ms)
+âœ” QA configuration refuses implicit, operational or foreign targets without reflecting credentials (4.628ms)
+âœ” password salt is unique, verification works and malformed parameters fail bounded (164.6806ms)
+âœ” password and username validation preserve case-sensitive password semantics (0.9674ms)
+âœ” payload rejects arrays, null, missing fields and injected actor/role (0.633ms)
+âœ” rate limit enforces current window, expires and fails closed at bounded capacity (214.7994ms)
+âœ” business date uses outlet calendar and cutoff across year rollover (25.742ms)
+âœ” business date handles a DST outlet calendar and rejects invalid settings (6.3219ms)
+â„¹ tests 20
+â„¹ suites 0
+â„¹ pass 20
+â„¹ fail 0
+â„¹ cancelled 0
+â„¹ skipped 0
+â„¹ todo 0
+â„¹ duration_ms 606.0839

@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased - native team R1, 2026-10-23
+
+- Added paged team administration, account creation, reviewed role/access changes and own-role refresh in the approved R2 direction.
+- Service 0.2.0-dev.5 adds migration 005, exact membership revisions, immutable audit and transactional team receipts; backup-excluded Android intents contain no password/verifier.
+- Service20unit/72Node, Android12JVM/3team-store/1teamHTTP/1teamUI passed with independent database proof and eight inspected screenshots. [Evidence and limits](docs/NATIVE_TEAM_R1.md).
+
 ## Unreleased - outlet settings R1, 2026-10-23
 
 - Added role-based native outlet settings, review/validation/leave guards and unsaved form retention through Activity recreation.

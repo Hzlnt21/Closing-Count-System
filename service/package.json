@@ -1,6 +1,6 @@
 {
   "name": "closing-count-service",
-  "version": "0.2.0-dev.4",
+  "version": "0.2.0-dev.5",
   "private": true,
   "type": "module",
   "engines": {
@@ -10,7 +10,7 @@
     "start": "node src/main.mjs",
     "migrate": "node src/migrate.mjs",
     "test": "node --test test/unit.test.mjs test/catalog.test.mjs test/lifecycle-unit.test.mjs",
-    "test:integration": "node --test --test-concurrency=1 test/integration.test.mjs test/closing.test.mjs test/lifecycle.test.mjs test/settings.test.mjs"
+    "test:integration": "node --test --test-concurrency=1 test/integration.test.mjs test/closing.test.mjs test/lifecycle.test.mjs test/settings.test.mjs test/team.test.mjs"
   },
   "dependencies": {
     "pg": "8.23.1"

@@ -150,6 +150,57 @@ class OnlineApi(val endpoint: OnlineEndpoint, private val timeoutMillis: Int = 1
         }
     }
 
+    private fun teamMember(row:JSONObject):OnlineTeamMember {
+        val username=row.getString("username");require(username.matches(Regex("[a-z0-9][a-z0-9._-]{2,63}")))
+        val name=row.getString("displayName");require(name.trim().length in 1..120)
+        val role=row.getString("role");require(role in setOf("ADMIN","SUPERVISOR","EMPLOYEE"))
+        require(row.get("active") is Boolean && row.get("accountActive") is Boolean)
+        return OnlineTeamMember(uuid(row.getString("id")),username,name,role,row.getBoolean("active"),row.getBoolean("accountActive"),number(row,"revision"))
+    }
+    suspend fun team(session:OnlineSession,outlet:String,after:String?=null,limit:Int=30):OnlineTeamPage {
+        checkSession(session);uuid(outlet);session.scope(outlet);require(limit in 1..100)
+        after?.let{require(it.matches(Regex("[a-z0-9][a-z0-9._-]{2,63}")))}
+        val data=request("GET","/outlets/$outlet/team?limit=$limit"+(after?.let{"&after=$it"}?:""),session.token)
+        return decode{
+            val raw=data.getJSONArray("items");require(raw.length()<=limit)
+            val rows=(0 until raw.length()).map{teamMember(raw.getJSONObject(it))}
+            require(rows.map{it.id}.distinct().size==rows.size&&rows.zipWithNext().all{(a,b)->a.username<b.username}&&rows.all{after==null||it.username>after})
+            val next=if(data.isNull("nextAfter"))null else data.getString("nextAfter")
+            require(next==null||(rows.size==limit&&rows.last().username==next));OnlineTeamPage(rows,next)
+        }
+    }
+    suspend fun member(session:OnlineSession,outlet:String,id:String):OnlineTeamMember {
+        checkSession(session);uuid(outlet);uuid(id);session.scope(outlet)
+        val row=request("GET","/outlets/$outlet/team/$id",session.token)
+        return decode{teamMember(row).also{require(it.id==id)}}
+    }
+    private fun teamScope(session:OnlineSession,op:OnlineTeamOperation):String{
+        checkSession(session);val outlet=uuid(op.scope.substringAfterLast('|'));uuid(op.operationId)
+        require(op.scope=="${session.origin}|${session.identity.id}|$outlet");return outlet
+    }
+    private fun teamReceipt(data:JSONObject,outlet:String,op:OnlineTeamOperation):OnlineTeamReceipt=decode{
+        require(data.getString("outletId")==outlet&&data.getString("operationId")==op.operationId&&data.getString("kind")==op.kind&&data.get("changed") is Boolean)
+        val member=teamMember(data.getJSONObject("member"));val p=JSONObject(op.payload);val changed=data.getBoolean("changed")
+        require(member.role==p.getString("role"))
+        if(op.kind=="CREATE_ACCOUNT")require(changed&&member.username==p.getString("username")&&member.name==p.getString("displayName")&&member.active&&member.accountActive&&member.revision==0L)
+        else require(member.id==p.getString("accountId")&&member.active==p.getBoolean("active")&&member.revision==p.getLong("expectedRevision")+(if(changed)1 else 0))
+        OnlineTeamReceipt(member,changed)
+    }
+    suspend fun teamReceipt(session:OnlineSession,op:OnlineTeamOperation):OnlineTeamReceipt {
+        val outlet=teamScope(session,op)
+        return teamReceipt(request("GET","/outlets/$outlet/team-operations/${op.operationId}",session.token),outlet,op)
+    }
+    suspend fun sendTeam(session:OnlineSession,op:OnlineTeamOperation,password:String?):OnlineTeamReceipt {
+        val outlet=teamScope(session,op);session.scope(outlet);require(op.status=="SENT"&&op.wasSent)
+        val payload=JSONObject(op.payload)
+        if(op.kind=="CREATE_ACCOUNT"){
+            if(password==null)throw TeamPasswordRequiredException()
+            require(password.codePointCount(0,password.length)>=12&&password.toByteArray().size<=256);payload.put("password",password)
+        }
+        val body=JSONObject().put("operationId",op.operationId).put("kind",op.kind).put("payload",payload)
+        return teamReceipt(request("POST","/outlets/$outlet/team-operations",session.token,body),outlet,op)
+    }
+
     suspend fun updateSettings(session: OnlineSession, op: OnlineSettingsOperation): Long {
         checkSession(session); require(op.scope == session.scope(op.scope.substringAfterLast('|')))
         require(op.status == "SENT" && op.wasSent); uuid(op.operationId)

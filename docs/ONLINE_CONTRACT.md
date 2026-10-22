@@ -20,6 +20,8 @@ Keep the Kotlin/Compose Android application and Room offline storage. Add an aut
 
 Membership and active-account checks are performed on every request, including retries; a valid session alone does not grant outlet access. Never accept actor, permission, calculated total or reviewer identity from the client. No mutation of another outlet by guessing IDs.
 
+Team receipt clarification (native team R1): an authenticated actor whose own recorded membership update removed their administration/access may read that single actor/outlet/operation-bound receipt to reconcile the result. This returns only their own recorded update, no roster or other member data. Unknown receipts, other team reads and every mutation still require current administrator access. Account authentication remains mandatory.
+
 States: DRAFT -> SUBMITTED -> LOCKED. Returning SUBMITTED or reopening LOCKED increments an edit generation and requires a nonblank reason. SUBMITTED/LOCKED refuse quantity edits. Review+lock is one server transaction bound to the exact submitted revision; server calculates results from the closing's frozen catalog. Lock records reviewer/time and preserves an immutable report snapshot; reopen retains that snapshot and its audit before creating a new editable generation. Catalog changes cannot rewrite historical reports.
 
 ## Identity, date and versions

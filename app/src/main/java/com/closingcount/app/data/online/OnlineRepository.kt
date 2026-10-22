@@ -11,7 +11,7 @@ class PendingOnlineDraftsException : IllegalStateException("Konfirmasi diperluka
 
 /** Application-owned session and engines. No automatic network call at application startup. */
 class OnlineRepository(private val dao: OnlineSyncDao, private val store: OnlineSessionStore,
-    private val settingsStore: OnlineSettingsStore? = null) {
+    private val settingsStore: OnlineSettingsStore? = null, private val teamStore:OnlineTeamStore?=null) {
     @Volatile private var active: OnlineSession? = null
     private val sessionMutex = Mutex()
     private val engines = mutableMapOf<String, OnlineSyncEngine>()
@@ -50,11 +50,73 @@ class OnlineRepository(private val dao: OnlineSyncDao, private val store: Online
                 settingsStore.save(it.copy(status=if(it.wasSent) "SENT" else "QUEUED",error=null))
             } }
         }
+        withContext(Dispatchers.IO){teamStore?.forAccount(prefix(candidate))?.filter{it.status=="AUTH_REQUIRED"}?.forEach{
+            teamStore.save(it.copy(status=if(it.wasSent)"SENT" else "QUEUED",error=null))
+        }}
     }
 
     private suspend fun pending(session: OnlineSession) = dao.pendingForAccount(prefix(session)) +
-        withContext(Dispatchers.IO) { settingsStore?.pendingForAccount(prefix(session)) ?: 0 }
+        withContext(Dispatchers.IO) { (settingsStore?.pendingForAccount(prefix(session)) ?: 0)+(teamStore?.forAccount(prefix(session))?.size?:0) }
     suspend fun pendingCount(): Int = active?.let { pending(it) } ?: 0
+    suspend fun team(outlet:String,after:String?=null):OnlineTeamPage{
+        val session=requireNotNull(active);val value=api(session).team(session,outlet,after);check(active===session);return value
+    }
+    suspend fun pendingTeam(outlet:String):OnlineTeamOperation?{
+        val session=requireNotNull(active);return withContext(Dispatchers.IO){teamStore?.load(session.scope(outlet))}
+    }
+    suspend fun prepareTeamCreate(outlet:String,username:String,name:String,role:String)=sessionMutex.withLock{
+        val session=requireNotNull(active);val storage=requireNotNull(teamStore)
+        check(session.identity.outlets.first{it.id==outlet}.role=="ADMIN")
+        val payload=org.json.JSONObject().put("username",username.trim().lowercase(java.util.Locale.ROOT)).put("displayName",name.trim()).put("role",role)
+        val op=OnlineTeamOperation(session.scope(outlet),java.util.UUID.randomUUID().toString(),"CREATE_ACCOUNT",payload.toString())
+        withContext(Dispatchers.IO){check(storage.load(op.scope)==null);storage.save(op)}
+    }
+    suspend fun prepareTeamEdit(outlet:String,reviewed:OnlineTeamMember,role:String,enabled:Boolean)=sessionMutex.withLock{
+        val session=requireNotNull(active);val storage=requireNotNull(teamStore)
+        check(session.identity.outlets.first{it.id==outlet}.role=="ADMIN")
+        val payload=org.json.JSONObject().put("accountId",reviewed.id).put("expectedRevision",reviewed.revision).put("role",role).put("active",enabled)
+        val op=OnlineTeamOperation(session.scope(outlet),java.util.UUID.randomUUID().toString(),"UPDATE_MEMBERSHIP",payload.toString())
+        withContext(Dispatchers.IO){check(storage.load(op.scope)==null);storage.save(op)}
+    }
+    suspend fun syncTeam(outlet:String,password:String?=null):OnlineTeamReceipt=sessionMutex.withLock{
+        val session=requireNotNull(active);val storage=requireNotNull(teamStore);val scope=session.scope(outlet)
+        var op=withContext(Dispatchers.IO){requireNotNull(storage.load(scope))};check(op.status in setOf("QUEUED","SENT"))
+        try{
+            if(op.wasSent){
+                try{val receipt=api(session).teamReceipt(session,op);withContext(Dispatchers.IO){storage.remove(scope,op.operationId,true)};return@withLock receipt}
+                catch(e:OnlineApiException){if(e.status!=404||e.code!="TEAM_OPERATION_NOT_FOUND")throw e}
+            }
+            if(op.kind=="CREATE_ACCOUNT"&&password==null)throw TeamPasswordRequiredException()
+            if(op.kind=="UPDATE_MEMBERSHIP"&&!op.wasSent){
+                val p=org.json.JSONObject(op.payload);val fresh=api(session).member(session,outlet,p.getString("accountId"))
+                if(fresh.revision!=p.getLong("expectedRevision")){
+                    op=op.copy(status="CONFLICT",error="MEMBERSHIP_CONFLICT");withContext(Dispatchers.IO){storage.save(op)};throw OnlineConflictChangedException()
+                }
+            }
+            op=op.copy(status="SENT",wasSent=true,error=null);withContext(Dispatchers.IO){storage.save(op)}
+            val receipt=api(session).sendTeam(session,op,password);withContext(Dispatchers.IO){storage.remove(scope,op.operationId,true)};receipt
+        }catch(e:OnlineApiException){
+            val status=when{e.status in setOf(401,403)->"AUTH_REQUIRED";e.status>=500||e.status in setOf(408,429)||e.code=="NOT_FOUND"->null;e.status==409->"CONFLICT";else->"FAILED"}
+            if(status!=null)withContext(Dispatchers.IO){storage.save(op.copy(status=status,error=e.code))};throw e
+        }
+    }
+    suspend fun dismissTeam(outlet:String)=sessionMutex.withLock{
+        val session=requireNotNull(active);val storage=requireNotNull(teamStore)
+        withContext(Dispatchers.IO){storage.load(session.scope(outlet))?.let{storage.remove(it.scope,it.operationId)}}
+    }
+    suspend fun pendingOwnTeamAccessCount():Int{
+        val session=active?:return 0
+        return withContext(Dispatchers.IO){teamStore?.forAccount(prefix(session))?.count{it.wasSent&&it.status in setOf("SENT","AUTH_REQUIRED")&&it.ownAccessLoss(session.identity.id)}?:0}
+    }
+    suspend fun reconcileOwnTeamAccess():Int=sessionMutex.withLock{
+        val session=requireNotNull(active);val storage=requireNotNull(teamStore)
+        val ops=withContext(Dispatchers.IO){storage.forAccount(prefix(session)).filter{it.wasSent&&it.status in setOf("SENT","AUTH_REQUIRED")&&it.ownAccessLoss(session.identity.id)}}
+        var confirmed=0
+        for(op in ops){
+            val receipt=api(session).teamReceipt(session,op);check(receipt.member.id==session.identity.id)
+            withContext(Dispatchers.IO){storage.remove(op.scope,op.operationId,true)};confirmed++
+        };confirmed
+    }
 
     suspend fun outletSettings(outletId: String): OnlineOutletSettings {
         val session = requireNotNull(active); val value = api(session).outletSettings(session,outletId)

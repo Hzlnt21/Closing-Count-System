@@ -7,6 +7,7 @@ import {LoginLimiter} from './limiter.mjs';
 import {businessDate} from './business-date.mjs';
 import {createClosingRoutes} from './closing-routes.mjs';
 import {createSettingsRoutes} from './settings-routes.mjs';
+import {createTeamRoutes} from './team-routes.mjs';
 
 const digest=token=>createHash('sha256').update(token).digest('hex');
 export const serviceVersion=JSON.parse(readFileSync(new URL('../package.json',import.meta.url),'utf8')).version;
@@ -55,6 +56,7 @@ export async function createApp({pool,limiter=new LoginLimiter(),onInternalError
   }
   const closingRoutes=createClosingRoutes({pool,authenticate,member,readJson,transaction});
   const settingsRoutes=createSettingsRoutes({pool,authenticate,member,readJson,transaction});
+  const teamRoutes=createTeamRoutes({pool,authenticate,member,readJson,transaction});
   return createServer({requestTimeout:10000,headersTimeout:10000,maxHeaderSize:8192},async(req,res)=>{
     const requestId=randomUUID();
     res.setHeader('Cache-Control','no-store');res.setHeader('X-Content-Type-Options','nosniff');
@@ -88,6 +90,8 @@ export async function createApp({pool,limiter=new LoginLimiter(),onInternalError
         return send(200,{accessToken:token,expiresAt:session.expires_at,tokenType:'Bearer'});
       }
       const account=await authenticate(req);
+      const teamResponse=await teamRoutes(req,url,account);
+      if(teamResponse)return send(teamResponse.status,teamResponse.data);
       const settingsResponse=await settingsRoutes(req,url,account);
       if(settingsResponse)return send(settingsResponse.status,settingsResponse.data);
       const closingResponse=await closingRoutes(req,url,account);
@@ -152,7 +156,7 @@ export async function createApp({pool,limiter=new LoginLimiter(),onInternalError
               if(count.total<=1) throw new ApiError(409,'LAST_ADMIN_REQUIRED','Outlet memerlukan minimal satu administrator aktif.');
             }
             if(before.role!==body.role||before.active!==body.active) {
-              await db.query('UPDATE ccs.memberships SET role=$3,active=$4,updated_at=clock_timestamp() WHERE outlet_id=$1 AND account_id=$2',[outletId,subjectId,body.role,body.active]);
+              await db.query('UPDATE ccs.memberships SET role=$3,active=$4,revision=revision+1,updated_at=clock_timestamp() WHERE outlet_id=$1 AND account_id=$2',[outletId,subjectId,body.role,body.active]);
               await db.query(`INSERT INTO ccs.membership_audit(outlet_id,actor_id,subject_id,action,before_value,after_value)
                 VALUES ($1,$2,$3,'UPDATE_MEMBERSHIP',$4::jsonb,$5::jsonb)`,[outletId,current.id,subjectId,JSON.stringify({role:before.role,active:before.active}),JSON.stringify(body)]);
             }

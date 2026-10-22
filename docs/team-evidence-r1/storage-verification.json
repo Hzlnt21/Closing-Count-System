@@ -1,0 +1,11 @@
+{
+    "passed":  true,
+    "mode":  "Storage",
+    "outlet":  "abf1e0dc-821e-447e-ae3f-669bbfc1dadf",
+    "emulator":  "PortfolioQA_Phone_API36",
+    "actualProcessKill":  false,
+    "twoInstallations":  false,
+    "physicalPhoneAccessed":  false,
+    "publicAcceptance":  false,
+    "finishedAt":  "2026-10-22T17:42:59.5358336Z"
+}

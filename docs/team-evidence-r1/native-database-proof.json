@@ -1,0 +1,470 @@
+{
+  "passed": true,
+  "mode": "native",
+  "outlet": "0d1235d8-a267-435e-8f1e-cdb2b8864489",
+  "members": [
+    {
+      "id": "efc546b0-ad75-4e62-b6d7-304386f517dd",
+      "username": "qahmvjtxu7r.admin",
+      "display_name": "Dummy admin",
+      "role": "SUPERVISOR",
+      "active": true,
+      "account_active": true,
+      "revision": "1"
+    },
+    {
+      "id": "883ff07f-592e-49ff-827c-6f1256c353ce",
+      "username": "qahmvjtxu7r.arif",
+      "display_name": "Dummy arif",
+      "role": "SUPERVISOR",
+      "active": true,
+      "account_active": true,
+      "revision": "0"
+    },
+    {
+      "id": "5da3b251-61e3-4e2f-bba6-b7b7b2a00613",
+      "username": "qahmvjtxu7r.backup",
+      "display_name": "Backup Admin",
+      "role": "ADMIN",
+      "active": true,
+      "account_active": true,
+      "revision": "0"
+    },
+    {
+      "id": "4e32acf8-1cf4-4fac-8f60-89b54fa70579",
+      "username": "qahmvjtxu7r.dimas",
+      "display_name": "Dummy dimas",
+      "role": "EMPLOYEE",
+      "active": true,
+      "account_active": true,
+      "revision": "0"
+    },
+    {
+      "id": "b1c86471-dfec-47fd-a684-aa9262dbe0a8",
+      "username": "qahmvjtxu7r.extra00",
+      "display_name": "Dummy extra00",
+      "role": "EMPLOYEE",
+      "active": true,
+      "account_active": true,
+      "revision": "0"
+    },
+    {
+      "id": "593af68d-cbcf-4cb0-b747-7d3033820910",
+      "username": "qahmvjtxu7r.extra01",
+      "display_name": "Dummy extra01",
+      "role": "EMPLOYEE",
+      "active": true,
+      "account_active": true,
+      "revision": "0"
+    },
+    {
+      "id": "d233858e-9212-4643-b8b5-54667b910265",
+      "username": "qahmvjtxu7r.extra02",
+      "display_name": "Dummy extra02",
+      "role": "EMPLOYEE",
+      "active": true,
+      "account_active": true,
+      "revision": "0"
+    },
+    {
+      "id": "42442999-1719-4937-ba6d-df8af51e3d7b",
+      "username": "qahmvjtxu7r.extra03",
+      "display_name": "Dummy extra03",
+      "role": "EMPLOYEE",
+      "active": true,
+      "account_active": true,
+      "revision": "0"
+    },
+    {
+      "id": "75738bb8-6940-4603-ad71-eb4ed262631e",
+      "username": "qahmvjtxu7r.extra04",
+      "display_name": "Dummy extra04",
+      "role": "EMPLOYEE",
+      "active": true,
+      "account_active": true,
+      "revision": "0"
+    },
+    {
+      "id": "debde2e8-5d5e-4f2b-b7c2-5e2318f69b18",
+      "username": "qahmvjtxu7r.extra05",
+      "display_name": "Dummy extra05",
+      "role": "EMPLOYEE",
+      "active": true,
+      "account_active": true,
+      "revision": "0"
+    },
+    {
+      "id": "cb67e9ca-94a5-4c99-9729-0cd8454b610d",
+      "username": "qahmvjtxu7r.extra06",
+      "display_name": "Dummy extra06",
+      "role": "EMPLOYEE",
+      "active": true,
+      "account_active": true,
+      "revision": "0"
+    },
+    {
+      "id": "d98af0ad-78a3-4567-877d-9dac96a40f14",
+      "username": "qahmvjtxu7r.extra07",
+      "display_name": "Dummy extra07",
+      "role": "EMPLOYEE",
+      "active": true,
+      "account_active": true,
+      "revision": "0"
+    },
+    {
+      "id": "640be3f0-1b12-41f7-a79d-8351da746474",
+      "username": "qahmvjtxu7r.extra08",
+      "display_name": "Dummy extra08",
+      "role": "EMPLOYEE",
+      "active": true,
+      "account_active": true,
+      "revision": "0"
+    },
+    {
+      "id": "6417842c-c7de-4489-a767-d986005e43a2",
+      "username": "qahmvjtxu7r.extra09",
+      "display_name": "Dummy extra09",
+      "role": "EMPLOYEE",
+      "active": true,
+      "account_active": true,
+      "revision": "0"
+    },
+    {
+      "id": "e2b4a020-4bd8-4399-8a51-132675d81b4a",
+      "username": "qahmvjtxu7r.extra10",
+      "display_name": "Dummy extra10",
+      "role": "EMPLOYEE",
+      "active": true,
+      "account_active": true,
+      "revision": "0"
+    },
+    {
+      "id": "0e3b7b8d-f154-4d5b-83c3-322511af2c7c",
+      "username": "qahmvjtxu7r.extra11",
+      "display_name": "Dummy extra11",
+      "role": "EMPLOYEE",
+      "active": true,
+      "account_active": true,
+      "revision": "0"
+    },
+    {
+      "id": "0319e1c1-c4d8-45ef-8589-2d8a30cf9b3a",
+      "username": "qahmvjtxu7r.extra12",
+      "display_name": "Dummy extra12",
+      "role": "EMPLOYEE",
+      "active": true,
+      "account_active": true,
+      "revision": "0"
+    },
+    {
+      "id": "db3c4089-e55f-43d2-a0a1-998789311acf",
+      "username": "qahmvjtxu7r.extra13",
+      "display_name": "Dummy extra13",
+      "role": "EMPLOYEE",
+      "active": true,
+      "account_active": true,
+      "revision": "0"
+    },
+    {
+      "id": "2a7fb5c9-b84d-4b3a-8eef-a008c55a6b34",
+      "username": "qahmvjtxu7r.extra14",
+      "display_name": "Dummy extra14",
+      "role": "EMPLOYEE",
+      "active": true,
+      "account_active": true,
+      "revision": "0"
+    },
+    {
+      "id": "9df4123c-c67e-4b40-b23e-6a100d677b3d",
+      "username": "qahmvjtxu7r.extra15",
+      "display_name": "Dummy extra15",
+      "role": "EMPLOYEE",
+      "active": true,
+      "account_active": true,
+      "revision": "0"
+    },
+    {
+      "id": "66c7ef1d-3752-44e8-8a85-5d4c41196f8c",
+      "username": "qahmvjtxu7r.extra16",
+      "display_name": "Dummy extra16",
+      "role": "EMPLOYEE",
+      "active": true,
+      "account_active": true,
+      "revision": "0"
+    },
+    {
+      "id": "c0beae8a-c2d4-4382-a81c-3497f5ae935f",
+      "username": "qahmvjtxu7r.extra17",
+      "display_name": "Dummy extra17",
+      "role": "EMPLOYEE",
+      "active": true,
+      "account_active": true,
+      "revision": "0"
+    },
+    {
+      "id": "3b22162a-3c03-46f6-a955-3c277e9a06c3",
+      "username": "qahmvjtxu7r.extra18",
+      "display_name": "Dummy extra18",
+      "role": "EMPLOYEE",
+      "active": true,
+      "account_active": true,
+      "revision": "0"
+    },
+    {
+      "id": "15f0f4ca-a8a1-467b-8b58-1ef8da441d57",
+      "username": "qahmvjtxu7r.extra19",
+      "display_name": "Dummy extra19",
+      "role": "EMPLOYEE",
+      "active": true,
+      "account_active": true,
+      "revision": "0"
+    },
+    {
+      "id": "8693c959-6583-4350-8344-334167910f22",
+      "username": "qahmvjtxu7r.extra20",
+      "display_name": "Dummy extra20",
+      "role": "EMPLOYEE",
+      "active": true,
+      "account_active": true,
+      "revision": "0"
+    },
+    {
+      "id": "e6db519b-7a51-4e2a-b281-0a3ff653445d",
+      "username": "qahmvjtxu7r.extra21",
+      "display_name": "Dummy extra21",
+      "role": "EMPLOYEE",
+      "active": true,
+      "account_active": true,
+      "revision": "0"
+    },
+    {
+      "id": "e7f23b4a-071f-4211-9f12-fc7ad58035f2",
+      "username": "qahmvjtxu7r.extra22",
+      "display_name": "Dummy extra22",
+      "role": "EMPLOYEE",
+      "active": true,
+      "account_active": true,
+      "revision": "0"
+    },
+    {
+      "id": "1c8ed86a-4e27-4552-9b14-e4cba28918de",
+      "username": "qahmvjtxu7r.extra23",
+      "display_name": "Dummy extra23",
+      "role": "EMPLOYEE",
+      "active": true,
+      "account_active": true,
+      "revision": "0"
+    },
+    {
+      "id": "29ea41c5-1add-4337-be7e-f66485c415c1",
+      "username": "qahmvjtxu7r.extra24",
+      "display_name": "Dummy extra24",
+      "role": "EMPLOYEE",
+      "active": true,
+      "account_active": true,
+      "revision": "0"
+    },
+    {
+      "id": "848e338f-fdb4-47b4-81ae-8834ed11d13e",
+      "username": "qahmvjtxu7r.extra25",
+      "display_name": "Dummy extra25",
+      "role": "EMPLOYEE",
+      "active": true,
+      "account_active": true,
+      "revision": "0"
+    },
+    {
+      "id": "0c6c98de-4f21-4e69-9449-5bd105a4a320",
+      "username": "qahmvjtxu7r.extra26",
+      "display_name": "Dummy extra26",
+      "role": "EMPLOYEE",
+      "active": true,
+      "account_active": true,
+      "revision": "0"
+    },
+    {
+      "id": "43f19abf-bb47-414f-9173-d57d1c23b167",
+      "username": "qahmvjtxu7r.extra27",
+      "display_name": "Dummy extra27",
+      "role": "EMPLOYEE",
+      "active": true,
+      "account_active": true,
+      "revision": "0"
+    },
+    {
+      "id": "3de3e8fc-c032-45eb-b1b6-9100a818b6bd",
+      "username": "qahmvjtxu7r.extra28",
+      "display_name": "Dummy extra28",
+      "role": "EMPLOYEE",
+      "active": true,
+      "account_active": true,
+      "revision": "0"
+    },
+    {
+      "id": "d3b011a5-de87-4b17-ad5f-1186ba677909",
+      "username": "qahmvjtxu7r.extra29",
+      "display_name": "Dummy extra29",
+      "role": "EMPLOYEE",
+      "active": true,
+      "account_active": true,
+      "revision": "0"
+    },
+    {
+      "id": "72c40dd8-7536-4b55-937a-342e3afcc81e",
+      "username": "qahmvjtxu7r.extra30",
+      "display_name": "Dummy extra30",
+      "role": "EMPLOYEE",
+      "active": true,
+      "account_active": true,
+      "revision": "0"
+    },
+    {
+      "id": "a35e8de3-1194-4c03-886d-339a35205286",
+      "username": "qahmvjtxu7r.rani",
+      "display_name": "Dummy rani",
+      "role": "EMPLOYEE",
+      "active": true,
+      "account_active": true,
+      "revision": "0"
+    },
+    {
+      "id": "d72234ef-b913-4cfc-9683-0f7dcbd4196c",
+      "username": "qahmvjtxu7r.uat",
+      "display_name": "UAT Member",
+      "role": "SUPERVISOR",
+      "active": false,
+      "account_active": true,
+      "revision": "1"
+    }
+  ],
+  "receipts": [
+    {
+      "operation_id": "2177efe7-89c1-4f77-a0b6-b070c1c46e00",
+      "actor_id": "efc546b0-ad75-4e62-b6d7-304386f517dd",
+      "response": {
+        "kind": "UPDATE_MEMBERSHIP",
+        "member": {
+          "id": "efc546b0-ad75-4e62-b6d7-304386f517dd",
+          "role": "SUPERVISOR",
+          "active": true,
+          "revision": 1,
+          "username": "qahmvjtxu7r.admin",
+          "displayName": "Dummy admin",
+          "accountActive": true
+        },
+        "changed": true,
+        "outletId": "0d1235d8-a267-435e-8f1e-cdb2b8864489",
+        "operationId": "2177efe7-89c1-4f77-a0b6-b070c1c46e00"
+      }
+    },
+    {
+      "operation_id": "347af523-7ee4-42a1-91e6-76317e586cae",
+      "actor_id": "efc546b0-ad75-4e62-b6d7-304386f517dd",
+      "response": {
+        "kind": "UPDATE_MEMBERSHIP",
+        "member": {
+          "id": "d72234ef-b913-4cfc-9683-0f7dcbd4196c",
+          "role": "SUPERVISOR",
+          "active": false,
+          "revision": 1,
+          "username": "qahmvjtxu7r.uat",
+          "displayName": "UAT Member",
+          "accountActive": true
+        },
+        "changed": true,
+        "outletId": "0d1235d8-a267-435e-8f1e-cdb2b8864489",
+        "operationId": "347af523-7ee4-42a1-91e6-76317e586cae"
+      }
+    },
+    {
+      "operation_id": "949af6f0-ce86-4faa-bc2a-936a596ec085",
+      "actor_id": "efc546b0-ad75-4e62-b6d7-304386f517dd",
+      "response": {
+        "kind": "CREATE_ACCOUNT",
+        "member": {
+          "id": "5da3b251-61e3-4e2f-bba6-b7b7b2a00613",
+          "role": "ADMIN",
+          "active": true,
+          "revision": 0,
+          "username": "qahmvjtxu7r.backup",
+          "displayName": "Backup Admin",
+          "accountActive": true
+        },
+        "changed": true,
+        "outletId": "0d1235d8-a267-435e-8f1e-cdb2b8864489",
+        "operationId": "949af6f0-ce86-4faa-bc2a-936a596ec085"
+      }
+    },
+    {
+      "operation_id": "b553a507-a660-41b3-b30c-f0c617c50660",
+      "actor_id": "efc546b0-ad75-4e62-b6d7-304386f517dd",
+      "response": {
+        "kind": "CREATE_ACCOUNT",
+        "member": {
+          "id": "d72234ef-b913-4cfc-9683-0f7dcbd4196c",
+          "role": "EMPLOYEE",
+          "active": true,
+          "revision": 0,
+          "username": "qahmvjtxu7r.uat",
+          "displayName": "UAT Member",
+          "accountActive": true
+        },
+        "changed": true,
+        "outletId": "0d1235d8-a267-435e-8f1e-cdb2b8864489",
+        "operationId": "b553a507-a660-41b3-b30c-f0c617c50660"
+      }
+    }
+  ],
+  "audit": [
+    {
+      "actor_id": "efc546b0-ad75-4e62-b6d7-304386f517dd",
+      "subject_id": "d72234ef-b913-4cfc-9683-0f7dcbd4196c",
+      "action": "CREATE_ACCOUNT",
+      "before_value": null,
+      "after_value": {
+        "role": "EMPLOYEE",
+        "active": true,
+        "username": "qahmvjtxu7r.uat"
+      }
+    },
+    {
+      "actor_id": "efc546b0-ad75-4e62-b6d7-304386f517dd",
+      "subject_id": "d72234ef-b913-4cfc-9683-0f7dcbd4196c",
+      "action": "UPDATE_MEMBERSHIP",
+      "before_value": {
+        "role": "EMPLOYEE",
+        "active": true
+      },
+      "after_value": {
+        "role": "SUPERVISOR",
+        "active": false
+      }
+    },
+    {
+      "actor_id": "efc546b0-ad75-4e62-b6d7-304386f517dd",
+      "subject_id": "5da3b251-61e3-4e2f-bba6-b7b7b2a00613",
+      "action": "CREATE_ACCOUNT",
+      "before_value": null,
+      "after_value": {
+        "role": "ADMIN",
+        "active": true,
+        "username": "qahmvjtxu7r.backup"
+      }
+    },
+    {
+      "actor_id": "efc546b0-ad75-4e62-b6d7-304386f517dd",
+      "subject_id": "efc546b0-ad75-4e62-b6d7-304386f517dd",
+      "action": "UPDATE_MEMBERSHIP",
+      "before_value": {
+        "role": "ADMIN",
+        "active": true
+      },
+      "after_value": {
+        "role": "SUPERVISOR",
+        "active": true
+      }
+    }
+  ],
+  "fixturesRetained": true,
+  "physicalOrPublicAcceptance": false
+}
