@@ -137,6 +137,33 @@ class OnlineApi(val endpoint: OnlineEndpoint, private val timeoutMillis: Int = 1
         return value
     }
 
+    suspend fun outletSettings(session: OnlineSession, outletId: String): OnlineOutletSettings {
+        checkSession(session); uuid(outletId); session.scope(outletId)
+        val row = request("GET","/outlets/$outletId",session.token)
+        return decode {
+            require(row.getString("id") == outletId)
+            val role = row.getString("role"); require(role in setOf("ADMIN","SUPERVISOR","EMPLOYEE"))
+            val name = row.getString("name"); require(name.trim().length in 1..120)
+            val zone = row.getString("timezone"); java.time.ZoneId.of(zone)
+            val cutoff = number(row,"cutoffMinutes"); require(cutoff <= 1439)
+            OnlineOutletSettings(outletId,name,role,zone,cutoff.toInt(),number(row,"settingsRevision"))
+        }
+    }
+
+    suspend fun updateSettings(session: OnlineSession, op: OnlineSettingsOperation): Long {
+        checkSession(session); require(op.scope == session.scope(op.scope.substringAfterLast('|')))
+        require(op.status == "SENT" && op.wasSent); uuid(op.operationId)
+        val outletId = op.scope.substringAfterLast('|')
+        val body = JSONObject().put("operationId",op.operationId).put("expectedRevision",op.expectedRevision)
+            .put("name",op.name).put("timezone",op.timezone).put("cutoffMinutes",op.cutoffMinutes)
+        val row = request("POST","/outlets/$outletId/settings",session.token,body)
+        return decode {
+            require(row.getString("outletId") == outletId && row.getString("operationId") == op.operationId)
+            require(row.getString("name") == op.name.trim() && row.getString("timezone") == op.timezone && number(row,"cutoffMinutes") == op.cutoffMinutes.toLong())
+            number(row,"settingsRevision",1).also { require(it == op.expectedRevision + 1) }
+        }
+    }
+
     suspend fun create(session: OnlineSession, outletId: String, businessDate: String): OnlineSnapshot {
         checkSession(session); uuid(outletId)
         require(java.time.LocalDate.parse(businessDate).toString() == businessDate)

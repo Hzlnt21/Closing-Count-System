@@ -1,0 +1,28 @@
+✔ catalog normalization is canonical without changing IDs/formula or input object (16.383ms)
+✔ catalog refuses duplicate IDs/recipes, missing categories and inactive recipe references (4.0241ms)
+✔ inactive menus do not enter new closing snapshots; old snapshots remain independent (1.1095ms)
+✔ ingredient formula matches Android baseline and handles zero/max quantities (1.0087ms)
+✔ inconsistent stored entries fail closed instead of producing partial ingredient reports (0.7784ms)
+✔ ISO business dates and revisions reject normalization, ambiguous dates and unsafe integers (2.9974ms)
+✔ lifecycle role matrix permits employee submit and supervisor/admin review actions only (2.3307ms)
+✔ lifecycle graph increments every revision and opens a new edit generation on return/reopen (1.1542ms)
+✔ return/reopen reasons are required, bounded and normalized without accepting injected reviewer/totals (1.0686ms)
+✔ device sync declaration rejects all pending/conflict/auth states and unknown values (0.3566ms)
+✔ lifecycle rejects stale generation/revision with current server metadata (1.0121ms)
+✔ unsupported current states cannot be skipped by supplying the correct revision (0.2237ms)
+✔ revision/generation limits fail without unsafe-number increments (1.7365ms)
+✔ QA configuration refuses implicit, operational or foreign targets without reflecting credentials (2.4579ms)
+✔ password salt is unique, verification works and malformed parameters fail bounded (150.6874ms)
+✔ password and username validation preserve case-sensitive password semantics (0.9135ms)
+✔ payload rejects arrays, null, missing fields and injected actor/role (0.898ms)
+✔ rate limit enforces current window, expires and fails closed at bounded capacity (216.4864ms)
+✔ business date uses outlet calendar and cutoff across year rollover (25.7272ms)
+✔ business date handles a DST outlet calendar and rejects invalid settings (5.0076ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 556.3361

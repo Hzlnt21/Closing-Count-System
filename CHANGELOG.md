@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased - outlet settings R1, 2026-10-23
+
+- Added role-based native outlet settings, review/validation/leave guards and unsaved form retention through Activity recreation.
+- Service 0.2.0-dev.4 adds migration 004 and exact-revision settings/audit/receipt transactions. Android persists backup-excluded intents; account switch/logout includes pending settings.
+- Service20unit/64Node integration, Android12JVM/3storage/1settingsHTTP/1settings UI and7HTTP/1UI regression passed. Five screenshots inspected. [Evidence and limits](docs/NATIVE_SETTINGS_R1.md).
+
 ## Unreleased - native history and reports R1, 2026-10-22
 
 - Added paginated server history, attributed audit/reopen reasons and immutable report generations in native UI, following the approved visual direction.

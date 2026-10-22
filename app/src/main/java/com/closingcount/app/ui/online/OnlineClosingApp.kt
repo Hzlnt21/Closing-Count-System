@@ -50,10 +50,16 @@ private fun stateLabel(state: String) = when (state) { "DRAFT" -> "Draft bersama
 fun OnlineClosingApp(onExit: () -> Unit, vm: OnlineViewModel = viewModel()) {
     val s by vm.state.collectAsStateWithLifecycle()
     var tab by rememberSaveable { mutableStateOf("Ringkasan") }
+    var lastIdentity by rememberSaveable { mutableStateOf<String?>(null) }
     var pendingNavigation by remember { mutableStateOf<(() -> Unit)?>(null) }
     var conflict by remember { mutableStateOf<OnlineMenuUi?>(null) }
     var lifecycleReview by remember { mutableStateOf<Pair<String, OnlineUiState>?>(null) }
-    LaunchedEffect(s.identity?.id) { if (s.identity != null) tab = "Ringkasan" }
+    var settingsVisible by rememberSaveable(s.identity?.id,s.outletId) { mutableStateOf(false) }
+    LaunchedEffect(s.identity?.id) {
+        val identity=s.identity?.id
+        if(identity!=null && identity!=lastIdentity)tab="Ringkasan"
+        lastIdentity=identity
+    }
     LaunchedEffect(tab, s.identity?.id, s.outletId, s.loginVisible, s.historyDetail?.id, s.frozenReport != null) {
         if (tab == "Riwayat" && s.identity != null && !s.loginVisible) {
             val detail = s.historyDetail
@@ -118,7 +124,7 @@ fun OnlineClosingApp(onExit: () -> Unit, vm: OnlineViewModel = viewModel()) {
                             if (s.authRequired) TextButton(onClick = { navigate { vm.showLogin() } }) { Text("Masuk kembali") }
                         } }
                         when (tab) {
-                            "Akun" -> AccountContent(s, vm, onNavigate = ::navigate)
+                            "Akun" -> AccountContent(s, vm, onNavigate = ::navigate, onSettings = {navigate{settingsVisible=true}})
                             "Riwayat" -> HistoryContent(s, vm) { row -> navigate { vm.openHistory(row); tab = "Ringkasan" } }
                             "Review" -> ReviewContent(s, vm, onAction = { action -> navigate { lifecycleReview = action to s } })
                             else -> {
@@ -187,11 +193,13 @@ fun OnlineClosingApp(onExit: () -> Unit, vm: OnlineViewModel = viewModel()) {
             text = { Text("Angka yang sedang diketik belum menjadi draft tersimpan. Kembali untuk menyimpan, atau buang perubahan kolom ini.") },
             confirmButton = { TextButton(onClick = { vm.discardForm(); pendingNavigation = null; action() }) { Text("Buang perubahan") } },
             dismissButton = { TextButton(onClick = { pendingNavigation = null }) { Text("Kembali mengedit") } }) }
+        if(settingsVisible && s.identity!=null && !s.loginVisible)OnlineSettingsPanel(s.outletId,
+            onClose={settingsVisible=false;vm.refreshAccount()},onLogin={settingsVisible=false;vm.showLogin()})
         if (s.confirmLogout) AlertDialog(onDismissRequest = vm::cancelLogout, title = { Text("Masih ada pekerjaan belum terkonfirmasi") },
             text = { Text("Draft atau tindakan tetap disimpan untuk akun ini. Masuk kembali dengan akun yang sama untuk melanjutkan pemeriksaan server.") },
             confirmButton = { TextButton(onClick = { vm.logout(true) }) { Text("Keluar, simpan pekerjaan") } }, dismissButton = { TextButton(onClick = vm::cancelLogout) { Text("Batal") } })
         s.confirmSwitch?.let { name -> AlertDialog(onDismissRequest = { vm.confirmSwitch(false) }, title = { Text("Beralih ke $name?") },
-            text = { Text("Akun sebelumnya masih memiliki draft belum terkirim. Draft tetap terpisah dan tidak akan dikirim atas nama akun baru.") },
+            text = { Text("Akun sebelumnya masih memiliki perubahan atau tindakan belum terkonfirmasi. Pekerjaan tetap terpisah dan tidak akan dikirim atas nama akun baru.") },
             confirmButton = { TextButton(onClick = { vm.confirmSwitch(true) }) { Text("Beralih akun") } }, dismissButton = { TextButton(onClick = { vm.confirmSwitch(false) }) { Text("Batal") } }) }
         conflict?.let { menu -> ConflictDialog(menu, onDismiss = { conflict = null }, onResolve = { reapply -> conflict = null; vm.resolve(menu, reapply) }) }
         lifecycleReview?.let { (action, reviewed) -> LifecycleDialog(action, reviewed, onDismiss = { lifecycleReview = null },
@@ -507,12 +515,13 @@ private fun auditLabel(action: String) = when(action) {
     }
 }
 
-@Composable private fun AccountContent(s: OnlineUiState, vm: OnlineViewModel, onNavigate: (() -> Unit) -> Unit) {
+@Composable private fun AccountContent(s: OnlineUiState, vm: OnlineViewModel, onNavigate: (() -> Unit) -> Unit, onSettings: () -> Unit) {
     Text("Akun & akses outlet", fontSize = 28.sp, fontWeight = FontWeight.Bold)
     Paper { Text(s.identity!!.displayName, fontSize = 20.sp, fontWeight = FontWeight.Bold); Text(s.identity.username, color = MaterialTheme.colorScheme.onSurfaceVariant)
         s.identity.outlets.forEach { outlet -> Text(outlet.name, fontWeight = FontWeight.SemiBold); Text(when (outlet.role) { "ADMIN" -> "Administrator"; "SUPERVISOR" -> "Supervisor"; else -> "Karyawan" }, style = MaterialTheme.typography.bodySmall) }
     }
     Text("Draft tersimpan mengikuti akun dan outlet. Pergantian akun tidak memindahkan perubahan ke pengguna lain.", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+    OutlinedButton(onClick=onSettings,enabled=s.outletId.isNotEmpty(),modifier=Modifier.fillMaxWidth().heightIn(min=48.dp).testTag("online.settings.open")){Text("Pengaturan outlet")}
     OutlinedButton(onClick = { onNavigate { vm.showLogin() } }, Modifier.fillMaxWidth().heightIn(min = 48.dp)) { Text("Masuk kembali / ganti akun") }
     TextButton(onClick = { onNavigate { vm.logout() } }, modifier = Modifier.fillMaxWidth().heightIn(min = 48.dp)) { Text("Keluar akun") }
 }

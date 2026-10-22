@@ -1,5 +1,7 @@
 # Closing Count System
 
+Newest user-facing slice: [outlet settings and native configuration recovery](docs/NATIVE_SETTINGS_R1.md), [five actual screenshots](docs/settings-review-r1.html). Administrators review name/timezone/cutoff changes; employees have read access. Durable intents and revision/audit checks preserve old closings. Team/catalog editors, transfer, full native recovery and demo packaging remain open.
+
 Newest user-facing slice: [server history, attributed audit and immutable reports](docs/NATIVE_HISTORY_R1.md), [seven actual screenshots](docs/history-review-r1.html). History now includes server dates never opened on this installation, with pagination and separate device-cache labels. Native expiry/reauthentication and draft/conflict regression passed; history reads added no mutations. Admin/settings, transfer, native recovery and full demo remain open.
 
 Newest integration evidence: [actual Android force-stop recovery and two independent QA installations](docs/PROCESS_RECOVERY_R1.md). Five deliberate process interruptions and five passing continuation phases preserve queued/SENT IDs, encrypted sessions and visible-conflict data; independent PostgreSQL proof shows exactly three accepted mutations. Native restoration UI and physical-device acceptance remain open.

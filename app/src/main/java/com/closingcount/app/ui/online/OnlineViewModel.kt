@@ -105,6 +105,15 @@ class OnlineViewModel(application: Application) : AndroidViewModel(application) 
     fun showLogin() { clearRemoteHistory(); stopSync(); mutable.update { it.copy(loginVisible = true, error = null) } }
     fun cancelLogin() { if (repo.session() != null) mutable.update { it.copy(loginVisible = false, error = null) } }
     fun discardForm() { mutable.update { it.copy(buffers = emptyMap()) } }
+    fun refreshAccount() {
+        if(state.value.dirty)return
+        stopSync(); viewModelScope.launch {
+            try {val identity=repo.refreshAccount();mutable.update {it.copy(identity=identity)}
+                startOutlet(identity.outlets.firstOrNull {it.id==state.value.outletId}?.id ?: identity.outlets.firstOrNull()?.id.orEmpty())
+            } catch(cancel:CancellationException){throw cancel
+            } catch(e:Exception){mutable.update {it.copy(error=message(e))}}
+        }
+    }
 
     fun selectOutlet(id: String) { if (!state.value.dirty) startOutlet(id) }
     private fun startOutlet(id: String) {

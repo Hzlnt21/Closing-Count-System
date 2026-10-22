@@ -56,9 +56,9 @@ try{
   });
  }
  await new Promise((resolve,reject)=>{server.once('error',reject);server.listen(4371,'127.0.0.1',resolve)});
- const fixture={origin:'http://10.0.2.2:4371',outlet,employee:prefix+'.rani',colleague:prefix+'.dimas',supervisor:prefix+'.arif',password};
+ const fixture={origin:'http://10.0.2.2:4371',outlet,employee:prefix+'.rani',colleague:prefix+'.dimas',supervisor:prefix+'.arif',admin:prefix+'.admin',password};
  writeFileSync(fixtureFile,JSON.stringify(fixture,null,2));
- writeFileSync(out+'/fixture-identity.json',JSON.stringify({outlet,employee:a,colleague:b,supervisor,ownedDatabase:true,retained:true,limiterClockInjected:true},null,2));
+ writeFileSync(out+'/fixture-identity.json',JSON.stringify({outlet,employee:a,colleague:b,supervisor,admin,ownedDatabase:true,retained:true,limiterClockInjected:true},null,2));
  console.log(JSON.stringify({ready:true,port:4371,outlet,ownedDatabase:true,fixtureCredentialsPrinted:false}));
  process.stdin.resume();process.stdin.on('data',data=>{if(data.toString().trim()==='stop')stop().catch(()=>process.exitCode=1)});
  process.on('SIGINT',()=>stop());process.on('SIGTERM',()=>stop());
@@ -75,6 +75,7 @@ async function stop(){
    JOIN ccs.closings c ON c.id=(r.response->>'closingId')::uuid WHERE r.outlet_id=$1 ORDER BY c.business_date`,[outlet]);
  const audit=await pool.query(`SELECT c.business_date::text,a.actor_id,a.operation_id,a.before_quantity,a.after_quantity FROM ccs.closing_audit a
    JOIN ccs.closings c ON c.id=a.closing_id WHERE a.outlet_id=$1 AND action='ENTRY_UPDATED' ORDER BY a.id`,[outlet]);
- writeFileSync(out+'/database-after.json',JSON.stringify({entries:entries.rows,receipts:receipts.rows,audit:audit.rows,internalErrorCount:internal.length,fixturesRetained:true},null,2));
- await pool.end();process.stdin.pause();console.log(JSON.stringify({stopped:true,internalErrors:internal.length,entries:entries.rowCount,receipts:receipts.rowCount,auditChanges:audit.rowCount}));
+ const settingsReceipts=await pool.query("SELECT operation_id,actor_id,response FROM ccs.operation_receipts WHERE outlet_id=$1 AND response ? 'settingsRevision'",[outlet]);
+ writeFileSync(out+'/database-after.json',JSON.stringify({entries:entries.rows,receipts:receipts.rows,audit:audit.rows,settingsReceipts:settingsReceipts.rows,internalErrorCount:internal.length,fixturesRetained:true},null,2));
+ await pool.end();process.stdin.pause();console.log(JSON.stringify({stopped:true,internalErrors:internal.length,entries:entries.rowCount,receipts:receipts.rowCount,settingsReceipts:settingsReceipts.rowCount,auditChanges:audit.rowCount}));
 }

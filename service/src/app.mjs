@@ -6,6 +6,7 @@ import {hashPassword,normalizeUsername,validatePassword,verifyPassword} from './
 import {LoginLimiter} from './limiter.mjs';
 import {businessDate} from './business-date.mjs';
 import {createClosingRoutes} from './closing-routes.mjs';
+import {createSettingsRoutes} from './settings-routes.mjs';
 
 const digest=token=>createHash('sha256').update(token).digest('hex');
 export const serviceVersion=JSON.parse(readFileSync(new URL('../package.json',import.meta.url),'utf8')).version;
@@ -45,7 +46,7 @@ export async function createApp({pool,limiter=new LoginLimiter(),onInternalError
     return row;
   }
   async function member(db,accountId,outletId,admin=false) {
-    const {rows:[membership]}=await db.query(`SELECT m.role,o.id,o.name,o.timezone,o.cutoff_minutes
+    const {rows:[membership]}=await db.query(`SELECT m.role,o.id,o.name,o.timezone,o.cutoff_minutes,o.settings_revision
       FROM ccs.memberships m JOIN ccs.outlets o ON o.id=m.outlet_id
       JOIN ccs.accounts u ON u.id=m.account_id
       WHERE m.outlet_id=$1 AND m.account_id=$2 AND m.active AND o.active AND u.active`,[outletId,accountId]);
@@ -53,6 +54,7 @@ export async function createApp({pool,limiter=new LoginLimiter(),onInternalError
     return membership;
   }
   const closingRoutes=createClosingRoutes({pool,authenticate,member,readJson,transaction});
+  const settingsRoutes=createSettingsRoutes({pool,authenticate,member,readJson,transaction});
   return createServer({requestTimeout:10000,headersTimeout:10000,maxHeaderSize:8192},async(req,res)=>{
     const requestId=randomUUID();
     res.setHeader('Cache-Control','no-store');res.setHeader('X-Content-Type-Options','nosniff');
@@ -86,6 +88,8 @@ export async function createApp({pool,limiter=new LoginLimiter(),onInternalError
         return send(200,{accessToken:token,expiresAt:session.expires_at,tokenType:'Bearer'});
       }
       const account=await authenticate(req);
+      const settingsResponse=await settingsRoutes(req,url,account);
+      if(settingsResponse)return send(settingsResponse.status,settingsResponse.data);
       const closingResponse=await closingRoutes(req,url,account);
       if(closingResponse)return send(closingResponse.status,closingResponse.data);
       if(method==='POST'&&path==='/api/v1/auth/logout') {
@@ -105,7 +109,7 @@ export async function createApp({pool,limiter=new LoginLimiter(),onInternalError
         if(!isUuid(outletId)||(subjectId&&!isUuid(subjectId))) throw invalid();
         if(method==='GET'&&!subjectId&&(!action||action==='business-date')) {
           const outlet=await member(pool,account.id,outletId);
-          if(!action) return send(200,{id:outlet.id,name:outlet.name,role:outlet.role,timezone:outlet.timezone,cutoffMinutes:outlet.cutoff_minutes});
+          if(!action) return send(200,{id:outlet.id,name:outlet.name,role:outlet.role,timezone:outlet.timezone,cutoffMinutes:outlet.cutoff_minutes,settingsRevision:Number(outlet.settings_revision)});
           const {rows:[clock]}=await pool.query('SELECT clock_timestamp() AS now');
           return send(200,{businessDate:businessDate(clock.now,outlet.timezone,outlet.cutoff_minutes),serverTime:clock.now,
             timezone:outlet.timezone,cutoffMinutes:outlet.cutoff_minutes});

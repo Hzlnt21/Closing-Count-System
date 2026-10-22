@@ -1,0 +1,115 @@
+{
+  "passed": true,
+  "mode": "http",
+  "outlet": "21b50eb9-3c0f-47dc-9958-256abd786013",
+  "settings": {
+    "id": "21b50eb9-3c0f-47dc-9958-256abd786013",
+    "name": "Kedai final",
+    "timezone": "Asia/Jayapura",
+    "cutoff_minutes": 360,
+    "settings_revision": "3"
+  },
+  "audit": [
+    {
+      "actor_id": "5bb6e656-f9b4-4a12-967a-f79594d4a631",
+      "operation_id": "9a151683-3028-4b63-98f9-81922f6fc2d1",
+      "revision": "1",
+      "before_value": {
+        "name": "HTTP QA qahmvjsdq5a",
+        "timezone": "Asia/Jakarta",
+        "cutoffMinutes": 0
+      },
+      "after_value": {
+        "name": "Kedai pertama",
+        "timezone": "Asia/Makassar",
+        "cutoffMinutes": 240
+      }
+    },
+    {
+      "actor_id": "5bb6e656-f9b4-4a12-967a-f79594d4a631",
+      "operation_id": "75247bdb-3733-44c1-bfda-ce8df08c7b0d",
+      "revision": "2",
+      "before_value": {
+        "name": "Kedai pertama",
+        "timezone": "Asia/Makassar",
+        "cutoffMinutes": 240
+      },
+      "after_value": {
+        "name": "Other admin view",
+        "timezone": "Asia/Makassar",
+        "cutoffMinutes": 300
+      }
+    },
+    {
+      "actor_id": "5bb6e656-f9b4-4a12-967a-f79594d4a631",
+      "operation_id": "3bb65af0-4b62-4a31-9cb7-17aab4d35459",
+      "revision": "3",
+      "before_value": {
+        "name": "Other admin view",
+        "timezone": "Asia/Makassar",
+        "cutoffMinutes": 300
+      },
+      "after_value": {
+        "name": "Kedai final",
+        "timezone": "Asia/Jayapura",
+        "cutoffMinutes": 360
+      }
+    }
+  ],
+  "receipts": [
+    {
+      "operation_id": "3bb65af0-4b62-4a31-9cb7-17aab4d35459",
+      "actor_id": "5bb6e656-f9b4-4a12-967a-f79594d4a631",
+      "response": {
+        "name": "Kedai final",
+        "outletId": "21b50eb9-3c0f-47dc-9958-256abd786013",
+        "timezone": "Asia/Jayapura",
+        "operationId": "3bb65af0-4b62-4a31-9cb7-17aab4d35459",
+        "cutoffMinutes": 360,
+        "settingsRevision": 3
+      }
+    },
+    {
+      "operation_id": "75247bdb-3733-44c1-bfda-ce8df08c7b0d",
+      "actor_id": "5bb6e656-f9b4-4a12-967a-f79594d4a631",
+      "response": {
+        "name": "Other admin view",
+        "outletId": "21b50eb9-3c0f-47dc-9958-256abd786013",
+        "timezone": "Asia/Makassar",
+        "operationId": "75247bdb-3733-44c1-bfda-ce8df08c7b0d",
+        "cutoffMinutes": 300,
+        "settingsRevision": 2
+      }
+    },
+    {
+      "operation_id": "9a151683-3028-4b63-98f9-81922f6fc2d1",
+      "actor_id": "5bb6e656-f9b4-4a12-967a-f79594d4a631",
+      "response": {
+        "name": "Kedai pertama",
+        "outletId": "21b50eb9-3c0f-47dc-9958-256abd786013",
+        "timezone": "Asia/Makassar",
+        "operationId": "9a151683-3028-4b63-98f9-81922f6fc2d1",
+        "cutoffMinutes": 240,
+        "settingsRevision": 1
+      }
+    }
+  ],
+  "closings": [
+    {
+      "id": "695faa00-41dd-47e3-a884-ccb3d08b5746",
+      "business_date": "2026-07-01",
+      "timezone": "Asia/Jakarta",
+      "cutoff_minutes": 0,
+      "revision": "0"
+    },
+    {
+      "id": "6e06cce4-6109-4042-a248-e8ab623a70eb",
+      "business_date": "2026-07-02",
+      "timezone": "Asia/Jayapura",
+      "cutoff_minutes": 360,
+      "revision": "0"
+    }
+  ],
+  "fixturesRetained": true,
+  "physicalOrPublicAcceptance": false
+}

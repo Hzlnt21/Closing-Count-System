@@ -10,7 +10,8 @@ import java.io.IOException
 class PendingOnlineDraftsException : IllegalStateException("Konfirmasi diperlukan: akun ini memiliki perubahan yang belum terkirim.")
 
 /** Application-owned session and engines. No automatic network call at application startup. */
-class OnlineRepository(private val dao: OnlineSyncDao, private val store: OnlineSessionStore) {
+class OnlineRepository(private val dao: OnlineSyncDao, private val store: OnlineSessionStore,
+    private val settingsStore: OnlineSettingsStore? = null) {
     @Volatile private var active: OnlineSession? = null
     private val sessionMutex = Mutex()
     private val engines = mutableMapOf<String, OnlineSyncEngine>()
@@ -25,13 +26,19 @@ class OnlineRepository(private val dao: OnlineSyncDao, private val store: Online
         active = withContext(Dispatchers.IO) { store.load() }
     }
 
+    suspend fun refreshAccount(): OnlineIdentity = sessionMutex.withLock {
+        val session = requireNotNull(active); val fresh = api(session).refreshIdentity(session)
+        withContext(Dispatchers.IO) { store.save(fresh) }; active = fresh
+        fresh.identity
+    }
+
     /** Prepare login, then allow UI to confirm switching accounts without replacing the old session. */
     suspend fun login(origin: String, username: String, password: String): OnlineSession =
         OnlineApi(OnlineEndpoint(origin, allowLocalQa = true)).login(username, password)
 
     suspend fun activate(candidate: OnlineSession, confirmPendingSwitch: Boolean = false) = sessionMutex.withLock {
         val old = active
-        if (old != null && prefix(old) != prefix(candidate) && dao.pendingForAccount(prefix(old)) > 0 && !confirmPendingSwitch) {
+        if (old != null && prefix(old) != prefix(candidate) && pending(old) > 0 && !confirmPendingSwitch) {
             throw PendingOnlineDraftsException()
         }
         withContext(Dispatchers.IO) { store.save(candidate) }
@@ -39,10 +46,67 @@ class OnlineRepository(private val dao: OnlineSyncDao, private val store: Online
         for (outlet in candidate.identity.outlets) {
             val scope = candidate.scope(outlet.id)
             for (id in dao.closingIds(scope)) dao.resumeAfterLogin(scope, id)
+            withContext(Dispatchers.IO) { settingsStore?.load(scope)?.takeIf { it.status == "AUTH_REQUIRED" }?.let {
+                settingsStore.save(it.copy(status=if(it.wasSent) "SENT" else "QUEUED",error=null))
+            } }
         }
     }
 
-    suspend fun pendingCount(): Int = active?.let { dao.pendingForAccount(prefix(it)) } ?: 0
+    private suspend fun pending(session: OnlineSession) = dao.pendingForAccount(prefix(session)) +
+        withContext(Dispatchers.IO) { settingsStore?.pendingForAccount(prefix(session)) ?: 0 }
+    suspend fun pendingCount(): Int = active?.let { pending(it) } ?: 0
+
+    suspend fun outletSettings(outletId: String): OnlineOutletSettings {
+        val session = requireNotNull(active); val value = api(session).outletSettings(session,outletId)
+        check(active === session); return value
+    }
+    suspend fun pendingSettings(outletId: String): OnlineSettingsOperation? {
+        val session = requireNotNull(active)
+        return withContext(Dispatchers.IO) { settingsStore?.load(session.scope(outletId)) }
+    }
+    suspend fun prepareSettings(outletId: String, name: String, timezone: String, cutoff: Int, reviewedRevision: Long) = sessionMutex.withLock {
+        val session = requireNotNull(active); val storage = requireNotNull(settingsStore)
+        val fresh = api(session).outletSettings(session,outletId)
+        check(fresh.role == "ADMIN"); if (fresh.revision != reviewedRevision) throw OnlineConflictChangedException()
+        val op = OnlineSettingsOperation(session.scope(outletId),java.util.UUID.randomUUID().toString(),reviewedRevision,name.trim(),timezone,cutoff)
+        withContext(Dispatchers.IO) { check(storage.load(op.scope) == null);storage.save(op) }
+    }
+    suspend fun syncSettings(outletId: String): OnlineOutletSettings = sessionMutex.withLock {
+        val session = requireNotNull(active); val storage = requireNotNull(settingsStore)
+        val scope = session.scope(outletId); var op = withContext(Dispatchers.IO) { storage.load(scope) }
+            ?: return@withLock api(session).outletSettings(session,outletId)
+        check(op.status in setOf("QUEUED","SENT"))
+        var acknowledged = false
+        try {
+            if (!op.wasSent) {
+                val fresh = api(session).outletSettings(session,outletId)
+                if (fresh.revision != op.expectedRevision) {
+                    op = op.copy(status="CONFLICT",error="SETTINGS_CONFLICT")
+                    withContext(Dispatchers.IO) { storage.save(op) }; throw OnlineConflictChangedException()
+                }
+            }
+            op = op.copy(status="SENT",wasSent=true,error=null)
+            withContext(Dispatchers.IO) { storage.save(op) }
+            val revision = api(session).updateSettings(session,op); acknowledged = true
+            val fresh = api(session).outletSettings(session,outletId)
+            check(fresh.revision >= revision)
+            withContext(Dispatchers.IO) { storage.remove(scope,op.operationId,confirmed=true) }
+            fresh
+        } catch (e: OnlineApiException) {
+            val status = when {
+                e.status in setOf(401,403) -> "AUTH_REQUIRED"
+                acknowledged || e.status >= 500 || e.status in setOf(408,429) -> null
+                e.status == 409 -> "CONFLICT"
+                else -> "FAILED"
+            }
+            if (status != null) withContext(Dispatchers.IO) { storage.save(op.copy(status=status,error=e.code)) }
+            throw e
+        }
+    }
+    suspend fun dismissSettings(outletId: String) = sessionMutex.withLock {
+        val session = requireNotNull(active); val storage = requireNotNull(settingsStore)
+        withContext(Dispatchers.IO) { storage.load(session.scope(outletId))?.let { storage.remove(it.scope,it.operationId) } }
+    }
 
     suspend fun cancelPreparedLogin(candidate: OnlineSession) {
         try { api(candidate).logout(candidate) } catch (_: IOException) { }
@@ -95,7 +159,7 @@ class OnlineRepository(private val dao: OnlineSyncDao, private val store: Online
     suspend fun logout(confirmPending: Boolean = false): Boolean {
         val old = sessionMutex.withLock {
             val selected = active ?: return true
-            if (!confirmPending && dao.pendingForAccount(prefix(selected)) > 0) throw PendingOnlineDraftsException()
+            if (!confirmPending && pending(selected) > 0) throw PendingOnlineDraftsException()
             withContext(Dispatchers.IO) { store.clear() }
             active = null
             selected

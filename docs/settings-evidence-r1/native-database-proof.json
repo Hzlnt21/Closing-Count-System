@@ -1,0 +1,61 @@
+{
+  "passed": true,
+  "mode": "native",
+  "outlet": "dc49bd79-699e-4b3e-a0aa-7e742efce55f",
+  "settings": {
+    "id": "dc49bd79-699e-4b3e-a0aa-7e742efce55f",
+    "name": "Kedai QA Profesional",
+    "timezone": "Asia/Makassar",
+    "cutoff_minutes": 240,
+    "settings_revision": "1"
+  },
+  "audit": [
+    {
+      "actor_id": "762176d4-4472-4178-8cd4-4223c074b715",
+      "operation_id": "2c211e3f-e1f3-40ab-ace8-ec5874625f23",
+      "revision": "1",
+      "before_value": {
+        "name": "HTTP QA qahmvjsh72w",
+        "timezone": "Asia/Jakarta",
+        "cutoffMinutes": 0
+      },
+      "after_value": {
+        "name": "Kedai QA Profesional",
+        "timezone": "Asia/Makassar",
+        "cutoffMinutes": 240
+      }
+    }
+  ],
+  "receipts": [
+    {
+      "operation_id": "2c211e3f-e1f3-40ab-ace8-ec5874625f23",
+      "actor_id": "762176d4-4472-4178-8cd4-4223c074b715",
+      "response": {
+        "name": "Kedai QA Profesional",
+        "outletId": "dc49bd79-699e-4b3e-a0aa-7e742efce55f",
+        "timezone": "Asia/Makassar",
+        "operationId": "2c211e3f-e1f3-40ab-ace8-ec5874625f23",
+        "cutoffMinutes": 240,
+        "settingsRevision": 1
+      }
+    }
+  ],
+  "closings": [
+    {
+      "id": "0742a213-ff9e-4c5c-a581-52ee64ed3359",
+      "business_date": "2026-07-01",
+      "timezone": "Asia/Jakarta",
+      "cutoff_minutes": 0,
+      "revision": "0"
+    },
+    {
+      "id": "13d0dc5c-9791-4b2e-9ee7-09a5022e7fe8",
+      "business_date": "2026-07-02",
+      "timezone": "Asia/Makassar",
+      "cutoff_minutes": 240,
+      "revision": "0"
+    }
+  ],
+  "fixturesRetained": true,
+  "physicalOrPublicAcceptance": false
+}

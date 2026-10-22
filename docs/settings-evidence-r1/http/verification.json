@@ -1,0 +1,11 @@
+{
+    "passed":  true,
+    "mode":  "Http",
+    "outlet":  "21b50eb9-3c0f-47dc-9958-256abd786013",
+    "emulator":  "PortfolioQA_Phone_API36",
+    "actualProcessKill":  false,
+    "twoInstallations":  false,
+    "physicalPhoneAccessed":  false,
+    "publicAcceptance":  false,
+    "finishedAt":  "2026-10-22T17:01:36.3463464Z"
+}

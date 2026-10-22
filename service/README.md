@@ -1,8 +1,8 @@
-# Closing Count service: CCS-04
+# Closing Count service: outlet settings R1
 
-Version 0.2.0-dev.3 is an isolated QA checkpoint, not a public demo or an Android release. The existing Kotlin application remains offline 0.1.1. [The collaborative contract](../docs/ONLINE_CONTRACT.md) remains the full implementation target.
+Version 0.2.0-dev.4 is an isolated QA checkpoint, not a public demo or final Android release. It adds administrator-only outlet settings with exact reviewed revisions, idempotent operation receipts and immutable settings audit. Migration 004 is additive; existing migration checksums and closing snapshots are preserved.
 
-This checkpoint adds submit/return/review-and-lock/reopen, exact-revision lifecycle permissions, captured submitter/reviewer identity/time, and immutable reports per locked generation. Catalog/shared closing/quantity/conflict/receipt/account features from dev.1/2 remain. Room outbox, native integration, legacy import/export and final demo are next checkpoints. The archived visual prototype does not call this service; the owner selected a new [FINORA reference](../docs/VISUAL_REFERENCE.md).
+Connected native draft, supervisor lifecycle and history/report clients exist on this branch. Team/catalog editing in native UI, transfer and complete demo acceptance remain program work. Android distribution metadata stays 0.1.1 until the local candidate is assembled and verified. [The collaborative contract](../docs/ONLINE_CONTRACT.md) remains the full target.
 
 ## Run and verify
 
@@ -38,7 +38,8 @@ All API responses are `{data, requestId}` or `{error:{code,message}, requestId}`
 | POST /api/v1/auth/login | username/password | accessToken, expiresAt, tokenType |
 | POST /api/v1/auth/logout | `{}`; authenticated | loggedOut |
 | GET /api/v1/me | Authenticated | id, username, displayName, active outlets/roles |
-| GET /api/v1/outlets/:id | Active membership | Outlet name/role/timezone/cutoffMinutes |
+| GET /api/v1/outlets/:id | Active membership | Outlet name/role/timezone/cutoffMinutes/settingsRevision |
+| POST /api/v1/outlets/:id/settings | ADMIN; operationId/expectedRevision/name/timezone/cutoffMinutes | Durable receipt, next settingsRevision; SETTINGS_CONFLICT for stale review; no historical closing rewrite |
 | GET /api/v1/outlets/:id/business-date | Active membership | businessDate/serverTime/timezone/cutoffMinutes |
 | GET /api/v1/outlets/:id/memberships | ADMIN | Scoped public account/membership fields |
 | POST /api/v1/outlets/:id/accounts | ADMIN; username/displayName/password/role | New individual account+membership; HTTP201 |
@@ -89,4 +90,4 @@ Lock computes all results on the server and atomically stores state, captured ac
 
 Original operation replay returns the original acknowledgement even if today's state/generation is newer. It never repeats a reopen, restores old quantities or creates another report. Native clients must reconcile monotonically and pull current state. The service does not expose report rewrite/delete, client-supplied totals or reviewer impersonation.
 
-Verified at this checkpoint:20unit tests and55real HTTP/PostgreSQL scenarios (58Node tests including three parent suites). Driver failures after actual report/audit statements, queued membership/session revocation and concurrent lifecycle races are controlled tests. Android/Room, physical HP, budget/provider, public demo and final portfolio acceptance remain separate program phases.
+Verified service regression: 20 unit tests and 60 real HTTP/PostgreSQL scenarios (64 Node tests including four parent suites). Five new settings scenarios cover authorization/validation, concurrent administrators, frozen dates, transactional rollback and immutable/revoked retries. Earlier lifecycle checkpoint below remains historical. Driver failures after actual report/audit statements, queued membership/session revocation and concurrent lifecycle races are controlled tests. Android/Room, physical HP, budget/provider, public demo and final portfolio acceptance remain separate program phases.

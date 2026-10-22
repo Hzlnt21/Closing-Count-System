@@ -1,0 +1,30 @@
+{
+  "inspected": true,
+  "method": "Actual emulator captures viewed by Codex",
+  "scenes": [
+    {
+      "file": "employee-readonly.png",
+      "sha256": "5fa7e6d507faac112c5851a7266b2f0a425ffdc1357988e28cb7fe51f78a064a"
+    },
+    {
+      "file": "invalid-cutoff.png",
+      "sha256": "30c76862e770a660546bd55f13cef153820f4297ed21468576a2477bd4f38f25"
+    },
+    {
+      "file": "form-recreated.png",
+      "sha256": "0df3c0900a0f48c0c25ea6901a06a8c791223d791dd0ad774823322fcd2fa2e8"
+    },
+    {
+      "file": "review.png",
+      "sha256": "9220ea28ba289eb9037233866e90fb89e6bf670315c1bfc1dbcd596df5055ba7"
+    },
+    {
+      "file": "confirmed.png",
+      "sha256": "3abe28963fb3202ca106e597c7216a8932395b926bdedd17a5d205b5815a8718"
+    }
+  ],
+  "activityRecreationTested": true,
+  "actualOsProcessKillTestedInThisSlice": false,
+  "physicalPhoneAccessed": false,
+  "sameFinalAppAndTestApkAcrossFiveRuntimeRuns": true
+}
