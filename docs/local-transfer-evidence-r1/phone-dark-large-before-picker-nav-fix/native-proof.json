@@ -1,0 +1,14 @@
+{
+  "case": "phone-dark-large",
+  "passed": false,
+  "fontScale": 2,
+  "widthDp": 360,
+  "heightDp": 800,
+  "dark": true,
+  "steps": [
+    "system-picker-cancel-keeps-local-data"
+  ],
+  "onlineBeforeSha256": "cfc9423fdc0cb2127880b4eabd25410f7ff5b0643f62bc0a2c2a3135bd400419",
+  "originalLocalDataRestored": true,
+  "onlineAfterSha256": "cfc9423fdc0cb2127880b4eabd25410f7ff5b0643f62bc0a2c2a3135bd400419"
+}

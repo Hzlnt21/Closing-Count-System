@@ -1,0 +1,168 @@
+{
+  "format": "closing-count-system-backup",
+  "schemaVersion": 1,
+  "createdAt": 1792725920786,
+  "data": {
+    "metadata": [],
+    "ingredientCategories": [
+      {
+        "id": 1,
+        "name": "Bahan QA",
+        "sortOrder": 1,
+        "isActive": true
+      }
+    ],
+    "ingredients": [
+      {
+        "id": 51,
+        "categoryId": 1,
+        "name": "Susu QA",
+        "sortOrder": 1,
+        "isActive": true
+      },
+      {
+        "id": 52,
+        "categoryId": 1,
+        "name": "Kopi QA",
+        "sortOrder": 2,
+        "isActive": true
+      }
+    ],
+    "menuCategories": [
+      {
+        "id": 1,
+        "name": "Menu QA",
+        "sortOrder": 1,
+        "isActive": true
+      }
+    ],
+    "menus": [
+      {
+        "id": 41,
+        "categoryId": 1,
+        "name": "Menu dari backup",
+        "sortOrder": 1,
+        "isActive": true
+      }
+    ],
+    "menuIngredients": [
+      {
+        "menuId": 41,
+        "ingredientId": 51
+      }
+    ],
+    "closings": [
+      {
+        "id": 101,
+        "date": "2024-02-29",
+        "updatedAt": 123
+      },
+      {
+        "id": 102,
+        "date": "2026-01-01",
+        "updatedAt": 123
+      },
+      {
+        "id": 103,
+        "date": "2026-10-23",
+        "updatedAt": 123
+      }
+    ],
+    "closingMenuEntries": [
+      {
+        "closingId": 101,
+        "menuId": 41,
+        "menuName": "Menu dari backup",
+        "menuSortOrder": 1,
+        "menuCategoryId": 1,
+        "menuCategoryName": "Menu QA",
+        "menuCategorySortOrder": 1,
+        "quantity": 2
+      },
+      {
+        "closingId": 102,
+        "menuId": 41,
+        "menuName": "Menu dari backup",
+        "menuSortOrder": 1,
+        "menuCategoryId": 1,
+        "menuCategoryName": "Menu QA",
+        "menuCategorySortOrder": 1,
+        "quantity": 2
+      },
+      {
+        "closingId": 103,
+        "menuId": 41,
+        "menuName": "Menu dari backup",
+        "menuSortOrder": 1,
+        "menuCategoryId": 1,
+        "menuCategoryName": "Menu QA",
+        "menuCategorySortOrder": 1,
+        "quantity": 2
+      }
+    ],
+    "closingIngredientResults": [
+      {
+        "closingId": 101,
+        "ingredientId": 51,
+        "ingredientName": "Susu QA",
+        "ingredientCategoryId": 1,
+        "ingredientCategoryName": "Bahan QA",
+        "ingredientCategorySortOrder": 1,
+        "ingredientSortOrder": 1,
+        "total": 2
+      },
+      {
+        "closingId": 102,
+        "ingredientId": 51,
+        "ingredientName": "Susu QA",
+        "ingredientCategoryId": 1,
+        "ingredientCategoryName": "Bahan QA",
+        "ingredientCategorySortOrder": 1,
+        "ingredientSortOrder": 1,
+        "total": 2
+      },
+      {
+        "closingId": 103,
+        "ingredientId": 51,
+        "ingredientName": "Susu QA",
+        "ingredientCategoryId": 1,
+        "ingredientCategoryName": "Bahan QA",
+        "ingredientCategorySortOrder": 1,
+        "ingredientSortOrder": 1,
+        "total": 2
+      }
+    ],
+    "closingMenuRecipes": [
+      {
+        "closingId": 101,
+        "menuId": 41,
+        "ingredientId": 51,
+        "ingredientName": "Susu QA",
+        "ingredientSortOrder": 1,
+        "ingredientCategoryId": 1,
+        "ingredientCategoryName": "Bahan QA",
+        "ingredientCategorySortOrder": 1
+      },
+      {
+        "closingId": 102,
+        "menuId": 41,
+        "ingredientId": 51,
+        "ingredientName": "Susu QA",
+        "ingredientSortOrder": 1,
+        "ingredientCategoryId": 1,
+        "ingredientCategoryName": "Bahan QA",
+        "ingredientCategorySortOrder": 1
+      },
+      {
+        "closingId": 103,
+        "menuId": 41,
+        "ingredientId": 51,
+        "ingredientName": "Susu QA",
+        "ingredientSortOrder": 1,
+        "ingredientCategoryId": 1,
+        "ingredientCategoryName": "Bahan QA",
+        "ingredientCategorySortOrder": 1
+      }
+    ]
+  }
+}

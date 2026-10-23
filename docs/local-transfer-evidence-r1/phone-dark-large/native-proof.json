@@ -1,0 +1,37 @@
+{
+  "case": "phone-dark-large",
+  "passed": true,
+  "fontScale": 2,
+  "widthDp": 360,
+  "heightDp": 800,
+  "dark": true,
+  "steps": [
+    "five-destinations-and-history-home-navigation",
+    "system-picker-cancel-keeps-local-data",
+    "invalid-provider-file-rejected",
+    "review-cancel-keeps-local-data",
+    "activity-recreation-keeps-reviewed-identity",
+    "applies-original-reviewed-content-online-tables-unchanged",
+    "system-create-document-backup-roundtrip"
+  ],
+  "layouts": [
+    {
+      "scene": "home",
+      "measuredStaticTexts": 6,
+      "overflow": []
+    },
+    {
+      "scene": "review",
+      "measuredStaticTexts": 12,
+      "overflow": []
+    }
+  ],
+  "onlineBeforeSha256": "cfc9423fdc0cb2127880b4eabd25410f7ff5b0643f62bc0a2c2a3135bd400419",
+  "exportFilename": "ccs-qa-export-ea367bc0-f136-4d0c-8490-705fe2b3557d.json",
+  "exportSha256": "5b747c29ab367eb5d4bec9fef2a5e1db9a5a06006323731594543990d2e00fdf",
+  "reviewSha256": "d9f609b2c19b3eaabebd384c824d6d50d736b2cda12b99271c14f792fa937377",
+  "physicalPhoneAccessed": false,
+  "serverTransfer": false,
+  "originalLocalDataRestored": true,
+  "onlineAfterSha256": "cfc9423fdc0cb2127880b4eabd25410f7ff5b0643f62bc0a2c2a3135bd400419"
+}

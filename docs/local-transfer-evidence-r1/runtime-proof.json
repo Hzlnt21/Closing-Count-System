@@ -1,0 +1,100 @@
+{
+  "passed": true,
+  "apkSha256": [
+    "0FEF3EDBB44D829FB63B65BDA0147A5B160AFC3254556FC6B2DB9E2CCC96758D",
+    "F969B71B196D16B649E08CF47DABC9375A3AB78F56B5F7AE451D313CA7BDDB80"
+  ],
+  "groups": [
+    {
+      "case": "engine",
+      "passed": true,
+      "tests": 4,
+      "deviceSettingsRestored": true
+    },
+    {
+      "case": "legacy",
+      "passed": true,
+      "tests": 10,
+      "deviceSettingsRestored": true
+    },
+    {
+      "case": "phone-light",
+      "passed": true,
+      "tests": 1,
+      "deviceSettingsRestored": true,
+      "nativeSteps": 7,
+      "paintedTextChecks": 2,
+      "exportRoundTrip": true,
+      "originalLocalDataRestored": true,
+      "onlineTableDigestsUnchanged": true,
+      "screenshots": [
+        {
+          "scene": "home",
+          "sha256": "e0ca3b12e67f4f5f9611ff746178dafbfa48e7b215d81de023e7df30fabbc67b"
+        },
+        {
+          "scene": "picker",
+          "sha256": "27aa846d091840ee42e650347cbb03c4680793eadba4fd80affa0a609623f350"
+        },
+        {
+          "scene": "invalid",
+          "sha256": "187e115c25aa9682dbe6e941ec7e9175a8c06e658e4538ed8ce8618ec966b3ec"
+        },
+        {
+          "scene": "review",
+          "sha256": "57560a38a5df08ba96a13ebb751494fae4404f7982552fa24dc9e7342a42ae8e"
+        },
+        {
+          "scene": "restored",
+          "sha256": "f65127de0924a57e8e6753b6d70868bf32f6023f4ab58d95b185c8c544f0fd0f"
+        },
+        {
+          "scene": "backup-written",
+          "sha256": "6cc856850630c2162185024972211de87421e3683f4f8e6c40d6cd98e76abaee"
+        }
+      ]
+    },
+    {
+      "case": "phone-dark-large",
+      "passed": true,
+      "tests": 1,
+      "deviceSettingsRestored": true,
+      "nativeSteps": 7,
+      "paintedTextChecks": 2,
+      "exportRoundTrip": true,
+      "originalLocalDataRestored": true,
+      "onlineTableDigestsUnchanged": true,
+      "screenshots": [
+        {
+          "scene": "home",
+          "sha256": "5f1fbaaddf9b30ddac0359ea5549bab916c5fdb27aef5509dc80ead0e4a3c982"
+        },
+        {
+          "scene": "picker",
+          "sha256": "19c1dc6d2466b478011950ac42237cc40c6843937ea5572811d7fcf68e04e368"
+        },
+        {
+          "scene": "invalid",
+          "sha256": "4ab9f71f2146190405d76d45a24d8d637db61821d55660c5add7b1ca81c23297"
+        },
+        {
+          "scene": "review",
+          "sha256": "256b933a079352f5fda6caacfb36f55ad64847a09a1d723c579e22f4a2f6f5cc"
+        },
+        {
+          "scene": "restored",
+          "sha256": "f9cbdcc07ffd9fff6b5e8ce53cf9cac4a280516856d7a5746f92df7b3caacdf1"
+        },
+        {
+          "scene": "backup-written",
+          "sha256": "fe1f2ccd7649224b3466c09723908c1786784c5671c9743e85a21365fd6da9bd"
+        }
+      ]
+    }
+  ],
+  "androidTests": 16,
+  "nativeJourneys": 2,
+  "nativeSteps": 14,
+  "paintedTextChecks": 4,
+  "scope": "Owned emulator DocumentsUI/local MediaStore/Room only; no physical storage provider or online server transfer"
+}

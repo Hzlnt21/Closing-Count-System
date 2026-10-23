@@ -1,0 +1,303 @@
+{
+  "passed": true,
+  "baseline": "4ed381bdd30a0ec7cdc4a59a5478ef649e29fb7c",
+  "files": [
+    {
+      "file": ".gitattributes",
+      "sha256": "a1e20613742466b867d14f953a09099803f3587481bd089d06e8beb72718e3af"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "sha256": "6aecfa10c1d5b5e795755448f7bc0fe51c37e0a9e6bf0db130392448a0f65407"
+    },
+    {
+      "file": "README.md",
+      "sha256": "7bf1c3bffa70c0c203576a83e5e6b652286d43dab7c082f6e0f67132c2c501cb"
+    },
+    {
+      "file": "app/src/androidTest/java/com/closingcount/app/LocalBackupTransferInstrumentedTest.kt",
+      "sha256": "2f4540876dfb5b814758528111c0560eb533cf4712ce91728829d360e928bce2"
+    },
+    {
+      "file": "app/src/androidTest/java/com/closingcount/app/LocalTransferNativeInstrumentedTest.kt",
+      "sha256": "de436c230ace56aa194a397f981b7ec5a377ce6449e08859b1c1670872b83533"
+    },
+    {
+      "file": "app/src/androidTest/java/com/closingcount/app/LocalTransferQaFiles.kt",
+      "sha256": "6421e60d1a17533d1e9d9f35b3171e593f90b89bc336802a19a9b5809edc93b6"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/data/transfer/LocalBackupTransfer.kt",
+      "sha256": "836600aed718f2d3a0bdf719c09673ca0693216e4cad9c69b195d30b42382fb0"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/ui/ClosingCountApp.kt",
+      "sha256": "13ed6587fbcf1469f5cb53c19d130bdf4894f66ebf29e740fc10ccb9398ed4ce"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/ui/theme/Theme.kt",
+      "sha256": "7caf46a4a1c9b51c122f9ce5ccbb8dfa32561d05bf4e966868ad9243b869da86"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/ui/transfer/DataTransferViewModel.kt",
+      "sha256": "90b8d53da488ec4a73a86e7d54993a3962346e496b97088f6646141ac272847c"
+    },
+    {
+      "file": "docs/LEGACY_BACKUP_R1.md",
+      "sha256": "afe81fc0870a9ff669161026e89b93cda358581dd7fdf5b7092414bd33271cd1"
+    },
+    {
+      "file": "docs/LOCAL_TRANSFER_UI_R1.md",
+      "sha256": "0e8e72705e2e5a2989708224d729753d03d073d8c3e43da2300c4a0d864df6bd"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/README.md",
+      "sha256": "c627600f9379ba481d1123b3bbcb28d040f8c02a48037fe87b894aa03bff056e"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/build-r2.log",
+      "sha256": "b89cc9fef0798bd698bf91deeb2edab7f2e60b8c7284a96d3d336e8d6892de5c"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/engine/apk-inputs.json",
+      "sha256": "47f27f6a39133d2dcddb5db6755ad0a296aa6912bc1d16ba31892c97d05dd9be"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/engine/device-baseline.json",
+      "sha256": "a742e7866602d2347fb190f539f77b12db76db27c5881f824c1f9cc6fa622a19"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/engine/device-restored.json",
+      "sha256": "a742e7866602d2347fb190f539f77b12db76db27c5881f824c1f9cc6fa622a19"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/engine/instrumentation.log",
+      "sha256": "8d5e2e321e9bdc0ea88b312f78a98c02537fb81723789ee3a852bc9eff8ea7d0"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/engine/verification.json",
+      "sha256": "91e2843c798dc7f9fa10027f5ed6f7e795ca3a5fc6d07443838445abacfd3b8c"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/harness/Check-ClosingLocalTransferUiR1.ps1",
+      "sha256": "6a7b5d993e4d974f5480a6fa05e3e2214fb9b4fe674911b32169c908b1e4b8dc"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/harness/check-local-transfer-runtime-r1.py",
+      "sha256": "9b736654b943071d9fd4e85dcfb85e8ad05b71f9f5349e868889544eac1d063b"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/harness/check-local-transfer-source-r1.py",
+      "sha256": "0b1ebf2e9fcbe46f5e3a163cd35ba76b3af542a74787a05a1c60e8fc02094dc2"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/jvm-tests.json",
+      "sha256": "d4a1e7967ea6531e60c5d175b17ee4e3b050fb92c330dcd3a05c14b061955b92"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/legacy/apk-inputs.json",
+      "sha256": "47f27f6a39133d2dcddb5db6755ad0a296aa6912bc1d16ba31892c97d05dd9be"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/legacy/device-baseline.json",
+      "sha256": "a742e7866602d2347fb190f539f77b12db76db27c5881f824c1f9cc6fa622a19"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/legacy/device-restored.json",
+      "sha256": "a742e7866602d2347fb190f539f77b12db76db27c5881f824c1f9cc6fa622a19"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/legacy/instrumentation.log",
+      "sha256": "5ca952203c2436c2aa181ab723f3867beedc634eff36aff457218416ab871faf"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/legacy/verification.json",
+      "sha256": "abd54ae38f073826a99d345e2b5e013afd8e9fd169c9a93b0c5de44568fb0ad0"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/lint.txt",
+      "sha256": "23bc63cceb459270fa6634caa50be5bd36907cc89c9f76f9caed6f17cb722aa1"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/phone-dark-large-before-picker-nav-fix/failure.png",
+      "sha256": "ed27e15ef54e62113e83dcc7f417ae88cb40d60095b882d0a8998b21014b0a1c"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/phone-dark-large-before-picker-nav-fix/failure.txt",
+      "sha256": "5eb86a046e975c4f8e2e93529c3687668b077cffa047dcf34f94c7e9b8cc20b8"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/phone-dark-large-before-picker-nav-fix/home.png",
+      "sha256": "81e81e7de31b010ece4a5a6ec35874bf085d9e5c913de6d9364809f8073851b8"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/phone-dark-large-before-picker-nav-fix/instrumentation.log",
+      "sha256": "a4304d99291ddcd51df02c35b9537cbafd11529f31ab1ebe5724ff19e0752630"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/phone-dark-large-before-picker-nav-fix/native-proof.json",
+      "sha256": "d7e03920316f0c3a524114bb23bb220c5f056f4d6b2ab29e2dc0ed9864de928f"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/phone-dark-large-before-picker-nav-fix/verification.json",
+      "sha256": "b22e38eaf034c732ad04b8be9179c1305c9e02e8cd91d8aca9cdeb4373f4e51d"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/phone-dark-large/apk-inputs.json",
+      "sha256": "47f27f6a39133d2dcddb5db6755ad0a296aa6912bc1d16ba31892c97d05dd9be"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/phone-dark-large/backup-written.png",
+      "sha256": "fe1f2ccd7649224b3466c09723908c1786784c5671c9743e85a21365fd6da9bd"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/phone-dark-large/device-baseline.json",
+      "sha256": "a742e7866602d2347fb190f539f77b12db76db27c5881f824c1f9cc6fa622a19"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/phone-dark-large/device-restored.json",
+      "sha256": "a742e7866602d2347fb190f539f77b12db76db27c5881f824c1f9cc6fa622a19"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/phone-dark-large/exported-backup.json",
+      "sha256": "5b747c29ab367eb5d4bec9fef2a5e1db9a5a06006323731594543990d2e00fdf"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/phone-dark-large/home.png",
+      "sha256": "5f1fbaaddf9b30ddac0359ea5549bab916c5fdb27aef5509dc80ead0e4a3c982"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/phone-dark-large/instrumentation.log",
+      "sha256": "e6776e576788beed6c5beb3ba569f45077c508fe6dcb8e4b282490f4741d8bba"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/phone-dark-large/invalid.png",
+      "sha256": "4ab9f71f2146190405d76d45a24d8d637db61821d55660c5add7b1ca81c23297"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/phone-dark-large/native-proof.json",
+      "sha256": "920a7828e070315c21f6c9f1baeb94ff18355c639e8e61f61028af1af8922dee"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/phone-dark-large/picker.png",
+      "sha256": "19c1dc6d2466b478011950ac42237cc40c6843937ea5572811d7fcf68e04e368"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/phone-dark-large/restored.png",
+      "sha256": "f9cbdcc07ffd9fff6b5e8ce53cf9cac4a280516856d7a5746f92df7b3caacdf1"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/phone-dark-large/review.png",
+      "sha256": "256b933a079352f5fda6caacfb36f55ad64847a09a1d723c579e22f4a2f6f5cc"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/phone-dark-large/verification.json",
+      "sha256": "f777669ede338d0b222b8430ac047b23671ee0b5f59bab33c91403a27b87f90c"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/phone-light/apk-inputs.json",
+      "sha256": "47f27f6a39133d2dcddb5db6755ad0a296aa6912bc1d16ba31892c97d05dd9be"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/phone-light/backup-written.png",
+      "sha256": "6cc856850630c2162185024972211de87421e3683f4f8e6c40d6cd98e76abaee"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/phone-light/device-baseline.json",
+      "sha256": "a742e7866602d2347fb190f539f77b12db76db27c5881f824c1f9cc6fa622a19"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/phone-light/device-restored.json",
+      "sha256": "a742e7866602d2347fb190f539f77b12db76db27c5881f824c1f9cc6fa622a19"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/phone-light/exported-backup.json",
+      "sha256": "e7b5ab9ea82f168c775d0698c7638c544ce05a04be7b2b38d87035f5e58fc05e"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/phone-light/home.png",
+      "sha256": "e0ca3b12e67f4f5f9611ff746178dafbfa48e7b215d81de023e7df30fabbc67b"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/phone-light/instrumentation.log",
+      "sha256": "bdeabb03f03bbdc978518ec21eea2ab2a313835dc3f11f316548db2f00c917e3"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/phone-light/invalid.png",
+      "sha256": "187e115c25aa9682dbe6e941ec7e9175a8c06e658e4538ed8ce8618ec966b3ec"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/phone-light/native-proof.json",
+      "sha256": "05e07280565e76119a1aa78c2cba0f3cc3d856a6c566fe6d3c8472af8a78d03d"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/phone-light/picker.png",
+      "sha256": "27aa846d091840ee42e650347cbb03c4680793eadba4fd80affa0a609623f350"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/phone-light/restored.png",
+      "sha256": "f65127de0924a57e8e6753b6d70868bf32f6023f4ab58d95b185c8c544f0fd0f"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/phone-light/review.png",
+      "sha256": "57560a38a5df08ba96a13ebb751494fae4404f7982552fa24dc9e7342a42ae8e"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/phone-light/verification.json",
+      "sha256": "765fc2c0ae87e32e23691ea48945cc1aacf6abc1adf74686992b334f6c21c3fb"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/runtime-proof.json",
+      "sha256": "9f6b99a02f4a60155c683612907e6c526999632ab88891cd7c3429facb223eda"
+    },
+    {
+      "file": "docs/local-transfer-evidence-r1/visual-review.json",
+      "sha256": "b36df0708a97ff95841e477a94c6c6f39d1f3df9afd1b8a0847d28d68153b5e8"
+    },
+    {
+      "file": "docs/local-transfer-review-r1.html",
+      "sha256": "019ca9acb3842998dc3bc555e34f49b315da6780c7c5eae9ba12728773002687"
+    }
+  ],
+  "canonical": [
+    {
+      "code": "ABS",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "CCS",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "ELZ",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "EXV",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "KLG",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "KEC",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "KPS",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "TTK",
+      "headAndStatusUnchanged": true
+    }
+  ],
+  "knownPrivateValuesAbsent": true,
+  "onlineUiServiceSchemasDependenciesLegacyCodecUnchanged": true,
+  "androidTests": 16,
+  "jvmTests": 19,
+  "allRuntimeApksMatchCurrentBuild": true,
+  "verifiedExportIndexBytesPreserved": true,
+  "scope": "Local provider/review/native workflow; online import/export and physical/cloud providers remain open"
+}

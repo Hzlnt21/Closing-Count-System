@@ -3,43 +3,82 @@ package com.closingcount.app.ui.transfer
 import android.app.Application
 import android.net.Uri
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.viewModelScope
 import com.closingcount.app.ClosingCountApplication
-import com.closingcount.app.data.transfer.BackupJsonCodec
+import com.closingcount.app.data.transfer.LocalBackupTransfer
+import com.closingcount.app.data.transfer.LocalRestoreReview
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
+
+data class LocalTransferUiState(
+    val busy: Boolean = false,
+    val activity: String = "",
+    val review: LocalRestoreReview? = null,
+    val message: String? = null,
+    val failed: Boolean = false,
+)
 
 class DataTransferViewModel(application: Application) : AndroidViewModel(application) {
     private val app = application as ClosingCountApplication
-    private val dao = app.database.backupDao()
+    private val transfer = LocalBackupTransfer(app.contentResolver, app.database.backupDao())
+    private val mutable = MutableStateFlow(LocalTransferUiState())
+    val state = mutable.asStateFlow()
 
-    suspend fun writeBackup(uri: Uri): String? = runCatching {
-        val snapshot = dao.createSnapshot()
-        val bytes = BackupJsonCodec.encode(snapshot, System.currentTimeMillis())
-        app.contentResolver.openOutputStream(uri, "wt")?.use { it.write(bytes) }
-            ?: error("File tujuan tidak dapat dibuka.")
-    }.exceptionOrNull()?.let { "Backup gagal dibuat. Coba pilih lokasi lain." }
-
-    suspend fun restoreBackup(uri: Uri): String? = runCatching {
-        val bytes = app.contentResolver.openInputStream(uri)?.use { input ->
-            input.readBytes(MAX_BACKUP_BYTES + 1)
-        } ?: error("File tidak dapat dibuka.")
-        require(bytes.size <= MAX_BACKUP_BYTES) { "File backup terlalu besar." }
-        val snapshot = BackupJsonCodec.decode(bytes)
-        dao.restore(snapshot)
-    }.exceptionOrNull()?.let { error ->
-        error.message?.takeIf { it.isNotBlank() } ?: "Restore gagal. File backup tidak valid."
-    }
-
-    private fun java.io.InputStream.readBytes(limit: Int): ByteArray {
-        val buffer = ByteArray(DEFAULT_BUFFER_SIZE)
-        val output = java.io.ByteArrayOutputStream()
-        while (output.size() <= limit) {
-            val read = read(buffer)
-            if (read < 0) break
-            output.write(buffer, 0, read)
+    fun inspect(uri: Uri) {
+        if (mutable.value.busy) return
+        mutable.update { it.copy(review = null) }
+        task("Memeriksa backup lokal") {
+            val review = transfer.inspect(uri)
+            mutable.update { it.copy(review = review) }
         }
-        return output.toByteArray()
     }
 
-    companion object {
-        private const val MAX_BACKUP_BYTES = 20 * 1024 * 1024
+    fun discard() {
+        if (mutable.value.busy) return
+        val id = mutable.value.review?.id ?: return
+        mutable.update { it.copy(review = null) }
+        viewModelScope.launch { transfer.discard(id) }
+    }
+
+    fun restore(id: String) {
+        if (mutable.value.review?.id != id) return
+        task("Memulihkan data lokal") {
+            transfer.restore(id)
+            mutable.update { it.copy(review = null, message = "Data lokal berhasil dipulihkan. Closing bersama tetap terpisah.") }
+        }
+    }
+
+    fun writeBackup(uri: Uri) {
+        if (mutable.value.review != null) return
+        task("Menulis backup lokal") {
+            transfer.write(uri)
+            mutable.update { it.copy(message = "Backup lokal berhasil disimpan.") }
+        }
+    }
+
+    fun clearMessage() { mutable.update { it.copy(message = null) } }
+
+    private fun task(label: String, action: suspend () -> Unit) {
+        if (mutable.value.busy) return
+        mutable.update { it.copy(busy = true, activity = label, message = null, failed = false) }
+        viewModelScope.launch {
+            try { action() }
+            catch (cancelled: CancellationException) {
+                mutable.update { it.copy(review = null) }
+                throw cancelled
+            } catch (error: Exception) {
+                val message = when (error) {
+                    is SecurityException -> "File tidak dapat diakses. Pilih file kembali dan izinkan akses."
+                    is IllegalArgumentException -> error.message ?: "File backup tidak valid."
+                    is org.json.JSONException -> "File backup tidak lengkap atau formatnya tidak sesuai."
+                    is java.io.IOException -> "File tidak dapat dibaca atau ditulis. Coba lokasi lain."
+                    else -> "Transfer belum berhasil. Periksa file lalu coba lagi."
+                }
+                mutable.update { it.copy(review = null, message = message, failed = true) }
+            } finally { mutable.update { it.copy(busy = false, activity = "") } }
+        }
     }
 }

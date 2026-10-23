@@ -1,0 +1,10 @@
+{
+    "passed":  true,
+    "case":  "legacy",
+    "mode":  "Legacy",
+    "fontScale":  1,
+    "dark":  false,
+    "deviceSettingsRestored":  true,
+    "physicalPhoneAccessed":  false,
+    "serverTransfer":  false
+}

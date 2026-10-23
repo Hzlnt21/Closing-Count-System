@@ -1,5 +1,7 @@
 # Legacy backup validation R1
 
+Follow-up: [local review and real system-document flow](LOCAL_TRANSFER_UI_R1.md) now has separate native evidence. The codec-only verification below remains its original checkpoint scope.
+
 23 October 2026. The version1 local backup reader now rejects coerced strings/booleans, fractional integer fields, narrowing overflow, malformed UTF-8, files above20MiB, invalid canonical dates, negative IDs, duplicate composite rows/metadata and recipes without their historical menu entry. Validation happens before the existing transactional legacy replacement.
 
 The version1 encoder and schema number are preserved. Historical menu/ingredient IDs do not need to exist in today's master catalog. Unknown historical category ID0 remains readable because migrations4->5 and5->6 deliberately produced that sentinel. Original historical names and totals are retained; this change does not recalculate or relabel them from current masters.

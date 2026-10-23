@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased - local transfer UI R1, 2026-10-23
+
+- Clarified on-device versus shared-server data. Added validated filename/count/date review, one-use frozen restore identity, cancellation, off-main provider IO, busy state and success/error feedback.
+- Fixed clipped large-text local navigation with an accessible destination selector; aligned Material container roles with the blue palette.
+- Four controller, ten legacy and two real DocumentsUI/native journeys passed on the same final APK pair; both exported JSON files match the expected dummy snapshot.19JVM/build passed; lint0errors/17warnings unchanged. [Evidence, gallery and remaining scope](docs/LOCAL_TRANSFER_UI_R1.md).
+
 ## Unreleased - legacy backup validation R1, 2026-10-23
 
 - Reject silent JSON coercion/truncation, overflow, invalid dates/IDs, duplicate rows, orphaned recipe entries, corrupt UTF-8 and oversized local backups before restore.

@@ -1,3 +1,6 @@
 service/sql/*.sql text eol=lf
 service/**/*.mjs text eol=lf
 service/*.json text eol=lf
+
+# Preserve the exact verified bytes of native document-provider backup artifacts.
+docs/local-transfer-evidence-r1/*/exported-backup.json -text

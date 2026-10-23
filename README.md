@@ -1,5 +1,7 @@
 # Closing Count System
 
+Newest local transfer: [validated review and native document flow](docs/LOCAL_TRANSFER_UI_R1.md), [light/large-text dark gallery](docs/local-transfer-review-r1.html). Choose and inspect a local file before replacement; cancellation and stale reviews preserve data, Activity recreation retains the reviewed identity, and provider changes do not replace its payload. Two real system-picker/save journeys, controller tests and legacy regressions pass. Online transfer and complete demo packaging remain open.
+
 Newest transfer checkpoint: [legacy backup validation](docs/LEGACY_BACKUP_R1.md). Version1 encoding remains unchanged; strict decoding rejects silent coercion/corruption before restore. Ten Android codec/Room tests cover historical compatibility, transactional rollback and online queue isolation. Native file-provider flow and online transfer remain open.
 
 Newest verification: [native responsive/dark/large-text layouts](docs/NATIVE_LAYOUT_R1.md), [42 screenshots across six configurations](docs/layout-review-r1.html). Compact navigation, long-name and quantity layouts preserve the approved R2 direction. Settings-review and unsaved-message dialog bodies can scroll. Six selected layout scenarios, a detector control and three native regressions passed on the same APK pair.

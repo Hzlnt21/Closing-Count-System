@@ -1,0 +1,10 @@
+{
+    "passed":  false,
+    "case":  "phone-dark-large",
+    "mode":  "Native",
+    "fontScale":  2,
+    "dark":  true,
+    "deviceSettingsRestored":  true,
+    "physicalPhoneAccessed":  false,
+    "serverTransfer":  false
+}
