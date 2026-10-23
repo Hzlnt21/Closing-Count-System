@@ -1,0 +1,84 @@
+{
+  "entries": [
+    {
+      "business_date": "2026-07-05",
+      "generation": "1",
+      "revision": "2",
+      "menu_id": "2eb3a63c-120e-499a-8bed-9c8988d5927e",
+      "quantity": 8,
+      "entry_revision": "2",
+      "updated_by": "04e119f9-1681-4ae1-82ea-71fd4f632501"
+    },
+    {
+      "business_date": "2026-07-05",
+      "generation": "1",
+      "revision": "2",
+      "menu_id": "fc5cb2a2-7bb9-4b65-85b8-db799442ee6e",
+      "quantity": 0,
+      "entry_revision": "0",
+      "updated_by": null
+    }
+  ],
+  "receipts": [
+    {
+      "business_date": "2026-07-05",
+      "actor_id": "04e119f9-1681-4ae1-82ea-71fd4f632501",
+      "operation_id": "11c1db65-4a74-4134-bb85-dbaa7ff81263",
+      "response": {
+        "entry": {
+          "menuId": "2eb3a63c-120e-499a-8bed-9c8988d5927e",
+          "quantity": 8,
+          "updatedAt": "2026-10-23T18:25:49.000Z",
+          "updatedBy": {
+            "id": "04e119f9-1681-4ae1-82ea-71fd4f632501",
+            "username": "qahmvlaoy6t.rani",
+            "displayName": "Dummy rani"
+          },
+          "entryRevision": 2
+        },
+        "closingId": "09a6dfd1-3491-4cad-979a-e7a15a82bbb5",
+        "generation": 1,
+        "closingRevision": 2
+      }
+    },
+    {
+      "business_date": "2026-07-05",
+      "actor_id": "04e119f9-1681-4ae1-82ea-71fd4f632501",
+      "operation_id": "2224ae50-7a45-497d-a538-4fcb0ccaec43",
+      "response": {
+        "entry": {
+          "menuId": "2eb3a63c-120e-499a-8bed-9c8988d5927e",
+          "quantity": 4,
+          "updatedAt": "2026-10-23T18:23:02.561Z",
+          "updatedBy": {
+            "id": "04e119f9-1681-4ae1-82ea-71fd4f632501",
+            "username": "qahmvlaoy6t.rani",
+            "displayName": "Dummy rani"
+          },
+          "entryRevision": 1
+        },
+        "closingId": "09a6dfd1-3491-4cad-979a-e7a15a82bbb5",
+        "generation": 1,
+        "closingRevision": 1
+      }
+    }
+  ],
+  "audit": [
+    {
+      "business_date": "2026-07-05",
+      "actor_id": "04e119f9-1681-4ae1-82ea-71fd4f632501",
+      "operation_id": "2224ae50-7a45-497d-a538-4fcb0ccaec43",
+      "before_quantity": 0,
+      "after_quantity": 4
+    },
+    {
+      "business_date": "2026-07-05",
+      "actor_id": "04e119f9-1681-4ae1-82ea-71fd4f632501",
+      "operation_id": "11c1db65-4a74-4134-bb85-dbaa7ff81263",
+      "before_quantity": 4,
+      "after_quantity": 8
+    }
+  ],
+  "internalErrorCount": 0,
+  "fixturesRetained": true
+}

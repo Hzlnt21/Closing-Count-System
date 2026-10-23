@@ -1,0 +1,29 @@
+{
+    "passed":  true,
+    "cases":  [
+                  {
+                      "expectedExitCode":  0,
+                      "observedExitCode":  0,
+                      "processId":  31172,
+                      "nativeHandleCaptured":  true,
+                      "readyObservedWhileLive":  true,
+                      "sharedReadWorked":  true,
+                      "stdout":  "process-handle-probe-0-2e61e5f8fb50402282fa3393c13c2cd9.stdout.log",
+                      "stderr":  "process-handle-probe-0-2e61e5f8fb50402282fa3393c13c2cd9.stderr.log"
+                  },
+                  {
+                      "expectedExitCode":  7,
+                      "observedExitCode":  7,
+                      "processId":  31496,
+                      "nativeHandleCaptured":  true,
+                      "readyObservedWhileLive":  true,
+                      "sharedReadWorked":  true,
+                      "stdout":  "process-handle-probe-7-8547a5c099724091ad2d1cafd0f77716.stdout.log",
+                      "stderr":  "process-handle-probe-7-8547a5c099724091ad2d1cafd0f77716.stderr.log"
+                  }
+              ],
+    "emulatorAccessed":  false,
+    "buildRun":  false,
+    "databaseAccessed":  false,
+    "physicalPhoneAccessed":  false
+}

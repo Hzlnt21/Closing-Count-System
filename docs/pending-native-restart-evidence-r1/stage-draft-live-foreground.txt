@@ -1,0 +1,1 @@
+    topResumedActivity=ActivityRecord{112283112 u10 com.closingcount.app/.MainActivity t1000004}

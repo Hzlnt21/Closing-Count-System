@@ -1,5 +1,7 @@
 # Closing Count System
 
+Native pending-transfer restart: [two live process stops and recovered review/draft](docs/PENDING_TRANSFER_NATIVE_RESTART_R1.md). Three distinct processes preserve the accepted inbox and held new-ID quantity draft; fresh review is required after restart and server4 changes to8 only on explicit sync. Two deliberately aborted ready stages and one normal final verification are recorded separately. Production code is unchanged; native admin continuations, PT08 and CCS08 remain open.
+
 Pending-transfer visual pass: [light/dark and200percent text](docs/PENDING_TRANSFER_VISUAL_R1.md). Four native DocumentsUI quantity journeys,7local regressions and25JVM pass;32scenes have no significant internal text overflow. Paired buttons are spaced and malformed files have a specific message. Native admin continuations/process restart and full demo acceptance remain open.
 
 Native pending transfer foundation: [account backup/inbox and reviewed recovery](docs/PENDING_TRANSFER_NATIVE_UI_R1.md).95 Android regressions,3 isolated-installation phases,25 JVM tests and one real MainActivity/DocumentsUI light quantity journey pass. Recovered drafts hold automatic sync until explicitly sent. Dark/large-text, native admin continuations, process restart and final spacing remain open; this is not full PT07/PT08 or demo acceptance.

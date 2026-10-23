@@ -1,0 +1,186 @@
+{
+  "passed": true,
+  "baseline": "53a66b4eac7a3b1095615b0f3403762878da2bd2",
+  "files": [
+    {
+      "file": "README.md",
+      "indexSha256": "aa17ef85aa5153621c6e53bbbdcc5c32b77110dcb8f8479543fe686290034908"
+    },
+    {
+      "file": "app/src/androidTest/java/com/closingcount/app/OnlinePendingNativeRestartInstrumentedTest.kt",
+      "indexSha256": "1becfaf676ae997b2c1b6ebf0d2b547a801b7fdd94c92c1ff0961f8524fb4b6d"
+    },
+    {
+      "file": "docs/ONLINE_PENDING_TRANSFER_PLAN_R1.md",
+      "indexSha256": "322c9ef567ce03a9b74b6b5b0e938e60a67220eb039a8b3d67b350e1846db65a"
+    },
+    {
+      "file": "docs/PENDING_TRANSFER_NATIVE_RESTART_R1.md",
+      "indexSha256": "6397dfcbb7a2a83a795606acb15c01b9b06b9d7cca773462cbfc89adc761b3f6"
+    },
+    {
+      "file": "docs/pending-native-restart-evidence-r1/Check-ClosingNativeRestartR5.ps1",
+      "indexSha256": "8f14eeb86b807433294c4f8ed25fddffdcb63c105b15de9784c08475a3172597"
+    },
+    {
+      "file": "docs/pending-native-restart-evidence-r1/Collect-ClosingNativeRestartR5.py",
+      "indexSha256": "99c959a79b30d6bd4f0df6b2ba504df88203b95326165611df13d65408e51ffa"
+    },
+    {
+      "file": "docs/pending-native-restart-evidence-r1/Probe-ClosingNativeProcessHandleR5.ps1",
+      "indexSha256": "fcb9665e2d36548c82759d4df421c04fbc3b3fed830ed22a88e4e72bcec2440b"
+    },
+    {
+      "file": "docs/pending-native-restart-evidence-r1/apk-inputs.json",
+      "indexSha256": "963cf66df9c74da85d56de3776ce793e20adb1f20531da5fc43737954cde697c"
+    },
+    {
+      "file": "docs/pending-native-restart-evidence-r1/build.log",
+      "indexSha256": "8080a6522437dced1406faac79842ef854af5563b21bb4e076d14ddb875255ef"
+    },
+    {
+      "file": "docs/pending-native-restart-evidence-r1/canonical-guards.json",
+      "indexSha256": "d7288db9782c4af2009cc9b4618ab0142834ff518536ef2eb500ee2a508d7661"
+    },
+    {
+      "file": "docs/pending-native-restart-evidence-r1/check-native-restart-r5.py",
+      "indexSha256": "2e2ce24789ddbf3bf9d0c7335760b4b5ff7e07f221b13b12e0f938182d3450f5"
+    },
+    {
+      "file": "docs/pending-native-restart-evidence-r1/database-after.json",
+      "indexSha256": "4a1a0cf0a8994470cccb835bb1572129fe199f97a881ea9691605852d244b8dc"
+    },
+    {
+      "file": "docs/pending-native-restart-evidence-r1/device-after.json",
+      "indexSha256": "e3cfe90545933a32ddea310551253dc01f720986bf595a3823b7332a647e1da3"
+    },
+    {
+      "file": "docs/pending-native-restart-evidence-r1/device-baseline.json",
+      "indexSha256": "e3cfe90545933a32ddea310551253dc01f720986bf595a3823b7332a647e1da3"
+    },
+    {
+      "file": "docs/pending-native-restart-evidence-r1/fixture-identity.json",
+      "indexSha256": "16d90d7793fee7408461e6ac638305dda3cd55ee60002b3fab4669408341dd81"
+    },
+    {
+      "file": "docs/pending-native-restart-evidence-r1/native-pending-stop-stage-draft-held-draft.png",
+      "indexSha256": "336cff64bbaf60e91b387bd8cffa6758dccdc2426ad34881d7aa53566a0fe702"
+    },
+    {
+      "file": "docs/pending-native-restart-evidence-r1/native-pending-stop-stage-draft.json",
+      "indexSha256": "6b6356afa7f134503e7e62bbb48a5d9b33de82612c536626441d4a713df918dc"
+    },
+    {
+      "file": "docs/pending-native-restart-evidence-r1/native-pending-stop-stage-review-review.png",
+      "indexSha256": "75d061d1c431d3cada7475968355625f7fc0759daed73669937981a0ddd68d8a"
+    },
+    {
+      "file": "docs/pending-native-restart-evidence-r1/native-pending-stop-stage-review.json",
+      "indexSha256": "63d8da03b6f76e2ffb6c713e5b026c785346c3be04f04999c326dccfc5d573ee"
+    },
+    {
+      "file": "docs/pending-native-restart-evidence-r1/native-pending-stop-verify-already-recovered.png",
+      "indexSha256": "ac7aedb408d7f2562f6280c8b9d12fa0df0199ae628f72262820f1a9bcd8669a"
+    },
+    {
+      "file": "docs/pending-native-restart-evidence-r1/native-pending-stop-verify-held-after-stop.png",
+      "indexSha256": "a856a1d970dc2986e18d8a3a0459798b5cab77a40bc4316e93966da57d8b66c9"
+    },
+    {
+      "file": "docs/pending-native-restart-evidence-r1/native-pending-stop-verify.json",
+      "indexSha256": "988221fd0a87ffd4ce6f69e723ef9c1e4a0a6b1ca71499bac6917daec6c59345"
+    },
+    {
+      "file": "docs/pending-native-restart-evidence-r1/native-restart-fixture-r5.mjs",
+      "indexSha256": "f9a646658474ca576504633d806eac1c516955d7c36c8e697cea9c63425524ac"
+    },
+    {
+      "file": "docs/pending-native-restart-evidence-r1/primary-room-after.sha256",
+      "indexSha256": "dcae5c15c6b028d8d91daf909a774c560356da7f601ded51fad94bf57fc7ccc3"
+    },
+    {
+      "file": "docs/pending-native-restart-evidence-r1/primary-room-before.sha256",
+      "indexSha256": "dcae5c15c6b028d8d91daf909a774c560356da7f601ded51fad94bf57fc7ccc3"
+    },
+    {
+      "file": "docs/pending-native-restart-evidence-r1/process-handle-local-probe.json",
+      "indexSha256": "e1de882534c061ee757ac72eb139a4b7a23efbe3c6f01b7b49eb651f30fa8869"
+    },
+    {
+      "file": "docs/pending-native-restart-evidence-r1/runtime-proof.json",
+      "indexSha256": "5f002e9390ccdfce7a8b4d19c6319988cf609f1963500faebd078ae3fa6e7f1c"
+    },
+    {
+      "file": "docs/pending-native-restart-evidence-r1/secondary-installation.json",
+      "indexSha256": "f6c9521f52d7143cf7825a137cdcb09f33ba64b7ae6afc5d9f8766ab9d637765"
+    },
+    {
+      "file": "docs/pending-native-restart-evidence-r1/stage-draft-595d4b38-012a-4404-8b0f-0b36c346c638.stderr.log",
+      "indexSha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "file": "docs/pending-native-restart-evidence-r1/stage-draft-595d4b38-012a-4404-8b0f-0b36c346c638.stdout.log",
+      "indexSha256": "0261b132cb529c1614ca7c804525db113ffedd46383204922de1cb311e12d414"
+    },
+    {
+      "file": "docs/pending-native-restart-evidence-r1/stage-draft-live-foreground.txt",
+      "indexSha256": "8d4c6298705612e904d1f228898bfae54afcd0532de9001be8fecb59e1457e5e"
+    },
+    {
+      "file": "docs/pending-native-restart-evidence-r1/stage-draft-live-process.txt",
+      "indexSha256": "b69823ab8921d0a9a17213d2ec9d3afc42a48adbd567e7a3526229e1a9007b84"
+    },
+    {
+      "file": "docs/pending-native-restart-evidence-r1/stage-draft-process.json",
+      "indexSha256": "c020cadc3924191764ca01e191d57675268a11ef6b68fc26534273f7c37749d7"
+    },
+    {
+      "file": "docs/pending-native-restart-evidence-r1/stage-review-595d4b38-012a-4404-8b0f-0b36c346c638.stderr.log",
+      "indexSha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "file": "docs/pending-native-restart-evidence-r1/stage-review-595d4b38-012a-4404-8b0f-0b36c346c638.stdout.log",
+      "indexSha256": "b546ab0bc71f2e77b55c75f80bec69bf9aa97cc18de041478885fa6592091753"
+    },
+    {
+      "file": "docs/pending-native-restart-evidence-r1/stage-review-live-foreground.txt",
+      "indexSha256": "996c3519bfa21a10de5e837ba0532189ca22a750a3b8b34c945972915350bb0d"
+    },
+    {
+      "file": "docs/pending-native-restart-evidence-r1/stage-review-live-process.txt",
+      "indexSha256": "94afd8fde1e58cc326fe0cd2ae86b1ade8afa947d5235c4a3aa63c87d36cbad9"
+    },
+    {
+      "file": "docs/pending-native-restart-evidence-r1/stage-review-process.json",
+      "indexSha256": "a5ffdb22cce6a80ab85f2a9942bc304ae1e3512da239102698b7d88c178bed9c"
+    },
+    {
+      "file": "docs/pending-native-restart-evidence-r1/verification.json",
+      "indexSha256": "7774445d26c5ee5fc67f2c1aa959a8645a1131dc0d199302aecb00980912bf58"
+    },
+    {
+      "file": "docs/pending-native-restart-evidence-r1/verify-595d4b38-012a-4404-8b0f-0b36c346c638.stderr.log",
+      "indexSha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "file": "docs/pending-native-restart-evidence-r1/verify-595d4b38-012a-4404-8b0f-0b36c346c638.stdout.log",
+      "indexSha256": "453211223c5ec4f236a11006ddc80d003e0aa8013197586d4d7be0373cf0f374"
+    },
+    {
+      "file": "docs/pending-native-restart-evidence-r1/verify-process.json",
+      "indexSha256": "0c8b575c66a27d6ce1a70bbf212b03d001d8b04a1e599b5f16ab2de5b45c297c"
+    }
+  ],
+  "canonicalRepositoriesUnchanged": 8,
+  "knownPrivateValuesAbsent": true,
+  "productionServiceSchemaDependenciesUnchanged": true,
+  "liveStoppedReadyStages": 2,
+  "normalFinalNativeVerificationTests": 1,
+  "distinctNativeProcesses": 3,
+  "explicitServerAudit": [
+    4,
+    8
+  ],
+  "completePt07Acceptance": false,
+  "inheritedCoreAndVisualTestsNotRerun": true
+}

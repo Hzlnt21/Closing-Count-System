@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "physicalPhoneAccessed": false,
+  "run": "595d4b38-012a-4404-8b0f-0b36c346c638",
+  "mode": "verify",
+  "uid": 1010216,
+  "pid": 6911,
+  "user": 10,
+  "outlet": "dda5a868-f1f4-46ff-9d51-d4af99333346",
+  "actor": "04e119f9-1681-4ae1-82ea-71fd4f632501",
+  "freshPrivateAuthority": true,
+  "heldDraftSurvivedProcessStop": true,
+  "explicitFinalQuantity": 8,
+  "provenanceSurvived": true,
+  "localQueueAcknowledged": true,
+  "closing": "09a6dfd1-3491-4cad-979a-e7a15a82bbb5",
+  "menu": "2eb3a63c-120e-499a-8bed-9c8988d5927e",
+  "fingerprint": "66de155dfd710b2e74a88c94ae5a2d668f9d847b8314c9c7d594f0742a611631",
+  "legacyUnchanged": true,
+  "waitingForHostStop": false,
+  "activityResumed": true
+}

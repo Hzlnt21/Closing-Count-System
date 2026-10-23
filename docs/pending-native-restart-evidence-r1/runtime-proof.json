@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "readyStagesKilledLive": 2,
+  "normalFinalVerificationTests": 1,
+  "distinctProcesses": [
+    3321,
+    5185,
+    6911
+  ],
+  "isolatedAppUid": 1010216,
+  "sameEmulator": true,
+  "acceptedInboxPersisted": true,
+  "freshPrivateReviewRequired": true,
+  "heldDraftAndProvenancePersisted": true,
+  "noAutomaticSend": true,
+  "explicitServerAudit": [
+    4,
+    8
+  ],
+  "independentPostgresAuditMatched": true,
+  "ownerRoomFilesUnchanged": true,
+  "deviceSettingsUsersAndCurrentUserRestored": true,
+  "physicalPhoneAccessed": false,
+  "completePt07Acceptance": false,
+  "remaining": [
+    "Native administrative recovery continuations",
+    "PT08 complete acceptance",
+    "CCS08 demo package"
+  ]
+}
