@@ -47,7 +47,7 @@ class OnlineQuantityRecoveryHttpInstrumentedTest {
         api=OnlineApi(OnlineEndpoint(origin,true),4000);db=open();store=OnlineSessionStore(context,"quantity-recovery-qa-${UUID.randomUUID()}")
         repo=OnlineRepository(db.onlineSyncDao(),store);inbox=OnlinePendingRecoveryInbox(context);recovery=OnlineQuantityRecovery(inbox,repo)
     }
-    private fun open()=Room.databaseBuilder(base,ClosingCountDatabase::class.java,name).addMigrations(Migration8To9).build()
+    private fun open()=Room.databaseBuilder(base,ClosingCountDatabase::class.java,name).addMigrations(Migration8To9,Migration9To10).build()
     private suspend fun login(user:String=employee)=api.login(user,password).also{sessions+=it}
     @After fun cleanup():Unit=runBlocking {
         if(::api.isInitialized)for(session in sessions)runCatching{api.logout(session)}
@@ -178,7 +178,7 @@ class OnlineQuantityRecoveryHttpInstrumentedTest {
         old.execSQL("INSERT INTO app_metadata VALUES ('migration-recovery','preserve')")
         old.execSQL("INSERT INTO online_operations VALUES (1,'old-operation','qa-scope','closing','menu',1,0,8,'SENT',NULL)")
         old.version=8;old.close();db=open()
-        assertEquals(9,db.openHelper.readableDatabase.version);assertEquals("preserve",db.backupDao().getMetadata().single().value)
+        assertEquals(10,db.openHelper.readableDatabase.version);assertEquals("preserve",db.backupDao().getMetadata().single().value)
         assertEquals(8,db.onlineSyncDao().operations("qa-scope","closing").single().quantity)
         assertTrue(db.onlineSyncDao().recoveryClaims("qa-scope",listOf("old-operation")).isEmpty())
     }

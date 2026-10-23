@@ -1,0 +1,25 @@
+INSTRUMENTATION_STATUS: class=com.closingcount.app.OnlineQuantityRecoveryInstallInstrumentedTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=
+com.closingcount.app.OnlineQuantityRecoveryInstallInstrumentedTest:
+INSTRUMENTATION_STATUS: test=pendingPacketMovesBetweenIsolatedInstallationsWithoutChangingOriginalQueue
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: ccsCrossInstallProof={"uid":10216,"closing":"37543e2c-33b0-4f4e-a6c1-fd8c739f8721","sha256":"c145a7c09604bea97f7f92cf17d8011d3fa6cd8bf3e25e042638d2b38d02da2a","head":"c1c11ee8-64a0-4fde-8152-4658672b2b30","tail":"2f3779b6-f24f-450a-a582-87689e859659","mode":"stage","run":"e96d168c-468f-46f4-a786-0910eabfaa27","sourceQueueUnchanged":true}
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: class=com.closingcount.app.OnlineQuantityRecoveryInstallInstrumentedTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=pendingPacketMovesBetweenIsolatedInstallationsWithoutChangingOriginalQueue
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_RESULT: stream=
+
+Time: 1,544
+
+OK (1 test)
+
+
+INSTRUMENTATION_CODE: -1

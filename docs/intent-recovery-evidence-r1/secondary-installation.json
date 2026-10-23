@@ -1,0 +1,11 @@
+﻿{
+    "run":  "e96d168c-468f-46f4-a786-0910eabfaa27",
+    "name":  "PortfolioQARecoverye96d168c",
+    "user":  11,
+    "before":  "Users:\n\tUserInfo{0:Owner:4c13} running",
+    "during":  "Users:\n\tUserInfo{0:Owner:4c13} running\n\tUserInfo{11:PortfolioQARecoverye96d168c:400}",
+    "sameEmulator":  true,
+    "separateAppUserIds":  true,
+    "physicalPhoneAccessed":  false,
+    "state":  "RUNNING_UNLOCKED"
+}

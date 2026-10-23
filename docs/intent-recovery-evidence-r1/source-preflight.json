@@ -1,0 +1,210 @@
+{
+  "passed": true,
+  "baseline": "8d2125c1d875ef9b747134eac10de2a509ce41ad",
+  "files": [
+    {
+      "file": "README.md",
+      "indexSha256": "9eaed54e4c0cc854ed9382832d323949e4ec27e7d7b227ebc29437701f759f21"
+    },
+    {
+      "file": "app/schemas/com.closingcount.app.data.local.ClosingCountDatabase/10.json",
+      "indexSha256": "f3d6bd1bbdae43c609bea02bd059aec74d4b42c692a1a6e73f3fa37381aec6d2"
+    },
+    {
+      "file": "app/src/androidTest/java/com/closingcount/app/OnlineHttpInstrumentedTest.kt",
+      "indexSha256": "81a5d2e8f79464ae7a2c63ee0f08b629b58bbd9942e3d6cb7646999ad9a78b95"
+    },
+    {
+      "file": "app/src/androidTest/java/com/closingcount/app/OnlineIntentRecoveryHttpInstrumentedTest.kt",
+      "indexSha256": "2f8b435d66bd0fd211108489dab4703776e2e28d989312fc264a9e3c926cca15"
+    },
+    {
+      "file": "app/src/androidTest/java/com/closingcount/app/OnlineLifecycleHttpInstrumentedTest.kt",
+      "indexSha256": "56ad2ed255063a910e2cab6607332e91445fbc45731677b451fd555bcd28da02"
+    },
+    {
+      "file": "app/src/androidTest/java/com/closingcount/app/OnlineLifecycleInstrumentedTest.kt",
+      "indexSha256": "a110c5acf3e0b1392a0bbd10ff90e9fcbc91a038d60f6d8eee8d305eca47b3a4"
+    },
+    {
+      "file": "app/src/androidTest/java/com/closingcount/app/OnlineProcessRecoveryInstrumentedTest.kt",
+      "indexSha256": "c0b83ea5f28f840febcbd0675a079b845cbb4eff5d37ded06101f97071db3c84"
+    },
+    {
+      "file": "app/src/androidTest/java/com/closingcount/app/OnlineQuantityRecoveryHttpInstrumentedTest.kt",
+      "indexSha256": "b4c416cc9fd4b4d68f43fa4097ffbcfcdec2fb0fd1a7dd75fc23877b110c61a9"
+    },
+    {
+      "file": "app/src/androidTest/java/com/closingcount/app/OnlineQuantityRecoveryInstallInstrumentedTest.kt",
+      "indexSha256": "315f84a2b498b4d4be47018d503d2ac93e4dc5a15240ea8f1e95ae61508cb9fa"
+    },
+    {
+      "file": "app/src/androidTest/java/com/closingcount/app/OnlineRecoveredAdminInstrumentedTest.kt",
+      "indexSha256": "a32596aba64fe6e6da3e4532db41316168f6a809721fb92efacf57ac6390f25d"
+    },
+    {
+      "file": "app/src/androidTest/java/com/closingcount/app/OnlineSyncInstrumentedTest.kt",
+      "indexSha256": "b486e08f508b82555976470c3bd9dd71f6dd8d9a38db48fca2e84958c335fc31"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/data/local/ClosingCountDatabase.kt",
+      "indexSha256": "55385e107cf24b07e8810d2963a1fe2cdd6cb3b434b632592b5856f2d491e422"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/data/local/OnlineEntities.kt",
+      "indexSha256": "4ecdd43de520a00e72f5c278a2cf86af3728a424640c2f6052bad1a427964136"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/data/local/OnlineMigration.kt",
+      "indexSha256": "ce57a0e6a5874c48d0b6ee0904492f4963a7a6fa6509a8ceb10cd1e51dbfe9e7"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/data/local/OnlineSyncDao.kt",
+      "indexSha256": "f97e1c05973a212be25a23fd6feb4d510dd2900ea58a4b5f07e79926fa9ac80c"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/data/online/OnlineRecoveredAdminStore.kt",
+      "indexSha256": "8b5d5c1e127c7c4762c3eabc4a9ddac3150e483e771f8d5b346ae4dcfb2048f7"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/data/online/OnlineRepository.kt",
+      "indexSha256": "2c6d01f5826996d87ac05beb8d3e607e5dccc16b796479ca7404b330d2d5b27a"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/data/transfer/OnlineIntentRecovery.kt",
+      "indexSha256": "54c20311cd02cc9cba71671dc03a867f8a82836e1ff6e727923331a566cb3540"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/data/transfer/OnlineQuantityRecovery.kt",
+      "indexSha256": "f2c70ea2b0c13359982ea0595e7e23e0b57b0e726ab179a4b42296604de88cfc"
+    },
+    {
+      "file": "docs/INTENT_RECOVERY_R1.md",
+      "indexSha256": "986ecbbf567cd37582e2a8eb3c292a6283166b17d8698ae0cd7a6e089f797f98"
+    },
+    {
+      "file": "docs/ONLINE_PENDING_TRANSFER_PLAN_R1.md",
+      "indexSha256": "4e7efac9356ffe6baa981c6daf84f93b9b477c4eef6ad59c758f14fbfae18172"
+    },
+    {
+      "file": "docs/intent-recovery-evidence-r1/Check-ClosingIntentRecoveryR1.ps1",
+      "indexSha256": "28508718263b4266a7f8df29f4335d5d492049b42577bf827535a65fda4898a0"
+    },
+    {
+      "file": "docs/intent-recovery-evidence-r1/admin-database-after.json",
+      "indexSha256": "926df3600f344b41b7282813078dfb9fa98abfa066f57a29b1264b3a1b624d58"
+    },
+    {
+      "file": "docs/intent-recovery-evidence-r1/admin-instrumentation.log",
+      "indexSha256": "6a9e83d2095d8c1b9e6f059a17c1a22fe4fb10b50386e64d8462cb71251ef72f"
+    },
+    {
+      "file": "docs/intent-recovery-evidence-r1/apk-inputs.json",
+      "indexSha256": "b5a8b45ee2b13b46d96bb7722a4b9834978038b2eb4b9c63b32e9e23a16f6f7c"
+    },
+    {
+      "file": "docs/intent-recovery-evidence-r1/build.log",
+      "indexSha256": "c7b5d732886f9db51163b467c845d2e13f16ce8bd61139ebe86406ced78bcff7"
+    },
+    {
+      "file": "docs/intent-recovery-evidence-r1/check-intent-recovery-r1.py",
+      "indexSha256": "13d839c73d2778a6deeb806eb7f94a88c4eb08571ed081345b2548febe3fbb0a"
+    },
+    {
+      "file": "docs/intent-recovery-evidence-r1/database-after.json",
+      "indexSha256": "52f074599a9383a6e7691d5e51cb94c08235f0eb783da4503cc5979c8b998289"
+    },
+    {
+      "file": "docs/intent-recovery-evidence-r1/device-after.json",
+      "indexSha256": "41a80e1ee96257b407b32268989ce5a2875cf43ba7321f9bbf20812ad22e9493"
+    },
+    {
+      "file": "docs/intent-recovery-evidence-r1/device-baseline.json",
+      "indexSha256": "41a80e1ee96257b407b32268989ce5a2875cf43ba7321f9bbf20812ad22e9493"
+    },
+    {
+      "file": "docs/intent-recovery-evidence-r1/fixture-identity.json",
+      "indexSha256": "9c3363d76fa252ad01c4d52219da4cb2429502092e505f394e002b537dc5bc76"
+    },
+    {
+      "file": "docs/intent-recovery-evidence-r1/install-receive.log",
+      "indexSha256": "f0ead7472797bbd4cdf412ec7e93a1a869b947fe41e21fba357e3e660e3e92eb"
+    },
+    {
+      "file": "docs/intent-recovery-evidence-r1/install-source-verify.log",
+      "indexSha256": "60cf7c1ecd8426e90170516142da5260301d03797441fb609db5b1352818f95e"
+    },
+    {
+      "file": "docs/intent-recovery-evidence-r1/install-stage.log",
+      "indexSha256": "545d510f82038e5b382ea72532ec274b00e91dae9e951d0ef77ab8386cdaae10"
+    },
+    {
+      "file": "docs/intent-recovery-evidence-r1/instrumentation.log",
+      "indexSha256": "50cdfcb56d3de6b7ec47c1132719c40c211f63d082ef5b309dbe3a1dd7d9e0e5"
+    },
+    {
+      "file": "docs/intent-recovery-evidence-r1/intent-recovery-fixture-r1.mjs",
+      "indexSha256": "2667a73302f472d66aa21db9e1004e3592f51bdfed07e9a5e7ba4f689a8a9577"
+    },
+    {
+      "file": "docs/intent-recovery-evidence-r1/quantity-install-pending-qa.json",
+      "indexSha256": "c145a7c09604bea97f7f92cf17d8011d3fa6cd8bf3e25e042638d2b38d02da2a"
+    },
+    {
+      "file": "docs/intent-recovery-evidence-r1/runtime-proof.json",
+      "indexSha256": "689a6e3ecb5187ad06b4bca2aaf602d81bc5832ce3c38ba31cbbc4ca9b47de41"
+    },
+    {
+      "file": "docs/intent-recovery-evidence-r1/secondary-installation.json",
+      "indexSha256": "15186b7b13df82a597eb300886b154b03736d53ef0871f3c197797fb8cfeb2b3"
+    },
+    {
+      "file": "docs/intent-recovery-evidence-r1/verification.json",
+      "indexSha256": "66c3536a58f36260ae79a436c87dd888a3f1bd0461c37b9eee6578b7a34f6e30"
+    }
+  ],
+  "canonical": [
+    {
+      "code": "ABS",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "CCS",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "ELZ",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "EXV",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "KLG",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "KEC",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "KPS",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "TTK",
+      "headAndStatusUnchanged": true
+    }
+  ],
+  "knownPrivateValuesAbsent": true,
+  "existingSchemaMigrationAndLegacyStoresUnchanged": true,
+  "existingServiceUiDependencyTransportUnchanged": true,
+  "existingLifecycleMutationTailUnchanged": true,
+  "noServerMutationFromRecoveryController": true,
+  "exactPacketIndexBytes": true,
+  "androidTests": 88,
+  "crossInstallationInvocations": 3,
+  "jvmTests": 25,
+  "scope": "PT06 lifecycle/settings/team/catalog recovery core plus PT01-05 regressions; native picker/review UI, physical and public acceptance remain pending."
+}

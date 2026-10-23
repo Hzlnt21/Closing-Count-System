@@ -43,3 +43,15 @@ val Migration8To9 = object : Migration(8,9) {
             PRIMARY KEY(`scope`,`originalOperationId`))""")
     }
 }
+
+val Migration9To10 = object : Migration(9,10) {
+    override fun migrate(db:SupportSQLiteDatabase) {
+        db.execSQL("""CREATE TABLE IF NOT EXISTS `online_recovered_admin` (
+            `scope` TEXT NOT NULL, `originalOperationId` TEXT NOT NULL, `fingerprint` TEXT NOT NULL,
+            `group` TEXT NOT NULL, `kind` TEXT NOT NULL, `operationId` TEXT NOT NULL, `expectedRevision` INTEGER,
+            `payloadJson` TEXT NOT NULL, `status` TEXT NOT NULL, `wasSent` INTEGER NOT NULL, `error` TEXT,
+            `active` INTEGER NOT NULL, `createdAt` TEXT NOT NULL, PRIMARY KEY(`scope`,`originalOperationId`))""")
+        db.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS `index_online_recovered_admin_operationId` ON `online_recovered_admin` (`operationId`)")
+        db.execSQL("CREATE INDEX IF NOT EXISTS `index_online_recovered_admin_scope_group_active` ON `online_recovered_admin` (`scope`,`group`,`active`)")
+    }
+}

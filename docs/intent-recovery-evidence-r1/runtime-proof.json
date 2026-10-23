@@ -1,0 +1,49 @@
+{
+  "passed": true,
+  "androidTests": 88,
+  "testGroups": {
+    "OnlinePendingBackupInstrumentedTest": 8,
+    "OnlinePendingCaptureInstrumentedTest": 4,
+    "OnlinePendingExportInstrumentedTest": 9,
+    "OnlinePendingInboxInstrumentedTest": 9,
+    "OnlineSyncInstrumentedTest": 15,
+    "OnlineLifecycleInstrumentedTest": 7,
+    "OnlineHttpInstrumentedTest": 7,
+    "OnlineQuantityRecoveryHttpInstrumentedTest": 11,
+    "OnlineRecoveredAdminInstrumentedTest": 10,
+    "OnlineIntentRecoveryHttpInstrumentedTest": 8
+  },
+  "crossInstallationInvocations": 3,
+  "appUids": [
+    10216,
+    1110216
+  ],
+  "secondaryUser": 11,
+  "sameEmulator": true,
+  "sourceQueueUnchanged": true,
+  "noAutomaticSend": true,
+  "oldHeadRecorded": true,
+  "oldTailRecorded": false,
+  "newId": "1fa5b319-e85b-4158-9577-45acf1e6dd79",
+  "newOperationRecorded": true,
+  "packetSha256": "c145a7c09604bea97f7f92cf17d8011d3fa6cd8bf3e25e042638d2b38d02da2a",
+  "packetBytes": 1098,
+  "packetBusinessModelCompared": true,
+  "serverAuditAndQuantitiesCompared": true,
+  "jvmTests": 25,
+  "lintErrors": 0,
+  "lintWarnings": 17,
+  "deviceSettingsAndUsersRestored": true,
+  "scope": "PT06 lifecycle/settings/team/catalog recovery core plus PT01-05 regressions; native picker/review UI, physical and public acceptance remain pending.",
+  "adminStoreTests": 10,
+  "intentHttpTests": 8,
+  "adminReceipts": 14,
+  "adminAuditCounts": {
+    "settings": 3,
+    "memberships": 5,
+    "closing": 7
+  },
+  "allIntentKindsVerified": true,
+  "passwordAbsentFromStoredPayloadAndEvidence": true,
+  "roomSchema": 10
+}

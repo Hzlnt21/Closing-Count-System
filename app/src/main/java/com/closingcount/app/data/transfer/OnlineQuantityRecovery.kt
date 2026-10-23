@@ -47,6 +47,7 @@ class OnlineQuantityRecovery(private val inbox:OnlinePendingRecoveryInbox,privat
             val json=JSONObject(snapshot.header.snapshotJson)
             check(json.getString("businessDate")==source.date && snapshot.header.closingId==source.id) { "RECOVERY_DATE_CONFLICT" }
             val ids=source.operations.map{it.operationId}
+            dao.requireQuantityReferenceScope(scope,ids)
             val statuses=ids.chunked(100).flatMap{client.operationStatuses(fresh,model.outlet.id,it).entries.map{entry->entry.key to entry.value}}.toMap()
             val claims=dao.recoveryClaims(scope,ids)
             check(claims.all{it.closingId==source.id}) { "RECOVERY_PROVENANCE_CONFLICT" }

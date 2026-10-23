@@ -35,7 +35,7 @@ class OnlineQuantityRecoveryInstallInstrumentedTest {
         if(mode=="stage")check(!folder.exists());check(folder.mkdirs()||folder.isDirectory)
         val context=object:ContextWrapper(base){override fun getNoBackupFilesDir()=folder}
         val name="ccs-quantity-install-$run.db"
-        val db=Room.databaseBuilder(base,ClosingCountDatabase::class.java,name).addMigrations(Migration8To9).build()
+        val db=Room.databaseBuilder(base,ClosingCountDatabase::class.java,name).addMigrations(Migration8To9,Migration9To10).build()
         val store=OnlineSessionStore(context,"quantity-install-qa-$run")
         val repo=OnlineRepository(db.onlineSyncDao(),store,OnlineSettingsStore(context),OnlineTeamStore(context),OnlineCatalogStore(context))
         val dao=db.onlineSyncDao();val scope=session.scope(outlet);val metadata=File(folder,"source-proof.json")

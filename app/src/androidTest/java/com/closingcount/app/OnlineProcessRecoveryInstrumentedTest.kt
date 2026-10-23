@@ -27,7 +27,7 @@ class OnlineProcessRecoveryInstrumentedTest {
         require(outlet.matches(Regex("[a-f0-9-]{36}")))
         val peer=context.packageName.endsWith(".qapeer")
         val db=Room.databaseBuilder(context,ClosingCountDatabase::class.java,"ccs-process-recovery-r1.db")
-            .addMigrations(Migration6To7,Migration7To8,Migration8To9).build()
+            .addMigrations(Migration6To7,Migration7To8,Migration8To9,Migration9To10).build()
         val dao=db.onlineSyncDao();val store=OnlineSessionStore(context);val repo=OnlineRepository(dao,store)
         val file=File(context.filesDir,"ccs-process-recovery-r1.json")
         val state=if(file.exists())JSONObject(file.readText()) else JSONObject()

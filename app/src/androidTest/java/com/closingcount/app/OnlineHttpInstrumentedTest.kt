@@ -41,7 +41,7 @@ class OnlineHttpInstrumentedTest {
     }
     private fun database(): ClosingCountDatabase {
         val name = "ccs-http-${UUID.randomUUID()}.db"
-        return Room.databaseBuilder(context, ClosingCountDatabase::class.java, name).addMigrations(Migration6To7, Migration7To8, Migration8To9).build()
+        return Room.databaseBuilder(context, ClosingCountDatabase::class.java, name).addMigrations(Migration6To7, Migration7To8, Migration8To9,Migration9To10).build()
             .also { databases.add(name to it) }
     }
     private suspend fun login(user: String = username) = api.login(user, password).also { sessions.add(it) }
@@ -104,7 +104,7 @@ class OnlineHttpInstrumentedTest {
         val accepted = api.fetch(session, outlet, id).entries.first { it.menuId == menu }
         assertEquals(7, accepted.serverQuantity)
         val name = databases.last().first; db.close()
-        db = Room.databaseBuilder(context, ClosingCountDatabase::class.java, name).addMigrations(Migration6To7, Migration7To8, Migration8To9).build()
+        db = Room.databaseBuilder(context, ClosingCountDatabase::class.java, name).addMigrations(Migration6To7, Migration7To8, Migration8To9,Migration9To10).build()
         databases[databases.lastIndex] = name to db; dao = db.onlineSyncDao()
         assertEquals(operation, dao.operations(scope, id).single().operationId)
         assertEquals(OnlineSyncResult.Synced, OnlineSyncEngine(dao, api) { session }.sync(session, outlet, id))

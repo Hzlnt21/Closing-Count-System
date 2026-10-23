@@ -24,8 +24,9 @@ import androidx.sqlite.db.SupportSQLiteDatabase
         OnlineOperationEntity::class,
         OnlineLifecycleEntity::class,
         OnlineRecoveryClaimEntity::class,
+        OnlineRecoveredAdminEntity::class,
     ],
-    version = 9,
+    version = 10,
     exportSchema = true,
 )
 abstract class ClosingCountDatabase : RoomDatabase() {
@@ -55,6 +56,7 @@ abstract class ClosingCountDatabase : RoomDatabase() {
                     .addMigrations(Migration6To7)
                     .addMigrations(Migration7To8)
                     .addMigrations(Migration8To9)
+                    .addMigrations(Migration9To10)
                     .addCallback(
                         object : Callback() {
                             override fun onCreate(db: SupportSQLiteDatabase) {

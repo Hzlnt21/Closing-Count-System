@@ -11,6 +11,53 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 abstract class OnlineSyncDao {
+    @Query("SELECT COUNT(*) FROM online_recovered_admin WHERE scope=:scope AND originalOperationId IN (:ids)")
+    protected abstract suspend fun recoveredAdminReferenceCount(scope:String,ids:List<String>):Int
+    @Transaction
+    open suspend fun requireQuantityReferenceScope(scope:String,ids:List<String>) {
+        for(batch in ids.chunked(100))check(recoveredAdminReferenceCount(scope,batch)==0) { "RECOVERY_PROVENANCE_CONFLICT" }
+    }
+    @Query("SELECT * FROM online_recovered_admin WHERE scope=:scope AND `group`=:group AND active=1")
+    abstract suspend fun activeRecoveredAdmin(scope:String,group:String):List<OnlineRecoveredAdminEntity>
+    @Query("SELECT * FROM online_recovered_admin WHERE scope=:scope AND originalOperationId=:originalId")
+    abstract suspend fun recoveredAdminReference(scope:String,originalId:String):OnlineRecoveredAdminEntity?
+    @Query("SELECT * FROM online_recovered_admin WHERE operationId=:id")
+    abstract suspend fun recoveredAdminOperation(id:String):OnlineRecoveredAdminEntity?
+    @Query("SELECT * FROM online_recovered_admin WHERE substr(scope,1,length(:prefix))=:prefix AND active=1")
+    abstract suspend fun recoveredAdminForAccount(prefix:String):List<OnlineRecoveredAdminEntity>
+    @Insert(onConflict=OnConflictStrategy.ABORT)
+    protected abstract suspend fun insertRecoveredAdmin(value:OnlineRecoveredAdminEntity)
+    @Update
+    protected abstract suspend fun putRecoveredAdmin(value:OnlineRecoveredAdminEntity)
+
+    @Transaction
+    open suspend fun attachRecoveredAdmin(value:OnlineRecoveredAdminEntity) {
+        require(Regex("[0-9a-f]{64}").matches(value.fingerprint))
+        com.closingcount.app.data.online.OnlineApi.uuid(value.originalOperationId)
+        com.closingcount.app.data.online.OnlineApi.uuid(value.operationId)
+        require(when(value.group){"SETTINGS"->value.kind=="SETTINGS";"TEAM"->value.kind in setOf("TEAM_CREATE","TEAM_UPDATE");"CATALOG"->value.kind=="CATALOG";else->false})
+        check(value.active && !value.wasSent && value.status in setOf("QUEUED","EDITING"))
+        check(recoveredAdminReference(value.scope,value.originalOperationId)==null &&
+            recoveryClaims(value.scope,listOf(value.originalOperationId)).isEmpty()) { "RECOVERY_ALREADY_HANDLED" }
+        check(activeRecoveredAdmin(value.scope,value.group).isEmpty()) { "RECOVERY_LOCAL_PENDING" }
+        insertRecoveredAdmin(value)
+    }
+    @Transaction
+    open suspend fun saveRecoveredAdmin(value:OnlineRecoveredAdminEntity) {
+        val old=requireNotNull(recoveredAdminOperation(value.operationId));check(old.active)
+        check(old.copy(payloadJson=value.payloadJson,status=value.status,wasSent=value.wasSent,error=value.error)==value)
+        if(old.group=="CATALOG"&&old.status=="EDITING")check(value.status in setOf("EDITING","QUEUED")&&!value.wasSent)
+        else check(old.payloadJson==value.payloadJson&&value.status!="EDITING") { "Recovered action payload is frozen" }
+        check(!old.wasSent||value.wasSent);putRecoveredAdmin(value)
+    }
+    @Transaction
+    open suspend fun archiveRecoveredAdmin(scope:String,id:String,confirmed:Boolean) {
+        val old=requireNotNull(recoveredAdminOperation(id));check(old.scope==scope)
+        if(!old.active)return
+        check(confirmed||old.status in setOf("CONFLICT","FAILED")||(old.group=="CATALOG"&&old.status=="EDITING"))
+        putRecoveredAdmin(old.copy(active=false))
+    }
+
     @Query("SELECT * FROM online_recovery_claims WHERE scope=:scope AND originalOperationId IN (:ids) ORDER BY originalOperationId")
     protected abstract suspend fun claimsBatch(scope:String,ids:List<String>):List<OnlineRecoveryClaimEntity>
 
@@ -38,6 +85,7 @@ abstract class OnlineSyncDao {
     open suspend fun recoverQuantities(remote:OnlineClosingEntity,remoteEntries:List<OnlineEntryEntity>,date:String,
         quantities:Map<String,Int>,references:Map<String,String>,knownClaims:Set<String>,fingerprint:String):Map<String,String> {
         require(Regex("[0-9a-f]{64}").matches(fingerprint) && references.isNotEmpty())
+        requireQuantityReferenceScope(remote.scope,references.keys.toList())
         require(quantities.isNotEmpty() && quantities.keys.all{key->remoteEntries.any{it.menuId==key}})
         require(remote.state=="DRAFT" && remoteEntries.all{it.generation==remote.generation})
         requireRecoveryTargetFree(remote.scope,remote.closingId,date)
@@ -52,6 +100,20 @@ abstract class OnlineSyncDao {
             OnlineRecoveryClaimEntity(remote.scope,original,fingerprint,remote.closingId,generated[menu],now)
         })
         return generated
+    }
+
+    @Transaction
+    open suspend fun recoverLifecycle(remote:OnlineClosingEntity,remoteEntries:List<OnlineEntryEntity>,date:String,
+        originalId:String,fingerprint:String,action:String,reason:String,role:String):String {
+        require(Regex("[0-9a-f]{64}").matches(fingerprint))
+        check(recoveryClaims(remote.scope,listOf(originalId)).isEmpty()&&recoveredAdminReference(remote.scope,originalId)==null) { "RECOVERY_ALREADY_HANDLED" }
+        requireRecoveryTargetFree(remote.scope,remote.closingId,date)
+        val old=closing(remote.scope,remote.closingId)
+        check(old==null||old.revision<=remote.revision) { "RECOVERY_REVIEW_CHANGED" }
+        pull(remote,remoteEntries)
+        val id=prepareLifecycle(remote.scope,remote.closingId,action,reason,remote.generation,remote.revision,role)
+        insertClaims(listOf(OnlineRecoveryClaimEntity(remote.scope,originalId,fingerprint,remote.closingId,id,java.time.Instant.now().toString())))
+        return id
     }
 
     @Query("SELECT * FROM online_lifecycle_operations WHERE scope=:scope AND closingId=:closingId")

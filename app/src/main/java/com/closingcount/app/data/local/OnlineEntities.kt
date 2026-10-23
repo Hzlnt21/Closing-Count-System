@@ -64,3 +64,10 @@ data class OnlineLifecycleEntity(
 @Entity(tableName="online_recovery_claims",primaryKeys=["scope","originalOperationId"])
 data class OnlineRecoveryClaimEntity(val scope:String,val originalOperationId:String,val fingerprint:String,
     val closingId:String,val recoveredOperationId:String?,val createdAt:String)
+
+/** Recovered non-secret admin intent and its durable local provenance share one Room row. */
+@Entity(tableName="online_recovered_admin",primaryKeys=["scope","originalOperationId"],
+    indices=[Index(value=["operationId"],unique=true),Index(value=["scope","group","active"])])
+data class OnlineRecoveredAdminEntity(val scope:String,val originalOperationId:String,val fingerprint:String,
+    val group:String,val kind:String,val operationId:String,val expectedRevision:Long?,val payloadJson:String,
+    val status:String,val wasSent:Boolean,val error:String?,val active:Boolean,val createdAt:String)

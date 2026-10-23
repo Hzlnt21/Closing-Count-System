@@ -1,0 +1,1016 @@
+{
+  "outletId": "1ea28bbd-3cc4-4bbd-bb37-0ccaffaeefe4",
+  "outlets": [
+    {
+      "id": "1ea28bbd-3cc4-4bbd-bb37-0ccaffaeefe4",
+      "name": "Recovered settings QA",
+      "active": true,
+      "timezone": "Asia/Jakarta",
+      "created_at": "2026-10-23T14:00:28.623367+00:00",
+      "cutoff_minutes": 60,
+      "settings_revision": 3
+    }
+  ],
+  "memberships": [
+    {
+      "role": "ADMIN",
+      "active": true,
+      "revision": 0,
+      "outlet_id": "1ea28bbd-3cc4-4bbd-bb37-0ccaffaeefe4",
+      "account_id": "71f11bc3-18f6-4c59-b5b5-711593ceb675",
+      "updated_at": "2026-10-23T14:00:28.632434+00:00"
+    },
+    {
+      "role": "ADMIN",
+      "active": true,
+      "revision": 2,
+      "outlet_id": "1ea28bbd-3cc4-4bbd-bb37-0ccaffaeefe4",
+      "account_id": "3d57e6b2-2dd8-409c-b736-a8025be2451e",
+      "updated_at": "2026-10-23T14:02:55.630614+00:00"
+    },
+    {
+      "role": "EMPLOYEE",
+      "active": true,
+      "revision": 0,
+      "outlet_id": "1ea28bbd-3cc4-4bbd-bb37-0ccaffaeefe4",
+      "account_id": "40d3560d-0869-4c24-ba85-0cc4a201c5aa",
+      "updated_at": "2026-10-23T14:00:28.626918+00:00"
+    },
+    {
+      "role": "EMPLOYEE",
+      "active": true,
+      "revision": 0,
+      "outlet_id": "1ea28bbd-3cc4-4bbd-bb37-0ccaffaeefe4",
+      "account_id": "6b98f00a-537a-4ffa-a8e0-d3932c7641fe",
+      "updated_at": "2026-10-23T14:02:57.273062+00:00"
+    },
+    {
+      "role": "EMPLOYEE",
+      "active": true,
+      "revision": 2,
+      "outlet_id": "1ea28bbd-3cc4-4bbd-bb37-0ccaffaeefe4",
+      "account_id": "33f19d4c-4136-4767-9180-731d9cc53aa6",
+      "updated_at": "2026-10-23T14:02:51.925014+00:00"
+    }
+  ],
+  "catalog_versions": [
+    {
+      "id": "33b4f998-a256-4741-8fd2-38fcc79db7c1",
+      "revision": 2,
+      "snapshot": {
+        "menus": [
+          {
+            "id": "963c23ce-948a-4cb4-973c-1860eabdd5da",
+            "name": "Recovered Cappuccino",
+            "active": true,
+            "sortOrder": 0,
+            "categoryId": "0216ca8b-3e07-4463-b832-28d2a4fbc5a5",
+            "ingredientIds": [
+              "60e81bc8-b293-49a8-a5ab-d23b4245e322",
+              "6ba0022d-e1df-47e2-8a1b-cea91ca3c2e5",
+              "ce98fd06-cfcc-4e85-9b54-f74892903c3c"
+            ]
+          },
+          {
+            "id": "aad67251-312d-4d23-b25e-715f865aec77",
+            "name": "Recovered Latte",
+            "active": true,
+            "sortOrder": 1,
+            "categoryId": "0216ca8b-3e07-4463-b832-28d2a4fbc5a5",
+            "ingredientIds": [
+              "60e81bc8-b293-49a8-a5ab-d23b4245e322",
+              "6ba0022d-e1df-47e2-8a1b-cea91ca3c2e5"
+            ]
+          }
+        ],
+        "ingredients": [
+          {
+            "id": "60e81bc8-b293-49a8-a5ab-d23b4245e322",
+            "name": "Fresh milk",
+            "active": true,
+            "sortOrder": 1,
+            "categoryId": "d58327e6-ddab-4499-91b0-36301d45ccb3"
+          },
+          {
+            "id": "6ba0022d-e1df-47e2-8a1b-cea91ca3c2e5",
+            "name": "Biji kopi",
+            "active": true,
+            "sortOrder": 0,
+            "categoryId": "d58327e6-ddab-4499-91b0-36301d45ccb3"
+          },
+          {
+            "id": "ce98fd06-cfcc-4e85-9b54-f74892903c3c",
+            "name": "Powder cokelat",
+            "active": true,
+            "sortOrder": 2,
+            "categoryId": "d58327e6-ddab-4499-91b0-36301d45ccb3"
+          }
+        ],
+        "menuCategories": [
+          {
+            "id": "0216ca8b-3e07-4463-b832-28d2a4fbc5a5",
+            "name": "Coffee",
+            "sortOrder": 0
+          }
+        ],
+        "ingredientCategories": [
+          {
+            "id": "d58327e6-ddab-4499-91b0-36301d45ccb3",
+            "name": "Bahan baku",
+            "sortOrder": 0
+          }
+        ]
+      },
+      "outlet_id": "1ea28bbd-3cc4-4bbd-bb37-0ccaffaeefe4",
+      "created_at": "2026-10-23T14:02:59.907595+00:00",
+      "created_by": "3d57e6b2-2dd8-409c-b736-a8025be2451e"
+    },
+    {
+      "id": "351d4404-e976-48c8-925e-ee783f27ef83",
+      "revision": 1,
+      "snapshot": {
+        "menus": [
+          {
+            "id": "963c23ce-948a-4cb4-973c-1860eabdd5da",
+            "name": "Cappuccino",
+            "active": true,
+            "sortOrder": 0,
+            "categoryId": "0216ca8b-3e07-4463-b832-28d2a4fbc5a5",
+            "ingredientIds": [
+              "60e81bc8-b293-49a8-a5ab-d23b4245e322",
+              "6ba0022d-e1df-47e2-8a1b-cea91ca3c2e5",
+              "ce98fd06-cfcc-4e85-9b54-f74892903c3c"
+            ]
+          },
+          {
+            "id": "aad67251-312d-4d23-b25e-715f865aec77",
+            "name": "Latte",
+            "active": true,
+            "sortOrder": 1,
+            "categoryId": "0216ca8b-3e07-4463-b832-28d2a4fbc5a5",
+            "ingredientIds": [
+              "60e81bc8-b293-49a8-a5ab-d23b4245e322",
+              "6ba0022d-e1df-47e2-8a1b-cea91ca3c2e5"
+            ]
+          }
+        ],
+        "ingredients": [
+          {
+            "id": "60e81bc8-b293-49a8-a5ab-d23b4245e322",
+            "name": "Fresh milk",
+            "active": true,
+            "sortOrder": 1,
+            "categoryId": "d58327e6-ddab-4499-91b0-36301d45ccb3"
+          },
+          {
+            "id": "6ba0022d-e1df-47e2-8a1b-cea91ca3c2e5",
+            "name": "Biji kopi",
+            "active": true,
+            "sortOrder": 0,
+            "categoryId": "d58327e6-ddab-4499-91b0-36301d45ccb3"
+          },
+          {
+            "id": "ce98fd06-cfcc-4e85-9b54-f74892903c3c",
+            "name": "Powder cokelat",
+            "active": true,
+            "sortOrder": 2,
+            "categoryId": "d58327e6-ddab-4499-91b0-36301d45ccb3"
+          }
+        ],
+        "menuCategories": [
+          {
+            "id": "0216ca8b-3e07-4463-b832-28d2a4fbc5a5",
+            "name": "Coffee",
+            "sortOrder": 0
+          }
+        ],
+        "ingredientCategories": [
+          {
+            "id": "d58327e6-ddab-4499-91b0-36301d45ccb3",
+            "name": "Bahan baku",
+            "sortOrder": 0
+          }
+        ]
+      },
+      "outlet_id": "1ea28bbd-3cc4-4bbd-bb37-0ccaffaeefe4",
+      "created_at": "2026-10-23T14:00:28.634346+00:00",
+      "created_by": "3d57e6b2-2dd8-409c-b736-a8025be2451e"
+    }
+  ],
+  "operation_receipts": [
+    {
+      "actor_id": "3d57e6b2-2dd8-409c-b736-a8025be2451e",
+      "response": {
+        "catalog": {
+          "menus": [
+            {
+              "id": "963c23ce-948a-4cb4-973c-1860eabdd5da",
+              "name": "Recovered Cappuccino",
+              "active": true,
+              "sortOrder": 0,
+              "categoryId": "0216ca8b-3e07-4463-b832-28d2a4fbc5a5",
+              "ingredientIds": [
+                "60e81bc8-b293-49a8-a5ab-d23b4245e322",
+                "6ba0022d-e1df-47e2-8a1b-cea91ca3c2e5",
+                "ce98fd06-cfcc-4e85-9b54-f74892903c3c"
+              ]
+            },
+            {
+              "id": "aad67251-312d-4d23-b25e-715f865aec77",
+              "name": "Recovered Latte",
+              "active": true,
+              "sortOrder": 1,
+              "categoryId": "0216ca8b-3e07-4463-b832-28d2a4fbc5a5",
+              "ingredientIds": [
+                "60e81bc8-b293-49a8-a5ab-d23b4245e322",
+                "6ba0022d-e1df-47e2-8a1b-cea91ca3c2e5"
+              ]
+            }
+          ],
+          "ingredients": [
+            {
+              "id": "60e81bc8-b293-49a8-a5ab-d23b4245e322",
+              "name": "Fresh milk",
+              "active": true,
+              "sortOrder": 1,
+              "categoryId": "d58327e6-ddab-4499-91b0-36301d45ccb3"
+            },
+            {
+              "id": "6ba0022d-e1df-47e2-8a1b-cea91ca3c2e5",
+              "name": "Biji kopi",
+              "active": true,
+              "sortOrder": 0,
+              "categoryId": "d58327e6-ddab-4499-91b0-36301d45ccb3"
+            },
+            {
+              "id": "ce98fd06-cfcc-4e85-9b54-f74892903c3c",
+              "name": "Powder cokelat",
+              "active": true,
+              "sortOrder": 2,
+              "categoryId": "d58327e6-ddab-4499-91b0-36301d45ccb3"
+            }
+          ],
+          "menuCategories": [
+            {
+              "id": "0216ca8b-3e07-4463-b832-28d2a4fbc5a5",
+              "name": "Coffee",
+              "sortOrder": 0
+            }
+          ],
+          "ingredientCategories": [
+            {
+              "id": "d58327e6-ddab-4499-91b0-36301d45ccb3",
+              "name": "Bahan baku",
+              "sortOrder": 0
+            }
+          ]
+        },
+        "revision": 2,
+        "createdAt": "2026-10-23T14:02:59.907Z",
+        "versionId": "33b4f998-a256-4741-8fd2-38fcc79db7c1"
+      },
+      "outlet_id": "1ea28bbd-3cc4-4bbd-bb37-0ccaffaeefe4",
+      "created_at": "2026-10-23T14:02:59.910805+00:00",
+      "operation_id": "13e62551-8c17-45ac-a7dd-5dd1de0344fc"
+    },
+    {
+      "actor_id": "3d57e6b2-2dd8-409c-b736-a8025be2451e",
+      "response": {
+        "kind": "CREATE_ACCOUNT",
+        "member": {
+          "id": "6b98f00a-537a-4ffa-a8e0-d3932c7641fe",
+          "role": "EMPLOYEE",
+          "active": true,
+          "revision": 0,
+          "username": "recovery.9d74be7f-82a",
+          "displayName": "Recovered person QA",
+          "accountActive": true
+        },
+        "changed": true,
+        "outletId": "1ea28bbd-3cc4-4bbd-bb37-0ccaffaeefe4",
+        "operationId": "d4f9fcd8-3fb9-48df-9653-cd84e44719f4"
+      },
+      "outlet_id": "1ea28bbd-3cc4-4bbd-bb37-0ccaffaeefe4",
+      "created_at": "2026-10-23T14:02:57.280002+00:00",
+      "operation_id": "d4f9fcd8-3fb9-48df-9653-cd84e44719f4"
+    },
+    {
+      "actor_id": "3d57e6b2-2dd8-409c-b736-a8025be2451e",
+      "response": {
+        "kind": "UPDATE_MEMBERSHIP",
+        "member": {
+          "id": "33f19d4c-4136-4767-9180-731d9cc53aa6",
+          "role": "EMPLOYEE",
+          "active": true,
+          "revision": 2,
+          "username": "qahmvl1exj9.dimas",
+          "displayName": "Dummy dimas",
+          "accountActive": true
+        },
+        "changed": true,
+        "outletId": "1ea28bbd-3cc4-4bbd-bb37-0ccaffaeefe4",
+        "operationId": "bb4a9a0e-5e5d-4e9b-927d-b01aedd62f76"
+      },
+      "outlet_id": "1ea28bbd-3cc4-4bbd-bb37-0ccaffaeefe4",
+      "created_at": "2026-10-23T14:02:51.930469+00:00",
+      "operation_id": "bb4a9a0e-5e5d-4e9b-927d-b01aedd62f76"
+    },
+    {
+      "actor_id": "3d57e6b2-2dd8-409c-b736-a8025be2451e",
+      "response": {
+        "kind": "UPDATE_MEMBERSHIP",
+        "member": {
+          "id": "33f19d4c-4136-4767-9180-731d9cc53aa6",
+          "role": "SUPERVISOR",
+          "active": true,
+          "revision": 1,
+          "username": "qahmvl1exj9.dimas",
+          "displayName": "Dummy dimas",
+          "accountActive": true
+        },
+        "changed": true,
+        "outletId": "1ea28bbd-3cc4-4bbd-bb37-0ccaffaeefe4",
+        "operationId": "c6865e00-dd43-4798-90bd-724a994c7be9"
+      },
+      "outlet_id": "1ea28bbd-3cc4-4bbd-bb37-0ccaffaeefe4",
+      "created_at": "2026-10-23T14:02:51.828534+00:00",
+      "operation_id": "c6865e00-dd43-4798-90bd-724a994c7be9"
+    },
+    {
+      "actor_id": "3d57e6b2-2dd8-409c-b736-a8025be2451e",
+      "response": {
+        "name": "Committed QA",
+        "outletId": "1ea28bbd-3cc4-4bbd-bb37-0ccaffaeefe4",
+        "timezone": "Asia/Jakarta",
+        "operationId": "d4eaa1e4-cfd2-4aca-abb7-e405ca79538a",
+        "cutoffMinutes": 10,
+        "settingsRevision": 1
+      },
+      "outlet_id": "1ea28bbd-3cc4-4bbd-bb37-0ccaffaeefe4",
+      "created_at": "2026-10-23T14:02:55.265352+00:00",
+      "operation_id": "d4eaa1e4-cfd2-4aca-abb7-e405ca79538a"
+    },
+    {
+      "actor_id": "3d57e6b2-2dd8-409c-b736-a8025be2451e",
+      "response": {
+        "name": "Recovered settings QA",
+        "outletId": "1ea28bbd-3cc4-4bbd-bb37-0ccaffaeefe4",
+        "timezone": "Asia/Jakarta",
+        "operationId": "9b4de03e-5ec3-4c74-a56a-da41da174673",
+        "cutoffMinutes": 60,
+        "settingsRevision": 3
+      },
+      "outlet_id": "1ea28bbd-3cc4-4bbd-bb37-0ccaffaeefe4",
+      "created_at": "2026-10-23T14:02:56.417955+00:00",
+      "operation_id": "9b4de03e-5ec3-4c74-a56a-da41da174673"
+    },
+    {
+      "actor_id": "3d57e6b2-2dd8-409c-b736-a8025be2451e",
+      "response": {
+        "state": "DRAFT",
+        "report": null,
+        "lockedAt": null,
+        "lockedBy": null,
+        "closingId": "54728610-c8f5-434c-9191-33915406af83",
+        "generation": 2,
+        "submittedAt": null,
+        "submittedBy": null,
+        "closingRevision": 2
+      },
+      "outlet_id": "1ea28bbd-3cc4-4bbd-bb37-0ccaffaeefe4",
+      "created_at": "2026-10-23T14:02:53.330583+00:00",
+      "operation_id": "5b995317-13fc-445a-bc84-0ef7d5fa061e"
+    },
+    {
+      "actor_id": "3d57e6b2-2dd8-409c-b736-a8025be2451e",
+      "response": {
+        "state": "DRAFT",
+        "report": null,
+        "lockedAt": null,
+        "lockedBy": null,
+        "closingId": "54728610-c8f5-434c-9191-33915406af83",
+        "generation": 3,
+        "submittedAt": null,
+        "submittedBy": null,
+        "closingRevision": 5
+      },
+      "outlet_id": "1ea28bbd-3cc4-4bbd-bb37-0ccaffaeefe4",
+      "created_at": "2026-10-23T14:02:54.529738+00:00",
+      "operation_id": "61b7d8ca-46f6-48bc-9702-fcd71504e3c0"
+    },
+    {
+      "actor_id": "3d57e6b2-2dd8-409c-b736-a8025be2451e",
+      "response": {
+        "state": "LOCKED",
+        "report": {
+          "id": "b4b22cdb-a0cf-48af-8cd6-f63eb5351041",
+          "generation": 2,
+          "reviewedAt": "2026-10-23T14:02:54.131Z",
+          "reviewedBy": {
+            "id": "3d57e6b2-2dd8-409c-b736-a8025be2451e",
+            "username": "qahmvl1exj9.admin",
+            "displayName": "Dummy admin"
+          },
+          "closingRevision": 4
+        },
+        "lockedAt": "2026-10-23T14:02:54.131Z",
+        "lockedBy": {
+          "id": "3d57e6b2-2dd8-409c-b736-a8025be2451e",
+          "username": "qahmvl1exj9.admin",
+          "displayName": "Dummy admin"
+        },
+        "closingId": "54728610-c8f5-434c-9191-33915406af83",
+        "generation": 2,
+        "submittedAt": "2026-10-23T14:02:53.748Z",
+        "submittedBy": {
+          "id": "3d57e6b2-2dd8-409c-b736-a8025be2451e",
+          "username": "qahmvl1exj9.admin",
+          "displayName": "Dummy admin"
+        },
+        "closingRevision": 4
+      },
+      "outlet_id": "1ea28bbd-3cc4-4bbd-bb37-0ccaffaeefe4",
+      "created_at": "2026-10-23T14:02:54.142183+00:00",
+      "operation_id": "0d86a794-6427-4647-9663-fdacba137b2c"
+    },
+    {
+      "actor_id": "3d57e6b2-2dd8-409c-b736-a8025be2451e",
+      "response": {
+        "state": "SUBMITTED",
+        "report": null,
+        "lockedAt": null,
+        "lockedBy": null,
+        "closingId": "54728610-c8f5-434c-9191-33915406af83",
+        "generation": 1,
+        "submittedAt": "2026-10-23T14:02:52.781Z",
+        "submittedBy": {
+          "id": "3d57e6b2-2dd8-409c-b736-a8025be2451e",
+          "username": "qahmvl1exj9.admin",
+          "displayName": "Dummy admin"
+        },
+        "closingRevision": 1
+      },
+      "outlet_id": "1ea28bbd-3cc4-4bbd-bb37-0ccaffaeefe4",
+      "created_at": "2026-10-23T14:02:52.78781+00:00",
+      "operation_id": "b82d0ab5-2c10-4ce2-adc2-4bda73cb9a22"
+    },
+    {
+      "actor_id": "3d57e6b2-2dd8-409c-b736-a8025be2451e",
+      "response": {
+        "state": "SUBMITTED",
+        "report": null,
+        "lockedAt": null,
+        "lockedBy": null,
+        "closingId": "54728610-c8f5-434c-9191-33915406af83",
+        "generation": 2,
+        "submittedAt": "2026-10-23T14:02:53.748Z",
+        "submittedBy": {
+          "id": "3d57e6b2-2dd8-409c-b736-a8025be2451e",
+          "username": "qahmvl1exj9.admin",
+          "displayName": "Dummy admin"
+        },
+        "closingRevision": 3
+      },
+      "outlet_id": "1ea28bbd-3cc4-4bbd-bb37-0ccaffaeefe4",
+      "created_at": "2026-10-23T14:02:53.754714+00:00",
+      "operation_id": "f6472cc5-5711-41c3-a718-f07e62dbc685"
+    },
+    {
+      "actor_id": "71f11bc3-18f6-4c59-b5b5-711593ceb675",
+      "response": {
+        "kind": "UPDATE_MEMBERSHIP",
+        "member": {
+          "id": "3d57e6b2-2dd8-409c-b736-a8025be2451e",
+          "role": "ADMIN",
+          "active": true,
+          "revision": 2,
+          "username": "qahmvl1exj9.admin",
+          "displayName": "Dummy admin",
+          "accountActive": true
+        },
+        "changed": true,
+        "outletId": "1ea28bbd-3cc4-4bbd-bb37-0ccaffaeefe4",
+        "operationId": "48acd5ad-ac43-456d-9f6d-55fc2b5ae33d"
+      },
+      "outlet_id": "1ea28bbd-3cc4-4bbd-bb37-0ccaffaeefe4",
+      "created_at": "2026-10-23T14:02:55.636408+00:00",
+      "operation_id": "48acd5ad-ac43-456d-9f6d-55fc2b5ae33d"
+    },
+    {
+      "actor_id": "71f11bc3-18f6-4c59-b5b5-711593ceb675",
+      "response": {
+        "kind": "UPDATE_MEMBERSHIP",
+        "member": {
+          "id": "3d57e6b2-2dd8-409c-b736-a8025be2451e",
+          "role": "SUPERVISOR",
+          "active": true,
+          "revision": 1,
+          "username": "qahmvl1exj9.admin",
+          "displayName": "Dummy admin",
+          "accountActive": true
+        },
+        "changed": true,
+        "outletId": "1ea28bbd-3cc4-4bbd-bb37-0ccaffaeefe4",
+        "operationId": "e4a1ccc0-d0d4-44f3-9dbd-9f0d619e809e"
+      },
+      "outlet_id": "1ea28bbd-3cc4-4bbd-bb37-0ccaffaeefe4",
+      "created_at": "2026-10-23T14:02:55.399897+00:00",
+      "operation_id": "e4a1ccc0-d0d4-44f3-9dbd-9f0d619e809e"
+    },
+    {
+      "actor_id": "71f11bc3-18f6-4c59-b5b5-711593ceb675",
+      "response": {
+        "name": "Changed after review QA",
+        "outletId": "1ea28bbd-3cc4-4bbd-bb37-0ccaffaeefe4",
+        "timezone": "Asia/Jakarta",
+        "operationId": "ac2879b0-36dc-4bf8-9b8f-6fdeb1a2dfe7",
+        "cutoffMinutes": 20,
+        "settingsRevision": 2
+      },
+      "outlet_id": "1ea28bbd-3cc4-4bbd-bb37-0ccaffaeefe4",
+      "created_at": "2026-10-23T14:02:55.724803+00:00",
+      "operation_id": "ac2879b0-36dc-4bf8-9b8f-6fdeb1a2dfe7"
+    }
+  ],
+  "outlet_settings_audit": [
+    {
+      "id": 64,
+      "actor_id": "3d57e6b2-2dd8-409c-b736-a8025be2451e",
+      "revision": 1,
+      "outlet_id": "1ea28bbd-3cc4-4bbd-bb37-0ccaffaeefe4",
+      "created_at": "2026-10-23T14:02:55.262195+00:00",
+      "after_value": {
+        "name": "Committed QA",
+        "timezone": "Asia/Jakarta",
+        "cutoffMinutes": 10
+      },
+      "before_value": {
+        "name": "Admin recovery QA qahmvl1exj9",
+        "timezone": "Asia/Jakarta",
+        "cutoffMinutes": 0
+      },
+      "operation_id": "d4eaa1e4-cfd2-4aca-abb7-e405ca79538a"
+    },
+    {
+      "id": 65,
+      "actor_id": "71f11bc3-18f6-4c59-b5b5-711593ceb675",
+      "revision": 2,
+      "outlet_id": "1ea28bbd-3cc4-4bbd-bb37-0ccaffaeefe4",
+      "created_at": "2026-10-23T14:02:55.722606+00:00",
+      "after_value": {
+        "name": "Changed after review QA",
+        "timezone": "Asia/Jakarta",
+        "cutoffMinutes": 20
+      },
+      "before_value": {
+        "name": "Committed QA",
+        "timezone": "Asia/Jakarta",
+        "cutoffMinutes": 10
+      },
+      "operation_id": "ac2879b0-36dc-4bf8-9b8f-6fdeb1a2dfe7"
+    },
+    {
+      "id": 66,
+      "actor_id": "3d57e6b2-2dd8-409c-b736-a8025be2451e",
+      "revision": 3,
+      "outlet_id": "1ea28bbd-3cc4-4bbd-bb37-0ccaffaeefe4",
+      "created_at": "2026-10-23T14:02:56.416247+00:00",
+      "after_value": {
+        "name": "Recovered settings QA",
+        "timezone": "Asia/Jakarta",
+        "cutoffMinutes": 60
+      },
+      "before_value": {
+        "name": "Changed after review QA",
+        "timezone": "Asia/Jakarta",
+        "cutoffMinutes": 20
+      },
+      "operation_id": "9b4de03e-5ec3-4c74-a56a-da41da174673"
+    }
+  ],
+  "membership_audit": [
+    {
+      "id": 196,
+      "action": "UPDATE_MEMBERSHIP",
+      "actor_id": "3d57e6b2-2dd8-409c-b736-a8025be2451e",
+      "outlet_id": "1ea28bbd-3cc4-4bbd-bb37-0ccaffaeefe4",
+      "created_at": "2026-10-23T14:02:51.824239+00:00",
+      "subject_id": "33f19d4c-4136-4767-9180-731d9cc53aa6",
+      "after_value": {
+        "role": "SUPERVISOR",
+        "active": true
+      },
+      "before_value": {
+        "role": "EMPLOYEE",
+        "active": true
+      }
+    },
+    {
+      "id": 197,
+      "action": "UPDATE_MEMBERSHIP",
+      "actor_id": "3d57e6b2-2dd8-409c-b736-a8025be2451e",
+      "outlet_id": "1ea28bbd-3cc4-4bbd-bb37-0ccaffaeefe4",
+      "created_at": "2026-10-23T14:02:51.926679+00:00",
+      "subject_id": "33f19d4c-4136-4767-9180-731d9cc53aa6",
+      "after_value": {
+        "role": "EMPLOYEE",
+        "active": true
+      },
+      "before_value": {
+        "role": "SUPERVISOR",
+        "active": true
+      }
+    },
+    {
+      "id": 198,
+      "action": "UPDATE_MEMBERSHIP",
+      "actor_id": "71f11bc3-18f6-4c59-b5b5-711593ceb675",
+      "outlet_id": "1ea28bbd-3cc4-4bbd-bb37-0ccaffaeefe4",
+      "created_at": "2026-10-23T14:02:55.395584+00:00",
+      "subject_id": "3d57e6b2-2dd8-409c-b736-a8025be2451e",
+      "after_value": {
+        "role": "SUPERVISOR",
+        "active": true
+      },
+      "before_value": {
+        "role": "ADMIN",
+        "active": true
+      }
+    },
+    {
+      "id": 199,
+      "action": "UPDATE_MEMBERSHIP",
+      "actor_id": "71f11bc3-18f6-4c59-b5b5-711593ceb675",
+      "outlet_id": "1ea28bbd-3cc4-4bbd-bb37-0ccaffaeefe4",
+      "created_at": "2026-10-23T14:02:55.632286+00:00",
+      "subject_id": "3d57e6b2-2dd8-409c-b736-a8025be2451e",
+      "after_value": {
+        "role": "ADMIN",
+        "active": true
+      },
+      "before_value": {
+        "role": "SUPERVISOR",
+        "active": true
+      }
+    },
+    {
+      "id": 200,
+      "action": "CREATE_ACCOUNT",
+      "actor_id": "3d57e6b2-2dd8-409c-b736-a8025be2451e",
+      "outlet_id": "1ea28bbd-3cc4-4bbd-bb37-0ccaffaeefe4",
+      "created_at": "2026-10-23T14:02:57.275723+00:00",
+      "subject_id": "6b98f00a-537a-4ffa-a8e0-d3932c7641fe",
+      "after_value": {
+        "role": "EMPLOYEE",
+        "active": true,
+        "username": "recovery.9d74be7f-82a"
+      },
+      "before_value": null
+    }
+  ],
+  "closings": [
+    {
+      "id": "54728610-c8f5-434c-9191-33915406af83",
+      "state": "DRAFT",
+      "revision": 5,
+      "snapshot": {
+        "menus": [
+          {
+            "id": "963c23ce-948a-4cb4-973c-1860eabdd5da",
+            "name": "Cappuccino",
+            "active": true,
+            "sortOrder": 0,
+            "categoryId": "0216ca8b-3e07-4463-b832-28d2a4fbc5a5",
+            "ingredientIds": [
+              "60e81bc8-b293-49a8-a5ab-d23b4245e322",
+              "6ba0022d-e1df-47e2-8a1b-cea91ca3c2e5",
+              "ce98fd06-cfcc-4e85-9b54-f74892903c3c"
+            ]
+          },
+          {
+            "id": "aad67251-312d-4d23-b25e-715f865aec77",
+            "name": "Latte",
+            "active": true,
+            "sortOrder": 1,
+            "categoryId": "0216ca8b-3e07-4463-b832-28d2a4fbc5a5",
+            "ingredientIds": [
+              "60e81bc8-b293-49a8-a5ab-d23b4245e322",
+              "6ba0022d-e1df-47e2-8a1b-cea91ca3c2e5"
+            ]
+          }
+        ],
+        "ingredients": [
+          {
+            "id": "60e81bc8-b293-49a8-a5ab-d23b4245e322",
+            "name": "Fresh milk",
+            "active": true,
+            "sortOrder": 1,
+            "categoryId": "d58327e6-ddab-4499-91b0-36301d45ccb3"
+          },
+          {
+            "id": "6ba0022d-e1df-47e2-8a1b-cea91ca3c2e5",
+            "name": "Biji kopi",
+            "active": true,
+            "sortOrder": 0,
+            "categoryId": "d58327e6-ddab-4499-91b0-36301d45ccb3"
+          },
+          {
+            "id": "ce98fd06-cfcc-4e85-9b54-f74892903c3c",
+            "name": "Powder cokelat",
+            "active": true,
+            "sortOrder": 2,
+            "categoryId": "d58327e6-ddab-4499-91b0-36301d45ccb3"
+          }
+        ],
+        "menuCategories": [
+          {
+            "id": "0216ca8b-3e07-4463-b832-28d2a4fbc5a5",
+            "name": "Coffee",
+            "sortOrder": 0
+          }
+        ],
+        "ingredientCategories": [
+          {
+            "id": "d58327e6-ddab-4499-91b0-36301d45ccb3",
+            "name": "Bahan baku",
+            "sortOrder": 0
+          }
+        ]
+      },
+      "timezone": "Asia/Jakarta",
+      "locked_at": null,
+      "locked_by": null,
+      "outlet_id": "1ea28bbd-3cc4-4bbd-bb37-0ccaffaeefe4",
+      "created_at": "2026-10-23T14:02:52.392289+00:00",
+      "created_by": "3d57e6b2-2dd8-409c-b736-a8025be2451e",
+      "generation": 3,
+      "updated_at": "2026-10-23T14:02:54.522993+00:00",
+      "locked_actor": null,
+      "submitted_at": null,
+      "submitted_by": null,
+      "business_date": "2026-08-01",
+      "cutoff_minutes": 0,
+      "submitted_actor": null,
+      "catalog_version_id": "351d4404-e976-48c8-925e-ee783f27ef83"
+    },
+    {
+      "id": "58183314-67fa-4e85-b040-bcfbb7f6dd71",
+      "state": "DRAFT",
+      "revision": 0,
+      "snapshot": {
+        "menus": [
+          {
+            "id": "963c23ce-948a-4cb4-973c-1860eabdd5da",
+            "name": "Cappuccino",
+            "active": true,
+            "sortOrder": 0,
+            "categoryId": "0216ca8b-3e07-4463-b832-28d2a4fbc5a5",
+            "ingredientIds": [
+              "60e81bc8-b293-49a8-a5ab-d23b4245e322",
+              "6ba0022d-e1df-47e2-8a1b-cea91ca3c2e5",
+              "ce98fd06-cfcc-4e85-9b54-f74892903c3c"
+            ]
+          },
+          {
+            "id": "aad67251-312d-4d23-b25e-715f865aec77",
+            "name": "Latte",
+            "active": true,
+            "sortOrder": 1,
+            "categoryId": "0216ca8b-3e07-4463-b832-28d2a4fbc5a5",
+            "ingredientIds": [
+              "60e81bc8-b293-49a8-a5ab-d23b4245e322",
+              "6ba0022d-e1df-47e2-8a1b-cea91ca3c2e5"
+            ]
+          }
+        ],
+        "ingredients": [
+          {
+            "id": "60e81bc8-b293-49a8-a5ab-d23b4245e322",
+            "name": "Fresh milk",
+            "active": true,
+            "sortOrder": 1,
+            "categoryId": "d58327e6-ddab-4499-91b0-36301d45ccb3"
+          },
+          {
+            "id": "6ba0022d-e1df-47e2-8a1b-cea91ca3c2e5",
+            "name": "Biji kopi",
+            "active": true,
+            "sortOrder": 0,
+            "categoryId": "d58327e6-ddab-4499-91b0-36301d45ccb3"
+          },
+          {
+            "id": "ce98fd06-cfcc-4e85-9b54-f74892903c3c",
+            "name": "Powder cokelat",
+            "active": true,
+            "sortOrder": 2,
+            "categoryId": "d58327e6-ddab-4499-91b0-36301d45ccb3"
+          }
+        ],
+        "menuCategories": [
+          {
+            "id": "0216ca8b-3e07-4463-b832-28d2a4fbc5a5",
+            "name": "Coffee",
+            "sortOrder": 0
+          }
+        ],
+        "ingredientCategories": [
+          {
+            "id": "d58327e6-ddab-4499-91b0-36301d45ccb3",
+            "name": "Bahan baku",
+            "sortOrder": 0
+          }
+        ]
+      },
+      "timezone": "Asia/Jakarta",
+      "locked_at": null,
+      "locked_by": null,
+      "outlet_id": "1ea28bbd-3cc4-4bbd-bb37-0ccaffaeefe4",
+      "created_at": "2026-10-23T14:02:58.784697+00:00",
+      "created_by": "40d3560d-0869-4c24-ba85-0cc4a201c5aa",
+      "generation": 1,
+      "updated_at": "2026-10-23T14:02:58.784697+00:00",
+      "locked_actor": null,
+      "submitted_at": null,
+      "submitted_by": null,
+      "business_date": "2026-08-02",
+      "cutoff_minutes": 60,
+      "submitted_actor": null,
+      "catalog_version_id": "351d4404-e976-48c8-925e-ee783f27ef83"
+    }
+  ],
+  "closing_audit": [
+    {
+      "id": 1147,
+      "action": "CREATE",
+      "reason": null,
+      "menu_id": null,
+      "actor_id": "3d57e6b2-2dd8-409c-b736-a8025be2451e",
+      "outlet_id": "1ea28bbd-3cc4-4bbd-bb37-0ccaffaeefe4",
+      "actor_name": "Dummy admin",
+      "closing_id": "54728610-c8f5-434c-9191-33915406af83",
+      "created_at": "2026-10-23T14:02:52.398413+00:00",
+      "generation": 1,
+      "operation_id": null,
+      "actor_username": "qahmvl1exj9.admin",
+      "after_quantity": null,
+      "entry_revision": null,
+      "before_quantity": null,
+      "closing_revision": 0
+    },
+    {
+      "id": 1148,
+      "action": "SUBMIT",
+      "reason": null,
+      "menu_id": null,
+      "actor_id": "3d57e6b2-2dd8-409c-b736-a8025be2451e",
+      "outlet_id": "1ea28bbd-3cc4-4bbd-bb37-0ccaffaeefe4",
+      "actor_name": "Dummy admin",
+      "closing_id": "54728610-c8f5-434c-9191-33915406af83",
+      "created_at": "2026-10-23T14:02:52.785787+00:00",
+      "generation": 1,
+      "operation_id": "b82d0ab5-2c10-4ce2-adc2-4bda73cb9a22",
+      "actor_username": "qahmvl1exj9.admin",
+      "after_quantity": null,
+      "entry_revision": null,
+      "before_quantity": null,
+      "closing_revision": 1
+    },
+    {
+      "id": 1149,
+      "action": "RETURN",
+      "reason": "Recovered correction QA",
+      "menu_id": null,
+      "actor_id": "3d57e6b2-2dd8-409c-b736-a8025be2451e",
+      "outlet_id": "1ea28bbd-3cc4-4bbd-bb37-0ccaffaeefe4",
+      "actor_name": "Dummy admin",
+      "closing_id": "54728610-c8f5-434c-9191-33915406af83",
+      "created_at": "2026-10-23T14:02:53.328733+00:00",
+      "generation": 2,
+      "operation_id": "5b995317-13fc-445a-bc84-0ef7d5fa061e",
+      "actor_username": "qahmvl1exj9.admin",
+      "after_quantity": null,
+      "entry_revision": null,
+      "before_quantity": null,
+      "closing_revision": 2
+    },
+    {
+      "id": 1150,
+      "action": "SUBMIT",
+      "reason": null,
+      "menu_id": null,
+      "actor_id": "3d57e6b2-2dd8-409c-b736-a8025be2451e",
+      "outlet_id": "1ea28bbd-3cc4-4bbd-bb37-0ccaffaeefe4",
+      "actor_name": "Dummy admin",
+      "closing_id": "54728610-c8f5-434c-9191-33915406af83",
+      "created_at": "2026-10-23T14:02:53.752897+00:00",
+      "generation": 2,
+      "operation_id": "f6472cc5-5711-41c3-a718-f07e62dbc685",
+      "actor_username": "qahmvl1exj9.admin",
+      "after_quantity": null,
+      "entry_revision": null,
+      "before_quantity": null,
+      "closing_revision": 3
+    },
+    {
+      "id": 1151,
+      "action": "LOCK",
+      "reason": null,
+      "menu_id": null,
+      "actor_id": "3d57e6b2-2dd8-409c-b736-a8025be2451e",
+      "outlet_id": "1ea28bbd-3cc4-4bbd-bb37-0ccaffaeefe4",
+      "actor_name": "Dummy admin",
+      "closing_id": "54728610-c8f5-434c-9191-33915406af83",
+      "created_at": "2026-10-23T14:02:54.139864+00:00",
+      "generation": 2,
+      "operation_id": "0d86a794-6427-4647-9663-fdacba137b2c",
+      "actor_username": "qahmvl1exj9.admin",
+      "after_quantity": null,
+      "entry_revision": null,
+      "before_quantity": null,
+      "closing_revision": 4
+    },
+    {
+      "id": 1152,
+      "action": "REOPEN",
+      "reason": "Recovered correction QA",
+      "menu_id": null,
+      "actor_id": "3d57e6b2-2dd8-409c-b736-a8025be2451e",
+      "outlet_id": "1ea28bbd-3cc4-4bbd-bb37-0ccaffaeefe4",
+      "actor_name": "Dummy admin",
+      "closing_id": "54728610-c8f5-434c-9191-33915406af83",
+      "created_at": "2026-10-23T14:02:54.527479+00:00",
+      "generation": 3,
+      "operation_id": "61b7d8ca-46f6-48bc-9702-fcd71504e3c0",
+      "actor_username": "qahmvl1exj9.admin",
+      "after_quantity": null,
+      "entry_revision": null,
+      "before_quantity": null,
+      "closing_revision": 5
+    },
+    {
+      "id": 1153,
+      "action": "CREATE",
+      "reason": null,
+      "menu_id": null,
+      "actor_id": "40d3560d-0869-4c24-ba85-0cc4a201c5aa",
+      "outlet_id": "1ea28bbd-3cc4-4bbd-bb37-0ccaffaeefe4",
+      "actor_name": "Dummy rani",
+      "closing_id": "58183314-67fa-4e85-b040-bcfbb7f6dd71",
+      "created_at": "2026-10-23T14:02:58.791434+00:00",
+      "generation": 1,
+      "operation_id": null,
+      "actor_username": "qahmvl1exj9.rani",
+      "after_quantity": null,
+      "entry_revision": null,
+      "before_quantity": null,
+      "closing_revision": 0
+    }
+  ],
+  "members": [
+    {
+      "id": "3d57e6b2-2dd8-409c-b736-a8025be2451e",
+      "username": "qahmvl1exj9.admin",
+      "display_name": "Dummy admin",
+      "active": true,
+      "role": "ADMIN",
+      "member_active": true,
+      "revision": "2"
+    },
+    {
+      "id": "71f11bc3-18f6-4c59-b5b5-711593ceb675",
+      "username": "qahmvl1exj9.backupadmin",
+      "display_name": "Dummy backupadmin",
+      "active": true,
+      "role": "ADMIN",
+      "member_active": true,
+      "revision": "0"
+    },
+    {
+      "id": "33f19d4c-4136-4767-9180-731d9cc53aa6",
+      "username": "qahmvl1exj9.dimas",
+      "display_name": "Dummy dimas",
+      "active": true,
+      "role": "EMPLOYEE",
+      "member_active": true,
+      "revision": "2"
+    },
+    {
+      "id": "40d3560d-0869-4c24-ba85-0cc4a201c5aa",
+      "username": "qahmvl1exj9.rani",
+      "display_name": "Dummy rani",
+      "active": true,
+      "role": "EMPLOYEE",
+      "member_active": true,
+      "revision": "0"
+    },
+    {
+      "id": "6b98f00a-537a-4ffa-a8e0-d3932c7641fe",
+      "username": "recovery.9d74be7f-82a",
+      "display_name": "Recovered person QA",
+      "active": true,
+      "role": "EMPLOYEE",
+      "member_active": true,
+      "revision": "0"
+    }
+  ]
+}
