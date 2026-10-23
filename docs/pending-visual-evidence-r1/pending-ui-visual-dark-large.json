@@ -1,0 +1,67 @@
+{
+  "case": "visual-dark-large",
+  "passed": true,
+  "outlet": "9c122148-1cb5-4fc5-9c03-5f8adc13ef26",
+  "actor": "8fddeed4-386a-4dce-84a7-51e743f30027",
+  "closing": "aeff553f-6907-40ae-b198-bcb69831d572",
+  "menu": "3a83c4c5-77bf-4238-b2d5-bb2559d36fb0",
+  "reviewSha256": "fdaa5e36232572fd41d28a5a794a2a209a1bf99933966f76313aa9af4e103f52",
+  "baselineSha256": "05a1632e102bf59a88e32a6341e4749772b2bb9c8d50dc7f78db5ab932f3dc05",
+  "physicalPhoneAccessed": false,
+  "fontScale": 2,
+  "widthDp": 411,
+  "heightDp": 914,
+  "dark": true,
+  "layouts": [
+    {
+      "scene": "inbox",
+      "measuredStaticTexts": 19,
+      "overflow": []
+    },
+    {
+      "scene": "export-review",
+      "measuredStaticTexts": 20,
+      "overflow": []
+    },
+    {
+      "scene": "exported",
+      "measuredStaticTexts": 18,
+      "overflow": []
+    },
+    {
+      "scene": "invalid",
+      "measuredStaticTexts": 17,
+      "overflow": []
+    },
+    {
+      "scene": "import-review",
+      "measuredStaticTexts": 21,
+      "overflow": []
+    },
+    {
+      "scene": "recreated",
+      "measuredStaticTexts": 22,
+      "overflow": []
+    },
+    {
+      "scene": "accepted",
+      "measuredStaticTexts": 24,
+      "overflow": []
+    },
+    {
+      "scene": "quantity-review",
+      "measuredStaticTexts": 23,
+      "overflow": []
+    }
+  ],
+  "stage": "synced",
+  "exportFilename": "ccs-qa-pending-export-f987c943-18a1-4f99-beaf-e8acf933a12a.json",
+  "exportSha256": "0f64d553e66b27506683b937f6724cf6a3c971967398276ac33fc8ad95802ea3",
+  "activityReviewRetained": true,
+  "frozenProviderPayloadAccepted": true,
+  "automaticSyncHeldOnResume": true,
+  "explicitFinalQuantity": 8,
+  "existingDatabaseRestored": true,
+  "legacyDatabaseUnchanged": true,
+  "afterSha256": "05a1632e102bf59a88e32a6341e4749772b2bb9c8d50dc7f78db5ab932f3dc05"
+}

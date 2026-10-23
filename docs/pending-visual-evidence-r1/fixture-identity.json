@@ -1,0 +1,77 @@
+{
+  "outlet": "9c122148-1cb5-4fc5-9c03-5f8adc13ef26",
+  "adminOutlet": "634c315a-b06e-4678-b6e7-bb4e6ac317bb",
+  "backupAdmin": "b48d1f81-1ccc-457a-a4ed-dae280b6b8ed",
+  "employee": "8fddeed4-386a-4dce-84a7-51e743f30027",
+  "colleague": "6225684d-77b3-4685-872f-bdca24ce1d1b",
+  "admin": "88e57a19-69fc-4025-8852-01d69a16b994",
+  "employeeUsername": "qahmvl58ohx.rani",
+  "outletName": "HTTP QA qahmvl58ohx",
+  "catalog": {
+    "ingredientCategories": [
+      {
+        "id": "8a135b60-6e8b-4140-b7bb-31100d47be1c",
+        "name": "Bahan baku",
+        "sortOrder": 0
+      }
+    ],
+    "ingredients": [
+      {
+        "id": "ac6ad9d7-b742-4d7f-9f56-2d0b60710d0f",
+        "categoryId": "8a135b60-6e8b-4140-b7bb-31100d47be1c",
+        "name": "Powder cokelat",
+        "sortOrder": 2,
+        "active": true
+      },
+      {
+        "id": "bc8b3e5f-d1c2-4bdb-9712-f73a5975a703",
+        "categoryId": "8a135b60-6e8b-4140-b7bb-31100d47be1c",
+        "name": "Fresh milk",
+        "sortOrder": 1,
+        "active": true
+      },
+      {
+        "id": "f412526f-4cca-4df1-938f-d8fbd97bc3e0",
+        "categoryId": "8a135b60-6e8b-4140-b7bb-31100d47be1c",
+        "name": "Biji kopi",
+        "sortOrder": 0,
+        "active": true
+      }
+    ],
+    "menuCategories": [
+      {
+        "id": "74b67147-9864-4653-86ab-bc4bd9ca4c45",
+        "name": "Coffee",
+        "sortOrder": 0
+      }
+    ],
+    "menus": [
+      {
+        "id": "3a83c4c5-77bf-4238-b2d5-bb2559d36fb0",
+        "categoryId": "74b67147-9864-4653-86ab-bc4bd9ca4c45",
+        "name": "Cappuccino",
+        "sortOrder": 0,
+        "active": true,
+        "ingredientIds": [
+          "ac6ad9d7-b742-4d7f-9f56-2d0b60710d0f",
+          "bc8b3e5f-d1c2-4bdb-9712-f73a5975a703",
+          "f412526f-4cca-4df1-938f-d8fbd97bc3e0"
+        ]
+      },
+      {
+        "id": "8dfc06f3-134d-4d0e-986c-eedd4ceb33fb",
+        "categoryId": "74b67147-9864-4653-86ab-bc4bd9ca4c45",
+        "name": "Latte",
+        "sortOrder": 1,
+        "active": true,
+        "ingredientIds": [
+          "bc8b3e5f-d1c2-4bdb-9712-f73a5975a703",
+          "f412526f-4cca-4df1-938f-d8fbd97bc3e0"
+        ]
+      }
+    ]
+  },
+  "ownedDatabase": true,
+  "retained": true,
+  "limiterClockInjected": true
+}

@@ -1,0 +1,36 @@
+﻿{
+    "passed":  true,
+    "cases":  [
+                  {
+                      "font":  "1.0",
+                      "case":  "visual-light",
+                      "night":  "no",
+                      "date":  "2026-07-01",
+                      "passed":  true
+                  },
+                  {
+                      "font":  "1.0",
+                      "case":  "visual-dark",
+                      "night":  "yes",
+                      "date":  "2026-07-02",
+                      "passed":  true
+                  },
+                  {
+                      "font":  "2.0",
+                      "case":  "visual-light-large",
+                      "night":  "no",
+                      "date":  "2026-07-03",
+                      "passed":  true
+                  },
+                  {
+                      "font":  "2.0",
+                      "case":  "visual-dark-large",
+                      "night":  "yes",
+                      "date":  "2026-07-04",
+                      "passed":  true
+                  }
+              ],
+    "deviceSettingsAndUsersRestored":  true,
+    "physicalPhoneAccessed":  false,
+    "completePt07Acceptance":  false
+}

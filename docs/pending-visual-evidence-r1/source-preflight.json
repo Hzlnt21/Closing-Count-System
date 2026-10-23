@@ -1,0 +1,169 @@
+{
+  "passed": true,
+  "baseline": "c145c073541668d805283040ccb1f772feacba32",
+  "files": [
+    {
+      "file": "README.md",
+      "indexSha256": "553a9eb5acfbc6e7d89c8a34bc40972ef9acd49c7e4122064e86879a539cceda"
+    },
+    {
+      "file": "app/src/androidTest/java/com/closingcount/app/OnlinePendingTransferNativeInstrumentedTest.kt",
+      "indexSha256": "f586cbd37e9755c9b1da50dd3ed28d224e146ff3622a2111b06eb8607b8dfd1b"
+    },
+    {
+      "file": "app/src/androidTest/java/com/closingcount/app/OnlinePendingTransferViewModelInstrumentedTest.kt",
+      "indexSha256": "606cd5f3d19fba08831df7f3872d6d9a722c374258c0fd01a0ab2657bfb3d988"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/ui/online/OnlinePendingTransferPanel.kt",
+      "indexSha256": "894dab87cec1d4e38590d7f748fe5767d6083e1e83ef527e8ebc26f2791e0dc8"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/ui/online/OnlinePendingTransferViewModel.kt",
+      "indexSha256": "cd903fdd53943c6a895ce2f0018a60a8d93f3e79b8aab5833773cfb0683fc05b"
+    },
+    {
+      "file": "docs/ONLINE_PENDING_TRANSFER_PLAN_R1.md",
+      "indexSha256": "e74350e74178c5a3386d3902185429ebdac9569124e6d1dc1a7d8e4914c4a5d3"
+    },
+    {
+      "file": "docs/PENDING_TRANSFER_VISUAL_R1.md",
+      "indexSha256": "54b960364409d6f42f0edbf79b84231e65bd3caf2803baafe8c42b5653b0490a"
+    },
+    {
+      "file": "docs/pending-visual-evidence-r1/Check-ClosingPendingVisualR2.ps1",
+      "indexSha256": "65207f41345bda11dae845a32236361ee0904b477cd79c2eef49ae8fc696b4ba"
+    },
+    {
+      "file": "docs/pending-visual-evidence-r1/apk-inputs.json",
+      "indexSha256": "b9cf3f4222e95c21dfb20e53b2efb5e937254f6331673790dd5b6f3988276d3b"
+    },
+    {
+      "file": "docs/pending-visual-evidence-r1/build.log",
+      "indexSha256": "ccd2896342c3243602c97c4d18c5d2bc6624dc21bfebf08365df01fde1fcef4b"
+    },
+    {
+      "file": "docs/pending-visual-evidence-r1/canonical-guards.json",
+      "indexSha256": "d7288db9782c4af2009cc9b4618ab0142834ff518536ef2eb500ee2a508d7661"
+    },
+    {
+      "file": "docs/pending-visual-evidence-r1/check-pending-visual-r2.py",
+      "indexSha256": "e31df9d54079d209c59e825a95a334cc9433fbe90b4d52cf65108f407ae2257d"
+    },
+    {
+      "file": "docs/pending-visual-evidence-r1/database-after.json",
+      "indexSha256": "cb85c3a077998b205746f54024675cb734a7c15f094c26a5ae5f2465b9fa43d9"
+    },
+    {
+      "file": "docs/pending-visual-evidence-r1/device-after.json",
+      "indexSha256": "41a80e1ee96257b407b32268989ce5a2875cf43ba7321f9bbf20812ad22e9493"
+    },
+    {
+      "file": "docs/pending-visual-evidence-r1/device-baseline.json",
+      "indexSha256": "41a80e1ee96257b407b32268989ce5a2875cf43ba7321f9bbf20812ad22e9493"
+    },
+    {
+      "file": "docs/pending-visual-evidence-r1/fixture-identity.json",
+      "indexSha256": "39a7c363c0cb681a66d6aa9ca3e2d0f51e806f231f96ca971c438ae0547dcc2d"
+    },
+    {
+      "file": "docs/pending-visual-evidence-r1/local-instrumentation.log",
+      "indexSha256": "cb253c2d6347a71cd6a750a57bb8d4c75ed2924cf0358fdf7fe166880f300b88"
+    },
+    {
+      "file": "docs/pending-visual-evidence-r1/pending-ui-visual-dark-inbox.png",
+      "indexSha256": "3b7267ade36da2265dc3a244236b4dabe4ca08975d55edf4c8c3b62bd8e4ce65"
+    },
+    {
+      "file": "docs/pending-visual-evidence-r1/pending-ui-visual-dark-large-export-review.png",
+      "indexSha256": "d163f29991e9ef824c1da6eb2cc510b48e5d42fb155568812cb0011a442a606e"
+    },
+    {
+      "file": "docs/pending-visual-evidence-r1/pending-ui-visual-dark-large-invalid.png",
+      "indexSha256": "aa2538f276359b181d8827b2015a0f7141370be312bff9cde37e16d5f1e2c3b8"
+    },
+    {
+      "file": "docs/pending-visual-evidence-r1/pending-ui-visual-dark-large-quantity-review.png",
+      "indexSha256": "9fe158f80a2c269640e15592265953ea55a015c712b35cac2f5db460a1ccd2ee"
+    },
+    {
+      "file": "docs/pending-visual-evidence-r1/pending-ui-visual-dark-large.json",
+      "indexSha256": "9ee4f61de631d9c0b006b6eac49ed6f0fa5fac0d41556a6e6b0576be18530884"
+    },
+    {
+      "file": "docs/pending-visual-evidence-r1/pending-ui-visual-dark-quantity-review.png",
+      "indexSha256": "9add9761d6cbd7947506805d2bf09bcc7d3eb85d61fd5c8cb978cefaad620c50"
+    },
+    {
+      "file": "docs/pending-visual-evidence-r1/pending-ui-visual-dark.json",
+      "indexSha256": "731bba00452dcab1d529ec8755ceb87ad28174ad8b38333400e767bbce419c69"
+    },
+    {
+      "file": "docs/pending-visual-evidence-r1/pending-ui-visual-light-inbox.png",
+      "indexSha256": "6b465e586e66c9562b2de81ca12d841f0c9c8b990141922269bd04419b34c991"
+    },
+    {
+      "file": "docs/pending-visual-evidence-r1/pending-ui-visual-light-large-export-review.png",
+      "indexSha256": "571aec5950e53575844204f77ba1eda0294999d248015f391d70264bf4279016"
+    },
+    {
+      "file": "docs/pending-visual-evidence-r1/pending-ui-visual-light-large-invalid.png",
+      "indexSha256": "770259a217d4d6061b26f0664be0ad8dc78ecd6cc2f00152c28d63aaace38bce"
+    },
+    {
+      "file": "docs/pending-visual-evidence-r1/pending-ui-visual-light-large-quantity-review.png",
+      "indexSha256": "28a2a5d18acdbff864106171b91e7384815253f8416901b7c93e8ab7888886eb"
+    },
+    {
+      "file": "docs/pending-visual-evidence-r1/pending-ui-visual-light-large.json",
+      "indexSha256": "2edf8f989e79a6f543e6c2d3968d894e19d20f1e897a98ec7506cbf6d093aa0b"
+    },
+    {
+      "file": "docs/pending-visual-evidence-r1/pending-ui-visual-light-quantity-review.png",
+      "indexSha256": "06f5ade1eb25df0c5659497f217197f32fbb47dfe27e64bd6ecf3725df09ca29"
+    },
+    {
+      "file": "docs/pending-visual-evidence-r1/pending-ui-visual-light.json",
+      "indexSha256": "cb33992b8c31831079fed5eda64460502cd168950f4834c7c7853e119f4d5d2f"
+    },
+    {
+      "file": "docs/pending-visual-evidence-r1/pending-visual-fixture-r2.mjs",
+      "indexSha256": "d5fbd7bf70c8012bea482caa07f07123ff9303da17c59434f24704091c7c5a16"
+    },
+    {
+      "file": "docs/pending-visual-evidence-r1/runtime-proof.json",
+      "indexSha256": "e1a6a39e95fc79a248609569bbab252b61587edd5132971929a53dff3ec8b960"
+    },
+    {
+      "file": "docs/pending-visual-evidence-r1/verification.json",
+      "indexSha256": "b36e28d4720574ab3aa3449a7f3a3b372743b76e65a23ac5e80967c6aa5ca5c6"
+    },
+    {
+      "file": "docs/pending-visual-evidence-r1/visual-dark-large.log",
+      "indexSha256": "dc84ca35d09d1b6213ecbeed4000366568bc7c5cb3fd886732e1d9297cadc650"
+    },
+    {
+      "file": "docs/pending-visual-evidence-r1/visual-dark.log",
+      "indexSha256": "5611e3d11cd49b2c14e1455fc25d9fa9e48b9801fce40c3796fd684447c52421"
+    },
+    {
+      "file": "docs/pending-visual-evidence-r1/visual-light-large.log",
+      "indexSha256": "e1d4932f83c70762374c08d05312fbb744c51cb9e37e07cdc1cd056fc0e84c3d"
+    },
+    {
+      "file": "docs/pending-visual-evidence-r1/visual-light.log",
+      "indexSha256": "2e10056f025728f4116593c6b37ad61dd5db7564cdc94fcc81c93f5aaa9808aa"
+    }
+  ],
+  "canonicalRepositoriesUnchanged": 8,
+  "knownPrivateValuesAbsent": true,
+  "productionChangesRestrictedToSpacingAndMalformedFileCopy": true,
+  "coreServiceSchemaTransportSyncRecoveryLogicDependenciesUnchanged": true,
+  "localUiAndInboxTestsRerun": 7,
+  "nativeQuantityJourneys": 4,
+  "jvmTests": 25,
+  "lintErrors": 0,
+  "lintWarnings": 17,
+  "core88And3CrossInstallInheritedFrom": "c145c073541668d805283040ccb1f772feacba32",
+  "completePt07Acceptance": false
+}

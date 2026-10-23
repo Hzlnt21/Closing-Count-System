@@ -184,6 +184,7 @@ class OnlinePendingTransferViewModel private constructor(application:Application
             "Inbox pemulihan penuh" in detail->"Inbox penuh. Hapus salinan yang tidak diperlukan, lalu pilih file kembali."
             "RECOVERY_NOT_WRITABLE" in detail->"Closing belum dapat diedit. Periksa statusnya sebelum memulihkan draft."
             "RECOVERY_NOT_READY" in detail->"Tindakan ini belum memenuhi syarat. Periksa status dan hak akses terbaru."
+            error is android.util.MalformedJsonException->"File cadangan tidak valid. Pilih file cadangan draft online Closing Count."
             error is java.io.IOException->"File atau layanan belum dapat diakses. Periksa koneksi atau pilih lokasi file lain."
             error is IllegalArgumentException||error is org.json.JSONException->"File atau akun tidak sesuai. Gunakan cadangan draft online Closing Count dan akun asalnya."
             else->"Tindakan belum berhasil. Data yang ada tetap tersedia; periksa kembali sebelum mencoba."

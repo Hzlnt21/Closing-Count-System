@@ -7,6 +7,8 @@ import android.view.accessibility.AccessibilityNodeInfo
 import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.semantics.SemanticsProperties
+import androidx.compose.ui.semantics.SemanticsActions
+import androidx.compose.ui.text.TextLayoutResult
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.test.core.app.ApplicationProvider
@@ -19,6 +21,7 @@ import com.closingcount.app.data.local.BackupSnapshot
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.runBlocking
 import org.json.JSONObject
+import org.json.JSONArray
 import org.junit.*
 import org.junit.Assert.*
 import java.io.File
@@ -37,6 +40,7 @@ class OnlinePendingTransferNativeInstrumentedTest {
     private val code=InstrumentationRegistry.getArguments().getString("ccsPendingUiCase")?:"native-light"
     private val date=InstrumentationRegistry.getArguments().getString("ccsPendingUiDate")?:"2026-07-01"
     private val proof=JSONObject().put("case",code).put("passed",false)
+    private val layouts=JSONArray()
     private val preferences by lazy{app.getSharedPreferences("ccs_online_ui",Context.MODE_PRIVATE)}
     private val sessionStore by lazy{OnlineSessionStore(app)}
     private var ready=false
@@ -74,6 +78,9 @@ class OnlinePendingTransferNativeInstrumentedTest {
         }
         proof.put("outlet",outlet).put("actor",session.identity.id).put("closing",id).put("menu",menu).put("reviewSha256",fingerprint)
             .put("baselineSha256",baseline).put("physicalPhoneAccessed",false)
+        val config=app.resources.configuration
+        proof.put("fontScale",config.fontScale).put("widthDp",config.screenWidthDp).put("heightDp",config.screenHeightDp)
+            .put("dark",config.uiMode and android.content.res.Configuration.UI_MODE_NIGHT_MASK==android.content.res.Configuration.UI_MODE_NIGHT_YES).put("layouts",layouts)
     }
     @After fun cleanup():Unit=runBlocking {
         if(ready){
@@ -103,6 +110,8 @@ class OnlinePendingTransferNativeInstrumentedTest {
     private fun save(){File(app.getExternalFilesDir(null),"pending-ui-$code.json").writeText(proof.toString(2))}
     private fun waitFor(check:()->Boolean){compose.waitUntil(45000){runCatching(check).getOrDefault(false)}}
     private fun click(tag:String,scroll:Boolean=true){
+        if(scroll&&compose.onAllNodesWithTag("online.pending.page").fetchSemanticsNodes().isNotEmpty())
+            compose.onNodeWithTag("online.pending.page").performScrollToNode(hasTestTag(tag))
         waitFor{compose.onAllNodesWithTag(tag).fetchSemanticsNodes().singleOrNull()?.config?.contains(SemanticsProperties.Disabled)==false}
         val n=compose.onNodeWithTag(tag);if(scroll)n.performScrollTo();n.assertIsDisplayed().performClick()
     }
@@ -110,11 +119,24 @@ class OnlinePendingTransferNativeInstrumentedTest {
     private fun capture(scene:String){
         proof.put("stage",scene);save()
         if(instrumentation.uiAutomation.rootInActiveWindow?.packageName?.toString()=="com.closingcount.app")compose.waitForIdle()
+        if(vm.state.value.opened&&!vm.state.value.waitingOpen&&vm.state.value.waitingSave==null)checkPendingLayout(scene)
         instrumentation.uiAutomation.waitForIdle(300,5000)
         var image:android.graphics.Bitmap?=null
         repeat(5){if(image==null){image=instrumentation.uiAutomation.takeScreenshot();if(image==null)Thread.sleep(250)}}
         val captured=requireNotNull(image){"QA screenshot unavailable"}
         File(app.getExternalFilesDir(null),"pending-ui-$code-$scene.png").outputStream().use{check(captured.compress(android.graphics.Bitmap.CompressFormat.PNG,100,it))};captured.recycle()
+    }
+    private fun checkPendingLayout(scene:String){
+        val matcher=SemanticsMatcher("static text layout"){it.config.contains(SemanticsActions.GetTextLayoutResult)&&it.config.contains(SemanticsProperties.Text)&&!it.config.contains(SemanticsProperties.EditableText)}
+        var measured=0;val overflow=JSONArray()
+        for(node in compose.onAllNodes(matcher,useUnmergedTree=true).fetchSemanticsNodes()){
+            if(node.boundsInRoot.width<=0||node.boundsInRoot.height<=0)continue
+            val results=mutableListOf<TextLayoutResult>()
+            compose.onNode(SemanticsMatcher("node ${node.id}"){it.id==node.id},useUnmergedTree=true).performSemanticsAction(SemanticsActions.GetTextLayoutResult){it(results)}
+            for(result in results){measured++;if(significantTextOverflow(result))overflow.put(node.config[SemanticsProperties.Text].joinToString(" "){it.text})}
+        }
+        layouts.put(JSONObject().put("scene",scene).put("measuredStaticTexts",measured).put("overflow",overflow))
+        assertTrue("No text measured in $scene",measured>0);assertEquals("Clipped pending UI text in $scene: $overflow",0,overflow.length())
     }
     private fun shell(command:String)=ParcelFileDescriptor.AutoCloseInputStream(instrumentation.uiAutomation.executeShellCommand(command)).use{it.readBytes()}
     private fun node(predicate:(AccessibilityNodeInfo)->Boolean):AccessibilityNodeInfo? {
@@ -151,6 +173,7 @@ class OnlinePendingTransferNativeInstrumentedTest {
             click("online.sync");waitFor{runBlocking{api.fetch(session,outlet,id).entries.first().serverQuantity==4}}
             nav("Akun");click("online.pending.open");waitFor{!vm.state.value.busy}
             click("online.pending.import");choose(invalid);waitFor{!vm.state.value.busy&&vm.state.value.failed};capture("invalid")
+            assertEquals("File cadangan tidak valid. Pilih file cadangan draft online Closing Count.",vm.state.value.message)
             click("online.pending.import");choose(filename);waitFor{vm.state.value.importing!=null&&!vm.state.value.busy}
             val reviewed=requireNotNull(vm.state.value.importing);assertEquals(fingerprint,reviewed.summary.sha256);capture("import-review")
             compose.activityRule.scenario.recreate();waitFor{vm.state.value.importing==reviewed};capture("recreated")

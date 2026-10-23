@@ -57,6 +57,9 @@ class OnlinePendingTransferViewModelInstrumentedTest {
     private fun rewrite(uri:Uri,bytes:ByteArray){requireNotNull(base.contentResolver.openOutputStream(uri,"wt")).use{it.write(bytes)}}
     private fun read(uri:Uri)=requireNotNull(base.contentResolver.openInputStream(uri)).use{it.readBytes()}
     @Test fun providerRewritePreviewAcceptBackAndRemovalKeepLiveDraftAndSession():Unit=runBlocking {
+        val invalid=source("not a pending backup".toByteArray())
+        main{assertTrue(vm.beginOpen());vm.finishOpen(invalid)};idle()
+        assertTrue(vm.state.value.failed);assertEquals("File cadangan tidak valid. Pilih file cadangan draft online Closing Count.",vm.state.value.message)
         val original=OnlinePendingBackupCodec.encode(inboxPacket());val decoded=OnlinePendingBackupCodec.decode(original);val uri=source(original)
         main{assertTrue(vm.beginOpen());vm.finishOpen(uri)};idle();val review=requireNotNull(vm.state.value.importing)
         assertTrue(vm.state.value.entries.isEmpty());rewrite(uri,OnlinePendingBackupCodec.encode(inboxPacket()))
