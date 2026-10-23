@@ -59,3 +59,8 @@ data class OnlineLifecycleEntity(
     val wasSent: Boolean,
     val errorCode: String?,
 )
+
+/** Local provenance only; never a server receipt or authenticated grant. */
+@Entity(tableName="online_recovery_claims",primaryKeys=["scope","originalOperationId"])
+data class OnlineRecoveryClaimEntity(val scope:String,val originalOperationId:String,val fingerprint:String,
+    val closingId:String,val recoveredOperationId:String?,val createdAt:String)

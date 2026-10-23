@@ -1,0 +1,75 @@
+{
+  "outlet": "3f69507f-ddf2-43f1-a534-456560e4e9f9",
+  "employee": "0efeaa05-3190-4b5d-a6e8-141ba2b52a0f",
+  "colleague": "14bd9195-4e0e-473c-9cc6-3ae846fc4dca",
+  "admin": "e15388a1-ad62-462b-839f-fc1a03dfe246",
+  "employeeUsername": "qahmvkzsr7b.rani",
+  "outletName": "HTTP QA qahmvkzsr7b",
+  "catalog": {
+    "ingredientCategories": [
+      {
+        "id": "b6d807cb-50b6-438d-9335-5ed251a0144f",
+        "name": "Bahan baku",
+        "sortOrder": 0
+      }
+    ],
+    "ingredients": [
+      {
+        "id": "3fd7ed36-d2e0-4d29-b742-564a0d5d80d4",
+        "categoryId": "b6d807cb-50b6-438d-9335-5ed251a0144f",
+        "name": "Fresh milk",
+        "sortOrder": 1,
+        "active": true
+      },
+      {
+        "id": "b2c9dac4-7d16-4b95-aeb9-765803bec457",
+        "categoryId": "b6d807cb-50b6-438d-9335-5ed251a0144f",
+        "name": "Biji kopi",
+        "sortOrder": 0,
+        "active": true
+      },
+      {
+        "id": "f3ad6ce1-54ca-4d80-bd50-b259a0c4302e",
+        "categoryId": "b6d807cb-50b6-438d-9335-5ed251a0144f",
+        "name": "Powder cokelat",
+        "sortOrder": 2,
+        "active": true
+      }
+    ],
+    "menuCategories": [
+      {
+        "id": "29244565-f2ad-4f54-92f6-467ac4a7b0e7",
+        "name": "Coffee",
+        "sortOrder": 0
+      }
+    ],
+    "menus": [
+      {
+        "id": "794fb0fe-13ef-4805-b246-a8d10404e32d",
+        "categoryId": "29244565-f2ad-4f54-92f6-467ac4a7b0e7",
+        "name": "Latte",
+        "sortOrder": 1,
+        "active": true,
+        "ingredientIds": [
+          "3fd7ed36-d2e0-4d29-b742-564a0d5d80d4",
+          "b2c9dac4-7d16-4b95-aeb9-765803bec457"
+        ]
+      },
+      {
+        "id": "9c8efa0c-a735-43c7-b24a-692f00137676",
+        "categoryId": "29244565-f2ad-4f54-92f6-467ac4a7b0e7",
+        "name": "Cappuccino",
+        "sortOrder": 0,
+        "active": true,
+        "ingredientIds": [
+          "3fd7ed36-d2e0-4d29-b742-564a0d5d80d4",
+          "b2c9dac4-7d16-4b95-aeb9-765803bec457",
+          "f3ad6ce1-54ca-4d80-bd50-b259a0c4302e"
+        ]
+      }
+    ]
+  },
+  "ownedDatabase": true,
+  "retained": true,
+  "limiterClockInjected": true
+}

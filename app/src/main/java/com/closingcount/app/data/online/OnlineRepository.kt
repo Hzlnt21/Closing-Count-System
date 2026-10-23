@@ -86,6 +86,16 @@ class OnlineRepository(private val dao: OnlineSyncDao, private val store: Online
         check(active===expected) { "Backup session changed" }
         withContext(Dispatchers.IO){write()}
     }
+    internal suspend fun <T> withRecoverySession(expected:OnlineSession,outletId:String,block:suspend(OnlineApi,OnlineSession,OnlineSyncDao)->T):T=sessionMutex.withLock {
+        check(active===expected) { "RECOVERY_SESSION_CHANGED" }
+        engine(expected).withRecovery {
+            val client=api(expected);val fresh=client.refreshIdentity(expected)
+            check(fresh.identity.id==expected.identity.id && fresh.origin==expected.origin)
+            fresh.scope(outletId)
+            val result=block(client,fresh,dao)
+            check(active===expected) { "RECOVERY_SESSION_CHANGED" };result
+        }
+    }
     suspend fun team(outlet:String,after:String?=null):OnlineTeamPage{
         val session=requireNotNull(active);val value=api(session).team(session,outlet,after);check(active===session);return value
     }

@@ -1,0 +1,197 @@
+{
+  "passed": true,
+  "baseline": "55476d27a4b6f5451dfcc6e8ba1c52c80056ff67",
+  "files": [
+    {
+      "file": "README.md",
+      "indexSha256": "f430bd602cb32804ad02a6c41286c29a36f7c479ad13c1218bb8b9126207dd08"
+    },
+    {
+      "file": "app/schemas/com.closingcount.app.data.local.ClosingCountDatabase/9.json",
+      "indexSha256": "f2e6d357c86d708159d8ebfccbd75d45d380093e2c3bafafe30b04f4b6135f3d"
+    },
+    {
+      "file": "app/src/androidTest/java/com/closingcount/app/OnlineHttpInstrumentedTest.kt",
+      "indexSha256": "37793ab2473b4b5646111d28d03253d9d6c3c9f386dc006a7c947d0132b5c670"
+    },
+    {
+      "file": "app/src/androidTest/java/com/closingcount/app/OnlineLifecycleHttpInstrumentedTest.kt",
+      "indexSha256": "b787ca4722fea74cae64abb1ec813b35c46fe774b8c6e25f3912ac1c51f7f1c7"
+    },
+    {
+      "file": "app/src/androidTest/java/com/closingcount/app/OnlineLifecycleInstrumentedTest.kt",
+      "indexSha256": "6eaa56e213aed8badb7984bb048d202632a39d3d4a50ac0c914eed8b55bdcf96"
+    },
+    {
+      "file": "app/src/androidTest/java/com/closingcount/app/OnlineProcessRecoveryInstrumentedTest.kt",
+      "indexSha256": "4578ab568ea09ca0ec1e620ea6a89351098e29da2df9237dbc3d30104f039fcc"
+    },
+    {
+      "file": "app/src/androidTest/java/com/closingcount/app/OnlineQuantityRecoveryHttpInstrumentedTest.kt",
+      "indexSha256": "cd0317292651472c00cd4cc9c5e701f9c315cc92b3dfd28e95de6aadf9d0e356"
+    },
+    {
+      "file": "app/src/androidTest/java/com/closingcount/app/OnlineQuantityRecoveryInstallInstrumentedTest.kt",
+      "indexSha256": "94bda759d4bf38e9f6d5181b0a2234f8665b3737c7d4a71f466e3f04c2091bfb"
+    },
+    {
+      "file": "app/src/androidTest/java/com/closingcount/app/OnlineSyncInstrumentedTest.kt",
+      "indexSha256": "1cd0fd9650c728b8647b7e73cf1b1b4736028bff75e984e63a58400746a64cf7"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/data/local/ClosingCountDatabase.kt",
+      "indexSha256": "48ab67012a25558ca22cde3f922ff58c3389831c3e91c6334fad337c13646dce"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/data/local/OnlineEntities.kt",
+      "indexSha256": "75406022575cefed528089c8f39128db7cadc66c1b59b7192694975976b569b3"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/data/local/OnlineMigration.kt",
+      "indexSha256": "2c63c6e03c6edbc86c1f607a5f0c01121fdd48a0858c9d1b1f714091f72817fd"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/data/local/OnlineSyncDao.kt",
+      "indexSha256": "1f4f03c2e967fa3089a371c78ad8c8c7b1b8942457fae5b2861113a6a3a96f22"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/data/online/OnlineApi.kt",
+      "indexSha256": "e236df9f44e25f184c3e9f1121abd125557b26e00a86bb788d6db585d8be0dcd"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/data/online/OnlineRepository.kt",
+      "indexSha256": "c6fcfedeae9520624ab64e91c021c591967031efa08339ea8c214f44fe8b71fa"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/data/online/OnlineSyncEngine.kt",
+      "indexSha256": "5b51918935b554c9a46cc25f5c19ccca85a5f59cd29cb736e0faccb43ba7b50d"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/data/transfer/OnlineQuantityRecovery.kt",
+      "indexSha256": "36ab2ae5a336f6d9bb87b81d3fc24af304c44f6758c80e92f684ea17cc5ab5f0"
+    },
+    {
+      "file": "docs/ONLINE_PENDING_TRANSFER_PLAN_R1.md",
+      "indexSha256": "5f470b662b7e81d405b0d591576f38a403fd74cf26a20cc4b126dbea5262b8d1"
+    },
+    {
+      "file": "docs/QUANTITY_RECOVERY_R1.md",
+      "indexSha256": "5d2d3aa7b90c41cd3b73caa0b6c087765db1d5921a6dc2ed992d92dd6fb60f75"
+    },
+    {
+      "file": "docs/quantity-recovery-evidence-r1/Check-ClosingQuantityRecoveryR1.ps1",
+      "indexSha256": "111eba878ead1ce5fdf34ece83855ccb398568eb40f3c07669bd8aa9eb97206c"
+    },
+    {
+      "file": "docs/quantity-recovery-evidence-r1/apk-inputs.json",
+      "indexSha256": "5e8f09cb7aa0f4df382586f6ee13e0a90e20c63011465ae8561dfb1e96562a13"
+    },
+    {
+      "file": "docs/quantity-recovery-evidence-r1/build.log",
+      "indexSha256": "ff37ba0766be20c239cb350ea5131b936f938e51a2f27ef1b120f38fec61d653"
+    },
+    {
+      "file": "docs/quantity-recovery-evidence-r1/check-quantity-recovery-r1.py",
+      "indexSha256": "ba728d35a44e930481532fd33f7acb0b810f1235702dd61435471534308653cc"
+    },
+    {
+      "file": "docs/quantity-recovery-evidence-r1/database-after.json",
+      "indexSha256": "d3a414efb0ac52664dc265d1015fbfa8c1cb1a88e1e91890a303972151a29987"
+    },
+    {
+      "file": "docs/quantity-recovery-evidence-r1/device-after.json",
+      "indexSha256": "41a80e1ee96257b407b32268989ce5a2875cf43ba7321f9bbf20812ad22e9493"
+    },
+    {
+      "file": "docs/quantity-recovery-evidence-r1/device-baseline.json",
+      "indexSha256": "41a80e1ee96257b407b32268989ce5a2875cf43ba7321f9bbf20812ad22e9493"
+    },
+    {
+      "file": "docs/quantity-recovery-evidence-r1/fixture-identity.json",
+      "indexSha256": "5a7da093d5f0f38cf1dfafb3991e103a19cd0b225b1194760e5a1f249b9da255"
+    },
+    {
+      "file": "docs/quantity-recovery-evidence-r1/install-receive.log",
+      "indexSha256": "f9ba126a14451fb01d324f592d46d01f169d06bf7748186e9fee133731f2a31f"
+    },
+    {
+      "file": "docs/quantity-recovery-evidence-r1/install-source-verify.log",
+      "indexSha256": "9ef81a307127ceab34659ef1f7cd8f769d1c0072f567dc6acd936270d1196444"
+    },
+    {
+      "file": "docs/quantity-recovery-evidence-r1/install-stage.log",
+      "indexSha256": "a2c5bcdac54b48d0533b51c73d4d88d10f42101b7b5dd5f268bfbf67719f25f9"
+    },
+    {
+      "file": "docs/quantity-recovery-evidence-r1/instrumentation.log",
+      "indexSha256": "6638f6eec9ffffb7dbc67d2f529c98a132fca3c63dc0eb477166abe45ad5216e"
+    },
+    {
+      "file": "docs/quantity-recovery-evidence-r1/quantity-install-pending-qa.json",
+      "indexSha256": "86255141d2cbce885ef34e151a406572c3ef0ab8e75582fe55b84494383d4504"
+    },
+    {
+      "file": "docs/quantity-recovery-evidence-r1/quantity-recovery-fixture-r1.mjs",
+      "indexSha256": "96c2bb39e7be4753809a2dc716117e1b01470af64d4800faf76184d9cfaeefaa"
+    },
+    {
+      "file": "docs/quantity-recovery-evidence-r1/runtime-proof.json",
+      "indexSha256": "08db298a2ef537619ed57881f131618c300871d9f3f574bf21776d659c850805"
+    },
+    {
+      "file": "docs/quantity-recovery-evidence-r1/secondary-installation.json",
+      "indexSha256": "efaa863ef0f98eb6e067aab1d92b91fccb50b8b3c6a5990e3e937d026a825dbd"
+    },
+    {
+      "file": "docs/quantity-recovery-evidence-r1/test-rebuild.log",
+      "indexSha256": "f8eb8d85336093ccdaf1f872995873c2db2eac08da3562893a744ff460f8cd73"
+    },
+    {
+      "file": "docs/quantity-recovery-evidence-r1/verification.json",
+      "indexSha256": "61e819b4cdf97be391a6831dd8f2c8a28dbc2fc0ade765c75ef1ac3b4ff3984e"
+    }
+  ],
+  "canonical": [
+    {
+      "code": "ABS",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "CCS",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "ELZ",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "EXV",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "KLG",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "KEC",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "KPS",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "TTK",
+      "headAndStatusUnchanged": true
+    }
+  ],
+  "knownPrivateValuesAbsent": true,
+  "existingServiceUiDependencyUnchanged": true,
+  "existingDaoAndEngineMutationTailUnchanged": true,
+  "oldSchemasAndMigrationsPreserved": true,
+  "exactPacketIndexBytes": true,
+  "androidTests": 70,
+  "crossInstallationInvocations": 3,
+  "jvmTests": 25,
+  "scope": "PT05 reviewed quantity recovery core; native picker/UI, remaining intent types, physical and public acceptance remain pending."
+}

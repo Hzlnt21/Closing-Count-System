@@ -241,6 +241,13 @@ class OnlineApi(val endpoint: OnlineEndpoint, private val timeoutMillis: Int = 1
         return decode { snapshot(session, outletId, data) }
     }
 
+    suspend fun operationStatuses(session:OnlineSession,outletId:String,ids:List<String>):Map<String,Boolean> {
+        checkSession(session);uuid(outletId);session.scope(outletId)
+        require(ids.size in 1..100 && ids.distinct().size==ids.size);ids.forEach{uuid(it)}
+        val data=request("POST","/outlets/$outletId/operation-status",session.token,JSONObject().put("operationIds",org.json.JSONArray(ids)))
+        return decode { parseOperationStatuses(data,outletId,ids) }
+    }
+
     override suspend fun fetch(session: OnlineSession, outletId: String, closingId: String): OnlineSnapshot {
         checkSession(session); uuid(outletId); uuid(closingId)
         val data = request("GET", "/closings/$closingId", session.token)
@@ -386,6 +393,16 @@ class OnlineApi(val endpoint: OnlineEndpoint, private val timeoutMillis: Int = 1
     }
 
     companion object {
+        internal fun parseOperationStatuses(data:JSONObject,outletId:String,ids:List<String>):Map<String,Boolean> {
+            require(data.keys().asSequence().toSet()==setOf("outletId","items") && data.get("outletId")==outletId)
+            val rows=data.getJSONArray("items");require(rows.length()==ids.size)
+            return ids.mapIndexed{index,id->
+                val row=rows.getJSONObject(index)
+                require(row.keys().asSequence().toSet()==setOf("operationId","recorded"))
+                require(row.get("operationId")==id && row.get("recorded") is Boolean)
+                id to row.getBoolean("recorded")
+            }.toMap()
+        }
         private fun <T> decode(block: () -> T): T = try { block() } catch (_: IllegalArgumentException) {
             throw IOException("Invalid response payload")
         } catch (_: org.json.JSONException) { throw IOException("Invalid response payload")

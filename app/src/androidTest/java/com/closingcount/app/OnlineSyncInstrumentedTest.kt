@@ -29,7 +29,7 @@ class OnlineSyncInstrumentedTest {
     private fun remote(menu: String = "menu-a", quantity: Int = 0, revision: Long = 0, generation: Long = 1) =
         OnlineEntryEntity(scope, closingId, menu, generation, quantity, revision, quantity, "SYNCED")
     private fun open() = Room.databaseBuilder(context, ClosingCountDatabase::class.java, name)
-        .addMigrations(Migration6To7, Migration7To8).build()
+        .addMigrations(Migration6To7, Migration7To8, Migration8To9).build()
 
     @Before fun setup() {
         name = "ccs-online-test-${UUID.randomUUID()}.db"
@@ -265,6 +265,6 @@ class OnlineSyncInstrumentedTest {
         assertEquals(3, db.backupDao().getClosingMenuEntries().single().quantity)
         assertTrue(db.onlineSyncDao().operations(scope, closingId).isEmpty())
         assertNull(db.onlineSyncDao().closing(scope, closingId))
-        assertEquals(8, db.openHelper.readableDatabase.version)
+        assertEquals(9, db.openHelper.readableDatabase.version)
     }
 }

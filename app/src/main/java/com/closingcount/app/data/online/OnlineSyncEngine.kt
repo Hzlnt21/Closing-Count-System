@@ -20,6 +20,7 @@ class OnlineSyncEngine(private val dao: OnlineSyncDao, private val gateway: Onli
     private val currentSession: () -> OnlineSession?) {
     private val mutex = Mutex()
     private val attempts = mutableMapOf<String, Int>()
+    internal suspend fun <T> withRecovery(block:suspend()->T):T=mutex.withLock { block() }
     private fun same(session: OnlineSession) = currentSession()?.let {
         it.origin == session.origin && it.identity.id == session.identity.id && it.token == session.token
     } == true

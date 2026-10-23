@@ -11,6 +11,49 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 abstract class OnlineSyncDao {
+    @Query("SELECT * FROM online_recovery_claims WHERE scope=:scope AND originalOperationId IN (:ids) ORDER BY originalOperationId")
+    protected abstract suspend fun claimsBatch(scope:String,ids:List<String>):List<OnlineRecoveryClaimEntity>
+
+    @Insert(onConflict=OnConflictStrategy.ABORT)
+    protected abstract suspend fun insertClaims(values:List<OnlineRecoveryClaimEntity>)
+
+    @Transaction
+    open suspend fun recoveryClaims(scope:String,ids:List<String>):List<OnlineRecoveryClaimEntity> =
+        ids.chunked(100).flatMap{claimsBatch(scope,it)}
+
+    @Transaction
+    open suspend fun requireRecoveryTargetFree(scope:String,closingId:String,date:String) {
+        check(operations(scope,closingId).isEmpty() && lifecycle(scope,closingId)==null &&
+            entries(scope,closingId).all{it.status=="SYNCED"}) { "RECOVERY_LOCAL_PENDING" }
+        for(id in closingIds(scope)) {
+            val row=requireNotNull(closing(scope,id))
+            val cachedDate=org.json.JSONObject(row.snapshotJson).getString("businessDate")
+            check(cachedDate!=date || id==closingId) { "RECOVERY_DATE_CONFLICT" }
+            if(id==closingId)check(cachedDate==date) { "RECOVERY_DATE_CONFLICT" }
+        }
+    }
+
+    /** Provenance and normal new operations commit together, without network transport. */
+    @Transaction
+    open suspend fun recoverQuantities(remote:OnlineClosingEntity,remoteEntries:List<OnlineEntryEntity>,date:String,
+        quantities:Map<String,Int>,references:Map<String,String>,knownClaims:Set<String>,fingerprint:String):Map<String,String> {
+        require(Regex("[0-9a-f]{64}").matches(fingerprint) && references.isNotEmpty())
+        require(quantities.isNotEmpty() && quantities.keys.all{key->remoteEntries.any{it.menuId==key}})
+        require(remote.state=="DRAFT" && remoteEntries.all{it.generation==remote.generation})
+        requireRecoveryTargetFree(remote.scope,remote.closingId,date)
+        val claims=recoveryClaims(remote.scope,references.keys.toList())
+        check(claims.map{it.originalOperationId}.toSet()==knownClaims && claims.all{it.closingId==remote.closingId}) { "RECOVERY_REVIEW_CHANGED" }
+        val old=closing(remote.scope,remote.closingId)
+        check(old==null || old.revision<=remote.revision) { "RECOVERY_REVIEW_CHANGED" }
+        pull(remote,remoteEntries)
+        val generated=quantities.mapValues{(menu,quantity)->edit(remote.scope,remote.closingId,menu,quantity)}
+        val now=java.time.Instant.now().toString()
+        insertClaims(references.filterKeys{it !in knownClaims}.map{(original,menu)->
+            OnlineRecoveryClaimEntity(remote.scope,original,fingerprint,remote.closingId,generated[menu],now)
+        })
+        return generated
+    }
+
     @Query("SELECT * FROM online_lifecycle_operations WHERE scope=:scope AND closingId=:closingId")
     abstract suspend fun lifecycle(scope: String, closingId: String): OnlineLifecycleEntity?
 

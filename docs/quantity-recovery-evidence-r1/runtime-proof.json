@@ -1,0 +1,36 @@
+{
+  "passed": true,
+  "androidTests": 70,
+  "testGroups": {
+    "OnlinePendingBackupInstrumentedTest": 8,
+    "OnlinePendingCaptureInstrumentedTest": 4,
+    "OnlinePendingExportInstrumentedTest": 9,
+    "OnlinePendingInboxInstrumentedTest": 9,
+    "OnlineSyncInstrumentedTest": 15,
+    "OnlineLifecycleInstrumentedTest": 7,
+    "OnlineHttpInstrumentedTest": 7,
+    "OnlineQuantityRecoveryHttpInstrumentedTest": 11
+  },
+  "crossInstallationInvocations": 3,
+  "appUids": [
+    10216,
+    1010216
+  ],
+  "secondaryUser": 10,
+  "sameEmulator": true,
+  "sourceQueueUnchanged": true,
+  "noAutomaticSend": true,
+  "oldHeadRecorded": true,
+  "oldTailRecorded": false,
+  "newId": "2088629e-1ae9-4182-9f5f-c76606af2aaf",
+  "newOperationRecorded": true,
+  "packetSha256": "86255141d2cbce885ef34e151a406572c3ef0ab8e75582fe55b84494383d4504",
+  "packetBytes": 1093,
+  "packetBusinessModelCompared": true,
+  "serverAuditAndQuantitiesCompared": true,
+  "jvmTests": 25,
+  "lintErrors": 0,
+  "lintWarnings": 17,
+  "deviceSettingsAndUsersRestored": true,
+  "scope": "PT05 reviewed quantity recovery core; native picker/UI, remaining intent types, physical and public acceptance remain pending."
+}

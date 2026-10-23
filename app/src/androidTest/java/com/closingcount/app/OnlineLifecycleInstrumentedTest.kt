@@ -23,7 +23,7 @@ class OnlineLifecycleInstrumentedTest {
     private val id = "closing-a"
     private fun header(revision: Long = 0, generation: Long = 1, state: String = "DRAFT") = OnlineClosingEntity(scope,id,generation,revision,state,"{}")
     private fun row(quantity: Int = 0, revision: Long = 0, generation: Long = 1) = OnlineEntryEntity(scope,id,"menu-a",generation,quantity,revision,quantity,"SYNCED")
-    private fun open() = Room.databaseBuilder(context,ClosingCountDatabase::class.java,name).addMigrations(Migration6To7,Migration7To8).build()
+    private fun open() = Room.databaseBuilder(context,ClosingCountDatabase::class.java,name).addMigrations(Migration6To7,Migration7To8,Migration8To9).build()
     @Before fun setup() { name="ccs-lifecycle-${UUID.randomUUID()}.db"; db=open() }
     @After fun cleanup() {db.close();context.deleteDatabase(name)}
 
@@ -128,7 +128,7 @@ class OnlineLifecycleInstrumentedTest {
         legacy.execSQL("INSERT INTO online_entries VALUES (?,?,'menu-a',1,0,0,7,'SYNCING')",arrayOf(scope,id))
         legacy.execSQL("INSERT INTO online_operations VALUES (1,?,?,?,'menu-a',1,0,7,'SENT',NULL)",arrayOf(operation,scope,id))
         legacy.version=7;legacy.close();db=open()
-        assertEquals(8,db.openHelper.readableDatabase.version)
+        assertEquals(9,db.openHelper.readableDatabase.version)
         val sent=db.onlineSyncDao().next(scope,id)!!;assertEquals(operation,sent.operationId);assertEquals(7,sent.quantity)
         assertNull(db.onlineSyncDao().lifecycle(scope,id))
     }

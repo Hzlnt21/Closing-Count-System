@@ -1,0 +1,11 @@
+﻿{
+    "run":  "51971962-9cb5-4dfd-8857-b54024e31ba3",
+    "name":  "PortfolioQARecovery51971962",
+    "user":  10,
+    "before":  "Users:\n\tUserInfo{0:Owner:4c13} running",
+    "during":  "Users:\n\tUserInfo{0:Owner:4c13} running\n\tUserInfo{10:PortfolioQARecovery51971962:400}",
+    "sameEmulator":  true,
+    "separateAppUserIds":  true,
+    "physicalPhoneAccessed":  false,
+    "state":  "RUNNING_UNLOCKED"
+}

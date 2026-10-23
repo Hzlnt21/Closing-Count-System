@@ -1,0 +1,12 @@
+﻿{
+    "passed":  true,
+    "tests":  70,
+    "quantityRecoveryTests":  11,
+    "existingRegressions":  59,
+    "crossInstallationInvocations":  3,
+    "deviceSettingsAndUsersUnchanged":  true,
+    "emulator":  "PortfolioQA_Phone_API36",
+    "physicalPhoneAccessed":  false,
+    "nativePickerAcceptance":  false,
+    "finishedAt":  "2026-10-23T13:18:28.8688986Z"
+}

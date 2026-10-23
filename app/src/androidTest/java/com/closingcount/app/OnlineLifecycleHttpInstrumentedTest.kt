@@ -35,7 +35,7 @@ class OnlineLifecycleHttpInstrumentedTest {
         password=requireNotNull(args.getString("ccsQaPassword"));name="ccs-life-http-${UUID.randomUUID()}.db"
         db=open()
     }
-    private fun open()=Room.databaseBuilder(context,ClosingCountDatabase::class.java,name).addMigrations(Migration6To7,Migration7To8).build()
+    private fun open()=Room.databaseBuilder(context,ClosingCountDatabase::class.java,name).addMigrations(Migration6To7,Migration7To8,Migration8To9).build()
     private suspend fun login(user:String=employee)=api.login(user,password).also{sessions.add(it)}
     @After fun cleanup()=runBlocking{
         if(::api.isInitialized)sessions.forEach{try{api.logout(it)}catch(_:IOException){}}
