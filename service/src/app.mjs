@@ -8,6 +8,7 @@ import {businessDate} from './business-date.mjs';
 import {createClosingRoutes} from './closing-routes.mjs';
 import {createSettingsRoutes} from './settings-routes.mjs';
 import {createTeamRoutes} from './team-routes.mjs';
+import {createOperationStatusRoutes} from './operation-status-routes.mjs';
 
 const digest=token=>createHash('sha256').update(token).digest('hex');
 export const serviceVersion=JSON.parse(readFileSync(new URL('../package.json',import.meta.url),'utf8')).version;
@@ -57,6 +58,7 @@ export async function createApp({pool,limiter=new LoginLimiter(),onInternalError
   const closingRoutes=createClosingRoutes({pool,authenticate,member,readJson,transaction});
   const settingsRoutes=createSettingsRoutes({pool,authenticate,member,readJson,transaction});
   const teamRoutes=createTeamRoutes({pool,authenticate,member,readJson,transaction});
+  const operationStatusRoutes=createOperationStatusRoutes({pool,authenticate,member,readJson,transaction});
   return createServer({requestTimeout:10000,headersTimeout:10000,maxHeaderSize:8192},async(req,res)=>{
     const requestId=randomUUID();
     res.setHeader('Cache-Control','no-store');res.setHeader('X-Content-Type-Options','nosniff');
@@ -90,6 +92,8 @@ export async function createApp({pool,limiter=new LoginLimiter(),onInternalError
         return send(200,{accessToken:token,expiresAt:session.expires_at,tokenType:'Bearer'});
       }
       const account=await authenticate(req);
+      const operationStatusResponse=await operationStatusRoutes(req,url);
+      if(operationStatusResponse)return send(operationStatusResponse.status,operationStatusResponse.data);
       const teamResponse=await teamRoutes(req,url,account);
       if(teamResponse)return send(teamResponse.status,teamResponse.data);
       const settingsResponse=await settingsRoutes(req,url,account);

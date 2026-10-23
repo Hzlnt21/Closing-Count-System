@@ -1,0 +1,109 @@
+{
+  "passed": true,
+  "baseline": "7e8e214d685b3458d006b576e17c1a0882f852ad",
+  "files": [
+    {
+      "file": "README.md",
+      "indexSha256": "6b8b211c27601f4c89c3d954665663cc2cdbf23da617e0423d797f7216b9b9ef"
+    },
+    {
+      "file": "docs/ONLINE_CONTRACT.md",
+      "indexSha256": "e531df29367ee8c5c7aa3a82069096a3ef5c2a1cd218aee4ff45e7855014246f"
+    },
+    {
+      "file": "docs/ONLINE_PENDING_TRANSFER_PLAN_R1.md",
+      "indexSha256": "932a6e2e53eed86b7e78fce11e808d73f5380ab18779b6a5045a3e6e21e0b105"
+    },
+    {
+      "file": "docs/PENDING_OPERATION_STATUS_R1.md",
+      "indexSha256": "e1a0e6e2f1c871637041dad39a9966017e833d114dd08bf29466762bc223d882"
+    },
+    {
+      "file": "docs/operation-status-evidence-r1/check-operation-status-r1.py",
+      "indexSha256": "f1c6f717c2630e0fe6de66da5b7d88b6548d046c82fafdd50fcdd7043a41c0c5"
+    },
+    {
+      "file": "docs/operation-status-evidence-r1/integration.log",
+      "indexSha256": "ba37f5b262cc59d2c35a84323b5b6c8261c66e3323fd85661d68e3a968e8fdad"
+    },
+    {
+      "file": "docs/operation-status-evidence-r1/runtime-proof.json",
+      "indexSha256": "233f5b64667d57edb5a3759d280cace6ecb23655de181897dae45ce2429ba07f"
+    },
+    {
+      "file": "docs/operation-status-evidence-r1/unit.log",
+      "indexSha256": "e712ffd8b62adc04598d6761227c5dc822aa632cb8a9e1eb8926fe802ff5fb44"
+    },
+    {
+      "file": "service/CHANGELOG.md",
+      "indexSha256": "b6ab8d23bebe3255ccf8037a31b7f4e23953f2730291b6df683a429344f686d5"
+    },
+    {
+      "file": "service/README.md",
+      "indexSha256": "6f6f928e7b1276e4499a00ba6f9d18ecaa8693997a94c37be0d0819984dec19b"
+    },
+    {
+      "file": "service/package-lock.json",
+      "indexSha256": "2f75b49ef7807f60b704011c29f7b884a209af94931dcb4df14106961ca2b3cd"
+    },
+    {
+      "file": "service/package.json",
+      "indexSha256": "692a2ef59934c0310f5d522ec76832a0a75b4ac8cda7bdf8c501c6447606f77f"
+    },
+    {
+      "file": "service/src/app.mjs",
+      "indexSha256": "797a83fbff0fff4f7e663925a8ffda3371bdc33123f7345d138d3d89c5100889"
+    },
+    {
+      "file": "service/src/operation-status-routes.mjs",
+      "indexSha256": "c4c3d9da2814acce04b6c160e772d888da2edb364bd756a10839b06c797893e1"
+    },
+    {
+      "file": "service/test/operation-status-unit.test.mjs",
+      "indexSha256": "43ebc50d1fa1be3d53882e61422e8e4540bba624e776c0cb6da60528aee552ae"
+    },
+    {
+      "file": "service/test/operation-status.test.mjs",
+      "indexSha256": "d5075aad70996e217bb11be982fe997eeeac35ddeba396f5595316bb2c78f3da"
+    }
+  ],
+  "canonical": [
+    {
+      "code": "ABS",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "CCS",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "ELZ",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "EXV",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "KLG",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "KEC",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "KPS",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "TTK",
+      "headAndStatusUnchanged": true
+    }
+  ],
+  "knownPrivateValuesAbsent": true,
+  "androidSchemaDependenciesMutationRoutesUnchanged": true,
+  "runtime": "PT03 service only; recovery inbox/client/UI/restore remain pending.",
+  "unitTests": 22,
+  "httpPostgresTestsIncludingParents": 80
+}

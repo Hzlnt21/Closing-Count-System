@@ -1,6 +1,6 @@
-# Closing Count service: team management R1
+# Closing Count service: operation status R1
 
-Version 0.2.0-dev.5 is an isolated QA checkpoint. Migration 005 adds membership revisions and immutable audit. Team operations atomically create accounts or update reviewed membership with idempotent receipts. See [native team evidence and recovery boundary](../docs/NATIVE_TEAM_R1.md).
+Version 0.2.0-dev.6 adds a read-only, actor/outlet-scoped batch query for original pending-operation references. It rechecks current authorization within a consistent database read and exposes no receipt payload. [Contract, evidence and snapshot limitations](../docs/PENDING_OPERATION_STATUS_R1.md). No migration or dependency changes in this release. Migration 005 and team management remain the preceding foundation; see [native team evidence and recovery boundary](../docs/NATIVE_TEAM_R1.md).
 
 GET /api/v1/outlets/:id/team supports limit and after pagination; GET team/:accountId returns a reviewed member. POST team-operations accepts CREATE_ACCOUNT or UPDATE_MEMBERSHIP; GET team-operations/:operationId retrieves a bound receipt. Normal reads/mutations require current ADMIN access. A former administrator may read only their own recorded access-loss update receipt; no roster, foreign result or mutation access follows. Password fingerprints use scoped scrypt and Android persists only non-secret metadata.
 
@@ -41,6 +41,7 @@ All API responses are `{data, requestId}` or `{error:{code,message}, requestId}`
 | POST /api/v1/auth/logout | `{}`; authenticated | loggedOut |
 | GET /api/v1/me | Authenticated | id, username, displayName, active outlets/roles |
 | GET /api/v1/outlets/:id | Active membership | Outlet name/role/timezone/cutoffMinutes/settingsRevision |
+| POST /api/v1/outlets/:id/operation-status | Active membership; operationIds: 1..100 unique UUIDs; 8KiB | Ordered operationId/recorded pairs scoped to current actor/outlet; read-only query, no receipt body |
 | POST /api/v1/outlets/:id/settings | ADMIN; operationId/expectedRevision/name/timezone/cutoffMinutes | Durable receipt, next settingsRevision; SETTINGS_CONFLICT for stale review; no historical closing rewrite |
 | GET /api/v1/outlets/:id/business-date | Active membership | businessDate/serverTime/timezone/cutoffMinutes |
 | GET /api/v1/outlets/:id/memberships | ADMIN | Scoped public account/membership fields |

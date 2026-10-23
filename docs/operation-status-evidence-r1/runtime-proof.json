@@ -1,0 +1,162 @@
+{
+  "passed": true,
+  "unitTests": 22,
+  "httpPostgresTestsIncludingParents": 80,
+  "newScenarios": 7,
+  "newScenariosIncludingParent": 8,
+  "readOnlyTransactionsChecked": true,
+  "physicalPhoneAccessed": false,
+  "androidRerun": false,
+  "publicAcceptance": false,
+  "source": [
+    {
+      "file": "service/.gitignore",
+      "sha256": "22b90e3145bcffd30c74776fc01d3e5f811bae1da26aef717be3cf2f39b2625a"
+    },
+    {
+      "file": "service/CHANGELOG.md",
+      "sha256": "b6ab8d23bebe3255ccf8037a31b7f4e23953f2730291b6df683a429344f686d5"
+    },
+    {
+      "file": "service/package-lock.json",
+      "sha256": "72c905ea608bac01154c6f2076d88bb5a9d78b4f6b22d105fcdeb4ad2105c9e7"
+    },
+    {
+      "file": "service/package.json",
+      "sha256": "39ef23eb503ba03a8ffe5a6b15345ac9818a3cf1d8a3233d89a6e46e3b70fee6"
+    },
+    {
+      "file": "service/README.md",
+      "sha256": "6f6f928e7b1276e4499a00ba6f9d18ecaa8693997a94c37be0d0819984dec19b"
+    },
+    {
+      "file": "service/sql/001-foundation.sql",
+      "sha256": "9f381effed0953cb12cbafccc2a0aefb10dc3cdcb1ac6eef7affcb5bcfca60da"
+    },
+    {
+      "file": "service/sql/002-collaborative-closing.sql",
+      "sha256": "c7d46ca3bb552eeb94e8400cc7a6d47d18a0edda197f169b121c9cb7aeb1f0e2"
+    },
+    {
+      "file": "service/sql/003-closing-lifecycle.sql",
+      "sha256": "840d54f8b6ceb0a2b63d02a3ccb7f8fbb992611b3b4813838aab09973f0c75fa"
+    },
+    {
+      "file": "service/sql/004-outlet-settings.sql",
+      "sha256": "47668c8a594c840540efbc09f4f70cb322f301999c26ed82cbaff6a41f22da1d"
+    },
+    {
+      "file": "service/sql/005-team-revisions.sql",
+      "sha256": "bf7e77118b5422c90c1686f880a99bace3a91f0cbea27c6ce8131ec9b5a48a11"
+    },
+    {
+      "file": "service/src/app.mjs",
+      "sha256": "797a83fbff0fff4f7e663925a8ffda3371bdc33123f7345d138d3d89c5100889"
+    },
+    {
+      "file": "service/src/business-date.mjs",
+      "sha256": "219ea100cfb428e20c04a07f88ff20add1c58177bb12dd0c09bcc64230607e6e"
+    },
+    {
+      "file": "service/src/catalog.mjs",
+      "sha256": "cda5022a4a0dd22bdf7b09127732221ba9f6bb52d4388c779d76a80d076c2440"
+    },
+    {
+      "file": "service/src/closing-routes.mjs",
+      "sha256": "b2cedd902937da7cce15adcc5ac3146680cd3c98536ce082007a236004e95496"
+    },
+    {
+      "file": "service/src/config.mjs",
+      "sha256": "2578976d3a6cb0897e5c72e15af471b524ab269db5648d8e8ce1c256541e9935"
+    },
+    {
+      "file": "service/src/errors.mjs",
+      "sha256": "4ceacaaf1312b16b822912cb366bf3de89db8fcca08a006ea7875f30ae009c7d"
+    },
+    {
+      "file": "service/src/lifecycle-routes.mjs",
+      "sha256": "881627b8f6f6103f93607e25d84cc31ecef8f866d6db58d2bfaa66b70d8be2c4"
+    },
+    {
+      "file": "service/src/lifecycle.mjs",
+      "sha256": "5e9988c53515eff2b977414d9d45c5c2af694e606e0b3d73f7d59edf097dafee"
+    },
+    {
+      "file": "service/src/limiter.mjs",
+      "sha256": "430d33e348fe492852c649bd9cde41b1ba48ea7d50c1c636e6ba3ac00490f053"
+    },
+    {
+      "file": "service/src/main.mjs",
+      "sha256": "4908c990ccaddc8726b7573bffaf05e5198c0a65605e701ab194491c9d4058ec"
+    },
+    {
+      "file": "service/src/migrate.mjs",
+      "sha256": "12a891b35606a25d8c36bb9a9c6ca09a5bc9111ec37bddc2239e16c27a4f18b2"
+    },
+    {
+      "file": "service/src/operation-status-routes.mjs",
+      "sha256": "c4c3d9da2814acce04b6c160e772d888da2edb364bd756a10839b06c797893e1"
+    },
+    {
+      "file": "service/src/passwords.mjs",
+      "sha256": "078f1f4d66edaa983d0aeb31f7c3c653b57eed5f6f41cbf3c4194eee81599bfc"
+    },
+    {
+      "file": "service/src/settings-routes.mjs",
+      "sha256": "4b957dfd8e2e69de73bddb8b44dc728d8878582d57d52bbae99d81e80ba38e63"
+    },
+    {
+      "file": "service/src/team-routes.mjs",
+      "sha256": "56a62a5f3efa2e660dea626ee4fa1ce019b0979b24b09208bbc50596dc57c469"
+    },
+    {
+      "file": "service/test/android-http-fixture.mjs",
+      "sha256": "2801a064698742350e47ece84f509706c55bc15dd2e4d63ebb6a7006c6e4e20f"
+    },
+    {
+      "file": "service/test/catalog-fixture.mjs",
+      "sha256": "4e6b47bd82bcc1079196d742b89c06438cf7d1a14fe42747de0f1923201538f9"
+    },
+    {
+      "file": "service/test/catalog.test.mjs",
+      "sha256": "edeab611f82356016adb7ce5f3860cf6a92db12378f69b98190942f4ccfc9c00"
+    },
+    {
+      "file": "service/test/closing.test.mjs",
+      "sha256": "53fbc64ceedf92c330f3eda3288c68969c692fe46e1c3115ab5b493cc3cc2d61"
+    },
+    {
+      "file": "service/test/integration.test.mjs",
+      "sha256": "1fcc82fda10d18e70eb15d05c06052fc88b04224320fbbb47e57b0d27a05d192"
+    },
+    {
+      "file": "service/test/lifecycle-unit.test.mjs",
+      "sha256": "9e912ef69725162a693dac049860be766094d28bcdee712e6a1b4b3531c3d29b"
+    },
+    {
+      "file": "service/test/lifecycle.test.mjs",
+      "sha256": "09a151dee436a8ccbccb6e8030163e748ce917030499ef27e2d866b36e2cf3a3"
+    },
+    {
+      "file": "service/test/operation-status-unit.test.mjs",
+      "sha256": "43ebc50d1fa1be3d53882e61422e8e4540bba624e776c0cb6da60528aee552ae"
+    },
+    {
+      "file": "service/test/operation-status.test.mjs",
+      "sha256": "d5075aad70996e217bb11be982fe997eeeac35ddeba396f5595316bb2c78f3da"
+    },
+    {
+      "file": "service/test/settings.test.mjs",
+      "sha256": "e3f14dfd91ee0073429734ebfcee9333d3a70d9e7a5db9ca10d0e5bc1a1de9f1"
+    },
+    {
+      "file": "service/test/team.test.mjs",
+      "sha256": "8cb31b2df7210c09cdc25757fa99cdd1ddcbfcfa4320f9a17b0901e43be4a07f"
+    },
+    {
+      "file": "service/test/unit.test.mjs",
+      "sha256": "64fc370698628e502c40caecc10e82c04d1097497dac8398c22f4e6a23eed722"
+    }
+  ],
+  "scope": "PT03 service only; recovery inbox/client/UI/restore remain pending."
+}

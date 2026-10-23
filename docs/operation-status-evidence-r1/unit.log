@@ -1,0 +1,30 @@
+✔ catalog normalization is canonical without changing IDs/formula or input object (15.104ms)
+✔ catalog refuses duplicate IDs/recipes, missing categories and inactive recipe references (2.4157ms)
+✔ inactive menus do not enter new closing snapshots; old snapshots remain independent (0.6151ms)
+✔ ingredient formula matches Android baseline and handles zero/max quantities (0.5474ms)
+✔ inconsistent stored entries fail closed instead of producing partial ingredient reports (0.3552ms)
+✔ ISO business dates and revisions reject normalization, ambiguous dates and unsafe integers (1.5067ms)
+✔ lifecycle role matrix permits employee submit and supervisor/admin review actions only (1.9654ms)
+✔ lifecycle graph increments every revision and opens a new edit generation on return/reopen (1.3819ms)
+✔ return/reopen reasons are required, bounded and normalized without accepting injected reviewer/totals (1.0457ms)
+✔ device sync declaration rejects all pending/conflict/auth states and unknown values (0.4329ms)
+✔ lifecycle rejects stale generation/revision with current server metadata (0.3021ms)
+✔ unsupported current states cannot be skipped by supplying the correct revision (0.2261ms)
+✔ revision/generation limits fail without unsafe-number increments (1.4525ms)
+✔ operation status query preserves canonical input order up to100 IDs (5.4372ms)
+✔ operation status query rejects excess fields, coercion, duplicates and oversized batches (1.5692ms)
+✔ QA configuration refuses implicit, operational or foreign targets without reflecting credentials (3.5697ms)
+✔ password salt is unique, verification works and malformed parameters fail bounded (162.5647ms)
+✔ password and username validation preserve case-sensitive password semantics (0.6761ms)
+✔ payload rejects arrays, null, missing fields and injected actor/role (0.2864ms)
+✔ rate limit enforces current window, expires and fails closed at bounded capacity (158.054ms)
+✔ business date uses outlet calendar and cutoff across year rollover (22.6417ms)
+✔ business date handles a DST outlet calendar and rejects invalid settings (1.1535ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 833.2465

@@ -1,3 +1,7 @@
+# Operation status R1: 0.2.0-dev.6 (2026-10-23)
+
+Bounded read-only status query, fresh authorization inside repeatable-read snapshot, actor/outlet isolation and no receipt payload disclosure. 22 unit/80 HTTP-PostgreSQL Node tests including six parents pass. No migration/dependency/Android changes. See ../docs/PENDING_OPERATION_STATUS_R1.md.
+
 # Team R1: 0.2.0-dev.5 (2026-10-23)
 
 Migration005, revision-checked team operations, transactional receipts/audit and narrow own-access-loss receipt recovery. Service20unit/72Node integration passed. See ../docs/NATIVE_TEAM_R1.md.
