@@ -1,0 +1,32 @@
+[
+    {
+        "case":  "phone-large-dark",
+        "passed":  true,
+        "reusedIdenticalApks":  false
+    },
+    {
+        "case":  "phone-small-light",
+        "passed":  true,
+        "reusedIdenticalApks":  false
+    },
+    {
+        "case":  "phone-landscape-light",
+        "passed":  true,
+        "reusedIdenticalApks":  false
+    },
+    {
+        "case":  "tablet-light",
+        "passed":  true,
+        "reusedIdenticalApks":  false
+    },
+    {
+        "case":  "tablet-dark-large",
+        "passed":  true,
+        "reusedIdenticalApks":  false
+    },
+    {
+        "case":  "tablet-landscape-dark",
+        "passed":  true,
+        "reusedIdenticalApks":  false
+    }
+]

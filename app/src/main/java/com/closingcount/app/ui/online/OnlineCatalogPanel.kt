@@ -80,7 +80,7 @@ private fun catalogIds(c:OnlineCatalog,kind:Int):List<String> = when(kind){
                             Row(horizontalArrangement=Arrangement.spacedBy(8.dp)) {
                                 labels.forEachIndexed { col, label ->
                                     val index=row*2+col
-                                    FilterChip(selected=section==index,onClick={section=index;query=""},label={Text(label)},modifier=Modifier.testTag("online.catalog.section.$index"))
+                                    FilterChip(selected=section==index,onClick={section=index;query=""},label={Text(label)},modifier=Modifier.weight(1f).testTag("online.catalog.section.$index"))
                                 }
                             }
                         }

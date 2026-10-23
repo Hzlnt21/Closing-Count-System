@@ -1,0 +1,41 @@
+{
+  "entries": [
+    {
+      "business_date": "2026-10-23",
+      "generation": "1",
+      "revision": "0",
+      "menu_id": "6452e333-7708-488c-8783-c4c905448f84",
+      "quantity": 0,
+      "entry_revision": "0",
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-10-23",
+      "generation": "1",
+      "revision": "0",
+      "menu_id": "d4b2e715-d0dc-4e40-a0d6-4891cce266ed",
+      "quantity": 0,
+      "entry_revision": "0",
+      "updated_by": null
+    }
+  ],
+  "receipts": [],
+  "audit": [],
+  "settingsReceipts": [
+    {
+      "operation_id": "51380eb5-6632-4b01-a7a4-f2d4e5c49421",
+      "actor_id": "fe072a04-2a5b-4cf7-acbe-788bfdd0d441",
+      "response": {
+        "name": "Kedai Kopi Nusantara Cabang Pusat Pelayanan Pelanggan dan Operasional",
+        "outletId": "403519b2-214a-45d0-a2c3-ac440670bfa1",
+        "timezone": "Asia/Jakarta",
+        "operationId": "51380eb5-6632-4b01-a7a4-f2d4e5c49421",
+        "cutoffMinutes": 0,
+        "settingsRevision": 1
+      }
+    }
+  ],
+  "teamReceipts": [],
+  "internalErrorCount": 0,
+  "fixturesRetained": true
+}

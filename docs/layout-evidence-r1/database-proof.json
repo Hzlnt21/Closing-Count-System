@@ -1,0 +1,138 @@
+{
+  "passed": true,
+  "apkHashes": [
+    "D11B5A4E7FF16F1DD994FF273BC2BFD644DF936552512354C8A64764110A8EA1",
+    "A892121FC1A4997780813786893D50705FB9E21F52010AE4B409274D50A54FAA"
+  ],
+  "validatorProbePassed": true,
+  "cases": [
+    {
+      "case": "phone-large-dark",
+      "outlet": "1b39fa4c-bb75-4194-afb0-d5c0d6e67ee4",
+      "passed": true,
+      "runtimeConfiguration": [
+        360,
+        800,
+        2,
+        true
+      ],
+      "checks": 10,
+      "settingsReviewScrolledToEnd": true,
+      "unsavedMessageScrolledToEnd": false,
+      "receipts": 2,
+      "catalogVersions": 2,
+      "closingState": "DRAFT",
+      "quantitySaves": 0,
+      "teamWrites": 0,
+      "reports": 0,
+      "deviceSettingsRestored": true
+    },
+    {
+      "case": "phone-small-light",
+      "outlet": "cafaf098-bfe5-426b-bd4c-d598f3160574",
+      "passed": true,
+      "runtimeConfiguration": [
+        360,
+        800,
+        1,
+        false
+      ],
+      "checks": 10,
+      "settingsReviewScrolledToEnd": false,
+      "unsavedMessageScrolledToEnd": false,
+      "receipts": 2,
+      "catalogVersions": 2,
+      "closingState": "DRAFT",
+      "quantitySaves": 0,
+      "teamWrites": 0,
+      "reports": 0,
+      "deviceSettingsRestored": true
+    },
+    {
+      "case": "phone-landscape-light",
+      "outlet": "0923a08e-626f-4496-8f26-b167dbd731ff",
+      "passed": true,
+      "runtimeConfiguration": [
+        800,
+        360,
+        1.3,
+        false
+      ],
+      "checks": 10,
+      "settingsReviewScrolledToEnd": true,
+      "unsavedMessageScrolledToEnd": true,
+      "receipts": 2,
+      "catalogVersions": 2,
+      "closingState": "DRAFT",
+      "quantitySaves": 0,
+      "teamWrites": 0,
+      "reports": 0,
+      "deviceSettingsRestored": true
+    },
+    {
+      "case": "tablet-light",
+      "outlet": "b1ff676e-f605-4ad2-b609-32cb5bfa29e0",
+      "passed": true,
+      "runtimeConfiguration": [
+        800,
+        1280,
+        1,
+        false
+      ],
+      "checks": 10,
+      "settingsReviewScrolledToEnd": false,
+      "unsavedMessageScrolledToEnd": false,
+      "receipts": 2,
+      "catalogVersions": 2,
+      "closingState": "DRAFT",
+      "quantitySaves": 0,
+      "teamWrites": 0,
+      "reports": 0,
+      "deviceSettingsRestored": true
+    },
+    {
+      "case": "tablet-dark-large",
+      "outlet": "3cfc4e6e-3133-46cb-9d7e-3f6f634ccf2f",
+      "passed": true,
+      "runtimeConfiguration": [
+        800,
+        1280,
+        2,
+        true
+      ],
+      "checks": 10,
+      "settingsReviewScrolledToEnd": false,
+      "unsavedMessageScrolledToEnd": false,
+      "receipts": 2,
+      "catalogVersions": 2,
+      "closingState": "DRAFT",
+      "quantitySaves": 0,
+      "teamWrites": 0,
+      "reports": 0,
+      "deviceSettingsRestored": true
+    },
+    {
+      "case": "tablet-landscape-dark",
+      "outlet": "403519b2-214a-45d0-a2c3-ac440670bfa1",
+      "passed": true,
+      "runtimeConfiguration": [
+        1280,
+        800,
+        1.3,
+        true
+      ],
+      "checks": 10,
+      "settingsReviewScrolledToEnd": false,
+      "unsavedMessageScrolledToEnd": false,
+      "receipts": 2,
+      "catalogVersions": 2,
+      "closingState": "DRAFT",
+      "quantitySaves": 0,
+      "teamWrites": 0,
+      "reports": 0,
+      "deviceSettingsRestored": true
+    }
+  ],
+  "scope": "Selected native layouts and owned fixture isolation; not full accessibility or physical-device acceptance",
+  "fixturesRetained": true
+}

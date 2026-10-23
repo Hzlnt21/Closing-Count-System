@@ -1,0 +1,85 @@
+{
+  "density": 2.625,
+  "case": "phone-large-dark",
+  "fontScale": 2,
+  "screenWidthDp": 360,
+  "screenHeightDp": 800,
+  "dark": true,
+  "checks": [
+    {
+      "scene": "login",
+      "measuredStaticTexts": 6,
+      "intentionalOutletEllipses": 0,
+      "paragraphContainerOnly": 3,
+      "overflow": []
+    },
+    {
+      "scene": "overview",
+      "measuredStaticTexts": 9,
+      "intentionalOutletEllipses": 1,
+      "paragraphContainerOnly": 6,
+      "overflow": []
+    },
+    {
+      "scene": "input",
+      "measuredStaticTexts": 9,
+      "intentionalOutletEllipses": 0,
+      "paragraphContainerOnly": 6,
+      "overflow": []
+    },
+    {
+      "scene": "unsaved",
+      "measuredStaticTexts": 13,
+      "intentionalOutletEllipses": 0,
+      "paragraphContainerOnly": 8,
+      "overflow": []
+    },
+    {
+      "scene": "review",
+      "measuredStaticTexts": 8,
+      "intentionalOutletEllipses": 0,
+      "paragraphContainerOnly": 2,
+      "overflow": []
+    },
+    {
+      "scene": "history",
+      "measuredStaticTexts": 8,
+      "intentionalOutletEllipses": 0,
+      "paragraphContainerOnly": 2,
+      "overflow": []
+    },
+    {
+      "scene": "account",
+      "measuredStaticTexts": 8,
+      "intentionalOutletEllipses": 0,
+      "paragraphContainerOnly": 4,
+      "overflow": []
+    },
+    {
+      "scene": "settings-review",
+      "measuredStaticTexts": 22,
+      "intentionalOutletEllipses": 0,
+      "paragraphContainerOnly": 11,
+      "overflow": []
+    },
+    {
+      "scene": "team-form",
+      "measuredStaticTexts": 23,
+      "intentionalOutletEllipses": 0,
+      "paragraphContainerOnly": 14,
+      "overflow": []
+    },
+    {
+      "scene": "catalog-form",
+      "measuredStaticTexts": 27,
+      "intentionalOutletEllipses": 0,
+      "paragraphContainerOnly": 18,
+      "overflow": []
+    }
+  ],
+  "physicalPhoneAccessed": false,
+  "unsavedMessageScrolledToEnd": false,
+  "settingsReviewScrolledToEnd": true,
+  "passed": true,
+  "scope": "Selected native layouts; fixture setup writes only, no UI publication or saved quantity"
+}

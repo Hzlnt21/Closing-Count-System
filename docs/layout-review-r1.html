@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="id"><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<title>Closing Count — layout R1</title>
+<style>
+body{font:16px system-ui;margin:0;background:#f3f8fc;color:#142e43}main{max-width:1440px;margin:auto;padding:32px}h1{letter-spacing:-.04em}p{line-height:1.65;max-width:900px}select{font:inherit;padding:12px;border:1px solid #a6c5d9;border-radius:12px;background:white;max-width:100%}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:28px}figure{margin:0;background:white;border-radius:20px;padding:16px;box-shadow:0 8px 24px #18354c09}figcaption{font-weight:650;margin-bottom:12px}img{width:100%;height:auto;border-radius:10px}a{color:#007db8}.note{color:#4e6679} @media(max-width:600px){main{padding:20px}}
+</style>
+<main><h1>Closing Count: layout native R1</h1>
+<p>Arah R2 biru/putih yang disetujui tetap dipertahankan. Pilih konfigurasi untuk melihat tangkapan layar aplikasi Android pada emulator, dengan nama outlet/menu/bahan panjang. Beberapa gambar diambil setelah konten digulir; bagian di luar viewport dapat dicapai dengan menggulir.</p>
+<p class="note">Ini bukti konfigurasi dan layar terpilih. Bukan seluruh keadaan UI, audit aksesibilitas lengkap, uji HP fisik, atau demo publik. Angka 9999 sengaja diketik lalu dibuang tanpa disimpan. <a href="NATIVE_LAYOUT_R1.md">Hasil dan batas pengujian</a>.</p>
+<label for="case">Konfigurasi</label> <select id="case">
+<option value="phone-small-light">Ponsel 360 × 800 · terang · teks 100%</option>
+<option value="phone-large-dark">Ponsel 360 × 800 · gelap · teks 200%</option>
+<option value="phone-landscape-light">Ponsel 800 × 360 · terang · teks 130%</option>
+<option value="tablet-light">Tablet 800 × 1280 · terang · teks 100%</option>
+<option value="tablet-dark-large">Tablet 800 × 1280 · gelap · teks 200%</option>
+<option value="tablet-landscape-dark">Tablet 1280 × 800 · gelap · teks 130%</option>
+</select><section class="grid" id="screens"></section>
+<script>
+const cases=document.querySelector('#case'),screens=document.querySelector('#screens');
+const scenes=[['login','Masuk'],['overview','Ringkasan'],['input','Input nama menu panjang'],['unsaved','Perubahan belum disimpan'],['settings-review','Review pengaturan'],['team-form','Form anggota'],['catalog-form','Form menu/resep']];
+function render(){screens.replaceChildren(...scenes.map(([scene,title])=>{const figure=document.createElement('figure'),caption=document.createElement('figcaption'),link=document.createElement('a'),img=document.createElement('img');caption.textContent=title;img.src='layout-evidence-r1/'+cases.value+'/'+scene+'.png';img.alt=title+' — '+cases.selectedOptions[0].textContent;img.loading='lazy';link.href=img.src;link.append(img);figure.append(caption,link);return figure}));}
+cases.addEventListener('change',render);render();
+</script></main></html>

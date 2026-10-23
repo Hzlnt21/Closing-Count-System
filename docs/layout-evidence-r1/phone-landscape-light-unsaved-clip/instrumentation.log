@@ -1,0 +1,47 @@
+INSTRUMENTATION_STATUS: class=com.closingcount.app.OnlineLayoutInstrumentedTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=
+com.closingcount.app.OnlineLayoutInstrumentedTest:
+INSTRUMENTATION_STATUS: test=criticalScreensAndDialogsRemainReadableAndReachable
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.closingcount.app.OnlineLayoutInstrumentedTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stack=java.lang.AssertionError: Unexpected static text overflow at unsaved: [{"text":"Angka yang sedang diketik belum menjadi draft tersimpan. Kembali untuk menyimpan, atau buang perubahan kolom ini.","width":714,"height":118,"paragraphWidth":714,"paragraphHeight":355,"maxLinesExceeded":false,"lineRightMax":704.6952,"lineBottomMax":355,"ellipsized":false}] expected:<0> but was:<1>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:120)
+	at com.closingcount.app.OnlineLayoutInstrumentedTest.scene(OnlineLayoutInstrumentedTest.kt:83)
+	at com.closingcount.app.OnlineLayoutInstrumentedTest.criticalScreensAndDialogsRemainReadableAndReachable(OnlineLayoutInstrumentedTest.kt:90)
+
+INSTRUMENTATION_STATUS: stream=
+Error in criticalScreensAndDialogsRemainReadableAndReachable(com.closingcount.app.OnlineLayoutInstrumentedTest):
+java.lang.AssertionError: Unexpected static text overflow at unsaved: [{"text":"Angka yang sedang diketik belum menjadi draft tersimpan. Kembali untuk menyimpan, atau buang perubahan kolom ini.","width":714,"height":118,"paragraphWidth":714,"paragraphHeight":355,"maxLinesExceeded":false,"lineRightMax":704.6952,"lineBottomMax":355,"ellipsized":false}] expected:<0> but was:<1>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:120)
+	at com.closingcount.app.OnlineLayoutInstrumentedTest.scene(OnlineLayoutInstrumentedTest.kt:83)
+	at com.closingcount.app.OnlineLayoutInstrumentedTest.criticalScreensAndDialogsRemainReadableAndReachable(OnlineLayoutInstrumentedTest.kt:90)
+
+INSTRUMENTATION_STATUS: test=criticalScreensAndDialogsRemainReadableAndReachable
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_RESULT: stream=
+
+Time: 14,921
+There was 1 failure:
+1) criticalScreensAndDialogsRemainReadableAndReachable(com.closingcount.app.OnlineLayoutInstrumentedTest)
+java.lang.AssertionError: Unexpected static text overflow at unsaved: [{"text":"Angka yang sedang diketik belum menjadi draft tersimpan. Kembali untuk menyimpan, atau buang perubahan kolom ini.","width":714,"height":118,"paragraphWidth":714,"paragraphHeight":355,"maxLinesExceeded":false,"lineRightMax":704.6952,"lineBottomMax":355,"ellipsized":false}] expected:<0> but was:<1>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:120)
+	at com.closingcount.app.OnlineLayoutInstrumentedTest.scene(OnlineLayoutInstrumentedTest.kt:83)
+	at com.closingcount.app.OnlineLayoutInstrumentedTest.criticalScreensAndDialogsRemainReadableAndReachable(OnlineLayoutInstrumentedTest.kt:90)
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+
+
+INSTRUMENTATION_CODE: -1

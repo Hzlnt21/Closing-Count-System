@@ -1,0 +1,14 @@
+{
+    "passed":  true,
+    "case":  "tablet-light",
+    "profile":  "Tablet",
+    "widthDp":  800,
+    "heightDp":  1280,
+    "fontScale":  1,
+    "dark":  false,
+    "emulator":  "PortfolioQA_Tablet_API36",
+    "outlet":  "b1ff676e-f605-4ad2-b609-32cb5bfa29e0",
+    "deviceSettingsRestored":  true,
+    "physicalPhoneAccessed":  false,
+    "publicAcceptance":  false
+}

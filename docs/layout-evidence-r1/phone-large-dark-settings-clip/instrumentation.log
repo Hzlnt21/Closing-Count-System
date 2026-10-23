@@ -1,0 +1,50 @@
+INSTRUMENTATION_STATUS: class=com.closingcount.app.OnlineLayoutInstrumentedTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=
+com.closingcount.app.OnlineLayoutInstrumentedTest:
+INSTRUMENTATION_STATUS: test=criticalScreensAndDialogsRemainReadableAndReachable
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.closingcount.app.OnlineLayoutInstrumentedTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stack=java.lang.AssertionError: Unexpected static text overflow at settings-review: [{"text":"Berlaku untuk closing baru. Closing lama tidak diubah. Perubahan yang masuk dari admin lain harus diperiksa ulang.","width":714,"height":576,"paragraphWidth":714,"paragraphHeight":588,"maxLinesExceeded":false,"lineRightMax":688.9231,"lineBottomMax":588,"ellipsized":false}] expected:<0> but was:<1>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:120)
+	at com.closingcount.app.OnlineLayoutInstrumentedTest.scene(OnlineLayoutInstrumentedTest.kt:83)
+	at com.closingcount.app.OnlineLayoutInstrumentedTest.scene$default(OnlineLayoutInstrumentedTest.kt:64)
+	at com.closingcount.app.OnlineLayoutInstrumentedTest.criticalScreensAndDialogsRemainReadableAndReachable(OnlineLayoutInstrumentedTest.kt:94)
+
+INSTRUMENTATION_STATUS: stream=
+Error in criticalScreensAndDialogsRemainReadableAndReachable(com.closingcount.app.OnlineLayoutInstrumentedTest):
+java.lang.AssertionError: Unexpected static text overflow at settings-review: [{"text":"Berlaku untuk closing baru. Closing lama tidak diubah. Perubahan yang masuk dari admin lain harus diperiksa ulang.","width":714,"height":576,"paragraphWidth":714,"paragraphHeight":588,"maxLinesExceeded":false,"lineRightMax":688.9231,"lineBottomMax":588,"ellipsized":false}] expected:<0> but was:<1>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:120)
+	at com.closingcount.app.OnlineLayoutInstrumentedTest.scene(OnlineLayoutInstrumentedTest.kt:83)
+	at com.closingcount.app.OnlineLayoutInstrumentedTest.scene$default(OnlineLayoutInstrumentedTest.kt:64)
+	at com.closingcount.app.OnlineLayoutInstrumentedTest.criticalScreensAndDialogsRemainReadableAndReachable(OnlineLayoutInstrumentedTest.kt:94)
+
+INSTRUMENTATION_STATUS: test=criticalScreensAndDialogsRemainReadableAndReachable
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_RESULT: stream=
+
+Time: 21,556
+There was 1 failure:
+1) criticalScreensAndDialogsRemainReadableAndReachable(com.closingcount.app.OnlineLayoutInstrumentedTest)
+java.lang.AssertionError: Unexpected static text overflow at settings-review: [{"text":"Berlaku untuk closing baru. Closing lama tidak diubah. Perubahan yang masuk dari admin lain harus diperiksa ulang.","width":714,"height":576,"paragraphWidth":714,"paragraphHeight":588,"maxLinesExceeded":false,"lineRightMax":688.9231,"lineBottomMax":588,"ellipsized":false}] expected:<0> but was:<1>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:120)
+	at com.closingcount.app.OnlineLayoutInstrumentedTest.scene(OnlineLayoutInstrumentedTest.kt:83)
+	at com.closingcount.app.OnlineLayoutInstrumentedTest.scene$default(OnlineLayoutInstrumentedTest.kt:64)
+	at com.closingcount.app.OnlineLayoutInstrumentedTest.criticalScreensAndDialogsRemainReadableAndReachable(OnlineLayoutInstrumentedTest.kt:94)
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+
+
+INSTRUMENTATION_CODE: -1

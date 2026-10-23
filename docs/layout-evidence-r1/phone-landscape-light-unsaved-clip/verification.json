@@ -1,0 +1,14 @@
+{
+    "passed":  false,
+    "case":  "phone-landscape-light",
+    "profile":  "Phone",
+    "widthDp":  800,
+    "heightDp":  360,
+    "fontScale":  1.3,
+    "dark":  false,
+    "emulator":  "PortfolioQA_Phone_API36",
+    "outlet":  "b3424540-6d3f-4d92-9dff-046ee1d9f9a8",
+    "deviceSettingsRestored":  true,
+    "physicalPhoneAccessed":  false,
+    "publicAcceptance":  false
+}

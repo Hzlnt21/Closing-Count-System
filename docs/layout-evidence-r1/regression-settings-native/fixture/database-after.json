@@ -1,0 +1,59 @@
+{
+  "entries": [
+    {
+      "business_date": "2026-07-01",
+      "generation": "1",
+      "revision": "0",
+      "menu_id": "696acebb-1c62-4b2e-83e4-c1b7121038d9",
+      "quantity": 0,
+      "entry_revision": "0",
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-07-01",
+      "generation": "1",
+      "revision": "0",
+      "menu_id": "c32faecf-ba7c-49e2-905b-e29cfbeea462",
+      "quantity": 0,
+      "entry_revision": "0",
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-07-02",
+      "generation": "1",
+      "revision": "0",
+      "menu_id": "696acebb-1c62-4b2e-83e4-c1b7121038d9",
+      "quantity": 0,
+      "entry_revision": "0",
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-07-02",
+      "generation": "1",
+      "revision": "0",
+      "menu_id": "c32faecf-ba7c-49e2-905b-e29cfbeea462",
+      "quantity": 0,
+      "entry_revision": "0",
+      "updated_by": null
+    }
+  ],
+  "receipts": [],
+  "audit": [],
+  "settingsReceipts": [
+    {
+      "operation_id": "118083ca-bd4a-4742-bcbb-8763736ccb01",
+      "actor_id": "77d3c26a-ed0d-4378-ba1d-54eaafebe81c",
+      "response": {
+        "name": "Kedai QA Profesional",
+        "outletId": "5cd7c910-4d77-4162-bb20-dfd825b84993",
+        "timezone": "Asia/Makassar",
+        "operationId": "118083ca-bd4a-4742-bcbb-8763736ccb01",
+        "cutoffMinutes": 240,
+        "settingsRevision": 1
+      }
+    }
+  ],
+  "teamReceipts": [],
+  "internalErrorCount": 0,
+  "fixturesRetained": true
+}

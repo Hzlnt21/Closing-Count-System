@@ -1,0 +1,10 @@
+{
+    "passed":  true,
+    "nativeScenario":  "login/validation/unsaved-guard/save/conflict/use-server/logout",
+    "emulator":  "PortfolioQA_Phone_API36",
+    "outlet":  "5180f7eb-80d6-4e1b-96a1-b827cb8c26df",
+    "twoSeparateInstallations":  false,
+    "physicalPhoneAccessed":  false,
+    "publicAcceptance":  false,
+    "finishedAt":  "2026-10-23T02:20:25.9814602Z"
+}

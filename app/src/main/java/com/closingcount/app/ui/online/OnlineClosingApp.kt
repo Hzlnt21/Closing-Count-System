@@ -22,6 +22,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -70,6 +73,7 @@ fun OnlineClosingApp(onExit: () -> Unit, vm: OnlineViewModel = viewModel()) {
         }
     }
     val pageScroll = remember(tab, s.closingId, s.historyDetail?.id, s.frozenReport != null) { androidx.compose.foundation.ScrollState(0) }
+    val compactChrome = compactOnlineChrome()
     val dark = isSystemInDarkTheme()
     val scheme = if (dark) darkColorScheme(primary = Color(0xFF86D0F3), onPrimary = Ink, background = Color(0xFF0E1E2C),
         surface = Color(0xFF142838), surfaceContainer = Color(0xFF1C3344), surfaceContainerHigh = Color(0xFF203B4D), secondaryContainer = Color(0xFF24475D),
@@ -98,22 +102,17 @@ fun OnlineClosingApp(onExit: () -> Unit, vm: OnlineViewModel = viewModel()) {
                     Image(painterResource(R.drawable.closing_count_symbol), null, Modifier.size(width = 43.dp, height = 32.dp))
                     Column(Modifier.weight(1f).padding(start = 9.dp)) {
                         Text("Closing Count", fontSize = 18.sp, fontWeight = FontWeight.Bold)
-                        Text(s.identity?.outlets?.firstOrNull { it.id == s.outletId }?.name ?: "Closing bersama, satu tim", fontSize = 11.sp,
-                            color = scheme.onSurfaceVariant, maxLines = 2)
+                        if(!compactChrome)Text(s.identity?.outlets?.firstOrNull { it.id == s.outletId }?.name ?: "Closing bersama, satu tim", fontSize = 11.sp,
+                            color = scheme.onSurfaceVariant, maxLines = 2, overflow=TextOverflow.Ellipsis)
                     }
-                    if (s.identity != null && !s.loginVisible) IconButton(onClick = { navigate { tab = "Akun" } }) {
+                    if (s.identity != null && !s.loginVisible && !compactChrome) IconButton(onClick = { navigate { tab = "Akun" } }) {
                         Icon(Icons.Outlined.AccountCircle, "Buka akun")
                     }
                 }
             }
         }, bottomBar = {
-            if (s.identity != null && !s.loginVisible) NavigationBar(containerColor = scheme.surface) {
-                listOf("Ringkasan" to Icons.Outlined.Home, "Input" to Icons.Outlined.EditNote,
-                    "Review" to Icons.Outlined.FactCheck, "Riwayat" to Icons.Outlined.History, "Akun" to Icons.Outlined.PersonOutline).forEach { (name, icon) ->
-                    NavigationBarItem(selected = tab == name, onClick = { navigate { tab = name } },
-                        icon = { Icon(icon, null) }, label = { Text(name, fontSize = 11.sp) }, modifier = Modifier.testTag("online.nav.$name"))
-                }
-            }
+            if(s.identity!=null&&!s.loginVisible)OnlineNavigation(tab){name->navigate{tab=name}}
+
         }) { padding ->
             Box(Modifier.fillMaxSize().padding(padding).imePadding(), contentAlignment = Alignment.TopCenter) {
                 Column(Modifier.widthIn(max = 680.dp).fillMaxWidth().fillMaxHeight().verticalScroll(pageScroll)
@@ -192,7 +191,7 @@ fun OnlineClosingApp(onExit: () -> Unit, vm: OnlineViewModel = viewModel()) {
             }
         }
         pendingNavigation?.let { action -> AlertDialog(onDismissRequest = { pendingNavigation = null }, title = { Text("Perubahan belum disimpan") },
-            text = { Text("Angka yang sedang diketik belum menjadi draft tersimpan. Kembali untuk menyimpan, atau buang perubahan kolom ini.") },
+            text = { Text("Angka yang sedang diketik belum menjadi draft tersimpan. Kembali untuk menyimpan, atau buang perubahan kolom ini.", Modifier.verticalScroll(rememberScrollState())) },
             confirmButton = { TextButton(onClick = { vm.discardForm(); pendingNavigation = null; action() }) { Text("Buang perubahan") } },
             dismissButton = { TextButton(onClick = { pendingNavigation = null }) { Text("Kembali mengedit") } }) }
         if(settingsVisible && s.identity!=null && !s.loginVisible)OnlineSettingsPanel(s.outletId,
@@ -217,6 +216,25 @@ fun OnlineClosingApp(onExit: () -> Unit, vm: OnlineViewModel = viewModel()) {
     Card(modifier.fillMaxWidth(), shape = Rounded, colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)) {
         Column(Modifier.padding(18.dp), verticalArrangement = Arrangement.spacedBy(13.dp), content = content)
     }
+}
+
+@Composable private fun compactOnlineChrome()=LocalDensity.current.fontScale>=1.5f||LocalConfiguration.current.screenHeightDp<480
+
+@Composable private fun OnlineNavigation(selected:String,onSelect:(String)->Unit){
+    val pages=listOf("Ringkasan" to Icons.Outlined.Home,"Input" to Icons.Outlined.EditNote,"Review" to Icons.Outlined.FactCheck,"Riwayat" to Icons.Outlined.History,"Akun" to Icons.Outlined.PersonOutline)
+    if(compactOnlineChrome()){
+        var expanded by remember{mutableStateOf(false)}
+        Surface(color=MaterialTheme.colorScheme.surface){Box(Modifier.fillMaxWidth().navigationBarsPadding().padding(horizontal=18.dp,vertical=7.dp)){
+            OutlinedButton(onClick={expanded=true},modifier=Modifier.fillMaxWidth().heightIn(min=48.dp).testTag("online.nav.menu")){
+                Text(selected,Modifier.weight(1f));Icon(Icons.Outlined.ExpandMore,"Pilih halaman")
+            }
+            DropdownMenu(expanded,onDismissRequest={expanded=false}){pages.forEach{(name,icon)->
+                DropdownMenuItem(text={Text(name)},leadingIcon={Icon(icon,null)},onClick={expanded=false;onSelect(name)},modifier=Modifier.testTag("online.nav.$name"))
+            }}
+        }}
+    }else NavigationBar(containerColor=MaterialTheme.colorScheme.surface){pages.forEach{(name,icon)->
+        NavigationBarItem(selected=selected==name,onClick={onSelect(name)},icon={Icon(icon,null)},label={Text(name,fontSize=11.sp)},modifier=Modifier.testTag("online.nav.$name"))
+    }}
 }
 
 @Composable private fun MessageCard(text: String, error: Boolean = false, content: @Composable () -> Unit) {
@@ -258,32 +276,46 @@ fun OnlineClosingApp(onExit: () -> Unit, vm: OnlineViewModel = viewModel()) {
 }
 
 @Composable private fun OutletDate(s: OnlineUiState, onOutlet: (String) -> Unit, onDate: (String) -> Unit) {
-    var expanded by remember { mutableStateOf(false) }; val context = LocalContext.current
-    Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(6.dp), verticalAlignment = Alignment.CenterVertically) {
-        Box(Modifier.weight(1f)) {
-            TextButton(onClick = { expanded = true }, enabled = !s.working) {
-                Icon(Icons.Outlined.Storefront, null, Modifier.size(17.dp)); Spacer(Modifier.width(6.dp))
-                Text(s.identity?.outlets?.firstOrNull { it.id == s.outletId }?.name ?: "Pilih outlet", maxLines = 2, fontSize = 11.sp)
-            }
-            DropdownMenu(expanded, { expanded = false }) { s.identity?.outlets?.forEach { outlet ->
-                DropdownMenuItem(text = { Text(outlet.name) }, onClick = { expanded = false; onOutlet(outlet.id) })
-            } }
+    val name=s.identity?.outlets?.firstOrNull{it.id==s.outletId}?.name?:"Pilih outlet"
+    BoxWithConstraints(Modifier.fillMaxWidth()) {
+        val stacked=LocalDensity.current.fontScale>=1.3f||(maxWidth<480.dp&&name.length>36)
+        if(stacked)Column(verticalArrangement=Arrangement.spacedBy(4.dp)){
+            OutletSelector(s,name,onOutlet,Modifier.fillMaxWidth());BusinessDateSelector(s,onDate)
+        }else Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.spacedBy(6.dp),verticalAlignment=Alignment.CenterVertically){
+            OutletSelector(s,name,onOutlet,Modifier.weight(1f));BusinessDateSelector(s,onDate)
         }
-        TextButton(onClick = {
-            val d = LocalDate.parse(s.date)
-            DatePickerDialog(context, { _, y, m, day -> onDate(LocalDate.of(y, m + 1, day).toString()) }, d.year, d.monthValue - 1, d.dayOfMonth).show()
-        }, enabled = !s.working) { Icon(Icons.Outlined.CalendarMonth, null, Modifier.size(17.dp)); Spacer(Modifier.width(5.dp)); Text(displayDate(s.date), fontSize = 11.sp) }
+    }
+}
+@Composable private fun OutletSelector(s:OnlineUiState,name:String,onOutlet:(String)->Unit,modifier:Modifier){
+    var expanded by remember{mutableStateOf(false)}
+    Box(modifier){
+        TextButton(onClick={expanded=true},enabled=!s.working){
+            Icon(Icons.Outlined.Storefront,null,Modifier.size(17.dp));Spacer(Modifier.width(6.dp))
+            Text(name,maxLines=2,overflow=TextOverflow.Ellipsis,fontSize=11.sp)
+        }
+        DropdownMenu(expanded,{expanded=false}){s.identity?.outlets?.forEach{outlet->
+            DropdownMenuItem(text={Text(outlet.name)},onClick={expanded=false;onOutlet(outlet.id)})
+        }}
+    }
+}
+@Composable private fun BusinessDateSelector(s:OnlineUiState,onDate:(String)->Unit){
+    val context=LocalContext.current
+    TextButton(onClick={val d=LocalDate.parse(s.date);DatePickerDialog(context,{_,y,m,day->onDate(LocalDate.of(y,m+1,day).toString())},d.year,d.monthValue-1,d.dayOfMonth).show()},enabled=!s.working){
+        Icon(Icons.Outlined.CalendarMonth,null,Modifier.size(17.dp));Spacer(Modifier.width(5.dp));Text(displayDate(s.date),fontSize=11.sp)
     }
 }
 
 @Composable private fun Hero(s: OnlineUiState) {
     Column(Modifier.fillMaxWidth().background(Brush.linearGradient(listOf(Color(0xFF087DB5), Color(0xFF176294))), Rounded)
         .padding(22.dp), verticalArrangement = Arrangement.spacedBy(15.dp)) {
-        Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
+        if(LocalDensity.current.fontScale>=1.3f)Column(verticalArrangement=Arrangement.spacedBy(6.dp)){
+            Text("Closing outlet",color=Color.White,fontSize=12.sp);Text(stateLabel(s.closingState),color=Color.White,fontSize=11.sp)
+        }else Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
             Text("Closing outlet", color = Color.White, fontSize = 12.sp)
             Text(stateLabel(s.closingState), color = Color.White, fontSize = 11.sp)
         }
-        Row(verticalAlignment = Alignment.Bottom) { Text(s.total.toString(), fontSize = 45.sp, fontWeight = FontWeight.Bold, color = Color.White)
+        if(LocalDensity.current.fontScale>=1.3f)Column{Text(s.total.toString(),fontSize=45.sp,fontWeight=FontWeight.Bold,color=Color.White);Text("menu terjual",color=Color.White,fontSize=13.sp)}
+        else Row(verticalAlignment = Alignment.Bottom) { Text(s.total.toString(), fontSize = 45.sp, fontWeight = FontWeight.Bold, color = Color.White)
             Text(" menu terjual", Modifier.padding(bottom = 8.dp), color = Color.White, fontSize = 13.sp) }
         Text(displayDate(s.date), color = Color(0xFFE4F4FF), fontSize = 12.sp)
     }
@@ -386,20 +418,36 @@ private fun actionLabel(action: String) = when (action) { "submit" -> "Kirim unt
 
 @Composable private fun MenuInput(menu: OnlineMenuUi, buffer: String?, enabled: Boolean, onChange: (String) -> Unit, onConflict: () -> Unit) {
     val blocked = menu.status in setOf("CONFLICT", "FAILED", "AUTH_REQUIRED")
-    Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(14.dp)) {
-        Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-            Text(menu.name, fontWeight = FontWeight.SemiBold, fontSize = 14.sp)
-            Text(menu.category, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+    BoxWithConstraints(Modifier.fillMaxWidth()) {
+        if (LocalDensity.current.fontScale >= 1.3f && maxWidth < 400.dp) {
+            Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                MenuIdentity(menu)
+                MenuQuantity(menu, buffer, enabled && !blocked, onChange, Modifier.fillMaxWidth())
+            }
+        } else Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(14.dp)) {
+            MenuIdentity(menu, Modifier.weight(1f))
+            MenuQuantity(menu, buffer, enabled && !blocked, onChange,
+                Modifier.width((98f * maxOf(1f, LocalDensity.current.fontScale * 0.75f)).dp))
         }
-        OutlinedTextField(buffer ?: menu.quantity.toString(), onChange, enabled = enabled && !blocked, singleLine = true,
-            modifier = Modifier.width(98.dp).testTag("online.qty.${menu.id}"), label = { Text("Porsi", fontSize = 11.sp) }, shape = RoundedCornerShape(12.dp),
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number))
     }
     if (blocked) {
         Text("Draft perangkat: ${menu.quantity} · angka server: ${menu.serverQuantity}", style = MaterialTheme.typography.bodySmall)
         if (menu.status != "AUTH_REQUIRED") TextButton(onClick = onConflict) { Text("Tinjau ${menu.name}") }
         else Text("Masuk kembali untuk melanjutkan draft.", style = MaterialTheme.typography.bodySmall)
     }
+}
+
+@Composable private fun MenuIdentity(menu: OnlineMenuUi, modifier: Modifier = Modifier) {
+    Column(modifier, verticalArrangement = Arrangement.spacedBy(4.dp)) {
+        Text(menu.name, fontWeight = FontWeight.SemiBold, fontSize = 14.sp)
+        Text(menu.category, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+    }
+}
+
+@Composable private fun MenuQuantity(menu: OnlineMenuUi, buffer: String?, enabled: Boolean, onChange: (String) -> Unit, modifier: Modifier) {
+    OutlinedTextField(buffer ?: menu.quantity.toString(), onChange, enabled = enabled, singleLine = true,
+        modifier = modifier.testTag("online.qty.${menu.id}"), label = { Text("Porsi", fontSize = 11.sp) }, shape = RoundedCornerShape(12.dp),
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number))
 }
 
 private fun displayTime(at: String, zone: String = java.time.ZoneId.systemDefault().id): String = runCatching {

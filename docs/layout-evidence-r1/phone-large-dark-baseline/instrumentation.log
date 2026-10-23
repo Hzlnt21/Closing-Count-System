@@ -1,0 +1,50 @@
+INSTRUMENTATION_STATUS: class=com.closingcount.app.OnlineLayoutInstrumentedTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=
+com.closingcount.app.OnlineLayoutInstrumentedTest:
+INSTRUMENTATION_STATUS: test=criticalScreensAndDialogsRemainReadableAndReachable
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.closingcount.app.OnlineLayoutInstrumentedTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stack=java.lang.AssertionError: Unexpected static text overflow at login: [{"text":"Username","width":352,"height":111,"ellipsized":false},{"text":"Closing Count","width":527,"height":105,"ellipsized":false}] expected:<0> but was:<2>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:120)
+	at com.closingcount.app.OnlineLayoutInstrumentedTest.scene(OnlineLayoutInstrumentedTest.kt:82)
+	at com.closingcount.app.OnlineLayoutInstrumentedTest.scene$default(OnlineLayoutInstrumentedTest.kt:64)
+	at com.closingcount.app.OnlineLayoutInstrumentedTest.criticalScreensAndDialogsRemainReadableAndReachable(OnlineLayoutInstrumentedTest.kt:85)
+
+INSTRUMENTATION_STATUS: stream=
+Error in criticalScreensAndDialogsRemainReadableAndReachable(com.closingcount.app.OnlineLayoutInstrumentedTest):
+java.lang.AssertionError: Unexpected static text overflow at login: [{"text":"Username","width":352,"height":111,"ellipsized":false},{"text":"Closing Count","width":527,"height":105,"ellipsized":false}] expected:<0> but was:<2>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:120)
+	at com.closingcount.app.OnlineLayoutInstrumentedTest.scene(OnlineLayoutInstrumentedTest.kt:82)
+	at com.closingcount.app.OnlineLayoutInstrumentedTest.scene$default(OnlineLayoutInstrumentedTest.kt:64)
+	at com.closingcount.app.OnlineLayoutInstrumentedTest.criticalScreensAndDialogsRemainReadableAndReachable(OnlineLayoutInstrumentedTest.kt:85)
+
+INSTRUMENTATION_STATUS: test=criticalScreensAndDialogsRemainReadableAndReachable
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_RESULT: stream=
+
+Time: 18,383
+There was 1 failure:
+1) criticalScreensAndDialogsRemainReadableAndReachable(com.closingcount.app.OnlineLayoutInstrumentedTest)
+java.lang.AssertionError: Unexpected static text overflow at login: [{"text":"Username","width":352,"height":111,"ellipsized":false},{"text":"Closing Count","width":527,"height":105,"ellipsized":false}] expected:<0> but was:<2>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:120)
+	at com.closingcount.app.OnlineLayoutInstrumentedTest.scene(OnlineLayoutInstrumentedTest.kt:82)
+	at com.closingcount.app.OnlineLayoutInstrumentedTest.scene$default(OnlineLayoutInstrumentedTest.kt:64)
+	at com.closingcount.app.OnlineLayoutInstrumentedTest.criticalScreensAndDialogsRemainReadableAndReachable(OnlineLayoutInstrumentedTest.kt:85)
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+
+
+INSTRUMENTATION_CODE: -1

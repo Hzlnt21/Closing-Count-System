@@ -1,0 +1,85 @@
+{
+  "density": 2,
+  "case": "tablet-landscape-dark",
+  "fontScale": 1.3,
+  "screenWidthDp": 1280,
+  "screenHeightDp": 800,
+  "dark": true,
+  "checks": [
+    {
+      "scene": "login",
+      "measuredStaticTexts": 9,
+      "intentionalOutletEllipses": 0,
+      "paragraphContainerOnly": 8,
+      "overflow": []
+    },
+    {
+      "scene": "overview",
+      "measuredStaticTexts": 16,
+      "intentionalOutletEllipses": 0,
+      "paragraphContainerOnly": 16,
+      "overflow": []
+    },
+    {
+      "scene": "input",
+      "measuredStaticTexts": 19,
+      "intentionalOutletEllipses": 0,
+      "paragraphContainerOnly": 17,
+      "overflow": []
+    },
+    {
+      "scene": "unsaved",
+      "measuredStaticTexts": 23,
+      "intentionalOutletEllipses": 0,
+      "paragraphContainerOnly": 20,
+      "overflow": []
+    },
+    {
+      "scene": "review",
+      "measuredStaticTexts": 19,
+      "intentionalOutletEllipses": 0,
+      "paragraphContainerOnly": 16,
+      "overflow": []
+    },
+    {
+      "scene": "history",
+      "measuredStaticTexts": 16,
+      "intentionalOutletEllipses": 0,
+      "paragraphContainerOnly": 14,
+      "overflow": []
+    },
+    {
+      "scene": "account",
+      "measuredStaticTexts": 17,
+      "intentionalOutletEllipses": 0,
+      "paragraphContainerOnly": 15,
+      "overflow": []
+    },
+    {
+      "scene": "settings-review",
+      "measuredStaticTexts": 36,
+      "intentionalOutletEllipses": 0,
+      "paragraphContainerOnly": 33,
+      "overflow": []
+    },
+    {
+      "scene": "team-form",
+      "measuredStaticTexts": 42,
+      "intentionalOutletEllipses": 0,
+      "paragraphContainerOnly": 39,
+      "overflow": []
+    },
+    {
+      "scene": "catalog-form",
+      "measuredStaticTexts": 47,
+      "intentionalOutletEllipses": 0,
+      "paragraphContainerOnly": 43,
+      "overflow": []
+    }
+  ],
+  "physicalPhoneAccessed": false,
+  "unsavedMessageScrolledToEnd": false,
+  "settingsReviewScrolledToEnd": false,
+  "passed": true,
+  "scope": "Selected native layouts; fixture setup writes only, no UI publication or saved quantity"
+}

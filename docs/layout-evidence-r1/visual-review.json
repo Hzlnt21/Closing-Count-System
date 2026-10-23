@@ -1,0 +1,217 @@
+{
+  "reviewed": true,
+  "date": "2026-10-23",
+  "method": "Six final contact sheets inspected; focused full-resolution phone 200% input and original clipped-dialog screenshots also inspected. Not full-resolution inspection of every image or automated contrast auditing.",
+  "cases": [
+    {
+      "case": "phone-large-dark",
+      "contactSheetInspected": true,
+      "screenshots": [
+        {
+          "scene": "login",
+          "sha256": "bd7526d54e931f348fb946f56fd8e970adaed6c5878cf6abae914ce2531a4d07"
+        },
+        {
+          "scene": "overview",
+          "sha256": "f1eeef0c13e9f74b44fc0bdad47cd84b4878f7c7ae434cf1f00d185176257378"
+        },
+        {
+          "scene": "input",
+          "sha256": "05af232598f94c94f9f6ecac81bf134557c0e7589b4262bb1339c20bb9d5d9e9"
+        },
+        {
+          "scene": "unsaved",
+          "sha256": "f07ae82aeeb49c1625bfa45a93e65a460733287f3a25810b521df9def0f2082a"
+        },
+        {
+          "scene": "settings-review",
+          "sha256": "45f8d1329d4cadd39f609afe6622c9c7e471c688a2930e5d8f959862951fc592"
+        },
+        {
+          "scene": "team-form",
+          "sha256": "047dbdcae9f79d83d73d74dff0b5ec312d979af2e9b32f60b65d0f186f1a66e0"
+        },
+        {
+          "scene": "catalog-form",
+          "sha256": "8437c2faf2f5187f8f66b019015efdeabcd7c0b534ad844272d92ff3358b0255"
+        }
+      ]
+    },
+    {
+      "case": "phone-small-light",
+      "contactSheetInspected": true,
+      "screenshots": [
+        {
+          "scene": "login",
+          "sha256": "473d7cefb01e74c6157d8313b7814a26ae705a56add14d1562d9b9dbe35f0a2f"
+        },
+        {
+          "scene": "overview",
+          "sha256": "f4b4b5058866b101a403b123916e780285a7c1c70624db3681eb16936b2f5303"
+        },
+        {
+          "scene": "input",
+          "sha256": "68507a23785c7f247ff62381e294f824341823bdc06e1093106e4804d3fbf6a4"
+        },
+        {
+          "scene": "unsaved",
+          "sha256": "29ca1eb2246ad287a36beebadacc2603926f651c0782bd78c3b9bca0ac5856a4"
+        },
+        {
+          "scene": "settings-review",
+          "sha256": "2835fbdc868dd32f8176853aea52fb05f36fe92153ec7654ca0763217601cd04"
+        },
+        {
+          "scene": "team-form",
+          "sha256": "58a156cdc4788b1445fc63d3bdeae5fb05c47da3e6675838db57a398de28d472"
+        },
+        {
+          "scene": "catalog-form",
+          "sha256": "2e11ffeebe2cce50119acfb4b0d2bb0b4b3b6a00f72a4a31acf86c6b0f1d5a04"
+        }
+      ]
+    },
+    {
+      "case": "phone-landscape-light",
+      "contactSheetInspected": true,
+      "screenshots": [
+        {
+          "scene": "login",
+          "sha256": "2e5468a20a43a99741ef1b5dfe98cb2baf0a90d73921fc91a2be88d89291786c"
+        },
+        {
+          "scene": "overview",
+          "sha256": "efac3889e3105e22354d1469c0dbfda6488d71b7aed227159a7163222440f91f"
+        },
+        {
+          "scene": "input",
+          "sha256": "16dc526bb5592d87f9a601d98c352e9557486bf1e1061cfafb15c628d17f3871"
+        },
+        {
+          "scene": "unsaved",
+          "sha256": "ca1db383b5f5fb2f111c8fbc23a6ce309415855b494f4821fb6c97e2488fe51d"
+        },
+        {
+          "scene": "settings-review",
+          "sha256": "eb431a16b2015422c897459d5dea179bfa8d67fc0c96dc7f3ad3a0a9f5e607bb"
+        },
+        {
+          "scene": "team-form",
+          "sha256": "303af5b12dbeebe6728ad39a01ac82a66877d5cf80ca327d6722ac6d4b8f26c6"
+        },
+        {
+          "scene": "catalog-form",
+          "sha256": "87a41def790968100087731ca4a4b1981690d0c15018887ff457cc418ac24d09"
+        }
+      ]
+    },
+    {
+      "case": "tablet-light",
+      "contactSheetInspected": true,
+      "screenshots": [
+        {
+          "scene": "login",
+          "sha256": "4ac446008a96c98957e546391acb2981199a57e4ccb67b18285a3d935cb96b1e"
+        },
+        {
+          "scene": "overview",
+          "sha256": "a0860e50b1b8c47b2ca1288f23ac3a61ce4b1250eab85563f5df321847f8ce48"
+        },
+        {
+          "scene": "input",
+          "sha256": "871045e877a7b6765de28a9394f5f3c9f2dd9ab13aa235fb67747ff9219a33e0"
+        },
+        {
+          "scene": "unsaved",
+          "sha256": "20cd1a37d0aaf8f1244eb6e5296a806943d20d893d7d2bf684dd8a6869c4b756"
+        },
+        {
+          "scene": "settings-review",
+          "sha256": "bfc0091895d56b341e0d81aa8b11be5eddfb1c48cc5fea698ddeb16eab395264"
+        },
+        {
+          "scene": "team-form",
+          "sha256": "22951db1e1384df3d188c9a10fa5c31d34b9e1987cfdce442a00ad5e58c6e5c4"
+        },
+        {
+          "scene": "catalog-form",
+          "sha256": "014caf5596fa9ab84f6095ffd4a0f77404ba2c43906d1b4c26171518a9f3d625"
+        }
+      ]
+    },
+    {
+      "case": "tablet-dark-large",
+      "contactSheetInspected": true,
+      "screenshots": [
+        {
+          "scene": "login",
+          "sha256": "5223cee8bf45f57f22036a22ce206edba038527888c1559f75a2cc9f3f34cbc5"
+        },
+        {
+          "scene": "overview",
+          "sha256": "19d534de413b4e90a6f4fa86bc0085d2a08d86cfecfafd66617359f4ec60c4e6"
+        },
+        {
+          "scene": "input",
+          "sha256": "4bd178c9194012f8895f89aaa4b56af1c3283738c0c4de818fef5aa0dbc724ce"
+        },
+        {
+          "scene": "unsaved",
+          "sha256": "91aa64f773330637547bc16beebd44906c4a5d7830661c3bccb5f3b7170d46b1"
+        },
+        {
+          "scene": "settings-review",
+          "sha256": "7bcb10e766e06d4fd36b1b014a0376c92681ae700aea23d34a8aba8970e14410"
+        },
+        {
+          "scene": "team-form",
+          "sha256": "b9e17361f0fe11d58a84098e00cdc15ee88f4bc532c9a9102c3f7f2616d162f6"
+        },
+        {
+          "scene": "catalog-form",
+          "sha256": "05553388bebc15b909da928b289c3445958d311c48a3c3eea0abf5bb36c55672"
+        }
+      ]
+    },
+    {
+      "case": "tablet-landscape-dark",
+      "contactSheetInspected": true,
+      "screenshots": [
+        {
+          "scene": "login",
+          "sha256": "733272d7d2f6f7e1ddd2910734ee8b7f6ae698cce80166aef9862cc92b2fa5d3"
+        },
+        {
+          "scene": "overview",
+          "sha256": "68c0814c2d8c776df301d49b931cc243e85cc2276978e8c31a137fd19469c176"
+        },
+        {
+          "scene": "input",
+          "sha256": "fdeee7aa5aeef67ca8b2bd38f8f1a81cf9a97889c13ff562ae68200e438bc027"
+        },
+        {
+          "scene": "unsaved",
+          "sha256": "22ba59d73663a1bbd03c6175a88764f2934193e9c0b866d5b056ea1e0faed48e"
+        },
+        {
+          "scene": "settings-review",
+          "sha256": "88d08986b170289664e12a929d10daa5ce62d545616f8d48dc8dd72b445f150f"
+        },
+        {
+          "scene": "team-form",
+          "sha256": "bcde3991f7f2108db9bcf13efd726f1ccfa5d80b12a577c22aaebc2557d7ab05"
+        },
+        {
+          "scene": "catalog-form",
+          "sha256": "02d5256e27fe96cd11514bd9f5fc0fa6ae90a93e6e3539639ae571c328dd9594"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Normal light blue/white direction preserved.",
+    "Long menu name no longer squeezed into a narrow column at phone font200.",
+    "Scrollable content may be partly outside the viewport in captured images.",
+    "Compact navigation leaves the five destinations accessible."
+  ]
+}

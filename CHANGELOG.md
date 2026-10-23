@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased - native layout R1, 2026-10-23
+
+- Preserved approved R2 styling while adapting compact navigation, long outlet/date labels, summary totals and quantity input for large text and short viewports. Narrow large-text menu input stacks the full name above quantity; catalog section chips align at equal widths.
+- Fixed clipped settings-review and unsaved-change explanations with scrollable bodies.
+- Six phone/tablet/light/dark/font-scale configurations, 60 selected scene checks, detector controls and three native workflow regressions passed on the same final APK pair. 19 JVM tests/build passed; lint 0 errors/17 warnings with the new window-size recommendation recorded. [Evidence and limits](docs/NATIVE_LAYOUT_R1.md), [gallery](docs/layout-review-r1.html).
+
 ## Unreleased - native process recovery R1, 2026-10-23
 
 - Added native acceptance across six actual force-stops: quantity, submit, settings, team creation, editable catalog draft and committed catalog publication.

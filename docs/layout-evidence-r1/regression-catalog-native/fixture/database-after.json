@@ -1,0 +1,55 @@
+{
+  "entries": [
+    {
+      "business_date": "2026-05-01",
+      "generation": "1",
+      "revision": "0",
+      "menu_id": "e2f3036e-5bc8-4920-952f-cf109eb0be76",
+      "quantity": 0,
+      "entry_revision": "0",
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-05-01",
+      "generation": "1",
+      "revision": "0",
+      "menu_id": "efc544fd-3ecc-4fef-ae6d-fbab6bbda39c",
+      "quantity": 0,
+      "entry_revision": "0",
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-05-02",
+      "generation": "1",
+      "revision": "0",
+      "menu_id": "0890bb43-2ec1-44d4-ab61-fce281b1f699",
+      "quantity": 0,
+      "entry_revision": "0",
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-05-02",
+      "generation": "1",
+      "revision": "0",
+      "menu_id": "e2f3036e-5bc8-4920-952f-cf109eb0be76",
+      "quantity": 0,
+      "entry_revision": "0",
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-05-02",
+      "generation": "1",
+      "revision": "0",
+      "menu_id": "efc544fd-3ecc-4fef-ae6d-fbab6bbda39c",
+      "quantity": 0,
+      "entry_revision": "0",
+      "updated_by": null
+    }
+  ],
+  "receipts": [],
+  "audit": [],
+  "settingsReceipts": [],
+  "teamReceipts": [],
+  "internalErrorCount": 0,
+  "fixturesRetained": true
+}

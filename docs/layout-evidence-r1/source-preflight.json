@@ -1,0 +1,656 @@
+{
+  "passed": true,
+  "baseline": "56929b28f013a608912aa3b77058803075b50040",
+  "files": [
+    {
+      "file": "CHANGELOG.md",
+      "sha256": "dcdbf1cc2b6454f6b27bca39fd796b3a9acf17d55bb31e97e95f4ed5b53f529f"
+    },
+    {
+      "file": "README.md",
+      "sha256": "f79d5f7cfccc25523e7b67608aa07546dfba2441ddcd05e5165291fd983dd879"
+    },
+    {
+      "file": "app/src/androidTest/java/com/closingcount/app/OnlineLayoutInstrumentedTest.kt",
+      "sha256": "ffe8235400a2f127f06bdb766a2a37d011a9ce2b60770068f2bae34fa8694dfe"
+    },
+    {
+      "file": "app/src/androidTest/java/com/closingcount/app/OnlineLayoutProbeInstrumentedTest.kt",
+      "sha256": "bde209d0d706c30a78c4607400c2a36b6ce4cb461ffdcd929d47c7ed00f93adc"
+    },
+    {
+      "file": "app/src/androidTest/java/com/closingcount/app/TextLayoutBounds.kt",
+      "sha256": "b27a48a032853fbca962a9ef9b90f18e094513dc9277d3dda4e4348504d034a1"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/ui/online/OnlineCatalogPanel.kt",
+      "sha256": "bffe28535c1c38a2236c4c2fe8a53dba6a4dcfec9ba64e2a872fdcbb2ff0bee0"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/ui/online/OnlineClosingApp.kt",
+      "sha256": "146758b6a9a5932fea67c5866c67dfcea279a8c7fa1e9e29c868255dd0e1d828"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/ui/online/OnlineSettingsPanel.kt",
+      "sha256": "623b3c46a87a087177fe68139e7d5141e80ef42068f12920641dff88e2a667a4"
+    },
+    {
+      "file": "docs/NATIVE_LAYOUT_R1.md",
+      "sha256": "a2902b45f0695c5f086d6319da806e5bb5288437b0bebe730538a78718450b72"
+    },
+    {
+      "file": "docs/layout-evidence-r1/README.md",
+      "sha256": "64ba9cec88df3afa36eaf87c100e77ac7fb7ee2610b7fc33f00b0896b6ff3135"
+    },
+    {
+      "file": "docs/layout-evidence-r1/build-final.log",
+      "sha256": "9a4ae22b2128a5f573cfb0a01256ba599a95cd4c32d458d1d8186f3ca79ee6bb"
+    },
+    {
+      "file": "docs/layout-evidence-r1/database-proof.json",
+      "sha256": "63de5a84eb0021d10656db0abd41212609454a04346d8c94ce5910ce94714c46"
+    },
+    {
+      "file": "docs/layout-evidence-r1/harness/Check-ClosingLayoutMatrixR1.ps1",
+      "sha256": "7e8c915abd8bbbef6bb1bfee0e8e656724d68fe1db7874b342f93c61db9718b2"
+    },
+    {
+      "file": "docs/layout-evidence-r1/harness/Check-ClosingLayoutR1.ps1",
+      "sha256": "3834e2200083b7bfe5f98e56a6cef438cbf96c06ce9d0a7124717cc7a5e68ea2"
+    },
+    {
+      "file": "docs/layout-evidence-r1/harness/Check-ClosingLayoutRegressionR1.ps1",
+      "sha256": "32a0d149fca5bf996b4730abec8578cc26612240ac0ab4ab5b815914188e30f9"
+    },
+    {
+      "file": "docs/layout-evidence-r1/harness/Make-ClosingLayoutContactSheetsR1.ps1",
+      "sha256": "2a536a0a21111fffe798bb145aa2cdbb6452564a1fd30645fc3f9ef0ced0f4a8"
+    },
+    {
+      "file": "docs/layout-evidence-r1/harness/check-layout-database-r1.mjs",
+      "sha256": "0f200fbd52fc39eaddbd657533e60d0ae453e02049dd19cd2c99d59f4a813654"
+    },
+    {
+      "file": "docs/layout-evidence-r1/harness/check-layout-source-r1.py",
+      "sha256": "f9b5af3d01c1ed3d50f04a66d77c22e59a38e675de7710249d02ee369d6ca38c"
+    },
+    {
+      "file": "docs/layout-evidence-r1/harness/package-layout-r1.py",
+      "sha256": "a3743ab31a26a5b83718bb1aa5682f7d93c56a9045326a5ab4f461660f8e129c"
+    },
+    {
+      "file": "docs/layout-evidence-r1/harness/serve-layout-fixture-r1.mjs",
+      "sha256": "dca9fa84e3d5280718fe4d17b5b064adb13812fedce9aed913b8a6a23720a126"
+    },
+    {
+      "file": "docs/layout-evidence-r1/jvm-tests.json",
+      "sha256": "2a90f19beea97705566ba94b801c2d9d20a6c36bce267ff4562f11e644bfe321"
+    },
+    {
+      "file": "docs/layout-evidence-r1/lint-triage.json",
+      "sha256": "663021a09307fa72272bacabba5833e262dc656e0761371e0501123562a0040d"
+    },
+    {
+      "file": "docs/layout-evidence-r1/lint.txt",
+      "sha256": "23bc63cceb459270fa6634caa50be5bd36907cc89c9f76f9caed6f17cb722aa1"
+    },
+    {
+      "file": "docs/layout-evidence-r1/matrix-run.json",
+      "sha256": "9763000f9911b0503cd4e31dd578b5039605c801f7f19692b666852982013a42"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-landscape-light-unsaved-clip/instrumentation.log",
+      "sha256": "d54c11f6732fe15f8769d6e0b88ece66624cfe9efd431c9158611056998d8daf"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-landscape-light-unsaved-clip/layout.json",
+      "sha256": "5d70b9c12d88c4671f6f334ee6e675b42d1cc258a3c850f9378afbc06e0de0e9"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-landscape-light-unsaved-clip/unsaved.png",
+      "sha256": "5d8bf972f413b87a5ba2aaee45e3d6639ac4eb5fab145b2fd2489a6023b9fcb0"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-landscape-light-unsaved-clip/verification.json",
+      "sha256": "add629c0d3c39442b163d76ed51281778101bd4df59e6d5fd42f3cbc8a237192"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-landscape-light/apk-inputs.json",
+      "sha256": "933d22fec2928cbff872fa7d929fde67787719dd8272f1f03a838654816bc72f"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-landscape-light/catalog-form.png",
+      "sha256": "87a41def790968100087731ca4a4b1981690d0c15018887ff457cc418ac24d09"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-landscape-light/device-baseline.json",
+      "sha256": "a742e7866602d2347fb190f539f77b12db76db27c5881f824c1f9cc6fa622a19"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-landscape-light/device-restored.json",
+      "sha256": "a742e7866602d2347fb190f539f77b12db76db27c5881f824c1f9cc6fa622a19"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-landscape-light/fixture/database-after.json",
+      "sha256": "21f1657e1abcd3fd5e520b6d6d4267164ec2514d5ef68461a5f77aa482f14ef4"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-landscape-light/fixture/fixture-identity.json",
+      "sha256": "1f01a9877df4e911ab4985cc8f7bb5fe5d0230e35839a3e17a60ba437fb2e0c1"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-landscape-light/input.png",
+      "sha256": "16dc526bb5592d87f9a601d98c352e9557486bf1e1061cfafb15c628d17f3871"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-landscape-light/instrumentation.log",
+      "sha256": "c406d323dd2d764453cb19a7e10014c560b8ad88389e76d5b1fe097f468d6f1a"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-landscape-light/layout.json",
+      "sha256": "38fb2731fa196b23b16b351264a424f0af42e1c735b6170530eafcf85fbc6c00"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-landscape-light/login.png",
+      "sha256": "2e5468a20a43a99741ef1b5dfe98cb2baf0a90d73921fc91a2be88d89291786c"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-landscape-light/overview.png",
+      "sha256": "efac3889e3105e22354d1469c0dbfda6488d71b7aed227159a7163222440f91f"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-landscape-light/settings-review.png",
+      "sha256": "eb431a16b2015422c897459d5dea179bfa8d67fc0c96dc7f3ad3a0a9f5e607bb"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-landscape-light/team-form.png",
+      "sha256": "303af5b12dbeebe6728ad39a01ac82a66877d5cf80ca327d6722ac6d4b8f26c6"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-landscape-light/unsaved.png",
+      "sha256": "ca1db383b5f5fb2f111c8fbc23a6ce309415855b494f4821fb6c97e2488fe51d"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-landscape-light/verification.json",
+      "sha256": "36e8232010c57d2e9d00366624884a3d364655f1deb9a42decabe1c4aa6cf42d"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-large-dark-baseline/instrumentation.log",
+      "sha256": "9267735e669afab29dad1c5ef22e905d90dcdfe407d633ebdbda748dfb0a87d1"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-large-dark-baseline/layout.json",
+      "sha256": "e10d5c62f6839c45f33789e646737afad8eb3793c9e10e68e737ce5867294bef"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-large-dark-baseline/verification.json",
+      "sha256": "e2e4d8da6bc1e035c09a518c2dc7d2c12670a2855b5e79249527f58c59785c3b"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-large-dark-before-input-stack/input.png",
+      "sha256": "1a51b697a2b0e942f12140a26689e2231f77e750690f1857170b2f04213e4075"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-large-dark-init-harness/instrumentation.log",
+      "sha256": "6f9c2c57edd4a50117520c7cc8fddf9cddc4ff28cdd4980476ceb7e9d33f36f1"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-large-dark-init-harness/verification.json",
+      "sha256": "e2e4d8da6bc1e035c09a518c2dc7d2c12670a2855b5e79249527f58c59785c3b"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-large-dark-settings-clip/instrumentation.log",
+      "sha256": "d51ff47b201dc56ace72affad029a21e253431d64d09985647d1e784bcba3950"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-large-dark-settings-clip/layout.json",
+      "sha256": "50ad295b3b8fe20aeea7d357a0d7e5dd68a657a457c45f920984289bfe692b09"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-large-dark-settings-clip/settings-review.png",
+      "sha256": "5e16f7bb96a22dd77fb9cbafec4c1b41990ca1a7484b158cf9f2a7684039da5d"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-large-dark-settings-clip/verification.json",
+      "sha256": "04cc8c9907ed1cfa1a6a56f2b6be941d81b28edd3a7bc12b8defad9a44284843"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-large-dark/apk-inputs.json",
+      "sha256": "933d22fec2928cbff872fa7d929fde67787719dd8272f1f03a838654816bc72f"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-large-dark/catalog-form.png",
+      "sha256": "8437c2faf2f5187f8f66b019015efdeabcd7c0b534ad844272d92ff3358b0255"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-large-dark/device-baseline.json",
+      "sha256": "a742e7866602d2347fb190f539f77b12db76db27c5881f824c1f9cc6fa622a19"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-large-dark/device-restored.json",
+      "sha256": "a742e7866602d2347fb190f539f77b12db76db27c5881f824c1f9cc6fa622a19"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-large-dark/fixture/database-after.json",
+      "sha256": "3095c01dcf2410d118371c3b53fa03dabd463a470411e855ee71bd9f4a1f10a6"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-large-dark/fixture/fixture-identity.json",
+      "sha256": "a58f9849ba2d240bcaecd3fe0d0e301b1a10b42a2bdb438db1d3428ddf43cdbd"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-large-dark/input.png",
+      "sha256": "05af232598f94c94f9f6ecac81bf134557c0e7589b4262bb1339c20bb9d5d9e9"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-large-dark/instrumentation.log",
+      "sha256": "29ae89ef380615fcb7141c1a6ee8d1ba16e97b61bb1bf88966fcc502c4f27295"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-large-dark/layout.json",
+      "sha256": "464534993c5fe4cf16c57bf080da6e3d41b5d10ca1280397e1c8332b6f7eba9a"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-large-dark/login.png",
+      "sha256": "bd7526d54e931f348fb946f56fd8e970adaed6c5878cf6abae914ce2531a4d07"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-large-dark/overview.png",
+      "sha256": "f1eeef0c13e9f74b44fc0bdad47cd84b4878f7c7ae434cf1f00d185176257378"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-large-dark/settings-review.png",
+      "sha256": "45f8d1329d4cadd39f609afe6622c9c7e471c688a2930e5d8f959862951fc592"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-large-dark/team-form.png",
+      "sha256": "047dbdcae9f79d83d73d74dff0b5ec312d979af2e9b32f60b65d0f186f1a66e0"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-large-dark/unsaved.png",
+      "sha256": "f07ae82aeeb49c1625bfa45a93e65a460733287f3a25810b521df9def0f2082a"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-large-dark/verification.json",
+      "sha256": "87a3b50b30c798060c774978ed0952c875d5e97e70ac967c259d47e94c8a0b29"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-small-light/apk-inputs.json",
+      "sha256": "933d22fec2928cbff872fa7d929fde67787719dd8272f1f03a838654816bc72f"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-small-light/catalog-form.png",
+      "sha256": "2e11ffeebe2cce50119acfb4b0d2bb0b4b3b6a00f72a4a31acf86c6b0f1d5a04"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-small-light/device-baseline.json",
+      "sha256": "a742e7866602d2347fb190f539f77b12db76db27c5881f824c1f9cc6fa622a19"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-small-light/device-restored.json",
+      "sha256": "a742e7866602d2347fb190f539f77b12db76db27c5881f824c1f9cc6fa622a19"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-small-light/fixture/database-after.json",
+      "sha256": "53cace2c798c6d23e7b810f7a4b2d97e4500e5b89b648f36be95c8974504af5c"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-small-light/fixture/fixture-identity.json",
+      "sha256": "399e38e87c5f2010728eaaa4f677edf74dd899e0fc92b9b562a8e8222592b5e8"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-small-light/input.png",
+      "sha256": "68507a23785c7f247ff62381e294f824341823bdc06e1093106e4804d3fbf6a4"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-small-light/instrumentation.log",
+      "sha256": "ccd79e4d7411e9ae5010f50bea352f14660a2cf21b275103441730bd22a54072"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-small-light/layout.json",
+      "sha256": "8a528be370b9fad77daf7ee5bce0800d7e6c40b6a5fbf1783c7591e8402545c3"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-small-light/login.png",
+      "sha256": "473d7cefb01e74c6157d8313b7814a26ae705a56add14d1562d9b9dbe35f0a2f"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-small-light/overview.png",
+      "sha256": "f4b4b5058866b101a403b123916e780285a7c1c70624db3681eb16936b2f5303"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-small-light/settings-review.png",
+      "sha256": "2835fbdc868dd32f8176853aea52fb05f36fe92153ec7654ca0763217601cd04"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-small-light/team-form.png",
+      "sha256": "58a156cdc4788b1445fc63d3bdeae5fb05c47da3e6675838db57a398de28d472"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-small-light/unsaved.png",
+      "sha256": "29ca1eb2246ad287a36beebadacc2603926f651c0782bd78c3b9bca0ac5856a4"
+    },
+    {
+      "file": "docs/layout-evidence-r1/phone-small-light/verification.json",
+      "sha256": "7de9b860956ad543f588afeeca193236a4500bf83d94444651708af6c8cd513a"
+    },
+    {
+      "file": "docs/layout-evidence-r1/regression-catalog-native/apk-inputs.json",
+      "sha256": "933d22fec2928cbff872fa7d929fde67787719dd8272f1f03a838654816bc72f"
+    },
+    {
+      "file": "docs/layout-evidence-r1/regression-catalog-native/fixture/database-after.json",
+      "sha256": "65d001b113190f66212ae7dae1b97da0c9c7535d1c5f0c09fb2cd10bcc2a326a"
+    },
+    {
+      "file": "docs/layout-evidence-r1/regression-catalog-native/fixture/fixture-identity.json",
+      "sha256": "1c98cf3801636ce6bef07f0ea102421be696fbf13ef069301e811c7e1d3ebfc4"
+    },
+    {
+      "file": "docs/layout-evidence-r1/regression-catalog-native/instrumentation.log",
+      "sha256": "6eae3206505d4cf279213ba5c07e02346f808c51b769b75c4c20ce587cd5638c"
+    },
+    {
+      "file": "docs/layout-evidence-r1/regression-catalog-native/verification.json",
+      "sha256": "aa12e6a101f0fb7b28a048724119108a75cc791756fc90e02da53d5f6e8028a9"
+    },
+    {
+      "file": "docs/layout-evidence-r1/regression-native/apk-inputs.json",
+      "sha256": "933d22fec2928cbff872fa7d929fde67787719dd8272f1f03a838654816bc72f"
+    },
+    {
+      "file": "docs/layout-evidence-r1/regression-native/fixture/database-after.json",
+      "sha256": "639dee668a1ec6f0a6f1c0fe8f5a09a6f6c1eb0e412217f3e45f51efefe6a18a"
+    },
+    {
+      "file": "docs/layout-evidence-r1/regression-native/fixture/fixture-identity.json",
+      "sha256": "34de75e52507b5b7152c2ad7a4333f7463b4b9bca464fca028f2656147b8834c"
+    },
+    {
+      "file": "docs/layout-evidence-r1/regression-native/native-instrumentation.log",
+      "sha256": "23a3e892272f94abde3ac126285d19610ce02d0d042b5a8a74c699d75a594b28"
+    },
+    {
+      "file": "docs/layout-evidence-r1/regression-native/native-verification.json",
+      "sha256": "142b35801cfc6f50fcabbbfd06bb8b86a842e96a970aafd3e30bbe62e988ba76"
+    },
+    {
+      "file": "docs/layout-evidence-r1/regression-settings-native/apk-inputs.json",
+      "sha256": "933d22fec2928cbff872fa7d929fde67787719dd8272f1f03a838654816bc72f"
+    },
+    {
+      "file": "docs/layout-evidence-r1/regression-settings-native/fixture/database-after.json",
+      "sha256": "0878e86bf6fd8144979cb1b1367522788bc3e73d8f7c90516f0e3c31e0971e36"
+    },
+    {
+      "file": "docs/layout-evidence-r1/regression-settings-native/fixture/fixture-identity.json",
+      "sha256": "246300a6918e41eea632484411cd8a160f3b449d8f51c4d4621c338c8bfbc45c"
+    },
+    {
+      "file": "docs/layout-evidence-r1/regression-settings-native/instrumentation.log",
+      "sha256": "d0b5e048eb389e485eedd8d32d60d0a0d4ba13634518d9676bb53dc0bd600c48"
+    },
+    {
+      "file": "docs/layout-evidence-r1/regression-settings-native/verification.json",
+      "sha256": "0f49a9bd5d213cdcc7be6f0f98e7c1c39a741a9263f9761523ae7aa7e567003b"
+    },
+    {
+      "file": "docs/layout-evidence-r1/tablet-dark-large-before-input-stack/instrumentation.log",
+      "sha256": "670f9c8dcf46a80c0601eb0ce3c3664d668abb101e5e94f8707bfa67823ce6c0"
+    },
+    {
+      "file": "docs/layout-evidence-r1/tablet-dark-large-before-input-stack/layout.json",
+      "sha256": "b204f19e8458615e4de33cedb1b632d4b8af5935af8a1529b444aedfafec6d2e"
+    },
+    {
+      "file": "docs/layout-evidence-r1/tablet-dark-large-before-input-stack/verification.json",
+      "sha256": "18e4310ac7ef7c0226375620a6145c86dafc9406490da8b916909a1f744376c4"
+    },
+    {
+      "file": "docs/layout-evidence-r1/tablet-dark-large/apk-inputs.json",
+      "sha256": "933d22fec2928cbff872fa7d929fde67787719dd8272f1f03a838654816bc72f"
+    },
+    {
+      "file": "docs/layout-evidence-r1/tablet-dark-large/catalog-form.png",
+      "sha256": "05553388bebc15b909da928b289c3445958d311c48a3c3eea0abf5bb36c55672"
+    },
+    {
+      "file": "docs/layout-evidence-r1/tablet-dark-large/device-baseline.json",
+      "sha256": "0df3b7b4ca8ef5fa341b06c6fdf3d21a6fa06c628ed9aa32c6e32292f4a1e5a3"
+    },
+    {
+      "file": "docs/layout-evidence-r1/tablet-dark-large/device-restored.json",
+      "sha256": "0df3b7b4ca8ef5fa341b06c6fdf3d21a6fa06c628ed9aa32c6e32292f4a1e5a3"
+    },
+    {
+      "file": "docs/layout-evidence-r1/tablet-dark-large/fixture/database-after.json",
+      "sha256": "720f58d4c6372112b3c7f9c547a51f63d149678109fcb0757ee968218e86e273"
+    },
+    {
+      "file": "docs/layout-evidence-r1/tablet-dark-large/fixture/fixture-identity.json",
+      "sha256": "b1f9b1c15ebc649079f4a164143a87bd8312fda19eb5635492cc099c8bd81eb0"
+    },
+    {
+      "file": "docs/layout-evidence-r1/tablet-dark-large/input.png",
+      "sha256": "4bd178c9194012f8895f89aaa4b56af1c3283738c0c4de818fef5aa0dbc724ce"
+    },
+    {
+      "file": "docs/layout-evidence-r1/tablet-dark-large/instrumentation.log",
+      "sha256": "940a5ad7d942c9fe6b60793f94d046361ed6d2caf6e9c04302c3ca9d1520f4a2"
+    },
+    {
+      "file": "docs/layout-evidence-r1/tablet-dark-large/layout.json",
+      "sha256": "2097d4b398fd5bd22c3eb0f87d7d7365aba7c3b48705af72a5008556102924de"
+    },
+    {
+      "file": "docs/layout-evidence-r1/tablet-dark-large/login.png",
+      "sha256": "5223cee8bf45f57f22036a22ce206edba038527888c1559f75a2cc9f3f34cbc5"
+    },
+    {
+      "file": "docs/layout-evidence-r1/tablet-dark-large/overview.png",
+      "sha256": "19d534de413b4e90a6f4fa86bc0085d2a08d86cfecfafd66617359f4ec60c4e6"
+    },
+    {
+      "file": "docs/layout-evidence-r1/tablet-dark-large/settings-review.png",
+      "sha256": "7bcb10e766e06d4fd36b1b014a0376c92681ae700aea23d34a8aba8970e14410"
+    },
+    {
+      "file": "docs/layout-evidence-r1/tablet-dark-large/team-form.png",
+      "sha256": "b9e17361f0fe11d58a84098e00cdc15ee88f4bc532c9a9102c3f7f2616d162f6"
+    },
+    {
+      "file": "docs/layout-evidence-r1/tablet-dark-large/unsaved.png",
+      "sha256": "91aa64f773330637547bc16beebd44906c4a5d7830661c3bccb5f3b7170d46b1"
+    },
+    {
+      "file": "docs/layout-evidence-r1/tablet-dark-large/verification.json",
+      "sha256": "1e779b480d9f8278c0449d4eae97346379375a2c8c919e7b3f4304c202fbe1f6"
+    },
+    {
+      "file": "docs/layout-evidence-r1/tablet-landscape-dark/apk-inputs.json",
+      "sha256": "933d22fec2928cbff872fa7d929fde67787719dd8272f1f03a838654816bc72f"
+    },
+    {
+      "file": "docs/layout-evidence-r1/tablet-landscape-dark/catalog-form.png",
+      "sha256": "02d5256e27fe96cd11514bd9f5fc0fa6ae90a93e6e3539639ae571c328dd9594"
+    },
+    {
+      "file": "docs/layout-evidence-r1/tablet-landscape-dark/device-baseline.json",
+      "sha256": "0df3b7b4ca8ef5fa341b06c6fdf3d21a6fa06c628ed9aa32c6e32292f4a1e5a3"
+    },
+    {
+      "file": "docs/layout-evidence-r1/tablet-landscape-dark/device-restored.json",
+      "sha256": "0df3b7b4ca8ef5fa341b06c6fdf3d21a6fa06c628ed9aa32c6e32292f4a1e5a3"
+    },
+    {
+      "file": "docs/layout-evidence-r1/tablet-landscape-dark/fixture/database-after.json",
+      "sha256": "73a656a69ce71f74ab755eccebb49e9535df742b9b2660bfeae63fd79b2da912"
+    },
+    {
+      "file": "docs/layout-evidence-r1/tablet-landscape-dark/fixture/fixture-identity.json",
+      "sha256": "90def72697d9795040bf323b1d624f83a9ecada530b5f18e9d3c097258560332"
+    },
+    {
+      "file": "docs/layout-evidence-r1/tablet-landscape-dark/input.png",
+      "sha256": "fdeee7aa5aeef67ca8b2bd38f8f1a81cf9a97889c13ff562ae68200e438bc027"
+    },
+    {
+      "file": "docs/layout-evidence-r1/tablet-landscape-dark/instrumentation.log",
+      "sha256": "164f60f157b4b5b920900dc1174ca8d7ec13e8203b520f672ce3336c370a4547"
+    },
+    {
+      "file": "docs/layout-evidence-r1/tablet-landscape-dark/layout.json",
+      "sha256": "b07b508fa8e51d3f6c25cdb080504d077cc68ae6773a2f9cc24e995a1cd25f23"
+    },
+    {
+      "file": "docs/layout-evidence-r1/tablet-landscape-dark/login.png",
+      "sha256": "733272d7d2f6f7e1ddd2910734ee8b7f6ae698cce80166aef9862cc92b2fa5d3"
+    },
+    {
+      "file": "docs/layout-evidence-r1/tablet-landscape-dark/overview.png",
+      "sha256": "68c0814c2d8c776df301d49b931cc243e85cc2276978e8c31a137fd19469c176"
+    },
+    {
+      "file": "docs/layout-evidence-r1/tablet-landscape-dark/settings-review.png",
+      "sha256": "88d08986b170289664e12a929d10daa5ce62d545616f8d48dc8dd72b445f150f"
+    },
+    {
+      "file": "docs/layout-evidence-r1/tablet-landscape-dark/team-form.png",
+      "sha256": "bcde3991f7f2108db9bcf13efd726f1ccfa5d80b12a577c22aaebc2557d7ab05"
+    },
+    {
+      "file": "docs/layout-evidence-r1/tablet-landscape-dark/unsaved.png",
+      "sha256": "22ba59d73663a1bbd03c6175a88764f2934193e9c0b866d5b056ea1e0faed48e"
+    },
+    {
+      "file": "docs/layout-evidence-r1/tablet-landscape-dark/verification.json",
+      "sha256": "f2685cdc0273b254b0060a0d675d673bbd50e35c195d97fd770bc3b354bb5b6e"
+    },
+    {
+      "file": "docs/layout-evidence-r1/tablet-light/apk-inputs.json",
+      "sha256": "933d22fec2928cbff872fa7d929fde67787719dd8272f1f03a838654816bc72f"
+    },
+    {
+      "file": "docs/layout-evidence-r1/tablet-light/catalog-form.png",
+      "sha256": "014caf5596fa9ab84f6095ffd4a0f77404ba2c43906d1b4c26171518a9f3d625"
+    },
+    {
+      "file": "docs/layout-evidence-r1/tablet-light/device-baseline.json",
+      "sha256": "0df3b7b4ca8ef5fa341b06c6fdf3d21a6fa06c628ed9aa32c6e32292f4a1e5a3"
+    },
+    {
+      "file": "docs/layout-evidence-r1/tablet-light/device-restored.json",
+      "sha256": "0df3b7b4ca8ef5fa341b06c6fdf3d21a6fa06c628ed9aa32c6e32292f4a1e5a3"
+    },
+    {
+      "file": "docs/layout-evidence-r1/tablet-light/fixture/database-after.json",
+      "sha256": "c460a1583567652a41cc74bb5ceab1b0c0315dc01472dc8985e8e7586c45667a"
+    },
+    {
+      "file": "docs/layout-evidence-r1/tablet-light/fixture/fixture-identity.json",
+      "sha256": "ab997836d194f087fc2d6b4a42a074a6b41cc87d7a4573947ae887aa91f60c05"
+    },
+    {
+      "file": "docs/layout-evidence-r1/tablet-light/input.png",
+      "sha256": "871045e877a7b6765de28a9394f5f3c9f2dd9ab13aa235fb67747ff9219a33e0"
+    },
+    {
+      "file": "docs/layout-evidence-r1/tablet-light/instrumentation.log",
+      "sha256": "4f525908d0ed61fec4c2c5a87149433c6edfd0f5772bbe1b256327a46beb455c"
+    },
+    {
+      "file": "docs/layout-evidence-r1/tablet-light/layout.json",
+      "sha256": "71f97c1c913ee2e7efb2149e29d7831b02040e5c547a91293d7a84f1554bae15"
+    },
+    {
+      "file": "docs/layout-evidence-r1/tablet-light/login.png",
+      "sha256": "4ac446008a96c98957e546391acb2981199a57e4ccb67b18285a3d935cb96b1e"
+    },
+    {
+      "file": "docs/layout-evidence-r1/tablet-light/overview.png",
+      "sha256": "a0860e50b1b8c47b2ca1288f23ac3a61ce4b1250eab85563f5df321847f8ce48"
+    },
+    {
+      "file": "docs/layout-evidence-r1/tablet-light/settings-review.png",
+      "sha256": "bfc0091895d56b341e0d81aa8b11be5eddfb1c48cc5fea698ddeb16eab395264"
+    },
+    {
+      "file": "docs/layout-evidence-r1/tablet-light/team-form.png",
+      "sha256": "22951db1e1384df3d188c9a10fa5c31d34b9e1987cfdce442a00ad5e58c6e5c4"
+    },
+    {
+      "file": "docs/layout-evidence-r1/tablet-light/unsaved.png",
+      "sha256": "20cd1a37d0aaf8f1244eb6e5296a806943d20d893d7d2bf684dd8a6869c4b756"
+    },
+    {
+      "file": "docs/layout-evidence-r1/tablet-light/verification.json",
+      "sha256": "7c99937b043e0d96b105e480f59528b48f8511fe9bc9f0ab7e08e7d6e4689ac6"
+    },
+    {
+      "file": "docs/layout-evidence-r1/validator-probe-apk-inputs.json",
+      "sha256": "933d22fec2928cbff872fa7d929fde67787719dd8272f1f03a838654816bc72f"
+    },
+    {
+      "file": "docs/layout-evidence-r1/validator-probe.log",
+      "sha256": "94f070a6c1cd08560d2557e6df05178131d1377a678ddbb36e7f956487087e5e"
+    },
+    {
+      "file": "docs/layout-evidence-r1/visual-review.json",
+      "sha256": "d98e1ebacb9652440abe5a4d8c2db9fb24acb6d1d6d49034a41b782fb604428d"
+    },
+    {
+      "file": "docs/layout-review-r1.html",
+      "sha256": "977979c9414038a3f278762b1f908af99020fa267e4f55931740fcfe4e972c14"
+    }
+  ],
+  "canonical": [
+    {
+      "code": "ABS",
+      "preserved": true
+    },
+    {
+      "code": "CCS",
+      "preserved": true
+    },
+    {
+      "code": "ELZ",
+      "preserved": true
+    },
+    {
+      "code": "EXV",
+      "preserved": true
+    },
+    {
+      "code": "KLG",
+      "preserved": true
+    },
+    {
+      "code": "KEC",
+      "preserved": true
+    },
+    {
+      "code": "KPS",
+      "preserved": true
+    },
+    {
+      "code": "TTK",
+      "preserved": true
+    }
+  ],
+  "knownPrivateValuesAbsent": true,
+  "serviceDependenciesSchemasUnchanged": true,
+  "nativeLayoutCases": 6,
+  "nativeSceneChecks": 60,
+  "validatorProbePassed": true,
+  "nativeRegressions": [
+    "native",
+    "settings-native",
+    "catalog-native"
+  ],
+  "allRuntimeApksMatchCurrentBuild": true,
+  "apkSha256": [
+    "D11B5A4E7FF16F1DD994FF273BC2BFD644DF936552512354C8A64764110A8EA1",
+    "A892121FC1A4997780813786893D50705FB9E21F52010AE4B409274D50A54FAA"
+  ],
+  "scope": "Selected native responsive/dark/font-scale layouts; not whole-app accessibility, physical device or public acceptance"
+}

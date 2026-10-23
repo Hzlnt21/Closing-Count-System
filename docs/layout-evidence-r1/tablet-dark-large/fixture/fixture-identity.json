@@ -1,0 +1,11 @@
+{
+  "outlet": "3cfc4e6e-3133-46cb-9d7e-3f6f634ccf2f",
+  "employee": "deae7866-aa0d-4569-ab31-fe6a0014973a",
+  "colleague": "008138d4-e9a7-4b40-a67e-b89730c835b3",
+  "supervisor": "3e216372-9e34-48bd-8356-c28b0653f9c6",
+  "admin": "c1552216-3b98-42e7-8596-3a1647ac3bda",
+  "extraTeamMembers": 0,
+  "ownedDatabase": true,
+  "retained": true,
+  "limiterClockInjected": true
+}

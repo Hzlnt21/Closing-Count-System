@@ -102,7 +102,7 @@ private fun zoneLabel(zone:String)=when(zone){"Asia/Jakarta"->"WIB - Jakarta";"A
             }
         }
         reviewed?.let { review->AlertDialog(onDismissRequest={reviewed=null},title={Text("Terapkan aturan baru?")},text={
-            Column(verticalArrangement=Arrangement.spacedBy(12.dp)){
+            Column(Modifier.verticalScroll(rememberScrollState()),verticalArrangement=Arrangement.spacedBy(12.dp)){
                 Text(review.name,fontWeight=FontWeight.Bold);Text("${zoneLabel(review.timezone)} / ${s.cutoff}")
                 Text("Berlaku untuk closing baru. Closing lama tidak diubah. Perubahan yang masuk dari admin lain harus diperiksa ulang.")
             }

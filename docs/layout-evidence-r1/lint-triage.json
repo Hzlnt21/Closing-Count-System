@@ -1,0 +1,79 @@
+{
+  "errors": 0,
+  "warnings": 17,
+  "priorWarnings": 16,
+  "newWarning": {
+    "id": "ConfigurationScreenWidthHeight",
+    "scope": "Compact chrome uses configuration height; tested matrix verifies real runtime configuration. Container-size/multiwindow-specific refinement remains outside this selected matrix; no suppression or dependency upgrade."
+  },
+  "rows": [
+    {
+      "id": "OldTargetApi",
+      "line": "D:\\Code\\Worktrees\\Closing-Count-Portfolio\\app\\build.gradle.kts:56: Warning: Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the android.os.Build.VERSION_CODES javadoc for details. [OldTargetApi]"
+    },
+    {
+      "id": "AppBundleLocaleChanges",
+      "line": "D:\\Code\\Worktrees\\Closing-Count-Portfolio\\app\\src\\main\\java\\com\\closingcount\\app\\ClosingCountApplication.kt:25: Warning: Found dynamic locale changes, but did not find corresponding Play Core library calls for downloading languages and splitting by language is not disabled in the bundle configuration [AppBundleLocaleChanges]"
+    },
+    {
+      "id": "VectorRaster",
+      "line": "D:\\Code\\Worktrees\\Closing-Count-Portfolio\\app\\src\\main\\res\\drawable\\exve_labs_logo_color.xml:3: Warning: Limit vector icons sizes to 200\u00d7200 to keep icon drawing fast; see https://developer.android.com/studio/write/vector-asset-studio#when for more [VectorRaster]"
+    },
+    {
+      "id": "GradleDependency",
+      "line": "D:\\Code\\Worktrees\\Closing-Count-Portfolio\\app\\build.gradle.kts:48: Warning: A newer version of compileSdk than 36 is available: 37 [GradleDependency]"
+    },
+    {
+      "id": "GradleDependency",
+      "line": "D:\\Code\\Worktrees\\Closing-Count-Portfolio\\app\\build.gradle.kts:118: Warning: A newer version of androidx.activity:activity-compose than 1.12.1 is available: 1.13.0 [GradleDependency]"
+    },
+    {
+      "id": "GradleDependency",
+      "line": "D:\\Code\\Worktrees\\Closing-Count-Portfolio\\app\\build.gradle.kts:119: Warning: A newer version of androidx.core:core-ktx than 1.17.0 is available: 1.19.1 [GradleDependency]"
+    },
+    {
+      "id": "GradleDependency",
+      "line": "D:\\Code\\Worktrees\\Closing-Count-Portfolio\\app\\build.gradle.kts:120: Warning: A newer version of androidx.lifecycle:lifecycle-runtime-ktx than 2.9.4 is available: 2.11.0 [GradleDependency]"
+    },
+    {
+      "id": "GradleDependency",
+      "line": "D:\\Code\\Worktrees\\Closing-Count-Portfolio\\app\\build.gradle.kts:121: Warning: A newer version of androidx.lifecycle:lifecycle-runtime-compose than 2.9.4 is available: 2.11.0 [GradleDependency]"
+    },
+    {
+      "id": "GradleDependency",
+      "line": "D:\\Code\\Worktrees\\Closing-Count-Portfolio\\app\\build.gradle.kts:122: Warning: A newer version of androidx.lifecycle:lifecycle-viewmodel-compose than 2.9.4 is available: 2.11.0 [GradleDependency]"
+    },
+    {
+      "id": "GradleDependency",
+      "line": "D:\\Code\\Worktrees\\Closing-Count-Portfolio\\app\\build.gradle.kts:129: Warning: A newer version of androidx.room:room-runtime than 2.8.4 is available: 2.8.5 [GradleDependency]"
+    },
+    {
+      "id": "GradleDependency",
+      "line": "D:\\Code\\Worktrees\\Closing-Count-Portfolio\\app\\build.gradle.kts:130: Warning: A newer version of androidx.room:room-ktx than 2.8.4 is available: 2.8.5 [GradleDependency]"
+    },
+    {
+      "id": "GradleDependency",
+      "line": "D:\\Code\\Worktrees\\Closing-Count-Portfolio\\app\\build.gradle.kts:131: Warning: A newer version of androidx.room:room-compiler than 2.8.4 is available: 2.8.5 [GradleDependency]"
+    },
+    {
+      "id": "GradleDependency",
+      "line": "D:\\Code\\Worktrees\\Closing-Count-Portfolio\\app\\build.gradle.kts:136: Warning: A newer version of androidx.room:room-testing than 2.8.4 is available: 2.8.5 [GradleDependency]"
+    },
+    {
+      "id": "ConfigurationScreenWidthHeight from androidx.compose.ui",
+      "line": "D:\\Code\\Worktrees\\Closing-Count-Portfolio\\app\\src\\main\\java\\com\\closingcount\\app\\ui\\online\\OnlineClosingApp.kt:221: Warning: Using Configuration.screenHeightDp instead of LocalWindowInfo.current.containerSize [ConfigurationScreenWidthHeight from androidx.compose.ui]"
+    },
+    {
+      "id": "ObsoleteSdkInt",
+      "line": "D:\\Code\\Worktrees\\Closing-Count-Portfolio\\app\\src\\main\\res\\mipmap-anydpi-v26: Warning: This folder configuration (v26) is unnecessary; minSdkVersion is 26. Merge all the resources in this folder into mipmap-anydpi. [ObsoleteSdkInt]"
+    },
+    {
+      "id": "UseKtx",
+      "line": "D:\\Code\\Worktrees\\Closing-Count-Portfolio\\app\\src\\main\\java\\com\\closingcount\\app\\data\\online\\OnlineSessionStore.kt:35: Warning: Use the KTX extension function SharedPreferences.edit instead? [UseKtx]"
+    },
+    {
+      "id": "UseKtx",
+      "line": "D:\\Code\\Worktrees\\Closing-Count-Portfolio\\app\\src\\main\\java\\com\\closingcount\\app\\data\\online\\OnlineSessionStore.kt:52: Warning: Use the KTX extension function SharedPreferences.edit instead? [UseKtx]"
+    }
+  ]
+}

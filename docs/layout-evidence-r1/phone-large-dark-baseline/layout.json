@@ -1,0 +1,30 @@
+{
+  "density": 2.625,
+  "case": "phone-large-dark-baseline",
+  "fontScale": 2,
+  "screenWidthDp": 360,
+  "screenHeightDp": 800,
+  "dark": true,
+  "checks": [
+    {
+      "scene": "login",
+      "measuredStaticTexts": 6,
+      "intentionalOutletEllipses": 0,
+      "overflow": [
+        {
+          "text": "Username",
+          "width": 352,
+          "height": 111,
+          "ellipsized": false
+        },
+        {
+          "text": "Closing Count",
+          "width": 527,
+          "height": 105,
+          "ellipsized": false
+        }
+      ]
+    }
+  ],
+  "physicalPhoneAccessed": false
+}

@@ -1,0 +1,86 @@
+{
+  "entries": [
+    {
+      "business_date": "2026-10-23",
+      "generation": "1",
+      "revision": "2",
+      "menu_id": "c322f604-aeea-4301-ad1f-486dab945af6",
+      "quantity": 12,
+      "entry_revision": "2",
+      "updated_by": "f5ac8342-3362-4e4e-886b-299eb6a33295"
+    },
+    {
+      "business_date": "2026-10-23",
+      "generation": "1",
+      "revision": "2",
+      "menu_id": "c9269fc8-af56-4fb6-81a7-806f6f1e0a0d",
+      "quantity": 0,
+      "entry_revision": "0",
+      "updated_by": null
+    }
+  ],
+  "receipts": [
+    {
+      "business_date": "2026-10-23",
+      "actor_id": "2f4ac9ee-3ade-4d72-82ad-88e3008593b5",
+      "operation_id": "0bf6a0f6-9502-4b60-9a2e-f66807041fad",
+      "response": {
+        "entry": {
+          "menuId": "c322f604-aeea-4301-ad1f-486dab945af6",
+          "quantity": 8,
+          "updatedAt": "2026-10-23T02:20:08.728Z",
+          "updatedBy": {
+            "id": "2f4ac9ee-3ade-4d72-82ad-88e3008593b5",
+            "username": "qahmvkcd283.rani",
+            "displayName": "Dummy rani"
+          },
+          "entryRevision": 1
+        },
+        "closingId": "3a3be396-476e-4e72-b851-d1ff08ea8dd8",
+        "generation": 1,
+        "closingRevision": 1
+      }
+    },
+    {
+      "business_date": "2026-10-23",
+      "actor_id": "f5ac8342-3362-4e4e-886b-299eb6a33295",
+      "operation_id": "f2d5bdef-253d-43ca-bf80-9cf8fe4fabe6",
+      "response": {
+        "entry": {
+          "menuId": "c322f604-aeea-4301-ad1f-486dab945af6",
+          "quantity": 12,
+          "updatedAt": "2026-10-23T02:20:12.774Z",
+          "updatedBy": {
+            "id": "f5ac8342-3362-4e4e-886b-299eb6a33295",
+            "username": "qahmvkcd283.dimas",
+            "displayName": "Dummy dimas"
+          },
+          "entryRevision": 2
+        },
+        "closingId": "3a3be396-476e-4e72-b851-d1ff08ea8dd8",
+        "generation": 1,
+        "closingRevision": 2
+      }
+    }
+  ],
+  "audit": [
+    {
+      "business_date": "2026-10-23",
+      "actor_id": "2f4ac9ee-3ade-4d72-82ad-88e3008593b5",
+      "operation_id": "0bf6a0f6-9502-4b60-9a2e-f66807041fad",
+      "before_quantity": 0,
+      "after_quantity": 8
+    },
+    {
+      "business_date": "2026-10-23",
+      "actor_id": "f5ac8342-3362-4e4e-886b-299eb6a33295",
+      "operation_id": "f2d5bdef-253d-43ca-bf80-9cf8fe4fabe6",
+      "before_quantity": 8,
+      "after_quantity": 12
+    }
+  ],
+  "settingsReceipts": [],
+  "teamReceipts": [],
+  "internalErrorCount": 0,
+  "fixturesRetained": true
+}
