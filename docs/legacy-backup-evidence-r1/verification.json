@@ -1,0 +1,9 @@
+{
+    "passed":  true,
+    "tests":  10,
+    "scope":  "Legacy codec and isolated in-memory Room transactions; not native file picker/server transfer",
+    "emulator":  "PortfolioQA_Phone_API36",
+    "physicalPhoneAccessed":  false,
+    "operationalDatabaseAccessed":  false,
+    "onlineServerImportOrExport":  false
+}

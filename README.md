@@ -1,5 +1,7 @@
 # Closing Count System
 
+Newest transfer checkpoint: [legacy backup validation](docs/LEGACY_BACKUP_R1.md). Version1 encoding remains unchanged; strict decoding rejects silent coercion/corruption before restore. Ten Android codec/Room tests cover historical compatibility, transactional rollback and online queue isolation. Native file-provider flow and online transfer remain open.
+
 Newest verification: [native responsive/dark/large-text layouts](docs/NATIVE_LAYOUT_R1.md), [42 screenshots across six configurations](docs/layout-review-r1.html). Compact navigation, long-name and quantity layouts preserve the approved R2 direction. Settings-review and unsaved-message dialog bodies can scroll. Six selected layout scenarios, a detector control and three native regressions passed on the same APK pair.
 
 Previously verified: [actual native recovery after six force-stops](docs/NATIVE_PROCESS_RECOVERY_R1.md), [six recovery screenshots](docs/native-recovery-review-r1.html). Five committed-operation replies are deliberately interrupted; the native screens recover their original intents with no duplicate receipts. A saved catalog draft also returns through the editor.

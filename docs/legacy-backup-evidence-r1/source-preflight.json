@@ -1,0 +1,99 @@
+{
+  "passed": true,
+  "baseline": "fd3e04f7eb099aca1801a9121cddaa3e5f96a2fe",
+  "files": [
+    {
+      "file": "CHANGELOG.md",
+      "sha256": "3b04a712badda73977ea28085d0d92ea746b24772cf4712db9a05f0bfca219e7"
+    },
+    {
+      "file": "README.md",
+      "sha256": "9bf180d309d6bb4f1361f0e140cce7b9bd8ea06cb92ba3af2724a84543fef347"
+    },
+    {
+      "file": "app/src/androidTest/java/com/closingcount/app/BackupInstrumentedTest.kt",
+      "sha256": "0c5834c6868b5b205b35bea883a15a2c035fa63a4730b0e760bea304c57c9a11"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/data/transfer/BackupJsonCodec.kt",
+      "sha256": "9baf2d6724fedeeb0a4b5878de8917f8f347ce66edaa84eae9f34b2be30bf58b"
+    },
+    {
+      "file": "docs/LEGACY_BACKUP_R1.md",
+      "sha256": "201b88927cbbaf6a36aea1bcaca91699e1213359e5457de7675e3e5e379b6370"
+    },
+    {
+      "file": "docs/legacy-backup-evidence-r1/Check-ClosingLegacyTransferR1.ps1",
+      "sha256": "f26f5ce643ce9156154faf5782f714c3a6e05f375a87a2d5bc2166396a18d6d6"
+    },
+    {
+      "file": "docs/legacy-backup-evidence-r1/apk-inputs.json",
+      "sha256": "0472625b3f29d6381ac95e6bcac9e4375c23a56ec3f39e8ceb92aaeb07c553e8"
+    },
+    {
+      "file": "docs/legacy-backup-evidence-r1/build.log",
+      "sha256": "4b4ab28d932c05d68157135292a383ab3eba3541e33a3cdea48b76e1e4fcc28c"
+    },
+    {
+      "file": "docs/legacy-backup-evidence-r1/check-legacy-backup-source-r1.py",
+      "sha256": "d1429c2f138de0ffc6e32c8ea61d1383711fe9b12c6004e6ca96a49e4eac111a"
+    },
+    {
+      "file": "docs/legacy-backup-evidence-r1/instrumentation.log",
+      "sha256": "9ac4bdbddbf77f514c187e85cecfd149221578755010b5586f244c17360ce589"
+    },
+    {
+      "file": "docs/legacy-backup-evidence-r1/jvm-tests.json",
+      "sha256": "d4a1e7967ea6531e60c5d175b17ee4e3b050fb92c330dcd3a05c14b061955b92"
+    },
+    {
+      "file": "docs/legacy-backup-evidence-r1/lint.txt",
+      "sha256": "23bc63cceb459270fa6634caa50be5bd36907cc89c9f76f9caed6f17cb722aa1"
+    },
+    {
+      "file": "docs/legacy-backup-evidence-r1/verification.json",
+      "sha256": "b7842a98234d83222a03ad3753d5336af3bb2f184db1edee8943853b8e3e51fb"
+    }
+  ],
+  "canonical": [
+    {
+      "code": "ABS",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "CCS",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "ELZ",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "EXV",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "KLG",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "KEC",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "KPS",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "TTK",
+      "headAndStatusUnchanged": true
+    }
+  ],
+  "knownPrivateValuesAbsent": true,
+  "version1EncoderUnchanged": true,
+  "uiServiceSchemasDependenciesUnchanged": true,
+  "androidBackupTests": 10,
+  "jvmTests": 19,
+  "apkInputsMatchCurrentBuild": true,
+  "scope": "Legacy JSON codec and isolated Room transactions; native file picker and online transfer remain open"
+}

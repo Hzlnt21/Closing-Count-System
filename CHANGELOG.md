@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased - legacy backup validation R1, 2026-10-23
+
+- Reject silent JSON coercion/truncation, overflow, invalid dates/IDs, duplicate rows, orphaned recipe entries, corrupt UTF-8 and oversized local backups before restore.
+- Preserve version1 encoding and migrated historical category0/deleted-master history. Ten Android codec/Room tests prove round trips, transaction rollback and online outbox isolation;19JVM/build passed, lint0errors/17warnings unchanged. [Evidence and remaining transfer scope](docs/LEGACY_BACKUP_R1.md).
+
 ## Unreleased - native layout R1, 2026-10-23
 
 - Preserved approved R2 styling while adapting compact navigation, long outlet/date labels, summary totals and quantity input for large text and short viewports. Narrow large-text menu input stacks the full name above quantity; catalog section chips align at equal widths.
