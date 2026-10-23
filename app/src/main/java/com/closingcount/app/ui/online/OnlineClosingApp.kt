@@ -1,6 +1,8 @@
 package com.closingcount.app.ui.online
 
 import android.app.DatePickerDialog
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -459,7 +461,7 @@ private fun auditLabel(action: String) = when(action) {
 }
 
 @Composable private fun HistoryContent(s: OnlineUiState, vm: OnlineViewModel, onSelect: (OnlineHistoryUi) -> Unit) {
-    if (s.frozenReport != null) { FrozenReportContent(s.frozenReport, vm::closeFrozenReport); return }
+    if (s.frozenReport != null) { FrozenReportContent(s.frozenReport, vm::closeFrozenReport, vm::showLogin); return }
     val detail = s.historyDetail
     if (detail != null) {
         TextButton(onClick = vm::closeHistoryDetail, modifier = Modifier.testTag("online.history.back")) {
@@ -531,16 +533,41 @@ private fun auditLabel(action: String) = when(action) {
         TextButton(onClick = { onSelect(row) }) { Text("Buka closing") } } }
 }
 
-@Composable private fun FrozenReportContent(raw: String, onBack: () -> Unit) {
+@Composable private fun FrozenReportContent(raw: String, onBack: () -> Unit, onLogin: () -> Unit,
+    exporter: OnlineReportExportViewModel = viewModel()) {
     val report = remember(raw) { org.json.JSONObject(raw) }; val closing = report.getJSONObject("closing")
+    val export by exporter.state.collectAsStateWithLifecycle()
+    val reportId = report.getString("id")
+    val save = rememberLauncherForActivityResult(ActivityResultContracts.CreateDocument("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"), exporter::pickerResult)
+    LaunchedEffect(export.request?.id) {
+        export.request?.let { if (exporter.claim(it.id)) save.launch(it.filename) }
+    }
+    DisposableEffect(reportId) { onDispose { exporter.detached(reportId) } }
     val quantities = closing.getJSONArray("entries").let { entries -> (0 until entries.length()).associate {
         val row = entries.getJSONObject(it); row.getString("menuId") to row.getLong("quantity") } }
     val menus = closing.getJSONObject("catalog").getJSONArray("menus"); val totals = closing.getJSONArray("ingredientTotals")
-    TextButton(onClick = onBack, modifier = Modifier.testTag("online.report.back")) {
+    TextButton(onClick = onBack, enabled = !export.busy, modifier = Modifier.testTag("online.report.back")) {
         Icon(Icons.Outlined.ArrowBack, null, Modifier.size(18.dp)); Spacer(Modifier.width(8.dp)); Text("Jejak & laporan")
     }
     Text("Laporan terkunci", fontSize = 28.sp, fontWeight = FontWeight.Bold)
     Text(displayDate(closing.getString("businessDate")), color = MaterialTheme.colorScheme.onSurfaceVariant)
+    if(export.reportId == reportId)export.message?.let { text ->
+        MessageCard(text, error = export.failed) {
+            if(export.needsLogin)TextButton(onClick = onLogin,
+                colors = ButtonDefaults.textButtonColors(contentColor = MaterialTheme.colorScheme.onErrorContainer),
+                modifier = Modifier.testTag("online.report.export.login")) { Text("Masuk kembali") }
+        }
+    }
+    OutlinedButton(onClick = { exporter.begin(raw, reportId) }, enabled = !export.busy,
+        modifier = Modifier.fillMaxWidth().heightIn(min = 48.dp).testTag("online.report.export")) {
+        Icon(Icons.Outlined.FileDownload, null);Spacer(Modifier.width(8.dp));Text("Unduh laporan Excel")
+    }
+    Text("Unduhan memeriksa akses server dan memakai generasi laporan ini.", style = MaterialTheme.typography.bodySmall,
+        color = MaterialTheme.colorScheme.onSurfaceVariant)
+    if(export.preparing || export.writing)AlertDialog(onDismissRequest = {},
+        properties = androidx.compose.ui.window.DialogProperties(dismissOnBackPress = false, dismissOnClickOutside = false),
+        title = { Text(if(export.writing)"Menyimpan laporan" else "Menyiapkan laporan") },
+        text = { Column(verticalArrangement = Arrangement.spacedBy(12.dp)) { CircularProgressIndicator();Text("Tunggu sampai proses selesai.") } },confirmButton = {})
     Paper {
         Icon(Icons.Outlined.Lock, null, tint = MaterialTheme.colorScheme.primary)
         Text("Generasi ${report.getLong("generation")} · revisi ${report.getLong("closingRevision")}", fontWeight = FontWeight.Bold)

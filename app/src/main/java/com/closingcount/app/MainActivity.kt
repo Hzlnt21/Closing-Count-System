@@ -28,4 +28,18 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+
+    override fun onResume() {
+        super.onResume()
+        // A recreated window can return from DocumentsUI with stale system-bar
+        // appearance. Reapply the current light/dark style when it is resumed.
+        enableEdgeToEdge()
+    }
+
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        if (hasFocus) window.decorView.post {
+            if (window.decorView.hasWindowFocus()) enableEdgeToEdge()
+        }
+    }
 }

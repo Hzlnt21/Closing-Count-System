@@ -1,0 +1,246 @@
+{
+  "entries": [
+    {
+      "business_date": "2026-08-01",
+      "generation": "2",
+      "revision": "7",
+      "menu_id": "a5904e7c-c1e5-49e6-878a-3be2db94823d",
+      "quantity": 6,
+      "entry_revision": "2",
+      "updated_by": "45405d31-bf0d-487a-89b9-9887f8d66443"
+    },
+    {
+      "business_date": "2026-08-01",
+      "generation": "2",
+      "revision": "7",
+      "menu_id": "ef7fac50-23aa-459b-83aa-4589f14a2037",
+      "quantity": 0,
+      "entry_revision": "0",
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-08-02",
+      "generation": "1",
+      "revision": "0",
+      "menu_id": "a5904e7c-c1e5-49e6-878a-3be2db94823d",
+      "quantity": 0,
+      "entry_revision": "0",
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-08-02",
+      "generation": "1",
+      "revision": "0",
+      "menu_id": "ef7fac50-23aa-459b-83aa-4589f14a2037",
+      "quantity": 0,
+      "entry_revision": "0",
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-08-03",
+      "generation": "1",
+      "revision": "0",
+      "menu_id": "a5904e7c-c1e5-49e6-878a-3be2db94823d",
+      "quantity": 0,
+      "entry_revision": "0",
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-08-03",
+      "generation": "1",
+      "revision": "0",
+      "menu_id": "ef7fac50-23aa-459b-83aa-4589f14a2037",
+      "quantity": 0,
+      "entry_revision": "0",
+      "updated_by": null
+    }
+  ],
+  "receipts": [
+    {
+      "business_date": "2026-08-01",
+      "actor_id": "45405d31-bf0d-487a-89b9-9887f8d66443",
+      "operation_id": "0abafc4a-a5d7-4617-a7b4-f693809ed5f6",
+      "response": {
+        "entry": {
+          "menuId": "a5904e7c-c1e5-49e6-878a-3be2db94823d",
+          "quantity": 6,
+          "updatedAt": "2026-10-23T07:11:09.306Z",
+          "updatedBy": {
+            "id": "45405d31-bf0d-487a-89b9-9887f8d66443",
+            "username": "qahmvkms43p.rani",
+            "displayName": "Dummy rani"
+          },
+          "entryRevision": 2
+        },
+        "closingId": "61d7040e-a3b3-4498-99b4-c84fe5b5e882",
+        "generation": 2,
+        "closingRevision": 5
+      }
+    },
+    {
+      "business_date": "2026-08-01",
+      "actor_id": "45405d31-bf0d-487a-89b9-9887f8d66443",
+      "operation_id": "55abb2b5-1c14-4b32-ac1a-26f4e7706a8e",
+      "response": {
+        "state": "SUBMITTED",
+        "report": null,
+        "lockedAt": null,
+        "lockedBy": null,
+        "closingId": "61d7040e-a3b3-4498-99b4-c84fe5b5e882",
+        "generation": 1,
+        "submittedAt": "2026-10-23T07:11:09.016Z",
+        "submittedBy": {
+          "id": "45405d31-bf0d-487a-89b9-9887f8d66443",
+          "username": "qahmvkms43p.rani",
+          "displayName": "Dummy rani"
+        },
+        "closingRevision": 2
+      }
+    },
+    {
+      "business_date": "2026-08-01",
+      "actor_id": "45405d31-bf0d-487a-89b9-9887f8d66443",
+      "operation_id": "820d4f5c-191b-4b2b-88a3-7eec30a7e63f",
+      "response": {
+        "state": "SUBMITTED",
+        "report": null,
+        "lockedAt": null,
+        "lockedBy": null,
+        "closingId": "61d7040e-a3b3-4498-99b4-c84fe5b5e882",
+        "generation": 2,
+        "submittedAt": "2026-10-23T07:11:09.377Z",
+        "submittedBy": {
+          "id": "45405d31-bf0d-487a-89b9-9887f8d66443",
+          "username": "qahmvkms43p.rani",
+          "displayName": "Dummy rani"
+        },
+        "closingRevision": 6
+      }
+    },
+    {
+      "business_date": "2026-08-01",
+      "actor_id": "45405d31-bf0d-487a-89b9-9887f8d66443",
+      "operation_id": "c904988c-c0f1-4500-8092-ec6b272a4809",
+      "response": {
+        "entry": {
+          "menuId": "a5904e7c-c1e5-49e6-878a-3be2db94823d",
+          "quantity": 4,
+          "updatedAt": "2026-10-23T07:11:08.942Z",
+          "updatedBy": {
+            "id": "45405d31-bf0d-487a-89b9-9887f8d66443",
+            "username": "qahmvkms43p.rani",
+            "displayName": "Dummy rani"
+          },
+          "entryRevision": 1
+        },
+        "closingId": "61d7040e-a3b3-4498-99b4-c84fe5b5e882",
+        "generation": 1,
+        "closingRevision": 1
+      }
+    },
+    {
+      "business_date": "2026-08-01",
+      "actor_id": "c8e935cf-6cf7-4854-a497-00ea4d10a2fe",
+      "operation_id": "8aecaf94-d41b-4496-b7c8-8da4cd5fe440",
+      "response": {
+        "state": "DRAFT",
+        "report": null,
+        "lockedAt": null,
+        "lockedBy": null,
+        "closingId": "61d7040e-a3b3-4498-99b4-c84fe5b5e882",
+        "generation": 2,
+        "submittedAt": null,
+        "submittedBy": null,
+        "closingRevision": 4
+      }
+    },
+    {
+      "business_date": "2026-08-01",
+      "actor_id": "c8e935cf-6cf7-4854-a497-00ea4d10a2fe",
+      "operation_id": "8b1e22b7-597d-45a5-85bd-6e51749a6db7",
+      "response": {
+        "state": "LOCKED",
+        "report": {
+          "id": "e7416ba6-a697-4853-aeda-d0c23c0b9b40",
+          "generation": 1,
+          "reviewedAt": "2026-10-23T07:11:09.085Z",
+          "reviewedBy": {
+            "id": "c8e935cf-6cf7-4854-a497-00ea4d10a2fe",
+            "username": "qahmvkms43p.arif",
+            "displayName": "Dummy arif"
+          },
+          "closingRevision": 3
+        },
+        "lockedAt": "2026-10-23T07:11:09.085Z",
+        "lockedBy": {
+          "id": "c8e935cf-6cf7-4854-a497-00ea4d10a2fe",
+          "username": "qahmvkms43p.arif",
+          "displayName": "Dummy arif"
+        },
+        "closingId": "61d7040e-a3b3-4498-99b4-c84fe5b5e882",
+        "generation": 1,
+        "submittedAt": "2026-10-23T07:11:09.016Z",
+        "submittedBy": {
+          "id": "45405d31-bf0d-487a-89b9-9887f8d66443",
+          "username": "qahmvkms43p.rani",
+          "displayName": "Dummy rani"
+        },
+        "closingRevision": 3
+      }
+    },
+    {
+      "business_date": "2026-08-01",
+      "actor_id": "c8e935cf-6cf7-4854-a497-00ea4d10a2fe",
+      "operation_id": "be836181-b6ae-4a7f-9237-c1b5173f1f72",
+      "response": {
+        "state": "LOCKED",
+        "report": {
+          "id": "7df8b683-14f4-4d3e-bb26-6e50a7fc7266",
+          "generation": 2,
+          "reviewedAt": "2026-10-23T07:11:09.448Z",
+          "reviewedBy": {
+            "id": "c8e935cf-6cf7-4854-a497-00ea4d10a2fe",
+            "username": "qahmvkms43p.arif",
+            "displayName": "Dummy arif"
+          },
+          "closingRevision": 7
+        },
+        "lockedAt": "2026-10-23T07:11:09.448Z",
+        "lockedBy": {
+          "id": "c8e935cf-6cf7-4854-a497-00ea4d10a2fe",
+          "username": "qahmvkms43p.arif",
+          "displayName": "Dummy arif"
+        },
+        "closingId": "61d7040e-a3b3-4498-99b4-c84fe5b5e882",
+        "generation": 2,
+        "submittedAt": "2026-10-23T07:11:09.377Z",
+        "submittedBy": {
+          "id": "45405d31-bf0d-487a-89b9-9887f8d66443",
+          "username": "qahmvkms43p.rani",
+          "displayName": "Dummy rani"
+        },
+        "closingRevision": 7
+      }
+    }
+  ],
+  "audit": [
+    {
+      "business_date": "2026-08-01",
+      "actor_id": "45405d31-bf0d-487a-89b9-9887f8d66443",
+      "operation_id": "c904988c-c0f1-4500-8092-ec6b272a4809",
+      "before_quantity": 0,
+      "after_quantity": 4
+    },
+    {
+      "business_date": "2026-08-01",
+      "actor_id": "45405d31-bf0d-487a-89b9-9887f8d66443",
+      "operation_id": "0abafc4a-a5d7-4617-a7b4-f693809ed5f6",
+      "before_quantity": 4,
+      "after_quantity": 6
+    }
+  ],
+  "settingsReceipts": [],
+  "teamReceipts": [],
+  "internalErrorCount": 0,
+  "fixturesRetained": true
+}

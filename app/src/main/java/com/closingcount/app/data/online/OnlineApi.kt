@@ -287,25 +287,11 @@ class OnlineApi(val endpoint: OnlineEndpoint, private val timeoutMillis: Int = 1
     suspend fun report(session: OnlineSession, outletId: String, closingId: String, generation: Long): String {
         checkSession(session); uuid(closingId); session.scope(outletId); require(generation >= 1)
         val response = request("GET", "/closings/$closingId/reports/$generation", session.token)
-        return decode {
-            require(response.getString("format") == "closing-count-report" && response.getInt("schemaVersion") == 1)
-            require(response.getString("closingId") == closingId && response.getString("outletId") == outletId && number(response, "generation", 1) == generation)
-            val frozen = snapshot(session, outletId, response.getJSONObject("closing"))
-            require(frozen.header.closingId == closingId && frozen.header.generation == generation && frozen.header.state == "LOCKED")
-            require(frozen.header.revision == number(response, "closingRevision"))
-            Instant.parse(response.getString("reviewedAt")); uuid(response.getJSONObject("reviewedBy").getString("id"))
-            require(response.getJSONObject("reviewedBy").getString("displayName").length in 1..200)
-            val closing = response.getJSONObject("closing")
-            require(closing.getJSONObject("lockedBy").getString("id") == response.getJSONObject("reviewedBy").getString("id"))
-            val date = closing.getString("businessDate"); require(java.time.LocalDate.parse(date).toString() == date)
-            java.time.ZoneId.of(closing.getString("timezone"))
-            val menus = closing.getJSONObject("catalog").getJSONArray("menus")
-            for (i in 0 until menus.length()) require(menus.getJSONObject(i).getString("name").length in 1..200)
-            val totals = closing.getJSONArray("ingredientTotals"); require(totals.length() <= 10000)
-            for (i in 0 until totals.length()) { val line = totals.getJSONObject(i)
-                uuid(line.getString("id")); require(line.getString("name").length in 1..200); number(line,"total") }
+        return withContext(Dispatchers.IO) { decode {
+            val report = FrozenClosingReport.parse(response.toString())
+            require(report.closingId == closingId && report.outletId == outletId && report.generation == generation)
             response.toString()
-        }
+        } }
     }
 
     suspend fun history(session: OnlineSession, outletId: String, before: String? = null, limit: Int = 20): OnlineHistoryPage {

@@ -253,6 +253,20 @@ class OnlineRepository(private val dao: OnlineSyncDao, private val store: Online
         val session = requireNotNull(active); val result = api(session).report(session, outletId, closingId, generation)
         check(active === session) { "Session changed" }; return result
     }
+
+    /** Keep the picker-authorized identity pinned until the verified payload has been written. */
+    suspend fun withReportForExport(expectedSession: OnlineSession, reviewed: FrozenClosingReport,
+        write: suspend (FrozenClosingReport, String, ReportActor) -> Unit) = sessionMutex.withLock {
+        check(active === expectedSession) { "Export session changed" }
+        expectedSession.scope(reviewed.outletId)
+        val client = api(expectedSession)
+        val freshIdentity = client.refreshIdentity(expectedSession).identity
+        val report = FrozenClosingReport.parse(client.report(expectedSession, reviewed.outletId, reviewed.closingId, reviewed.generation))
+        check(report == reviewed) { "Export report changed" }
+        val outlet = client.outletSettings(expectedSession, reviewed.outletId)
+        check(active === expectedSession && freshIdentity.outlets.any { it.id == reviewed.outletId })
+        write(report, outlet.name, ReportActor(freshIdentity.id, freshIdentity.username, freshIdentity.displayName))
+    }
     suspend fun readClosing(outletId: String, closingId: String): OnlineSnapshot {
         val session = requireNotNull(active); val result = api(session).fetch(session, outletId, closingId)
         check(active === session) { "Session changed" }; dao.pull(result.header, result.entries)

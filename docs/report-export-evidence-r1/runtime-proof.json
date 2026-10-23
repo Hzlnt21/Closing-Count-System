@@ -1,0 +1,69 @@
+{
+  "passed": true,
+  "apkSha256": [
+    "E4D49C2001E3D4060148C13A60C2190414D3A5EFEC76AA0530ECED7175DF76E7",
+    "192CFB7FBCC047502201A7EB0DEF0C6B6DC3D195F7DBEFD47880860482048027"
+  ],
+  "groups": [
+    {
+      "case": "http-final",
+      "tests": 5,
+      "passed": true,
+      "productionApkSha256": "E4D49C2001E3D4060148C13A60C2190414D3A5EFEC76AA0530ECED7175DF76E7",
+      "instrumentationApkSha256": "192CFB7FBCC047502201A7EB0DEF0C6B6DC3D195F7DBEFD47880860482048027"
+    },
+    {
+      "case": "light-stable-final",
+      "tests": 1,
+      "passed": true,
+      "productionApkSha256": "E4D49C2001E3D4060148C13A60C2190414D3A5EFEC76AA0530ECED7175DF76E7",
+      "instrumentationApkSha256": "192CFB7FBCC047502201A7EB0DEF0C6B6DC3D195F7DBEFD47880860482048027",
+      "fontScale": 1,
+      "dark": false,
+      "legacyUnchanged": true,
+      "activityRecreated": true,
+      "exportSha256": "ed591a91f3ab17e5e4d00b301f2ba7c4b9b1b56b1c22370804134bfa8e748a67"
+    },
+    {
+      "case": "dark-stable-final",
+      "tests": 1,
+      "passed": true,
+      "productionApkSha256": "E4D49C2001E3D4060148C13A60C2190414D3A5EFEC76AA0530ECED7175DF76E7",
+      "instrumentationApkSha256": "192CFB7FBCC047502201A7EB0DEF0C6B6DC3D195F7DBEFD47880860482048027",
+      "fontScale": 2,
+      "dark": true,
+      "legacyUnchanged": true,
+      "activityRecreated": true,
+      "exportSha256": "ee8d829c94c4254e8c13900fd56beed6a7b49b7fb5d87dcda3d679f2a703c2d2"
+    },
+    {
+      "case": "history-http",
+      "tests": 1,
+      "passed": true,
+      "productionApkSha256": "E4D49C2001E3D4060148C13A60C2190414D3A5EFEC76AA0530ECED7175DF76E7",
+      "instrumentationApkSha256": "192CFB7FBCC047502201A7EB0DEF0C6B6DC3D195F7DBEFD47880860482048027"
+    },
+    {
+      "case": "history-native",
+      "tests": 1,
+      "passed": true,
+      "productionApkSha256": "E4D49C2001E3D4060148C13A60C2190414D3A5EFEC76AA0530ECED7175DF76E7",
+      "instrumentationApkSha256": "192CFB7FBCC047502201A7EB0DEF0C6B6DC3D195F7DBEFD47880860482048027"
+    }
+  ],
+  "androidTests": 9,
+  "nativeJourneys": 2,
+  "workbooksCompared": 3,
+  "productionApkSameAcrossGroups": true,
+  "instrumentationDifference": "All selected groups used the same final production and instrumentation APK pair.",
+  "jvm": {
+    "tests": 25,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "lintErrors": 0,
+  "lintWarnings": 17,
+  "deviceSettingsRestored": true,
+  "scope": "Owned emulator DocumentsUI and local real HTTP/PostgreSQL; no physical provider or public acceptance. Online import and complete demo remain open."
+}

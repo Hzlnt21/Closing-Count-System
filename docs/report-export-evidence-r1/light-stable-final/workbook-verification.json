@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "sourceUnchanged": true,
+  "workbookSha256": "ed591a91f3ab17e5e4d00b301f2ba7c4b9b1b56b1c22370804134bfa8e748a67",
+  "reportId": "d9ccca7c-3724-43ab-a911-df6e825590ca",
+  "closingId": "e5cea4b0-d5c1-4014-8a96-a8eee3b9461e",
+  "generation": 1,
+  "menuRowsCompared": 2,
+  "ingredientRowsCompared": 2,
+  "quantities": [
+    4,
+    0
+  ],
+  "totalPortions": 4,
+  "checks": [
+    "every data cell vs frozen catalog/entries/totals",
+    "literal actor attribution",
+    "numeric quantities/date",
+    "cached total/formula",
+    "report identity",
+    "no external links/macros",
+    "outlet context when provided",
+    "freeze/print structure"
+  ],
+  "physicalPhoneAcceptance": false,
+  "publicAcceptance": false
+}

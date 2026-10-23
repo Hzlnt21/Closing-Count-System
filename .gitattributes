@@ -4,3 +4,6 @@ service/*.json text eol=lf
 
 # Preserve the exact verified bytes of native document-provider backup artifacts.
 docs/local-transfer-evidence-r1/*/exported-backup.json -text
+
+# Keep the exact verified bytes of online report workbooks in Git.
+docs/report-export-evidence-r1/**/*.xlsx -text

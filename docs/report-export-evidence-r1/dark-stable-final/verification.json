@@ -1,0 +1,10 @@
+﻿{
+    "passed":  true,
+    "mode":  "Native",
+    "case":  "dark-stable-final",
+    "outlet":  "707fd548-96c4-4f13-ac68-a12b024f0221",
+    "emulator":  "PortfolioQA_Phone_API36",
+    "physicalPhoneAccessed":  false,
+    "publicAcceptance":  false,
+    "finishedAt":  "2026-10-23T07:10:38.7340232Z"
+}

@@ -1,0 +1,784 @@
+{
+  "entries": [
+    {
+      "business_date": "2026-08-01",
+      "generation": "2",
+      "revision": "5",
+      "menu_id": "3604bcc6-42e5-40ff-ae4f-af54fd559d78",
+      "quantity": 6,
+      "entry_revision": "2",
+      "updated_by": "845123d2-2b80-4b2e-8d08-08d83c66ce58"
+    },
+    {
+      "business_date": "2026-08-01",
+      "generation": "2",
+      "revision": "5",
+      "menu_id": "fce23155-18c6-4397-a3d3-b242c06c67cb",
+      "quantity": 0,
+      "entry_revision": "0",
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-08-02",
+      "generation": "2",
+      "revision": "5",
+      "menu_id": "3604bcc6-42e5-40ff-ae4f-af54fd559d78",
+      "quantity": 6,
+      "entry_revision": "2",
+      "updated_by": "845123d2-2b80-4b2e-8d08-08d83c66ce58"
+    },
+    {
+      "business_date": "2026-08-02",
+      "generation": "2",
+      "revision": "5",
+      "menu_id": "fce23155-18c6-4397-a3d3-b242c06c67cb",
+      "quantity": 0,
+      "entry_revision": "0",
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-08-03",
+      "generation": "2",
+      "revision": "5",
+      "menu_id": "3604bcc6-42e5-40ff-ae4f-af54fd559d78",
+      "quantity": 6,
+      "entry_revision": "2",
+      "updated_by": "845123d2-2b80-4b2e-8d08-08d83c66ce58"
+    },
+    {
+      "business_date": "2026-08-03",
+      "generation": "2",
+      "revision": "5",
+      "menu_id": "fce23155-18c6-4397-a3d3-b242c06c67cb",
+      "quantity": 0,
+      "entry_revision": "0",
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-08-04",
+      "generation": "2",
+      "revision": "5",
+      "menu_id": "3604bcc6-42e5-40ff-ae4f-af54fd559d78",
+      "quantity": 6,
+      "entry_revision": "2",
+      "updated_by": "845123d2-2b80-4b2e-8d08-08d83c66ce58"
+    },
+    {
+      "business_date": "2026-08-04",
+      "generation": "2",
+      "revision": "5",
+      "menu_id": "fce23155-18c6-4397-a3d3-b242c06c67cb",
+      "quantity": 0,
+      "entry_revision": "0",
+      "updated_by": null
+    },
+    {
+      "business_date": "2026-08-05",
+      "generation": "2",
+      "revision": "5",
+      "menu_id": "3604bcc6-42e5-40ff-ae4f-af54fd559d78",
+      "quantity": 6,
+      "entry_revision": "2",
+      "updated_by": "845123d2-2b80-4b2e-8d08-08d83c66ce58"
+    },
+    {
+      "business_date": "2026-08-05",
+      "generation": "2",
+      "revision": "5",
+      "menu_id": "fce23155-18c6-4397-a3d3-b242c06c67cb",
+      "quantity": 0,
+      "entry_revision": "0",
+      "updated_by": null
+    }
+  ],
+  "receipts": [
+    {
+      "business_date": "2026-08-01",
+      "actor_id": "845123d2-2b80-4b2e-8d08-08d83c66ce58",
+      "operation_id": "47e17db4-4a68-43e3-aecb-c1f1d681986a",
+      "response": {
+        "state": "SUBMITTED",
+        "report": null,
+        "lockedAt": null,
+        "lockedBy": null,
+        "closingId": "f47020a6-aa0d-493f-b457-b5686b6cf7e9",
+        "generation": 1,
+        "submittedAt": "2026-10-23T07:08:38.553Z",
+        "submittedBy": {
+          "id": "845123d2-2b80-4b2e-8d08-08d83c66ce58",
+          "username": "qahmvkmogcg.rani",
+          "displayName": "Dummy rani"
+        },
+        "closingRevision": 2
+      }
+    },
+    {
+      "business_date": "2026-08-01",
+      "actor_id": "845123d2-2b80-4b2e-8d08-08d83c66ce58",
+      "operation_id": "ce98d08a-f313-49ee-8211-7591299443b3",
+      "response": {
+        "entry": {
+          "menuId": "3604bcc6-42e5-40ff-ae4f-af54fd559d78",
+          "quantity": 6,
+          "updatedAt": "2026-10-23T07:08:39.790Z",
+          "updatedBy": {
+            "id": "845123d2-2b80-4b2e-8d08-08d83c66ce58",
+            "username": "qahmvkmogcg.rani",
+            "displayName": "Dummy rani"
+          },
+          "entryRevision": 2
+        },
+        "closingId": "f47020a6-aa0d-493f-b457-b5686b6cf7e9",
+        "generation": 2,
+        "closingRevision": 5
+      }
+    },
+    {
+      "business_date": "2026-08-01",
+      "actor_id": "c58c10a2-7fb9-4902-aff2-f3d936029cb1",
+      "operation_id": "861bfdfb-3d04-4294-a4ab-b54df8bad432",
+      "response": {
+        "state": "LOCKED",
+        "report": {
+          "id": "7bf048d5-0fe9-40cc-894e-6cd2214b9adb",
+          "generation": 1,
+          "reviewedAt": "2026-10-23T07:08:38.689Z",
+          "reviewedBy": {
+            "id": "c58c10a2-7fb9-4902-aff2-f3d936029cb1",
+            "username": "qahmvkmogcg.arif",
+            "displayName": "Dummy arif"
+          },
+          "closingRevision": 3
+        },
+        "lockedAt": "2026-10-23T07:08:38.689Z",
+        "lockedBy": {
+          "id": "c58c10a2-7fb9-4902-aff2-f3d936029cb1",
+          "username": "qahmvkmogcg.arif",
+          "displayName": "Dummy arif"
+        },
+        "closingId": "f47020a6-aa0d-493f-b457-b5686b6cf7e9",
+        "generation": 1,
+        "submittedAt": "2026-10-23T07:08:38.553Z",
+        "submittedBy": {
+          "id": "845123d2-2b80-4b2e-8d08-08d83c66ce58",
+          "username": "qahmvkmogcg.rani",
+          "displayName": "Dummy rani"
+        },
+        "closingRevision": 3
+      }
+    },
+    {
+      "business_date": "2026-08-01",
+      "actor_id": "c58c10a2-7fb9-4902-aff2-f3d936029cb1",
+      "operation_id": "068dec95-82e4-4fa5-9b3d-bffc948042a9",
+      "response": {
+        "state": "DRAFT",
+        "report": null,
+        "lockedAt": null,
+        "lockedBy": null,
+        "closingId": "f47020a6-aa0d-493f-b457-b5686b6cf7e9",
+        "generation": 2,
+        "submittedAt": null,
+        "submittedBy": null,
+        "closingRevision": 4
+      }
+    },
+    {
+      "business_date": "2026-08-01",
+      "actor_id": "845123d2-2b80-4b2e-8d08-08d83c66ce58",
+      "operation_id": "00c9f646-25fa-4816-86d1-b3352125244a",
+      "response": {
+        "entry": {
+          "menuId": "3604bcc6-42e5-40ff-ae4f-af54fd559d78",
+          "quantity": 4,
+          "updatedAt": "2026-10-23T07:08:38.017Z",
+          "updatedBy": {
+            "id": "845123d2-2b80-4b2e-8d08-08d83c66ce58",
+            "username": "qahmvkmogcg.rani",
+            "displayName": "Dummy rani"
+          },
+          "entryRevision": 1
+        },
+        "closingId": "f47020a6-aa0d-493f-b457-b5686b6cf7e9",
+        "generation": 1,
+        "closingRevision": 1
+      }
+    },
+    {
+      "business_date": "2026-08-02",
+      "actor_id": "845123d2-2b80-4b2e-8d08-08d83c66ce58",
+      "operation_id": "d27787d0-6a62-4862-8042-33548e6b7a6d",
+      "response": {
+        "state": "SUBMITTED",
+        "report": null,
+        "lockedAt": null,
+        "lockedBy": null,
+        "closingId": "8bffe718-8e9c-4b69-b97b-c6ab63740345",
+        "generation": 1,
+        "submittedAt": "2026-10-23T07:08:42.488Z",
+        "submittedBy": {
+          "id": "845123d2-2b80-4b2e-8d08-08d83c66ce58",
+          "username": "qahmvkmogcg.rani",
+          "displayName": "Dummy rani"
+        },
+        "closingRevision": 2
+      }
+    },
+    {
+      "business_date": "2026-08-02",
+      "actor_id": "845123d2-2b80-4b2e-8d08-08d83c66ce58",
+      "operation_id": "24a55448-ca74-4392-aaad-a056b4bab7d4",
+      "response": {
+        "entry": {
+          "menuId": "3604bcc6-42e5-40ff-ae4f-af54fd559d78",
+          "quantity": 4,
+          "updatedAt": "2026-10-23T07:08:42.323Z",
+          "updatedBy": {
+            "id": "845123d2-2b80-4b2e-8d08-08d83c66ce58",
+            "username": "qahmvkmogcg.rani",
+            "displayName": "Dummy rani"
+          },
+          "entryRevision": 1
+        },
+        "closingId": "8bffe718-8e9c-4b69-b97b-c6ab63740345",
+        "generation": 1,
+        "closingRevision": 1
+      }
+    },
+    {
+      "business_date": "2026-08-02",
+      "actor_id": "845123d2-2b80-4b2e-8d08-08d83c66ce58",
+      "operation_id": "7c9c4fcc-ed76-41cc-b751-c963a99b4f98",
+      "response": {
+        "entry": {
+          "menuId": "3604bcc6-42e5-40ff-ae4f-af54fd559d78",
+          "quantity": 6,
+          "updatedAt": "2026-10-23T07:08:43.325Z",
+          "updatedBy": {
+            "id": "845123d2-2b80-4b2e-8d08-08d83c66ce58",
+            "username": "qahmvkmogcg.rani",
+            "displayName": "Dummy rani"
+          },
+          "entryRevision": 2
+        },
+        "closingId": "8bffe718-8e9c-4b69-b97b-c6ab63740345",
+        "generation": 2,
+        "closingRevision": 5
+      }
+    },
+    {
+      "business_date": "2026-08-02",
+      "actor_id": "c58c10a2-7fb9-4902-aff2-f3d936029cb1",
+      "operation_id": "23306453-7fa3-4b69-9664-5a8a4a239870",
+      "response": {
+        "state": "LOCKED",
+        "report": {
+          "id": "1f2c98df-916c-4b0d-891a-aec10b8c75f4",
+          "generation": 1,
+          "reviewedAt": "2026-10-23T07:08:42.656Z",
+          "reviewedBy": {
+            "id": "c58c10a2-7fb9-4902-aff2-f3d936029cb1",
+            "username": "qahmvkmogcg.arif",
+            "displayName": "Dummy arif"
+          },
+          "closingRevision": 3
+        },
+        "lockedAt": "2026-10-23T07:08:42.656Z",
+        "lockedBy": {
+          "id": "c58c10a2-7fb9-4902-aff2-f3d936029cb1",
+          "username": "qahmvkmogcg.arif",
+          "displayName": "Dummy arif"
+        },
+        "closingId": "8bffe718-8e9c-4b69-b97b-c6ab63740345",
+        "generation": 1,
+        "submittedAt": "2026-10-23T07:08:42.488Z",
+        "submittedBy": {
+          "id": "845123d2-2b80-4b2e-8d08-08d83c66ce58",
+          "username": "qahmvkmogcg.rani",
+          "displayName": "Dummy rani"
+        },
+        "closingRevision": 3
+      }
+    },
+    {
+      "business_date": "2026-08-02",
+      "actor_id": "c58c10a2-7fb9-4902-aff2-f3d936029cb1",
+      "operation_id": "2b2dfb27-346d-493a-bb8f-d94ac70db32b",
+      "response": {
+        "state": "DRAFT",
+        "report": null,
+        "lockedAt": null,
+        "lockedBy": null,
+        "closingId": "8bffe718-8e9c-4b69-b97b-c6ab63740345",
+        "generation": 2,
+        "submittedAt": null,
+        "submittedBy": null,
+        "closingRevision": 4
+      }
+    },
+    {
+      "business_date": "2026-08-03",
+      "actor_id": "845123d2-2b80-4b2e-8d08-08d83c66ce58",
+      "operation_id": "a8b9aea8-81fd-4b1e-9ffa-9dd36f23e8c7",
+      "response": {
+        "state": "SUBMITTED",
+        "report": null,
+        "lockedAt": null,
+        "lockedBy": null,
+        "closingId": "c2c60e81-101a-484c-a61d-6602e9ed2a43",
+        "generation": 1,
+        "submittedAt": "2026-10-23T07:08:45.540Z",
+        "submittedBy": {
+          "id": "845123d2-2b80-4b2e-8d08-08d83c66ce58",
+          "username": "qahmvkmogcg.rani",
+          "displayName": "Dummy rani"
+        },
+        "closingRevision": 2
+      }
+    },
+    {
+      "business_date": "2026-08-03",
+      "actor_id": "845123d2-2b80-4b2e-8d08-08d83c66ce58",
+      "operation_id": "e6f4426a-89ea-4dca-a44b-f9928f618fda",
+      "response": {
+        "entry": {
+          "menuId": "3604bcc6-42e5-40ff-ae4f-af54fd559d78",
+          "quantity": 6,
+          "updatedAt": "2026-10-23T07:08:46.324Z",
+          "updatedBy": {
+            "id": "845123d2-2b80-4b2e-8d08-08d83c66ce58",
+            "username": "qahmvkmogcg.rani",
+            "displayName": "Dummy rani"
+          },
+          "entryRevision": 2
+        },
+        "closingId": "c2c60e81-101a-484c-a61d-6602e9ed2a43",
+        "generation": 2,
+        "closingRevision": 5
+      }
+    },
+    {
+      "business_date": "2026-08-03",
+      "actor_id": "c58c10a2-7fb9-4902-aff2-f3d936029cb1",
+      "operation_id": "d1c21d7d-830e-4037-9dcb-4f815658f79c",
+      "response": {
+        "state": "LOCKED",
+        "report": {
+          "id": "a2096c95-a4d0-4ce8-b11d-8e47333ee8b0",
+          "generation": 1,
+          "reviewedAt": "2026-10-23T07:08:45.673Z",
+          "reviewedBy": {
+            "id": "c58c10a2-7fb9-4902-aff2-f3d936029cb1",
+            "username": "qahmvkmogcg.arif",
+            "displayName": "Dummy arif"
+          },
+          "closingRevision": 3
+        },
+        "lockedAt": "2026-10-23T07:08:45.673Z",
+        "lockedBy": {
+          "id": "c58c10a2-7fb9-4902-aff2-f3d936029cb1",
+          "username": "qahmvkmogcg.arif",
+          "displayName": "Dummy arif"
+        },
+        "closingId": "c2c60e81-101a-484c-a61d-6602e9ed2a43",
+        "generation": 1,
+        "submittedAt": "2026-10-23T07:08:45.540Z",
+        "submittedBy": {
+          "id": "845123d2-2b80-4b2e-8d08-08d83c66ce58",
+          "username": "qahmvkmogcg.rani",
+          "displayName": "Dummy rani"
+        },
+        "closingRevision": 3
+      }
+    },
+    {
+      "business_date": "2026-08-03",
+      "actor_id": "c58c10a2-7fb9-4902-aff2-f3d936029cb1",
+      "operation_id": "5ef35f4d-acdd-4e5b-97a6-fad6527f468b",
+      "response": {
+        "state": "DRAFT",
+        "report": null,
+        "lockedAt": null,
+        "lockedBy": null,
+        "closingId": "c2c60e81-101a-484c-a61d-6602e9ed2a43",
+        "generation": 2,
+        "submittedAt": null,
+        "submittedBy": null,
+        "closingRevision": 4
+      }
+    },
+    {
+      "business_date": "2026-08-03",
+      "actor_id": "845123d2-2b80-4b2e-8d08-08d83c66ce58",
+      "operation_id": "8c5d0b05-88be-4a22-b9b3-246cbd3bfd08",
+      "response": {
+        "entry": {
+          "menuId": "3604bcc6-42e5-40ff-ae4f-af54fd559d78",
+          "quantity": 4,
+          "updatedAt": "2026-10-23T07:08:45.351Z",
+          "updatedBy": {
+            "id": "845123d2-2b80-4b2e-8d08-08d83c66ce58",
+            "username": "qahmvkmogcg.rani",
+            "displayName": "Dummy rani"
+          },
+          "entryRevision": 1
+        },
+        "closingId": "c2c60e81-101a-484c-a61d-6602e9ed2a43",
+        "generation": 1,
+        "closingRevision": 1
+      }
+    },
+    {
+      "business_date": "2026-08-04",
+      "actor_id": "c58c10a2-7fb9-4902-aff2-f3d936029cb1",
+      "operation_id": "980b2584-79df-4048-971b-90fb47986476",
+      "response": {
+        "state": "LOCKED",
+        "report": {
+          "id": "3c932fc7-de55-4983-885e-820442bd3a58",
+          "generation": 1,
+          "reviewedAt": "2026-10-23T07:08:48.815Z",
+          "reviewedBy": {
+            "id": "c58c10a2-7fb9-4902-aff2-f3d936029cb1",
+            "username": "qahmvkmogcg.arif",
+            "displayName": "Dummy arif"
+          },
+          "closingRevision": 3
+        },
+        "lockedAt": "2026-10-23T07:08:48.815Z",
+        "lockedBy": {
+          "id": "c58c10a2-7fb9-4902-aff2-f3d936029cb1",
+          "username": "qahmvkmogcg.arif",
+          "displayName": "Dummy arif"
+        },
+        "closingId": "dcbad7ac-a3d1-404e-aeab-b70c5c1377fe",
+        "generation": 1,
+        "submittedAt": "2026-10-23T07:08:48.644Z",
+        "submittedBy": {
+          "id": "845123d2-2b80-4b2e-8d08-08d83c66ce58",
+          "username": "qahmvkmogcg.rani",
+          "displayName": "Dummy rani"
+        },
+        "closingRevision": 3
+      }
+    },
+    {
+      "business_date": "2026-08-04",
+      "actor_id": "845123d2-2b80-4b2e-8d08-08d83c66ce58",
+      "operation_id": "55062678-efee-4f79-bd96-efb4ce424aca",
+      "response": {
+        "entry": {
+          "menuId": "3604bcc6-42e5-40ff-ae4f-af54fd559d78",
+          "quantity": 4,
+          "updatedAt": "2026-10-23T07:08:48.384Z",
+          "updatedBy": {
+            "id": "845123d2-2b80-4b2e-8d08-08d83c66ce58",
+            "username": "qahmvkmogcg.rani",
+            "displayName": "Dummy rani"
+          },
+          "entryRevision": 1
+        },
+        "closingId": "dcbad7ac-a3d1-404e-aeab-b70c5c1377fe",
+        "generation": 1,
+        "closingRevision": 1
+      }
+    },
+    {
+      "business_date": "2026-08-04",
+      "actor_id": "845123d2-2b80-4b2e-8d08-08d83c66ce58",
+      "operation_id": "3b9bb505-c147-495f-aff5-c48929e78d63",
+      "response": {
+        "entry": {
+          "menuId": "3604bcc6-42e5-40ff-ae4f-af54fd559d78",
+          "quantity": 6,
+          "updatedAt": "2026-10-23T07:08:49.319Z",
+          "updatedBy": {
+            "id": "845123d2-2b80-4b2e-8d08-08d83c66ce58",
+            "username": "qahmvkmogcg.rani",
+            "displayName": "Dummy rani"
+          },
+          "entryRevision": 2
+        },
+        "closingId": "dcbad7ac-a3d1-404e-aeab-b70c5c1377fe",
+        "generation": 2,
+        "closingRevision": 5
+      }
+    },
+    {
+      "business_date": "2026-08-04",
+      "actor_id": "845123d2-2b80-4b2e-8d08-08d83c66ce58",
+      "operation_id": "e644a398-bff8-41fa-a5ab-dfe04d6140b5",
+      "response": {
+        "state": "SUBMITTED",
+        "report": null,
+        "lockedAt": null,
+        "lockedBy": null,
+        "closingId": "dcbad7ac-a3d1-404e-aeab-b70c5c1377fe",
+        "generation": 1,
+        "submittedAt": "2026-10-23T07:08:48.644Z",
+        "submittedBy": {
+          "id": "845123d2-2b80-4b2e-8d08-08d83c66ce58",
+          "username": "qahmvkmogcg.rani",
+          "displayName": "Dummy rani"
+        },
+        "closingRevision": 2
+      }
+    },
+    {
+      "business_date": "2026-08-04",
+      "actor_id": "c58c10a2-7fb9-4902-aff2-f3d936029cb1",
+      "operation_id": "3b13819e-01a0-4672-90de-c8e0142b52c7",
+      "response": {
+        "state": "DRAFT",
+        "report": null,
+        "lockedAt": null,
+        "lockedBy": null,
+        "closingId": "dcbad7ac-a3d1-404e-aeab-b70c5c1377fe",
+        "generation": 2,
+        "submittedAt": null,
+        "submittedBy": null,
+        "closingRevision": 4
+      }
+    },
+    {
+      "business_date": "2026-08-05",
+      "actor_id": "845123d2-2b80-4b2e-8d08-08d83c66ce58",
+      "operation_id": "1e9ce71f-63fd-41ce-81eb-82a1281afe42",
+      "response": {
+        "state": "SUBMITTED",
+        "report": null,
+        "lockedAt": null,
+        "lockedBy": null,
+        "closingId": "61ed3914-c629-4aaf-a411-cd6217e0b973",
+        "generation": 1,
+        "submittedAt": "2026-10-23T07:08:52.074Z",
+        "submittedBy": {
+          "id": "845123d2-2b80-4b2e-8d08-08d83c66ce58",
+          "username": "qahmvkmogcg.rani",
+          "displayName": "Dummy rani"
+        },
+        "closingRevision": 2
+      }
+    },
+    {
+      "business_date": "2026-08-05",
+      "actor_id": "c58c10a2-7fb9-4902-aff2-f3d936029cb1",
+      "operation_id": "aac34055-c4b5-4814-b464-2eab958107ef",
+      "response": {
+        "state": "LOCKED",
+        "report": {
+          "id": "ef0e7f5d-cec6-4c83-9f4f-a45764285b10",
+          "generation": 1,
+          "reviewedAt": "2026-10-23T07:08:52.219Z",
+          "reviewedBy": {
+            "id": "c58c10a2-7fb9-4902-aff2-f3d936029cb1",
+            "username": "qahmvkmogcg.arif",
+            "displayName": "Dummy arif"
+          },
+          "closingRevision": 3
+        },
+        "lockedAt": "2026-10-23T07:08:52.219Z",
+        "lockedBy": {
+          "id": "c58c10a2-7fb9-4902-aff2-f3d936029cb1",
+          "username": "qahmvkmogcg.arif",
+          "displayName": "Dummy arif"
+        },
+        "closingId": "61ed3914-c629-4aaf-a411-cd6217e0b973",
+        "generation": 1,
+        "submittedAt": "2026-10-23T07:08:52.074Z",
+        "submittedBy": {
+          "id": "845123d2-2b80-4b2e-8d08-08d83c66ce58",
+          "username": "qahmvkmogcg.rani",
+          "displayName": "Dummy rani"
+        },
+        "closingRevision": 3
+      }
+    },
+    {
+      "business_date": "2026-08-05",
+      "actor_id": "c58c10a2-7fb9-4902-aff2-f3d936029cb1",
+      "operation_id": "2a8bad32-e82d-4119-bf7d-5845b7b50fd6",
+      "response": {
+        "state": "DRAFT",
+        "report": null,
+        "lockedAt": null,
+        "lockedBy": null,
+        "closingId": "61ed3914-c629-4aaf-a411-cd6217e0b973",
+        "generation": 2,
+        "submittedAt": null,
+        "submittedBy": null,
+        "closingRevision": 4
+      }
+    },
+    {
+      "business_date": "2026-08-05",
+      "actor_id": "845123d2-2b80-4b2e-8d08-08d83c66ce58",
+      "operation_id": "89e99876-e204-4e6e-b02a-629621db8062",
+      "response": {
+        "entry": {
+          "menuId": "3604bcc6-42e5-40ff-ae4f-af54fd559d78",
+          "quantity": 4,
+          "updatedAt": "2026-10-23T07:08:51.908Z",
+          "updatedBy": {
+            "id": "845123d2-2b80-4b2e-8d08-08d83c66ce58",
+            "username": "qahmvkmogcg.rani",
+            "displayName": "Dummy rani"
+          },
+          "entryRevision": 1
+        },
+        "closingId": "61ed3914-c629-4aaf-a411-cd6217e0b973",
+        "generation": 1,
+        "closingRevision": 1
+      }
+    },
+    {
+      "business_date": "2026-08-05",
+      "actor_id": "845123d2-2b80-4b2e-8d08-08d83c66ce58",
+      "operation_id": "3b1ee44e-4674-4a25-8008-9ce360785f57",
+      "response": {
+        "entry": {
+          "menuId": "3604bcc6-42e5-40ff-ae4f-af54fd559d78",
+          "quantity": 6,
+          "updatedAt": "2026-10-23T07:08:52.549Z",
+          "updatedBy": {
+            "id": "845123d2-2b80-4b2e-8d08-08d83c66ce58",
+            "username": "qahmvkmogcg.rani",
+            "displayName": "Dummy rani"
+          },
+          "entryRevision": 2
+        },
+        "closingId": "61ed3914-c629-4aaf-a411-cd6217e0b973",
+        "generation": 2,
+        "closingRevision": 5
+      }
+    }
+  ],
+  "audit": [
+    {
+      "business_date": "2026-08-01",
+      "actor_id": "845123d2-2b80-4b2e-8d08-08d83c66ce58",
+      "operation_id": "00c9f646-25fa-4816-86d1-b3352125244a",
+      "before_quantity": 0,
+      "after_quantity": 4
+    },
+    {
+      "business_date": "2026-08-01",
+      "actor_id": "845123d2-2b80-4b2e-8d08-08d83c66ce58",
+      "operation_id": "ce98d08a-f313-49ee-8211-7591299443b3",
+      "before_quantity": 4,
+      "after_quantity": 6
+    },
+    {
+      "business_date": "2026-08-02",
+      "actor_id": "845123d2-2b80-4b2e-8d08-08d83c66ce58",
+      "operation_id": "24a55448-ca74-4392-aaad-a056b4bab7d4",
+      "before_quantity": 0,
+      "after_quantity": 4
+    },
+    {
+      "business_date": "2026-08-02",
+      "actor_id": "845123d2-2b80-4b2e-8d08-08d83c66ce58",
+      "operation_id": "7c9c4fcc-ed76-41cc-b751-c963a99b4f98",
+      "before_quantity": 4,
+      "after_quantity": 6
+    },
+    {
+      "business_date": "2026-08-03",
+      "actor_id": "845123d2-2b80-4b2e-8d08-08d83c66ce58",
+      "operation_id": "8c5d0b05-88be-4a22-b9b3-246cbd3bfd08",
+      "before_quantity": 0,
+      "after_quantity": 4
+    },
+    {
+      "business_date": "2026-08-03",
+      "actor_id": "845123d2-2b80-4b2e-8d08-08d83c66ce58",
+      "operation_id": "e6f4426a-89ea-4dca-a44b-f9928f618fda",
+      "before_quantity": 4,
+      "after_quantity": 6
+    },
+    {
+      "business_date": "2026-08-04",
+      "actor_id": "845123d2-2b80-4b2e-8d08-08d83c66ce58",
+      "operation_id": "55062678-efee-4f79-bd96-efb4ce424aca",
+      "before_quantity": 0,
+      "after_quantity": 4
+    },
+    {
+      "business_date": "2026-08-04",
+      "actor_id": "845123d2-2b80-4b2e-8d08-08d83c66ce58",
+      "operation_id": "3b9bb505-c147-495f-aff5-c48929e78d63",
+      "before_quantity": 4,
+      "after_quantity": 6
+    },
+    {
+      "business_date": "2026-08-05",
+      "actor_id": "845123d2-2b80-4b2e-8d08-08d83c66ce58",
+      "operation_id": "89e99876-e204-4e6e-b02a-629621db8062",
+      "before_quantity": 0,
+      "after_quantity": 4
+    },
+    {
+      "business_date": "2026-08-05",
+      "actor_id": "845123d2-2b80-4b2e-8d08-08d83c66ce58",
+      "operation_id": "3b1ee44e-4674-4a25-8008-9ce360785f57",
+      "before_quantity": 4,
+      "after_quantity": 6
+    }
+  ],
+  "settingsReceipts": [
+    {
+      "operation_id": "76fb4a1e-2a8c-41c4-9137-e3b461f1ff3a",
+      "actor_id": "b4f5c70c-1ee1-4c1f-9a09-3ca26a924083",
+      "response": {
+        "name": "Outlet Setelah Penguncian 85284eb7",
+        "outletId": "dbbe47e9-de49-47b5-9216-e533622ca40e",
+        "timezone": "Asia/Jakarta",
+        "operationId": "76fb4a1e-2a8c-41c4-9137-e3b461f1ff3a",
+        "cutoffMinutes": 0,
+        "settingsRevision": 1
+      }
+    }
+  ],
+  "teamReceipts": [
+    {
+      "operation_id": "16e82ef2-4c97-4bcb-9e7c-0367554f6c43",
+      "actor_id": "b4f5c70c-1ee1-4c1f-9a09-3ca26a924083",
+      "response": {
+        "kind": "UPDATE_MEMBERSHIP",
+        "member": {
+          "id": "845123d2-2b80-4b2e-8d08-08d83c66ce58",
+          "role": "EMPLOYEE",
+          "active": true,
+          "revision": 2,
+          "username": "qahmvkmogcg.rani",
+          "displayName": "Dummy rani",
+          "accountActive": true
+        },
+        "changed": true,
+        "outletId": "dbbe47e9-de49-47b5-9216-e533622ca40e",
+        "operationId": "16e82ef2-4c97-4bcb-9e7c-0367554f6c43"
+      }
+    },
+    {
+      "operation_id": "9c49f9af-0d41-414f-ba23-7f2937e85b58",
+      "actor_id": "b4f5c70c-1ee1-4c1f-9a09-3ca26a924083",
+      "response": {
+        "kind": "UPDATE_MEMBERSHIP",
+        "member": {
+          "id": "845123d2-2b80-4b2e-8d08-08d83c66ce58",
+          "role": "EMPLOYEE",
+          "active": false,
+          "revision": 1,
+          "username": "qahmvkmogcg.rani",
+          "displayName": "Dummy rani",
+          "accountActive": true
+        },
+        "changed": true,
+        "outletId": "dbbe47e9-de49-47b5-9216-e533622ca40e",
+        "operationId": "9c49f9af-0d41-414f-ba23-7f2937e85b58"
+      }
+    }
+  ],
+  "internalErrorCount": 0,
+  "fixturesRetained": true
+}

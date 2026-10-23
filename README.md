@@ -1,5 +1,7 @@
 # Closing Count System
 
+Newest online transfer: [locked-report Excel download](docs/ONLINE_REPORT_EXPORT_R1.md), [native and workbook review](docs/report-export-review-r1.html). The selected frozen generation supplies both workbook tabs; fresh account/outlet/report checks run after the system save dialog and before report bytes are written. Verification details and limits accompany the source checkpoint. Online import safety and complete demo packaging remain open.
+
 Newest local transfer: [validated review and native document flow](docs/LOCAL_TRANSFER_UI_R1.md), [light/large-text dark gallery](docs/local-transfer-review-r1.html). Choose and inspect a local file before replacement; cancellation and stale reviews preserve data, Activity recreation retains the reviewed identity, and provider changes do not replace its payload. Two real system-picker/save journeys, controller tests and legacy regressions pass. Online transfer and complete demo packaging remain open.
 
 Newest transfer checkpoint: [legacy backup validation](docs/LEGACY_BACKUP_R1.md). Version1 encoding remains unchanged; strict decoding rejects silent coercion/corruption before restore. Ten Android codec/Room tests cover historical compatibility, transactional rollback and online queue isolation. Native file-provider flow and online transfer remain open.

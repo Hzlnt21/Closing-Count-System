@@ -1,0 +1,87 @@
+{
+  "reviewed": true,
+  "nativeScreens": 8,
+  "historyScreens": 7,
+  "workbookRenders": 6,
+  "method": "Direct selected full images plus native/workbook/history contact sheets; native captures wait for SystemUI idle",
+  "findings": [
+    "Final light saved screen has dark status icons on light background; earlier white-on-light appearance retained separately",
+    "Dark large-text save screen uses readable wrapping and compact destination selector",
+    "Light expired-access action uses onErrorContainer contrast",
+    "Dark expired-access screenshot is scrolled to unchanged historical quantity; login action visibility was asserted before that scroll",
+    "Both workbook tabs have blue headers, readable metadata, numeric rows and no visible overlapping content in reviewed samples"
+  ],
+  "scope": "Selected emulator screenshots and artifact-tool workbook render; not a physical-provider or desktop Microsoft Excel acceptance",
+  "files": [
+    {
+      "file": "light-stable-final/report-export-light-stable-final-frozen-four.png",
+      "sha256": "0e11ef58904738371b68ee0544bb52b9296b1c3a1624ec82b763328affaa4532",
+      "review": "contact sheet; light saved/expired and dark saved/expired also inspected individually"
+    },
+    {
+      "file": "light-stable-final/report-export-light-stable-final-picker.png",
+      "sha256": "d23148c8e0de4e9a2e7fedbd5bd7ae0894514059cbb12ab45088667cfc7cccca",
+      "review": "contact sheet; light saved/expired and dark saved/expired also inspected individually"
+    },
+    {
+      "file": "light-stable-final/report-export-light-stable-final-saved.png",
+      "sha256": "77d127f717b2c89a310281af69ee9e8ebf438171b77b00c5d3fb3e09e32cf504",
+      "review": "contact sheet; light saved/expired and dark saved/expired also inspected individually"
+    },
+    {
+      "file": "light-stable-final/report-export-light-stable-final-expired-access.png",
+      "sha256": "3bfd666415a3579697fef894a853187c45bbdf1a9fdbdb4cc34ba7c95f836698",
+      "review": "contact sheet; light saved/expired and dark saved/expired also inspected individually"
+    },
+    {
+      "file": "dark-stable-final/report-export-dark-stable-final-frozen-four.png",
+      "sha256": "e5754091a305e8af038018ea39939ef211d368d9a0eac824faff082e82a191d4",
+      "review": "contact sheet; light saved/expired and dark saved/expired also inspected individually"
+    },
+    {
+      "file": "dark-stable-final/report-export-dark-stable-final-picker.png",
+      "sha256": "b12ebd4ed1182404a09cdb9d466b2c1e916a459ca255f0955849212081577558",
+      "review": "contact sheet; light saved/expired and dark saved/expired also inspected individually"
+    },
+    {
+      "file": "dark-stable-final/report-export-dark-stable-final-saved.png",
+      "sha256": "497fa9cf17e3f5b34ae63493b1d97290d2a38bf98786076f4901a9c29c8e8d62",
+      "review": "contact sheet; light saved/expired and dark saved/expired also inspected individually"
+    },
+    {
+      "file": "dark-stable-final/report-export-dark-stable-final-expired-access.png",
+      "sha256": "e5754091a305e8af038018ea39939ef211d368d9a0eac824faff082e82a191d4",
+      "review": "contact sheet; light saved/expired and dark saved/expired also inspected individually"
+    },
+    {
+      "file": "inspection-http-release/Pemakaian-Bahan.png",
+      "sha256": "01205d3f92bb81b7ce864f6cc8258e50fa7328fd626f8b0024cf8e6e065a48a0",
+      "review": "two-sheet workbook contact sheet; table cell comparison separately automated"
+    },
+    {
+      "file": "inspection-http-release/Penjualan-Menu.png",
+      "sha256": "d0c9871fb1a57c7c95bdee6fe66f7635d70fe53891f8afe634484bde40fcc486",
+      "review": "two-sheet workbook contact sheet; table cell comparison separately automated"
+    },
+    {
+      "file": "inspection-light-release/Pemakaian-Bahan.png",
+      "sha256": "4b961a5f646fb11e4624e5528418e880e9321836e1b26e2ab0e2fda9591455e4",
+      "review": "two-sheet workbook contact sheet; table cell comparison separately automated"
+    },
+    {
+      "file": "inspection-light-release/Penjualan-Menu.png",
+      "sha256": "3d47eb82ab42e920d386f3d494796f309b5b476d2c10fd9028ada71aa5630755",
+      "review": "two-sheet workbook contact sheet; table cell comparison separately automated"
+    },
+    {
+      "file": "inspection-dark-release/Pemakaian-Bahan.png",
+      "sha256": "b9890756c5907cd1b08f7f584f9c9c3a38e0f7e96e245f1a58dc02305e04aaf6",
+      "review": "two-sheet workbook contact sheet; table cell comparison separately automated"
+    },
+    {
+      "file": "inspection-dark-release/Penjualan-Menu.png",
+      "sha256": "bc61c1a9f7105f96005121ba85c88c5332b84e1afd6b8d317f747fd61dab5801",
+      "review": "two-sheet workbook contact sheet; table cell comparison separately automated"
+    }
+  ]
+}

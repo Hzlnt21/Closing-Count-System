@@ -1,0 +1,565 @@
+{
+  "passed": true,
+  "baseline": "0b58ea0da67b2eaea60acf754c5ad8461f26f6e1",
+  "files": [
+    {
+      "file": ".gitattributes",
+      "indexSha256": "52c5c1c0876793152709bcb51306db49c990b35ed76dfafacc40464b6a91e919"
+    },
+    {
+      "file": "README.md",
+      "indexSha256": "5bbb1bf6343125bb9d33d6a4ad57555871b6f724f5ebda5532b3c73a586c43be"
+    },
+    {
+      "file": "app/src/androidTest/java/com/closingcount/app/OnlineReportExportHttpInstrumentedTest.kt",
+      "indexSha256": "c83cb6ea453ec30daa7ca16ed365bbb658c09c475047632e5b2457510894d867"
+    },
+    {
+      "file": "app/src/androidTest/java/com/closingcount/app/OnlineReportExportNativeInstrumentedTest.kt",
+      "indexSha256": "5098c30f780f5300873003c7bf28f39cf037715ec0cfb6a57b231373093395fd"
+    },
+    {
+      "file": "app/src/androidTest/java/com/closingcount/app/ReportExportQaFixture.kt",
+      "indexSha256": "2bf68b74bb0d1e38f1fd5e5f4fcad1f1622a51270cc51820a62af7df7600ec1f"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/MainActivity.kt",
+      "indexSha256": "7b4b708157b0eb8db8e70e768367419541f15e94b1838ed208c4ba7f5b5e5573"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/data/online/FrozenClosingReport.kt",
+      "indexSha256": "98ede38dcc6bb8d50d96760813f6234e1b094e0629fe976a8f61ea511ee56a2e"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/data/online/OnlineApi.kt",
+      "indexSha256": "2ab92dc581cfa0bf5a373ccc7707fdd76e9c80fbf37fa66c010e4a9d6170a43e"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/data/online/OnlineRepository.kt",
+      "indexSha256": "2e5590a24cbc3a09fd25304d30ed4023992501de27ef4b86fa6f32de2aa4bef0"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/data/transfer/OnlineReportExcelExporter.kt",
+      "indexSha256": "4c2f1be1b9154a6c534a56fbdc5e62addd938f2bc152041ed7a2ca7a13929eb7"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/ui/online/OnlineClosingApp.kt",
+      "indexSha256": "3fc581cfc42f3b5c6ee5a2d8818465e22c82ef34222e6147903132af3de3db83"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/ui/online/OnlineReportExportViewModel.kt",
+      "indexSha256": "e162edd13ddd15f76bf90ce58ba634bb20452772cb07042fab8837f5d07b1f33"
+    },
+    {
+      "file": "app/src/test/java/com/closingcount/app/OnlineReportExcelExporterTest.kt",
+      "indexSha256": "fe9a06c2fcc38b6a1c3e89340b90b94f781f968350bf4689b3660a8264f904d0"
+    },
+    {
+      "file": "docs/ONLINE_REPORT_EXPORT_R1.md",
+      "indexSha256": "91b5af0303735289ad586aa2e7a51ecfc5cf0c18c2e8712c559f0b256252c04c"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/README.md",
+      "indexSha256": "b242cfd6d4719e17253d9f55f6be6a7470eba880dce389659dda4f7f5bee7390"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/dark-stable-final/apk-inputs.json",
+      "indexSha256": "be9c9374d9d0e098ce2f709a643e1053c7154c47cfae431baa0619bcfe4223e5"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/dark-stable-final/ccs-qa-report-d62e5175-01cf-4967-9127-5c0430aa248b.xlsx",
+      "indexSha256": "ee8d829c94c4254e8c13900fd56beed6a7b49b7fb5d87dcda3d679f2a703c2d2"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/dark-stable-final/completed-stop-marker.txt",
+      "indexSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/dark-stable-final/fixture.stderr.log",
+      "indexSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/dark-stable-final/fixture.stdout.log",
+      "indexSha256": "1f164aa9312a8928172f6e9de518fa438ca652452bf442b4736c16587fc84398"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/dark-stable-final/fixture/database-after.json",
+      "indexSha256": "45c7ed4e93ea77b76e9bbe2089cd9d76143618c452fcd1ce01b16c57b0052ef7"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/dark-stable-final/fixture/fixture-identity.json",
+      "indexSha256": "3d1a4e02607985f8dad529f922ee4cbb15c943465675ccd1dce332377c75c60b"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/dark-stable-final/instrumentation.log",
+      "indexSha256": "5837449476f351824b61cb2e7e3bfe83d021b8aae130e0c89912423346445893"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/dark-stable-final/report-export-dark-stable-final-current.json",
+      "indexSha256": "e20091cf4e72b98d464d98c05a0d0625e40fd3563eb29415c1c72c68ddb397b8"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/dark-stable-final/report-export-dark-stable-final-expired-access.png",
+      "indexSha256": "e5754091a305e8af038018ea39939ef211d368d9a0eac824faff082e82a191d4"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/dark-stable-final/report-export-dark-stable-final-frozen-four.png",
+      "indexSha256": "e5754091a305e8af038018ea39939ef211d368d9a0eac824faff082e82a191d4"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/dark-stable-final/report-export-dark-stable-final-picker.png",
+      "indexSha256": "b12ebd4ed1182404a09cdb9d466b2c1e916a459ca255f0955849212081577558"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/dark-stable-final/report-export-dark-stable-final-saved.png",
+      "indexSha256": "497fa9cf17e3f5b34ae63493b1d97290d2a38bf98786076f4901a9c29c8e8d62"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/dark-stable-final/report-export-dark-stable-final-source.json",
+      "indexSha256": "dde8e15428bd37f93f43180c03a1c4c08bbc89092842396c7436223644a62c29"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/dark-stable-final/report-export-dark-stable-final.json",
+      "indexSha256": "0948b8804333086d5d82afa633269b4daf4610981bb175a86cbf42e50604b94c"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/dark-stable-final/verification.json",
+      "indexSha256": "935c97ffc45350dbe928802e073179e7302c9a9b92df6fd894be45ec2a1da207"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/dark-stable-final/workbook-verification.json",
+      "indexSha256": "21d1e4125ad5c6c535a5c01a56069facbf8a7ce390b830cb6586a1abc8ad50e6"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/database-proof.json",
+      "indexSha256": "66f9639ca920b213b2b0e2cecd5a6dd3cc6196851fb501e2f3e025ea7315ef63"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/final-build-3.log",
+      "indexSha256": "5d93876db9a07073f73d38d36eeef15f17a04753f3d2910caeecf47d63596b61"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/harness/Check-ClosingHistoryR1.ps1",
+      "indexSha256": "9cf22d0da5e3a330435805592cab73164850a4f80e59bb1dbee5d772182e064f"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/harness/Check-ClosingReportExportR1.ps1",
+      "indexSha256": "356470a27efd22a2a2744dbd650c607c687af2cc812c86745c67932fedee691a"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/harness/Run-ClosingReportExportRuntimeR1.ps1",
+      "indexSha256": "eba4c0a4662e23e548b930a48e704c6e1b97543ea809be98b87f9bba69a5d40b"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/harness/check-report-export-runtime-r1.py",
+      "indexSha256": "bcd00ecf93d65ac51a7355c830862c7ff5cb4caa2fbe7b5c9121392dfc53abb4"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/harness/check-report-export-source-r1.py",
+      "indexSha256": "2871636e1cf61ee5f89807970caf5ccb800be22cc5fe31afa118db4e6fb98a14"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/harness/inspect-workbook.mjs",
+      "indexSha256": "8de917bede51baf2093785989f3db52816832df8eb1c8738b20a87a213676f9b"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/harness/package-report-export-evidence-r1.py",
+      "indexSha256": "b66b547fde8887bc36734dfa9cbe7be3fab8facdf2ea9a5bfe1f4183eb824dee"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/harness/render-report-export-contact-sheets-r1.py",
+      "indexSha256": "a44122a0357a01d86638b495fa7269b6cbfd5637569df7635545a7880e948b5d"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/harness/serve-report-export-fixture-r1.mjs",
+      "indexSha256": "bce8e55ec5ffcf5fe2fdcc4745fab14430ba17d2b8f2e66d193df6309cc8c020"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/harness/verify-report-database-r1.mjs",
+      "indexSha256": "24874706ceff08499b10c5a5b1514b6e8bd1dba21f91fed80251879660595e93"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/harness/verify-report-workbook-r1.py",
+      "indexSha256": "c848cb0287e2e81b2c7dcd9399e7a75502ebec5c2e2de68b9e7fed9f2a962a91"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/history-contact-sheet.png",
+      "indexSha256": "6d491e5bc3a35a7b8507245e4b7c57d63e132df4ed1a90ff474513121a1e67f0"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/history-http/apk-inputs.json",
+      "indexSha256": "be9c9374d9d0e098ce2f709a643e1053c7154c47cfae431baa0619bcfe4223e5"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/history-http/completed-stop-marker.txt",
+      "indexSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/history-http/fixture.stderr.log",
+      "indexSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/history-http/fixture.stdout.log",
+      "indexSha256": "1b0b03c02795cc98bbd51ca4c7415242d76444e9517477f223bf209060b32ab5"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/history-http/fixture/database-after.json",
+      "indexSha256": "0e260e6dd400fef56c14feec2507ed3f4e1b84ff8f0b24daa8a41a0a4f47a6a4"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/history-http/fixture/fixture-identity.json",
+      "indexSha256": "373805cfdbbcbab3a6dc7a8d37183cfa353031d2415bb394179155b95c9d4b8e"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/history-http/instrumentation.log",
+      "indexSha256": "097e06fff2d2b6c308650bc10b91a5c51923616dc4e99d097192634e81602974"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/history-http/verification.json",
+      "indexSha256": "7d87b744928e4a2c734dcef05db1cb352f631a597f82e6925e536622ad33140d"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/history-native/apk-inputs.json",
+      "indexSha256": "be9c9374d9d0e098ce2f709a643e1053c7154c47cfae431baa0619bcfe4223e5"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/history-native/audit-reopen.png",
+      "indexSha256": "ad5bf9242b5b1b011cdf54745c58fe528b9fde790d469c88e736f1aa2e2287d7"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/history-native/completed-stop-marker.txt",
+      "indexSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/history-native/current-six.png",
+      "indexSha256": "9134688aad41717bdd90a51b655b10e4890e91e42d2e8b195cff31f6d66b65dd"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/history-native/detail.png",
+      "indexSha256": "500183e4fc1d51dce95aa46a4c30911671ec854e04f9058d6464ab0bcdefdfdf"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/history-native/expired-session.png",
+      "indexSha256": "40eb0a97987ae8e1c76ebe057d6a5781bb1d364ad08e03a6d6143a042f67380b"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/history-native/fixture.stderr.log",
+      "indexSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/history-native/fixture.stdout.log",
+      "indexSha256": "322c5c2c0fb3df596b718261e99eb67dee14ad81b42808d7359beae86f7d25d0"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/history-native/fixture/database-after.json",
+      "indexSha256": "10adaaec883c51d6c0082a033efab285d8ccf0f5e66af5973ee91b64f83fbc81"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/history-native/fixture/fixture-identity.json",
+      "indexSha256": "531a9156e552bfa052efe46b6b60e70f9798017fbd8d0ab40dfb1a0e2629f08a"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/history-native/frozen-report.png",
+      "indexSha256": "fb2539017113ca78f607015336096e0a0f227eed198a169d79cb9600ff79ead4"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/history-native/instrumentation.log",
+      "indexSha256": "933040fb09a6849eb3f175e9ec954fd7e439b6e9987cfd65caaebda464855029"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/history-native/server-list.png",
+      "indexSha256": "9b44f410b4ab492b9f99aa1f605927a112e54d3cae43b61875322b717c6cd253"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/history-native/session-recovered.png",
+      "indexSha256": "2bd5229436586171bf2b44425593af3afeeae4c88385e7a995fd58a2075c43d8"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/history-native/verification.json",
+      "indexSha256": "e502fe89cddaf3e6583c80d93de7f2982edf9367ce654bcfac0683fbcd3cea86"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/http-final/apk-inputs.json",
+      "indexSha256": "be9c9374d9d0e098ce2f709a643e1053c7154c47cfae431baa0619bcfe4223e5"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/http-final/completed-stop-marker.txt",
+      "indexSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/http-final/fixture.stderr.log",
+      "indexSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/http-final/fixture.stdout.log",
+      "indexSha256": "41b6d11701a8a4475d43a7fafb210b002baf9e1a086e166e6c0cff971f2264b1"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/http-final/fixture/database-after.json",
+      "indexSha256": "fdca3d377ea0710ceb6e0406440487482759dc30b379dea701b198e071be7ad6"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/http-final/fixture/fixture-identity.json",
+      "indexSha256": "e4e75ee31b3a3d5b4211211dcf3514265a6ccfc3ba471c1ff4cfacbc3e9b126c"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/http-final/instrumentation.log",
+      "indexSha256": "f4f70d504370ed9043df740a55118b756b05aa532ebeb2f4c77ec49c1084484e"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/http-final/report-export-http-context.json",
+      "indexSha256": "8a3f8408c3f46de01b64e0714806c98d7b7546138d30fb41ca3dc81df3261edb"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/http-final/report-export-http-source.json",
+      "indexSha256": "4272039884b8b4f8384f1af3496bc6254e71f82b1b1ca1f308af3cd732904778"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/http-final/report-export-http.xlsx",
+      "indexSha256": "716ddbaa740f28a87ea502f9bd5664db50d99a53621f2c0105735ae083ee8e83"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/http-final/verification.json",
+      "indexSha256": "10291c71c3a6c31785c905e1191f449fa4f9afd77f895c465e483ccd9f01df4c"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/http-final/workbook-verification.json",
+      "indexSha256": "22b34e6362549727e74c3c11c9fc4bb59d6f62e851372b08391fb702ae28e6e9"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/inspection-dark-release/Pemakaian-Bahan.ndjson",
+      "indexSha256": "9f7580c66bb11de5b6ffa9ba468c623e2ab097d4723a6f0aace3944ff881eab4"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/inspection-dark-release/Pemakaian-Bahan.png",
+      "indexSha256": "b9890756c5907cd1b08f7f584f9c9c3a38e0f7e96e245f1a58dc02305e04aaf6"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/inspection-dark-release/Penjualan-Menu.ndjson",
+      "indexSha256": "93d9ff430d3ea7274e454f6d07cd98fff8c39102da87b62f55da18ee59af508f"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/inspection-dark-release/Penjualan-Menu.png",
+      "indexSha256": "bc61c1a9f7105f96005121ba85c88c5332b84e1afd6b8d317f747fd61dab5801"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/inspection-dark-release/inspection.json",
+      "indexSha256": "4b67203cc5be59593515cb640f8ec5085e1ddacdfa97dfa9fbdfe8f2781e6891"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/inspection-dark-release/sheets.ndjson",
+      "indexSha256": "7b27c3fcc1bd9a5456fa54e79897ccf6b4150cc8cb9d06ae096fc8df5784a260"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/inspection-http-release/Pemakaian-Bahan.ndjson",
+      "indexSha256": "1117cf67e0d4e167311d4c2ada1e8f1f0e9234c8a08b5aeded911bcad9417534"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/inspection-http-release/Pemakaian-Bahan.png",
+      "indexSha256": "01205d3f92bb81b7ce864f6cc8258e50fa7328fd626f8b0024cf8e6e065a48a0"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/inspection-http-release/Penjualan-Menu.ndjson",
+      "indexSha256": "01fe6487add9d93b5064333032fa62178b494e17e32a758fab622b163b05aaa4"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/inspection-http-release/Penjualan-Menu.png",
+      "indexSha256": "d0c9871fb1a57c7c95bdee6fe66f7635d70fe53891f8afe634484bde40fcc486"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/inspection-http-release/inspection.json",
+      "indexSha256": "7d9c05b9f9cdfc88c93732bbe04721839e61428db3843316b36cb4ae02aaa4e2"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/inspection-http-release/sheets.ndjson",
+      "indexSha256": "ec3a310db7c0f351b67a82c1e13db14f4781765da0f8a9c982e7fe8f30d96c92"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/inspection-light-release/Pemakaian-Bahan.ndjson",
+      "indexSha256": "80ad28da4042bf279aef108a42277e15bc397a74a4effea5569280314233b2fb"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/inspection-light-release/Pemakaian-Bahan.png",
+      "indexSha256": "4b961a5f646fb11e4624e5528418e880e9321836e1b26e2ab0e2fda9591455e4"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/inspection-light-release/Penjualan-Menu.ndjson",
+      "indexSha256": "ee4e31bc95f722632e91a07343d8428a4e789515807b627d349ba240576d395c"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/inspection-light-release/Penjualan-Menu.png",
+      "indexSha256": "3d47eb82ab42e920d386f3d494796f309b5b476d2c10fd9028ada71aa5630755"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/inspection-light-release/inspection.json",
+      "indexSha256": "1e616800b6a1df8360e141d9d2bb68af8652b49780cec2c0d84c7c84ca3b059c"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/inspection-light-release/sheets.ndjson",
+      "indexSha256": "e92985dcce4a5ec610fceab1e0fb42de9a37e0a125fa05fdcc56354e23eafdbd"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/jvm-tests.json",
+      "indexSha256": "241140c4fda18a6171966fd227cdd2ff762a5c6d0a42229c84c4718e21d51af7"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/light-stable-final/apk-inputs.json",
+      "indexSha256": "be9c9374d9d0e098ce2f709a643e1053c7154c47cfae431baa0619bcfe4223e5"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/light-stable-final/ccs-qa-report-197052cb-4dab-4b04-b05c-31cdf5bc25a2.xlsx",
+      "indexSha256": "ed591a91f3ab17e5e4d00b301f2ba7c4b9b1b56b1c22370804134bfa8e748a67"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/light-stable-final/completed-stop-marker.txt",
+      "indexSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/light-stable-final/fixture.stderr.log",
+      "indexSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/light-stable-final/fixture.stdout.log",
+      "indexSha256": "7198eadaafede64e676d670615ec5f187de7dfb9c375540007adc4a29ae4ccae"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/light-stable-final/fixture/database-after.json",
+      "indexSha256": "8d37326f5ed3a20ef1c4d6760eabdcd63ed063dc95ee3fefa29f476f3fa3472c"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/light-stable-final/fixture/fixture-identity.json",
+      "indexSha256": "3fa95080ad66b657d930eacb5c828c591e4e816d145df7b0aaf93e55621c4bf4"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/light-stable-final/instrumentation.log",
+      "indexSha256": "6591b655852931e5d4f9d0530dbb9cbc04d218016cbf188d76044fb01c4894e3"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/light-stable-final/report-export-light-stable-final-current.json",
+      "indexSha256": "1dfc48c20b0d14a29f005ab39113a110ab4dd24613958f31c84993a3bc8fc361"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/light-stable-final/report-export-light-stable-final-expired-access.png",
+      "indexSha256": "3bfd666415a3579697fef894a853187c45bbdf1a9fdbdb4cc34ba7c95f836698"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/light-stable-final/report-export-light-stable-final-frozen-four.png",
+      "indexSha256": "0e11ef58904738371b68ee0544bb52b9296b1c3a1624ec82b763328affaa4532"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/light-stable-final/report-export-light-stable-final-picker.png",
+      "indexSha256": "d23148c8e0de4e9a2e7fedbd5bd7ae0894514059cbb12ab45088667cfc7cccca"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/light-stable-final/report-export-light-stable-final-saved.png",
+      "indexSha256": "77d127f717b2c89a310281af69ee9e8ebf438171b77b00c5d3fb3e09e32cf504"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/light-stable-final/report-export-light-stable-final-source.json",
+      "indexSha256": "321686e2d67cf880795b69ab7080b50bf26426ec5691cf05dbfc7cea5582e6d3"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/light-stable-final/report-export-light-stable-final.json",
+      "indexSha256": "db598607db2f4e86c627c1997876571896f0ecf6490e85a97b19dbceb7adfc0f"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/light-stable-final/verification.json",
+      "indexSha256": "4745e35dbe60f365cc89c44803f613effaaac393fb7154adf7f5d4cb472ef0ee"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/light-stable-final/workbook-verification.json",
+      "indexSha256": "7962bfb4ff37b5a1d5f6219e80622c82bac9891d23792eae22c51447defc5a75"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/lint.txt",
+      "indexSha256": "6bfb01ace573d02ef02dc4a79fcaecd6b04a728899f8afbae68aee81443c2d80"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/native-contact-sheet.png",
+      "indexSha256": "bd5ad0a1f432d48d75d5794964a8967a5ecac39c4ad7b1b85c154b8c16fa55ee"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/runtime-device-baseline.json",
+      "indexSha256": "4b5f71fa94852b035d9f116b476825d99acf946cf6b2c0f290d4fc44f992dd01"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/runtime-device-restored.json",
+      "indexSha256": "4b5f71fa94852b035d9f116b476825d99acf946cf6b2c0f290d4fc44f992dd01"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/runtime-proof.json",
+      "indexSha256": "73bf859e1b54d8d64f1e530633f5d47072bca1e1ad533bc467be87ee4d9864bc"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/superseded/external-picker-recreate-failure.log",
+      "indexSha256": "51c8c1266cb4464fd2f9be640c634cf4556f2c5657654fd6afa315990795fb7c"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/superseded/host-wrapper-error.log",
+      "indexSha256": "81155372dc73b688b6c81070dd369f53c755cf578ca4ffb6fae0fe9526bc407b"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/superseded/repeated-back-failure.log",
+      "indexSha256": "5f131c22f0c9df00f860707da92c4bb1631bea8fedf7fb418ddb73d19d830561"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/superseded/status-bar-before-focus-reapply.png",
+      "indexSha256": "a41fb2584510c8c037db79190ab81bfe7df598a08770d591f06ab0b96c967ab2"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/visual-review.json",
+      "indexSha256": "54f74f193f86e9dda3ed709670a4241e86bdc75d6b1ea359b0a2126bdfb8544d"
+    },
+    {
+      "file": "docs/report-export-evidence-r1/workbook-contact-sheet.png",
+      "indexSha256": "3a21e85452320c10f976e1c122af73a8f53680955bb1ab62c532549c9831bc17"
+    },
+    {
+      "file": "docs/report-export-review-r1.html",
+      "indexSha256": "6036b5fb368e0a1f8ed6d1ec5f41707f3556d96af8c0fbaf3bed89b7fee3452e"
+    }
+  ],
+  "canonical": [
+    {
+      "code": "ABS",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "CCS",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "ELZ",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "EXV",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "KLG",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "KEC",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "KPS",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "TTK",
+      "headAndStatusUnchanged": true
+    }
+  ],
+  "knownPrivateValuesAbsent": true,
+  "serviceSchemasDependenciesLegacyUnchanged": true,
+  "allProductionApksMatchCurrentBuild": true,
+  "exactWorkbookIndexBytesPreserved": 3,
+  "androidTests": 9,
+  "jvmTests": 25,
+  "lintErrors": 0,
+  "lintWarnings": 17,
+  "scope": "Selected immutable online report export and native save/access states. Online import, complete local demo, physical providers and public deployment remain open."
+}

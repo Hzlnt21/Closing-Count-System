@@ -1,0 +1,19 @@
+{
+  "case": "dark-stable-final",
+  "passed": true,
+  "filename": "ccs-qa-report-d62e5175-01cf-4967-9127-5c0430aa248b.xlsx",
+  "sha256": "ee8d829c94c4254e8c13900fd56beed6a7b49b7fb5d87dcda3d679f2a703c2d2",
+  "closingId": "59cafb0a-954c-472c-b8df-4f3294046933",
+  "reportId": "465c5d8b-8952-4538-a7e8-78b0d5944751",
+  "menuId": "816a9b2e-8ed6-486a-89e4-23d79cab704f",
+  "pickerRecreatedWithoutRelaunch": true,
+  "expiredPlaceholder": "ccs-qa-report-d8465592-740a-4bc4-9d57-1c785f0b738d.xlsx",
+  "expiredBytes": 0,
+  "fontScale": 2,
+  "widthDp": 360,
+  "heightDp": 800,
+  "dark": true,
+  "physicalPhoneAccessed": false,
+  "publicAcceptance": false,
+  "legacyDataUnchanged": true
+}

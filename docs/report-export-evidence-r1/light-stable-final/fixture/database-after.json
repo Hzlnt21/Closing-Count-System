@@ -1,0 +1,156 @@
+{
+  "entries": [
+    {
+      "business_date": "2026-08-01",
+      "generation": "2",
+      "revision": "5",
+      "menu_id": "56ffddda-a106-438e-96b1-2f5d766c09d2",
+      "quantity": 6,
+      "entry_revision": "2",
+      "updated_by": "aa3e2a83-9a14-42f2-bf2b-b123e88291a0"
+    },
+    {
+      "business_date": "2026-08-01",
+      "generation": "2",
+      "revision": "5",
+      "menu_id": "e87b0b32-977a-45aa-a181-1381b08eba37",
+      "quantity": 0,
+      "entry_revision": "0",
+      "updated_by": null
+    }
+  ],
+  "receipts": [
+    {
+      "business_date": "2026-08-01",
+      "actor_id": "aa3e2a83-9a14-42f2-bf2b-b123e88291a0",
+      "operation_id": "540f16b0-7bdc-45c8-bd37-a8b0329c93b0",
+      "response": {
+        "state": "SUBMITTED",
+        "report": null,
+        "lockedAt": null,
+        "lockedBy": null,
+        "closingId": "e5cea4b0-d5c1-4014-8a96-a8eee3b9461e",
+        "generation": 1,
+        "submittedAt": "2026-10-23T07:09:30.154Z",
+        "submittedBy": {
+          "id": "aa3e2a83-9a14-42f2-bf2b-b123e88291a0",
+          "username": "qahmvkmpxwu.rani",
+          "displayName": "Dummy rani"
+        },
+        "closingRevision": 2
+      }
+    },
+    {
+      "business_date": "2026-08-01",
+      "actor_id": "aa3e2a83-9a14-42f2-bf2b-b123e88291a0",
+      "operation_id": "b57d7e57-841f-4205-8cba-202de49b8b59",
+      "response": {
+        "entry": {
+          "menuId": "56ffddda-a106-438e-96b1-2f5d766c09d2",
+          "quantity": 6,
+          "updatedAt": "2026-10-23T07:09:30.422Z",
+          "updatedBy": {
+            "id": "aa3e2a83-9a14-42f2-bf2b-b123e88291a0",
+            "username": "qahmvkmpxwu.rani",
+            "displayName": "Dummy rani"
+          },
+          "entryRevision": 2
+        },
+        "closingId": "e5cea4b0-d5c1-4014-8a96-a8eee3b9461e",
+        "generation": 2,
+        "closingRevision": 5
+      }
+    },
+    {
+      "business_date": "2026-08-01",
+      "actor_id": "aa3e2a83-9a14-42f2-bf2b-b123e88291a0",
+      "operation_id": "ccbfbbf0-ba62-44d8-a1fc-714e3ba588fb",
+      "response": {
+        "entry": {
+          "menuId": "56ffddda-a106-438e-96b1-2f5d766c09d2",
+          "quantity": 4,
+          "updatedAt": "2026-10-23T07:09:30.050Z",
+          "updatedBy": {
+            "id": "aa3e2a83-9a14-42f2-bf2b-b123e88291a0",
+            "username": "qahmvkmpxwu.rani",
+            "displayName": "Dummy rani"
+          },
+          "entryRevision": 1
+        },
+        "closingId": "e5cea4b0-d5c1-4014-8a96-a8eee3b9461e",
+        "generation": 1,
+        "closingRevision": 1
+      }
+    },
+    {
+      "business_date": "2026-08-01",
+      "actor_id": "b3658768-134d-431c-b6d6-650a9f585150",
+      "operation_id": "d59d70cf-039c-42d0-b89f-eb291a34cc60",
+      "response": {
+        "state": "LOCKED",
+        "report": {
+          "id": "d9ccca7c-3724-43ab-a911-df6e825590ca",
+          "generation": 1,
+          "reviewedAt": "2026-10-23T07:09:30.230Z",
+          "reviewedBy": {
+            "id": "b3658768-134d-431c-b6d6-650a9f585150",
+            "username": "qahmvkmpxwu.arif",
+            "displayName": "Dummy arif"
+          },
+          "closingRevision": 3
+        },
+        "lockedAt": "2026-10-23T07:09:30.230Z",
+        "lockedBy": {
+          "id": "b3658768-134d-431c-b6d6-650a9f585150",
+          "username": "qahmvkmpxwu.arif",
+          "displayName": "Dummy arif"
+        },
+        "closingId": "e5cea4b0-d5c1-4014-8a96-a8eee3b9461e",
+        "generation": 1,
+        "submittedAt": "2026-10-23T07:09:30.154Z",
+        "submittedBy": {
+          "id": "aa3e2a83-9a14-42f2-bf2b-b123e88291a0",
+          "username": "qahmvkmpxwu.rani",
+          "displayName": "Dummy rani"
+        },
+        "closingRevision": 3
+      }
+    },
+    {
+      "business_date": "2026-08-01",
+      "actor_id": "b3658768-134d-431c-b6d6-650a9f585150",
+      "operation_id": "f524faa6-0660-4afd-8ad5-8faeddf8c6d8",
+      "response": {
+        "state": "DRAFT",
+        "report": null,
+        "lockedAt": null,
+        "lockedBy": null,
+        "closingId": "e5cea4b0-d5c1-4014-8a96-a8eee3b9461e",
+        "generation": 2,
+        "submittedAt": null,
+        "submittedBy": null,
+        "closingRevision": 4
+      }
+    }
+  ],
+  "audit": [
+    {
+      "business_date": "2026-08-01",
+      "actor_id": "aa3e2a83-9a14-42f2-bf2b-b123e88291a0",
+      "operation_id": "ccbfbbf0-ba62-44d8-a1fc-714e3ba588fb",
+      "before_quantity": 0,
+      "after_quantity": 4
+    },
+    {
+      "business_date": "2026-08-01",
+      "actor_id": "aa3e2a83-9a14-42f2-bf2b-b123e88291a0",
+      "operation_id": "b57d7e57-841f-4205-8cba-202de49b8b59",
+      "before_quantity": 4,
+      "after_quantity": 6
+    }
+  ],
+  "settingsReceipts": [],
+  "teamReceipts": [],
+  "internalErrorCount": 0,
+  "fixturesRetained": true
+}

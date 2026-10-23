@@ -1,0 +1,8 @@
+{
+  "imported": true,
+  "sheetsRendered": 2,
+  "sourceSha256": "ee8d829c94c4254e8c13900fd56beed6a7b49b7fb5d87dcda3d679f2a703c2d2",
+  "sourceUnchanged": true,
+  "engine": "artifact-tool read-only import/inspect/render",
+  "visualReviewPending": true
+}

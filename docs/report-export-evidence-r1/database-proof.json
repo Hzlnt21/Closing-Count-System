@@ -1,0 +1,54 @@
+{
+  "passed": true,
+  "ownedDatabase": true,
+  "transactionReadOnly": true,
+  "groups": [
+    {
+      "run": "http-final",
+      "outlet": "dbbe47e9-de49-47b5-9216-e533622ca40e",
+      "closingsCompared": 5,
+      "storedReportEqualsActualExportSource": true,
+      "selectedGeneration": 1,
+      "frozenQuantity": 4,
+      "currentGeneration": 2,
+      "currentQuantity": 6,
+      "receiptsPerClosing": 5,
+      "reportCountPerClosing": 1,
+      "catalogCount": 1,
+      "employeeMembershipRestored": true,
+      "internalErrors": 0
+    },
+    {
+      "run": "light-stable-final",
+      "outlet": "1c4ebcef-fd0b-4633-b22e-26b10cf361e2",
+      "closingsCompared": 1,
+      "storedReportEqualsActualExportSource": true,
+      "selectedGeneration": 1,
+      "frozenQuantity": 4,
+      "currentGeneration": 2,
+      "currentQuantity": 6,
+      "receiptsPerClosing": 5,
+      "reportCountPerClosing": 1,
+      "catalogCount": 1,
+      "employeeMembershipRestored": true,
+      "internalErrors": 0
+    },
+    {
+      "run": "dark-stable-final",
+      "outlet": "707fd548-96c4-4f13-ac68-a12b024f0221",
+      "closingsCompared": 1,
+      "storedReportEqualsActualExportSource": true,
+      "selectedGeneration": 1,
+      "frozenQuantity": 4,
+      "currentGeneration": 2,
+      "currentQuantity": 6,
+      "receiptsPerClosing": 5,
+      "reportCountPerClosing": 1,
+      "catalogCount": 1,
+      "employeeMembershipRestored": true,
+      "internalErrors": 0
+    }
+  ],
+  "physicalPhoneAccessed": false,
+  "publicAcceptance": false
+}
