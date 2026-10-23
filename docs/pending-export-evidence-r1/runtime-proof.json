@@ -1,0 +1,192 @@
+{
+  "passed": true,
+  "androidTests": 36,
+  "testGroups": {
+    "OnlinePendingBackupInstrumentedTest": 8,
+    "OnlinePendingCaptureInstrumentedTest": 4,
+    "OnlinePendingExportInstrumentedTest": 9,
+    "OnlineSyncInstrumentedTest": 15
+  },
+  "testCases": [
+    {
+      "suite": "com.closingcount.app.OnlinePendingBackupInstrumentedTest",
+      "test": "teamMembershipIntentAndNumericBoundsRemainExact"
+    },
+    {
+      "suite": "com.closingcount.app.OnlinePendingBackupInstrumentedTest",
+      "test": "rejectsScopeDateAndLifecycleContradictions"
+    },
+    {
+      "suite": "com.closingcount.app.OnlinePendingBackupInstrumentedTest",
+      "test": "completePacketRoundTripsWithoutCredentialsAndKeepsUncertainDependentIntent"
+    },
+    {
+      "suite": "com.closingcount.app.OnlinePendingBackupInstrumentedTest",
+      "test": "stableFileFingerprintDiffersWhenTheProviderChangesBytes"
+    },
+    {
+      "suite": "com.closingcount.app.OnlinePendingBackupInstrumentedTest",
+      "test": "rejectsDuplicateMembersOperationIdsAndInconsistentQueues"
+    },
+    {
+      "suite": "com.closingcount.app.OnlinePendingBackupInstrumentedTest",
+      "test": "rejectsMalformedUtf8SurrogatesTrailingDataAndOversizedInput"
+    },
+    {
+      "suite": "com.closingcount.app.OnlinePendingBackupInstrumentedTest",
+      "test": "rejectsUnknownOrCredentialFieldsInEveryLayer"
+    },
+    {
+      "suite": "com.closingcount.app.OnlinePendingBackupInstrumentedTest",
+      "test": "rejectsCoercionFractionsExponentsAndNoncanonicalNumbers"
+    },
+    {
+      "suite": "com.closingcount.app.OnlinePendingCaptureInstrumentedTest",
+      "test": "lifecycleOnlyCaptureIncludesItsOriginalReviewWithoutSyntheticQuantityWork"
+    },
+    {
+      "suite": "com.closingcount.app.OnlinePendingCaptureInstrumentedTest",
+      "test": "orphanedPendingWorkCannotBeSilentlyOmitted"
+    },
+    {
+      "suite": "com.closingcount.app.OnlinePendingCaptureInstrumentedTest",
+      "test": "captureIsScopedAndLeavesSentDependentQueueAndSourceRowsUnchanged"
+    },
+    {
+      "suite": "com.closingcount.app.OnlinePendingCaptureInstrumentedTest",
+      "test": "inconsistentLocalStateFailsInsteadOfReturningAnIncompleteSuccessfulBackup"
+    },
+    {
+      "suite": "com.closingcount.app.OnlinePendingExportInstrumentedTest",
+      "test": "completeLocalPacketIsFrozenThroughSaveAndPreservesSourceEvenWithExpiredSession"
+    },
+    {
+      "suite": "com.closingcount.app.OnlinePendingExportInstrumentedTest",
+      "test": "corruptAdministrativeFilesFailWithoutOmittingOrRepairingTheirBytes"
+    },
+    {
+      "suite": "com.closingcount.app.OnlinePendingExportInstrumentedTest",
+      "test": "replacingTheAccountAfterReviewRejectsWriteBeforeOpeningOutput"
+    },
+    {
+      "suite": "com.closingcount.app.OnlinePendingExportInstrumentedTest",
+      "test": "teamMembershipBaseAndValuesAreCapturedWithoutReusingLivePayload"
+    },
+    {
+      "suite": "com.closingcount.app.OnlinePendingExportInstrumentedTest",
+      "test": "fullCachedCatalogIsProjectedToOnlyThePendingMenuAndNoHistoricalPayload"
+    },
+    {
+      "suite": "com.closingcount.app.OnlinePendingExportInstrumentedTest",
+      "test": "concurrentAcknowledgementAndCaptureAlwaysYieldACompleteValidSnapshot"
+    },
+    {
+      "suite": "com.closingcount.app.OnlinePendingExportInstrumentedTest",
+      "test": "providerFailureConsumesOnlyTheExportTicketAndPreservesAllPendingWork"
+    },
+    {
+      "suite": "com.closingcount.app.OnlinePendingExportInstrumentedTest",
+      "test": "cancelledStaleAndDuplicateCallbacksDoNotWriteAgain"
+    },
+    {
+      "suite": "com.closingcount.app.OnlinePendingExportInstrumentedTest",
+      "test": "installationIdentityIsStableSeparateAndDoesNotSilentlyRegenerateCorruption"
+    },
+    {
+      "suite": "com.closingcount.app.OnlineSyncInstrumentedTest",
+      "test": "pullPreservesDirtyQuantityAndExplicitReapplyUsesNewOperationAndBase"
+    },
+    {
+      "suite": "com.closingcount.app.OnlineSyncInstrumentedTest",
+      "test": "partitionAndAuthPauseNeverDeliverUnderDifferentAccount"
+    },
+    {
+      "suite": "com.closingcount.app.OnlineSyncInstrumentedTest",
+      "test": "invalidEditAndSubmittedStateDoNotCreateOperations"
+    },
+    {
+      "suite": "com.closingcount.app.OnlineSyncInstrumentedTest",
+      "test": "lateAckPreservesNewerLocalEditAndRebasesOnlyAfterPredecessorAck"
+    },
+    {
+      "suite": "com.closingcount.app.OnlineSyncInstrumentedTest",
+      "test": "realVersion6MigrationPreservesLegacyRowsAndDoesNotUploadHistory"
+    },
+    {
+      "suite": "com.closingcount.app.OnlineSyncInstrumentedTest",
+      "test": "committedButUnacknowledgedPullKeepsExactRetryAndOldReceiptCannotRegressNewerServer"
+    },
+    {
+      "suite": "com.closingcount.app.OnlineSyncInstrumentedTest",
+      "test": "localQuantityAndOperationRollbackTogetherWhenSqlWriteFails"
+    },
+    {
+      "suite": "com.closingcount.app.OnlineSyncInstrumentedTest",
+      "test": "outOfOrderPullDoesNotRegressAcknowledgedEntry"
+    },
+    {
+      "suite": "com.closingcount.app.OnlineSyncInstrumentedTest",
+      "test": "receiptForOldGenerationCannotReplaceReopenedServerQuantity"
+    },
+    {
+      "suite": "com.closingcount.app.OnlineSyncInstrumentedTest",
+      "test": "pendingAndSentSurviveProcessStyleDatabaseReopenWithSamePayload"
+    },
+    {
+      "suite": "com.closingcount.app.OnlineSyncInstrumentedTest",
+      "test": "reopenedGenerationPreservesDraftAndUseServerDoesNotUploadOldGeneration"
+    },
+    {
+      "suite": "com.closingcount.app.OnlineSyncInstrumentedTest",
+      "test": "invalidRemoteBatchRollsBackHeaderAndEarlierEntries"
+    },
+    {
+      "suite": "com.closingcount.app.OnlineSyncInstrumentedTest",
+      "test": "acknowledgementRollbackKeepsExactRetryUntilAllWritesSucceed"
+    },
+    {
+      "suite": "com.closingcount.app.OnlineSyncInstrumentedTest",
+      "test": "failedOperationNeedsExplicitRecoveryAndBoundaryValuesRemainValid"
+    },
+    {
+      "suite": "com.closingcount.app.OnlineSyncInstrumentedTest",
+      "test": "batchEditRollsBackEarlierMenusIfAnyMenuIsBlocked"
+    }
+  ],
+  "jvm": {
+    "tests": 25,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "lintErrors": 0,
+  "lintWarnings": 17,
+  "apkSha256": [
+    "74E560BB7F16AA3C7A949E97E3400986331CB67AB7038CC7D237ABACBBADD3AA",
+    "E7FB3DCB46212B40A8EB89B1A936EB6F06BB4A3D97D54B10D3566ED327A09953"
+  ],
+  "deviceSettingsUnchanged": true,
+  "packet": {
+    "passed": true,
+    "sha256": "fdcac827ce04cb8be53faec0335dbb802d3d8b9e82e3d9fc2c6d5d5e3bac6cfa",
+    "bytes": 1707,
+    "closingCount": 1,
+    "quantities": [
+      4,
+      8
+    ],
+    "latestFrozen": 8,
+    "currentAfterReview": 9,
+    "adminKinds": [
+      "CATALOG",
+      "SETTINGS",
+      "TEAM_CREATE"
+    ],
+    "credentialFieldsAbsent": true,
+    "historicalActorsAbsent": true,
+    "scope": "Actual MediaStore content output; no system document-picker/UI or server recovery acceptance."
+  },
+  "concurrentAckCaptureIterations": 12,
+  "largeCatalogMenus": 500,
+  "scope": "PT02 local bounded capture/export core; UI/inbox/restore/HTTP recovery remain open."
+}

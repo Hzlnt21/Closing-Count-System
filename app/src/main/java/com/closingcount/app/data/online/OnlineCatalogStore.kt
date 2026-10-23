@@ -10,8 +10,10 @@ import java.security.MessageDigest
 data class OnlineCatalogOperation(val scope:String,val operationId:String,val expectedRevision:Long,
     val catalogJson:String,val status:String="QUEUED",val wasSent:Boolean=false,val error:String?=null)
 
-/** Non-secret catalog intent only. Atomic and excluded from backup/transfer, just like online queues. */
+/** Non-secret intent; excluded from automatic backup, with explicit validated pending export. */
 class OnlineCatalogStore(context: Context) {
+    @Synchronized fun captureForBackup(scope:String):com.closingcount.app.data.transfer.PendingBackupAdmin? =
+        com.closingcount.app.data.transfer.OnlinePendingIntentBackupReader.read(file(scope),scope,"CATALOG")
     private val directory = File(context.noBackupFilesDir,"online-catalog-operations").apply { check(mkdirs() || isDirectory) }
     private fun file(scope: String): AtomicFile {
         val hash = MessageDigest.getInstance("SHA-256").digest(scope.toByteArray(Charsets.UTF_8)).joinToString("") { "%02x".format(it) }

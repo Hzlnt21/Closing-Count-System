@@ -1,0 +1,21 @@
+# Pending draft capture and file export core R1
+
+23 October 2026. PT-02 adds a bounded, local-only backup pipeline for the format established in `ccs-pending-format-r1`. This is an internal controller and repository API; online backup/import buttons and system-picker flows are not yet connected. [Remaining plan](ONLINE_PENDING_TRANSFER_PLAN_R1.md).
+
+Room first selects at most1001 pending closing IDs to enforce the1000-closing limit, checks total pending bounds and reads each cached header separately. Its returned metadata contains only date/identity and needed menu names. Full frozen catalogs, unrelated synced closings and historical authors are not retained in the backup. Existing orphan/row/queue consistency guards remain transactional; source statuses and operation identities are unchanged.
+
+Settings, team and catalog stores expose synchronized backup reads of their committed AtomicFiles. The backup reader enforces bounded UTF-8, duplicate/unknown-field rejection, exact scope/types and common payload validation without the older stored-file reader's coercion. Invalid stores stop the backup instead of silently omitting an action. Team membership's reviewed revision moves to the backup envelope; all non-secret values remain available for later recovery.
+
+A pseudonymous installation UUID is persisted atomically under noBackupFilesDir. It is stable across controller instances, differs across installations and is never regenerated silently when corrupted. It grants no access and uses no hardware identifier.
+
+The repository pins the current cached account while capturing Room and administrative resource snapshots. Backup deliberately needs no HTTP, including with an expired cached token. Independent resource snapshots do not claim a distributed server transaction. The transfer controller privately holds validated bytes, hash and one-use review identity; it can write through ContentResolver later while keeping the reviewed content frozen. A local account replacement invalidates the ticket before output is opened. Cancel/stale/duplicate/failed callbacks do not replay a write or clear pending work.
+
+## Verified
+
+- 36 Android cases on the recorded final APK pair:8 codec,4 Room capture,9 export pipeline and15 existing sync/Room regressions. 25 JVM tests, app/test builds and lint passed with0errors17warnings. The final rebuild corrects the provider test fixture and clarifies two automatic-backup comments; functional code is unchanged from the full lint run.
+- The actual MediaStore file is1707bytes. Its hash and every fixture value are independently checked: correct source account/outlet/device, quantity operations4/8 and frozen desired8 after an intentional source edit to9, settings/team/catalog payloads, and no credential fields or cached historical actor data. The file is preserved in the evidence folder.
+- Twelve bounded concurrent Room acknowledgement/capture iterations always yield a valid before/after snapshot. This is a local transactional race test, not real-HTTP recovery acceptance. A500-menu cached catalog exports only its pending menu and produces a packet below5000bytes; no heap/time benchmark is claimed.
+- Source queues, administrative bytes and legacy snapshot remain unchanged by export in the relevant tests. Corrupt scopes/types/credentials/catalog/duplicate keys fail without rewriting source bytes. Device identity stability/isolation/corruption, stale/cancel/duplicate callbacks, account switching and provider failure are covered.
+- Emulator settings were unchanged; the owned emulator stopped. The first two provider-fixture failures are retained: a MediaStore row did not yet have a physical file, so reading it as an empty file raised ENOENT. The corrected fixture creates a known empty target before checking that failed/cancelled writes leave it empty. Application expectations were not relaxed.
+
+[Runtime, exact packet, input hashes and owner-machine harness](pending-export-evidence-r1/). Service, schemas, dependencies, existing UI, live DAO mutation methods, repository transport methods, local backup and report export remain unchanged. No phone, operational database, HTTP recovery, system-picker UI, inbox or restoration acceptance is claimed. PT-03 through PT-08 and complete CCS-08 demo packaging remain open; the full portfolio/CV goal remains active.

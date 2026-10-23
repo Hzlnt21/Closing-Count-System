@@ -54,9 +54,7 @@ object OnlinePendingBackupCodec {
 
     fun decode(bytes: ByteArray): DecodedPendingBackup {
         require(bytes.isNotEmpty() && bytes.size <= MAX_BYTES) { "Ukuran cadangan draft tidak valid." }
-        val text = Charsets.UTF_8.newDecoder().onMalformedInput(CodingErrorAction.REPORT).onUnmappableCharacter(CodingErrorAction.REPORT)
-            .decode(ByteBuffer.wrap(bytes)).toString()
-        val root = strictObject(text)
+        val root = readObject(bytes)
         exact(root, "format", "schemaVersion", "backupId", "createdAt", "sourceDeviceId", "origin", "account", "outlet", "closings", "admin")
         require(string(root, "format") == FORMAT && number(root, "schemaVersion") == VERSION.toLong()) { "Format atau versi cadangan draft belum didukung." }
         val backupId = id(root, "backupId");val deviceId = id(root, "sourceDeviceId")
@@ -110,26 +108,35 @@ object OnlinePendingBackupCodec {
         require(closings.map { it.id }.distinct().size == closings.size && closings.map { it.date }.distinct().size == closings.size)
         val groups = mutableSetOf<String>()
         val admin = objects(root, "admin", 3).map { op ->
-            exact(op, "kind", "operationId", "expectedRevision", "status", "wasSent", "payload")
-            val kind = string(op, "kind");require(kind in setOf("SETTINGS", "CATALOG", "TEAM_CREATE", "TEAM_UPDATE"))
-            require(groups.add(if (kind.startsWith("TEAM_")) "TEAM" else kind))
-            val base = nullableNumber(op, "expectedRevision");require((base == null) == (kind == "TEAM_CREATE"))
-            val status = string(op, "status");val wasSent = bool(op, "wasSent");sentState(status, wasSent, kind == "CATALOG")
-            val payload = op.getJSONObject("payload")
-            when (kind) {
-                "SETTINGS" -> { exact(payload, "name", "timezone", "cutoffMinutes");name(payload, "name")
-                    ZoneId.of(string(payload, "timezone"));require(number(payload, "cutoffMinutes") <= 1439) }
-                "TEAM_CREATE" -> { exact(payload, "username", "displayName", "role")
-                    require(string(payload, "username").matches(Regex("[a-z0-9][a-z0-9._-]{2,63}")));name(payload, "displayName");role(payload) }
-                "TEAM_UPDATE" -> { exact(payload, "accountId", "role", "active");id(payload, "accountId");role(payload);bool(payload, "active") }
-                "CATALOG" -> { OnlineCatalog.parse(payload)
-                    require(JSONObject().put("operationId", string(op, "operationId")).put("expectedRevision", base).put("catalog", payload)
-                        .toString().toByteArray(Charsets.UTF_8).size <= 524288) }
-            }
-            PendingBackupAdmin(kind, operationId(op), base, status, wasSent, payload.toString())
+            val parsed=decodeAdmin(op)
+            require(operationIds.add(parsed.operationId)) { "ID operasi cadangan berulang." }
+            require(groups.add(if(parsed.kind.startsWith("TEAM_"))"TEAM" else parsed.kind))
+            parsed
         }
         val model = OnlinePendingBackup(backupId, createdAt, deviceId, origin, account, outlet, closings, admin)
         return DecodedPendingBackup(model, MessageDigest.getInstance("SHA-256").digest(bytes).joinToString("") { "%02x".format(it) }, bytes.size)
+    }
+
+    internal fun decodeAdmin(op: JSONObject): PendingBackupAdmin {
+        exact(op,"kind","operationId","expectedRevision","status","wasSent","payload")
+        val kind=string(op,"kind");require(kind in setOf("SETTINGS","CATALOG","TEAM_CREATE","TEAM_UPDATE"))
+        val base=nullableNumber(op,"expectedRevision");require((base==null)==(kind=="TEAM_CREATE"))
+        val status=string(op,"status");val wasSent=bool(op,"wasSent");sentState(status,wasSent,kind=="CATALOG")
+        val payload=op.getJSONObject("payload");val opId=id(op,"operationId")
+        when(kind) {
+            "SETTINGS" -> { exact(payload,"name","timezone","cutoffMinutes");name(payload,"name");ZoneId.of(string(payload,"timezone"));require(number(payload,"cutoffMinutes")<=1439) }
+            "TEAM_CREATE" -> { exact(payload,"username","displayName","role");require(string(payload,"username").matches(Regex("[a-z0-9][a-z0-9._-]{2,63}")));name(payload,"displayName");role(payload) }
+            "TEAM_UPDATE" -> { exact(payload,"accountId","role","active");id(payload,"accountId");role(payload);bool(payload,"active") }
+            "CATALOG" -> { require(requireNotNull(base)<MAX_INTEGER);OnlineCatalog.parse(payload)
+                require(JSONObject().put("operationId",opId).put("expectedRevision",base).put("catalog",payload).toString().toByteArray(Charsets.UTF_8).size<=524288) }
+        }
+        return PendingBackupAdmin(kind,opId,base,status,wasSent,payload.toString())
+    }
+
+    internal fun readObject(bytes: ByteArray): JSONObject {
+        require(bytes.isNotEmpty() && bytes.size<=MAX_BYTES)
+        return strictObject(Charsets.UTF_8.newDecoder().onMalformedInput(CodingErrorAction.REPORT).onUnmappableCharacter(CodingErrorAction.REPORT)
+            .decode(ByteBuffer.wrap(bytes)).toString())
     }
 
     private fun sentState(status: String, wasSent: Boolean, editing: Boolean) {
@@ -153,7 +160,7 @@ object OnlinePendingBackupCodec {
     }
 
     /** Strict lexical parse rejects duplicate keys, trailing JSON, coercion and oversized graphs. */
-    private fun strictObject(text: String): JSONObject {
+    internal fun strictObject(text: String): JSONObject {
         require(text.length <= MAX_BYTES)
         var nodes = 0
         fun unicode(value: String): String {

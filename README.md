@@ -1,5 +1,7 @@
 # Closing Count System
 
+Pending-export core: [bounded capture and frozen file output](docs/PENDING_EXPORT_CORE_R1.md). Local draft and admin intentions can be captured and written through the internal controller; 36 Android cases cover the format/capture/export/sync boundary. Backup/import UI, server duplicate checks and recovery inbox are still open.
+
 Pending-transfer foundation: [versioned draft format and read-only Room capture](docs/PENDING_TRANSFER_FOUNDATION_R1.md), [remaining recovery plan](docs/ONLINE_PENDING_TRANSFER_PLAN_R1.md). Codec/capture/sync tests pass; online backup/import UI, recovery inbox and fresh server review are still being implemented.
 
 Newest online transfer: [locked-report Excel download](docs/ONLINE_REPORT_EXPORT_R1.md), [native and workbook review](docs/report-export-review-r1.html). The selected frozen generation supplies both workbook tabs; fresh account/outlet/report checks run after the system save dialog and before report bytes are written. Verification details and limits accompany the source checkpoint. Online import safety and complete demo packaging remain open.

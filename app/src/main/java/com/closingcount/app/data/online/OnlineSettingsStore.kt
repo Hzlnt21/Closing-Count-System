@@ -13,8 +13,10 @@ data class OnlineSettingsOperation(val scope: String, val operationId: String, v
     val name: String, val timezone: String, val cutoffMinutes: Int, val status: String = "QUEUED",
     val wasSent: Boolean = false, val error: String? = null)
 
-/** Non-secret settings intent only. Atomic and excluded from backup/transfer, just like online queues. */
+/** Non-secret intent; excluded from automatic backup, with explicit validated pending export. */
 class OnlineSettingsStore(context: Context) {
+    @Synchronized fun captureForBackup(scope:String):com.closingcount.app.data.transfer.PendingBackupAdmin? =
+        com.closingcount.app.data.transfer.OnlinePendingIntentBackupReader.read(file(scope),scope,"SETTINGS")
     private val directory = File(context.noBackupFilesDir,"online-settings-operations").apply { check(mkdirs() || isDirectory) }
     private fun file(scope: String): AtomicFile {
         val hash = MessageDigest.getInstance("SHA-256").digest(scope.toByteArray(Charsets.UTF_8)).joinToString("") { "%02x".format(it) }

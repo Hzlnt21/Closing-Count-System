@@ -21,6 +21,8 @@ class TeamPasswordRequiredException:IOException("Reenter the original password t
 
 /** No password, password digest or session token is serialized here. */
 class OnlineTeamStore(context:Context){
+    @Synchronized fun captureForBackup(scope:String):com.closingcount.app.data.transfer.PendingBackupAdmin? =
+        com.closingcount.app.data.transfer.OnlinePendingIntentBackupReader.read(file(scope),scope,"TEAM")
     private val directory=File(context.noBackupFilesDir,"online-team-operations").apply{check(mkdirs()||isDirectory)}
     private fun file(scope:String)=AtomicFile(File(directory,MessageDigest.getInstance("SHA-256").digest(scope.toByteArray()).joinToString(""){"%02x".format(it)}+".json"))
     private fun decode(json:JSONObject):OnlineTeamOperation{

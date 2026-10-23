@@ -119,8 +119,8 @@ abstract class OnlineSyncDao {
     @Query("SELECT closingId FROM online_closings WHERE scope=:scope")
     abstract suspend fun closingIds(scope: String): List<String>
 
-    @Query("SELECT c.* FROM online_closings c WHERE c.scope=:scope AND (EXISTS (SELECT 1 FROM online_operations o WHERE o.scope=c.scope AND o.closingId=c.closingId) OR EXISTS (SELECT 1 FROM online_lifecycle_operations l WHERE l.scope=c.scope AND l.closingId=c.closingId) OR EXISTS (SELECT 1 FROM online_entries e WHERE e.scope=c.scope AND e.closingId=c.closingId AND (e.status!='SYNCED' OR e.localQuantity!=e.serverQuantity))) ORDER BY c.closingId")
-    protected abstract suspend fun closingHeadersForBackup(scope: String): List<OnlineClosingEntity>
+    @Query("SELECT c.closingId FROM online_closings c WHERE c.scope=:scope AND (EXISTS (SELECT 1 FROM online_operations o WHERE o.scope=c.scope AND o.closingId=c.closingId) OR EXISTS (SELECT 1 FROM online_lifecycle_operations l WHERE l.scope=c.scope AND l.closingId=c.closingId) OR EXISTS (SELECT 1 FROM online_entries e WHERE e.scope=c.scope AND e.closingId=c.closingId AND (e.status!='SYNCED' OR e.localQuantity!=e.serverQuantity))) ORDER BY c.closingId LIMIT 1001")
+    protected abstract suspend fun closingIdsForBackup(scope: String): List<String>
 
     @Query("SELECT COUNT(*) FROM online_operations WHERE scope=:scope")
     protected abstract suspend fun quantityCountForBackup(scope: String): Long
@@ -134,10 +134,14 @@ abstract class OnlineSyncDao {
     /** One local transaction; no network call, acknowledgement or status transition. */
     @Transaction
     open suspend fun capturePendingForBackup(scope: String): List<OnlinePendingClosingCapture> {
-        val captured = closingHeadersForBackup(scope).mapNotNull { header ->
+        check(quantityCountForBackup(scope)<=10000 && lifecycleCountForBackup(scope)<=1000 && pendingEntryCountForBackup(scope)<=10000)
+        val ids=closingIdsForBackup(scope);check(ids.size<=1000)
+        val captured = ids.mapNotNull { id ->
+            val header=requireNotNull(closing(scope,id))
             val queue = operations(scope, header.closingId)
             val action = lifecycle(scope, header.closingId)
             val rows = entries(scope, header.closingId)
+            check(rows.size<=500)
             val pendingRows = rows.filter { it.status != "SYNCED" || it.localQuantity != it.serverQuantity }
             if (queue.isEmpty() && action == null && pendingRows.isEmpty()) null
             else {
@@ -146,7 +150,7 @@ abstract class OnlineSyncDao {
                 check(queue.map { it.menuId }.toSet() == pendingRows.map { it.menuId }.toSet())
                 check(queue.map { it.operationId }.distinct().size == queue.size)
                 check(rows.all { it.scope == scope && it.closingId == header.closingId && it.generation == header.generation })
-                OnlinePendingClosingCapture(header, pendingRows, queue, action)
+                OnlinePendingClosingCapture(OnlinePendingClosingHeader.from(header,pendingRows.map{it.menuId}.toSet()), pendingRows, queue, action)
             }
         }
         check(captured.sumOf { it.operations.size.toLong() } == quantityCountForBackup(scope))

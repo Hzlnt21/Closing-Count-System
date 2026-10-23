@@ -1,0 +1,175 @@
+{
+  "passed": true,
+  "baseline": "05716034e282e0f8d580089c87cdf34a5f577fed",
+  "files": [
+    {
+      "file": "README.md",
+      "indexSha256": "4e5dd51540b17ee7d7ce09751762e3cd0de74bfaab32a2f4f709ba85d485332e"
+    },
+    {
+      "file": "app/src/androidTest/java/com/closingcount/app/OnlinePendingCaptureInstrumentedTest.kt",
+      "indexSha256": "aa5a2729636342f58b6c6e293254638832287c2e892de8f1c2fddb54dc9baf54"
+    },
+    {
+      "file": "app/src/androidTest/java/com/closingcount/app/OnlinePendingExportInstrumentedTest.kt",
+      "indexSha256": "b46ac58db17558fa837fee3e3800e3d214027b4b3098ba69477d8e3470363da2"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/data/local/OnlinePendingClosingCapture.kt",
+      "indexSha256": "9c7c8eb3e8951279506ecc4127c3144c58075b586a6d9ceaedd58012b07aabca"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/data/local/OnlineSyncDao.kt",
+      "indexSha256": "b54e06fcb1549203e8599c97bfc62e0238a28a986c056ac1050b3d49056c1bd3"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/data/online/OnlineCatalogStore.kt",
+      "indexSha256": "018964099412cbb77c0064d3120bfd2ffcd6023582b4362fb43bdf9ec286ff8f"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/data/online/OnlineRepository.kt",
+      "indexSha256": "765102c70a97c38a66d12f494a89c9373002050b36cb49de19d43d6e0e115507"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/data/online/OnlineSettingsStore.kt",
+      "indexSha256": "7975a807e31c52eedc72d9722a0a5f0a4f6792349ba345618093e38d944f206c"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/data/online/OnlineTeamStore.kt",
+      "indexSha256": "ba1b6c57eb8864dc78151b557b9fc7ee9ae54026cb73e4233e353c9d9c91a5d7"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/data/transfer/OnlineBackupDeviceIdentity.kt",
+      "indexSha256": "f747871371ae156c02202ff4da7e1796d5663d2f07b413a7a1aa54f56da192dc"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/data/transfer/OnlinePendingBackupCodec.kt",
+      "indexSha256": "58c602c3360c06297a05b803bac733e5bb2ff622149ceccdf54118f24f232979"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/data/transfer/OnlinePendingBackupTransfer.kt",
+      "indexSha256": "1ed2e0c237ad887cca144d20cdce5510526eabb3fd1f4d31cba6e720db67c1f2"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/data/transfer/OnlinePendingIntentBackupReader.kt",
+      "indexSha256": "37901717de2216bd83f1a754bc75e37a3eb1d5ba079a154e1c1ad80a50625c0e"
+    },
+    {
+      "file": "docs/ONLINE_PENDING_TRANSFER_PLAN_R1.md",
+      "indexSha256": "81af16e48038e309dadcd9bd386a26db1ee907510c2dd3b230a315c4c93c1583"
+    },
+    {
+      "file": "docs/PENDING_EXPORT_CORE_R1.md",
+      "indexSha256": "ccc4e1890a5ca58a728d3dc671b29696d91cc120ca2fc2673c2a25d9243ad02c"
+    },
+    {
+      "file": "docs/pending-export-evidence-r1/README.md",
+      "indexSha256": "d7e7c4597efda1bfeb60da4f9e0a34424d8ec36a445cff8624ae6e5df9d3351e"
+    },
+    {
+      "file": "docs/pending-export-evidence-r1/apk-inputs.json",
+      "indexSha256": "4ab75b8b5ff04293852d107d671ed4eb2d890187af94663a0ce3a65054b27a40"
+    },
+    {
+      "file": "docs/pending-export-evidence-r1/build.log",
+      "indexSha256": "6f82f1b2f9e304bfb64b492290f64cbf629fb3a99eafbb182194dd38a7b29df3"
+    },
+    {
+      "file": "docs/pending-export-evidence-r1/device-after.json",
+      "indexSha256": "0b3aa411120d25b210e9fd1bba51a62f4d2c1639a75549326fc691e0cc51ff1d"
+    },
+    {
+      "file": "docs/pending-export-evidence-r1/device-baseline.json",
+      "indexSha256": "0b3aa411120d25b210e9fd1bba51a62f4d2c1639a75549326fc691e0cc51ff1d"
+    },
+    {
+      "file": "docs/pending-export-evidence-r1/fixture-fix-build.log",
+      "indexSha256": "8a5d2b777095b9fae37df832e8890626e580946255870bd2589e26eb2b70ddc2"
+    },
+    {
+      "file": "docs/pending-export-evidence-r1/harness/Check-ClosingPendingExportR1.ps1",
+      "indexSha256": "27ca55cf6b18d9d172c385e63d50fd97a4ddf02ee251fd9e7de1bb3c9a54b251"
+    },
+    {
+      "file": "docs/pending-export-evidence-r1/harness/check-pending-export-r1.py",
+      "indexSha256": "ea2658f2db9db4255464bee8c9f11e34aab2800312d424e59e146cb979cf937d"
+    },
+    {
+      "file": "docs/pending-export-evidence-r1/instrumentation.log",
+      "indexSha256": "3680c229d77c0cbc42f260602a0b877545ce214f530922bf87e5957dfee855e6"
+    },
+    {
+      "file": "docs/pending-export-evidence-r1/jvm-tests.json",
+      "indexSha256": "241140c4fda18a6171966fd227cdd2ff762a5c6d0a42229c84c4718e21d51af7"
+    },
+    {
+      "file": "docs/pending-export-evidence-r1/lint.txt",
+      "indexSha256": "6bfb01ace573d02ef02dc4a79fcaecd6b04a728899f8afbae68aee81443c2d80"
+    },
+    {
+      "file": "docs/pending-export-evidence-r1/packet-verification.json",
+      "indexSha256": "c610b95e6c11ffaf58290eaec6cc5f15454fd76f60a7b3743c8cf2cb61c2bf5a"
+    },
+    {
+      "file": "docs/pending-export-evidence-r1/pending-export-qa-proof.json",
+      "indexSha256": "3b407fc045c4a56af4f032cbcab82a9b0a3a04981b0894246f456bf79a6f0963"
+    },
+    {
+      "file": "docs/pending-export-evidence-r1/pending-export-qa.json",
+      "indexSha256": "fdcac827ce04cb8be53faec0335dbb802d3d8b9e82e3d9fc2c6d5d5e3bac6cfa"
+    },
+    {
+      "file": "docs/pending-export-evidence-r1/runtime-proof.json",
+      "indexSha256": "25d992c1cc018371cc47d5787c41f8171a13cab8b614b3a040bf39e13aa5bf14"
+    },
+    {
+      "file": "docs/pending-export-evidence-r1/superseded/empty-target-fixture-failure.log",
+      "indexSha256": "685228514b92f60bb664bdb56d5d9ed55d3cf586eef4db21795d7ebb6069683a"
+    },
+    {
+      "file": "docs/pending-export-evidence-r1/verification.json",
+      "indexSha256": "d1d55985a531af36af01b89a497172829019d5d472eda9500ac948a029dc6c25"
+    }
+  ],
+  "canonical": [
+    {
+      "code": "ABS",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "CCS",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "ELZ",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "EXV",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "KLG",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "KEC",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "KPS",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "TTK",
+      "headAndStatusUnchanged": true
+    }
+  ],
+  "knownPrivateValuesAbsent": true,
+  "existingUiServiceSchemaDependencyLegacyUnchanged": true,
+  "liveDaoMutationAndRepositoryTransportTailUnchanged": true,
+  "exactPacketIndexBytes": true,
+  "androidTests": 36,
+  "jvmTests": 25,
+  "scope": "PT02 local bounded capture/export core; UI/inbox/restore/HTTP recovery remain open."
+}

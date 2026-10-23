@@ -1,0 +1,14 @@
+﻿{
+    "passed":  true,
+    "tests":  36,
+    "codecTests":  8,
+    "captureTests":  4,
+    "exportTests":  9,
+    "syncRegressions":  15,
+    "deviceSettingsUnchanged":  true,
+    "emulator":  "PortfolioQA_Phone_API36",
+    "physicalPhoneAccessed":  false,
+    "realHttpAcceptance":  false,
+    "nativeBackupUiAcceptance":  false,
+    "finishedAt":  "2026-10-23T08:23:12.7716288Z"
+}

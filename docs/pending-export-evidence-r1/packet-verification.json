@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "sha256": "fdcac827ce04cb8be53faec0335dbb802d3d8b9e82e3d9fc2c6d5d5e3bac6cfa",
+  "bytes": 1707,
+  "closingCount": 1,
+  "quantities": [
+    4,
+    8
+  ],
+  "latestFrozen": 8,
+  "currentAfterReview": 9,
+  "adminKinds": [
+    "CATALOG",
+    "SETTINGS",
+    "TEAM_CREATE"
+  ],
+  "credentialFieldsAbsent": true,
+  "historicalActorsAbsent": true,
+  "scope": "Actual MediaStore content output; no system document-picker/UI or server recovery acceptance."
+}

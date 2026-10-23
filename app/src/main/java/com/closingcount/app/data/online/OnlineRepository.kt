@@ -61,6 +61,31 @@ class OnlineRepository(private val dao: OnlineSyncDao, private val store: Online
     private suspend fun pending(session: OnlineSession) = dao.pendingForAccount(prefix(session)) +
         withContext(Dispatchers.IO) { (settingsStore?.pendingForAccount(prefix(session)) ?: 0)+(teamStore?.forAccount(prefix(session))?.size?:0)+(catalogStore?.pendingForAccount(prefix(session))?:0) }
     suspend fun pendingCount(): Int = active?.let { pending(it) } ?: 0
+
+    /** Local backup works without transport, including when the cached token has expired. */
+    suspend fun capturePendingBackup(expected:OnlineSession,outletId:String,deviceId:String):com.closingcount.app.data.transfer.OnlinePendingBackup = sessionMutex.withLock {
+        check(active===expected) { "Backup session changed" }
+        val scope=expected.scope(outletId)
+        val outlet=expected.identity.outlets.first{it.id==outletId}
+        withContext(Dispatchers.IO) {
+            val admin=listOfNotNull(requireNotNull(settingsStore).captureForBackup(scope),requireNotNull(teamStore).captureForBackup(scope),requireNotNull(catalogStore).captureForBackup(scope))
+            val closings=dao.capturePendingForBackup(scope).map { capture ->
+                val h=capture.header
+                com.closingcount.app.data.transfer.PendingBackupClosing(h.closingId,h.date,h.generation,h.revision,h.state,
+                    capture.entries.map{e->com.closingcount.app.data.transfer.PendingBackupEntry(e.menuId,h.menuNames.getValue(e.menuId),e.serverQuantity,e.serverRevision,e.localQuantity,e.status)},
+                    capture.operations.map{op->com.closingcount.app.data.transfer.PendingBackupQuantity(op.operationId,op.menuId,op.generation,op.expectedRevision,op.quantity,op.status)},
+                    capture.lifecycle?.let{op->com.closingcount.app.data.transfer.PendingBackupLifecycle(op.operationId,op.action,op.generation,op.expectedRevision,op.reason,op.status,op.wasSent)})
+            }
+            com.closingcount.app.data.transfer.OnlinePendingBackup(java.util.UUID.randomUUID().toString(),java.time.Instant.now().toString(),deviceId,
+                expected.origin,com.closingcount.app.data.transfer.PendingBackupAccount(expected.identity.id,expected.identity.username,expected.identity.displayName),
+                com.closingcount.app.data.transfer.PendingBackupOutlet(outletId,outlet.name),closings,admin)
+        }
+    }
+
+    suspend fun withPendingBackupSession(expected:OnlineSession,write:suspend()->Unit)=sessionMutex.withLock {
+        check(active===expected) { "Backup session changed" }
+        withContext(Dispatchers.IO){write()}
+    }
     suspend fun team(outlet:String,after:String?=null):OnlineTeamPage{
         val session=requireNotNull(active);val value=api(session).team(session,outlet,after);check(active===session);return value
     }

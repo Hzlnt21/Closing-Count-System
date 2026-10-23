@@ -9,6 +9,8 @@ import kotlinx.coroutines.runBlocking
 import org.junit.*
 import org.junit.Assert.*
 import org.junit.runner.RunWith
+import org.json.JSONObject
+import org.json.JSONArray
 
 @RunWith(AndroidJUnit4::class)
 class OnlinePendingCaptureInstrumentedTest {
@@ -18,7 +20,9 @@ class OnlinePendingCaptureInstrumentedTest {
     @Before fun setup(){db=Room.inMemoryDatabaseBuilder(ApplicationProvider.getApplicationContext<Context>(),ClosingCountDatabase::class.java).build()}
     @After fun close(){db.close()}
     private suspend fun seed(s:String,id:String) {
-        db.onlineSyncDao().pull(OnlineClosingEntity(s,id,1,0,"DRAFT","{}"),listOf(
+        val snapshot=JSONObject().put("id",id).put("outletId",s.substringAfterLast('|')).put("generation",1).put("businessDate","2026-10-23")
+            .put("catalog",JSONObject().put("menus",JSONArray(listOf(JSONObject().put("id","menu-a").put("name","Menu A"),JSONObject().put("id","menu-b").put("name","Menu B")))))
+        db.onlineSyncDao().pull(OnlineClosingEntity(s,id,1,0,"DRAFT",snapshot.toString()),listOf(
             OnlineEntryEntity(s,id,"menu-a",1,0,0,0,"SYNCED"),OnlineEntryEntity(s,id,"menu-b",1,0,0,0,"SYNCED")))
     }
     @Test fun captureIsScopedAndLeavesSentDependentQueueAndSourceRowsUnchanged():Unit=runBlocking {
@@ -30,6 +34,7 @@ class OnlinePendingCaptureInstrumentedTest {
         assertEquals(1,captured.size);assertEquals("closing-a",captured.single().header.closingId)
         assertEquals(beforeOps,captured.single().operations);assertEquals(listOf(4,8),captured.single().operations.map{it.quantity})
         assertEquals(listOf("menu-a"),captured.single().entries.map{it.menuId})
+        assertEquals(mapOf("menu-a" to "Menu A"),captured.single().header.menuNames)
         assertEquals(beforeOps,dao.operations(scope,"closing-a"));assertEquals(beforeRows,dao.entries(scope,"closing-a"))
         assertEquals(9,dao.capturePendingForBackup(other).single().entries.single().localQuantity)
     }
