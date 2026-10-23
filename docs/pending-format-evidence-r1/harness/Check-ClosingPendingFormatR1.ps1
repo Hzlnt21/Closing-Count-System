@@ -1,0 +1,32 @@
+$ErrorActionPreference='Stop'
+$taskRoot='D:/Code/Documents/Career-Portfolio-2026/evidence/closing-count-pending-format-r1'
+$taskAdb='D:/Code/ToolCache/AndroidSdk/platform-tools/adb.exe'
+$taskSerial='emulator-5580'
+function Device([string[]]$taskArguments){
+ $taskOutput=@(& $taskAdb -s $taskSerial shell @taskArguments)
+ if($LASTEXITCODE -ne 0){throw 'Owned emulator command failed.'}
+ return ($taskOutput -join "`n").Trim()
+}
+& 'D:/Code/Documents/Career-Portfolio-2026/automation/QAEmulator.ps1' -Action start -Profile Phone -Renderer host -MemoryMb 1536
+if($LASTEXITCODE -ne 0){throw 'Owned emulator failed to start.'}
+if(@(& $taskAdb -s $taskSerial emu avd name) -notcontains 'PortfolioQA_Phone_API36'){throw 'Refusing another device.'}
+$taskBaseline=[ordered]@{size=(Device -taskArguments @('wm','size'));density=(Device -taskArguments @('wm','density'));font=(Device -taskArguments @('settings','get','system','font_scale'));night=(Device -taskArguments @('cmd','uimode','night'))}
+$taskBaseline | ConvertTo-Json | Set-Content -LiteralPath "$taskRoot/device-baseline.json" -Encoding utf8
+$taskPassed=$false
+try {
+ $taskApks=@('D:/Code/Worktrees/Closing-Count-Portfolio/app/build/outputs/apk/debug/app-debug.apk','D:/Code/Worktrees/Closing-Count-Portfolio/app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk')
+ foreach($taskApk in $taskApks){& $taskAdb -s $taskSerial install -r $taskApk;if($LASTEXITCODE -ne 0){throw 'QA installation failed.'}}
+ $taskApks | ForEach-Object {Get-FileHash -LiteralPath $_ -Algorithm SHA256 | Select-Object Path,Hash} | ConvertTo-Json | Set-Content -LiteralPath "$taskRoot/apk-inputs.json" -Encoding utf8
+ $taskClasses='com.closingcount.app.OnlinePendingBackupInstrumentedTest,com.closingcount.app.OnlinePendingCaptureInstrumentedTest,com.closingcount.app.OnlineSyncInstrumentedTest'
+ & $taskAdb -s $taskSerial shell am instrument -w -r -e class $taskClasses com.closingcount.app.test/androidx.test.runner.AndroidJUnitRunner *> "$taskRoot/instrumentation.log"
+ $taskExit=$LASTEXITCODE;$taskText=Get-Content -LiteralPath "$taskRoot/instrumentation.log" -Raw
+ $taskPassed=$taskExit -eq 0 -and $taskText.Contains('OK (27 tests)') -and $taskText -notmatch 'FAILURES!!!|INSTRUMENTATION_FAILED|shortMsg=|Process crashed|AssumptionViolated|STATUS_CODE: -3'
+ Get-Content -LiteralPath "$taskRoot/instrumentation.log" -Tail 55
+} finally {
+ $taskRestored=[ordered]@{size=(Device -taskArguments @('wm','size'));density=(Device -taskArguments @('wm','density'));font=(Device -taskArguments @('settings','get','system','font_scale'));night=(Device -taskArguments @('cmd','uimode','night'))}
+ $taskRestored | ConvertTo-Json | Set-Content -LiteralPath "$taskRoot/device-after.json" -Encoding utf8
+ $taskSettingsSame=($taskBaseline | ConvertTo-Json -Compress) -eq ($taskRestored | ConvertTo-Json -Compress)
+ [ordered]@{passed=($taskPassed -and $taskSettingsSame);tests=27;codecTests=8;captureTests=4;syncRegressions=15;deviceSettingsUnchanged=$taskSettingsSame;emulator='PortfolioQA_Phone_API36';physicalPhoneAccessed=$false;realHttpAcceptance=$false;nativeBackupUiAcceptance=$false;finishedAt=[DateTime]::UtcNow.ToString('o')} | ConvertTo-Json | Set-Content -LiteralPath "$taskRoot/verification.json" -Encoding utf8
+ & 'D:/Code/Documents/Career-Portfolio-2026/automation/QAEmulator.ps1' -Action stop -Profile Phone
+}
+if(-not $taskPassed -or -not $taskSettingsSame){throw 'Pending-data format acceptance did not pass.'}

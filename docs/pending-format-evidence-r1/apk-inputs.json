@@ -1,0 +1,10 @@
+﻿[
+    {
+        "Path":  "D:\\Code\\Worktrees\\Closing-Count-Portfolio\\app\\build\\outputs\\apk\\debug\\app-debug.apk",
+        "Hash":  "7A096F0249793FE4CB9AE5AECBEDEBA0B7A134766FF2DDB432B50A1452FEE2AB"
+    },
+    {
+        "Path":  "D:\\Code\\Worktrees\\Closing-Count-Portfolio\\app\\build\\outputs\\apk\\androidTest\\debug\\app-debug-androidTest.apk",
+        "Hash":  "9779A7889941CA1FE10B45C8C0BB917A81B87216CA65D9A38EE7D342A870DAC0"
+    }
+]

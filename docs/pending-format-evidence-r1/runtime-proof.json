@@ -1,0 +1,133 @@
+{
+  "passed": true,
+  "androidTests": 27,
+  "testGroups": {
+    "OnlinePendingBackupInstrumentedTest": 8,
+    "OnlinePendingCaptureInstrumentedTest": 4,
+    "OnlineSyncInstrumentedTest": 15
+  },
+  "testCases": [
+    {
+      "suite": "com.closingcount.app.OnlinePendingBackupInstrumentedTest",
+      "test": "teamMembershipIntentAndNumericBoundsRemainExact"
+    },
+    {
+      "suite": "com.closingcount.app.OnlinePendingBackupInstrumentedTest",
+      "test": "rejectsScopeDateAndLifecycleContradictions"
+    },
+    {
+      "suite": "com.closingcount.app.OnlinePendingBackupInstrumentedTest",
+      "test": "completePacketRoundTripsWithoutCredentialsAndKeepsUncertainDependentIntent"
+    },
+    {
+      "suite": "com.closingcount.app.OnlinePendingBackupInstrumentedTest",
+      "test": "stableFileFingerprintDiffersWhenTheProviderChangesBytes"
+    },
+    {
+      "suite": "com.closingcount.app.OnlinePendingBackupInstrumentedTest",
+      "test": "rejectsDuplicateMembersOperationIdsAndInconsistentQueues"
+    },
+    {
+      "suite": "com.closingcount.app.OnlinePendingBackupInstrumentedTest",
+      "test": "rejectsMalformedUtf8SurrogatesTrailingDataAndOversizedInput"
+    },
+    {
+      "suite": "com.closingcount.app.OnlinePendingBackupInstrumentedTest",
+      "test": "rejectsUnknownOrCredentialFieldsInEveryLayer"
+    },
+    {
+      "suite": "com.closingcount.app.OnlinePendingBackupInstrumentedTest",
+      "test": "rejectsCoercionFractionsExponentsAndNoncanonicalNumbers"
+    },
+    {
+      "suite": "com.closingcount.app.OnlinePendingCaptureInstrumentedTest",
+      "test": "lifecycleOnlyCaptureIncludesItsOriginalReviewWithoutSyntheticQuantityWork"
+    },
+    {
+      "suite": "com.closingcount.app.OnlinePendingCaptureInstrumentedTest",
+      "test": "orphanedPendingWorkCannotBeSilentlyOmitted"
+    },
+    {
+      "suite": "com.closingcount.app.OnlinePendingCaptureInstrumentedTest",
+      "test": "captureIsScopedAndLeavesSentDependentQueueAndSourceRowsUnchanged"
+    },
+    {
+      "suite": "com.closingcount.app.OnlinePendingCaptureInstrumentedTest",
+      "test": "inconsistentLocalStateFailsInsteadOfReturningAnIncompleteSuccessfulBackup"
+    },
+    {
+      "suite": "com.closingcount.app.OnlineSyncInstrumentedTest",
+      "test": "pullPreservesDirtyQuantityAndExplicitReapplyUsesNewOperationAndBase"
+    },
+    {
+      "suite": "com.closingcount.app.OnlineSyncInstrumentedTest",
+      "test": "partitionAndAuthPauseNeverDeliverUnderDifferentAccount"
+    },
+    {
+      "suite": "com.closingcount.app.OnlineSyncInstrumentedTest",
+      "test": "invalidEditAndSubmittedStateDoNotCreateOperations"
+    },
+    {
+      "suite": "com.closingcount.app.OnlineSyncInstrumentedTest",
+      "test": "lateAckPreservesNewerLocalEditAndRebasesOnlyAfterPredecessorAck"
+    },
+    {
+      "suite": "com.closingcount.app.OnlineSyncInstrumentedTest",
+      "test": "realVersion6MigrationPreservesLegacyRowsAndDoesNotUploadHistory"
+    },
+    {
+      "suite": "com.closingcount.app.OnlineSyncInstrumentedTest",
+      "test": "committedButUnacknowledgedPullKeepsExactRetryAndOldReceiptCannotRegressNewerServer"
+    },
+    {
+      "suite": "com.closingcount.app.OnlineSyncInstrumentedTest",
+      "test": "localQuantityAndOperationRollbackTogetherWhenSqlWriteFails"
+    },
+    {
+      "suite": "com.closingcount.app.OnlineSyncInstrumentedTest",
+      "test": "outOfOrderPullDoesNotRegressAcknowledgedEntry"
+    },
+    {
+      "suite": "com.closingcount.app.OnlineSyncInstrumentedTest",
+      "test": "receiptForOldGenerationCannotReplaceReopenedServerQuantity"
+    },
+    {
+      "suite": "com.closingcount.app.OnlineSyncInstrumentedTest",
+      "test": "pendingAndSentSurviveProcessStyleDatabaseReopenWithSamePayload"
+    },
+    {
+      "suite": "com.closingcount.app.OnlineSyncInstrumentedTest",
+      "test": "reopenedGenerationPreservesDraftAndUseServerDoesNotUploadOldGeneration"
+    },
+    {
+      "suite": "com.closingcount.app.OnlineSyncInstrumentedTest",
+      "test": "invalidRemoteBatchRollsBackHeaderAndEarlierEntries"
+    },
+    {
+      "suite": "com.closingcount.app.OnlineSyncInstrumentedTest",
+      "test": "acknowledgementRollbackKeepsExactRetryUntilAllWritesSucceed"
+    },
+    {
+      "suite": "com.closingcount.app.OnlineSyncInstrumentedTest",
+      "test": "failedOperationNeedsExplicitRecoveryAndBoundaryValuesRemainValid"
+    },
+    {
+      "suite": "com.closingcount.app.OnlineSyncInstrumentedTest",
+      "test": "batchEditRollsBackEarlierMenusIfAnyMenuIsBlocked"
+    }
+  ],
+  "jvm": {
+    "tests": 25,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "lintErrors": 0,
+  "lintWarnings": 17,
+  "apkSha256": [
+    "7A096F0249793FE4CB9AE5AECBEDEBA0B7A134766FF2DDB432B50A1452FEE2AB",
+    "9779A7889941CA1FE10B45C8C0BB917A81B87216CA65D9A38EE7D342A870DAC0"
+  ],
+  "deviceSettingsUnchanged": true,
+  "scope": "Internal codec and Room capture foundation; no backup/import UI, recovery inbox, HTTP recovery or physical-phone acceptance."
+}

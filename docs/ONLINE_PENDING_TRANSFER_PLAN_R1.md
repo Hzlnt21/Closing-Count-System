@@ -1,0 +1,40 @@
+# Online pending-data backup and recovery plan R1
+
+CCS-07 follow-up to `ccs-report-export-r1`. This document specifies the remaining transfer work; unchecked items are not implemented acceptance.
+
+## Product behavior
+
+The account/outlet page offers **Cadangkan draft online** and **Pulihkan draft online**. A backup covers pending work for the selected account and outlet, including quantity drafts, lifecycle intentions, outlet settings, team actions and catalog drafts. Synced history remains authoritative on the server. The existing local version1 backup remains a separate format and flow.
+
+The new file format is `closing-count-online-pending-backup`, schemaVersion1. It records a backup UUID, creation time, pseudonymous installation UUID, canonical service origin, account UUID/label and outlet UUID/label. Closing drafts carry their server UUID/date/generation/revision, the last observed server quantities/revisions, local desired quantities and ordered original operation references. Lifecycle and administrative intentions retain their reviewed bases and non-secret payloads. No password, password digest, bearer token, session expiry, role grant, authenticated session or historical server authorship is included.
+
+Export uses a coherent Room transaction for pending closing data. Administrative AtomicFile intents are captured under the repository session mutex; those independent resource snapshots do not claim a server-wide distributed snapshot. Local backup remains available while transport is offline or the stored session has expired, so a network outage does not prevent safeguarding an existing draft. No background transport is started by export.
+
+Import validates the entire bounded UTF-8 file before presenting its origin, source account/outlet/device, date range, item counts and SHA-256 fingerprint. It cannot select a service URL or sign the user in. A successful fresh login to the same canonical origin/account and current outlet membership is required to attach recovery work. Unsupported versions, unknown fields, credentials, duplicate keys/IDs, coercion, fractional/overflow numbers, malformed text, inconsistent queues or mismatched scope are rejected.
+
+Accepted files enter a durable **draft recovery inbox** keyed by their source fingerprint. This inbox is separate from live queues, sessions, legacy history and server cache. Import cancellation, duplicate files, process interruption and review dismissal do not clear existing drafts. A preview keeps its frozen decoded payload if the external provider changes later.
+
+## Recovery and duplicate rules
+
+Original operation IDs serve as provenance and duplicate-check references. A fresh, actor/outlet-scoped read-only server status check identifies IDs already recorded by that account; it exposes no other actor's operation or privileged receipt payload. All-acknowledged intentions are shown as already processed and never reinserted into live queues. A dependent unsent quantity after an acknowledged head remains a proposal for its latest desired value.
+
+Quantity recovery fetches the current closing, verifies UUID/date/menu identity, generation, writable state and current permissions, and displays file base/local/server values. Existing local pending work or another active recovery for the same target blocks application. The user reviews each recovered target; applying creates a new normal local draft against the reviewed current server revision, with new operation IDs and current attribution. It does not send immediately. The existing sync engine still handles races, generation changes, conflicts and acknowledgements. An uncertain older sender cannot overwrite a newer value because optimistic entry revisions remain enforced.
+
+Lifecycle, settings, team and catalog recovery retains all non-secret intent values. Each action returns to its normal freshly authorized review workflow with current role/base and new action identity; no lock, reopen, membership change or catalog publication executes merely from importing a file. Account creation requires a newly entered password in its normal workflow; the file never carries one. Already processed references are explained rather than labelled as a successful reapplication of a potentially changed file payload.
+
+Optional legacy-to-server history migration remains optional and separate. It requires explicit preview, source identity/fingerprint and duplicate reporting; an existing shared date is a review conflict. No server UUID is inferred from a Room integer and no shared date is replaced by importing history.
+
+## Implementation and evidence gates
+
+- [x] PT-01 Versioned model/strict codec, size/depth/node limits, exact identity and queue consistency, all five intent types. Eight Android-platform JSON cases cover complete round trip (including BMP/non-BMP text), credentials/unknown fields, duplicate keys, malformed Unicode/UTF-8, integer/date boundaries, scope confusion, reused operation IDs, stale-generation intents and legitimate dependent queues. Reader node/collection guards are also source-reviewed; this is not a claim that all combinations are exhaustively tested. See [foundation evidence](PENDING_TRANSFER_FOUNDATION_R1.md).
+- [ ] PT-02 Transactional Room capture plus administrative store capture; concurrent sync/export preserves a valid snapshot, source queues unchanged, exact file round trip and no secret/session content. Partial/corrupt stores fail visibly instead of omitting a draft.
+- [ ] PT-03 Read-only actor/outlet-scoped operation status on the real service/PostgreSQL. Fresh auth/membership, wrong actor/outlet, revoked/expired access, absent/recorded IDs and in-flight races tested. No receipt body, password or SQL disclosure.
+- [ ] PT-04 Durable recovery inbox/preview with source fingerprint, duplicate detection and process-restart recovery; cancellation/provider rewrite/corruption/partial writes preserve existing data. File acceptance never creates a session or runnable operation.
+- [ ] PT-05 Fresh quantity comparison and explicit application to normal draft, duplicate/acknowledged/dependent queue handling, same-date/local-pending conflicts, changed server between review/apply, no author relabel and no automatic network send. Real HTTP/PostgreSQL and isolated second installation proof.
+- [ ] PT-06 Lifecycle/settings/team/catalog restoration into freshly authorized normal review workflows, including changed role/base, already recorded action and account-password reentry. All payload types remain recoverable; read-only references alone do not complete this gate.
+- [ ] PT-07 Native backup/open/preview/cancel/accept/review/apply flows through real DocumentsUI, light/dark/large text, frozen provider payload, Activity recreation and actual process-stop/restart; output/metadata compared independently. Physical/cloud-provider UAT remains PF-03.
+- [ ] PT-08 Repository source/runtime/visual checks, unchanged legacy and operational boundaries, tested commit/tag/atomic push and verified remote. Finish CCS-07 only when all applicable gates are evidenced, then complete CCS-08 demo packaging.
+
+Packet limits are 20MiB, at most1000 closing drafts,500 pending menu rows per closing and10000 quantity-operation references in total. Administrative payloads retain the existing whole-catalog/request bounds. Parsing also limits nesting and total nodes before constructing an unbounded object graph. The encoder validates its own output through the same external-file reader so it never offers a file the importer cannot read. Limits produce an explicit error and leave source data intact.
+
+PT-02 implementation note: initial Room snapshot capture is tested for scope, ordered SENT/dependent work, lifecycle-only work, unchanged source rows and orphan/inconsistent failure. Before wiring export, project pending IDs first and minimize/stream cached headers so full frozen catalogs cannot cause memory growth disproportionate to the pending packet. Administrative AtomicFile capture, corrupt-store validation and the complete bounded export pipeline remain unfinished.

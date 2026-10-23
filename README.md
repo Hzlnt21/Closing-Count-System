@@ -1,5 +1,7 @@
 # Closing Count System
 
+Pending-transfer foundation: [versioned draft format and read-only Room capture](docs/PENDING_TRANSFER_FOUNDATION_R1.md), [remaining recovery plan](docs/ONLINE_PENDING_TRANSFER_PLAN_R1.md). Codec/capture/sync tests pass; online backup/import UI, recovery inbox and fresh server review are still being implemented.
+
 Newest online transfer: [locked-report Excel download](docs/ONLINE_REPORT_EXPORT_R1.md), [native and workbook review](docs/report-export-review-r1.html). The selected frozen generation supplies both workbook tabs; fresh account/outlet/report checks run after the system save dialog and before report bytes are written. Verification details and limits accompany the source checkpoint. Online import safety and complete demo packaging remain open.
 
 Newest local transfer: [validated review and native document flow](docs/LOCAL_TRANSFER_UI_R1.md), [light/large-text dark gallery](docs/local-transfer-review-r1.html). Choose and inspect a local file before replacement; cancellation and stale reviews preserve data, Activity recreation retains the reviewed identity, and provider changes do not replace its payload. Two real system-picker/save journeys, controller tests and legacy regressions pass. Online transfer and complete demo packaging remain open.

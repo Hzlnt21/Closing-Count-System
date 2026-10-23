@@ -1,0 +1,135 @@
+{
+  "passed": true,
+  "baseline": "77bfb6c999471301d7768c57a237ff46ebae6c50",
+  "files": [
+    {
+      "file": "README.md",
+      "indexSha256": "a327694d6c0c4a65c1d18ee08190e6fac51d5b67c8fa3cf44782c309c060979e"
+    },
+    {
+      "file": "app/src/androidTest/java/com/closingcount/app/OnlinePendingBackupInstrumentedTest.kt",
+      "indexSha256": "6675f935c795803616367fdaca5941badcccc915fbc1f53951b020c26f8c1d39"
+    },
+    {
+      "file": "app/src/androidTest/java/com/closingcount/app/OnlinePendingCaptureInstrumentedTest.kt",
+      "indexSha256": "6c531c0cbd0da9e12d47ec8d789c4dee24126ddb535dfa63b42eca319551672c"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/data/local/OnlinePendingClosingCapture.kt",
+      "indexSha256": "3e36626a07a1ca3f089904206aec06c1cbb5dd12b406091cfb395b001699101b"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/data/local/OnlineSyncDao.kt",
+      "indexSha256": "f5255e177be2faeecaf2665e402c31873b1d232353913337dcecbbe8dd5a8726"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/data/transfer/OnlinePendingBackup.kt",
+      "indexSha256": "390a278264b21c620672247882b9fe8788c19bae91f601052cc6a69997682d68"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/data/transfer/OnlinePendingBackupCodec.kt",
+      "indexSha256": "8b9b5481d30b935845467ed80fb6b95c92dba2ae079ece373856e89dfb3cd2bb"
+    },
+    {
+      "file": "docs/ONLINE_PENDING_TRANSFER_PLAN_R1.md",
+      "indexSha256": "365b09c59646f6f95b0b62307bb5c87fc6f48d781cdbd7dbf36aca7fda48e9f0"
+    },
+    {
+      "file": "docs/PENDING_TRANSFER_FOUNDATION_R1.md",
+      "indexSha256": "0b706f3a5acdc41721a605afd7c6aca7aca0296275176a765035b4e0ef2f7f1d"
+    },
+    {
+      "file": "docs/pending-format-evidence-r1/README.md",
+      "indexSha256": "47cc0e7030fc12aeccd3f3c87f05eba7c01578a287157f945f09c35cc7874847"
+    },
+    {
+      "file": "docs/pending-format-evidence-r1/apk-inputs.json",
+      "indexSha256": "545af648cd4a24d1dd4a1db94f80463dca56eb132df7e29115dcac50c583b0a7"
+    },
+    {
+      "file": "docs/pending-format-evidence-r1/build.log",
+      "indexSha256": "f2cfe3f67588ab4eaed8d6f09db3152ff9261d8c9a7f675ef7fa5363026bb013"
+    },
+    {
+      "file": "docs/pending-format-evidence-r1/device-after.json",
+      "indexSha256": "0b3aa411120d25b210e9fd1bba51a62f4d2c1639a75549326fc691e0cc51ff1d"
+    },
+    {
+      "file": "docs/pending-format-evidence-r1/device-baseline.json",
+      "indexSha256": "0b3aa411120d25b210e9fd1bba51a62f4d2c1639a75549326fc691e0cc51ff1d"
+    },
+    {
+      "file": "docs/pending-format-evidence-r1/harness/Check-ClosingPendingFormatR1.ps1",
+      "indexSha256": "52d6f01e4c1410cf52564f42d47a811eb2169384bba4c37eb200ae3470547ac7"
+    },
+    {
+      "file": "docs/pending-format-evidence-r1/harness/check-pending-format-r1.py",
+      "indexSha256": "babd4b4b0f2629c82ff04ee37dc49c6964ba2377f4566a735066f1f058b6ad3a"
+    },
+    {
+      "file": "docs/pending-format-evidence-r1/instrumentation.log",
+      "indexSha256": "05315dafef5398108e0ae609a0cddf70b2a1d828888b521b20e3a0b8ab58be4f"
+    },
+    {
+      "file": "docs/pending-format-evidence-r1/jvm-tests.json",
+      "indexSha256": "241140c4fda18a6171966fd227cdd2ff762a5c6d0a42229c84c4718e21d51af7"
+    },
+    {
+      "file": "docs/pending-format-evidence-r1/lint.txt",
+      "indexSha256": "6bfb01ace573d02ef02dc4a79fcaecd6b04a728899f8afbae68aee81443c2d80"
+    },
+    {
+      "file": "docs/pending-format-evidence-r1/runtime-proof.json",
+      "indexSha256": "63aeaba35ec107e5f9910996914b87881996e0203876c66627e2301c7cf0c27b"
+    },
+    {
+      "file": "docs/pending-format-evidence-r1/unicode-test-build.log",
+      "indexSha256": "053439b43952c5e3f91dd9ebb35a5702197588bf261795153d32b1139a8521d0"
+    },
+    {
+      "file": "docs/pending-format-evidence-r1/verification.json",
+      "indexSha256": "b76414a4b41a068b70cdfc3c46edaeb66ec0937ade2bc59645ba5e7fbe74c614"
+    }
+  ],
+  "canonical": [
+    {
+      "code": "ABS",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "CCS",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "ELZ",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "EXV",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "KLG",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "KEC",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "KPS",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "TTK",
+      "headAndStatusUnchanged": true
+    }
+  ],
+  "knownPrivateValuesAbsent": true,
+  "serviceSchemasDependenciesExistingUiOnlineTransportLegacyUnchanged": true,
+  "androidTests": 27,
+  "jvmTests": 25,
+  "lintErrors": 0,
+  "lintWarnings": 17,
+  "scope": "Internal codec and Room capture foundation; no backup/import UI, recovery inbox, HTTP recovery or physical-phone acceptance."
+}
