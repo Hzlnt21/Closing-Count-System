@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "androidTests": 45,
+  "testGroups": {
+    "OnlinePendingBackupInstrumentedTest": 8,
+    "OnlinePendingCaptureInstrumentedTest": 4,
+    "OnlinePendingExportInstrumentedTest": 9,
+    "OnlineSyncInstrumentedTest": 15,
+    "OnlinePendingInboxInstrumentedTest": 9
+  },
+  "processTests": 2,
+  "separateProcessIds": [
+    3685,
+    3725
+  ],
+  "actualForceStop": true,
+  "packetSha256": "2eddde2e95dd9e3f1d72b35be9ecef494da9fc6f94abcf5ac2c4bced438e34aa",
+  "packetBytes": 2034,
+  "wholePacketCompared": true,
+  "jvmTests": 25,
+  "lintErrors": 0,
+  "lintWarnings": 17,
+  "deviceSettingsUnchanged": true,
+  "scope": "PT04 inbox core; no recovery application, HTTP or native picker acceptance."
+}

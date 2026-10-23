@@ -1,10 +1,12 @@
 # Closing Count System
 
-Pending-operation status: [actor/outlet-scoped read query](docs/PENDING_OPERATION_STATUS_R1.md). Fresh authorization and read-only PostgreSQL snapshots expose only whether original operation IDs are recorded. Service 0.2.0-dev.6 passes 22 unit/80 HTTP-PostgreSQL tests; client recovery/inbox/UI remains open.
+Pending-recovery inbox: [quarantined frozen file storage](docs/PENDING_RECOVERY_INBOX_R1.md). Preview/accept retains exact bytes and recognizes duplicates without creating sessions or live operations. 45 Android cases plus two actual process invocations pass; current-server comparison, recovery application and picker UI remain open.
 
-Pending-export core: [bounded capture and frozen file output](docs/PENDING_EXPORT_CORE_R1.md). Local draft and admin intentions can be captured and written through the internal controller; 36 Android cases cover the format/capture/export/sync boundary. Backup/import UI, server duplicate checks and recovery inbox are still open.
+Pending-operation status: [actor/outlet-scoped read query](docs/PENDING_OPERATION_STATUS_R1.md). Fresh authorization and read-only PostgreSQL snapshots expose only whether original operation IDs are recorded. Service 0.2.0-dev.6 passes 22 unit/80 HTTP-PostgreSQL tests; client recovery application and UI remain open.
 
-Pending-transfer foundation: [versioned draft format and read-only Room capture](docs/PENDING_TRANSFER_FOUNDATION_R1.md), [remaining recovery plan](docs/ONLINE_PENDING_TRANSFER_PLAN_R1.md). Codec/capture/sync tests pass; online backup/import UI, recovery inbox and fresh server review are still being implemented.
+Pending-export core: [bounded capture and frozen file output](docs/PENDING_EXPORT_CORE_R1.md). Local draft and admin intentions can be captured and written through the internal controller; 36 Android cases cover the format/capture/export/sync boundary. Backup/import UI and reviewed recovery application remain open.
+
+Pending-transfer foundation: [versioned draft format and read-only Room capture](docs/PENDING_TRANSFER_FOUNDATION_R1.md), [remaining recovery plan](docs/ONLINE_PENDING_TRANSFER_PLAN_R1.md). Codec/capture/sync tests pass; online backup/import UI and fresh server review are still being implemented.
 
 Newest online transfer: [locked-report Excel download](docs/ONLINE_REPORT_EXPORT_R1.md), [native and workbook review](docs/report-export-review-r1.html). The selected frozen generation supplies both workbook tabs; fresh account/outlet/report checks run after the system save dialog and before report bytes are written. Verification details and limits accompany the source checkpoint. Online import safety and complete demo packaging remain open.
 

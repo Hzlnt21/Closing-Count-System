@@ -1,0 +1,127 @@
+{
+  "passed": true,
+  "baseline": "0af5146ba1b69b6254c2eb1bc7d447cb696b7a2c",
+  "files": [
+    {
+      "file": "README.md",
+      "indexSha256": "4361804e1123686a7d65ddc86d4a053491ef67916128560400dc12756051e60b"
+    },
+    {
+      "file": "app/src/androidTest/java/com/closingcount/app/OnlinePendingInboxInstrumentedTest.kt",
+      "indexSha256": "2769f258530b228d2a22dbd095829332238a4e9687ce0b6f1d4cddcb7e87b8ac"
+    },
+    {
+      "file": "app/src/androidTest/java/com/closingcount/app/OnlinePendingInboxProcessInstrumentedTest.kt",
+      "indexSha256": "1ba017cdc01b61ab947648aeae2d3e8a8e52d9d0c53e76cc2a4823c55ce833d2"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/data/transfer/OnlinePendingRecoveryInbox.kt",
+      "indexSha256": "69f4139b72f2892a8df3b88353a8d181377c200af96c8d2b5aeb7f3741d0462e"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/data/transfer/OnlinePendingRecoveryTransfer.kt",
+      "indexSha256": "3de75e19202c56ddfaa57aabd20fe070fad163915f2d2a56b97ebf4c5196cb16"
+    },
+    {
+      "file": "docs/ONLINE_PENDING_TRANSFER_PLAN_R1.md",
+      "indexSha256": "106a3547a558b33f0202db6c22e1e80d9a4b8fc087b3b79d3ad556a29a0ad8c2"
+    },
+    {
+      "file": "docs/PENDING_RECOVERY_INBOX_R1.md",
+      "indexSha256": "5e33eab2bc773198d10ebc3571baf1a74eb5abde7e0218a3ca7d4931646968fd"
+    },
+    {
+      "file": "docs/pending-inbox-evidence-r1/Check-ClosingPendingInboxR1.ps1",
+      "indexSha256": "108966de7fdd5de50d42ddebeeee832a6df742ef14c8a5f8a89e80d4391e43fb"
+    },
+    {
+      "file": "docs/pending-inbox-evidence-r1/apk-inputs.json",
+      "indexSha256": "210403cb41c55773fb707f5c9b7504a37d45191756cfaa43f76e7739f90a86fb"
+    },
+    {
+      "file": "docs/pending-inbox-evidence-r1/build.log",
+      "indexSha256": "00bf2ab0d2502cd6b47419e918e145930c0ae17d40953ab323ce85d6f8f5f4a9"
+    },
+    {
+      "file": "docs/pending-inbox-evidence-r1/check-pending-inbox-r1.py",
+      "indexSha256": "8ad8644eaf65b72bc1416ce3c9127166b1e1934cfacecd7465fceb2784f7870f"
+    },
+    {
+      "file": "docs/pending-inbox-evidence-r1/device-after.json",
+      "indexSha256": "0b3aa411120d25b210e9fd1bba51a62f4d2c1639a75549326fc691e0cc51ff1d"
+    },
+    {
+      "file": "docs/pending-inbox-evidence-r1/device-baseline.json",
+      "indexSha256": "0b3aa411120d25b210e9fd1bba51a62f4d2c1639a75549326fc691e0cc51ff1d"
+    },
+    {
+      "file": "docs/pending-inbox-evidence-r1/instrumentation.log",
+      "indexSha256": "c3fd4cf55c201f62b441cc6bdfb013c5a8e379edb674d652c01ad105847d4e58"
+    },
+    {
+      "file": "docs/pending-inbox-evidence-r1/pending-inbox-process-proof.json",
+      "indexSha256": "2d035dbe680e961f9b9e40a9c97da7523162b21c2c6316c8c365c95f982a8378"
+    },
+    {
+      "file": "docs/pending-inbox-evidence-r1/pending-inbox-process-qa.json",
+      "indexSha256": "2eddde2e95dd9e3f1d72b35be9ecef494da9fc6f94abcf5ac2c4bced438e34aa"
+    },
+    {
+      "file": "docs/pending-inbox-evidence-r1/process-stage.log",
+      "indexSha256": "b927be53ccb1f6808c90b965ef599fc6b410fd965f00bf30c452acc218a5568d"
+    },
+    {
+      "file": "docs/pending-inbox-evidence-r1/process-verify.log",
+      "indexSha256": "3b1446a13a1ad910a6c69d704bf4fb275ce79d730973e6eb8bbb71e86617ebc0"
+    },
+    {
+      "file": "docs/pending-inbox-evidence-r1/runtime-proof.json",
+      "indexSha256": "ebf5709a96ae34a98f025212aed973901206ba9046264ecd3c95ab39358d3a8f"
+    },
+    {
+      "file": "docs/pending-inbox-evidence-r1/verification.json",
+      "indexSha256": "ac5fb291b8ea336be45634cdb42f4e549df2ec57f832ae9383e5dcbebbb9e04f"
+    }
+  ],
+  "canonical": [
+    {
+      "code": "ABS",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "CCS",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "ELZ",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "EXV",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "KLG",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "KEC",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "KPS",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "TTK",
+      "headAndStatusUnchanged": true
+    }
+  ],
+  "knownPrivateValuesAbsent": true,
+  "existingAppAndServiceSchemaDependencyUnchanged": true,
+  "exactPacketIndexBytes": true,
+  "androidTests": 45,
+  "processTests": 2,
+  "jvmTests": 25,
+  "scope": "PT04 inbox core; no recovery application, HTTP or native picker acceptance."
+}
