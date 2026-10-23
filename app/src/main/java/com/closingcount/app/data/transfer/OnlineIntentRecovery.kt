@@ -13,7 +13,7 @@ import java.util.UUID
 data class IntentRecoveryReview(val id:String,val fingerprint:String,val originalOperationId:String,val kind:String,
     val outletId:String,val closingId:String?,val sourcePayloadJson:String,val sourceRevision:Long?,val sourceGeneration:Long?,
     val currentPayloadJson:String?,val currentRevision:Long?,val currentGeneration:Long?,val currentState:String?,
-    val disposition:String,val passwordRequired:Boolean)
+    val disposition:String,val passwordRequired:Boolean,val currentRole:String)
 data class IntentRecoveryApplied(val fingerprint:String,val originalOperationId:String,val kind:String,val newOperationId:String?)
 
 /** Only explicit review attaches a new normal local action. No server mutation/password storage. */
@@ -40,7 +40,7 @@ class OnlineIntentRecovery(private val inbox:OnlinePendingRecoveryInbox,private 
         val state=inspect(session,model,target,fingerprint,null)
         val review=IntentRecoveryReview(UUID.randomUUID().toString(),fingerprint,target.originalId,target.kind,model.outlet.id,target.closing?.id,
             target.payload,target.admin?.expectedRevision?:target.lifecycle?.expectedRevision,target.lifecycle?.generation,
-            state.currentJson,state.revision,state.generation,state.state,state.disposition,target.kind=="TEAM_CREATE")
+            state.currentJson,state.revision,state.generation,state.state,state.disposition,target.kind=="TEAM_CREATE"&&state.disposition=="READY",state.role)
         pending=Ticket(review,session,model,target,state);review
     }
     suspend fun discard(id:String)=mutex.withLock{if(pending?.review?.id==id)pending=null}

@@ -25,9 +25,10 @@ class OnlineSyncEngine(private val dao: OnlineSyncDao, private val gateway: Onli
         it.origin == session.origin && it.identity.id == session.identity.id && it.token == session.token
     } == true
 
-    suspend fun sync(session: OnlineSession, outletId: String, closingId: String): OnlineSyncResult = mutex.withLock {
+    suspend fun sync(session: OnlineSession, outletId: String, closingId: String,allowRecovered:Boolean=true): OnlineSyncResult = mutex.withLock {
         val scope = session.scope(outletId)
         if (!same(session)) return@withLock OnlineSyncResult.Blocked("SESSION_CHANGED")
+        if(!allowRecovered&&dao.hasRecoveredWork(scope,closingId))return@withLock OnlineSyncResult.Blocked("RECOVERY_REVIEW_PENDING")
         var sending: String? = null
         var sendingLifecycle: String? = null
         try {

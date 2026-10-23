@@ -62,6 +62,21 @@ fun OnlineClosingApp(onExit: () -> Unit, vm: OnlineViewModel = viewModel()) {
     var settingsVisible by rememberSaveable(s.identity?.id,s.outletId) { mutableStateOf(false) }
     var catalogVisible by rememberSaveable(s.identity?.id,s.outletId) { mutableStateOf(false) }
     var teamVisible by rememberSaveable(s.identity?.id,s.outletId) { mutableStateOf(false) }
+    var transferVisible by rememberSaveable(s.identity?.id,s.outletId) { mutableStateOf(false) }
+    var recoveryDestination by remember { mutableStateOf<RecoveryDestination?>(null) }
+    LaunchedEffect(transferVisible){if(transferVisible)vm.pause() else vm.resume()}
+    LaunchedEffect(recoveryDestination,s.outletId) {
+        val destination=recoveryDestination
+        if(destination!=null&&s.outletId==destination.outlet) {
+            recoveryDestination=null
+            when(destination.kind) {
+                "CLOSING","LIFECYCLE"->{tab=if(destination.kind=="LIFECYCLE")"Review" else "Input";vm.openRecoveredDraft(destination.outlet,requireNotNull(destination.closing),requireNotNull(destination.date))}
+                "SETTINGS"->{tab="Akun";settingsVisible=true}
+                "CATALOG"->{tab="Akun";catalogVisible=true}
+                "TEAM_CREATE","TEAM_UPDATE"->{tab="Akun";teamVisible=true}
+            }
+        }
+    }
     LaunchedEffect(s.identity?.id) {
         val identity=s.identity?.id
         if(identity!=null && identity!=lastIdentity)tab="Ringkasan"
@@ -84,7 +99,7 @@ fun OnlineClosingApp(onExit: () -> Unit, vm: OnlineViewModel = viewModel()) {
         surfaceContainer = Color(0xFFEDF5FA), surfaceContainerHigh = Color(0xFFF1F7FB), secondaryContainer = Color(0xFFDDEFF9), onSecondaryContainer = Color(0xFF12648C),
         onSurface = Ink, onBackground = Ink, onSurfaceVariant = Color(0xFF52677A), outline = Color(0xFF7890A3))
     fun navigate(action: () -> Unit) { if (!s.working) { if (s.dirty) pendingNavigation = action else action() } }
-    LifecycleEventEffect(Lifecycle.Event.ON_RESUME) { vm.resume() }
+    LifecycleEventEffect(Lifecycle.Event.ON_RESUME) { if(transferVisible)vm.pause() else vm.resume() }
     LifecycleEventEffect(Lifecycle.Event.ON_PAUSE) { vm.pause() }
     DisposableEffect(vm) { onDispose { vm.pause() } }
     BackHandler { navigate {
@@ -127,7 +142,7 @@ fun OnlineClosingApp(onExit: () -> Unit, vm: OnlineViewModel = viewModel()) {
                             if (s.authRequired) TextButton(onClick = { navigate { vm.showLogin() } }) { Text("Masuk kembali") }
                         } }
                         when (tab) {
-                            "Akun" -> AccountContent(s, vm, onNavigate = ::navigate, onSettings = {navigate{settingsVisible=true}},onTeam={navigate{teamVisible=true}},onCatalog={navigate{catalogVisible=true}})
+                            "Akun" -> AccountContent(s, vm, onNavigate = ::navigate, onSettings = {navigate{settingsVisible=true}},onTeam={navigate{teamVisible=true}},onCatalog={navigate{catalogVisible=true}},onTransfer={navigate{transferVisible=true;vm.pause()}})
                             "Riwayat" -> HistoryContent(s, vm) { row -> navigate { vm.openHistory(row); tab = "Ringkasan" } }
                             "Review" -> ReviewContent(s, vm, onAction = { action -> navigate { lifecycleReview = action to s } })
                             else -> {
@@ -196,6 +211,9 @@ fun OnlineClosingApp(onExit: () -> Unit, vm: OnlineViewModel = viewModel()) {
             text = { Text("Angka yang sedang diketik belum menjadi draft tersimpan. Kembali untuk menyimpan, atau buang perubahan kolom ini.", Modifier.verticalScroll(rememberScrollState())) },
             confirmButton = { TextButton(onClick = { vm.discardForm(); pendingNavigation = null; action() }) { Text("Buang perubahan") } },
             dismissButton = { TextButton(onClick = { pendingNavigation = null }) { Text("Kembali mengedit") } }) }
+        if(transferVisible && s.identity!=null && !s.loginVisible)OnlinePendingTransferPanel(s.outletId,
+            onClose={transferVisible=false;vm.refreshAccount()},onLogin={transferVisible=false;vm.showLogin()},
+            onContinue={destination->transferVisible=false;recoveryDestination=destination;vm.selectOutlet(destination.outlet)})
         if(settingsVisible && s.identity!=null && !s.loginVisible)OnlineSettingsPanel(s.outletId,
             onClose={settingsVisible=false;vm.refreshAccount()},onLogin={settingsVisible=false;vm.showLogin()})
         if(catalogVisible && s.identity!=null && !s.loginVisible)OnlineCatalogPanel(s.outletId,s.identity!!.id,
@@ -596,7 +614,7 @@ private fun auditLabel(action: String) = when(action) {
     }
 }
 
-@Composable private fun AccountContent(s: OnlineUiState, vm: OnlineViewModel, onNavigate: (() -> Unit) -> Unit, onSettings: () -> Unit,onTeam:()->Unit,onCatalog:()->Unit) {
+@Composable private fun AccountContent(s: OnlineUiState, vm: OnlineViewModel, onNavigate: (() -> Unit) -> Unit, onSettings: () -> Unit,onTeam:()->Unit,onCatalog:()->Unit,onTransfer:()->Unit) {
     Text("Akun & akses outlet", fontSize = 28.sp, fontWeight = FontWeight.Bold)
     Paper { Text(s.identity!!.displayName, fontSize = 20.sp, fontWeight = FontWeight.Bold); Text(s.identity.username, color = MaterialTheme.colorScheme.onSurfaceVariant)
         s.identity.outlets.forEach { outlet -> Text(outlet.name, fontWeight = FontWeight.SemiBold); Text(when (outlet.role) { "ADMIN" -> "Administrator"; "SUPERVISOR" -> "Supervisor"; else -> "Karyawan" }, style = MaterialTheme.typography.bodySmall) }
@@ -605,6 +623,7 @@ private fun auditLabel(action: String) = when(action) {
     OutlinedButton(onClick=onSettings,enabled=s.outletId.isNotEmpty(),modifier=Modifier.fillMaxWidth().heightIn(min=48.dp).testTag("online.settings.open")){Text("Pengaturan outlet")}
     OutlinedButton(onClick=onCatalog,modifier=Modifier.fillMaxWidth().heightIn(min=48.dp).testTag("online.catalog.open")){Text("Katalog & resep")}
     if(s.identity?.outlets?.firstOrNull{it.id==s.outletId}?.role=="ADMIN")OutlinedButton(onClick=onTeam,modifier=Modifier.fillMaxWidth().heightIn(min=48.dp).testTag("online.team.open")){Text("Kelola tim")}
+    OutlinedButton(onClick=onTransfer,modifier=Modifier.fillMaxWidth().heightIn(min=48.dp).testTag("online.pending.open")){Text("Cadangan & pemulihan draft")}
     if(s.savedWork>0)Text("${s.savedWork} pekerjaan tersimpan belum terkonfirmasi. Masuk dengan akun yang sama; hubungi administrator jika hak akses berubah.",style=MaterialTheme.typography.bodySmall)
     if(s.pendingOwnAccess>0)OutlinedButton(onClick=vm::reconcileOwnTeamAccess,enabled=!s.working,modifier=Modifier.fillMaxWidth().testTag("online.team.own.receipts")){Text("Periksa hasil perubahan akses akunmu")}
     s.notice?.let{Text(it,style=MaterialTheme.typography.bodySmall)}

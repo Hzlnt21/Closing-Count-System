@@ -84,8 +84,12 @@ class OnlineQuantityRecoveryHttpInstrumentedTest {
         assertEquals(before.header.snapshotJson,api.fetch(a,outlet,id).header.snapshotJson)
         assertEquals(before.header.snapshotJson,db.onlineSyncDao().closing(a.scope(outlet),id)!!.snapshotJson)
         val operation=db.onlineSyncDao().operations(a.scope(outlet),id).single();assertEquals(2L,operation.expectedRevision);assertEquals("QUEUED",operation.status)
+        assertTrue(db.onlineSyncDao().hasRecoveredWork(a.scope(outlet),id))
+        assertEquals(OnlineSyncResult.Blocked("RECOVERY_REVIEW_PENDING"),repo.syncAutomatically(outlet,id))
+        assertEquals(before.header.snapshotJson,api.fetch(a,outlet,id).header.snapshotJson)
         reject{recovery.apply(review.id)}
         assertEquals(OnlineSyncResult.Synced,repo.sync(outlet,id));assertEquals(8,api.fetch(a,outlet,id).entries.first().serverQuantity)
+        assertFalse(db.onlineSyncDao().hasRecoveredWork(a.scope(outlet),id))
         assertEquals(mapOf(head to true,tail to false,newId to true),api.operationStatuses(a,outlet,listOf(head,tail,newId)))
     }
     @Test fun alreadyRecordedReferencesSkipEvenWhenFileDesiredPayloadWasAltered():Unit=runBlocking {

@@ -1,0 +1,210 @@
+{
+  "passed": true,
+  "baseline": "b13635d9b48171df92012e94da4a1d8daac08619",
+  "files": [
+    {
+      "file": "README.md",
+      "indexSha256": "6664f8adfa0d761a825c0293c0efe10eb620c35a38bed24bf2e91b79d2889201"
+    },
+    {
+      "file": "app/src/androidTest/java/com/closingcount/app/OnlineIntentRecoveryHttpInstrumentedTest.kt",
+      "indexSha256": "be1fab7bccced9044541f6b315d99b74b5cd0f8c3fb8adcae25e2c338a2be6a8"
+    },
+    {
+      "file": "app/src/androidTest/java/com/closingcount/app/OnlinePendingInboxManagementInstrumentedTest.kt",
+      "indexSha256": "53b2a6ea8fac22a051e718f611c2f6a54ae042c87d6f9e5100683354eba5fbc3"
+    },
+    {
+      "file": "app/src/androidTest/java/com/closingcount/app/OnlinePendingTransferNativeInstrumentedTest.kt",
+      "indexSha256": "9048d00bb3f6d00b547779082ac834af748b56cc266afa8358db35afbe19dfb6"
+    },
+    {
+      "file": "app/src/androidTest/java/com/closingcount/app/OnlinePendingTransferViewModelInstrumentedTest.kt",
+      "indexSha256": "35377bae523819cc22c06b41683e074bab9638c9bcc171aa97250a414e07d91d"
+    },
+    {
+      "file": "app/src/androidTest/java/com/closingcount/app/OnlineQuantityRecoveryHttpInstrumentedTest.kt",
+      "indexSha256": "4a9260eb998170ee1e27a1879fc61cccb2456aef748bd9297203abb1b1c706f4"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/data/local/OnlineSyncDao.kt",
+      "indexSha256": "fc73a306cf1b624d2b61ec6e212df917d43fd0ef70082dca4dce5ca859471524"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/data/online/OnlineRepository.kt",
+      "indexSha256": "52e66072e45a596bddaeb8fb57528cfcd16f9d46b61703765574699a1483f2e7"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/data/online/OnlineSyncEngine.kt",
+      "indexSha256": "c85764320e297d3b22076d95a1a50faef79a69a9de17ccef01369e9c6861a041"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/data/transfer/OnlineIntentRecovery.kt",
+      "indexSha256": "11e97da0c31911847f76d971ae5f1fe07a28718b8436876a43b27e4a0ec2b50d"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/data/transfer/OnlinePendingRecoveryInbox.kt",
+      "indexSha256": "9fa5e6faa8d0cc717708d90490e78bf9f0734625b8b58d64c2d3b550f259c07a"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/ui/online/OnlineClosingApp.kt",
+      "indexSha256": "7d0b75e36fcd6b8d30cb084a81656c92bd6e4aaf49da88932008d2e5ac1495bd"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/ui/online/OnlinePendingTransferPanel.kt",
+      "indexSha256": "b686c3d646e64a4da644d7fc8f047ef53994a2ebe6aede78aedf3f0a6d982651"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/ui/online/OnlinePendingTransferViewModel.kt",
+      "indexSha256": "e06acf0c1398c4f0526312d50ea5055f3276ea3500c9a2e67277d6faa9693837"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/ui/online/OnlineViewModel.kt",
+      "indexSha256": "dd23c72589939e66bc004ba1667becff32dc9719e4eb2d2ac11922e1d23d7c25"
+    },
+    {
+      "file": "docs/ONLINE_PENDING_TRANSFER_PLAN_R1.md",
+      "indexSha256": "1653c6a4704a1ca1d3518d08e40bdd289435c5a1d44b5580375572d0f02f60fc"
+    },
+    {
+      "file": "docs/PENDING_TRANSFER_NATIVE_UI_R1.md",
+      "indexSha256": "d9836bf2a10610cfdd148d92c9a73676506ad29361f60ce1e9fc9bdbbb40405c"
+    },
+    {
+      "file": "docs/pending-ui-foundation-evidence-r1/Check-ClosingPendingUiR1.ps1",
+      "indexSha256": "7a5ee389d3dd7b14767c447733f1a42d8ddfd55bd5457cd58bed1f0dec08272e"
+    },
+    {
+      "file": "docs/pending-ui-foundation-evidence-r1/Retry-ClosingPendingNativeR1.ps1",
+      "indexSha256": "0c6b4951648026f7e1e54d97d4c77a8a56981416cd260fb18415d31cbcadc920"
+    },
+    {
+      "file": "docs/pending-ui-foundation-evidence-r1/admin-database-after.json",
+      "indexSha256": "7b54687379a620262c16f4988cd38dffb87b7131b55c5924d023815fc1ddb3b8"
+    },
+    {
+      "file": "docs/pending-ui-foundation-evidence-r1/admin-instrumentation.log",
+      "indexSha256": "aa98182d00d911d987f9ce58df2761d9914e93aba919849aa5572fb73db978c7"
+    },
+    {
+      "file": "docs/pending-ui-foundation-evidence-r1/apk-inputs.json",
+      "indexSha256": "42fde14cfb269f2112c7586be4f1a82581a47a8e5b586b077ee19f5c8d55ef24"
+    },
+    {
+      "file": "docs/pending-ui-foundation-evidence-r1/build-final-2.log",
+      "indexSha256": "cc172252fd6682b8bf3c2cba94425cba0c7ed02219da47c6dbeaa04e9e64a218"
+    },
+    {
+      "file": "docs/pending-ui-foundation-evidence-r1/build-native-retry.log",
+      "indexSha256": "8c756fa32be4a3d772d8133afd161dfe4bf3078c70f7c7faa5de6e9975c05eaa"
+    },
+    {
+      "file": "docs/pending-ui-foundation-evidence-r1/canonical-guards.json",
+      "indexSha256": "ece00d81c4c6f430844f572394c1fee36a07cde32991a0aefeee24d85327a72d"
+    },
+    {
+      "file": "docs/pending-ui-foundation-evidence-r1/check-pending-ui-r1.py",
+      "indexSha256": "f5b1995ca266d3b46455056a3ebdece1e6a3ace10849c5fbc9683561116a2719"
+    },
+    {
+      "file": "docs/pending-ui-foundation-evidence-r1/database-after.json",
+      "indexSha256": "bc589c209415067762a6ce25d625c98b6203d5295f203f329691b2a2a762efde"
+    },
+    {
+      "file": "docs/pending-ui-foundation-evidence-r1/device-after.json",
+      "indexSha256": "41a80e1ee96257b407b32268989ce5a2875cf43ba7321f9bbf20812ad22e9493"
+    },
+    {
+      "file": "docs/pending-ui-foundation-evidence-r1/device-baseline.json",
+      "indexSha256": "41a80e1ee96257b407b32268989ce5a2875cf43ba7321f9bbf20812ad22e9493"
+    },
+    {
+      "file": "docs/pending-ui-foundation-evidence-r1/fixture-identity.json",
+      "indexSha256": "8e5453b964739711fc594f8c3bd6a7c86a9eef097d6721862c2ca6871c33b064"
+    },
+    {
+      "file": "docs/pending-ui-foundation-evidence-r1/install-receive.log",
+      "indexSha256": "984c27094d4d9e987902ccde912dea7f596f697099540d78a8e5192511178983"
+    },
+    {
+      "file": "docs/pending-ui-foundation-evidence-r1/install-source-verify.log",
+      "indexSha256": "c4ff5578a67f93ca1d53c12b1aa840f905b7123ca78bcab547b7ae5bc9aba29a"
+    },
+    {
+      "file": "docs/pending-ui-foundation-evidence-r1/install-stage.log",
+      "indexSha256": "8313f11e9115d3061fc4c5db4d26d9fb03772bdf26af8df2ef8ded8c347d571a"
+    },
+    {
+      "file": "docs/pending-ui-foundation-evidence-r1/instrumentation.log",
+      "indexSha256": "b2e806013f80352351d5b04c00b887b633c629b8ac75f01cc62fd75712b8d47a"
+    },
+    {
+      "file": "docs/pending-ui-foundation-evidence-r1/native-light-r2.log",
+      "indexSha256": "523184de234c8285be5e07b3cb355ff2a2cf2e6d9ab8fe9dd67f4b47b335ce43"
+    },
+    {
+      "file": "docs/pending-ui-foundation-evidence-r1/native-test-apk.json",
+      "indexSha256": "38c5d3b0cf4dd94296602b983c00a136bf7f7d4de96d4e93b6e22f7599e30014"
+    },
+    {
+      "file": "docs/pending-ui-foundation-evidence-r1/pending-ui-fixture-r1.mjs",
+      "indexSha256": "072558398ec16f37244585a791240f2e00dff1c25b5049d05df7e6482ca9735e"
+    },
+    {
+      "file": "docs/pending-ui-foundation-evidence-r1/pending-ui-local.log",
+      "indexSha256": "4da70b7fb2441367cbcddd30930aeef8162d2c0ac80552c7d2625d04b7d035fc"
+    },
+    {
+      "file": "docs/pending-ui-foundation-evidence-r1/pending-ui-native-light-r2-export-review.png",
+      "indexSha256": "914bf8bba17210d84aa85e7480e02f00599aac23e9b4a0cefddb64ffb12da88d"
+    },
+    {
+      "file": "docs/pending-ui-foundation-evidence-r1/pending-ui-native-light-r2-held-draft.png",
+      "indexSha256": "62cbfe316f98fc8e53be0822340f12965abe603c6f27ef99ece6e7603428a725"
+    },
+    {
+      "file": "docs/pending-ui-foundation-evidence-r1/pending-ui-native-light-r2-inbox.png",
+      "indexSha256": "6f8e1b53854cce613367bcad9ebbbbcf127cae59ee8c9c3e1edb34a645829ed1"
+    },
+    {
+      "file": "docs/pending-ui-foundation-evidence-r1/pending-ui-native-light-r2-quantity-review.png",
+      "indexSha256": "0087dd5a502b2804e8d8dee5a2614f0bd49694720497cf3d13a15e3c38fe2ff7"
+    },
+    {
+      "file": "docs/pending-ui-foundation-evidence-r1/pending-ui-native-light-r2-synced.png",
+      "indexSha256": "f0147592f0a9b16af1a2a1093a5c9faa0359ca5d5b344f052464b5800a8d66c3"
+    },
+    {
+      "file": "docs/pending-ui-foundation-evidence-r1/pending-ui-native-light-r2.json",
+      "indexSha256": "55c159ffe92d710932bfa0634691c2985ae0730bca33a8eb6fa41fcf5814f613"
+    },
+    {
+      "file": "docs/pending-ui-foundation-evidence-r1/quantity-install-pending-qa.json",
+      "indexSha256": "2a6c24c0426f87616b840d87d95eae8eb7e4e1f80dee12b1e692ad9ed5a2ed4a"
+    },
+    {
+      "file": "docs/pending-ui-foundation-evidence-r1/runtime-proof.json",
+      "indexSha256": "d5149cdbd26bcb6ecd444237609899cda54759e3d3f96a12ee96165bd7e08725"
+    },
+    {
+      "file": "docs/pending-ui-foundation-evidence-r1/secondary-installation.json",
+      "indexSha256": "2051662cb4cb72fc0e414b986eb49712b2d9a1a89aebde719fc62d95c437d438"
+    },
+    {
+      "file": "docs/pending-ui-foundation-evidence-r1/verification.json",
+      "indexSha256": "0c5618a59b7476e84dbe55f3f883179fc86d5e958d0cc5fc0e044e9ce0eb0438"
+    }
+  ],
+  "canonicalRepositoriesUnchanged": 8,
+  "knownPrivateValuesAbsent": true,
+  "serviceSchemaMigrationsDependenciesTransportLegacyStoresUnchanged": true,
+  "exactPacketIndexBytes": true,
+  "androidTests": 95,
+  "nativeQuantityJourneys": 1,
+  "crossInstallationInvocations": 3,
+  "jvmTests": 25,
+  "lintErrors": 0,
+  "lintWarnings": 17,
+  "completePt07Acceptance": false,
+  "scope": "Initial native pending-transfer foundation; dark/large text/admin routes/process restart/spacing remain open."
+}

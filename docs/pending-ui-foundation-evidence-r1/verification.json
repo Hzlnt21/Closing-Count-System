@@ -1,0 +1,12 @@
+﻿{
+    "passed":  true,
+    "tests":  95,
+    "nativeUiTests":  1,
+    "crossInstallationInvocations":  3,
+    "deviceSettingsAndUsersUnchanged":  true,
+    "physicalPhoneAccessed":  false,
+    "nativePickerJourneyPassed":  true,
+    "completePt07Acceptance":  false,
+    "nativeCase":  "native-light-r2",
+    "nativeDate":  "2026-07-02"
+}

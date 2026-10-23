@@ -124,6 +124,7 @@ class OnlineIntentRecoveryHttpInstrumentedTest {
             val fp=accept(packet);val review=recovery.prepareLifecycle(fp,id);assertEquals("READY",review.disposition)
             val freshId=requireNotNull(recovery.apply(review.id).newOperationId);assertNotEquals(original,freshId)
             val local=db.onlineSyncDao().lifecycle(owner.scope(outlet),id)!!;assertEquals(action,local.action);assertEquals("QUEUED",local.status);assertFalse(local.wasSent)
+            assertEquals(OnlineSyncResult.Blocked("RECOVERY_REVIEW_PENDING"),repo.syncAutomatically(outlet,id))
             assertEquals(before.header,api.fetch(owner,outlet,id).header)
             assertEquals(OnlineSyncResult.Synced,repo.sync(outlet,id));assertNull(db.onlineSyncDao().lifecycle(owner.scope(outlet),id))
             assertEquals("ALREADY_RECOVERED_LOCALLY",recovery.prepareLifecycle(fp,id).disposition)

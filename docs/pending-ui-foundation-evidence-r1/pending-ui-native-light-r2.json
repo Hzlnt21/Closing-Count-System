@@ -1,0 +1,21 @@
+{
+  "case": "native-light-r2",
+  "passed": true,
+  "outlet": "381f5ec3-fe95-4212-88e7-28399e65c90a",
+  "actor": "16194d28-a0ad-4776-9b25-790fde753e19",
+  "closing": "5d824285-dd18-469d-9f23-53cb2f943955",
+  "menu": "7382e9f1-387e-490a-b851-ad7283bdbd39",
+  "reviewSha256": "aa0e783aa1e4147db40bac8b323c580fe8751c6d2f3b4696ceafe4e82f28e5c5",
+  "baselineSha256": "1db52d7a55f7dcded234fedae897cd7e6d286d0e7c23440a845a8288c8b154ba",
+  "physicalPhoneAccessed": false,
+  "stage": "synced",
+  "exportFilename": "ccs-qa-pending-export-ada8c74d-9c93-45ee-a7e2-7002c49e4c22.json",
+  "exportSha256": "0fb61e8257110ff8c564af0b969a496e5d4c7cf39e6531e44fa5d28f88be3bef",
+  "activityReviewRetained": true,
+  "frozenProviderPayloadAccepted": true,
+  "automaticSyncHeldOnResume": true,
+  "explicitFinalQuantity": 8,
+  "existingDatabaseRestored": true,
+  "legacyDatabaseUnchanged": true,
+  "afterSha256": "1db52d7a55f7dcded234fedae897cd7e6d286d0e7c23440a845a8288c8b154ba"
+}

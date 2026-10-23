@@ -357,6 +357,10 @@ class OnlineRepository(private val dao: OnlineSyncDao, private val store: Online
         val session = active ?: return OnlineSyncResult.Blocked("SESSION_REQUIRED")
         return engine(session).sync(session, outletId, closingId)
     }
+    suspend fun syncAutomatically(outletId:String,closingId:String):OnlineSyncResult {
+        val session=active?:return OnlineSyncResult.Blocked("SESSION_REQUIRED")
+        return engine(session).sync(session,outletId,closingId,allowRecovered=false)
+    }
 
     suspend fun resolve(outletId: String, closingId: String, menuId: String, reapply: Boolean,
         reviewedRevision: Long? = null, reviewedGeneration: Long? = null): String? {

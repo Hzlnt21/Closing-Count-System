@@ -9,10 +9,43 @@ data class PendingRecoverySummary(val sha256:String,val bytes:Int,val backupId:S
     val origin:String,val accountId:String,val accountLabel:String,val outletId:String,val outletLabel:String,
     val sourceDeviceId:String,val closings:Int,val entries:Int,val adminKinds:List<String>,val firstDate:String?,val lastDate:String?)
 data class PendingRecoveryAccepted(val summary:PendingRecoverySummary,val duplicate:Boolean)
+data class PendingRecoveryEntry(val fingerprint:String,val summary:PendingRecoverySummary?,val bytes:Long,val problem:String?)
+data class PendingRecoveryRemoval(val id:String,val fingerprint:String,val summary:PendingRecoverySummary?)
 
 /** Quarantined original bytes only. No repository, session, Room or transport dependency. */
 class OnlinePendingRecoveryInbox(context:Context) {
     private val folder=File(context.noBackupFilesDir,"online-recovery-inbox")
+    private data class Removal(val review:PendingRecoveryRemoval,val marks:List<String>)
+    private var removal:Removal?=null
+
+    /** Errors remain visible per file. Incomplete AtomicFile artifacts are never accepted as packets. */
+    fun inventory():List<PendingRecoveryEntry> = synchronized(lock) {
+        allNames().map{hash->
+            val decoded=runCatching{readLocked(hash)}.getOrNull()
+            PendingRecoveryEntry(hash,decoded?.let(::summary),files(hash).sumOf{it.length()},
+                if(decoded!=null)null else if(!File(folder,"$hash.json").exists()&&!File(folder,"$hash.json.bak").exists())"INCOMPLETE" else "UNREADABLE")
+        }.sortedWith(compareByDescending<PendingRecoveryEntry>{it.summary?.createdAt?:""}.thenBy{it.fingerprint})
+    }
+    fun prepareRemoval(fingerprint:String):PendingRecoveryRemoval = synchronized(lock) {
+        val hash=key(fingerprint);check(hash in allNames())
+        val summary=runCatching{summary(readLocked(hash))}.getOrNull()
+        val review=PendingRecoveryRemoval(java.util.UUID.randomUUID().toString(),hash,summary)
+        removal=Removal(review,marks(hash));review
+    }
+    fun cancelRemoval(id:String)=synchronized(lock){if(removal?.review?.id==id)removal=null}
+    fun remove(id:String):String = synchronized(lock) {
+        val ticket=requireNotNull(removal).also{check(it.review.id==id)};removal=null
+        check(marks(ticket.review.fingerprint)==ticket.marks) { "Cadangan berubah. Periksa kembali sebelum menghapus." }
+        AtomicFile(File(folder,"${ticket.review.fingerprint}.json")).delete()
+        check(files(ticket.review.fingerprint).isEmpty()) { "Cadangan belum dapat dihapus sepenuhnya." }
+        ticket.review.fingerprint
+    }
+    private fun files(hash:String)=listOf(".json",".json.bak",".json.new").map{File(folder,hash+it)}.filter{it.exists()}
+    private fun marks(hash:String)=files(hash).map{it.name+":"+it.length()+":"+it.lastModified()}
+    private fun allNames():List<String> {
+        if(!folder.exists())return emptyList();check(folder.isDirectory)
+        return requireNotNull(folder.listFiles()).filter{filePattern.matches(it.name)}.map{it.name.substringBefore('.')}.distinct()
+    }
 
     fun list():List<PendingRecoverySummary> = synchronized(lock) {
         names().map{summary(readLocked(it))}.sortedWith(compareByDescending<PendingRecoverySummary>{it.createdAt}.thenBy{it.sha256})

@@ -1,0 +1,42 @@
+[
+  {
+    "code": "ABS",
+    "headUnchanged": true,
+    "statusUnchanged": true
+  },
+  {
+    "code": "CCS",
+    "headUnchanged": true,
+    "statusUnchanged": true
+  },
+  {
+    "code": "ELZ",
+    "headUnchanged": true,
+    "statusUnchanged": true
+  },
+  {
+    "code": "EXV",
+    "headUnchanged": true,
+    "statusUnchanged": true
+  },
+  {
+    "code": "KLG",
+    "headUnchanged": true,
+    "statusUnchanged": true
+  },
+  {
+    "code": "KEC",
+    "headUnchanged": true,
+    "statusUnchanged": true
+  },
+  {
+    "code": "KPS",
+    "headUnchanged": true,
+    "statusUnchanged": true
+  },
+  {
+    "code": "TTK",
+    "headUnchanged": true,
+    "statusUnchanged": true
+  }
+]

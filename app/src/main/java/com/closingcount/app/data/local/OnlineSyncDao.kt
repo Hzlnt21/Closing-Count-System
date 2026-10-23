@@ -11,6 +11,10 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 abstract class OnlineSyncDao {
+    @Query("""SELECT EXISTS(SELECT 1 FROM online_recovery_claims c WHERE c.scope=:scope AND c.closingId=:closingId
+        AND (c.recoveredOperationId IN (SELECT operationId FROM online_operations WHERE scope=:scope AND closingId=:closingId)
+        OR c.recoveredOperationId IN (SELECT operationId FROM online_lifecycle_operations WHERE scope=:scope AND closingId=:closingId)))""")
+    abstract suspend fun hasRecoveredWork(scope:String,closingId:String):Boolean
     @Query("SELECT COUNT(*) FROM online_recovered_admin WHERE scope=:scope AND originalOperationId IN (:ids)")
     protected abstract suspend fun recoveredAdminReferenceCount(scope:String,ids:List<String>):Int
     @Transaction

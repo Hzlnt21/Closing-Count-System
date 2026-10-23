@@ -117,12 +117,20 @@ class OnlineViewModel(application: Application) : AndroidViewModel(application) 
     }
 
     fun selectOutlet(id: String) { if (!state.value.dirty) startOutlet(id) }
+    fun openRecoveredDraft(outlet:String,id:String,date:String) {
+        if(state.value.dirty||state.value.working)return
+        if(state.value.outletId!=outlet)startOutlet(outlet)
+        if(state.value.outletId!=outlet)return
+        selectDate(date);bind(id)
+    }
     private fun startOutlet(id: String) {
         clearRemoteHistory(); historyJob?.cancel(); closingJob?.cancel(); stopSync(); cached = emptyList()
         val session = repo.session() ?: return
         checkSavedAccess()
         val scope = session.identity.outlets.firstOrNull { it.id == id }?.let { session.scope(id) } ?: run {
-            mutable.update { it.copy(outletId = "", error = "Akun ini belum memiliki akses outlet aktif.") }; return
+            mutable.update { it.copy(outletId="",closingId=null,menus=emptyList(),closingState="",buffers=emptyMap(),history=emptyList(),
+                pending=0,lifecycle=null,reviewMenus=emptyList(),ingredients=emptyList(),submittedBy=null,lockedBy=null,syncVerified=false,
+                error = "Akun ini belum memiliki akses outlet aktif. Draft lama tetap tersimpan mengikuti akun.") }; return
         }
         val remembered = if (preferences.getString("scope", "") == scope) preferences.getString("date", null) else null
         val date = remembered?.takeIf { runCatching { LocalDate.parse(it) }.isSuccess } ?: LocalDate.now().toString()
@@ -222,7 +230,7 @@ class OnlineViewModel(application: Application) : AndroidViewModel(application) 
                     generation = value.generation, menus = value.menus, pending = value.pending, lifecycle = value.lifecycle,
                     reviewMenus = value.reviewMenus, ingredients = value.ingredients, submittedBy = value.submittedBy, lockedBy = value.lockedBy) } }
         }
-        if (foreground) sync()
+        if (foreground) syncAutomatically()
     }
 
     private fun clearRemoteHistory() {
@@ -332,16 +340,18 @@ class OnlineViewModel(application: Application) : AndroidViewModel(application) 
         mutable.update { it.copy(working = true, syncVerified = false, error = null) }
         viewModelScope.launch {
             try { repo.save(s.outletId, id, quantities)
-                mutable.update { it.copy(buffers = emptyMap(), notice = "Draft tersimpan di perangkat.") }; sync()
+                mutable.update { it.copy(buffers = emptyMap(), notice = "Draft tersimpan di perangkat.") }; syncAutomatically()
             } catch (e: Exception) { mutable.update { it.copy(error = message(e)) }
             } finally { mutable.update { it.copy(working = false) } }
         }
     }
 
-    fun resume() { foreground = true; sync() }
+    fun resume() { foreground = true; syncAutomatically() }
     fun pause() { foreground = false; stopSync() }
     private fun stopSync() { epoch++; syncJob?.cancel(); mutable.update { it.copy(syncing = false) } }
-    fun sync() {
+    fun sync() = syncRun(true)
+    private fun syncAutomatically() = syncRun(false)
+    private fun syncRun(allowRecovered:Boolean) {
         val s = state.value; val id = s.closingId ?: return
         if (!foreground || s.loginVisible || s.syncing) return
         stopSync(); val run = epoch
@@ -350,7 +360,7 @@ class OnlineViewModel(application: Application) : AndroidViewModel(application) 
                 repeat(4) {
                     if (!foreground || run != epoch) return@launch
                     mutable.update { it.copy(syncing = true) }
-                    val result = repo.sync(s.outletId, id)
+                    val result = if(allowRecovered)repo.sync(s.outletId,id) else repo.syncAutomatically(s.outletId,id)
                     if (run != epoch) return@launch
                     mutable.update { it.copy(syncing = false) }
                     when (result) {
@@ -371,7 +381,7 @@ class OnlineViewModel(application: Application) : AndroidViewModel(application) 
         if (s.working) return
         stopSync(); mutable.update { it.copy(working = true, error = null) }
         viewModelScope.launch {
-            try { repo.resolve(s.outletId, id, menu.id, reapply, menu.revision, menu.generation); sync()
+            try { repo.resolve(s.outletId, id, menu.id, reapply, menu.revision, menu.generation); syncAutomatically()
             } catch (e: Exception) { mutable.update { it.copy(error = message(e)) }
             } finally { mutable.update { it.copy(working = false) } }
         }
@@ -394,7 +404,7 @@ class OnlineViewModel(application: Application) : AndroidViewModel(application) 
         stopSync(); mutable.update { it.copy(working = true, syncVerified = false, error = null) }
         viewModelScope.launch {
             try { repo.lifecycle(current.outletId, id, action, reason, reviewed.generation, reviewed.revision)
-                mutable.update { it.copy(notice = "Tindakan tersimpan di perangkat. Menunggu konfirmasi server.") }; sync()
+                mutable.update { it.copy(notice = "Tindakan tersimpan di perangkat. Menunggu konfirmasi server.") }; syncAutomatically()
             } catch (e: Exception) { mutable.update { it.copy(error = message(e)) }
             } finally { mutable.update { it.copy(working = false) } }
         }
@@ -405,7 +415,7 @@ class OnlineViewModel(application: Application) : AndroidViewModel(application) 
         if (s.working || op.status !in setOf("CONFLICT", "FAILED")) return
         stopSync(); mutable.update { it.copy(working = true, syncVerified = false) }
         viewModelScope.launch {
-            try { repo.dismissLifecycle(s.outletId, id, op.operationId); mutable.update { it.copy(error = null) }; sync()
+            try { repo.dismissLifecycle(s.outletId, id, op.operationId); mutable.update { it.copy(error = null) }; syncAutomatically()
             } catch (e: Exception) { mutable.update { it.copy(error = message(e)) }
             } finally { mutable.update { it.copy(working = false) } }
         }
@@ -418,6 +428,7 @@ class OnlineViewModel(application: Application) : AndroidViewModel(application) 
         else -> "Tindakan belum berhasil. Periksa data dan coba lagi."
     }
     private fun codeMessage(code: String): String = when (code) {
+        "RECOVERY_REVIEW_PENDING" -> "Draft pemulihan tersimpan. Tekan sinkronisasi untuk mengirim setelah kamu memeriksanya."
         "INVALID_CREDENTIALS" -> "Username atau password tidak sesuai."
         "SESSION_REQUIRED", "SESSION_CHANGED", "AUTH_REQUIRED", "ACCOUNT_DISABLED", "OUTLET_FORBIDDEN" -> "Sesi atau akses akun perlu diperiksa. Masuk kembali dengan akun yang sama untuk melanjutkan draft."
         "ENTRY_CONFLICT", "PULL_CONFLICT", "CONFLICT", "STALE_ACK", "GENERATION_CONFLICT", "LIFECYCLE_REVIEW_CHANGED", "REVISION_CONFLICT" -> "Ada perubahan dari tim. Tinjau data terbaru sebelum mengirim ulang."
