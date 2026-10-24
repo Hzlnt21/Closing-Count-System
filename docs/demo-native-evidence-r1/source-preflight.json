@@ -1,0 +1,270 @@
+{
+  "passed": true,
+  "sourceBase": "fc8b9d3",
+  "attempt": "r5",
+  "files": [
+    {
+      "file": "README.md",
+      "indexSha256": "9b6d423cf1cb254e55065ec961d0abe37e8e276b741c61f45bf4c810fb418187"
+    },
+    {
+      "file": "app/src/androidTest/java/com/closingcount/app/OnlineDemoJourneyInstrumentedTest.kt",
+      "indexSha256": "5c6445cbaf97ecf27617e808fe141f4980c75fb3810744a244ed80209df91443"
+    },
+    {
+      "file": "docs/DEMO_NATIVE_R1.md",
+      "indexSha256": "a3b26a30ac660f2a14a216176db0981d919ff0ef0335407646825f1856a8c872"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/Check-ClosingDemoNativeR1.py",
+      "indexSha256": "9d44c108d064b44b771778dedcd3ef80935ab282950d2bdbc339ca6f1f3a7724"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/Checkpoint-ClosingDemoNativeR1.py",
+      "indexSha256": "3426f6f059c326477fdc9a9463e56700f3b38ae912660471470ce0fde20ebb80"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/ClosingDemoNativeFixtureR1.mjs",
+      "indexSha256": "0c114ac67cb3e5359476dbc2f3aeb24298161c75d6c50fcf463ba5268dd9ccdd"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/Curate-ClosingDemoNativeR1.py",
+      "indexSha256": "b075eb35d963f06ecfe35b0d902657cb07993bea4c5ee472e1901945d417b315"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/Verify-ClosingDemoNativeR1.py",
+      "indexSha256": "ed6c82e8797274916f97c3efb706cd0466bb60c6cde2a528437b20d144ccbb92"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/admin-catalog-published.png",
+      "indexSha256": "548734b378ab3e722b71ce46e8f8b4aecf8366c12fa4b85603bc5e88c433d98d"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/admin-proof.json",
+      "indexSha256": "f9e865e7a20d5c56f9f62f6e15816c1e5e4a0555365155646aca390418f10f72"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/admin.stdout.log",
+      "indexSha256": "99dffc4b66f446b2e9fed7459e5ecbf2d5d0161852957cce071f0faba6d741ba"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/after-reset-old-draft-backed-up.png",
+      "indexSha256": "9eed83017da87d4b57dd57a052c8bee3a5eeaa717c5a0f68c99c9d432b64d315"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/after-reset-pending-backup.json",
+      "indexSha256": "3ab9b4e10eff26be593a36a5f884632f3082c5864660d0ba2f34e43516ed0b1e"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/after-reset-proof.json",
+      "indexSha256": "bcd42554eed26e9157dffd2dc6f5155303d0134ef6e8727be4bfae6baaac3a1f"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/after-reset.stdout.log",
+      "indexSha256": "d53394002bcb134fab9caf1e4dd1d828a086b93116295fe868f5049b27b538f2"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/app-debug-androidTest.apk.json",
+      "indexSha256": "952042ac953c823c285064006e84a3eaba1517da34acefaf6a3c68630b887ea7"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/app-debug.apk.json",
+      "indexSha256": "39a691c6de4fa8bed9671e13d1578a1789c35b01e8029c9319721378ea6f90e6"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/build-verification.json",
+      "indexSha256": "f435d339ba3e5c490397fc927c4c0f060293612f679fb9fe1f3a087e1a111d96"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/curation.json",
+      "indexSha256": "72a03cc0739b0dcf92f96413abb901a2a275b23d6f42ce2d59fadf7a7c8b4ea1"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/device-after.json",
+      "indexSha256": "b41197a0cb2a4f5a0adc42a3c2ef665e14866d027730ad2fcce599931c0dd8f2"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/device-baseline.json",
+      "indexSha256": "b41197a0cb2a4f5a0adc42a3c2ef665e14866d027730ad2fcce599931c0dd8f2"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/dimas-offline-proof.json",
+      "indexSha256": "e2a2581c084910f39e5181771ba75ce3024965d4924cb2a205849014105128d3"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/dimas-offline.stdout.log",
+      "indexSha256": "d726aba66f0b596abea9358948a9d824a4b9ca12fa11d4eee446c41babb50b82"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/dimas-work-merged-team.png",
+      "indexSha256": "0554f20f8dc49b61df5ce9300cacf62f6ba583f2cf94710be480155ca4d49c7c"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/dimas-work-proof.json",
+      "indexSha256": "da921e64d335eb05636c8c3f7687e0ee5797f99d3bed6c40b84030d03d4ecef3"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/dimas-work.stdout.log",
+      "indexSha256": "a25711d436d8aee70f45f739e236d5b1f9a9bcf27113164a838f072911b1af04"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/independent-oracle.json",
+      "indexSha256": "fb18b29fd5cb2044882f69feb0398e8316dfe733da734b3563459329f9718c53"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/new-generation-fresh-generation.png",
+      "indexSha256": "45d2ac7f36c823ec2c3e1b2597aafb557faa1673eb6ac0b9fe80fa756b632be3"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/new-generation-proof.json",
+      "indexSha256": "c017e740b9811d02cee6514024790d1056af3ed52b4b58fea81a46f4cd9cdff7"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/new-generation.stdout.log",
+      "indexSha256": "735937ba98a70003502fe22af54812291a647cfb7909377e153cdf542199d818"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/owned-installations.json",
+      "indexSha256": "0b4164824a5b8a2bba1227ca4230fa486c3e12e29216ee499b22dc8eb6b66766"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/owner-after.sha256",
+      "indexSha256": "0e7d99078c55b1ccf8b47dab28bacba3ac762b1585b7b277a538b4a2eede616d"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/owner-before.sha256",
+      "indexSha256": "0e7d99078c55b1ccf8b47dab28bacba3ac762b1585b7b277a538b4a2eede616d"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/rani-offline-proof.json",
+      "indexSha256": "74ebdb12cd06ff82dd391453fdab8338a8c4e1d80c5f5329e19a63a73d70ebda"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/rani-offline-recreated-offline.png",
+      "indexSha256": "ecc8c44607ab9623a2b8aa21f0e10ebc102736e7ae1b59dfbbfe936b8bc45b06"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/rani-offline.stdout.log",
+      "indexSha256": "6bc38b68a8540c11f1be0a58f5aadb0ee0d5fdb8a71023a9f508c449b3490896"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/rani-prime-contribution.png",
+      "indexSha256": "5bd41bbcab893c5ff081e5cac0a2f335ad9f0fc7841758b92c8341b7d567f5ce"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/rani-prime-proof.json",
+      "indexSha256": "3bd64c9bb98ef9310d230f3ae2f44a79738d6140a2c5d74993694728ed272fa2"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/rani-prime.stdout.log",
+      "indexSha256": "a7b530bbb95e1986e065847e8382987fc35cf293120f57f2a4ceaf43b15e3933"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/rani-resolve-conflict-review.png",
+      "indexSha256": "a3917310d7c0ef7978527c68d15ea21259112113b6b25a6ce86f563f039681ee"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/rani-resolve-proof.json",
+      "indexSha256": "f8934a334f35605902f03c335e951be64eaa01954e007e799130344d2ae88445"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/rani-resolve-submitted.png",
+      "indexSha256": "ebf079367d111f89e97e59d7271e517d6d40f919d0f9155655d79f5ff0bda9c5"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/rani-resolve.stdout.log",
+      "indexSha256": "251300e6da1c544b70340c832ee5df1a12408c77e9b69a182dc585b7e203b7aa"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/server-snapshot.json",
+      "indexSha256": "22bf05f4b68697fbafc8377394b92f2a996359c9ab1dc4c694b7b5c789cef77e"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/source-inputs.json",
+      "indexSha256": "53255c28488383b0ce33a7f0b30cfa5ca06d65cc3252cd82de0f82023c5102a6"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/supervisor-frozen-report.json",
+      "indexSha256": "d86590529bfd1594bd8f55d4f18bc52a867f8831045de5782dff616d5333879c"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/supervisor-frozen-report.png",
+      "indexSha256": "d23025ad49cd31d6bb9c97d6814e23411bf956a3b8afceb211194b7ad1cac1e5"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/supervisor-proof.json",
+      "indexSha256": "f8dd3763757b90895eb320c0523cde0358c316fe986c022fd414b41af0358d52"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/supervisor-reopened-edited.png",
+      "indexSha256": "d7dbd66fc289b5da45a560ebce71ca94f6e93ea9d41b905068119e16d8d032b0"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/supervisor-report.xlsx",
+      "indexSha256": "6207ad8d30fe1dbdfc4499db554fcb1f44335de5b3496eb2d0826954578f0bad"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/supervisor-supervisor-review.png",
+      "indexSha256": "888034e1e3a832a5e8e54111e9ba94723e5182868ca56ebaf5967eb81e53e551"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/supervisor.stdout.log",
+      "indexSha256": "17e13bc7a5a36eaffba23ac06df5de2221d6ebfdb09fbd1567db5ab84a2f6774"
+    },
+    {
+      "file": "docs/demo-native-evidence-r1/verification.json",
+      "indexSha256": "5e98b2fb0f85104b2634e08da3aebc6ebb46f09c445e2ac7fc58fb43455786ac"
+    },
+    {
+      "file": "docs/demo-native-review-r1.html",
+      "indexSha256": "c03f6cea86c6f01ea201c03862d4a97530d1eaf3532399b88a3ad6fcdbaf2bf1"
+    }
+  ],
+  "canonicalGuards": [
+    {
+      "code": "ABS",
+      "headAndStatusMatchOriginal": true
+    },
+    {
+      "code": "CCS",
+      "headAndStatusMatchOriginal": true
+    },
+    {
+      "code": "ELZ",
+      "headPreserved": true,
+      "statusMatchesOriginal": false,
+      "originalStatusSha256": "7d85372defe40b1419c62580a8e1071d15cd5ec604856a4892641c2a0b17cf69",
+      "observedStatusSha256": "fe3ba58ebdc13821999975c692b9cac2527586b2e848d240e614b96217d73742",
+      "observedStatusPreserved": true,
+      "unresolvedPriorDrift": true,
+      "workingTreeWritesPerformed": false
+    },
+    {
+      "code": "EXV",
+      "headAndStatusMatchOriginal": true
+    },
+    {
+      "code": "KLG",
+      "headAndStatusMatchOriginal": true
+    },
+    {
+      "code": "KEC",
+      "headAndStatusMatchOriginal": true
+    },
+    {
+      "code": "KPS",
+      "headAndStatusMatchOriginal": true
+    },
+    {
+      "code": "TTK",
+      "headAndStatusMatchOriginal": true
+    }
+  ],
+  "exactExecutedDriverAndTestSourceMatched": true,
+  "privateValuesAbsent": true,
+  "privateProfilesChecked": 9,
+  "coreApplicationServiceSqlAndDependenciesUnchanged": true,
+  "physicalPhoneAccessed": false,
+  "publicAcceptance": false,
+  "completeCcs08": false
+}

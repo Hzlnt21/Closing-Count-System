@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "physicalPhoneAccessed": false,
+  "mutationsThroughProductionUi": true,
+  "run": "5dcb2111-6731-4d5d-ad8a-a7a4a2315352",
+  "phase": "admin",
+  "user": 10,
+  "uid": 1010216,
+  "pid": 10551,
+  "installation": "a",
+  "legacyBefore": "362ca07086d8ed3240c02d3f22c9d0778c711adf6756f17c21f946e6c3e32686",
+  "outlet": "c01e6a73-7e8f-42f8-a637-d7cff354ca0f",
+  "closing": "2d0e5454-3ffe-4048-a9d6-3d55fa1c8c1e",
+  "state": "",
+  "revision": 0,
+  "generation": 1,
+  "pending": 0,
+  "legacyAfter": "362ca07086d8ed3240c02d3f22c9d0778c711adf6756f17c21f946e6c3e32686"
+}

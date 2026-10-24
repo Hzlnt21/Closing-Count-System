@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "physicalPhoneAccessed": false,
+  "mutationsThroughProductionUi": true,
+  "run": "5dcb2111-6731-4d5d-ad8a-a7a4a2315352",
+  "phase": "dimas-offline",
+  "user": 11,
+  "uid": 1110216,
+  "pid": 11545,
+  "installation": "b",
+  "legacyBefore": "362ca07086d8ed3240c02d3f22c9d0778c711adf6756f17c21f946e6c3e32686",
+  "offlineOperation": {
+    "operationId": "1ed40b2d-7b3b-4f9e-8c7c-8ada8a1c43d2",
+    "scope": "http:\/\/10.0.2.2:4372|ad9525ab-8f56-42df-abba-58476d0b810c|c01e6a73-7e8f-42f8-a637-d7cff354ca0f",
+    "closingId": "2d0e5454-3ffe-4048-a9d6-3d55fa1c8c1e",
+    "menuId": "b0f2cd92-9ede-4fc1-b16e-b449cc66d829",
+    "generation": "1",
+    "expectedRevision": "2",
+    "quantity": "9",
+    "status": "QUEUED"
+  },
+  "activityRecreatedWithDraft": true,
+  "outlet": "c01e6a73-7e8f-42f8-a637-d7cff354ca0f",
+  "closing": "2d0e5454-3ffe-4048-a9d6-3d55fa1c8c1e",
+  "state": "DRAFT",
+  "revision": 5,
+  "generation": 1,
+  "pending": 1,
+  "legacyAfter": "362ca07086d8ed3240c02d3f22c9d0778c711adf6756f17c21f946e6c3e32686"
+}

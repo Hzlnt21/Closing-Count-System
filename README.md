@@ -2,7 +2,7 @@
 
 Local transfer acceptance: [CCS07 / PT01-08 evidence mapping](docs/TRANSFER_LOCAL_ACCEPTANCE_R1.md). Account-review/draft copy and main-thread UI publication are corrected; current admin and actual DocumentsUI/controller regressions pass with independent data checks. Physical/public acceptance and CCS08 complete demo packaging remain open.
 
-Local DEMO (CCS08 in progress): [operator guide](docs/DEMO_LOCAL.md), [operator-payload relocation and fault recovery](docs/DEMO_PORTABILITY_R1.md), [fixture manifest](demo/manifest.v1.json). Fresh identities use separate resources; existing version1 data is preserved. Extracted-package startup, controlled child failures and interrupted-seed recovery pass locally. Full native DEMO journey, media and complete distribution remain pending. [Earlier foundation](docs/DEMO_FOUNDATION_R1.md).
+Local DEMO (CCS08 in progress): [nine-phase native journey](docs/DEMO_NATIVE_R1.md), [actual screen review](docs/demo-native-review-r1.html), [operator guide](docs/DEMO_LOCAL.md), [operator-payload relocation and fault recovery](docs/DEMO_PORTABILITY_R1.md), [fixture manifest](demo/manifest.v1.json). Two isolated Android installations exercise shared input, offline conflict, supervisor/report export, catalog changes and reset with old-draft preservation. Native/Room/PostgreSQL/workbook/backup checks pass locally. Presentation ordering, media and complete APK/distribution remain open. [Earlier foundation](docs/DEMO_FOUNDATION_R1.md).
 
 ## Earlier implementation checkpoints
 

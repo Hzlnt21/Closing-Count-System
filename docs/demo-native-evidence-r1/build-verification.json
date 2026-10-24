@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "coreUnitBaseline": {
+    "passed": true,
+    "tasks": [
+      "assembleDebug",
+      "assembleDebugAndroidTest",
+      "testDebugUnitTest",
+      "lintDebug"
+    ],
+    "origin": "http://10.0.2.2:4372",
+    "tests": 25,
+    "failures": 0,
+    "lintErrors": 0,
+    "lintWarnings": 17,
+    "physicalPhoneAccessed": false
+  },
+  "unitRunInheritedFromEarlierSameTurn": true,
+  "unchangedCoreApkHashMatchesOriginalBuild": true,
+  "latestTestApk": {
+    "sha256": "e8ecab337b4481885e988cef3c813d6d5efa1a815b72a2e2e38e13ce2fc8b611",
+    "bytes": 1977320
+  },
+  "latestLintErrors": 0,
+  "latestLintWarnings": 17
+}

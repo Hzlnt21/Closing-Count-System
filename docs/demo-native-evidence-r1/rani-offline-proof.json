@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "physicalPhoneAccessed": false,
+  "mutationsThroughProductionUi": true,
+  "run": "5dcb2111-6731-4d5d-ad8a-a7a4a2315352",
+  "phase": "rani-offline",
+  "user": 10,
+  "uid": 1010216,
+  "pid": 8816,
+  "installation": "a",
+  "legacyBefore": "362ca07086d8ed3240c02d3f22c9d0778c711adf6756f17c21f946e6c3e32686",
+  "offlineOperation": {
+    "operationId": "769f56ec-897b-45bc-ac8d-9da1b6f4709b",
+    "scope": "http:\/\/10.0.2.2:4372|e45661dd-3718-4856-93d6-463d6e9a71e9|c01e6a73-7e8f-42f8-a637-d7cff354ca0f",
+    "closingId": "2d0e5454-3ffe-4048-a9d6-3d55fa1c8c1e",
+    "menuId": "9906be58-4603-4b89-a249-0c310f16d44b",
+    "generation": "1",
+    "expectedRevision": "2",
+    "quantity": "8",
+    "status": "QUEUED"
+  },
+  "activityRecreatedWithDraft": true,
+  "outlet": "c01e6a73-7e8f-42f8-a637-d7cff354ca0f",
+  "closing": "2d0e5454-3ffe-4048-a9d6-3d55fa1c8c1e",
+  "state": "DRAFT",
+  "revision": 3,
+  "generation": 1,
+  "pending": 1,
+  "legacyAfter": "362ca07086d8ed3240c02d3f22c9d0778c711adf6756f17c21f946e6c3e32686"
+}

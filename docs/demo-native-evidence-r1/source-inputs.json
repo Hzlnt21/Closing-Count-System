@@ -1,0 +1,19 @@
+{
+  "sourceBase": "fc8b9d33b9de26b2dd68b47090ea0ddd6ae2b542",
+  "files": [
+    {
+      "path": "D:\\Code\\Worktrees\\Closing-Count-Portfolio\\app\\src\\androidTest\\java\\com\\closingcount\\app\\OnlineDemoJourneyInstrumentedTest.kt",
+      "sha256": "5c6445cbaf97ecf27617e808fe141f4980c75fb3810744a244ed80209df91443"
+    },
+    {
+      "path": "D:\\Code\\Documents\\Career-Portfolio-2026\\automation\\Check-ClosingDemoNativeR1.py",
+      "sha256": "9d44c108d064b44b771778dedcd3ef80935ab282950d2bdbc339ca6f1f3a7724"
+    },
+    {
+      "path": "D:\\Code\\Documents\\Career-Portfolio-2026\\automation\\ClosingDemoNativeFixtureR1.mjs",
+      "sha256": "0c114ac67cb3e5359476dbc2f3aeb24298161c75d6c50fcf463ba5268dd9ccdd"
+    }
+  ],
+  "coreApplicationChanged": false,
+  "physicalPhoneAccessed": false
+}

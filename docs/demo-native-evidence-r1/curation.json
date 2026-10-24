@@ -1,0 +1,304 @@
+{
+  "attempt": "r5",
+  "rawEvidence": "D:/Code/Documents/Career-Portfolio-2026/evidence/closing-count-demo-native-r5",
+  "files": [
+    {
+      "file": "verification.json",
+      "sha256": "485455d14637428d882fec5ec386ae2f29b026076bbf4170583876bed04da2eb",
+      "bytes": 8252,
+      "rawSha256": "485455d14637428d882fec5ec386ae2f29b026076bbf4170583876bed04da2eb"
+    },
+    {
+      "file": "independent-oracle.json",
+      "sha256": "d68d806dea95a829df6ac1d2abfaca108bcd3119b17bd6c0ace56485f770aad3",
+      "bytes": 481,
+      "rawSha256": "d68d806dea95a829df6ac1d2abfaca108bcd3119b17bd6c0ace56485f770aad3"
+    },
+    {
+      "file": "build-verification.json",
+      "sha256": "5508ce6a6eb663749dee364964a3c16095482d1fd43dd99bcc29363a6b785350",
+      "bytes": 655,
+      "rawSha256": "5508ce6a6eb663749dee364964a3c16095482d1fd43dd99bcc29363a6b785350"
+    },
+    {
+      "file": "server-snapshot.json",
+      "sha256": "22bf05f4b68697fbafc8377394b92f2a996359c9ab1dc4c694b7b5c789cef77e",
+      "bytes": 72181,
+      "rawSha256": "22bf05f4b68697fbafc8377394b92f2a996359c9ab1dc4c694b7b5c789cef77e"
+    },
+    {
+      "file": "source-inputs.json",
+      "sha256": "3ab0994d9b5b0f1a03ae90281f4c1536261784667c8cfeff8cd2e6ed9809e303",
+      "bytes": 815,
+      "rawSha256": "3ab0994d9b5b0f1a03ae90281f4c1536261784667c8cfeff8cd2e6ed9809e303"
+    },
+    {
+      "file": "device-baseline.json",
+      "sha256": "13079f804a8bce61b95f5879e47446369747fd36a39febc2ad0f5bb19df7fe6e",
+      "bytes": 208,
+      "rawSha256": "13079f804a8bce61b95f5879e47446369747fd36a39febc2ad0f5bb19df7fe6e"
+    },
+    {
+      "file": "device-after.json",
+      "sha256": "13079f804a8bce61b95f5879e47446369747fd36a39febc2ad0f5bb19df7fe6e",
+      "bytes": 208,
+      "rawSha256": "13079f804a8bce61b95f5879e47446369747fd36a39febc2ad0f5bb19df7fe6e"
+    },
+    {
+      "file": "owner-before.sha256",
+      "sha256": "0e7d99078c55b1ccf8b47dab28bacba3ac762b1585b7b277a538b4a2eede616d",
+      "bytes": 287,
+      "rawSha256": "a6b237fd6a018d183a3c5acb570da51363de9e23b9c745b3bbc664a4b696e281"
+    },
+    {
+      "file": "owner-after.sha256",
+      "sha256": "0e7d99078c55b1ccf8b47dab28bacba3ac762b1585b7b277a538b4a2eede616d",
+      "bytes": 287,
+      "rawSha256": "a6b237fd6a018d183a3c5acb570da51363de9e23b9c745b3bbc664a4b696e281"
+    },
+    {
+      "file": "owned-installations.json",
+      "sha256": "1375bbe04b5f42acc4f6988fd92d9012c5771ced615561b5216782f46366b214",
+      "bytes": 232,
+      "rawSha256": "1375bbe04b5f42acc4f6988fd92d9012c5771ced615561b5216782f46366b214"
+    },
+    {
+      "file": "app-debug.apk.json",
+      "sha256": "222428ba6a69ae308d579b00ebfcf6b5f5783248ec71b65f99db56454e532f38",
+      "bytes": 108,
+      "rawSha256": "222428ba6a69ae308d579b00ebfcf6b5f5783248ec71b65f99db56454e532f38"
+    },
+    {
+      "file": "app-debug-androidTest.apk.json",
+      "sha256": "e6bf5b8135ec6738906731e03eb4c7082a81248b6040302bfbcd699e833e95a3",
+      "bytes": 107,
+      "rawSha256": "e6bf5b8135ec6738906731e03eb4c7082a81248b6040302bfbcd699e833e95a3"
+    },
+    {
+      "file": "rani-prime-proof.json",
+      "sha256": "3bd64c9bb98ef9310d230f3ae2f44a79738d6140a2c5d74993694728ed272fa2",
+      "bytes": 586,
+      "rawSha256": "3bd64c9bb98ef9310d230f3ae2f44a79738d6140a2c5d74993694728ed272fa2"
+    },
+    {
+      "file": "rani-prime.stdout.log",
+      "sha256": "7a80fa3caf96297d0289b31bb4a9790077577d708f21d28a9a1722d253de87ec",
+      "bytes": 866,
+      "rawSha256": "7a80fa3caf96297d0289b31bb4a9790077577d708f21d28a9a1722d253de87ec"
+    },
+    {
+      "file": "dimas-work-proof.json",
+      "sha256": "da921e64d335eb05636c8c3f7687e0ee5797f99d3bed6c40b84030d03d4ecef3",
+      "bytes": 586,
+      "rawSha256": "da921e64d335eb05636c8c3f7687e0ee5797f99d3bed6c40b84030d03d4ecef3"
+    },
+    {
+      "file": "dimas-work.stdout.log",
+      "sha256": "b0b5fb9745a1927f7d80da467674d5896d848a9ebd6037357a15352c3ca26166",
+      "bytes": 866,
+      "rawSha256": "b0b5fb9745a1927f7d80da467674d5896d848a9ebd6037357a15352c3ca26166"
+    },
+    {
+      "file": "rani-offline-proof.json",
+      "sha256": "74ebdb12cd06ff82dd391453fdab8338a8c4e1d80c5f5329e19a63a73d70ebda",
+      "bytes": 1034,
+      "rawSha256": "74ebdb12cd06ff82dd391453fdab8338a8c4e1d80c5f5329e19a63a73d70ebda"
+    },
+    {
+      "file": "rani-offline.stdout.log",
+      "sha256": "69960ae702e796974803251e63038022f7d6f194c031043ebf29359f1c5ff1a1",
+      "bytes": 866,
+      "rawSha256": "69960ae702e796974803251e63038022f7d6f194c031043ebf29359f1c5ff1a1"
+    },
+    {
+      "file": "rani-resolve-proof.json",
+      "sha256": "f8934a334f35605902f03c335e951be64eaa01954e007e799130344d2ae88445",
+      "bytes": 656,
+      "rawSha256": "f8934a334f35605902f03c335e951be64eaa01954e007e799130344d2ae88445"
+    },
+    {
+      "file": "rani-resolve.stdout.log",
+      "sha256": "26d236733755c8318f8949ec84a79014788fce34879af75487fb503f8da3965e",
+      "bytes": 866,
+      "rawSha256": "26d236733755c8318f8949ec84a79014788fce34879af75487fb503f8da3965e"
+    },
+    {
+      "file": "supervisor-proof.json",
+      "sha256": "f8dd3763757b90895eb320c0523cde0358c316fe986c022fd414b41af0358d52",
+      "bytes": 762,
+      "rawSha256": "f8dd3763757b90895eb320c0523cde0358c316fe986c022fd414b41af0358d52"
+    },
+    {
+      "file": "supervisor.stdout.log",
+      "sha256": "95e8050a4b3874cdfdeac1e10c1cd80339af9c80f2753eab5f4989361456f006",
+      "bytes": 866,
+      "rawSha256": "95e8050a4b3874cdfdeac1e10c1cd80339af9c80f2753eab5f4989361456f006"
+    },
+    {
+      "file": "admin-proof.json",
+      "sha256": "f9e865e7a20d5c56f9f62f6e15816c1e5e4a0555365155646aca390418f10f72",
+      "bytes": 577,
+      "rawSha256": "f9e865e7a20d5c56f9f62f6e15816c1e5e4a0555365155646aca390418f10f72"
+    },
+    {
+      "file": "admin.stdout.log",
+      "sha256": "80f8f592b2d8b97c1aba1800aeaed736097b01abd2137ee648c49a20b8833400",
+      "bytes": 866,
+      "rawSha256": "80f8f592b2d8b97c1aba1800aeaed736097b01abd2137ee648c49a20b8833400"
+    },
+    {
+      "file": "dimas-offline-proof.json",
+      "sha256": "e2a2581c084910f39e5181771ba75ce3024965d4924cb2a205849014105128d3",
+      "bytes": 1036,
+      "rawSha256": "e2a2581c084910f39e5181771ba75ce3024965d4924cb2a205849014105128d3"
+    },
+    {
+      "file": "dimas-offline.stdout.log",
+      "sha256": "da5ee1a7af35860479b1de4ec9c8d14eda98d791d9291de34de2dc5391895f4b",
+      "bytes": 866,
+      "rawSha256": "da5ee1a7af35860479b1de4ec9c8d14eda98d791d9291de34de2dc5391895f4b"
+    },
+    {
+      "file": "after-reset-proof.json",
+      "sha256": "bcd42554eed26e9157dffd2dc6f5155303d0134ef6e8727be4bfae6baaac3a1f",
+      "bytes": 1095,
+      "rawSha256": "bcd42554eed26e9157dffd2dc6f5155303d0134ef6e8727be4bfae6baaac3a1f"
+    },
+    {
+      "file": "after-reset.stdout.log",
+      "sha256": "a0f65d9d3312fc56db3f47aff526fee5afe7a3e2790f25de1778ea9fe2289dbd",
+      "bytes": 864,
+      "rawSha256": "a0f65d9d3312fc56db3f47aff526fee5afe7a3e2790f25de1778ea9fe2289dbd"
+    },
+    {
+      "file": "new-generation-proof.json",
+      "sha256": "c017e740b9811d02cee6514024790d1056af3ed52b4b58fea81a46f4cd9cdff7",
+      "bytes": 695,
+      "rawSha256": "c017e740b9811d02cee6514024790d1056af3ed52b4b58fea81a46f4cd9cdff7"
+    },
+    {
+      "file": "new-generation.stdout.log",
+      "sha256": "c7286248fbf76b0b129679524d94158f2a1c37274b2f3c4922b6e3404e3fec68",
+      "bytes": 866,
+      "rawSha256": "c7286248fbf76b0b129679524d94158f2a1c37274b2f3c4922b6e3404e3fec68"
+    },
+    {
+      "file": "rani-prime-contribution.png",
+      "sha256": "5bd41bbcab893c5ff081e5cac0a2f335ad9f0fc7841758b92c8341b7d567f5ce",
+      "bytes": 128595,
+      "rawSha256": "5bd41bbcab893c5ff081e5cac0a2f335ad9f0fc7841758b92c8341b7d567f5ce"
+    },
+    {
+      "file": "dimas-work-merged-team.png",
+      "sha256": "0554f20f8dc49b61df5ce9300cacf62f6ba583f2cf94710be480155ca4d49c7c",
+      "bytes": 128989,
+      "rawSha256": "0554f20f8dc49b61df5ce9300cacf62f6ba583f2cf94710be480155ca4d49c7c"
+    },
+    {
+      "file": "rani-offline-recreated-offline.png",
+      "sha256": "ecc8c44607ab9623a2b8aa21f0e10ebc102736e7ae1b59dfbbfe936b8bc45b06",
+      "bytes": 136640,
+      "rawSha256": "ecc8c44607ab9623a2b8aa21f0e10ebc102736e7ae1b59dfbbfe936b8bc45b06"
+    },
+    {
+      "file": "rani-resolve-conflict-review.png",
+      "sha256": "a3917310d7c0ef7978527c68d15ea21259112113b6b25a6ce86f563f039681ee",
+      "bytes": 147909,
+      "rawSha256": "a3917310d7c0ef7978527c68d15ea21259112113b6b25a6ce86f563f039681ee"
+    },
+    {
+      "file": "rani-resolve-submitted.png",
+      "sha256": "ebf079367d111f89e97e59d7271e517d6d40f919d0f9155655d79f5ff0bda9c5",
+      "bytes": 143637,
+      "rawSha256": "ebf079367d111f89e97e59d7271e517d6d40f919d0f9155655d79f5ff0bda9c5"
+    },
+    {
+      "file": "supervisor-supervisor-review.png",
+      "sha256": "888034e1e3a832a5e8e54111e9ba94723e5182868ca56ebaf5967eb81e53e551",
+      "bytes": 136048,
+      "rawSha256": "888034e1e3a832a5e8e54111e9ba94723e5182868ca56ebaf5967eb81e53e551"
+    },
+    {
+      "file": "supervisor-frozen-report.png",
+      "sha256": "d23025ad49cd31d6bb9c97d6814e23411bf956a3b8afceb211194b7ad1cac1e5",
+      "bytes": 145281,
+      "rawSha256": "d23025ad49cd31d6bb9c97d6814e23411bf956a3b8afceb211194b7ad1cac1e5"
+    },
+    {
+      "file": "supervisor-reopened-edited.png",
+      "sha256": "d7dbd66fc289b5da45a560ebce71ca94f6e93ea9d41b905068119e16d8d032b0",
+      "bytes": 128802,
+      "rawSha256": "d7dbd66fc289b5da45a560ebce71ca94f6e93ea9d41b905068119e16d8d032b0"
+    },
+    {
+      "file": "admin-catalog-published.png",
+      "sha256": "548734b378ab3e722b71ce46e8f8b4aecf8366c12fa4b85603bc5e88c433d98d",
+      "bytes": 150112,
+      "rawSha256": "548734b378ab3e722b71ce46e8f8b4aecf8366c12fa4b85603bc5e88c433d98d"
+    },
+    {
+      "file": "after-reset-old-draft-backed-up.png",
+      "sha256": "9eed83017da87d4b57dd57a052c8bee3a5eeaa717c5a0f68c99c9d432b64d315",
+      "bytes": 161366,
+      "rawSha256": "9eed83017da87d4b57dd57a052c8bee3a5eeaa717c5a0f68c99c9d432b64d315"
+    },
+    {
+      "file": "new-generation-fresh-generation.png",
+      "sha256": "45d2ac7f36c823ec2c3e1b2597aafb557faa1673eb6ac0b9fe80fa756b632be3",
+      "bytes": 129300,
+      "rawSha256": "45d2ac7f36c823ec2c3e1b2597aafb557faa1673eb6ac0b9fe80fa756b632be3"
+    },
+    {
+      "file": "supervisor-frozen-report.json",
+      "sha256": "d86590529bfd1594bd8f55d4f18bc52a867f8831045de5782dff616d5333879c",
+      "bytes": 3251,
+      "rawSha256": "d86590529bfd1594bd8f55d4f18bc52a867f8831045de5782dff616d5333879c"
+    },
+    {
+      "file": "supervisor-report.xlsx",
+      "sha256": "6207ad8d30fe1dbdfc4499db554fcb1f44335de5b3496eb2d0826954578f0bad",
+      "bytes": 4588,
+      "rawSha256": "6207ad8d30fe1dbdfc4499db554fcb1f44335de5b3496eb2d0826954578f0bad"
+    },
+    {
+      "file": "after-reset-pending-backup.json",
+      "sha256": "3ab9b4e10eff26be593a36a5f884632f3082c5864660d0ba2f34e43516ed0b1e",
+      "bytes": 942,
+      "rawSha256": "3ab9b4e10eff26be593a36a5f884632f3082c5864660d0ba2f34e43516ed0b1e"
+    },
+    {
+      "file": "Check-ClosingDemoNativeR1.py",
+      "sha256": "9d44c108d064b44b771778dedcd3ef80935ab282950d2bdbc339ca6f1f3a7724",
+      "bytes": 13879,
+      "rawSha256": "9d44c108d064b44b771778dedcd3ef80935ab282950d2bdbc339ca6f1f3a7724"
+    },
+    {
+      "file": "ClosingDemoNativeFixtureR1.mjs",
+      "sha256": "0c114ac67cb3e5359476dbc2f3aeb24298161c75d6c50fcf463ba5268dd9ccdd",
+      "bytes": 2887,
+      "rawSha256": "0c114ac67cb3e5359476dbc2f3aeb24298161c75d6c50fcf463ba5268dd9ccdd"
+    },
+    {
+      "file": "Verify-ClosingDemoNativeR1.py",
+      "sha256": "ed6c82e8797274916f97c3efb706cd0466bb60c6cde2a528437b20d144ccbb92",
+      "bytes": 5520,
+      "rawSha256": "ed6c82e8797274916f97c3efb706cd0466bb60c6cde2a528437b20d144ccbb92"
+    },
+    {
+      "file": "Curate-ClosingDemoNativeR1.py",
+      "sha256": "b075eb35d963f06ecfe35b0d902657cb07993bea4c5ee472e1901945d417b315",
+      "bytes": 6827,
+      "rawSha256": "b075eb35d963f06ecfe35b0d902657cb07993bea4c5ee472e1901945d417b315"
+    },
+    {
+      "file": "Checkpoint-ClosingDemoNativeR1.py",
+      "sha256": "3426f6f059c326477fdc9a9463e56700f3b38ae912660471470ce0fde20ebb80",
+      "bytes": 5599,
+      "rawSha256": "3426f6f059c326477fdc9a9463e56700f3b38ae912660471470ce0fde20ebb80"
+    }
+  ],
+  "roomDatabasesNotPublished": true,
+  "privateRuntimeAndDiagnosticsNotPublished": true,
+  "scriptsAreArchivedWindowsWorkspaceDrivers": true,
+  "ownerHashTextLineEndingsNormalized": true
+}

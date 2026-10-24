@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "physicalPhoneAccessed": false,
+  "mutationsThroughProductionUi": true,
+  "run": "5dcb2111-6731-4d5d-ad8a-a7a4a2315352",
+  "phase": "supervisor",
+  "user": 10,
+  "uid": 1010216,
+  "pid": 10119,
+  "installation": "a",
+  "legacyBefore": "362ca07086d8ed3240c02d3f22c9d0778c711adf6756f17c21f946e6c3e32686",
+  "reportSha256": "d86590529bfd1594bd8f55d4f18bc52a867f8831045de5782dff616d5333879c",
+  "workbookSha256": "6207ad8d30fe1dbdfc4499db554fcb1f44335de5b3496eb2d0826954578f0bad",
+  "outlet": "c01e6a73-7e8f-42f8-a637-d7cff354ca0f",
+  "closing": "2d0e5454-3ffe-4048-a9d6-3d55fa1c8c1e",
+  "state": "DRAFT",
+  "revision": 10,
+  "generation": 2,
+  "pending": 0,
+  "legacyAfter": "362ca07086d8ed3240c02d3f22c9d0778c711adf6756f17c21f946e6c3e32686"
+}

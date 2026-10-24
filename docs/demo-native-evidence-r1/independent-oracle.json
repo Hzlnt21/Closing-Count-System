@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "nativePhases": 9,
+  "twoIsolatedInstallations": true,
+  "serverRevision": 10,
+  "serverGeneration": 2,
+  "lockedReportQuantities": [
+    8,
+    6
+  ],
+  "currentQuantities": [
+    9,
+    6
+  ],
+  "freshResetQuantities": [
+    3,
+    5
+  ],
+  "staleDraftPreserved": true,
+  "oldIdsNotReplayed": true,
+  "realSafWorkbookAndBackupChecked": true,
+  "physicalPhoneAccessed": false,
+  "publicAcceptance": false,
+  "completeCcs08": false
+}

@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "physicalPhoneAccessed": false,
+  "mutationsThroughProductionUi": true,
+  "run": "5dcb2111-6731-4d5d-ad8a-a7a4a2315352",
+  "phase": "rani-resolve",
+  "user": 10,
+  "uid": 1010216,
+  "pid": 9973,
+  "installation": "a",
+  "legacyBefore": "362ca07086d8ed3240c02d3f22c9d0778c711adf6756f17c21f946e6c3e32686",
+  "rejectedOriginalId": "769f56ec-897b-45bc-ac8d-9da1b6f4709b",
+  "outlet": "c01e6a73-7e8f-42f8-a637-d7cff354ca0f",
+  "closing": "2d0e5454-3ffe-4048-a9d6-3d55fa1c8c1e",
+  "state": "SUBMITTED",
+  "revision": 7,
+  "generation": 1,
+  "pending": 0,
+  "legacyAfter": "362ca07086d8ed3240c02d3f22c9d0778c711adf6756f17c21f946e6c3e32686"
+}
