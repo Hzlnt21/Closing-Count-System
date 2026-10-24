@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.2-demo-local - local candidate packaging, 2026-10-24
+
+- Added an opt-in debug-only local demo identity, launcher label and forced emulator origin4372. The .demo package is separate from the main app; release and QApeer combinations are refused.
+- Verified the actual demo APK with native login/input/review/frozen report/logout, owner/legacy/business preservation and explicit version/label checks.27JVM/lint0errors18warnings; additional unused app_name is documented.
+- Added a23-second real native recording, four screenshots, reviewer/distribution guides and closed-list Android/operator/APK/media payload builder. Extracted source builds and extracted operator starts/checks/stops with data retained. Byte-for-byte rebuild is not claimed; distribute the original native-tested APK.
+- [Local acceptance and later gates](docs/DEMO_LOCAL_ACCEPTANCE_R1.md). Browser playback was unavailable in this session; physical/public/portfolio/CV acceptance remains separate.
+
 ## 0.1.2 - catalog presentation ordering, 2026-10-24
 
 - Display shared-closing menus and ingredients by category/item sortOrder with stable ID ties, consistently across input, supervisor review and frozen reports.

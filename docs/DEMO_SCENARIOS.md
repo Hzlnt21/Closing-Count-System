@@ -2,15 +2,16 @@
 
 Data seluruhnya fiktif. Panduan ini memakai service DEMO terisolasi, bukan
 database outlet operasional. Bukti perjalanan native tersedia pada
-[baseline sembilan fase](DEMO_NATIVE_R1.md). Paket distribusi lengkap masih
-disiapkan; panduan ini belum menyatakan acceptance CCS-08 selesai.
+[baseline sembilan fase](DEMO_NATIVE_R1.md). [Panduan APK/paket lokal](DEMO_DISTRIBUTION_R1.md)
+dan [pemetaan acceptance lokal](DEMO_LOCAL_ACCEPTANCE_R1.md) menjelaskan kandidat
+serta batas perangkat/publik yang masih terbuka.
 
 ## Sebelum mencoba
 
 Operator mengikuti [panduan menjalankan demo](DEMO_LOCAL.md), menggunakan private
 state directory khusus demo dan menyiapkan dua instalasi Android uji terpisah.
-Gunakan emulator/perangkat uji kosong; jangan memasang APK debug kandidat di atas
-aplikasi operasional. Endpoint emulator lokal adalah `http://10.0.2.2:4372`;
+Gunakan APK **Closing Count Demo** dengan paket `com.closingcount.app.demo`
+pada emulator uji kosong. Endpoint emulator lokal adalah `http://10.0.2.2:4372`;
 ini bukan URL publik atau endpoint HP melalui Wi-Fi.
 
 Operator memperoleh akun melalui perintah `access` secara privat. Jangan

@@ -12,6 +12,11 @@ val appVersionCode = providers.gradleProperty("versionCodeOverride").orNull?.toI
 val appVersionName = providers.gradleProperty("versionNameOverride").orNull ?: "0.1.2"
 // Explicit QA-only second installation; release application identity never changes.
 val qaPeer = providers.gradleProperty("closingQaPeer").orNull == "true"
+val localDemo = providers.gradleProperty("closingLocalDemo").orNull == "true"
+if (localDemo && qaPeer) throw GradleException("Choose local demo or QA peer, not both")
+if (localDemo && gradle.startParameter.taskNames.any { it.contains("release", ignoreCase = true) }) {
+    throw GradleException("closingLocalDemo is restricted to debug local demonstration builds")
+}
 if (qaPeer && gradle.startParameter.taskNames.any { it.contains("release", ignoreCase = true) }) {
     throw GradleException("closingQaPeer is restricted to debug acceptance builds")
 }
@@ -56,6 +61,7 @@ android {
         targetSdk = 36
         versionCode = appVersionCode
         versionName = appVersionName
+        manifestPlaceholders["appLabel"] = "@string/app_name"
         buildConfigField("String", "ONLINE_API_ORIGIN", "\"${providers.gradleProperty("closingApiOrigin").orNull ?: ""}\"")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -76,7 +82,13 @@ android {
     buildTypes {
         debug {
             if (qaPeer) applicationIdSuffix = ".qapeer"
-            buildConfigField("String", "ONLINE_API_ORIGIN", "\"${providers.gradleProperty("closingApiOrigin").orNull ?: "http://10.0.2.2:4371"}\"")
+            if (localDemo) {
+                applicationIdSuffix = ".demo"
+                versionNameSuffix = "-demo-local"
+                manifestPlaceholders["appLabel"] = "Closing Count Demo"
+            }
+            val debugOrigin = if (localDemo) "http://10.0.2.2:4372" else providers.gradleProperty("closingApiOrigin").orNull ?: "http://10.0.2.2:4371"
+            buildConfigField("String", "ONLINE_API_ORIGIN", "\"$debugOrigin\"")
         }
         release {
             if (hasReleaseSigning) {

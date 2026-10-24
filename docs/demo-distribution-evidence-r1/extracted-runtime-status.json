@@ -1,0 +1,9 @@
+{
+  "running": true,
+  "recordedStatus": "ready",
+  "version": "0.2.0-dev.8",
+  "expectedVersion": "0.2.0-dev.8",
+  "versionMatches": true,
+  "port": 4372,
+  "credentialsPrinted": false
+}

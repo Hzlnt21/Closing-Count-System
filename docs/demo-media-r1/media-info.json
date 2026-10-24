@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "realTimeNativeScreenRecording": true,
+  "readOnlyPresentation": true,
+  "sourceVideoSha256": "5132cb5dec9a117f5a34c93c50217af1ed9264cc5ec80cedfe656ad039d78b8f",
+  "sha256": "9812f2bb85d1f8d97ff3fa49bafd9d897e926d0db6a61b413d105ab2a167682f",
+  "metadata": {
+    "ffmpeg_version": "7.1-essentials_build-www.gyan.dev built with gcc 14.2.0 (Rev1, Built by MSYS2 project)",
+    "codec": "h264",
+    "pix_fmt": "yuv420p(tv, bt709, progressive)",
+    "fps": 30.0,
+    "source_size": [
+      720,
+      1600
+    ],
+    "size": [
+      720,
+      1600
+    ],
+    "rotate": 0,
+    "duration": 23.0
+  },
+  "decodedFrames": 690,
+  "decodedDuration": 23.0,
+  "fullDecodeExitCode": 0,
+  "trimStartSeconds": 0,
+  "trimEndSeconds": 23,
+  "speedChanged": false,
+  "fpsNormalized": 30,
+  "loginCredentialsEntryExcluded": true,
+  "physicalAcceptance": false,
+  "publicAcceptance": false,
+  "scope": "Input/review/frozen-history navigation; nine-phase domain journey remains inherited evidence"
+}

@@ -1,0 +1,256 @@
+{
+  "passed": true,
+  "sourceBase": "83d675835ef70ac32e0db5a28ab928e6319a4678",
+  "files": [
+    {
+      "file": "CHANGELOG.md",
+      "indexSha256": "e63788787f1ec3bfcef2690dfdd5042528b034949bd54f95b534725f260cf4b6"
+    },
+    {
+      "file": "README.md",
+      "indexSha256": "fe3291f6ba7cab952cce98444ebf8e8815423a8a7fbce100908844015843d3f2"
+    },
+    {
+      "file": "app/build.gradle.kts",
+      "indexSha256": "598783fcf069360c980d43df657dc24a5947ce1bbbb6ca70db446131225e02df"
+    },
+    {
+      "file": "app/src/androidTest/java/com/closingcount/app/OnlineDemoOrderingInstrumentedTest.kt",
+      "indexSha256": "811b8cae1ef1d05779fa0e11d589cc15336215d515e959250488e7040399c118"
+    },
+    {
+      "file": "app/src/main/AndroidManifest.xml",
+      "indexSha256": "c4a55b46d3bd5ea055032670bf2918cde2e6f6ed482f846d300e72e18e7425ae"
+    },
+    {
+      "file": "demo/build-reviewer-package.mjs",
+      "indexSha256": "ec4ad25c2711a6b9b6505fe50bc66507920666c6e1e0db812fe98dfa4db20360"
+    },
+    {
+      "file": "docs/DEMO_DISTRIBUTION_R1.md",
+      "indexSha256": "0bb8fe1647eb36187cb17f324e3a97e831854e476028c6ed51b875f51fe05104"
+    },
+    {
+      "file": "docs/DEMO_LOCAL.md",
+      "indexSha256": "b5a2afb0b7bc17e05be3f45df77888f93d8e2341c2898303a312c9bad3518c55"
+    },
+    {
+      "file": "docs/DEMO_LOCAL_ACCEPTANCE_R1.md",
+      "indexSha256": "0faa1c444b48d4c287c3c02d724aa5a89aa38e1d85b2a9d71da20a7e40997df2"
+    },
+    {
+      "file": "docs/DEMO_SCENARIOS.md",
+      "indexSha256": "ca03555659e5cf8ff1f39b6a9036325f497800b73416375b10df33aa83c57893"
+    },
+    {
+      "file": "docs/demo-distribution-evidence-r1/Check-ClosingDemoExtractedRuntimeR1.py",
+      "indexSha256": "0a7751bac17520c8ca421bac0da92714a70c7db619cf69e96820a35eb14f14e5"
+    },
+    {
+      "file": "docs/demo-distribution-evidence-r1/Check-ClosingDemoPresentationR1.py",
+      "indexSha256": "1ce79b6e1686b2e66b4959e3f6b8a756955bf6bab7e257f1720295bc0ed0ee56"
+    },
+    {
+      "file": "docs/demo-distribution-evidence-r1/Check-ClosingDemoReviewerPayloadR1.py",
+      "indexSha256": "159b4dc7bd4ffaea4998ee968f41a7bd0ead54f300d94f418fcd1249fe95ed9c"
+    },
+    {
+      "file": "docs/demo-distribution-evidence-r1/Checkpoint-ClosingDemoDistributionR1.py",
+      "indexSha256": "df519774ff45cd74fc793a383b57ed8b3e1c3f8abe2a4f42ee677934c3fed19d"
+    },
+    {
+      "file": "docs/demo-distribution-evidence-r1/Curate-ClosingDemoDistributionR1.py",
+      "indexSha256": "0f21621db9c21c0ca8f08a55b813302d7e6f84868335e90010f93858d224bd8f"
+    },
+    {
+      "file": "docs/demo-distribution-evidence-r1/Curate-ClosingDemoMediaR1.py",
+      "indexSha256": "2eae4cf6d0506a1e5748a32cd3f036dccab08525f41cf66b00f89c5f6abf7dd4"
+    },
+    {
+      "file": "docs/demo-distribution-evidence-r1/apk-badging.txt",
+      "indexSha256": "72ca786dc051a262d5d64eafde4ea836888c8c8d7b045da3d638cd74c211908e"
+    },
+    {
+      "file": "docs/demo-distribution-evidence-r1/apk-inventory.json",
+      "indexSha256": "33da84929809bb30971e1c0a33e6795ed0eb02f8e2f826f34d9b3ca17bd2f8e5"
+    },
+    {
+      "file": "docs/demo-distribution-evidence-r1/apk-signature.txt",
+      "indexSha256": "6d528351c6560e290908d97349d0dbefba996683eff6656c677942c3e67cec1c"
+    },
+    {
+      "file": "docs/demo-distribution-evidence-r1/build-verification.json",
+      "indexSha256": "f1a72425dc7bf6fbc823198d88a9540bfc7f015933e4990ef3bbb80ea9dbc1c0"
+    },
+    {
+      "file": "docs/demo-distribution-evidence-r1/business-after.json",
+      "indexSha256": "22bf05f4b68697fbafc8377394b92f2a996359c9ab1dc4c694b7b5c789cef77e"
+    },
+    {
+      "file": "docs/demo-distribution-evidence-r1/business-before.json",
+      "indexSha256": "22bf05f4b68697fbafc8377394b92f2a996359c9ab1dc4c694b7b5c789cef77e"
+    },
+    {
+      "file": "docs/demo-distribution-evidence-r1/curation.json",
+      "indexSha256": "4d8caf918ba062c254a5f6f1010a1b3096c8fca20783416ec1617da2d75dd5df"
+    },
+    {
+      "file": "docs/demo-distribution-evidence-r1/device-after.json",
+      "indexSha256": "b41197a0cb2a4f5a0adc42a3c2ef665e14866d027730ad2fcce599931c0dd8f2"
+    },
+    {
+      "file": "docs/demo-distribution-evidence-r1/device-before.json",
+      "indexSha256": "b41197a0cb2a4f5a0adc42a3c2ef665e14866d027730ad2fcce599931c0dd8f2"
+    },
+    {
+      "file": "docs/demo-distribution-evidence-r1/extracted-build-verification.json",
+      "indexSha256": "281b64cba4212b5a22a904214ac41c9416348ee8162ead3c519a124492bc7cbb"
+    },
+    {
+      "file": "docs/demo-distribution-evidence-r1/extracted-runtime-start.json",
+      "indexSha256": "5ecd7908e981f638948f10d45c815076527fe1beae5464a14a1188dcb6c253b6"
+    },
+    {
+      "file": "docs/demo-distribution-evidence-r1/extracted-runtime-status.json",
+      "indexSha256": "f2b0bfc3301841c3d691184f55192ee8ece3961bcb228784db8068c11f5b7261"
+    },
+    {
+      "file": "docs/demo-distribution-evidence-r1/extracted-runtime-stop.json",
+      "indexSha256": "e3f5b31072579c8e57aeb3560c7109cb57522274b86161cf93a3b2f9e58cb129"
+    },
+    {
+      "file": "docs/demo-distribution-evidence-r1/extracted-runtime-verification.json",
+      "indexSha256": "41e2d348c7d6281f89d9962130340250a62a39475e93a16f5805c7e020c39a38"
+    },
+    {
+      "file": "docs/demo-distribution-evidence-r1/fixed-apks.json",
+      "indexSha256": "638befc4bca263e631df7bd792814ae65485b43784c37dcda3b6d1e72bce7745"
+    },
+    {
+      "file": "docs/demo-distribution-evidence-r1/fixed.stdout.log",
+      "indexSha256": "c563698716295d737cf854b86c620dde6f4aebd40a56a42d33cb35c918727cf7"
+    },
+    {
+      "file": "docs/demo-distribution-evidence-r1/media-verification.json",
+      "indexSha256": "641baa1db006f286996bbd266657e52ffe08ba5275231a01c789c847811e4d8e"
+    },
+    {
+      "file": "docs/demo-distribution-evidence-r1/native-proof.json",
+      "indexSha256": "e69acbf2e62a6ef854ef8dffa6a631d5cd1cc20f389cec95434f77bd602f9d69"
+    },
+    {
+      "file": "docs/demo-distribution-evidence-r1/owner-after.sha256",
+      "indexSha256": "0e7d99078c55b1ccf8b47dab28bacba3ac762b1585b7b277a538b4a2eede616d"
+    },
+    {
+      "file": "docs/demo-distribution-evidence-r1/owner-before.sha256",
+      "indexSha256": "0e7d99078c55b1ccf8b47dab28bacba3ac762b1585b7b277a538b4a2eede616d"
+    },
+    {
+      "file": "docs/demo-distribution-evidence-r1/package-preview-verification.json",
+      "indexSha256": "6ebc8426f101950e4d016b6d76e6afd9f4bb078c00c9c307b6665430ff79a46e"
+    },
+    {
+      "file": "docs/demo-distribution-evidence-r1/recording.json",
+      "indexSha256": "4d2e6fe14155d40733bb3e713868f30dc44276d303f8b63e8ca4b72c1a126155"
+    },
+    {
+      "file": "docs/demo-distribution-evidence-r1/reject-peer.log",
+      "indexSha256": "0ab67ad4aa48c1b8928ae275460f6d8f2697dedeb895e359149b91dc28fe376d"
+    },
+    {
+      "file": "docs/demo-distribution-evidence-r1/reject-release.log",
+      "indexSha256": "47216b5f67ad3c2354526ce039769b110a1ea538996edcf5b0be893a7522aa15"
+    },
+    {
+      "file": "docs/demo-distribution-evidence-r1/source-inputs.json",
+      "indexSha256": "2ef77145abea292986ec87b0e31c14eb6a159ee0834ccf3295bffdea682eb4ed"
+    },
+    {
+      "file": "docs/demo-distribution-evidence-r1/variant-guards.json",
+      "indexSha256": "fd048b89124b8eeffc9ed360e8566a71acce9a64226e06c022685258027473a7"
+    },
+    {
+      "file": "docs/demo-distribution-evidence-r1/verification.json",
+      "indexSha256": "490b94e9743ff3f849ea480443a0e0a7d6acfafec29503b292bb7f49dfdc9312"
+    },
+    {
+      "file": "docs/demo-media-r1/apk-info.json",
+      "indexSha256": "33da84929809bb30971e1c0a33e6795ed0eb02f8e2f826f34d9b3ca17bd2f8e5"
+    },
+    {
+      "file": "docs/demo-media-r1/input.png",
+      "indexSha256": "6e1aa8562a75d36476d8ae428b7246577fcf84d8f138b259ba6cf5f119da914d"
+    },
+    {
+      "file": "docs/demo-media-r1/media-info.json",
+      "indexSha256": "641baa1db006f286996bbd266657e52ffe08ba5275231a01c789c847811e4d8e"
+    },
+    {
+      "file": "docs/demo-media-r1/presentation.mp4",
+      "indexSha256": "9812f2bb85d1f8d97ff3fa49bafd9d897e926d0db6a61b413d105ab2a167682f"
+    },
+    {
+      "file": "docs/demo-media-r1/report-ingredients.png",
+      "indexSha256": "2dc12066105f16b8afed46cb54c2cc85505ccc542342dfe76544a72fa636bbac"
+    },
+    {
+      "file": "docs/demo-media-r1/report-menus.png",
+      "indexSha256": "732f0f81f57b47e410183a60168b0aaf5f89ba0aab1e345d7fda149dda1a9235"
+    },
+    {
+      "file": "docs/demo-media-r1/review.html",
+      "indexSha256": "1b551c51185820976f2d12a7deb7c01c42acdbf2792e4924411de0002fb68183"
+    },
+    {
+      "file": "docs/demo-media-r1/review.png",
+      "indexSha256": "30913c2604c82978929f7eeded353f213a3a6fb1ecc507f934a0765529aa8a84"
+    }
+  ],
+  "canonicalGuards": [
+    {
+      "code": "ABS",
+      "headAndStatusMatchOriginal": true
+    },
+    {
+      "code": "CCS",
+      "headAndStatusMatchOriginal": true
+    },
+    {
+      "code": "ELZ",
+      "headPreserved": true,
+      "observedStatusPreserved": true,
+      "unresolvedPriorDrift": true,
+      "workingTreeWritesPerformed": false
+    },
+    {
+      "code": "EXV",
+      "headAndStatusMatchOriginal": true
+    },
+    {
+      "code": "KLG",
+      "headAndStatusMatchOriginal": true
+    },
+    {
+      "code": "KEC",
+      "headAndStatusMatchOriginal": true
+    },
+    {
+      "code": "KPS",
+      "headAndStatusMatchOriginal": true
+    },
+    {
+      "code": "TTK",
+      "headAndStatusMatchOriginal": true
+    }
+  ],
+  "knownPrivateValuesAbsent": true,
+  "privateProfilesChecked": 9,
+  "exactExecutedAndroidSourceMatched": true,
+  "serviceSqlDependenciesRoomAndBusinessWorkflowUnchanged": true,
+  "localCandidateEvidenceMapped": true,
+  "browserPlaybackVerified": false,
+  "physicalAcceptance": false,
+  "publicAcceptance": false,
+  "fullPortfolioGoalComplete": false
+}

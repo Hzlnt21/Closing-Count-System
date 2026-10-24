@@ -39,6 +39,7 @@ class OnlineDemoOrderingInstrumentedTest {
     private lateinit var output:File
     private lateinit var legacyBefore:String
     private var job:Job?=null
+    private val media get()=args.getString("ccsOrderMedia")=="true"
     private val proof=JSONObject().put("passed",false).put("physicalPhoneAccessed",false)
     private fun arg(key:String)=requireNotNull(args.getString("ccsOrder$key"))
     private fun hash(bytes:ByteArray)=MessageDigest.getInstance("SHA-256").digest(bytes).joinToString(""){"%02x".format(it)}
@@ -67,8 +68,10 @@ class OnlineDemoOrderingInstrumentedTest {
     }
     private fun snap(name:String){compose.waitForIdle();instrumentation.waitForIdleSync();val bitmap=requireNotNull(instrumentation.uiAutomation.takeScreenshot());File(output,"$name.png").outputStream().use{check(bitmap.compress(Bitmap.CompressFormat.PNG,100,it))};bitmap.recycle()}
     private fun above(first:String,second:String){assertTrue("Displayed catalog order",compose.onNodeWithTag(first).fetchSemanticsNode().positionInRoot.y<compose.onNodeWithTag(second).fetchSemanticsNode().positionInRoot.y)}
+    private fun holdScene(){if(media)SystemClock.sleep(5000)}
     @Before fun guard(){
         check(arg("Qa")=="true"&&BuildConfig.DEBUG&&BuildConfig.ONLINE_API_ORIGIN=="http://10.0.2.2:4372")
+        if(media){check(app.packageName=="com.closingcount.app.demo");assertEquals("Closing Count Demo",app.applicationInfo.loadLabel(app.packageManager).toString())}
         val user=arg("User").toInt();check(user>0&&Process.myUid()/100000==user)
         val run=arg("Run");check(UUID.fromString(run).toString()==run)
         check(arg("Case") in listOf("control","fixed"));LocalDate.parse(arg("Date"))
@@ -102,19 +105,20 @@ class OnlineDemoOrderingInstrumentedTest {
             val catalog=runBlocking{api.catalog(session,outlet)}.catalog
             assertEquals(listOf(latte,capp),catalog.menus.map{it.id}) // known UUID-order counterexample, not a random witness
             val observed=online.state.value.menus.map{it.id};proof.put("rawMenuOrder",JSONArray(catalog.menus.map{it.id})).put("inputOrder",JSONArray(observed)).put("expectedOrder",JSONArray(listOf(capp,latte)));snap("input")
+            if(media){File(output,"record-ready.json").writeText("{\"ready\":true}");waitFor{File(output,"record-go.json").exists()};proof.put("localDemoPackage",app.packageName).put("media",true);holdScene()}
             assertEquals("Configured menu order",listOf(capp,latte),observed)
             above("online.qty.$capp","online.qty.$latte");assertEquals(3,online.state.value.menus.single{it.id==capp}.quantity);assertEquals(5,online.state.value.menus.single{it.id==latte}.quantity)
             nav("Review");assertEquals(listOf("Cappuccino","Latte"),online.state.value.reviewMenus.map{it.name})
-            assertEquals(listOf("Biji kopi","Fresh milk","Powder cokelat"),online.state.value.ingredients.map{it.name});snap("review")
+            assertEquals(listOf("Biji kopi","Fresh milk","Powder cokelat"),online.state.value.ingredients.map{it.name});snap("review");holdScene()
             nav("Riwayat");click("online.history.detail.${arg("History")}");click("online.report.1");waitFor{online.state.value.frozenReport!=null}
             above("online.report.quantity.$capp","online.report.quantity.$latte")
             compose.onNodeWithTag("online.report.quantity.$capp").performScrollTo().assertTextEquals("6")
-            compose.onNodeWithTag("online.report.quantity.$latte").assertTextEquals("4");snap("report-menus")
+            compose.onNodeWithTag("online.report.quantity.$latte").assertTextEquals("4");snap("report-menus");holdScene()
             val ingredientIds=listOf(arg("Coffee"),arg("Milk"),arg("Cocoa"))
             above("online.report.ingredient.${ingredientIds[0]}","online.report.ingredient.${ingredientIds[1]}")
             above("online.report.ingredient.${ingredientIds[1]}","online.report.ingredient.${ingredientIds[2]}")
             ingredientIds.zip(listOf("10","10","6")).forEach{(id,total)->compose.onNodeWithTag("online.report.ingredient.$id").assertTextEquals(total)}
-            compose.onNodeWithTag("online.report.ingredient.${ingredientIds.last()}").performScrollTo();snap("report-ingredients")
+            compose.onNodeWithTag("online.report.ingredient.${ingredientIds.last()}").performScrollTo();snap("report-ingredients");holdScene()
             proof.put("frozenReportSha256",hash(requireNotNull(online.state.value.frozenReport).toByteArray())).put("pagesVerified",JSONArray(listOf("input","review","frozenReport"))).put("passed",true);save()
         }catch(error:Throwable){runCatching{snap("failure")};save();throw error}
     }

@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "extractedOperatorPath": "D:\\Code\\ToolCache\\PortfolioQA\\Closing Count Reviewer R1\\operator",
+  "health": {
+    "status": "ok",
+    "environment": "DEMO",
+    "service": "closing-count",
+    "version": "0.2.0-dev.8"
+  },
+  "businessSnapshotUnchanged": true,
+  "stopped": true,
+  "volumeAndHistoryRetained": true,
+  "physicalPhoneAccessed": false,
+  "publicAcceptance": false
+}

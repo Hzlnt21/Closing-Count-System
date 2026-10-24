@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "baseCommit": "83d675835ef70ac32e0db5a28ab928e6319a4678",
+  "sourceMatchesBaseCommit": false,
+  "files": 155,
+  "allPayloadHashesMatched": true,
+  "knownPrivateValuesAbsent": true,
+  "privateProfilesChecked": 9,
+  "apkContentsScanned": true,
+  "installedDependenciesAndBuildOutputsAbsent": true,
+  "localGuideAndGalleryTargetsExist": true,
+  "sameAndroidAndOperatorSourceAsExtractedTests": true,
+  "apkSha256": "a2e78d2862fbdc110ae7ab219d70d68b5aa4ee7e226cdd5801b5b45a2add5dc2",
+  "archive": null,
+  "browserPlaybackVerified": false,
+  "physicalAcceptance": false,
+  "publicAcceptance": false
+}

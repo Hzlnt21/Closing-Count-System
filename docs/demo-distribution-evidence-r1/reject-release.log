@@ -1,0 +1,54 @@
+
+D:\Code\Worktrees\Closing-Count-Portfolio>setlocal EnableExtensions
+
+D:\Code\Worktrees\Closing-Count-Portfolio>set DIRNAME=D:\Code\Worktrees\Closing-Count-Portfolio\
+
+D:\Code\Worktrees\Closing-Count-Portfolio>if "D:\Code\Worktrees\Closing-Count-Portfolio\" == "" set DIRNAME=.
+
+D:\Code\Worktrees\Closing-Count-Portfolio>set APP_BASE_NAME=gradlew
+
+D:\Code\Worktrees\Closing-Count-Portfolio>set APP_HOME=D:\Code\Worktrees\Closing-Count-Portfolio\
+
+D:\Code\Worktrees\Closing-Count-Portfolio>for %i in ("D:\Code\Worktrees\Closing-Count-Portfolio\") do set APP_HOME=%~fi
+
+D:\Code\Worktrees\Closing-Count-Portfolio>set APP_HOME=D:\Code\Worktrees\Closing-Count-Portfolio\
+
+D:\Code\Worktrees\Closing-Count-Portfolio>set DEFAULT_JVM_OPTS="-Xmx64m" "-Xms64m"
+
+D:\Code\Worktrees\Closing-Count-Portfolio>if defined JAVA_HOME goto findJavaFromJavaHome
+
+D:\Code\Worktrees\Closing-Count-Portfolio>set JAVA_HOME=C:\Program Files\Android\Android Studio\jbr
+
+D:\Code\Worktrees\Closing-Count-Portfolio>set JAVA_EXE=C:\Program Files\Android\Android Studio\jbr/bin/java.exe
+
+D:\Code\Worktrees\Closing-Count-Portfolio>if exist "C:\Program Files\Android\Android Studio\jbr/bin/java.exe" goto execute
+
+D:\Code\Worktrees\Closing-Count-Portfolio>endlocal   & "C:\Program Files\Android\Android Studio\jbr/bin/java.exe" "-Xmx64m" "-Xms64m"   "-Dorg.gradle.appname=gradlew" -jar "D:\Code\Worktrees\Closing-Count-Portfolio\\gradle\wrapper\gradle-wrapper.jar" assembleRelease -PclosingLocalDemo=true --no-daemon --max-workers=1 "-Dorg.gradle.jvmargs=-Xmx512m -XX:MaxMetaspaceSize=384m"   & call :exitWithErrorLevel
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.5.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build
+gradlew.bat :
+At line:2 char:469
++ ... STEXITCODE; & .\gradlew.bat assembleRelease '-PclosingLocalDemo=true' ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+FAILURE: Build failed with an exception.
+
+* Where:
+Build file 'D:\Code\Worktrees\Closing-Count-Portfolio\app\build.gradle.kts' line: 18
+
+* What went wrong:
+closingLocalDemo is restricted to debug local demonstration builds
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 12s
+
+D:\Code\Worktrees\Closing-Count-Portfolio>"C:\Windows\system32\cmd.exe" /c exit 1
+
+D:\Code\Worktrees\Closing-Count-Portfolio>"C:\Windows\system32\cmd.exe" /c exit 1

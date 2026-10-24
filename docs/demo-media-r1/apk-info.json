@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "packageId": "com.closingcount.app.demo",
+  "label": "Closing Count Demo",
+  "version": "0.1.2-demo-local",
+  "versionCode": 10,
+  "minSdk": 26,
+  "targetSdk": 36,
+  "debuggable": true,
+  "signatureVerified": true,
+  "certificateSha256": "08d6ec78fdaded5df79638abdfe8042f050b786f5dda8051392df4b62243841c",
+  "endpoint": "http://10.0.2.2:4372",
+  "sha256": "a2e78d2862fbdc110ae7ab219d70d68b5aa4ee7e226cdd5801b5b45a2add5dc2",
+  "publicApk": false
+}

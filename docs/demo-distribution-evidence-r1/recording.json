@@ -1,0 +1,13 @@
+{
+  "physicalPhoneAccessed": false,
+  "realTimeNativeScreenRecording": true,
+  "credentialsEntryExcluded": true,
+  "size": [
+    720,
+    1600
+  ],
+  "limitSeconds": 45,
+  "run": "29fd542f-1a1c-4bc2-bfe4-eccdea07fdf0",
+  "package": "com.closingcount.app.demo",
+  "sha256": "5132cb5dec9a117f5a34c93c50217af1ed9264cc5ec80cedfe656ad039d78b8f"
+}

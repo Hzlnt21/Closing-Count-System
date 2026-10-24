@@ -1,0 +1,33 @@
+{
+  "sourceBase": "83d675835ef70ac32e0db5a28ab928e6319a4678",
+  "files": [
+    {
+      "path": "D:\\Code\\Documents\\Career-Portfolio-2026\\automation\\Check-ClosingDemoPresentationR1.py",
+      "sha256": "16c99ecd34303664339a0469df75d6e28b36514560895352e77a7ac91aafaca6"
+    },
+    {
+      "path": "D:\\Code\\Worktrees\\Closing-Count-Portfolio\\app\\src\\androidTest\\java\\com\\closingcount\\app\\OnlineDemoOrderingInstrumentedTest.kt",
+      "sha256": "811b8cae1ef1d05779fa0e11d589cc15336215d515e959250488e7040399c118"
+    },
+    {
+      "path": "D:\\Code\\Worktrees\\Closing-Count-Portfolio\\app\\src\\main\\java\\com\\closingcount\\app\\data\\online\\OnlineCatalog.kt",
+      "sha256": "fad21453ff72904d5298333e55bad0a9489275de1e6fd81bb169eed729de4eb8"
+    },
+    {
+      "path": "D:\\Code\\Worktrees\\Closing-Count-Portfolio\\app\\src\\main\\java\\com\\closingcount\\app\\ui\\online\\OnlineViewModel.kt",
+      "sha256": "a7afee3cc9247f2b338efb7b7b033ba05f5771aa1935b74fb19719ea13404010"
+    },
+    {
+      "path": "D:\\Code\\Worktrees\\Closing-Count-Portfolio\\app\\src\\main\\java\\com\\closingcount\\app\\ui\\online\\OnlineClosingApp.kt",
+      "sha256": "1ff9ee04a09e0c62e2e8dba535b9ef0279242b88d21382a0d654274b72aec6ee"
+    },
+    {
+      "path": "D:\\Code\\Worktrees\\Closing-Count-Portfolio\\app\\build.gradle.kts",
+      "sha256": "3ae9778dbbd051f8585fbeabc86f26e55e4b4e6920da4552ba109452a9ccc44e"
+    },
+    {
+      "path": "D:\\Code\\Worktrees\\Closing-Count-Portfolio\\app\\src\\main\\AndroidManifest.xml",
+      "sha256": "741324fc60ceee0c7979c46be98b917363199496378aa8c39da17f0dc2856934"
+    }
+  ]
+}

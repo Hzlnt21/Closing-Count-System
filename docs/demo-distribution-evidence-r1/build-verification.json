@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "version": "0.1.2-demo-local",
+  "versionCode": 10,
+  "packageId": "com.closingcount.app.demo",
+  "endpoint": "http://10.0.2.2:4372",
+  "unitTests": 27,
+  "unitFailures": 0,
+  "lintErrors": 0,
+  "lintWarnings": 18,
+  "apkInputs": [
+    {
+      "path": "D:\\Code\\Worktrees\\Closing-Count-Portfolio\\app\\build\\outputs\\apk\\debug\\app-debug.apk",
+      "sha256": "a2e78d2862fbdc110ae7ab219d70d68b5aa4ee7e226cdd5801b5b45a2add5dc2"
+    },
+    {
+      "path": "D:\\Code\\Worktrees\\Closing-Count-Portfolio\\app\\build\\outputs\\apk\\androidTest\\debug\\app-debug-androidTest.apk",
+      "sha256": "20fb34084d4d7229edef245f819d04c2de34f977e50502f2f4f012ded0e4f37b"
+    }
+  ],
+  "physicalPhoneAccessed": false
+}

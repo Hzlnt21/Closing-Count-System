@@ -1,6 +1,6 @@
 # Closing Count local demo
 
-The service/control-plane foundation, operator-payload relocation and bounded startup/interrupted-seed recovery are verified locally. The [nine-phase Android0.1.1 baseline](DEMO_NATIVE_R1.md) and [0.1.2 presentation correction](DEMO_ORDERING_R1.md) are verified with their separate evidence. Media and the final distributable package remain open under CCS08. This is not a public deployment or physical-device acceptance. Use fictional data only. [Reviewer scenarios and expected results](DEMO_SCENARIOS.md).
+The service/control-plane foundation, operator-payload relocation and bounded startup/interrupted-seed recovery are verified locally. The [nine-phase Android0.1.1 baseline](DEMO_NATIVE_R1.md) and [0.1.2 presentation correction](DEMO_ORDERING_R1.md) retain separate evidence. The [local candidate acceptance](DEMO_LOCAL_ACCEPTANCE_R1.md), [APK/payload guide](DEMO_DISTRIBUTION_R1.md) and [actual media](demo-media-r1/review.html) describe the isolated .demo candidate. This is not public deployment or physical-device acceptance. Use fictional data only. [Reviewer scenarios and expected results](DEMO_SCENARIOS.md).
 
 ## Prerequisites and first start
 
@@ -26,7 +26,7 @@ To view the local fictional login credentials intentionally:
 node demo/runtime.mjs access
 ```
 
-This is the only command that prints account passwords. Do not use it while recording evidence/media. Verified Android emulator access uses `http://10.0.2.2:4372`. The local Android debug build is for a disposable test emulator, not installation over operational data or a final public Demo APK.
+This is the only command that prints account passwords. Do not use it while recording evidence/media. Verified Android emulator access uses `http://10.0.2.2:4372`. Select the separate Closing Count Demo APK/.demo package on a disposable test emulator; this is not the final public APK.
 
 ## Stop, restart and reset
 
@@ -42,7 +42,7 @@ Stop closes only the matched owned child and labelled demo database. It retains 
 
 Reset creates a new logical generation with fresh outlet/account/menu/operation IDs and credentials. In one control-plane transaction it archives the former generation, deactivates its outlet/accounts and revokes its sessions. Catalog versions, receipts, audit, reports and existing device files are retained. The new generation is marked ready only after the ordinary API creates its baseline; an interrupted baseline can be resumed with `seed`, using its saved operation IDs without duplicate audit. Reset does not truncate tables, disable immutable triggers, remove a volume or rewrite historical authorship.
 
-After reset, old credentials/sessions cannot use the archived outlet. Sign out and use the new accounts for the new generation. A server reset cannot clear Android drafts: export/review any old pending work in its original account/outlet context; it is never relabelled as new-generation work. The native baseline verifies this handover and actual JSON backup; media/distribution and the complete CCS08 acceptance are still open.
+After reset, old credentials/sessions cannot use the archived outlet. Sign out and use the new accounts for the new generation. A server reset cannot clear Android drafts: export/review any old pending work in its original account/outlet context; it is never relabelled as new-generation work. The native baseline verifies this handover and actual JSON backup. Local distribution and later gates are mapped in the candidate acceptance guide.
 
 ## Troubleshooting and limits
 

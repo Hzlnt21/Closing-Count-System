@@ -1,0 +1,153 @@
+{
+  "files": [
+    {
+      "file": "verification.json",
+      "sha256": "e0bb0bc2790b1b7118093c71d2520e98ec0302b0554052f5ea42ffae48e0d488",
+      "rawSha256": "e0bb0bc2790b1b7118093c71d2520e98ec0302b0554052f5ea42ffae48e0d488"
+    },
+    {
+      "file": "source-inputs.json",
+      "sha256": "96bd8548ec82bcb98542bc90c1773da034df68197979df04be02cda1f57d1b43",
+      "rawSha256": "96bd8548ec82bcb98542bc90c1773da034df68197979df04be02cda1f57d1b43"
+    },
+    {
+      "file": "business-before.json",
+      "sha256": "22bf05f4b68697fbafc8377394b92f2a996359c9ab1dc4c694b7b5c789cef77e",
+      "rawSha256": "22bf05f4b68697fbafc8377394b92f2a996359c9ab1dc4c694b7b5c789cef77e"
+    },
+    {
+      "file": "business-after.json",
+      "sha256": "22bf05f4b68697fbafc8377394b92f2a996359c9ab1dc4c694b7b5c789cef77e",
+      "rawSha256": "22bf05f4b68697fbafc8377394b92f2a996359c9ab1dc4c694b7b5c789cef77e"
+    },
+    {
+      "file": "device-before.json",
+      "sha256": "13079f804a8bce61b95f5879e47446369747fd36a39febc2ad0f5bb19df7fe6e",
+      "rawSha256": "13079f804a8bce61b95f5879e47446369747fd36a39febc2ad0f5bb19df7fe6e"
+    },
+    {
+      "file": "device-after.json",
+      "sha256": "13079f804a8bce61b95f5879e47446369747fd36a39febc2ad0f5bb19df7fe6e",
+      "rawSha256": "13079f804a8bce61b95f5879e47446369747fd36a39febc2ad0f5bb19df7fe6e"
+    },
+    {
+      "file": "owner-before.sha256",
+      "sha256": "0e7d99078c55b1ccf8b47dab28bacba3ac762b1585b7b277a538b4a2eede616d",
+      "rawSha256": "a6b237fd6a018d183a3c5acb570da51363de9e23b9c745b3bbc664a4b696e281"
+    },
+    {
+      "file": "owner-after.sha256",
+      "sha256": "0e7d99078c55b1ccf8b47dab28bacba3ac762b1585b7b277a538b4a2eede616d",
+      "rawSha256": "a6b237fd6a018d183a3c5acb570da51363de9e23b9c745b3bbc664a4b696e281"
+    },
+    {
+      "file": "fixed-apks.json",
+      "sha256": "90d5d565ce780c1b74640f5aa15479c47c94b7b51421892ade84b4c9ca18592a",
+      "rawSha256": "90d5d565ce780c1b74640f5aa15479c47c94b7b51421892ade84b4c9ca18592a"
+    },
+    {
+      "file": "fixed.stdout.log",
+      "sha256": "0b91f1cde6c172d2ee3e6ecc8aa3b7724590d862d60ba31e2cdccee6cd055e85",
+      "rawSha256": "0b91f1cde6c172d2ee3e6ecc8aa3b7724590d862d60ba31e2cdccee6cd055e85"
+    },
+    {
+      "file": "recording.json",
+      "sha256": "598b2f04539a22d8a5d28ec505c490d257e618c22242bae750730b50e7e0d7be",
+      "rawSha256": "598b2f04539a22d8a5d28ec505c490d257e618c22242bae750730b50e7e0d7be"
+    },
+    {
+      "file": "media-verification.json",
+      "sha256": "6f26dd85fc3537779c90d6f8434960b88e2aa670e644ccaeb1259273921bab13",
+      "rawSha256": "6f26dd85fc3537779c90d6f8434960b88e2aa670e644ccaeb1259273921bab13"
+    },
+    {
+      "file": "apk-inventory.json",
+      "sha256": "5e14c0317d18f5fae0e373939ac745f2add8d5633a71c3f5a38c077bc13b43ac",
+      "rawSha256": "5e14c0317d18f5fae0e373939ac745f2add8d5633a71c3f5a38c077bc13b43ac"
+    },
+    {
+      "file": "extracted-build-verification.json",
+      "sha256": "858e7140d4196b6dc927fed9fdcf7be6b3a9fa18111030983a5cb87af00c7308",
+      "rawSha256": "858e7140d4196b6dc927fed9fdcf7be6b3a9fa18111030983a5cb87af00c7308"
+    },
+    {
+      "file": "native-proof.json",
+      "sha256": "e69acbf2e62a6ef854ef8dffa6a631d5cd1cc20f389cec95434f77bd602f9d69",
+      "rawSha256": "e69acbf2e62a6ef854ef8dffa6a631d5cd1cc20f389cec95434f77bd602f9d69"
+    },
+    {
+      "file": "build-verification.json",
+      "sha256": "5f7076fea3f47334b3b833c6299cbd71e8ff2b09beb71c5206172395f0b202d5",
+      "rawSha256": "5f7076fea3f47334b3b833c6299cbd71e8ff2b09beb71c5206172395f0b202d5"
+    },
+    {
+      "file": "variant-guards.json",
+      "sha256": "6e08edb0949d25af7b17f20970c8352987ca28af42234f85700a3e37fa0457db",
+      "rawSha256": "6e08edb0949d25af7b17f20970c8352987ca28af42234f85700a3e37fa0457db"
+    },
+    {
+      "file": "reject-peer.log",
+      "sha256": "b2cc070a43a233b192e91f024e43a30fc76ee73315d1ad727192e724f1014f07",
+      "rawSha256": "6c427512215f42af6d617af433736a5e433e18a18738f54aeff74b78f9f05299"
+    },
+    {
+      "file": "reject-release.log",
+      "sha256": "d3490597bbce3e564a336d6edaa00080f418b16423a199639dd2b6f914627be9",
+      "rawSha256": "cd9291f03fdd8d047c00b862e954202cdebce2d64aeeccdaa3749ae3ab305e57"
+    },
+    {
+      "file": "apk-badging.txt",
+      "sha256": "1e5798262ffbac4e66e10fc04da722876af3aa43606fb5f94b4e90fef98fa4bd",
+      "rawSha256": "1782f51a8f6f3dc27dea44475e8a813b4c566ce47270752f39104f70d3730ca5"
+    },
+    {
+      "file": "apk-signature.txt",
+      "sha256": "4b1e68f245dcd2a80492430e5737498a29e7e9df8ef2381aa2a88420c11d3487",
+      "rawSha256": "7d4c103aa5ec443ab821a2bc8eb32abc4e616b3026e2d4878035d40dbf9107b3"
+    },
+    {
+      "file": "extracted-runtime-verification.json",
+      "sha256": "a99bc3d0474a7f949b295c61572e5d78ba029f9661510075382e85c973c57337",
+      "rawSha256": "a99bc3d0474a7f949b295c61572e5d78ba029f9661510075382e85c973c57337"
+    },
+    {
+      "file": "extracted-runtime-start.json",
+      "sha256": "380171de32075c58ae4a9d4043e8b09bd8c60fa28611a9f9a5ceb40ce91aa410",
+      "rawSha256": "380171de32075c58ae4a9d4043e8b09bd8c60fa28611a9f9a5ceb40ce91aa410"
+    },
+    {
+      "file": "extracted-runtime-status.json",
+      "sha256": "65b2069d2ea2f119f6f550b74f9c94d2a00f28fd23c46d439cbcfd04b4e30d30",
+      "rawSha256": "65b2069d2ea2f119f6f550b74f9c94d2a00f28fd23c46d439cbcfd04b4e30d30"
+    },
+    {
+      "file": "extracted-runtime-stop.json",
+      "sha256": "6610498e573cae4b47af2ea5a01e8cc82aed18d936d9f49b34f3cba0342fc992",
+      "rawSha256": "6610498e573cae4b47af2ea5a01e8cc82aed18d936d9f49b34f3cba0342fc992"
+    },
+    {
+      "file": "Check-ClosingDemoPresentationR1.py",
+      "sha256": "16c99ecd34303664339a0469df75d6e28b36514560895352e77a7ac91aafaca6",
+      "rawSha256": "16c99ecd34303664339a0469df75d6e28b36514560895352e77a7ac91aafaca6"
+    },
+    {
+      "file": "Curate-ClosingDemoMediaR1.py",
+      "sha256": "2eae4cf6d0506a1e5748a32cd3f036dccab08525f41cf66b00f89c5f6abf7dd4",
+      "rawSha256": "2eae4cf6d0506a1e5748a32cd3f036dccab08525f41cf66b00f89c5f6abf7dd4"
+    },
+    {
+      "file": "Curate-ClosingDemoDistributionR1.py",
+      "sha256": "0f21621db9c21c0ca8f08a55b813302d7e6f84868335e90010f93858d224bd8f",
+      "rawSha256": "0f21621db9c21c0ca8f08a55b813302d7e6f84868335e90010f93858d224bd8f"
+    },
+    {
+      "file": "Check-ClosingDemoExtractedRuntimeR1.py",
+      "sha256": "0a7751bac17520c8ca421bac0da92714a70c7db619cf69e96820a35eb14f14e5",
+      "rawSha256": "0a7751bac17520c8ca421bac0da92714a70c7db619cf69e96820a35eb14f14e5"
+    }
+  ],
+  "privateRuntimeAndDiagnosticsNotPublished": true,
+  "roomDatabasesNotPublished": true,
+  "failedFirstHealthCheckerRetainedGlobally": true,
+  "repair": "Curated rejection logs trim trailing whitespace; original UTF16 raw logs retained untouched"
+}

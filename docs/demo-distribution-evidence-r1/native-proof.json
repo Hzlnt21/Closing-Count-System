@@ -1,0 +1,33 @@
+{
+  "passed": true,
+  "physicalPhoneAccessed": false,
+  "run": "29fd542f-1a1c-4bc2-bfe4-eccdea07fdf0",
+  "case": "fixed",
+  "user": 10,
+  "uid": 1010221,
+  "pid": 3682,
+  "version": "0.1.2-demo-local",
+  "legacyBefore": "362ca07086d8ed3240c02d3f22c9d0778c711adf6756f17c21f946e6c3e32686",
+  "rawMenuOrder": [
+    "4303d774-ac6d-4525-bf46-84ee20ac92b2",
+    "8f019a5f-0141-4f1c-bd55-6da1925b9a8c"
+  ],
+  "inputOrder": [
+    "8f019a5f-0141-4f1c-bd55-6da1925b9a8c",
+    "4303d774-ac6d-4525-bf46-84ee20ac92b2"
+  ],
+  "expectedOrder": [
+    "8f019a5f-0141-4f1c-bd55-6da1925b9a8c",
+    "4303d774-ac6d-4525-bf46-84ee20ac92b2"
+  ],
+  "localDemoPackage": "com.closingcount.app.demo",
+  "media": true,
+  "frozenReportSha256": "8eecb3f86a927a771895160315aadeb746a412bb45ffee96931ef063511946ca",
+  "pagesVerified": [
+    "input",
+    "review",
+    "frozenReport"
+  ],
+  "uiLogout": true,
+  "legacyAfter": "362ca07086d8ed3240c02d3f22c9d0778c711adf6756f17c21f946e6c3e32686"
+}
