@@ -50,7 +50,8 @@ const catalogFor=g=>normalizeCatalog({
  menus:manifest.menus.map((m,index)=>({id:g.ids[m.key],categoryId:g.ids.menuCategory,name:m.name,sortOrder:index,active:true,ingredientIds:m.ingredients.map(k=>g.ids[k])}))
 });
 export const identityFor=g=>({number:g.number,outlet:g.outlet,catalogVersion:g.catalogVersion,ids:g.ids,actors:Object.fromEntries(Object.entries(g.actors).map(([k,{password,...a}])=>[k,a]))});
-export async function seedGeneration(state,{reset=false}={}) {
+export async function seedGeneration(state,{reset=false,onProgress}={}) {
+ if(onProgress!==undefined&&typeof onProgress!=='function')throw Error('Invalid local seed callback');
  const pool=appPool(state);
  try {
   await controlSchema(pool,state);const db=await pool.connect();let g,row;
@@ -89,12 +90,13 @@ export async function seedGeneration(state,{reset=false}={}) {
     await db.query('COMMIT');
    }
   }catch(e){await db.query('ROLLBACK').catch(()=>{});throw e;}finally{db.release();}
-  await seedBaseline(pool,g);
+  await onProgress?.({stage:'generation-committed',generation:g.number});
+  await seedBaseline(pool,g,{onProgress});
   await pool.query("UPDATE ccs_demo.generations SET status='READY',ready_at=clock_timestamp() WHERE number=$1 AND status='SEEDING'",[g.number]);
   return {generation:g.number,outlet:g.outlet,anchor:g.anchor,alreadySeeded:false,baselineSeededThroughRealApi:true,priorGenerationArchived:reset&&!!row};
  }finally{await pool.end();}
 }
-export async function seedBaseline(pool,g) {
+export async function seedBaseline(pool,g,{onProgress}={}) {
  const internal=[];const server=await createApp({pool,environment:'DEMO',onInternalError:e=>internal.push(e.requestId)});
  await new Promise((resolve,reject)=>{server.once('error',reject);server.listen(0,'127.0.0.1',resolve);});
  const base='http://127.0.0.1:'+server.address().port,tokens={};
@@ -107,7 +109,10 @@ export async function seedBaseline(pool,g) {
   for(const kind of ['history','current']) {
    const expected=manifest.baseline[kind],date=dateOffset(g.anchor,expected.dayOffset);
    const c=await api('POST',`/outlets/${g.outlet}/closings`,{businessDate:date});
-   for(const [key,actor] of [['cappuccino','rani'],['latte','dimas']])await api('POST',`/closings/${c.id}/entries/${g.ids[key]}/operations`,{operationId:g.operations[kind+'.'+key],generation:1,expectedEntryRevision:0,quantity:expected.quantities[key]},actor);
+   for(const [key,actor] of [['cappuccino','rani'],['latte','dimas']]) {
+    await api('POST',`/closings/${c.id}/entries/${g.ids[key]}/operations`,{operationId:g.operations[kind+'.'+key],generation:1,expectedEntryRevision:0,quantity:expected.quantities[key]},actor);
+    await onProgress?.({stage:'quantity-committed',kind,menu:key,generation:g.number});
+   }
    if(kind==='history') {
     await api('POST',`/closings/${c.id}/submit`,{operationId:g.operations['history.submit'],generation:1,expectedRevision:2,deviceSyncState:'SYNCED'});
     await api('POST',`/closings/${c.id}/lock`,{operationId:g.operations['history.lock'],generation:1,expectedRevision:3,deviceSyncState:'SYNCED'},'arif');

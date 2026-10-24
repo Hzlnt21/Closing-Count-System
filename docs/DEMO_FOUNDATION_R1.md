@@ -1,5 +1,7 @@
 # Local DEMO foundation R1
 
+Historical dev7 checkpoint. [Dev8 relocation/startup/seed-recovery evidence](DEMO_PORTABILITY_R1.md) addresses the portability and bounded fault gates listed below. Its source/runtime scope remains distinct from the required native DEMO journey and complete media/distribution.
+
 Service0.2.0-dev.7 adds an explicit DEMO profile on127.0.0.1:55437/closing_count_portfolio_demo, distinct from QA55436. Both require the fixed restricted application role, PG16 and the matching private marker. Ownership configuration is revalidated before identity queries. The service health endpoint now identifies its explicit local environment; the default remains QA. Domain SQL migrations, Android source, Room schema, sync/recovery engine and workflow contracts are unchanged from `ccs-transfer-local-r1`.
 
 The root `demo/runtime.mjs` entry point uses relative source/module paths, private external state, a labelled Docker container/volume, exact bindings/mounts/resource caps, a restricted app role and ownership validation. Commands implement init, seed, start, status, stop, reset and explicit credential access. The detached server identifies its run with a noncredential run UUID; stop requests use the matched private control file and the child stops itself. No PID kill, remote target fallback, public reset endpoint or volume removal is provided.

@@ -4,16 +4,22 @@ import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
 import {randomUUID} from 'node:crypto';
-import {validateContainer,label,volume} from '../demo/database.mjs';
+import {validateContainer,label,volume,resourcesFor} from '../demo/database.mjs';
 import {stateDirectory,loadState,packageRoot,controllerLock} from '../../demo/private-state.mjs';
 test('container identity, bindings, secret mount and volume must all match',()=>{
- const state={passwordFile:'D:/owned-demo/postgres-password.private.txt',value:{instance:'a'.repeat(48)}};
- const info={Config:{Image:'postgres:16',Labels:{[label]:state.value.instance}},HostConfig:{RestartPolicy:{Name:'no'},Privileged:false,Memory:384*1024*1024,NanoCpus:750000000,PortBindings:{'5432/tcp':[{HostIp:'127.0.0.1',HostPort:'55437'}]}},Mounts:[{Type:'volume',Name:volume,Destination:'/var/lib/postgresql/data'},{Type:'bind',Source:'/run/desktop/mnt/host/d/owned-demo/postgres-password.private.txt',Destination:'/run/secrets/pg-password',RW:false}]};
+ const state={passwordFile:'D:/owned-demo/postgres-password.private.txt',value:{version:1,instance:'a'.repeat(48)}};
+ const info={Name:'/ccs-portfolio-demo-pg16',Config:{Image:'postgres:16',Labels:{[label]:state.value.instance}},HostConfig:{RestartPolicy:{Name:'no'},Privileged:false,Memory:384*1024*1024,NanoCpus:750000000,PortBindings:{'5432/tcp':[{HostIp:'127.0.0.1',HostPort:'55437'}]}},Mounts:[{Type:'volume',Name:volume,Destination:'/var/lib/postgresql/data'},{Type:'bind',Source:'/run/desktop/mnt/host/d/owned-demo/postgres-password.private.txt',Destination:'/run/secrets/pg-password',RW:false}]};
  const v={Labels:{[label]:state.value.instance}};
  assert.doesNotThrow(()=>validateContainer(info,v,state));
  const bad=[x=>x.Config.Labels[label]='foreign',x=>x.HostConfig.Privileged=true,x=>x.HostConfig.PortBindings['5432/tcp'][0].HostIp='0.0.0.0',x=>x.HostConfig.PortBindings['5432/tcp'][0].HostPort='55436',x=>x.Mounts[1].RW=true,x=>x.Mounts[1].Source='D:/other/password',x=>x.Mounts[0].Name='operational'];
  for(const mutate of bad){const copy=structuredClone(info);mutate(copy);assert.throws(()=>validateContainer(copy,v,state));}
  assert.throws(()=>validateContainer(info,{Labels:{}},state));
+});
+test('fresh identities have distinct names while v1 resources remain unchanged',()=>{
+ const legacy=resourcesFor({value:{version:1,instance:'a'.repeat(48)}});assert.equal(legacy.volume,volume);
+ const a=resourcesFor({value:{version:2,instance:'a'.repeat(48)}}),b=resourcesFor({value:{version:2,instance:'b'.repeat(48)}});
+ assert.notEqual(a.container,b.container);assert.notEqual(a.container,legacy.container);assert(!a.container.includes('a'.repeat(24)));
+ assert.throws(()=>resourcesFor({value:{version:3,instance:'a'.repeat(48)}}));
 });
 test('source paths and linked descendants are rejected before private-state writes',()=>{
  assert.throws(()=>stateDirectory(packageRoot));assert.throws(()=>stateDirectory(path.join(packageRoot,'demo','runtime-private')));

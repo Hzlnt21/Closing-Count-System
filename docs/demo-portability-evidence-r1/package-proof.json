@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "payloadFiles": 32,
+  "archiveSha256": "96a428f95f6ba957ac1957ab8d6b22ff58e60239fc33ffcf6f5e0d7fc535df9c",
+  "archiveCrcPassed": true,
+  "allExtractedBytesMatched": true,
+  "knownDeveloperSecretsAbsent": true,
+  "relocatedPathContainsSpaces": true,
+  "developerDependenciesIncluded": false,
+  "baseCommit": "98d74868b7f845ae730c781ff14a4820eaa15567",
+  "sourceMatchesBaseCommit": false,
+  "fullCcs08Complete": false
+}

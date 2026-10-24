@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "steps": [
+    {
+      "name": "extracted-payload-and-local-dependencies-verified",
+      "passed": true
+    },
+    {
+      "name": "version1-profile-and-archived-history-preserved",
+      "passed": true
+    },
+    {
+      "name": "fresh-default-profile-in-relocated-directory-initializes-independently",
+      "passed": true
+    },
+    {
+      "name": "relocated-start-status-and-repeat-init-seed-are-consistent",
+      "passed": true
+    },
+    {
+      "name": "another-retained-instance-cannot-adopt-active-ports",
+      "passed": true
+    },
+    {
+      "name": "child-authentication-failure-is-bounded-and-cleaned-up",
+      "passed": true
+    },
+    {
+      "name": "controller-failure-after-spawn-stops-matched-production-child",
+      "passed": true
+    },
+    {
+      "name": "real-process-exit-leaves-durable-incomplete-seed",
+      "passed": true
+    },
+    {
+      "name": "ordinary-seed-resumes-same-generation-and-preserves-original-receipt",
+      "passed": true
+    }
+  ],
+  "operatorPayloadRelocationPassed": true,
+  "freshPrivateIdentityVersion": 2,
+  "legacyVersion1Preserved": true,
+  "sourceAndDeveloperSecretsNotNeededForRelocatedCommands": true,
+  "dependenciesInstalledInsideRelocatedPackage": true,
+  "pathsWithSpacesExercised": true,
+  "distinctRetainedDockerResources": true,
+  "fixedPortsRefuseOtherActiveInstances": true,
+  "actualChildAuthenticationFailureRecovered": true,
+  "actualControllerFaultAfterSpawnRecovered": true,
+  "deliberateSeedExitCode": 86,
+  "ordinarySeedResumePreservedReceiptAndIdentity": true,
+  "rateClockSimulated": false,
+  "physicalPhoneAccessed": false,
+  "nativeDemoJourneyComplete": false,
+  "completeDemoDistribution": false,
+  "ccs08Complete": false,
+  "fullGoalComplete": false
+}

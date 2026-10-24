@@ -1,0 +1,359 @@
+{
+  "passed": true,
+  "baseline": "98d74868b7f845ae730c781ff14a4820eaa15567",
+  "sourceFiles": [
+    {
+      "file": "README.md",
+      "indexSha256": "1ca5cbfbb9056a522bea6519995c2b73e6a0662607db608e6539a2a714723773"
+    },
+    {
+      "file": "demo/build-package.mjs",
+      "indexSha256": "661e0f5dc640c75e2bffc7ff47940fdfb5f664b0d0851ddb219e4cdaede9ae0d"
+    },
+    {
+      "file": "demo/private-state.mjs",
+      "indexSha256": "00a7a2b9c615781e28434bb29f3fe566fa871f40bff6e7da908887ff1d1945cd"
+    },
+    {
+      "file": "docs/DEMO_FOUNDATION_R1.md",
+      "indexSha256": "60ee6ca8fa326c6becf1943483740adcd1e21cee9a0bd05de8278ec6e6860b8b"
+    },
+    {
+      "file": "docs/DEMO_LOCAL.md",
+      "indexSha256": "166e2d8f813ffc3de6b9d94550ee066eda2ac9f3db1fc9ebabd6da77f91df47e"
+    },
+    {
+      "file": "docs/DEMO_PORTABILITY_R1.md",
+      "indexSha256": "eed867fdb76adda6ba8a2790f5fb068f1a38bb585407cf4ed86f76da6df46436"
+    },
+    {
+      "file": "docs/demo-portability-evidence-r1/candidate-SHA256SUMS",
+      "indexSha256": "94a663b39dad02044b1811d32b4fa2072b897afae3f72817585fef9c8786c831"
+    },
+    {
+      "file": "docs/demo-portability-evidence-r1/candidate-package-info.json",
+      "indexSha256": "298d5e4504c05e3b1862abe43447a6434bf942401dd24f978a1970b711474b98"
+    },
+    {
+      "file": "docs/demo-portability-evidence-r1/cleanup-proof.json",
+      "indexSha256": "85ccd44744089a7311e3bce5fd425d602b06500d7842c7c3310a7acc42933697"
+    },
+    {
+      "file": "docs/demo-portability-evidence-r1/collect-demo-portability-cleanup-r1.mjs",
+      "indexSha256": "498300d64e2e775084648cb7311ec46e901481427ec8eaf9d818198c8a00480d"
+    },
+    {
+      "file": "docs/demo-portability-evidence-r1/curation.json",
+      "indexSha256": "b9770a42a19d4b4d67098ea1b9a81de58f8415dd953498e73f43e2f6ace9f8e5"
+    },
+    {
+      "file": "docs/demo-portability-evidence-r1/locked-seed-completion.json",
+      "indexSha256": "0fdda65f3383ba8eec40ad8e23d989e69f4a943b7e88284b00b2e15c5757bae8"
+    },
+    {
+      "file": "docs/demo-portability-evidence-r1/locked-seed-proof.json",
+      "indexSha256": "134ed38264274d606f6e87f0cf064d7d427f2ba29d1a3ad69af5dd636ac409fa"
+    },
+    {
+      "file": "docs/demo-portability-evidence-r1/locked-seed.log",
+      "indexSha256": "46eeda27fa4aa1691863d559b1b103e72b4127128d0559f023ff0f42942cdcd7"
+    },
+    {
+      "file": "docs/demo-portability-evidence-r1/package-build.log",
+      "indexSha256": "b0c5bb10844b977aee3d54bc03a878b337c95f50fc95571aca425dd96d67758a"
+    },
+    {
+      "file": "docs/demo-portability-evidence-r1/package-proof.json",
+      "indexSha256": "8c4a001774b326ebdbe5024ffa7fd694be5a7aeecf24f00b1e4ee4caef900107"
+    },
+    {
+      "file": "docs/demo-portability-evidence-r1/partial-seed-proof.json",
+      "indexSha256": "18d796810475e6139e3b16f7aaf084db091235d61b7b93dee4e955b74ffa8330"
+    },
+    {
+      "file": "docs/demo-portability-evidence-r1/relocated-npm-ci-online.log",
+      "indexSha256": "f270b0a20da9ec97300f88bf2d91b43fae32d35243f646abc7f139e525f998f4"
+    },
+    {
+      "file": "docs/demo-portability-evidence-r1/runtime-proof.json",
+      "indexSha256": "0570c594598294b64e9588533d92c2a5d3f2fa00878fed2a52b064e832f423ab"
+    },
+    {
+      "file": "docs/demo-portability-evidence-r1/runtime.log",
+      "indexSha256": "571ebd7ad40000d2822437026675d91a8dd517d0adea424437be7ed9a894b52b"
+    },
+    {
+      "file": "docs/demo-portability-evidence-r1/unit.log",
+      "indexSha256": "257468d8ac65d3a899cfb35aecec69695c68e474dcbb2892c128f60b24358cf7"
+    },
+    {
+      "file": "docs/demo-portability-evidence-r1/verify-demo-locked-seed-r1.mjs",
+      "indexSha256": "0fdac3b048480c18c101f513381f9f3ee8013b86f89d6232f3cac308f78ca42e"
+    },
+    {
+      "file": "docs/demo-portability-evidence-r1/verify-demo-portability-r1.mjs",
+      "indexSha256": "32fefdafae83f48f3db82a9e9412665ee5fd7ab6672738c29010a6a8a6cd8f4d"
+    },
+    {
+      "file": "service/demo/database.mjs",
+      "indexSha256": "66cb6a6e87da875de03d1d90d150262eac17efc48f23c3beb58f19e14bf0473d"
+    },
+    {
+      "file": "service/demo/generation.mjs",
+      "indexSha256": "f53954d85602c37498c48f4a82cd8c9762f6ee533f8a9d4c238d103cbcecd7b2"
+    },
+    {
+      "file": "service/demo/runtime.mjs",
+      "indexSha256": "259581208ebeb76d7d725fe4e90a3b8fcff6abe6d9b227fb7d4197e961284295"
+    },
+    {
+      "file": "service/package-lock.json",
+      "indexSha256": "247b233442b46ba29d60dad0fa6aa71043222e2c6854d4eacbce587eae00164d"
+    },
+    {
+      "file": "service/package.json",
+      "indexSha256": "86a51f669dfbab62c7a02e397d4aa830725c2188e0a92793b38eb0a9aee6b857"
+    },
+    {
+      "file": "service/test/demo-runtime-unit.test.mjs",
+      "indexSha256": "2052d0b7bbbc6db074e9495454a62de0c677f7a74504fc41b36f71481901e6af"
+    }
+  ],
+  "payloadBinding": [
+    {
+      "file": "demo/manifest.v1.json",
+      "testedPayloadSha256": "a71546cad69be51d669fa038b60ca3c31f566739f91255c8331b43704d319b11",
+      "stagedSourceSha256": "a71546cad69be51d669fa038b60ca3c31f566739f91255c8331b43704d319b11",
+      "comparison": "CRLF-to-LF only; raw tested payload retained"
+    },
+    {
+      "file": "demo/private-state.mjs",
+      "testedPayloadSha256": "00a7a2b9c615781e28434bb29f3fe566fa871f40bff6e7da908887ff1d1945cd",
+      "stagedSourceSha256": "00a7a2b9c615781e28434bb29f3fe566fa871f40bff6e7da908887ff1d1945cd",
+      "comparison": "CRLF-to-LF only; raw tested payload retained"
+    },
+    {
+      "file": "demo/runtime.mjs",
+      "testedPayloadSha256": "177717ead92e735b27c43348df8e1aa9cb222f0df5451fc61e7a7822bd6dee81",
+      "stagedSourceSha256": "177717ead92e735b27c43348df8e1aa9cb222f0df5451fc61e7a7822bd6dee81",
+      "comparison": "CRLF-to-LF only; raw tested payload retained"
+    },
+    {
+      "file": "service/demo/database.mjs",
+      "testedPayloadSha256": "66cb6a6e87da875de03d1d90d150262eac17efc48f23c3beb58f19e14bf0473d",
+      "stagedSourceSha256": "66cb6a6e87da875de03d1d90d150262eac17efc48f23c3beb58f19e14bf0473d",
+      "comparison": "CRLF-to-LF only; raw tested payload retained"
+    },
+    {
+      "file": "service/demo/generation.mjs",
+      "testedPayloadSha256": "f53954d85602c37498c48f4a82cd8c9762f6ee533f8a9d4c238d103cbcecd7b2",
+      "stagedSourceSha256": "f53954d85602c37498c48f4a82cd8c9762f6ee533f8a9d4c238d103cbcecd7b2",
+      "comparison": "CRLF-to-LF only; raw tested payload retained"
+    },
+    {
+      "file": "service/demo/runtime.mjs",
+      "testedPayloadSha256": "259581208ebeb76d7d725fe4e90a3b8fcff6abe6d9b227fb7d4197e961284295",
+      "stagedSourceSha256": "259581208ebeb76d7d725fe4e90a3b8fcff6abe6d9b227fb7d4197e961284295",
+      "comparison": "CRLF-to-LF only; raw tested payload retained"
+    },
+    {
+      "file": "service/demo/server.mjs",
+      "testedPayloadSha256": "44850450dfdce77c7ae36747f81adf09d1388aa63fc94f402eae028a898d728a",
+      "stagedSourceSha256": "44850450dfdce77c7ae36747f81adf09d1388aa63fc94f402eae028a898d728a",
+      "comparison": "CRLF-to-LF only; raw tested payload retained"
+    },
+    {
+      "file": "service/package-lock.json",
+      "testedPayloadSha256": "30e859292af3b061807d9d73c13725e6c921063fc6dbbb97577bc8772196d153",
+      "stagedSourceSha256": "247b233442b46ba29d60dad0fa6aa71043222e2c6854d4eacbce587eae00164d",
+      "comparison": "CRLF-to-LF only; raw tested payload retained"
+    },
+    {
+      "file": "service/package.json",
+      "testedPayloadSha256": "06e5b173f1d95ba4426a4b2ea77357265c96c7e7c83e78675dae88b665efdb54",
+      "stagedSourceSha256": "86a51f669dfbab62c7a02e397d4aa830725c2188e0a92793b38eb0a9aee6b857",
+      "comparison": "CRLF-to-LF only; raw tested payload retained"
+    },
+    {
+      "file": "service/sql/001-foundation.sql",
+      "testedPayloadSha256": "9f381effed0953cb12cbafccc2a0aefb10dc3cdcb1ac6eef7affcb5bcfca60da",
+      "stagedSourceSha256": "9f381effed0953cb12cbafccc2a0aefb10dc3cdcb1ac6eef7affcb5bcfca60da",
+      "comparison": "CRLF-to-LF only; raw tested payload retained"
+    },
+    {
+      "file": "service/sql/002-collaborative-closing.sql",
+      "testedPayloadSha256": "c7d46ca3bb552eeb94e8400cc7a6d47d18a0edda197f169b121c9cb7aeb1f0e2",
+      "stagedSourceSha256": "c7d46ca3bb552eeb94e8400cc7a6d47d18a0edda197f169b121c9cb7aeb1f0e2",
+      "comparison": "CRLF-to-LF only; raw tested payload retained"
+    },
+    {
+      "file": "service/sql/003-closing-lifecycle.sql",
+      "testedPayloadSha256": "840d54f8b6ceb0a2b63d02a3ccb7f8fbb992611b3b4813838aab09973f0c75fa",
+      "stagedSourceSha256": "840d54f8b6ceb0a2b63d02a3ccb7f8fbb992611b3b4813838aab09973f0c75fa",
+      "comparison": "CRLF-to-LF only; raw tested payload retained"
+    },
+    {
+      "file": "service/sql/004-outlet-settings.sql",
+      "testedPayloadSha256": "47668c8a594c840540efbc09f4f70cb322f301999c26ed82cbaff6a41f22da1d",
+      "stagedSourceSha256": "47668c8a594c840540efbc09f4f70cb322f301999c26ed82cbaff6a41f22da1d",
+      "comparison": "CRLF-to-LF only; raw tested payload retained"
+    },
+    {
+      "file": "service/sql/005-team-revisions.sql",
+      "testedPayloadSha256": "bf7e77118b5422c90c1686f880a99bace3a91f0cbea27c6ce8131ec9b5a48a11",
+      "stagedSourceSha256": "bf7e77118b5422c90c1686f880a99bace3a91f0cbea27c6ce8131ec9b5a48a11",
+      "comparison": "CRLF-to-LF only; raw tested payload retained"
+    },
+    {
+      "file": "service/src/app.mjs",
+      "testedPayloadSha256": "9274504d9891d9672aa2bfc8b805842af7ef4ea723f9bbd1ae9c5382e20178ca",
+      "stagedSourceSha256": "9274504d9891d9672aa2bfc8b805842af7ef4ea723f9bbd1ae9c5382e20178ca",
+      "comparison": "CRLF-to-LF only; raw tested payload retained"
+    },
+    {
+      "file": "service/src/business-date.mjs",
+      "testedPayloadSha256": "219ea100cfb428e20c04a07f88ff20add1c58177bb12dd0c09bcc64230607e6e",
+      "stagedSourceSha256": "219ea100cfb428e20c04a07f88ff20add1c58177bb12dd0c09bcc64230607e6e",
+      "comparison": "CRLF-to-LF only; raw tested payload retained"
+    },
+    {
+      "file": "service/src/catalog.mjs",
+      "testedPayloadSha256": "cda5022a4a0dd22bdf7b09127732221ba9f6bb52d4388c779d76a80d076c2440",
+      "stagedSourceSha256": "cda5022a4a0dd22bdf7b09127732221ba9f6bb52d4388c779d76a80d076c2440",
+      "comparison": "CRLF-to-LF only; raw tested payload retained"
+    },
+    {
+      "file": "service/src/closing-routes.mjs",
+      "testedPayloadSha256": "b2cedd902937da7cce15adcc5ac3146680cd3c98536ce082007a236004e95496",
+      "stagedSourceSha256": "b2cedd902937da7cce15adcc5ac3146680cd3c98536ce082007a236004e95496",
+      "comparison": "CRLF-to-LF only; raw tested payload retained"
+    },
+    {
+      "file": "service/src/config.mjs",
+      "testedPayloadSha256": "d7be4f38db5ef635901d75d5573786e924a20db678e6722204ab439bc5e3e5df",
+      "stagedSourceSha256": "d7be4f38db5ef635901d75d5573786e924a20db678e6722204ab439bc5e3e5df",
+      "comparison": "CRLF-to-LF only; raw tested payload retained"
+    },
+    {
+      "file": "service/src/errors.mjs",
+      "testedPayloadSha256": "4ceacaaf1312b16b822912cb366bf3de89db8fcca08a006ea7875f30ae009c7d",
+      "stagedSourceSha256": "4ceacaaf1312b16b822912cb366bf3de89db8fcca08a006ea7875f30ae009c7d",
+      "comparison": "CRLF-to-LF only; raw tested payload retained"
+    },
+    {
+      "file": "service/src/lifecycle-routes.mjs",
+      "testedPayloadSha256": "881627b8f6f6103f93607e25d84cc31ecef8f866d6db58d2bfaa66b70d8be2c4",
+      "stagedSourceSha256": "881627b8f6f6103f93607e25d84cc31ecef8f866d6db58d2bfaa66b70d8be2c4",
+      "comparison": "CRLF-to-LF only; raw tested payload retained"
+    },
+    {
+      "file": "service/src/lifecycle.mjs",
+      "testedPayloadSha256": "5e9988c53515eff2b977414d9d45c5c2af694e606e0b3d73f7d59edf097dafee",
+      "stagedSourceSha256": "5e9988c53515eff2b977414d9d45c5c2af694e606e0b3d73f7d59edf097dafee",
+      "comparison": "CRLF-to-LF only; raw tested payload retained"
+    },
+    {
+      "file": "service/src/limiter.mjs",
+      "testedPayloadSha256": "430d33e348fe492852c649bd9cde41b1ba48ea7d50c1c636e6ba3ac00490f053",
+      "stagedSourceSha256": "430d33e348fe492852c649bd9cde41b1ba48ea7d50c1c636e6ba3ac00490f053",
+      "comparison": "CRLF-to-LF only; raw tested payload retained"
+    },
+    {
+      "file": "service/src/main.mjs",
+      "testedPayloadSha256": "c5a39ebce6f574845c42967fb69af49430c54be651bff3ffac678efd0e2a1f86",
+      "stagedSourceSha256": "c5a39ebce6f574845c42967fb69af49430c54be651bff3ffac678efd0e2a1f86",
+      "comparison": "CRLF-to-LF only; raw tested payload retained"
+    },
+    {
+      "file": "service/src/migrate.mjs",
+      "testedPayloadSha256": "12a891b35606a25d8c36bb9a9c6ca09a5bc9111ec37bddc2239e16c27a4f18b2",
+      "stagedSourceSha256": "12a891b35606a25d8c36bb9a9c6ca09a5bc9111ec37bddc2239e16c27a4f18b2",
+      "comparison": "CRLF-to-LF only; raw tested payload retained"
+    },
+    {
+      "file": "service/src/operation-status-routes.mjs",
+      "testedPayloadSha256": "c4c3d9da2814acce04b6c160e772d888da2edb364bd756a10839b06c797893e1",
+      "stagedSourceSha256": "c4c3d9da2814acce04b6c160e772d888da2edb364bd756a10839b06c797893e1",
+      "comparison": "CRLF-to-LF only; raw tested payload retained"
+    },
+    {
+      "file": "service/src/passwords.mjs",
+      "testedPayloadSha256": "078f1f4d66edaa983d0aeb31f7c3c653b57eed5f6f41cbf3c4194eee81599bfc",
+      "stagedSourceSha256": "078f1f4d66edaa983d0aeb31f7c3c653b57eed5f6f41cbf3c4194eee81599bfc",
+      "comparison": "CRLF-to-LF only; raw tested payload retained"
+    },
+    {
+      "file": "service/src/settings-routes.mjs",
+      "testedPayloadSha256": "4b957dfd8e2e69de73bddb8b44dc728d8878582d57d52bbae99d81e80ba38e63",
+      "stagedSourceSha256": "4b957dfd8e2e69de73bddb8b44dc728d8878582d57d52bbae99d81e80ba38e63",
+      "comparison": "CRLF-to-LF only; raw tested payload retained"
+    },
+    {
+      "file": "service/src/team-routes.mjs",
+      "testedPayloadSha256": "56a62a5f3efa2e660dea626ee4fa1ce019b0979b24b09208bbc50596dc57c469",
+      "stagedSourceSha256": "56a62a5f3efa2e660dea626ee4fa1ce019b0979b24b09208bbc50596dc57c469",
+      "comparison": "CRLF-to-LF only; raw tested payload retained"
+    }
+  ],
+  "canonicalRepositories": [
+    {
+      "code": "ABS",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "CCS",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "ELZ",
+      "headPreserved": true,
+      "statusMatchesOriginalBaseline": false,
+      "originalStatusSha256": "7d85372defe40b1419c62580a8e1071d15cd5ec604856a4892641c2a0b17cf69",
+      "observedStatusSha256": "fe3ba58ebdc13821999975c692b9cac2527586b2e848d240e614b96217d73742",
+      "observedStatusPreservedDuringPreflight": true,
+      "unexplainedStatusDrift": true,
+      "changedOrUntrackedFiles": 17088,
+      "workingTreeWritesPerformed": false
+    },
+    {
+      "code": "EXV",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "KLG",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "KEC",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "KPS",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "TTK",
+      "headAndStatusUnchanged": true
+    }
+  ],
+  "sevenCanonicalStatusesMatchOriginal": true,
+  "elzeeOriginalStatusDriftUnresolved": true,
+  "elzeeObservedStatusPreserved": true,
+  "allEightOriginalStatusMatchClaim": false,
+  "knownQaAndAllDemoPrivateValuesAbsent": true,
+  "androidCoreApiDomainSqlAndDependenciesUnchanged": true,
+  "serviceVersion": "0.2.0-dev.8",
+  "serviceUnitTests": 32,
+  "portabilityRuntimeScenarios": 9,
+  "extraLockedSeedRecoveryScenario": true,
+  "inheritedIntegrationNodeTests": 80,
+  "inheritedIntegrationParentCheckpoint": "ccs-demo-foundation-r1",
+  "operatorPayloadRelocationPassed": true,
+  "candidateZipSha256": "96a428f95f6ba957ac1957ab8d6b22ff58e60239fc33ffcf6f5e0d7fc535df9c",
+  "allFourOwnedProfilesStopped": true,
+  "sourceCheckpointTag": "ccs-demo-portability-r1",
+  "nativeDemoJourneyComplete": false,
+  "completeDemoDistribution": false,
+  "ccs08Complete": false,
+  "fullGoalComplete": false
+}

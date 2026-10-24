@@ -1,6 +1,6 @@
 # Closing Count local demo
 
-The service/control-plane foundation is verified locally. The complete Android demo journey, relocation test, media and distributable package are still being prepared under CCS08. This is not a public deployment or physical-device acceptance. Use fictional data only.
+The service/control-plane foundation, operator-payload relocation and bounded startup/interrupted-seed recovery are verified locally. The complete Android demo journey, media and final distributable package are still being prepared under CCS08. This is not a public deployment or physical-device acceptance. Use fictional data only.
 
 ## Prerequisites and first start
 
@@ -16,7 +16,7 @@ node demo/runtime.mjs status
 
 `init` creates/reuses only the separately labelled demo container/volume, restricted database and private instance. It seeds four fictional accounts: Rani and Dimas as employees, Arif as supervisor, and Dewi as administrator. The shared catalog contains Cappuccino and Latte. The generation's business-date anchor uses Asia/Jakarta with a04:00 cutoff. Initial current-day quantities are3/5 (8portions); the preceding day's locked report contains6/4 (10portions). Both employees' authorship and supervisor approval are produced through the real service API, rather than fabricated audit rows.
 
-The API binds to `http://127.0.0.1:4372`; its dedicated PostgreSQL database binds to127.0.0.1:55437. The laptop QA target remains separate on55436. The profile refuses remote database hosts, other database/role names, mismatched markers, unknown containers/volumes and an occupied foreign API port. It does not create a cloud account or public listener.
+The API binds to `http://127.0.0.1:4372`; its dedicated PostgreSQL database binds to127.0.0.1:55437. The laptop QA target remains separate on55436. Each new version2 private identity has separate instance-derived container/volume names. Existing version1 identities retain their names, secrets and data without migration or deletion. Multiple instances can be retained, with only one running on the fixed demo ports at a time. The profile refuses remote database hosts, other database/role names, mismatched markers, unknown resources and occupied foreign API/database ports. It does not create a cloud account or public listener.
 
 Generated credentials and runtime control files live outside the package, under LOCALAPPDATA/ClosingCountDemo by default. To choose another private absolute directory, append the same `--state-dir ABSOLUTE_PRIVATE_DIRECTORY` to every command. A state directory inside the source/package, including linked descendants, is refused. Keep this directory private and retain it across restarts; it identifies the owned database and contains its credentials. Do not put it into the demo ZIP, screenshots, Git or an operational backup.
 
@@ -46,10 +46,12 @@ After reset, old credentials/sessions cannot use the archived outlet. Sign out a
 
 ## Troubleshooting and limits
 
-Docker must be running on a local context. Missing private identity, an unexpected marker/resource, linked state path or occupied port causes refusal; the runtime never adopts another process or database. A redacted server log and internal-error event IDs are stored in the private directory. A live controller lock refuses another command; a dead controller PID's lock can be recovered without deleting source/data. An unresponsive owned child receives a private stop request, rather than killing a guessed or reused PID. Startup failure/recovery permutations beyond the linked foundation evidence remain to be verified for the final package.
+Docker must be running on a local context. Missing private identity, an unexpected marker/resource, linked state path or occupied port causes refusal; the runtime never adopts another process or database. A redacted server log and internal-error event IDs are stored in the private directory. A live controller lock refuses another command; a recognized dead controller PID's lock can be recovered without deleting source/data. Start requires a matched ready run/PID and current service version; status reports a version mismatch accurately, and an older running version must be stopped before upgrading. The startup readiness deadline is45seconds after child creation, followed by a bounded private stop request on failure. Docker preflight has its own bounded operations. An unresponsive owned child remains recorded for inspection; the runtime does not kill a guessed or reused PID.
+
+Tests from an extracted directory with spaces cover fresh default private identity, same-instance start/seed repeats, retained legacy data, other-instance port refusal, real child database-authentication failure and a controller exception immediately after spawn. A separate deliberate process exit after the first committed seed quantity leaves both SEEDING state and the CLI controller lock. Ordinary seed resumes the same generation, preserves the first receipt and removes the stale recognized lock. These are explicit local fault injections, not claims about physical device/network failure or every possible startup error.
 
 There is no unauthenticated reset endpoint. Reset is a local operator command. Normal service limits remain: per-menu integer0–9999, bounded requests, active membership/roles, explicit revision conflicts, session expiry and real login throttling. No accelerated limiter clock is used in this demo. Sessions and credentials are not restored by pending-data import; legacy local history remains separate from shared server history.
 
 The manifest defines logical values, names and roles. UUIDs, generated credentials, timestamps and the business-date anchor vary at generation creation and then persist. Deterministic logical state is not byte-identical database storage. Physical HP, real network behavior, cloud provider, HTTPS/APK signing/distribution, public quotas/reset scheduling and portfolio claims remain later program gates.
 
-[Verified foundation and remaining acceptance](DEMO_FOUNDATION_R1.md), [local transfer acceptance](TRANSFER_LOCAL_ACCEPTANCE_R1.md), [manifest](../demo/manifest.v1.json).
+[Current operator relocation/fault evidence](DEMO_PORTABILITY_R1.md), [earlier foundation](DEMO_FOUNDATION_R1.md), [local transfer acceptance](TRANSFER_LOCAL_ACCEPTANCE_R1.md), [manifest](../demo/manifest.v1.json).

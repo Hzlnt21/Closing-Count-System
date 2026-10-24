@@ -1,0 +1,44 @@
+
+> closing-count-service@0.2.0-dev.8 test
+> node --test test/unit.test.mjs test/catalog.test.mjs test/lifecycle-unit.test.mjs test/operation-status-unit.test.mjs test/demo-profile.test.mjs test/demo-runtime-unit.test.mjs
+
+✔ catalog normalization is canonical without changing IDs/formula or input object (26.8801ms)
+✔ catalog refuses duplicate IDs/recipes, missing categories and inactive recipe references (4.6589ms)
+✔ inactive menus do not enter new closing snapshots; old snapshots remain independent (1.1067ms)
+✔ ingredient formula matches Android baseline and handles zero/max quantities (2.0457ms)
+✔ inconsistent stored entries fail closed instead of producing partial ingredient reports (0.849ms)
+✔ ISO business dates and revisions reject normalization, ambiguous dates and unsafe integers (3.1459ms)
+✔ QA and DEMO cannot adopt one another or an operational target (2.1831ms)
+✔ forged ownership configuration is refused before any database query (0.7099ms)
+✔ ownership still rejects unrestricted roles, mismatched markers and wrong databases (2.0357ms)
+✔ health identifies the explicit DEMO profile while existing default remains QA (156.6093ms)
+✔ container identity, bindings, secret mount and volume must all match (3.2792ms)
+✔ fresh identities have distinct names while v1 resources remain unchanged (1.738ms)
+✔ source paths and linked descendants are rejected before private-state writes (7.916ms)
+✔ unknown existing files are never adopted as a private instance (4.4074ms)
+✔ a live controller lock is refused and the original lock remains intact (9.2384ms)
+✔ foreign lock content is preserved and an owned temporary lock is removed normally (13.9264ms)
+✔ lifecycle role matrix permits employee submit and supervisor/admin review actions only (4.3202ms)
+✔ lifecycle graph increments every revision and opens a new edit generation on return/reopen (1.9915ms)
+✔ return/reopen reasons are required, bounded and normalized without accepting injected reviewer/totals (1.7095ms)
+✔ device sync declaration rejects all pending/conflict/auth states and unknown values (0.7069ms)
+✔ lifecycle rejects stale generation/revision with current server metadata (0.6841ms)
+✔ unsupported current states cannot be skipped by supplying the correct revision (0.5625ms)
+✔ revision/generation limits fail without unsafe-number increments (1.4183ms)
+✔ operation status query preserves canonical input order up to100 IDs (5.3361ms)
+✔ operation status query rejects excess fields, coercion, duplicates and oversized batches (1.8035ms)
+✔ QA configuration refuses implicit, operational or foreign targets without reflecting credentials (6.3744ms)
+✔ password salt is unique, verification works and malformed parameters fail bounded (173.4502ms)
+✔ password and username validation preserve case-sensitive password semantics (0.7849ms)
+✔ payload rejects arrays, null, missing fields and injected actor/role (0.3912ms)
+✔ rate limit enforces current window, expires and fails closed at bounded capacity (194.3429ms)
+✔ business date uses outlet calendar and cutoff across year rollover (23.0909ms)
+✔ business date handles a DST outlet calendar and rejects invalid settings (1.295ms)
+ℹ tests 32
+ℹ suites 0
+ℹ pass 32
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 713.6498

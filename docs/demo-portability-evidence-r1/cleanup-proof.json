@@ -1,0 +1,48 @@
+{
+  "passed": true,
+  "profiles": [
+    {
+      "profile": "legacy-v1",
+      "privateIdentityVersion": 1,
+      "ownedContainerStopped": true,
+      "runRecordedStopped": true,
+      "controllerLockAbsent": true,
+      "recordedProductionServerInternalErrorEvents": 0,
+      "volumeRetained": true
+    },
+    {
+      "profile": "portable-v2",
+      "privateIdentityVersion": 2,
+      "ownedContainerStopped": true,
+      "runRecordedStopped": true,
+      "controllerLockAbsent": true,
+      "recordedProductionServerInternalErrorEvents": 0,
+      "volumeRetained": true
+    },
+    {
+      "profile": "seed-exit-v2",
+      "privateIdentityVersion": 2,
+      "ownedContainerStopped": true,
+      "runRecordedStopped": true,
+      "controllerLockAbsent": true,
+      "recordedProductionServerInternalErrorEvents": 0,
+      "volumeRetained": true
+    },
+    {
+      "profile": "locked-seed-exit-v2",
+      "privateIdentityVersion": 2,
+      "ownedContainerStopped": true,
+      "runRecordedStopped": true,
+      "controllerLockAbsent": true,
+      "recordedProductionServerInternalErrorEvents": 0,
+      "volumeRetained": true
+    }
+  ],
+  "windowsInventory": {
+    "demoListeners": 0,
+    "ownedServerProcesses": 0
+  },
+  "sourceDataAndVolumesRemoved": false,
+  "physicalPhoneAccessed": false,
+  "fullCcs08Complete": false
+}

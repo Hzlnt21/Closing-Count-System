@@ -1,0 +1,10 @@
+{"step":"extracted-payload-and-local-dependencies-verified","passed":true}
+{"step":"version1-profile-and-archived-history-preserved","passed":true}
+{"step":"fresh-default-profile-in-relocated-directory-initializes-independently","passed":true}
+{"step":"relocated-start-status-and-repeat-init-seed-are-consistent","passed":true}
+{"step":"another-retained-instance-cannot-adopt-active-ports","passed":true}
+{"step":"child-authentication-failure-is-bounded-and-cleaned-up","passed":true}
+{"step":"controller-failure-after-spawn-stops-matched-production-child","passed":true}
+{"step":"real-process-exit-leaves-durable-incomplete-seed","passed":true}
+{"step":"ordinary-seed-resumes-same-generation-and-preserves-original-receipt","passed":true}
+{"passed":true,"scenarios":9,"ccs08Complete":false}

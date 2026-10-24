@@ -32,12 +32,12 @@ export function loadState(directory,{create=false}={}) {
     if(!create)throw Error('Run init with this private state directory first');
     if(fs.existsSync(dir)&&fs.readdirSync(dir).some(n=>n!=='controller.lock'))throw Error('Refusing nonempty unowned demo state');
     fs.mkdirSync(dir,{recursive:true,mode:0o700});
-    const value={format:'closing-count-local-demo-private',version:1,instance:randomBytes(24).toString('hex'),ownerPassword:randomBytes(32).toString('hex'),appPassword:randomBytes(32).toString('hex')};
+    const value={format:'closing-count-local-demo-private',version:2,instance:randomBytes(24).toString('hex'),ownerPassword:randomBytes(32).toString('hex'),appPassword:randomBytes(32).toString('hex')};
     fs.writeFileSync(passwordFile,value.ownerPassword,{flag:'wx',mode:0o600});atomicJson(file,value);
   }
   if(fs.lstatSync(file).isSymbolicLink()||!fs.lstatSync(file).isFile()||fs.lstatSync(passwordFile).isSymbolicLink())throw Error('Refusing linked private configuration');
   const value=readJson(file);
-  if(value.format!=='closing-count-local-demo-private'||value.version!==1||!/^[a-f0-9]{48}$/.test(value.instance)||!['ownerPassword','appPassword'].every(k=>/^[a-f0-9]{64}$/.test(value[k]))||fs.readFileSync(passwordFile,'utf8')!==value.ownerPassword)throw Error('Invalid private demo configuration');
+  if(value.format!=='closing-count-local-demo-private'||![1,2].includes(value.version)||!/^[a-f0-9]{48}$/.test(value.instance)||!['ownerPassword','appPassword'].every(k=>/^[a-f0-9]{64}$/.test(value[k]))||fs.readFileSync(passwordFile,'utf8')!==value.ownerPassword)throw Error('Invalid private demo configuration');
   const config=configFromEnvironment({CCS_ENVIRONMENT:'DEMO',CCS_INSTANCE:value.instance,CCS_DATABASE_URL:`postgresql://ccs_portfolio_app:${value.appPassword}@127.0.0.1:55437/closing_count_portfolio_demo`});
   return {dir,file,passwordFile,value,config};
 }
