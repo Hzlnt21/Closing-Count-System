@@ -1,0 +1,60 @@
+{
+  "reviewedBy": "Root Codex through direct view_image inspection",
+  "screenshots": [
+    {
+      "file": "native-pending-admin-settings-held-after-recreation.png",
+      "sha256": "ede47db1e9af62300fd31f7834455ebcbde818382a0b1999835ed6f91b02609d"
+    },
+    {
+      "file": "native-pending-admin-team-fresh-password-required.png",
+      "sha256": "a895d4a1fdf1b7ea38d6c1d559752d7754b974d17fcd01afe083d89b8ef6c629"
+    },
+    {
+      "file": "native-pending-admin-team-create-review.png",
+      "sha256": "0500b022f0f94e6cde5fa2436199bb8032fe221057df78e4f4f9b609e92eec20"
+    },
+    {
+      "file": "native-pending-admin-team-updated.png",
+      "sha256": "8ccb7ac4006f194ba5a0fc77dd3199abe6f720fc0bf964011469b3ffa355b0b2"
+    },
+    {
+      "file": "native-pending-admin-catalog-editable-after-recreation.png",
+      "sha256": "621f26abcbb81674d1bd76738006274f5d78bc183327ecf553ec6f8ac37e24f9"
+    },
+    {
+      "file": "native-pending-admin-catalog-publish-review.png",
+      "sha256": "437ab946249e9ead3efb3b4f33660a4cae9ba2b71facd8fa272fd66402899c6a"
+    },
+    {
+      "file": "native-pending-admin-lifecycle-3-lock-confirmed.png",
+      "sha256": "18a89605068c68abc0c1517b39003b8952eb9116ad8cefb775dedf1d14d686c0"
+    },
+    {
+      "file": "native-pending-admin-lifecycle-4-reopen-confirmed.png",
+      "sha256": "7db62d064abf24cb8fcc5989cf091a60ac34b486141ad49a3765942af18652c2"
+    }
+  ],
+  "selectedLayoutAndContrastReadable": true,
+  "passwordDialogLargeTextFieldAndActionsReachable": true,
+  "scrollingViewportIsNotInternalTextClipping": true,
+  "exhaustiveLayoutInspection": false,
+  "userApprovalClaim": false,
+  "completePt07Acceptance": false,
+  "copyFindingsOpen": [
+    {
+      "id": "COPY-01",
+      "source": "OnlinePendingTransferViewModel.intentValues TEAM_CREATE",
+      "finding": "Current payload username is the requested lookup key; render existsInOutlet as an explicit outlet-scoped status rather than displaying that key as an existing server account."
+    },
+    {
+      "id": "COPY-02",
+      "source": "OnlinePendingTransferViewModel.intentValues TEAM_UPDATE",
+      "finding": "The file stores accountId. Current display name/username obtained from the server should be distinguished from file identity."
+    },
+    {
+      "id": "COPY-03",
+      "source": "OnlineSettingsPanel and OnlineTeamPanel pending cards",
+      "finding": "QUEUED and wasSent=false is never sent. Explain that state separately from an uncertain previously sent operation; retain existing retry semantics."
+    }
+  ]
+}

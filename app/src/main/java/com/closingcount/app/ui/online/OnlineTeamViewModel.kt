@@ -67,7 +67,9 @@ class OnlineTeamViewModel(application:Application):AndroidViewModel(application)
     private fun fail(e:Exception){
         val code=(e as? OnlineApiException)?.code;val auth=code in setOf("SESSION_REQUIRED","ACCOUNT_DISABLED","OUTLET_FORBIDDEN")
         val message=when{
-            e is TeamPasswordRequiredException->"Tindakan belum ditemukan di server. Ketik ulang password pengajuan pertama untuk melanjutkan ID yang sama."
+            e is TeamPasswordRequiredException->if(state.value.pending?.let{it.kind=="CREATE_ACCOUNT"&&!it.wasSent}==true)
+                "Tindakan belum dikirim. Tentukan password awal akun baru untuk melanjutkan ID yang sama."
+                else "Tindakan belum ditemukan di server. Ketik ulang password pengajuan pertama untuk melanjutkan ID yang sama."
             code=="LAST_ADMIN_REQUIRED"->"Minimal satu administrator aktif harus dipertahankan."
             code=="USERNAME_UNAVAILABLE"->"Username sudah digunakan. Tutup tindakan yang ditolak dan pilih username lain."
             code=="MEMBERSHIP_CONFLICT"||e is OnlineConflictChangedException->"Data anggota sudah berubah. Tutup tindakan yang ditolak, muat ulang dan review versi terbaru."

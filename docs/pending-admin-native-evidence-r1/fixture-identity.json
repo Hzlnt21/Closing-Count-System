@@ -1,0 +1,81 @@
+{
+  "outlet": "42c67752-3d21-4563-8edf-2b7b93d921b6",
+  "adminOutlet": "9325f057-a9fc-48c0-8781-c5ef3c92f1f8",
+  "backupAdmin": "5fb5203d-e381-4d53-bc1c-a7bc8f1311f4",
+  "employee": "94fdb7ba-97d8-49bd-9f2c-f484455f5849",
+  "colleague": "122dd520-09d9-4f81-b783-2fa170ca534b",
+  "admin": "029e1587-8863-466f-8232-68f5e479efa0",
+  "adminUsername": "qahmvlc1ysean3.admin",
+  "adminDisplayName": "Dummy admin",
+  "adminOutletName": "Admin native QA qahmvlc1ysean3",
+  "employeeUsername": "qahmvlc1ysean3.rani",
+  "outletName": "HTTP QA qahmvlc1ysean3",
+  "catalog": {
+    "ingredientCategories": [
+      {
+        "id": "61bae912-fd7b-4c8c-89aa-b2aa63b7ff3f",
+        "name": "Bahan baku",
+        "sortOrder": 0
+      }
+    ],
+    "ingredients": [
+      {
+        "id": "4c1bb8dd-2441-4127-a4b1-2099db2acc27",
+        "categoryId": "61bae912-fd7b-4c8c-89aa-b2aa63b7ff3f",
+        "name": "Fresh milk",
+        "sortOrder": 1,
+        "active": true
+      },
+      {
+        "id": "72a6d796-ee79-4272-9a1a-e4848190826c",
+        "categoryId": "61bae912-fd7b-4c8c-89aa-b2aa63b7ff3f",
+        "name": "Powder cokelat",
+        "sortOrder": 2,
+        "active": true
+      },
+      {
+        "id": "b470d8ea-05c9-4717-a907-35baef5b3e84",
+        "categoryId": "61bae912-fd7b-4c8c-89aa-b2aa63b7ff3f",
+        "name": "Biji kopi",
+        "sortOrder": 0,
+        "active": true
+      }
+    ],
+    "menuCategories": [
+      {
+        "id": "fa688642-b5ab-40e6-98bd-ac6c8f761983",
+        "name": "Coffee",
+        "sortOrder": 0
+      }
+    ],
+    "menus": [
+      {
+        "id": "a5a69c2b-b404-4184-89a5-6ebb1cf59a95",
+        "categoryId": "fa688642-b5ab-40e6-98bd-ac6c8f761983",
+        "name": "Latte",
+        "sortOrder": 1,
+        "active": true,
+        "ingredientIds": [
+          "4c1bb8dd-2441-4127-a4b1-2099db2acc27",
+          "b470d8ea-05c9-4717-a907-35baef5b3e84"
+        ]
+      },
+      {
+        "id": "e5d1da6b-1231-446f-aa18-d8826daef438",
+        "categoryId": "fa688642-b5ab-40e6-98bd-ac6c8f761983",
+        "name": "Cappuccino",
+        "sortOrder": 0,
+        "active": true,
+        "ingredientIds": [
+          "4c1bb8dd-2441-4127-a4b1-2099db2acc27",
+          "72a6d796-ee79-4272-9a1a-e4848190826c",
+          "b470d8ea-05c9-4717-a907-35baef5b3e84"
+        ]
+      }
+    ]
+  },
+  "fixturePurpose": "pending-admin-native-r3",
+  "ownedDatabase": true,
+  "retained": true,
+  "limiterClockInjected": true
+}

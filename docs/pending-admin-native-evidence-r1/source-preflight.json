@@ -1,0 +1,373 @@
+{
+  "passed": true,
+  "baseline": "c4e15997cb7168d1cb75e669f71028348a7cad7f",
+  "files": [
+    {
+      "file": "README.md",
+      "indexSha256": "f7abaddc71b6b56df3ceb5aec8dcf5d43386056964782350f39e77504b494b8e"
+    },
+    {
+      "file": "app/src/androidTest/java/com/closingcount/app/OnlinePendingAdminNativeInstrumentedTest.kt",
+      "indexSha256": "5e7b5fc034738e7765913a54d32918c0372e2d24a9b537300b4581a8ca590ea0"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/ui/online/OnlineTeamPanel.kt",
+      "indexSha256": "269d4243b9dba9c44b1dbc901f692c4e23cd0b860adadaf38eafa25b2f1a9de2"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/ui/online/OnlineTeamViewModel.kt",
+      "indexSha256": "684a30244239a026902c13d7fef703b161d79da08d4973bc257ae50c69473674"
+    },
+    {
+      "file": "docs/ONLINE_PENDING_TRANSFER_PLAN_R1.md",
+      "indexSha256": "6868a772322fb2e0873030f48009ab2fbc0a2f853140933a4661c9756a2f610d"
+    },
+    {
+      "file": "docs/PENDING_TRANSFER_ADMIN_NATIVE_R1.md",
+      "indexSha256": "80c79cb1e621b9d51eb70446c5339769899b3c8cc25a49cbc837fd84465b73ab"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/Capture-ClosingPendingAdminFailureR3.py",
+      "indexSha256": "68fcc322488bd39e9ec44a9f705139626f46994bde5206b47fe5c84c3fe81c13"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/Check-ClosingPendingAdminNativeR3.ps1",
+      "indexSha256": "1220d7dd4ff9c52ca67c9cb069415112a26205bc1a419367154d112d8ecfb113"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/Collect-ClosingPendingAdminNativeR3.py",
+      "indexSha256": "970d8d5b028cd81e8ec60381e9f2336d17147657a61893d281cb0107d330aa92"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/admin-database-after.json",
+      "indexSha256": "416cc9e0373b430993002664ecb0260fe0433b903d48c4cfab3a5a978ede7314"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/apk-inputs.json",
+      "indexSha256": "1df9ec4229eeed8974a5fb8d027f9ea2990bcac938b4a871aa1674eebe9ee1ca"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/build.log",
+      "indexSha256": "b808022ce2d693a99b280e6103bb154016a9279f366f1cf3f93c8989bb7b7bd7"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/canonical-guards.json",
+      "indexSha256": "d7288db9782c4af2009cc9b4618ab0142834ff518536ef2eb500ee2a508d7661"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/catalog-9579f782-7e80-470f-b89d-0bbf7651acfc.stderr.log",
+      "indexSha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/catalog-9579f782-7e80-470f-b89d-0bbf7651acfc.stdout.log",
+      "indexSha256": "bd9ec6c4600b59f0384820c781ebac9888415a2f6bda0a29c5a74bc9813d04be"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/catalog-configuration.json",
+      "indexSha256": "4dd9f8ef79c9604e2986b22876838389e126550d1944a78871eb4c963654b60b"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/catalog-process.json",
+      "indexSha256": "52e4266750d2a7a164f35ff5f837e2339eed7199e3a6c8bceae42912ed06e4d8"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/check-pending-admin-native-r1.py",
+      "indexSha256": "da2650168772a8c84c6534270cc0ab81e4c21a364d355c8a1520076b0b8b3f19"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/database-after.json",
+      "indexSha256": "74f723fd9e116e7628fe08152c99d9eda27917462fb2b91fca76e0f1e88f027a"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/device-after.json",
+      "indexSha256": "e3cfe90545933a32ddea310551253dc01f720986bf595a3823b7332a647e1da3"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/device-baseline.json",
+      "indexSha256": "e3cfe90545933a32ddea310551253dc01f720986bf595a3823b7332a647e1da3"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/directory-format-default.txt",
+      "indexSha256": "7ae7edf7c7348e8c6e0f58b6bbf3740efcd4fff12199bd9345e0da6b21043e47"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/directory-format-single-column.txt",
+      "indexSha256": "e4cbccc2d9967d85f6edf1301620522195eec8f47ddceca32c87187f0d67f7cd"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/fixture-identity.json",
+      "indexSha256": "aa8449953f512c599b9c492b2f4ee96678d330709a5d51071e078cf92729ade1"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/frozen-secondary-manifest.json",
+      "indexSha256": "44fb94f6983ab190eb24e1291c1d31bfdceba1e319e2290ca439fd5cd0a1c44e"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/lifecycle-9579f782-7e80-470f-b89d-0bbf7651acfc.stderr.log",
+      "indexSha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/lifecycle-9579f782-7e80-470f-b89d-0bbf7651acfc.stdout.log",
+      "indexSha256": "2fbd93cec1fabf33d9d0d04ba857200d62a830a6eaf7c942008fc079721ea426"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/lifecycle-configuration.json",
+      "indexSha256": "57acf0d7bc4ab9860cfd925c882a8b4daa3a31de7c4de852cb001ef22e49c68e"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/lifecycle-process.json",
+      "indexSha256": "5323d3b2a0232bd5f9c4c79039f75ea0144c3b168cb97f55c132f0d0402061a5"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/native-pending-admin-catalog-4-handled.png",
+      "indexSha256": "36ec32782f533fd921d533c8cfe1418575ef0c8dc684dc3d68d2d1cd28db092b"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/native-pending-admin-catalog-editable-after-recreation.png",
+      "indexSha256": "621f26abcbb81674d1bd76738006274f5d78bc183327ecf553ec6f8ac37e24f9"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/native-pending-admin-catalog-file-recipes.png",
+      "indexSha256": "163e209891043337f19571497cc55ea2209f50eb02737eb8247c997b868a3d24"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/native-pending-admin-catalog-publish-review.png",
+      "indexSha256": "437ab946249e9ead3efb3b4f33660a4cae9ba2b71facd8fa272fd66402899c6a"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/native-pending-admin-catalog-published.png",
+      "indexSha256": "82225f5da4eda999b18013752a2d17a5707668a8ab52dfc611f517667d6d9f48"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/native-pending-admin-catalog-review.png",
+      "indexSha256": "bf0daa2af9d5d7bcf51c68f25bdee7aa41e564cbfa69882e54d5b149b297f29c"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/native-pending-admin-catalog-server-recipes.png",
+      "indexSha256": "935b7d5176e3c007cbefe2a67798ea9ed4409846ce024f4ba1c7bc8e795ba99e"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/native-pending-admin-catalog.json",
+      "indexSha256": "c1f9fa7435c68d79d116c32c70991340085c49d298385b690f3b3136a789d757"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/native-pending-admin-lifecycle-0-submit-confirmed.png",
+      "indexSha256": "c5d03933669ea9b9e5ce79de133bdbdc2d8a53fdb50362e9e88d8b169122c88c"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/native-pending-admin-lifecycle-0-submit-held.png",
+      "indexSha256": "0f03f4483b5ed0ac5f54e10429f58ce9f96ef6463894585b5ab2888e94ae2b88"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/native-pending-admin-lifecycle-0-submit-review.png",
+      "indexSha256": "711875804d038449c8d497a7ad34bb35660679ab7deb3fd22f69ba0b9c810589"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/native-pending-admin-lifecycle-1-return-confirmed.png",
+      "indexSha256": "45486b6408d9c67feb2a53976ae0a806e19ab6a0afabcab8351b1082d897b87e"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/native-pending-admin-lifecycle-1-return-held.png",
+      "indexSha256": "5de90b18f97493a40bb5f766f0462e0d110de9132f3a3d5b9d10ab5a88c262cc"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/native-pending-admin-lifecycle-1-return-review.png",
+      "indexSha256": "f888b967a483ff1ff8847e6743751cd7b5d65b707bdc2f94bfd9c3c3fe4c3328"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/native-pending-admin-lifecycle-2-submit-confirmed.png",
+      "indexSha256": "c2d0190717c8eb7d71af4da967fca2c93f7704f4fba78ec3d12aa1d43bb0e0d0"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/native-pending-admin-lifecycle-2-submit-held.png",
+      "indexSha256": "31b93bbbbffd05e03d87330be76c2986e385845d2e333e7f1d1df27519dec934"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/native-pending-admin-lifecycle-2-submit-review.png",
+      "indexSha256": "53b1e5753fdbe4f4452caee5e4f50d31fd751ba1918dd3e829998ec2f5e25585"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/native-pending-admin-lifecycle-3-lock-confirmed.png",
+      "indexSha256": "18a89605068c68abc0c1517b39003b8952eb9116ad8cefb775dedf1d14d686c0"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/native-pending-admin-lifecycle-3-lock-held.png",
+      "indexSha256": "6a72e214f6af684d109c0d6829cc220204406ffdca1931ba0f5b556a3ac0541b"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/native-pending-admin-lifecycle-3-lock-review.png",
+      "indexSha256": "21f2141e6237fdb7d608611eee52d520f7f851bf68ad67aa5ecd680ecdb74ba7"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/native-pending-admin-lifecycle-4-reopen-confirmed.png",
+      "indexSha256": "7db62d064abf24cb8fcc5989cf091a60ac34b486141ad49a3765942af18652c2"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/native-pending-admin-lifecycle-4-reopen-held.png",
+      "indexSha256": "ff23e5ad8268c7c890da87edad0456ffce750d8aea4b78f1c123667d6d485235"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/native-pending-admin-lifecycle-4-reopen-review.png",
+      "indexSha256": "fd66af4ab2d11768b8da048404e2ff243715d812f3ea2749f1bc9328803b1488"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/native-pending-admin-lifecycle-5-handled.png",
+      "indexSha256": "a8bd333470c55b1e6e25ac79b439403e5ec17e897c77235b934a8849f0ef5210"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/native-pending-admin-lifecycle-6-handled.png",
+      "indexSha256": "b9c557dff4f0e2da70c2d1abb12a56fdd8dffb931528c513127434927780ac56"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/native-pending-admin-lifecycle-7-handled.png",
+      "indexSha256": "5de50bfc2a0ed7b11892a51fe7b1d44180f7bc7371e909da5287be8bf9de1208"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/native-pending-admin-lifecycle-8-handled.png",
+      "indexSha256": "bf88004bbb5827ffe111d31c2ef2f56ff7077c95fd89ae77fcc4dda7ff8040f6"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/native-pending-admin-lifecycle-9-handled.png",
+      "indexSha256": "eb5f5f0e62611472fe4037a61199856139605ef83dbfd1792ebfdf7714931696"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/native-pending-admin-lifecycle.json",
+      "indexSha256": "db046e5ae348fc81d5e8c770c37815669da157ed4af6f6a92b48da618ff7a6ed"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/native-pending-admin-settings-1-handled.png",
+      "indexSha256": "011234c00aff9615887b982ea195ebb0c6c03fb3932963576ba125b03ed27639"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/native-pending-admin-settings-confirmed.png",
+      "indexSha256": "53ece33f2a29b5f6c9c89ba1ab67bc6f0343add396c75e8e90d2a1eac4e43859"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/native-pending-admin-settings-held-after-recreation.png",
+      "indexSha256": "ede47db1e9af62300fd31f7834455ebcbde818382a0b1999835ed6f91b02609d"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/native-pending-admin-settings-review.png",
+      "indexSha256": "4cdfda93db9cd682266e87418655887972027ed849185bb47c732e43498924d6"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/native-pending-admin-settings.json",
+      "indexSha256": "8402be2f5f10ef5dce9a861434960bf34a442423a92c970d4f9f890b0aa44321"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/native-pending-admin-team-2-handled.png",
+      "indexSha256": "230498e699a57b0f8e64b21fdcfa699f5e79e847bdba14ad60fb2fa161bdc474"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/native-pending-admin-team-3-handled.png",
+      "indexSha256": "d1f12fe1119de28878ba6226b3e0cabf7af6a3d00c5ce5fff1e1e363963adcdb"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/native-pending-admin-team-create-review.png",
+      "indexSha256": "0500b022f0f94e6cde5fa2436199bb8032fe221057df78e4f4f9b609e92eec20"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/native-pending-admin-team-created.png",
+      "indexSha256": "4b4b7ee7d1906d8e8a3bc41be3049a4b100fd18a3f32ac63985350b7bbb0276f"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/native-pending-admin-team-fresh-password-required.png",
+      "indexSha256": "a895d4a1fdf1b7ea38d6c1d559752d7754b974d17fcd01afe083d89b8ef6c629"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/native-pending-admin-team-update-held.png",
+      "indexSha256": "692b44c2bb59a8b2700682caf075ce964c42f955d1dc633d15f5fdc26dd5d457"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/native-pending-admin-team-update-review.png",
+      "indexSha256": "dd51ab9201e5c41442af0ad1918fc18e32bbe2599ebee54bb06a74489264fa88"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/native-pending-admin-team-updated.png",
+      "indexSha256": "8ccb7ac4006f194ba5a0fc77dd3199abe6f720fc0bf964011469b3ffa355b0b2"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/native-pending-admin-team.json",
+      "indexSha256": "d17fbe11b15430528f088c9d255c394afa6a8fe80b414dbd06171b0c55282a30"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/owner-database-filenames-preflight.txt",
+      "indexSha256": "a6ada5e054d490b90e2e062408743f229d9003bc13936d4ec8e90abff7b39156"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/packet-index.json",
+      "indexSha256": "5c1252b29e6f95b4275ea16fb72e681af2bbf4da0260e73ef198d7ce2aa989d3"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/pending-admin-native-fixture-r3.mjs",
+      "indexSha256": "9e7718c8f722b39aa867230e2b0c8d96a9f5780a21c9620ebcddfb4299c2f46a"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/primary-room-after.sha256",
+      "indexSha256": "dcae5c15c6b028d8d91daf909a774c560356da7f601ded51fad94bf57fc7ccc3"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/primary-room-before.sha256",
+      "indexSha256": "dcae5c15c6b028d8d91daf909a774c560356da7f601ded51fad94bf57fc7ccc3"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/runtime-proof.json",
+      "indexSha256": "7003530d0c87ce164e73cef6cd7ccf3c47abd090b618c75622648f73faa5fa45"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/sanitized-provenance.json",
+      "indexSha256": "8cfbbc02304015f4385c785e1c3581015f367df665bbea848bc4b8a07957206a"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/settings-9579f782-7e80-470f-b89d-0bbf7651acfc.stderr.log",
+      "indexSha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/settings-9579f782-7e80-470f-b89d-0bbf7651acfc.stdout.log",
+      "indexSha256": "ecd4931d429b788a9135010927ce6702353695536b5552f7295dd8bc0dd10750"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/settings-configuration.json",
+      "indexSha256": "eb547926d35978d146c954e449fd441098421679bb7eeeaf52b617c7be814d6c"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/settings-process.json",
+      "indexSha256": "2e29e28f523e323706c851091d53454eb1ce40f0a64c2759cdd5b8d739e0dd43"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/team-9579f782-7e80-470f-b89d-0bbf7651acfc.stderr.log",
+      "indexSha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/team-9579f782-7e80-470f-b89d-0bbf7651acfc.stdout.log",
+      "indexSha256": "295a324ef97a4af14e6147436b20f0ba0d345a1a1f748c5f678aa814e369e29c"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/team-configuration.json",
+      "indexSha256": "125c6422bc27f451fdfd5d148e90c7a853703a129ebd39266d7a5683cd89de9c"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/team-process.json",
+      "indexSha256": "f6cb56476c4ec7d20d0267eb57a1b661c38cb5f4cbb277a5102ec45af085ba59"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/verification.json",
+      "indexSha256": "021c89bd964a62ded4d5935b5b67f9c1943cfefef3c3fb27e55737de6670db91"
+    },
+    {
+      "file": "docs/pending-admin-native-evidence-r1/visual-review.json",
+      "indexSha256": "09b5a7c604bad97b7de6e289143194dba17c88f031209ff60970d35a8cdcdaa6"
+    }
+  ],
+  "canonicalRepositoriesUnchanged": 8,
+  "knownPrivateValuesAbsent": true,
+  "productionChangesRestrictedToTeamPasswordCopyTagsAndScrollableDialog": true,
+  "serviceSchemaDependenciesTransportRecoveryEngineUnchanged": true,
+  "nativeNormalTests": 4,
+  "recoveryCases": 9,
+  "jvmTests": 25,
+  "lintErrors": 0,
+  "lintWarnings": 17,
+  "rawDatabasesAndPacketsNotCurated": true,
+  "completePt07Acceptance": false
+}

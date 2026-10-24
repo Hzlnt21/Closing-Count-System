@@ -1,0 +1,3 @@
+closing_count.db
+closing_count.db-shm
+closing_count.db-wal

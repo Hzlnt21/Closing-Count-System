@@ -1,0 +1,14 @@
+{
+    "phase":  "team",
+    "stdout":  "team-9579f782-7e80-470f-b89d-0bbf7651acfc.stdout.log",
+    "stderr":  "team-9579f782-7e80-470f-b89d-0bbf7651acfc.stderr.log",
+    "normalVerification":  true,
+    "exitCode":  0,
+    "nativeHandleCaptured":  true,
+    "elapsedSeconds":  108.48449749999999,
+    "timeoutSeconds":  360,
+    "appPid":  5726,
+    "appUid":  1110216,
+    "cumulativeCases":  3,
+    "phaseCases":  2
+}

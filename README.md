@@ -1,5 +1,7 @@
 # Closing Count System
 
+Native administrative recovery: [four normal phases and nine recovered actions](docs/PENDING_TRANSFER_ADMIN_NATIVE_R1.md). Settings, account/access, editable catalog and submit/return/lock/reopen continue through normal explicit actions. Exact packet/Room/PostgreSQL checks match nine new-ID receipts. Team initial-password copy and dialog scrolling are improved; three review/pending-card copy findings, PT08 and CCS08 remain open.
+
 Native pending-transfer restart: [two live process stops and recovered review/draft](docs/PENDING_TRANSFER_NATIVE_RESTART_R1.md). Three distinct processes preserve the accepted inbox and held new-ID quantity draft; fresh review is required after restart and server4 changes to8 only on explicit sync. Two deliberately aborted ready stages and one normal final verification are recorded separately. Production code is unchanged; native admin continuations, PT08 and CCS08 remain open.
 
 Pending-transfer visual pass: [light/dark and200percent text](docs/PENDING_TRANSFER_VISUAL_R1.md). Four native DocumentsUI quantity journeys,7local regressions and25JVM pass;32scenes have no significant internal text overflow. Paired buttons are spaced and malformed files have a specific message. Native admin continuations/process restart and full demo acceptance remain open.

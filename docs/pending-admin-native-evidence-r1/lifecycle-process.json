@@ -1,0 +1,14 @@
+{
+    "phase":  "lifecycle",
+    "stdout":  "lifecycle-9579f782-7e80-470f-b89d-0bbf7651acfc.stdout.log",
+    "stderr":  "lifecycle-9579f782-7e80-470f-b89d-0bbf7651acfc.stderr.log",
+    "normalVerification":  true,
+    "exitCode":  0,
+    "nativeHandleCaptured":  true,
+    "elapsedSeconds":  95.86549389999999,
+    "timeoutSeconds":  600,
+    "appPid":  8595,
+    "appUid":  1110216,
+    "cumulativeCases":  9,
+    "phaseCases":  5
+}
