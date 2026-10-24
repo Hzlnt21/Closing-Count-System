@@ -1,0 +1,167 @@
+{
+  "passed": true,
+  "baseline": "ef93c7789e467a6361b53c488b8621ebf422227c",
+  "serviceVersion": "0.2.0-dev.7",
+  "sourceFiles": [
+    {
+      "file": ".gitattributes",
+      "indexSha256": "c11021ca3b58dabe007f00d398600142570e4f45ab78442c96c4a35114a6b252"
+    },
+    {
+      "file": "README.md",
+      "indexSha256": "54624c5fc6c1d7b2947d045ab82c88b6cfa3c3a6252db3e1612b61a82d29dd05"
+    },
+    {
+      "file": "demo/manifest.v1.json",
+      "indexSha256": "a71546cad69be51d669fa038b60ca3c31f566739f91255c8331b43704d319b11"
+    },
+    {
+      "file": "demo/private-state.mjs",
+      "indexSha256": "692d671f820a52273198465c25fa35248ea3a14c4cc03fb38e15be7998ac67dc"
+    },
+    {
+      "file": "demo/runtime.mjs",
+      "indexSha256": "177717ead92e735b27c43348df8e1aa9cb222f0df5451fc61e7a7822bd6dee81"
+    },
+    {
+      "file": "docs/DEMO_FOUNDATION_R1.md",
+      "indexSha256": "26229f7bd755ad8abab3233836f32cf8968975c84d1eb0aef7f1091241588390"
+    },
+    {
+      "file": "docs/DEMO_LOCAL.md",
+      "indexSha256": "eb2fe010a50f228851f24da5af5880ceaf556905944e93b69b958a10914d489c"
+    },
+    {
+      "file": "docs/demo-foundation-evidence-r1/curation.json",
+      "indexSha256": "12a60b2ca9bb352b3ef0a59f6073f7a7a80da9adf9978bac6a62fbc804859608"
+    },
+    {
+      "file": "docs/demo-foundation-evidence-r1/final-controller-lock-recheck.log",
+      "indexSha256": "245ce8cfdcc91376ad246975d1244915827316989aa86dcb5a35608f4c24546b"
+    },
+    {
+      "file": "docs/demo-foundation-evidence-r1/final-resource-guard-recheck.log",
+      "indexSha256": "000c51cfe6222c4e42a53985d49d44b27ab1c8ba732e186173542382a3590c0e"
+    },
+    {
+      "file": "docs/demo-foundation-evidence-r1/init.log",
+      "indexSha256": "b25614ea51a5e2c76d7e21f749229d2915b2a55508fd8ac1c5f1082ec11b96ad"
+    },
+    {
+      "file": "docs/demo-foundation-evidence-r1/integration.log",
+      "indexSha256": "4b412843d7eae93d04341e3a1b36283fd80c88205a3b8fef7082c30f2cd61d76"
+    },
+    {
+      "file": "docs/demo-foundation-evidence-r1/runtime-proof.json",
+      "indexSha256": "e252d936a66d33dd2e30d8358b321b9708265f17ff3ae255f8323a13f3370acf"
+    },
+    {
+      "file": "docs/demo-foundation-evidence-r1/runtime.log",
+      "indexSha256": "6d15865a117ea6cd288af189259a96b64fde45f4e924fe6b74aa10644e3cb664"
+    },
+    {
+      "file": "docs/demo-foundation-evidence-r1/unit.log",
+      "indexSha256": "0faebd5d9720cc836af4f8eec611f8ccb514f5f6177ac091f772bb42d1b9870b"
+    },
+    {
+      "file": "service/demo/database.mjs",
+      "indexSha256": "15af510e865c72f70882208895f8f291dc23323bf032987fcf26fdf998a00341"
+    },
+    {
+      "file": "service/demo/generation.mjs",
+      "indexSha256": "7dd86db3a61ca42fc1e135cbaf1f77e5a11e01c2e64d34bbaf8ac670fac4e061"
+    },
+    {
+      "file": "service/demo/runtime.mjs",
+      "indexSha256": "3d17e4ec97ace62a5969688ddafe40036644967aa077639363450f8dd05ff098"
+    },
+    {
+      "file": "service/demo/server.mjs",
+      "indexSha256": "44850450dfdce77c7ae36747f81adf09d1388aa63fc94f402eae028a898d728a"
+    },
+    {
+      "file": "service/demo/verify-foundation.mjs",
+      "indexSha256": "b7c786d7770cef8fc4fb691b950d907fed07511f6b1cb51a2e83d33bfdf58720"
+    },
+    {
+      "file": "service/package-lock.json",
+      "indexSha256": "53ceb7fc71766eab275f9a17a6869ff8248986d47b17f96c2f3bb066a3a388ce"
+    },
+    {
+      "file": "service/package.json",
+      "indexSha256": "8ebb8a89b2ce979236a8fbc12a2937269fc02ea10aed90c3628aac3bb19241fd"
+    },
+    {
+      "file": "service/src/app.mjs",
+      "indexSha256": "9274504d9891d9672aa2bfc8b805842af7ef4ea723f9bbd1ae9c5382e20178ca"
+    },
+    {
+      "file": "service/src/config.mjs",
+      "indexSha256": "d7be4f38db5ef635901d75d5573786e924a20db678e6722204ab439bc5e3e5df"
+    },
+    {
+      "file": "service/src/main.mjs",
+      "indexSha256": "c5a39ebce6f574845c42967fb69af49430c54be651bff3ffac678efd0e2a1f86"
+    },
+    {
+      "file": "service/test/demo-profile.test.mjs",
+      "indexSha256": "d7d207717284d18c957bd823a1250eec6403ceac488ba5f6d62425b0a43e376f"
+    },
+    {
+      "file": "service/test/demo-runtime-unit.test.mjs",
+      "indexSha256": "92b2b176b42a6a690a73f8122b1a45cf01dc6376d3cfcd42e4aad77223c525ea"
+    }
+  ],
+  "canonicalRepositories": [
+    {
+      "code": "ABS",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "CCS",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "ELZ",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "EXV",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "KLG",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "KEC",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "KPS",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "TTK",
+      "headAndStatusUnchanged": true
+    }
+  ],
+  "knownQaAndDemoPrivateValuesAbsent": true,
+  "androidAndDomainSqlUnchanged": true,
+  "dependenciesUnchanged": true,
+  "serviceUnitTests": 31,
+  "integrationNodeTests": 80,
+  "integrationParentTests": 6,
+  "integrationScenarios": 74,
+  "demoRuntimeScenarios": 9,
+  "finalResourceAndControllerChecks": true,
+  "demoApiListenerAbsent": true,
+  "ownedDemoDatabaseStopped": true,
+  "controllerLockAbsent": true,
+  "serverInternalErrorEvents": 0,
+  "sourceCheckpointTag": "ccs-demo-foundation-r1",
+  "nativeDemoJourneyComplete": false,
+  "portablePackageComplete": false,
+  "ccs08Complete": false,
+  "fullGoalComplete": false
+}

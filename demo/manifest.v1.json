@@ -1,0 +1,29 @@
+{
+  "format": "closing-count-local-demo",
+  "version": 1,
+  "outletName": "Exve Coffee · Demo",
+  "timezone": "Asia/Jakarta",
+  "cutoffMinutes": 240,
+  "fictionalData": true,
+  "roles": [
+    {"key":"rani","displayName":"Rani · Demo","role":"EMPLOYEE"},
+    {"key":"dimas","displayName":"Dimas · Demo","role":"EMPLOYEE"},
+    {"key":"arif","displayName":"Arif · Demo","role":"SUPERVISOR"},
+    {"key":"dewi","displayName":"Dewi · Demo","role":"ADMIN"}
+  ],
+  "ingredients": [
+    {"key":"coffee","name":"Biji kopi"},
+    {"key":"milk","name":"Fresh milk"},
+    {"key":"cocoa","name":"Powder cokelat"}
+  ],
+  "menus": [
+    {"key":"cappuccino","name":"Cappuccino","ingredients":["coffee","milk","cocoa"]},
+    {"key":"latte","name":"Latte","ingredients":["coffee","milk"]}
+  ],
+  "baseline": {
+    "current":{"dayOffset":0,"state":"DRAFT","quantities":{"cappuccino":3,"latte":5},"totalPortions":8,"ingredients":{"coffee":8,"milk":8,"cocoa":3}},
+    "history":{"dayOffset":-1,"state":"LOCKED","quantities":{"cappuccino":6,"latte":4},"totalPortions":10,"ingredients":{"coffee":10,"milk":10,"cocoa":6}}
+  },
+  "resetPolicy":"New logical generation; archive prior outlet and revoke its sessions; preserve receipts, audits, reports, catalogs and device drafts.",
+  "scope":"Local loopback/emulator demo. Physical-device and public deployment acceptance are separate."
+}

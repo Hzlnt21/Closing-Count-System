@@ -35,7 +35,8 @@ async function transaction(pool,fn,{readOnly=false}={}) {
   catch(error){await client.query('ROLLBACK').catch(()=>{});throw error;}
   finally{client.release();}
 }
-export async function createApp({pool,limiter=new LoginLimiter(),onInternalError=()=>{}}) {
+export async function createApp({pool,limiter=new LoginLimiter(),onInternalError=()=>{},environment='QA'}) {
+  if(!['QA','DEMO'].includes(environment))throw new Error('Unsupported local service profile');
   const dummyHash=await hashPassword(randomBytes(24).toString('hex'));
   async function authenticate(req,db=pool) {
     const token=/^Bearer ([a-f0-9]{64})$/.exec(req.headers.authorization||'')?.[1];
@@ -67,7 +68,7 @@ export async function createApp({pool,limiter=new LoginLimiter(),onInternalError
       if((req.url||'').length>4096) throw invalid();
       const url=new URL(req.url,'http://localhost');const path=url.pathname;const method=req.method;
       if(method==='GET'&&path==='/api/health') {
-        await pool.query('SELECT 1');return send(200,{status:'ok',environment:'QA',service:'closing-count',version:serviceVersion});
+        await pool.query('SELECT 1');return send(200,{status:'ok',environment,service:'closing-count',version:serviceVersion});
       }
       if(method==='POST'&&path==='/api/v1/auth/login') {
         limiter.consume('ip:'+req.socket.remoteAddress,10);

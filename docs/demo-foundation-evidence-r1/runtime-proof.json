@@ -1,0 +1,62 @@
+{
+  "passed": true,
+  "scope": "Local DEMO service/control-plane foundation; no native Android workflow or physical UAT claim",
+  "steps": [
+    {
+      "name": "independent-initial-baseline",
+      "passed": true
+    },
+    {
+      "name": "repeated-init-and-seed-preserve-current-data",
+      "passed": true
+    },
+    {
+      "name": "normal-api-seed-ids-replay-without-duplicate-history",
+      "passed": true
+    },
+    {
+      "name": "start-is-idempotent-and-identifies-same-owned-run",
+      "passed": true
+    },
+    {
+      "name": "two-stops-retain-volume-and-shutdown-owned-child",
+      "passed": true
+    },
+    {
+      "name": "foreign-api-listener-refused-before-database-start",
+      "passed": true
+    },
+    {
+      "name": "restart-retains-data-and-prior-session",
+      "passed": true
+    },
+    {
+      "name": "reset-archives-generation-and-revokes-old-access",
+      "passed": true
+    },
+    {
+      "name": "repeated-seed-after-reset-preserves-new-baseline",
+      "passed": true
+    }
+  ],
+  "logicalFixtureManifestVersion": 1,
+  "firstGeneration": 1,
+  "currentGeneration": 2,
+  "archivedImmutableData": {
+    "sha256": "1a24e933e7260561299855d02dd2793a95dfc2b2eac68dd6424ba42b3e979a27",
+    "counts": {
+      "catalog_versions": 1,
+      "operation_receipts": 6,
+      "closing_audit": 8,
+      "closing_reports": 1
+    }
+  },
+  "seedUsesRealApi": true,
+  "rateClockSimulated": false,
+  "sourceCredentialsPrinted": false,
+  "physicalPhoneAccessed": false,
+  "nativeDemoJourneyComplete": false,
+  "portablePackageComplete": false,
+  "ccs08Complete": false,
+  "fullGoalComplete": false
+}

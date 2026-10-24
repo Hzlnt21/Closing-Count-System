@@ -1,0 +1,10 @@
+{"step":"independent-initial-baseline","passed":true}
+{"step":"repeated-init-and-seed-preserve-current-data","passed":true}
+{"step":"normal-api-seed-ids-replay-without-duplicate-history","passed":true}
+{"step":"start-is-idempotent-and-identifies-same-owned-run","passed":true}
+{"step":"two-stops-retain-volume-and-shutdown-owned-child","passed":true}
+{"step":"foreign-api-listener-refused-before-database-start","passed":true}
+{"step":"restart-retains-data-and-prior-session","passed":true}
+{"step":"reset-archives-generation-and-revokes-old-access","passed":true}
+{"step":"repeated-seed-after-reset-preserves-new-baseline","passed":true}
+{"passed":true,"scenarios":9,"ccs08Complete":false}

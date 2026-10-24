@@ -1,0 +1,40 @@
+{
+  "textNormalizedToUtf8Lf": true,
+  "files": [
+    {
+      "file": "init.log",
+      "rawSha256": "4a537cc26e13f9d11558a49f30543cf1030da4338e9778ec2ae56f958a73e5e2",
+      "curatedSha256": "b25614ea51a5e2c76d7e21f749229d2915b2a55508fd8ac1c5f1082ec11b96ad"
+    },
+    {
+      "file": "runtime-proof.json",
+      "rawSha256": "e252d936a66d33dd2e30d8358b321b9708265f17ff3ae255f8323a13f3370acf",
+      "curatedSha256": "e252d936a66d33dd2e30d8358b321b9708265f17ff3ae255f8323a13f3370acf"
+    },
+    {
+      "file": "runtime.log",
+      "rawSha256": "a8cf9678580fd43bf007c9c2b85a585718623f09e493a229588e1a7bd9216426",
+      "curatedSha256": "6d15865a117ea6cd288af189259a96b64fde45f4e924fe6b74aa10644e3cb664"
+    },
+    {
+      "file": "unit.log",
+      "rawSha256": "c2fe12df6ca74ac7906066a34e968318d8410d23a9a45b4cdb2815e76a3f8455",
+      "curatedSha256": "0faebd5d9720cc836af4f8eec611f8ccb514f5f6177ac091f772bb42d1b9870b"
+    },
+    {
+      "file": "integration.log",
+      "rawSha256": "cd2b917885d4f3007d6b45bff3b9329894dcad33299ecb7524eb8cbe41c1d0b0",
+      "curatedSha256": "4b412843d7eae93d04341e3a1b36283fd80c88205a3b8fef7082c30f2cd61d76"
+    },
+    {
+      "file": "final-resource-guard-recheck.log",
+      "rawSha256": "432d990e6953db2d30af7187380b1845ac91b7efb6ec9d3bbb7b99587ca2c8ca",
+      "curatedSha256": "000c51cfe6222c4e42a53985d49d44b27ab1c8ba732e186173542382a3590c0e"
+    },
+    {
+      "file": "final-controller-lock-recheck.log",
+      "rawSha256": "24a80bab6330104b77e8703d9ae8146e8c515742964ceac91b1f8988cb150652",
+      "curatedSha256": "245ce8cfdcc91376ad246975d1244915827316989aa86dcb5a35608f4c24546b"
+    }
+  ]
+}

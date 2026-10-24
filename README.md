@@ -2,6 +2,8 @@
 
 Local transfer acceptance: [CCS07 / PT01-08 evidence mapping](docs/TRANSFER_LOCAL_ACCEPTANCE_R1.md). Account-review/draft copy and main-thread UI publication are corrected; current admin and actual DocumentsUI/controller regressions pass with independent data checks. Physical/public acceptance and CCS08 complete demo packaging remain open.
 
+Local DEMO foundation (CCS08 in progress): [operator guide](docs/DEMO_LOCAL.md), [verified scope and remaining gates](docs/DEMO_FOUNDATION_R1.md), [fixture manifest](demo/manifest.v1.json). The isolated runtime supports init/seed/start/status/stop/reset; native DEMO journey, relocation/media/distributable acceptance remain pending.
+
 ## Earlier implementation checkpoints
 
 The checkpoint notes below retain their original state; the current acceptance mapping above supersedes their next-step statements.

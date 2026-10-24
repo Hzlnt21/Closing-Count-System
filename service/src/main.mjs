@@ -8,11 +8,11 @@ pool.on('error',()=>console.error('Closing Count database connection interrupted
 let server;
 try {
   await assertOwnedDatabase(pool,config);await migrate(pool,config);
-  server=await createApp({pool,onInternalError:({requestId})=>console.error('Closing Count request failed: '+requestId)});
+  server=await createApp({pool,environment:config.environment,onInternalError:({requestId})=>console.error('Closing Count request failed: '+requestId)});
   await new Promise((resolve,reject)=>{server.once('error',reject);server.listen(config.port,config.host,resolve);});
-  console.log(`Closing Count QA ${serviceVersion} ready on http://${config.host}:${config.port}`);
+  console.log(`Closing Count ${config.environment} ${serviceVersion} ready on http://${config.host}:${config.port}`);
 } catch {
-  console.error('Closing Count startup refused or failed; check owned QA configuration.');
+  console.error('Closing Count startup refused or failed; check the explicit owned local configuration.');
   await pool.end();process.exitCode=1;
 }
 let stopping=false;
