@@ -1,0 +1,719 @@
+{
+  "passed": true,
+  "baseline": "6189fa7ea86db0135262b0dc6fda6dcd209ce544",
+  "files": [
+    {
+      "file": "README.md",
+      "indexSha256": "27b92afa861e61c444aca03d4cdd286e739b16114401afecd55fd5463eff12fe"
+    },
+    {
+      "file": "app/src/androidTest/java/com/closingcount/app/OnlinePendingAdminNativeInstrumentedTest.kt",
+      "indexSha256": "bc1c1306db965a1dc08a75319edab1f0c3ce510dd81ce6af753c55ef3a41e57f"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/ui/online/OnlineCatalogPanel.kt",
+      "indexSha256": "5ad1af561ff69ef870585ecd00e60ac7ab38f079679f79933c5c866822d72464"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/ui/online/OnlinePendingTransferPanel.kt",
+      "indexSha256": "93a9076156e7c2317dbe7e5b860866d5538a9b1c7ca1bb4e9f2fb632b4d17c17"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/ui/online/OnlinePendingTransferViewModel.kt",
+      "indexSha256": "1f8bad3769557e6379148ecc9cd619492cd2677142ed6fd6183b6bbc207b5285"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/ui/online/OnlineSettingsPanel.kt",
+      "indexSha256": "935e9b1c4c104718b4c2e2a516690abe110ff3e487f4f976bc229ea28b577513"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/ui/online/OnlineTeamPanel.kt",
+      "indexSha256": "7f2535356ba69aefc10a626c8d27e9742c42e106d201327aedd7fdaf7c06849e"
+    },
+    {
+      "file": "docs/ONLINE_PENDING_TRANSFER_PLAN_R1.md",
+      "indexSha256": "348dc0ff6f6cdffa67c832330dab34c1d3114afafd72a61835384e1ece67b109"
+    },
+    {
+      "file": "docs/PENDING_TRANSFER_ADMIN_NATIVE_R1.md",
+      "indexSha256": "bea22e0e6ad32b69cbb3ed5092c62dd0a119b2db9aa44db75fd0641ba1900841"
+    },
+    {
+      "file": "docs/PENDING_TRANSFER_COPY_R1.md",
+      "indexSha256": "1d1e7b88c3eee70ae04b3307335d536c326f0f3be1a5bfe98b79ac5df05e0efe"
+    },
+    {
+      "file": "docs/TRANSFER_LOCAL_ACCEPTANCE_R1.md",
+      "indexSha256": "962bcef68d2f135f678c809dcdc83e0501e0cba853b853c8c2908779cb398187"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/Capture-ClosingPendingCopyFailureR5.py",
+      "indexSha256": "845148a522bfb4a30db533c2368832999411869c1a06e1315c74db11b025e9b1"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/Check-ClosingPendingCopyR5.ps1",
+      "indexSha256": "55a6fe7bcaf7b82a47fe73db94700f80f7269147545feb7de052533af09bc73c"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/Check-ClosingPendingVisualMainR1.ps1",
+      "indexSha256": "d87470f211df163a2f25763da5029227411cacceeb0283f43bca2795fe1eedda"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/Collect-ClosingPendingCopyR5.py",
+      "indexSha256": "28f25ff4ffd7ddee821164a32a543f69e03651605c2f49f227275103425d3f17"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/Collect-ClosingPendingDiagnosticsR5.py",
+      "indexSha256": "9cfeef75f5f82e5e5febdf42549cc2dda3eeae769245a10791380622d740df65"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/Prepare-ClosingSecondaryQaR5.py",
+      "indexSha256": "b5b8187803e971fc4427c105b3fa14221cba50a459dd4a8d9b8f4e780d6cb267"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/Probe-ClosingPendingColdStartR5.py",
+      "indexSha256": "d67a826ca853a8db39b97640f8f35afa170055b6a81253bc13a2f90564c26068"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/admin-database-after.json",
+      "indexSha256": "2ddefeecb4bd1c62f437bbb3d001dcac4e18e80824c995a623587fbd6be68c6b"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/apk-inputs.json",
+      "indexSha256": "ef8227631e62207cd949267230f127bb68106b89dd0af315b8a71e6af773d932"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/build-reuse.json",
+      "indexSha256": "fc481023d01430800ba5134b2f13d2430d8a03decb07c2b91e058d3af0147a38"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/build.log",
+      "indexSha256": "7b6fea8084d018a840ab6e4422691f0ad24222fc16610c58bdc186d1c500e72c"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/catalog-26581d5d-4dc8-4af5-bae9-a1fb8f22b600.stderr.log",
+      "indexSha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/catalog-26581d5d-4dc8-4af5-bae9-a1fb8f22b600.stdout.log",
+      "indexSha256": "bf4eef75d0605ef9424699a5d74ebcd9f41ff131bb7d38ca6dadd031c08e169b"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/catalog-configuration.json",
+      "indexSha256": "a90913db39181c4dec3d05adf8afb884daf88590c4138634c2dc15e74a656d64"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/catalog-process.json",
+      "indexSha256": "5c2a630f2987d4b36de071ebfc9191947358b4cea0b016176eccfff961877847"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/check-pending-admin-native-r1.py",
+      "indexSha256": "c4617f05d5368ac327dd9e05b2c89c2068184e4d39e44615fd48f13e6e43211a"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/check-pending-visual-main-r1.py",
+      "indexSha256": "d043b2588af7ab7f5a606789af548e896b7baa0f24eb9cd6df225f581afa8b6a"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/collect-pending-copy-r5-after-exit.mjs",
+      "indexSha256": "2e0e0f63e86deeaaa76ad3314718b2499fa001e6379ea03a5dd1c0942d3420e5"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/combined-acceptance.json",
+      "indexSha256": "8520c096df0cd74a5694a52c1415df619795fd4f072b7f78a47c320020a56a58"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/curation.json",
+      "indexSha256": "152ba3a49b10b3fdbf6bece543da6e7a6c863213a6b91fb396b09b886e023055"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/database-after.json",
+      "indexSha256": "199ba87c4e03182dffe1fd2ffb97f013c877bb52a9178a0cec3b6b9edcef6eaa"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/database-collection.json",
+      "indexSha256": "9230b82983405a006376ad73c560209db1297644041254a8d96c7450b88a9dab"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/device-after.json",
+      "indexSha256": "e3cfe90545933a32ddea310551253dc01f720986bf595a3823b7332a647e1da3"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/device-baseline.json",
+      "indexSha256": "e3cfe90545933a32ddea310551253dc01f720986bf595a3823b7332a647e1da3"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/fixture-identity.json",
+      "indexSha256": "06e0430d48910b82ebcc5a46624258c36b0685b427b8a77dc1a202f1cf8c2758"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/frozen-secondary-manifest.json",
+      "indexSha256": "5bbfe1855a1e1d24eab7669535d1c2294cea9c7e26472b9866004430932e3c18"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/lifecycle-26581d5d-4dc8-4af5-bae9-a1fb8f22b600.stderr.log",
+      "indexSha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/lifecycle-26581d5d-4dc8-4af5-bae9-a1fb8f22b600.stdout.log",
+      "indexSha256": "0db166d4536bd5c080f162be0d7cd36e95697d8a3289b94da9aa266346f489f3"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/lifecycle-configuration.json",
+      "indexSha256": "dd0954eaf9315a54b4a6123ad93fa4bdaca1cb822928289c01f218d4ad7475b2"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/lifecycle-process.json",
+      "indexSha256": "76a965a9c116161ae20abab65ea43b416fba2494cd626cdc5b439ba529a14daf"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/native-pending-admin-catalog-4-handled.png",
+      "indexSha256": "130a084864b7eb39b38ebeece7f45179368daa97cbd4a5794ba854a86a88c37f"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/native-pending-admin-catalog-editable-after-recreation.png",
+      "indexSha256": "15987d2a67340a8b003ebb9c585231c3b76ce3f14e7b91cab7dadc268fa1448e"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/native-pending-admin-catalog-file-recipes.png",
+      "indexSha256": "af86a066c89c5da14026a2fb76a11d56037a9bbef9138bf60effeded2d094d18"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/native-pending-admin-catalog-publish-review.png",
+      "indexSha256": "3cbcb2c3850aaaa9576b39166dc348b788f2f7cdf29c13d11f8a1755382f46c9"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/native-pending-admin-catalog-published.png",
+      "indexSha256": "b750c947ee71aeda8d01a85357f8967438d27006b57fb5561850a91e67461ab1"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/native-pending-admin-catalog-review.png",
+      "indexSha256": "0fc9395bf014f09844c66fb4ec4b1694e12d4a213fa1e653f7281fcd5b855005"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/native-pending-admin-catalog-server-recipes.png",
+      "indexSha256": "ad88ebaae1500d6c149b720a64a7eae6cb2e8c90e0f302f911368126b94bb449"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/native-pending-admin-catalog.json",
+      "indexSha256": "de3e3091fc41c4ce982b99d2955f2f72fc0687d229abc42b78f894a8f0357fb0"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/native-pending-admin-lifecycle-0-submit-confirmed.png",
+      "indexSha256": "4bc252247998e150350d6c6c1252fcd8abfc86d7a9faebc022537c5375a3f4cd"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/native-pending-admin-lifecycle-0-submit-held.png",
+      "indexSha256": "74ba99006bee153271615d8b7939f70be1c353a8a86f4b49d31a486e886a487c"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/native-pending-admin-lifecycle-0-submit-review.png",
+      "indexSha256": "8ce5448e124cac4999b96aab91d96a9f4148b17437c8d55e7dec334debbdf548"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/native-pending-admin-lifecycle-1-return-confirmed.png",
+      "indexSha256": "32c219a70981c77b905db573549c3a0b9a8dc745fd0e85111cec8c261e5c3b4a"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/native-pending-admin-lifecycle-1-return-held.png",
+      "indexSha256": "7439931b66ed393241f205733d1e5d87aea64f0253c439bd87c2eb62efb32cc5"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/native-pending-admin-lifecycle-1-return-review.png",
+      "indexSha256": "4d1f8b6f1f72194ed07458b9ec38ce8def59e05a24b5b2a0ef6e40530cafc5cb"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/native-pending-admin-lifecycle-2-submit-confirmed.png",
+      "indexSha256": "4bc252247998e150350d6c6c1252fcd8abfc86d7a9faebc022537c5375a3f4cd"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/native-pending-admin-lifecycle-2-submit-held.png",
+      "indexSha256": "74ba99006bee153271615d8b7939f70be1c353a8a86f4b49d31a486e886a487c"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/native-pending-admin-lifecycle-2-submit-review.png",
+      "indexSha256": "4e16194a28f993f9f017437476b3a04231282db5c9efc0b7bd4325b6ab4835d0"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/native-pending-admin-lifecycle-3-lock-confirmed.png",
+      "indexSha256": "8666551388802a8a14569cecd2582419aeb8a1d47a6bd0b04c967adda9bf424f"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/native-pending-admin-lifecycle-3-lock-held.png",
+      "indexSha256": "a015fe9a69f112eb9bd0aaa85eb561bff718fdf1dc34cf727e2defefdb5501bc"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/native-pending-admin-lifecycle-3-lock-review.png",
+      "indexSha256": "98e936e78ac68f76507be94a529245885200d839cee801a90924aa4365f38577"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/native-pending-admin-lifecycle-4-reopen-confirmed.png",
+      "indexSha256": "32c219a70981c77b905db573549c3a0b9a8dc745fd0e85111cec8c261e5c3b4a"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/native-pending-admin-lifecycle-4-reopen-held.png",
+      "indexSha256": "b1286d24ecf4552d6479cde8c3034aa67b8491ccfb440e8d56b23fcf8e9f457a"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/native-pending-admin-lifecycle-4-reopen-review.png",
+      "indexSha256": "ee7c88245f4f1d05fc444e0da593a6db9b146f863ae843c3d2f48d675dfdbbaf"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/native-pending-admin-lifecycle-5-handled.png",
+      "indexSha256": "9283c7fcc675da6bd18430d5b18a1305669c0d00434ad4b16ba2323bae05c031"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/native-pending-admin-lifecycle-6-handled.png",
+      "indexSha256": "8238e67527ed357c8f172de7af4288472c4742bced9273818d8da048d11df3e2"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/native-pending-admin-lifecycle-7-handled.png",
+      "indexSha256": "9283c7fcc675da6bd18430d5b18a1305669c0d00434ad4b16ba2323bae05c031"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/native-pending-admin-lifecycle-8-handled.png",
+      "indexSha256": "e27e15f6522f247b333bafe2382617a7d0e7fafc6346b2807d7fe9dbc4f83b9f"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/native-pending-admin-lifecycle-9-handled.png",
+      "indexSha256": "c1b2e332cb604c82391d8e3eb8f63ff69e84966635f777685f4ecfc293345d0e"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/native-pending-admin-lifecycle.json",
+      "indexSha256": "da52f7d4e116ba26f2690321b672443de50b5006bb0dd8f913ed8e5735b63afe"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/native-pending-admin-settings-1-handled.png",
+      "indexSha256": "fd22a5a56f86e130be2d8261e8b288b5a4840f9ad2fc9b6b6568faf7a4ba7587"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/native-pending-admin-settings-confirmed.png",
+      "indexSha256": "2720750f8c7043bcf0bf385c739d8e77d0b1d1538855f7d0974b89d9ac27299f"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/native-pending-admin-settings-held-after-recreation.png",
+      "indexSha256": "d15c3233890b0c04be95c7085307afb693be0fef264916dd2b31148c188662bd"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/native-pending-admin-settings-review.png",
+      "indexSha256": "751b6bed94060a41de1bb2e7e93f8d58e2607525dff24b9c51b740a06eba44b6"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/native-pending-admin-settings.json",
+      "indexSha256": "09eee41f348e871054f11bdd9d960d2e26a8e8327d8706a4658a748eeed3a27d"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/native-pending-admin-team-2-handled.png",
+      "indexSha256": "b1017ec9d04d099976dcb47fb12a33dff60fcf53dc3f7accb3b5071e7b1fc858"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/native-pending-admin-team-3-handled.png",
+      "indexSha256": "8c39b1b2a7b29fc0124df79b5151c3b6bced73844cdfa21e6aa20ba9839656c2"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/native-pending-admin-team-create-identity-source.png",
+      "indexSha256": "4c939e97876ce2990f6d01bd9f0189c4c2583edd1b4e57473e8db6ea3f0ecf03"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/native-pending-admin-team-create-review.png",
+      "indexSha256": "4c939e97876ce2990f6d01bd9f0189c4c2583edd1b4e57473e8db6ea3f0ecf03"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/native-pending-admin-team-created.png",
+      "indexSha256": "1b2c7000c30450ae3d7d414098b89d97dba1262da327bd0cd5e9a8eef026191b"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/native-pending-admin-team-fresh-password-required.png",
+      "indexSha256": "07f35b52e070d56ec9289733550a4a52155840995df6534f3fd704b5466e872b"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/native-pending-admin-team-update-held.png",
+      "indexSha256": "9f573c2c10b4422001f25a48aa0b11023da1a7e2e2e7abfcb9bfe512cee9ee3c"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/native-pending-admin-team-update-identity-source.png",
+      "indexSha256": "5b63036a321c22df24cb5c5fa93fe3f8b7bd72b30f665d3650b98a07af8d8791"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/native-pending-admin-team-update-review.png",
+      "indexSha256": "2e358c3ccf875699267e78e7543c35d483c7fa99183253f44c47ddfbd8cf79c9"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/native-pending-admin-team-updated.png",
+      "indexSha256": "86a2c731a0fdc6be2a7adc2ee504296b0deb7f2d5b06facd1bf71e719dd09ef7"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/native-pending-admin-team.json",
+      "indexSha256": "8cdad0d385ed84dd8da1debb21d8aa5fdedb4226e6ca02ae78ab1cc022a33ef8"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/ordinary-cold-starts.json",
+      "indexSha256": "c5a35ead3ec256559717494c07a0579e934913cd17b3022d8353ace3e6f22cb5"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/owner-database-filenames-preflight.txt",
+      "indexSha256": "a6ada5e054d490b90e2e062408743f229d9003bc13936d4ec8e90abff7b39156"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/packet-index.json",
+      "indexSha256": "da1f12cc9e6b859393247043ced8c2f5820836dc6c2555e8c014f4b89bfca585"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/pending-copy-fixture-r5.mjs",
+      "indexSha256": "196c58b014032163ae4a4482801a53244cbdb93bdac64712fcb74a2bbd86aad0"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/pending-visual-main-fixture-r1.mjs",
+      "indexSha256": "2de34acc4f827391a653022fb0696678af6b4efe1a27addf572c10dec282395c"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/primary-room-after.sha256",
+      "indexSha256": "dcae5c15c6b028d8d91daf909a774c560356da7f601ded51fad94bf57fc7ccc3"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/primary-room-before.sha256",
+      "indexSha256": "dcae5c15c6b028d8d91daf909a774c560356da7f601ded51fad94bf57fc7ccc3"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/runtime-proof.json",
+      "indexSha256": "dcd27ced59c32ceca2f35b806603d8432f064d96818efc381ef2b7d2fc3fb611"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/sanitized-provenance.json",
+      "indexSha256": "06cad2051e0bcf03358b2520da569363bb1a3fd37713e05df26d0970418c361e"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/secondary-resource-profile.json",
+      "indexSha256": "22b112f1205a8e835df31ca8bf0431fff714a5ef8a604c2775fd891062c181e5"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/settings-26581d5d-4dc8-4af5-bae9-a1fb8f22b600.stderr.log",
+      "indexSha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/settings-26581d5d-4dc8-4af5-bae9-a1fb8f22b600.stdout.log",
+      "indexSha256": "88396240e0801ef97ca17cd7a876ba64407f6ae000a51d6caf2e96a50fdacf90"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/settings-configuration.json",
+      "indexSha256": "de84c6e6a6d3f2ec8a8924517c6d77de26386dcbcaeeb52b1536aa3fea15eb63"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/settings-process.json",
+      "indexSha256": "2f3d6ca37e6c19dca02a3a595505fe70e370d51c98494b888fa9e35f0f5950a4"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/team-26581d5d-4dc8-4af5-bae9-a1fb8f22b600.stderr.log",
+      "indexSha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/team-26581d5d-4dc8-4af5-bae9-a1fb8f22b600.stdout.log",
+      "indexSha256": "4a1dd1a75ebf8ce971b665181b282da4e04269874e1007b1377ea7742dd21a73"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/team-configuration.json",
+      "indexSha256": "c84f011232dece9f03b9eb99cc33c54192dda138e8b26e4b8e79147d0d3ac847"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/team-process.json",
+      "indexSha256": "1a58b3768375a3108a847dff9fd3134022b84081c9072f5072e07bdf1f18aa9c"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/verification.json",
+      "indexSha256": "9f0cb92519d1fa6b938871736566b95351e9f603d3430cb1643ad39b63975b61"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/apk-inputs.json",
+      "indexSha256": "ef8227631e62207cd949267230f127bb68106b89dd0af315b8a71e6af773d932"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/database-after.json",
+      "indexSha256": "b2b4bc0a0c634317e047cb11b5f214d8346326ae72c0e64b0f3fe41a4e7b76a2"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/device-after.json",
+      "indexSha256": "e3cfe90545933a32ddea310551253dc01f720986bf595a3823b7332a647e1da3"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/device-baseline.json",
+      "indexSha256": "e3cfe90545933a32ddea310551253dc01f720986bf595a3823b7332a647e1da3"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/fixture-identity.json",
+      "indexSha256": "40110859477e3c41e9d2e3b5d883856cd41a6c11e475d11a553c854bddc83a28"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/local-instrumentation.log",
+      "indexSha256": "6bddad0aad64dfa9852388ee13ed19747ba52b5f7c5e9e8264c1386570a4b459"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/runtime-proof.json",
+      "indexSha256": "e1a6a39e95fc79a248609569bbab252b61587edd5132971929a53dff3ec8b960"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/verification.json",
+      "indexSha256": "299fcfc6890b610eb50ca19d1cfdddf1d9aeb43b5027607d23ae93457258684c"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-dark-large.log",
+      "indexSha256": "91e792729eabf9c279a382c96f0512f917f7a5e0d9dfe61348e9180c2e7ca3c8"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-dark-large/pending-ui-visual-dark-large-accepted.png",
+      "indexSha256": "525ae372a52679d3ac99c34b212605d5c925424cd6e31dcbfc2f36eb6d78e302"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-dark-large/pending-ui-visual-dark-large-export-review.png",
+      "indexSha256": "9e7c24b5db9eee5c2c39f87927b6a94c6c1787458576572048a3cd19e22b1512"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-dark-large/pending-ui-visual-dark-large-exported.png",
+      "indexSha256": "c19c1c5ed10b4698e6a21f4a951888d2e883c51f57115a7f69645d65f8b88427"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-dark-large/pending-ui-visual-dark-large-held-draft.png",
+      "indexSha256": "3faf5575f93ab7ca54b89fc11290402c6477b0121a0a6a92c98996203e4411a4"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-dark-large/pending-ui-visual-dark-large-import-review.png",
+      "indexSha256": "8431eda8d544d8bf865a51f17156a9f02558503547fc25bfee756646471be57b"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-dark-large/pending-ui-visual-dark-large-inbox.png",
+      "indexSha256": "e594fbe9b40bce723958a6d85ef9496743f80c8fe5a7ec5142a8c11aa85176b4"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-dark-large/pending-ui-visual-dark-large-invalid.png",
+      "indexSha256": "12e99d7d393cb9a27b982c1012dc8fd8257c49621e5638d12d728d48e03e9b13"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-dark-large/pending-ui-visual-dark-large-picker.png",
+      "indexSha256": "deabef18a4df6b12c8e0d4a87a704a05f466d71c996e46c0e72ebb280415742a"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-dark-large/pending-ui-visual-dark-large-quantity-review.png",
+      "indexSha256": "1ef115e6c22859ff7e24141639dbeff67c85ec897fbaddb83c50177072975620"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-dark-large/pending-ui-visual-dark-large-recreated.png",
+      "indexSha256": "8431eda8d544d8bf865a51f17156a9f02558503547fc25bfee756646471be57b"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-dark-large/pending-ui-visual-dark-large-synced.png",
+      "indexSha256": "2b37d320061590b3c17c2a0530a6388a4a1166dea0db9123356ee7b9daf3c618"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-dark-large/pending-ui-visual-dark-large.json",
+      "indexSha256": "0b584613d0f4971469eeea1629ef91b4dfcf80e161a19e4ea942eb9c83894436"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-dark.log",
+      "indexSha256": "d71ebcbbcaf89fcf2dd07a44a2923231ae1126353e10aad9b25b2bd2c80501cc"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-dark/pending-ui-visual-dark-accepted.png",
+      "indexSha256": "eaca8c591037799856827a3aec2c2c93b2e6fd762545be391287ed10e947d482"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-dark/pending-ui-visual-dark-export-review.png",
+      "indexSha256": "5e89d506aacabe225e2c3ff406fa6eed7714b61db4eaae92ed375332829dd6a1"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-dark/pending-ui-visual-dark-exported.png",
+      "indexSha256": "7257c4cf74eb96185d34f7f63ff59ba9358ed9139794cc006bc053adc678f7df"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-dark/pending-ui-visual-dark-held-draft.png",
+      "indexSha256": "94225a100ff7beab2b8bfe108be830c7199db6fd66de8e8f243c1bf35d2ed0e1"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-dark/pending-ui-visual-dark-import-review.png",
+      "indexSha256": "95913f9e25763664b9271ecec736e5ddef2cb4add4a192316bdb0d39841ce75e"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-dark/pending-ui-visual-dark-inbox.png",
+      "indexSha256": "10e2c182fe58a8b32f38e7a5a142fdac09a9b5e7c5e72e4cd0431cbe8c5c07dc"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-dark/pending-ui-visual-dark-invalid.png",
+      "indexSha256": "979653465ba87f7966b14f4eb19a33cce461a658b79eff85297faee42abd7714"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-dark/pending-ui-visual-dark-picker.png",
+      "indexSha256": "7b406a6243a6fb1f2f96f8489abc8ab35c31f29e33447ea6e39fbf118a9bf239"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-dark/pending-ui-visual-dark-quantity-review.png",
+      "indexSha256": "43d79527a8d8cadfe8d9e7dbbb3b981f87a5cb9a27f248bb2315c606d1aced52"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-dark/pending-ui-visual-dark-recreated.png",
+      "indexSha256": "95913f9e25763664b9271ecec736e5ddef2cb4add4a192316bdb0d39841ce75e"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-dark/pending-ui-visual-dark-synced.png",
+      "indexSha256": "9b4ea4c7fc50b129b2576f0a0556165dda51d9d49f509ea3ba06109e4997e680"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-dark/pending-ui-visual-dark.json",
+      "indexSha256": "e64655ef086fe1e51da6a01768778161ea76095e84cdfc9e4b307bba8d5e927b"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-light-large.log",
+      "indexSha256": "436d54b7548661d1735271fd20b3f265ab0046b5b9c482f201019a7e3e713210"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-light-large/pending-ui-visual-light-large-accepted.png",
+      "indexSha256": "af501b361cb98f9d11684902ac844f943691d58e9eefc678f6722659b77fb742"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-light-large/pending-ui-visual-light-large-export-review.png",
+      "indexSha256": "419d9c85996cf8335920c7147150cb002177348ef8b5f43aecf9eefd9d7e193c"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-light-large/pending-ui-visual-light-large-exported.png",
+      "indexSha256": "39f65b78a47bd5f4c131cb2eb8c77f75b5f2dc6b91d257a1725b0fe5cd8fef48"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-light-large/pending-ui-visual-light-large-held-draft.png",
+      "indexSha256": "8fbd05ac389d9bd761009b02fe5db0a9346f022096be614f3ceb267907283075"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-light-large/pending-ui-visual-light-large-import-review.png",
+      "indexSha256": "2dc1660a25afdb5ab6f730f56392749f82f8f27030c99df657ce0d01f35ad40a"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-light-large/pending-ui-visual-light-large-inbox.png",
+      "indexSha256": "e36aaffe68c8ed789a8291899e1135afe6e60faa36f037804816b976b4414648"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-light-large/pending-ui-visual-light-large-invalid.png",
+      "indexSha256": "04a67fe4018714844ff36613a8ccce3d0ffbb187d9511c669b4658edb8762219"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-light-large/pending-ui-visual-light-large-picker.png",
+      "indexSha256": "f990e843a8f42ac77d91195ef85473f24459061e356b968f72080c25ca314813"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-light-large/pending-ui-visual-light-large-quantity-review.png",
+      "indexSha256": "17fd0b8da41d38741164f60980e6db175650626834503985f4b32ea1c5cdde6d"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-light-large/pending-ui-visual-light-large-recreated.png",
+      "indexSha256": "2dc1660a25afdb5ab6f730f56392749f82f8f27030c99df657ce0d01f35ad40a"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-light-large/pending-ui-visual-light-large-synced.png",
+      "indexSha256": "02974ab5b2a68c2dce1895e35c716069b5deed6cf3df779856e16693d2d74b30"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-light-large/pending-ui-visual-light-large.json",
+      "indexSha256": "b7a82beb33eaea000f32e7673501825a89b1c3e437fe95212e5b1d93bd2c59c4"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-light.log",
+      "indexSha256": "4369ce5a3ecaa50bea5337b6a38b2eceae7c307edb9289f70af2fdc920a34d94"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-light/pending-ui-visual-light-accepted.png",
+      "indexSha256": "158886c4e0858d2652c53c2f4ffb39db25591f4680e22b38853a9f99a6824f3d"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-light/pending-ui-visual-light-export-review.png",
+      "indexSha256": "b6d063ad2339d5257408eb761ff8450d9ba042f0e915ca2cc755ddf016d72c8d"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-light/pending-ui-visual-light-exported.png",
+      "indexSha256": "2a9dbcbc136e966c908b0126e35734dbd9b2ba25780ad14d97db9d09d19b4a45"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-light/pending-ui-visual-light-held-draft.png",
+      "indexSha256": "aeb1acb97643000c4a70023ff9ae2b44cbd782cb8cfb87ce45dfa2876b74a0e4"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-light/pending-ui-visual-light-import-review.png",
+      "indexSha256": "683e3dfba26c53ed2d50b975a7f9220596f241834de765d9080007dab9571d0b"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-light/pending-ui-visual-light-inbox.png",
+      "indexSha256": "8be32a711f526249809edeedc2c51442731df8587336b55c8b88652adbe0c71d"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-light/pending-ui-visual-light-invalid.png",
+      "indexSha256": "347a2c640b75f7c095f54a727c61c18bd21bd5cf15362da4c7f2e3161a0d11f1"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-light/pending-ui-visual-light-picker.png",
+      "indexSha256": "f1378046ea0d9682ee53858616986d6b165d9833ac868ec3b9edf1808f823f33"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-light/pending-ui-visual-light-quantity-review.png",
+      "indexSha256": "c40b3090a71133456f0b7f33285363c92a8a1550d7e4ba3a121b15385dc1622d"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-light/pending-ui-visual-light-recreated.png",
+      "indexSha256": "683e3dfba26c53ed2d50b975a7f9220596f241834de765d9080007dab9571d0b"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-light/pending-ui-visual-light-synced.png",
+      "indexSha256": "2cbc36010039326d572f41db06b2354a7a30e26dda6ff9d7d97e31c607e1f6ee"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-main/visual-light/pending-ui-visual-light.json",
+      "indexSha256": "dda97197681514577583c4b2000387337ced8deb39ee77815e8163070eeb8230"
+    },
+    {
+      "file": "docs/pending-copy-evidence-r1/visual-review.json",
+      "indexSha256": "16287cf6a87cd4443ec4c7c5cadf6c04ae520a2b33b2710707af1e8fdd07797c"
+    }
+  ],
+  "canonicalRepositories": [
+    {
+      "code": "ABS",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "CCS",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "ELZ",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "EXV",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "KLG",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "KEC",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "KPS",
+      "headAndStatusUnchanged": true
+    },
+    {
+      "code": "TTK",
+      "headAndStatusUnchanged": true
+    }
+  ],
+  "knownPrivateValuesAbsent": true,
+  "productionChangesRestrictedToPresentationMainThreadUiHandoffAndImeOptions": true,
+  "serviceSchemaDependenciesTransportRecoveryEngineUnchanged": true,
+  "nativeNormalTests": 4,
+  "recoveryCases": 9,
+  "localUiAndInboxTests": 7,
+  "nativeQuantityJourneys": 4,
+  "ordinaryColdStarts": 3,
+  "jvmTests": 25,
+  "lintErrors": 0,
+  "lintWarnings": 17,
+  "rawDatabasesAndPacketsNotCurated": true,
+  "localCcs07Acceptance": true,
+  "ccs08Complete": false,
+  "fullGoalComplete": false
+}

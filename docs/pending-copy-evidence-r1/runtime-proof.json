@@ -1,0 +1,251 @@
+{
+  "passed": true,
+  "nativeNormalTests": 4,
+  "recoveryCases": 9,
+  "caseKinds": [
+    "SETTINGS",
+    "TEAM_CREATE",
+    "TEAM_UPDATE",
+    "CATALOG",
+    "LIFECYCLE",
+    "LIFECYCLE",
+    "LIFECYCLE",
+    "LIFECYCLE",
+    "LIFECYCLE"
+  ],
+  "cumulativeInboxCounts": [
+    1,
+    3,
+    4,
+    9
+  ],
+  "sameEmulator": true,
+  "isolatedSecondaryUser": 10,
+  "appUid": 1010216,
+  "processes": [
+    5361,
+    6465,
+    6798,
+    7052
+  ],
+  "independentAcceptedPacketAndPayloadHashesMatched": true,
+  "independentFrozenRoomProvenanceMatched": true,
+  "independentPostgresReceiptsAndAuditMatched": true,
+  "adminReceipts": 9,
+  "newOperationIdsUsed": true,
+  "originalOperationIdsNeverRecorded": true,
+  "heldThroughNativeContinuationAndActivityRecreation": true,
+  "allFinalSendsUsedProductionUi": true,
+  "duplicateActionsBlocked": true,
+  "freshPasswordOutsideStoredDraft": true,
+  "catalogEditableAndHistoricalSnapshotsPreserved": true,
+  "lifecycleActions": [
+    "submit",
+    "return",
+    "submit",
+    "lock",
+    "reopen"
+  ],
+  "finalLifecycleState": "DRAFT",
+  "finalLifecycleGeneration": 3,
+  "finalLifecycleRevision": 5,
+  "defaultOutletClosingEntriesReceiptsAndQuantityAuditUnchanged": true,
+  "legacyLogicalHashesAndFrozenRowsUnchanged": true,
+  "primaryRoomFilesUnchanged": true,
+  "deviceSettingsUsersAndCurrentUserRestored": true,
+  "packetsSeededDirectlyIntoInbox": true,
+  "documentsPickerExercised": false,
+  "physicalPhoneAccessed": false,
+  "frozenSecondaryUidQuiescentAfterNormalTeardown": true,
+  "liveProcessStopClaim": false,
+  "observedConfigurations": {
+    "settings": "light/100%",
+    "team": "dark/200%",
+    "catalog": "light/100%",
+    "lifecycle": "light/100%"
+  },
+  "screenshots": [
+    {
+      "file": "native-pending-admin-settings-review.png",
+      "sha256": "751b6bed94060a41de1bb2e7e93f8d58e2607525dff24b9c51b740a06eba44b6"
+    },
+    {
+      "file": "native-pending-admin-settings-held-after-recreation.png",
+      "sha256": "d15c3233890b0c04be95c7085307afb693be0fef264916dd2b31148c188662bd"
+    },
+    {
+      "file": "native-pending-admin-settings-confirmed.png",
+      "sha256": "2720750f8c7043bcf0bf385c739d8e77d0b1d1538855f7d0974b89d9ac27299f"
+    },
+    {
+      "file": "native-pending-admin-settings-1-handled.png",
+      "sha256": "fd22a5a56f86e130be2d8261e8b288b5a4840f9ad2fc9b6b6568faf7a4ba7587"
+    },
+    {
+      "file": "native-pending-admin-team-create-review.png",
+      "sha256": "4c939e97876ce2990f6d01bd9f0189c4c2583edd1b4e57473e8db6ea3f0ecf03"
+    },
+    {
+      "file": "native-pending-admin-team-fresh-password-required.png",
+      "sha256": "07f35b52e070d56ec9289733550a4a52155840995df6534f3fd704b5466e872b"
+    },
+    {
+      "file": "native-pending-admin-team-created.png",
+      "sha256": "1b2c7000c30450ae3d7d414098b89d97dba1262da327bd0cd5e9a8eef026191b"
+    },
+    {
+      "file": "native-pending-admin-team-2-handled.png",
+      "sha256": "b1017ec9d04d099976dcb47fb12a33dff60fcf53dc3f7accb3b5071e7b1fc858"
+    },
+    {
+      "file": "native-pending-admin-team-update-review.png",
+      "sha256": "2e358c3ccf875699267e78e7543c35d483c7fa99183253f44c47ddfbd8cf79c9"
+    },
+    {
+      "file": "native-pending-admin-team-update-held.png",
+      "sha256": "9f573c2c10b4422001f25a48aa0b11023da1a7e2e2e7abfcb9bfe512cee9ee3c"
+    },
+    {
+      "file": "native-pending-admin-team-updated.png",
+      "sha256": "86a2c731a0fdc6be2a7adc2ee504296b0deb7f2d5b06facd1bf71e719dd09ef7"
+    },
+    {
+      "file": "native-pending-admin-team-3-handled.png",
+      "sha256": "8c39b1b2a7b29fc0124df79b5151c3b6bced73844cdfa21e6aa20ba9839656c2"
+    },
+    {
+      "file": "native-pending-admin-team-create-identity-source.png",
+      "sha256": "4c939e97876ce2990f6d01bd9f0189c4c2583edd1b4e57473e8db6ea3f0ecf03"
+    },
+    {
+      "file": "native-pending-admin-team-update-identity-source.png",
+      "sha256": "5b63036a321c22df24cb5c5fa93fe3f8b7bd72b30f665d3650b98a07af8d8791"
+    },
+    {
+      "file": "native-pending-admin-catalog-review.png",
+      "sha256": "0fc9395bf014f09844c66fb4ec4b1694e12d4a213fa1e653f7281fcd5b855005"
+    },
+    {
+      "file": "native-pending-admin-catalog-file-recipes.png",
+      "sha256": "af86a066c89c5da14026a2fb76a11d56037a9bbef9138bf60effeded2d094d18"
+    },
+    {
+      "file": "native-pending-admin-catalog-server-recipes.png",
+      "sha256": "ad88ebaae1500d6c149b720a64a7eae6cb2e8c90e0f302f911368126b94bb449"
+    },
+    {
+      "file": "native-pending-admin-catalog-editable-after-recreation.png",
+      "sha256": "15987d2a67340a8b003ebb9c585231c3b76ce3f14e7b91cab7dadc268fa1448e"
+    },
+    {
+      "file": "native-pending-admin-catalog-publish-review.png",
+      "sha256": "3cbcb2c3850aaaa9576b39166dc348b788f2f7cdf29c13d11f8a1755382f46c9"
+    },
+    {
+      "file": "native-pending-admin-catalog-published.png",
+      "sha256": "b750c947ee71aeda8d01a85357f8967438d27006b57fb5561850a91e67461ab1"
+    },
+    {
+      "file": "native-pending-admin-catalog-4-handled.png",
+      "sha256": "130a084864b7eb39b38ebeece7f45179368daa97cbd4a5794ba854a86a88c37f"
+    },
+    {
+      "file": "native-pending-admin-lifecycle-0-submit-review.png",
+      "sha256": "8ce5448e124cac4999b96aab91d96a9f4148b17437c8d55e7dec334debbdf548"
+    },
+    {
+      "file": "native-pending-admin-lifecycle-0-submit-held.png",
+      "sha256": "74ba99006bee153271615d8b7939f70be1c353a8a86f4b49d31a486e886a487c"
+    },
+    {
+      "file": "native-pending-admin-lifecycle-0-submit-confirmed.png",
+      "sha256": "4bc252247998e150350d6c6c1252fcd8abfc86d7a9faebc022537c5375a3f4cd"
+    },
+    {
+      "file": "native-pending-admin-lifecycle-1-return-review.png",
+      "sha256": "4d1f8b6f1f72194ed07458b9ec38ce8def59e05a24b5b2a0ef6e40530cafc5cb"
+    },
+    {
+      "file": "native-pending-admin-lifecycle-1-return-held.png",
+      "sha256": "7439931b66ed393241f205733d1e5d87aea64f0253c439bd87c2eb62efb32cc5"
+    },
+    {
+      "file": "native-pending-admin-lifecycle-1-return-confirmed.png",
+      "sha256": "32c219a70981c77b905db573549c3a0b9a8dc745fd0e85111cec8c261e5c3b4a"
+    },
+    {
+      "file": "native-pending-admin-lifecycle-2-submit-review.png",
+      "sha256": "4e16194a28f993f9f017437476b3a04231282db5c9efc0b7bd4325b6ab4835d0"
+    },
+    {
+      "file": "native-pending-admin-lifecycle-2-submit-held.png",
+      "sha256": "74ba99006bee153271615d8b7939f70be1c353a8a86f4b49d31a486e886a487c"
+    },
+    {
+      "file": "native-pending-admin-lifecycle-2-submit-confirmed.png",
+      "sha256": "4bc252247998e150350d6c6c1252fcd8abfc86d7a9faebc022537c5375a3f4cd"
+    },
+    {
+      "file": "native-pending-admin-lifecycle-3-lock-review.png",
+      "sha256": "98e936e78ac68f76507be94a529245885200d839cee801a90924aa4365f38577"
+    },
+    {
+      "file": "native-pending-admin-lifecycle-3-lock-held.png",
+      "sha256": "a015fe9a69f112eb9bd0aaa85eb561bff718fdf1dc34cf727e2defefdb5501bc"
+    },
+    {
+      "file": "native-pending-admin-lifecycle-3-lock-confirmed.png",
+      "sha256": "8666551388802a8a14569cecd2582419aeb8a1d47a6bd0b04c967adda9bf424f"
+    },
+    {
+      "file": "native-pending-admin-lifecycle-4-reopen-review.png",
+      "sha256": "ee7c88245f4f1d05fc444e0da593a6db9b146f863ae843c3d2f48d675dfdbbaf"
+    },
+    {
+      "file": "native-pending-admin-lifecycle-4-reopen-held.png",
+      "sha256": "b1286d24ecf4552d6479cde8c3034aa67b8491ccfb440e8d56b23fcf8e9f457a"
+    },
+    {
+      "file": "native-pending-admin-lifecycle-4-reopen-confirmed.png",
+      "sha256": "32c219a70981c77b905db573549c3a0b9a8dc745fd0e85111cec8c261e5c3b4a"
+    },
+    {
+      "file": "native-pending-admin-lifecycle-5-handled.png",
+      "sha256": "9283c7fcc675da6bd18430d5b18a1305669c0d00434ad4b16ba2323bae05c031"
+    },
+    {
+      "file": "native-pending-admin-lifecycle-6-handled.png",
+      "sha256": "8238e67527ed357c8f172de7af4288472c4742bced9273818d8da048d11df3e2"
+    },
+    {
+      "file": "native-pending-admin-lifecycle-7-handled.png",
+      "sha256": "9283c7fcc675da6bd18430d5b18a1305669c0d00434ad4b16ba2323bae05c031"
+    },
+    {
+      "file": "native-pending-admin-lifecycle-8-handled.png",
+      "sha256": "e27e15f6522f247b333bafe2382617a7d0e7fafc6346b2807d7fe9dbc4f83b9f"
+    },
+    {
+      "file": "native-pending-admin-lifecycle-9-handled.png",
+      "sha256": "c1b2e332cb604c82391d8e3eb8f63ff69e84966635f777685f4ecfc293345d0e"
+    }
+  ],
+  "build": {
+    "completedBuildLogProvided": true,
+    "buildLogSha256": "1879ee019ef62beda2c515b9dd51c3b6887a0ff697109b8bce066ae9bcf413b0",
+    "jvmTestsClaimed": true,
+    "jvmTests": 25,
+    "lintClaimed": true,
+    "lintErrors": 0,
+    "lintWarnings": 17
+  },
+  "completePt07Acceptance": false,
+  "fixtureInternalErrorTelemetryComplete": false,
+  "fixtureInternalErrorCountClaimed": null,
+  "remaining": [
+    "Human/model visual inspection of native admin dark/large screens",
+    "Remaining PT07/PT08 acceptance review",
+    "CCS08 complete local demo package",
+    "Final physical-device UAT and later public deployment acceptance"
+  ]
+}

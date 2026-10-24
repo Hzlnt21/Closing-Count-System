@@ -1,0 +1,1119 @@
+{
+  "outletId": "f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+  "outlets": [
+    {
+      "id": "f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+      "name": "Pulihan outlet 26581d5d",
+      "active": true,
+      "timezone": "Asia/Makassar",
+      "created_at": "2026-10-24T02:48:20.169221+00:00",
+      "cutoff_minutes": 90,
+      "settings_revision": 1
+    }
+  ],
+  "memberships": [
+    {
+      "role": "ADMIN",
+      "active": true,
+      "revision": 0,
+      "outlet_id": "f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+      "account_id": "7733ffa5-7ee7-40bb-97a4-caaafb3a2525",
+      "updated_at": "2026-10-24T02:48:20.180545+00:00"
+    },
+    {
+      "role": "ADMIN",
+      "active": true,
+      "revision": 0,
+      "outlet_id": "f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+      "account_id": "b8eb84de-9308-46c7-80b2-1ba82d1816dd",
+      "updated_at": "2026-10-24T02:48:20.183282+00:00"
+    },
+    {
+      "role": "EMPLOYEE",
+      "active": true,
+      "revision": 0,
+      "outlet_id": "f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+      "account_id": "8ab30896-7a62-45bb-b56d-d19319df860c",
+      "updated_at": "2026-10-24T02:48:20.177675+00:00"
+    },
+    {
+      "role": "EMPLOYEE",
+      "active": true,
+      "revision": 0,
+      "outlet_id": "f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+      "account_id": "eff32049-949c-4c79-ab5b-8fd447bed9fe",
+      "updated_at": "2026-10-24T02:48:20.17379+00:00"
+    },
+    {
+      "role": "SUPERVISOR",
+      "active": false,
+      "revision": 1,
+      "outlet_id": "f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+      "account_id": "96f33ef0-bffe-4930-8682-8b7e7c504cfa",
+      "updated_at": "2026-10-24T02:53:59.791996+00:00"
+    }
+  ],
+  "catalog_versions": [
+    {
+      "id": "2468b32c-e910-4729-a5df-43c1382b0f2e",
+      "revision": 2,
+      "snapshot": {
+        "menus": [
+          {
+            "id": "5d116932-8912-4446-ae90-1656d34f6edf",
+            "name": "Review Pulihan Cappuccino",
+            "active": true,
+            "sortOrder": 0,
+            "categoryId": "dba29449-3569-4eea-b54f-68c6debca54b",
+            "ingredientIds": [
+              "32ce734f-3a37-49d4-b835-d7966ac750e8",
+              "c5ade8ca-ba08-4c70-be32-5b25d1785101",
+              "f4a7a89e-ff6b-4b82-95d6-694f5114a893"
+            ]
+          },
+          {
+            "id": "93c1c98d-8b38-4b00-8c25-d8d9cad8ca68",
+            "name": "Pulihan Latte",
+            "active": true,
+            "sortOrder": 1,
+            "categoryId": "dba29449-3569-4eea-b54f-68c6debca54b",
+            "ingredientIds": [
+              "32ce734f-3a37-49d4-b835-d7966ac750e8",
+              "f4a7a89e-ff6b-4b82-95d6-694f5114a893"
+            ]
+          }
+        ],
+        "ingredients": [
+          {
+            "id": "32ce734f-3a37-49d4-b835-d7966ac750e8",
+            "name": "Biji kopi",
+            "active": true,
+            "sortOrder": 0,
+            "categoryId": "5ac98489-ecb9-492d-9368-16060cf87680"
+          },
+          {
+            "id": "c5ade8ca-ba08-4c70-be32-5b25d1785101",
+            "name": "Powder cokelat",
+            "active": true,
+            "sortOrder": 2,
+            "categoryId": "5ac98489-ecb9-492d-9368-16060cf87680"
+          },
+          {
+            "id": "f4a7a89e-ff6b-4b82-95d6-694f5114a893",
+            "name": "Fresh milk",
+            "active": true,
+            "sortOrder": 1,
+            "categoryId": "5ac98489-ecb9-492d-9368-16060cf87680"
+          }
+        ],
+        "menuCategories": [
+          {
+            "id": "dba29449-3569-4eea-b54f-68c6debca54b",
+            "name": "Coffee",
+            "sortOrder": 0
+          }
+        ],
+        "ingredientCategories": [
+          {
+            "id": "5ac98489-ecb9-492d-9368-16060cf87680",
+            "name": "Bahan baku",
+            "sortOrder": 0
+          }
+        ]
+      },
+      "outlet_id": "f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+      "created_at": "2026-10-24T02:54:38.277685+00:00",
+      "created_by": "7733ffa5-7ee7-40bb-97a4-caaafb3a2525"
+    },
+    {
+      "id": "9101f81e-2bb4-4318-8c71-74c7badd2612",
+      "revision": 1,
+      "snapshot": {
+        "menus": [
+          {
+            "id": "5d116932-8912-4446-ae90-1656d34f6edf",
+            "name": "Cappuccino",
+            "active": true,
+            "sortOrder": 0,
+            "categoryId": "dba29449-3569-4eea-b54f-68c6debca54b",
+            "ingredientIds": [
+              "32ce734f-3a37-49d4-b835-d7966ac750e8",
+              "c5ade8ca-ba08-4c70-be32-5b25d1785101",
+              "f4a7a89e-ff6b-4b82-95d6-694f5114a893"
+            ]
+          },
+          {
+            "id": "93c1c98d-8b38-4b00-8c25-d8d9cad8ca68",
+            "name": "Latte",
+            "active": true,
+            "sortOrder": 1,
+            "categoryId": "dba29449-3569-4eea-b54f-68c6debca54b",
+            "ingredientIds": [
+              "32ce734f-3a37-49d4-b835-d7966ac750e8",
+              "f4a7a89e-ff6b-4b82-95d6-694f5114a893"
+            ]
+          }
+        ],
+        "ingredients": [
+          {
+            "id": "32ce734f-3a37-49d4-b835-d7966ac750e8",
+            "name": "Biji kopi",
+            "active": true,
+            "sortOrder": 0,
+            "categoryId": "5ac98489-ecb9-492d-9368-16060cf87680"
+          },
+          {
+            "id": "c5ade8ca-ba08-4c70-be32-5b25d1785101",
+            "name": "Powder cokelat",
+            "active": true,
+            "sortOrder": 2,
+            "categoryId": "5ac98489-ecb9-492d-9368-16060cf87680"
+          },
+          {
+            "id": "f4a7a89e-ff6b-4b82-95d6-694f5114a893",
+            "name": "Fresh milk",
+            "active": true,
+            "sortOrder": 1,
+            "categoryId": "5ac98489-ecb9-492d-9368-16060cf87680"
+          }
+        ],
+        "menuCategories": [
+          {
+            "id": "dba29449-3569-4eea-b54f-68c6debca54b",
+            "name": "Coffee",
+            "sortOrder": 0
+          }
+        ],
+        "ingredientCategories": [
+          {
+            "id": "5ac98489-ecb9-492d-9368-16060cf87680",
+            "name": "Bahan baku",
+            "sortOrder": 0
+          }
+        ]
+      },
+      "outlet_id": "f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+      "created_at": "2026-10-24T02:48:20.185845+00:00",
+      "created_by": "7733ffa5-7ee7-40bb-97a4-caaafb3a2525"
+    }
+  ],
+  "operation_receipts": [
+    {
+      "actor_id": "7733ffa5-7ee7-40bb-97a4-caaafb3a2525",
+      "response": {
+        "catalog": {
+          "menus": [
+            {
+              "id": "5d116932-8912-4446-ae90-1656d34f6edf",
+              "name": "Review Pulihan Cappuccino",
+              "active": true,
+              "sortOrder": 0,
+              "categoryId": "dba29449-3569-4eea-b54f-68c6debca54b",
+              "ingredientIds": [
+                "32ce734f-3a37-49d4-b835-d7966ac750e8",
+                "c5ade8ca-ba08-4c70-be32-5b25d1785101",
+                "f4a7a89e-ff6b-4b82-95d6-694f5114a893"
+              ]
+            },
+            {
+              "id": "93c1c98d-8b38-4b00-8c25-d8d9cad8ca68",
+              "name": "Pulihan Latte",
+              "active": true,
+              "sortOrder": 1,
+              "categoryId": "dba29449-3569-4eea-b54f-68c6debca54b",
+              "ingredientIds": [
+                "32ce734f-3a37-49d4-b835-d7966ac750e8",
+                "f4a7a89e-ff6b-4b82-95d6-694f5114a893"
+              ]
+            }
+          ],
+          "ingredients": [
+            {
+              "id": "32ce734f-3a37-49d4-b835-d7966ac750e8",
+              "name": "Biji kopi",
+              "active": true,
+              "sortOrder": 0,
+              "categoryId": "5ac98489-ecb9-492d-9368-16060cf87680"
+            },
+            {
+              "id": "c5ade8ca-ba08-4c70-be32-5b25d1785101",
+              "name": "Powder cokelat",
+              "active": true,
+              "sortOrder": 2,
+              "categoryId": "5ac98489-ecb9-492d-9368-16060cf87680"
+            },
+            {
+              "id": "f4a7a89e-ff6b-4b82-95d6-694f5114a893",
+              "name": "Fresh milk",
+              "active": true,
+              "sortOrder": 1,
+              "categoryId": "5ac98489-ecb9-492d-9368-16060cf87680"
+            }
+          ],
+          "menuCategories": [
+            {
+              "id": "dba29449-3569-4eea-b54f-68c6debca54b",
+              "name": "Coffee",
+              "sortOrder": 0
+            }
+          ],
+          "ingredientCategories": [
+            {
+              "id": "5ac98489-ecb9-492d-9368-16060cf87680",
+              "name": "Bahan baku",
+              "sortOrder": 0
+            }
+          ]
+        },
+        "revision": 2,
+        "createdAt": "2026-10-24T02:54:38.277Z",
+        "versionId": "2468b32c-e910-4729-a5df-43c1382b0f2e"
+      },
+      "outlet_id": "f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+      "created_at": "2026-10-24T02:54:38.280932+00:00",
+      "operation_id": "58a0a98f-55c4-4b8e-8c3a-71a8a11b3291"
+    },
+    {
+      "actor_id": "7733ffa5-7ee7-40bb-97a4-caaafb3a2525",
+      "response": {
+        "kind": "CREATE_ACCOUNT",
+        "member": {
+          "id": "96f33ef0-bffe-4930-8682-8b7e7c504cfa",
+          "role": "EMPLOYEE",
+          "active": true,
+          "revision": 0,
+          "username": "qa.recovered.26581d5d4dc84af5bae9",
+          "displayName": "Anggota pulihan 26581d5d",
+          "accountActive": true
+        },
+        "changed": true,
+        "outletId": "f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+        "operationId": "c5308f49-c62b-4f91-81cb-87ae862b4f0b"
+      },
+      "outlet_id": "f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+      "created_at": "2026-10-24T02:53:47.401374+00:00",
+      "operation_id": "c5308f49-c62b-4f91-81cb-87ae862b4f0b"
+    },
+    {
+      "actor_id": "7733ffa5-7ee7-40bb-97a4-caaafb3a2525",
+      "response": {
+        "kind": "UPDATE_MEMBERSHIP",
+        "member": {
+          "id": "96f33ef0-bffe-4930-8682-8b7e7c504cfa",
+          "role": "SUPERVISOR",
+          "active": false,
+          "revision": 1,
+          "username": "qa.recovered.26581d5d4dc84af5bae9",
+          "displayName": "Anggota pulihan 26581d5d",
+          "accountActive": true
+        },
+        "changed": true,
+        "outletId": "f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+        "operationId": "73d0ac49-000d-4860-9c09-b8b6b6038ce8"
+      },
+      "outlet_id": "f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+      "created_at": "2026-10-24T02:53:59.80371+00:00",
+      "operation_id": "73d0ac49-000d-4860-9c09-b8b6b6038ce8"
+    },
+    {
+      "actor_id": "7733ffa5-7ee7-40bb-97a4-caaafb3a2525",
+      "response": {
+        "name": "Pulihan outlet 26581d5d",
+        "outletId": "f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+        "timezone": "Asia/Makassar",
+        "operationId": "e3fda590-9d62-4500-ba4f-f1981df0f43a",
+        "cutoffMinutes": 90,
+        "settingsRevision": 1
+      },
+      "outlet_id": "f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+      "created_at": "2026-10-24T02:52:51.268291+00:00",
+      "operation_id": "e3fda590-9d62-4500-ba4f-f1981df0f43a"
+    },
+    {
+      "actor_id": "7733ffa5-7ee7-40bb-97a4-caaafb3a2525",
+      "response": {
+        "state": "DRAFT",
+        "report": null,
+        "lockedAt": null,
+        "lockedBy": null,
+        "closingId": "d79582c7-1c96-4eaf-8649-b6762ef1bbc5",
+        "generation": 2,
+        "submittedAt": null,
+        "submittedBy": null,
+        "closingRevision": 2
+      },
+      "outlet_id": "f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+      "created_at": "2026-10-24T02:55:10.208805+00:00",
+      "operation_id": "aa3cde0e-1e65-4854-8aea-4140f204f6f9"
+    },
+    {
+      "actor_id": "7733ffa5-7ee7-40bb-97a4-caaafb3a2525",
+      "response": {
+        "state": "DRAFT",
+        "report": null,
+        "lockedAt": null,
+        "lockedBy": null,
+        "closingId": "d79582c7-1c96-4eaf-8649-b6762ef1bbc5",
+        "generation": 3,
+        "submittedAt": null,
+        "submittedBy": null,
+        "closingRevision": 5
+      },
+      "outlet_id": "f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+      "created_at": "2026-10-24T02:55:31.066606+00:00",
+      "operation_id": "502ebe21-8b30-4ec7-a1b0-b0aa5a744913"
+    },
+    {
+      "actor_id": "7733ffa5-7ee7-40bb-97a4-caaafb3a2525",
+      "response": {
+        "state": "LOCKED",
+        "report": {
+          "id": "c7dee8f9-a31d-47cf-b8f0-a8a7173e8132",
+          "generation": 2,
+          "reviewedAt": "2026-10-24T02:55:24.683Z",
+          "reviewedBy": {
+            "id": "7733ffa5-7ee7-40bb-97a4-caaafb3a2525",
+            "username": "qahmvlsuej9pc5.admin",
+            "displayName": "Dummy admin"
+          },
+          "closingRevision": 4
+        },
+        "lockedAt": "2026-10-24T02:55:24.683Z",
+        "lockedBy": {
+          "id": "7733ffa5-7ee7-40bb-97a4-caaafb3a2525",
+          "username": "qahmvlsuej9pc5.admin",
+          "displayName": "Dummy admin"
+        },
+        "closingId": "d79582c7-1c96-4eaf-8649-b6762ef1bbc5",
+        "generation": 2,
+        "submittedAt": "2026-10-24T02:55:18.000Z",
+        "submittedBy": {
+          "id": "7733ffa5-7ee7-40bb-97a4-caaafb3a2525",
+          "username": "qahmvlsuej9pc5.admin",
+          "displayName": "Dummy admin"
+        },
+        "closingRevision": 4
+      },
+      "outlet_id": "f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+      "created_at": "2026-10-24T02:55:24.71968+00:00",
+      "operation_id": "021465f2-c86a-4049-906e-eff7db11d990"
+    },
+    {
+      "actor_id": "7733ffa5-7ee7-40bb-97a4-caaafb3a2525",
+      "response": {
+        "state": "SUBMITTED",
+        "report": null,
+        "lockedAt": null,
+        "lockedBy": null,
+        "closingId": "d79582c7-1c96-4eaf-8649-b6762ef1bbc5",
+        "generation": 1,
+        "submittedAt": "2026-10-24T02:55:02.896Z",
+        "submittedBy": {
+          "id": "7733ffa5-7ee7-40bb-97a4-caaafb3a2525",
+          "username": "qahmvlsuej9pc5.admin",
+          "displayName": "Dummy admin"
+        },
+        "closingRevision": 1
+      },
+      "outlet_id": "f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+      "created_at": "2026-10-24T02:55:02.95812+00:00",
+      "operation_id": "3ce4a9ba-500b-4440-841b-7e4c1c9b3b7b"
+    },
+    {
+      "actor_id": "7733ffa5-7ee7-40bb-97a4-caaafb3a2525",
+      "response": {
+        "state": "SUBMITTED",
+        "report": null,
+        "lockedAt": null,
+        "lockedBy": null,
+        "closingId": "d79582c7-1c96-4eaf-8649-b6762ef1bbc5",
+        "generation": 2,
+        "submittedAt": "2026-10-24T02:55:18.000Z",
+        "submittedBy": {
+          "id": "7733ffa5-7ee7-40bb-97a4-caaafb3a2525",
+          "username": "qahmvlsuej9pc5.admin",
+          "displayName": "Dummy admin"
+        },
+        "closingRevision": 3
+      },
+      "outlet_id": "f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+      "created_at": "2026-10-24T02:55:18.006979+00:00",
+      "operation_id": "c3c6997a-3638-4727-a0c9-ca504c219294"
+    }
+  ],
+  "outlet_settings_audit": [
+    {
+      "id": 76,
+      "actor_id": "7733ffa5-7ee7-40bb-97a4-caaafb3a2525",
+      "revision": 1,
+      "outlet_id": "f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+      "created_at": "2026-10-24T02:52:51.253431+00:00",
+      "after_value": {
+        "name": "Pulihan outlet 26581d5d",
+        "timezone": "Asia/Makassar",
+        "cutoffMinutes": 90
+      },
+      "before_value": {
+        "name": "Admin native QA qahmvlsuej9pc5",
+        "timezone": "Asia/Jakarta",
+        "cutoffMinutes": 0
+      },
+      "operation_id": "e3fda590-9d62-4500-ba4f-f1981df0f43a"
+    }
+  ],
+  "membership_audit": [
+    {
+      "id": 211,
+      "action": "CREATE_ACCOUNT",
+      "actor_id": "7733ffa5-7ee7-40bb-97a4-caaafb3a2525",
+      "outlet_id": "f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+      "created_at": "2026-10-24T02:53:47.395548+00:00",
+      "subject_id": "96f33ef0-bffe-4930-8682-8b7e7c504cfa",
+      "after_value": {
+        "role": "EMPLOYEE",
+        "active": true,
+        "username": "qa.recovered.26581d5d4dc84af5bae9"
+      },
+      "before_value": null
+    },
+    {
+      "id": 212,
+      "action": "UPDATE_MEMBERSHIP",
+      "actor_id": "7733ffa5-7ee7-40bb-97a4-caaafb3a2525",
+      "outlet_id": "f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+      "created_at": "2026-10-24T02:53:59.795202+00:00",
+      "subject_id": "96f33ef0-bffe-4930-8682-8b7e7c504cfa",
+      "after_value": {
+        "role": "SUPERVISOR",
+        "active": false
+      },
+      "before_value": {
+        "role": "EMPLOYEE",
+        "active": true
+      }
+    }
+  ],
+  "closings": [
+    {
+      "id": "3c78f2a3-20fb-48c8-9cb1-baa001d658d0",
+      "state": "DRAFT",
+      "revision": 0,
+      "snapshot": {
+        "menus": [
+          {
+            "id": "5d116932-8912-4446-ae90-1656d34f6edf",
+            "name": "Review Pulihan Cappuccino",
+            "active": true,
+            "sortOrder": 0,
+            "categoryId": "dba29449-3569-4eea-b54f-68c6debca54b",
+            "ingredientIds": [
+              "32ce734f-3a37-49d4-b835-d7966ac750e8",
+              "c5ade8ca-ba08-4c70-be32-5b25d1785101",
+              "f4a7a89e-ff6b-4b82-95d6-694f5114a893"
+            ]
+          },
+          {
+            "id": "93c1c98d-8b38-4b00-8c25-d8d9cad8ca68",
+            "name": "Pulihan Latte",
+            "active": true,
+            "sortOrder": 1,
+            "categoryId": "dba29449-3569-4eea-b54f-68c6debca54b",
+            "ingredientIds": [
+              "32ce734f-3a37-49d4-b835-d7966ac750e8",
+              "f4a7a89e-ff6b-4b82-95d6-694f5114a893"
+            ]
+          }
+        ],
+        "ingredients": [
+          {
+            "id": "32ce734f-3a37-49d4-b835-d7966ac750e8",
+            "name": "Biji kopi",
+            "active": true,
+            "sortOrder": 0,
+            "categoryId": "5ac98489-ecb9-492d-9368-16060cf87680"
+          },
+          {
+            "id": "c5ade8ca-ba08-4c70-be32-5b25d1785101",
+            "name": "Powder cokelat",
+            "active": true,
+            "sortOrder": 2,
+            "categoryId": "5ac98489-ecb9-492d-9368-16060cf87680"
+          },
+          {
+            "id": "f4a7a89e-ff6b-4b82-95d6-694f5114a893",
+            "name": "Fresh milk",
+            "active": true,
+            "sortOrder": 1,
+            "categoryId": "5ac98489-ecb9-492d-9368-16060cf87680"
+          }
+        ],
+        "menuCategories": [
+          {
+            "id": "dba29449-3569-4eea-b54f-68c6debca54b",
+            "name": "Coffee",
+            "sortOrder": 0
+          }
+        ],
+        "ingredientCategories": [
+          {
+            "id": "5ac98489-ecb9-492d-9368-16060cf87680",
+            "name": "Bahan baku",
+            "sortOrder": 0
+          }
+        ]
+      },
+      "timezone": "Asia/Makassar",
+      "locked_at": null,
+      "locked_by": null,
+      "outlet_id": "f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+      "created_at": "2026-10-24T02:54:38.53697+00:00",
+      "created_by": "7733ffa5-7ee7-40bb-97a4-caaafb3a2525",
+      "generation": 1,
+      "updated_at": "2026-10-24T02:54:38.53697+00:00",
+      "locked_actor": null,
+      "submitted_at": null,
+      "submitted_by": null,
+      "business_date": "2026-07-07",
+      "cutoff_minutes": 90,
+      "submitted_actor": null,
+      "catalog_version_id": "2468b32c-e910-4729-a5df-43c1382b0f2e"
+    },
+    {
+      "id": "713d6cde-1fdb-4243-a16a-a7d2fba100d2",
+      "state": "DRAFT",
+      "revision": 0,
+      "snapshot": {
+        "menus": [
+          {
+            "id": "5d116932-8912-4446-ae90-1656d34f6edf",
+            "name": "Cappuccino",
+            "active": true,
+            "sortOrder": 0,
+            "categoryId": "dba29449-3569-4eea-b54f-68c6debca54b",
+            "ingredientIds": [
+              "32ce734f-3a37-49d4-b835-d7966ac750e8",
+              "c5ade8ca-ba08-4c70-be32-5b25d1785101",
+              "f4a7a89e-ff6b-4b82-95d6-694f5114a893"
+            ]
+          },
+          {
+            "id": "93c1c98d-8b38-4b00-8c25-d8d9cad8ca68",
+            "name": "Latte",
+            "active": true,
+            "sortOrder": 1,
+            "categoryId": "dba29449-3569-4eea-b54f-68c6debca54b",
+            "ingredientIds": [
+              "32ce734f-3a37-49d4-b835-d7966ac750e8",
+              "f4a7a89e-ff6b-4b82-95d6-694f5114a893"
+            ]
+          }
+        ],
+        "ingredients": [
+          {
+            "id": "32ce734f-3a37-49d4-b835-d7966ac750e8",
+            "name": "Biji kopi",
+            "active": true,
+            "sortOrder": 0,
+            "categoryId": "5ac98489-ecb9-492d-9368-16060cf87680"
+          },
+          {
+            "id": "c5ade8ca-ba08-4c70-be32-5b25d1785101",
+            "name": "Powder cokelat",
+            "active": true,
+            "sortOrder": 2,
+            "categoryId": "5ac98489-ecb9-492d-9368-16060cf87680"
+          },
+          {
+            "id": "f4a7a89e-ff6b-4b82-95d6-694f5114a893",
+            "name": "Fresh milk",
+            "active": true,
+            "sortOrder": 1,
+            "categoryId": "5ac98489-ecb9-492d-9368-16060cf87680"
+          }
+        ],
+        "menuCategories": [
+          {
+            "id": "dba29449-3569-4eea-b54f-68c6debca54b",
+            "name": "Coffee",
+            "sortOrder": 0
+          }
+        ],
+        "ingredientCategories": [
+          {
+            "id": "5ac98489-ecb9-492d-9368-16060cf87680",
+            "name": "Bahan baku",
+            "sortOrder": 0
+          }
+        ]
+      },
+      "timezone": "Asia/Makassar",
+      "locked_at": null,
+      "locked_by": null,
+      "outlet_id": "f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+      "created_at": "2026-10-24T02:54:25.47671+00:00",
+      "created_by": "7733ffa5-7ee7-40bb-97a4-caaafb3a2525",
+      "generation": 1,
+      "updated_at": "2026-10-24T02:54:25.476711+00:00",
+      "locked_actor": null,
+      "submitted_at": null,
+      "submitted_by": null,
+      "business_date": "2026-07-06",
+      "cutoff_minutes": 90,
+      "submitted_actor": null,
+      "catalog_version_id": "9101f81e-2bb4-4318-8c71-74c7badd2612"
+    },
+    {
+      "id": "d79582c7-1c96-4eaf-8649-b6762ef1bbc5",
+      "state": "DRAFT",
+      "revision": 5,
+      "snapshot": {
+        "menus": [
+          {
+            "id": "5d116932-8912-4446-ae90-1656d34f6edf",
+            "name": "Review Pulihan Cappuccino",
+            "active": true,
+            "sortOrder": 0,
+            "categoryId": "dba29449-3569-4eea-b54f-68c6debca54b",
+            "ingredientIds": [
+              "32ce734f-3a37-49d4-b835-d7966ac750e8",
+              "c5ade8ca-ba08-4c70-be32-5b25d1785101",
+              "f4a7a89e-ff6b-4b82-95d6-694f5114a893"
+            ]
+          },
+          {
+            "id": "93c1c98d-8b38-4b00-8c25-d8d9cad8ca68",
+            "name": "Pulihan Latte",
+            "active": true,
+            "sortOrder": 1,
+            "categoryId": "dba29449-3569-4eea-b54f-68c6debca54b",
+            "ingredientIds": [
+              "32ce734f-3a37-49d4-b835-d7966ac750e8",
+              "f4a7a89e-ff6b-4b82-95d6-694f5114a893"
+            ]
+          }
+        ],
+        "ingredients": [
+          {
+            "id": "32ce734f-3a37-49d4-b835-d7966ac750e8",
+            "name": "Biji kopi",
+            "active": true,
+            "sortOrder": 0,
+            "categoryId": "5ac98489-ecb9-492d-9368-16060cf87680"
+          },
+          {
+            "id": "c5ade8ca-ba08-4c70-be32-5b25d1785101",
+            "name": "Powder cokelat",
+            "active": true,
+            "sortOrder": 2,
+            "categoryId": "5ac98489-ecb9-492d-9368-16060cf87680"
+          },
+          {
+            "id": "f4a7a89e-ff6b-4b82-95d6-694f5114a893",
+            "name": "Fresh milk",
+            "active": true,
+            "sortOrder": 1,
+            "categoryId": "5ac98489-ecb9-492d-9368-16060cf87680"
+          }
+        ],
+        "menuCategories": [
+          {
+            "id": "dba29449-3569-4eea-b54f-68c6debca54b",
+            "name": "Coffee",
+            "sortOrder": 0
+          }
+        ],
+        "ingredientCategories": [
+          {
+            "id": "5ac98489-ecb9-492d-9368-16060cf87680",
+            "name": "Bahan baku",
+            "sortOrder": 0
+          }
+        ]
+      },
+      "timezone": "Asia/Makassar",
+      "locked_at": null,
+      "locked_by": null,
+      "outlet_id": "f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+      "created_at": "2026-10-24T02:54:56.431543+00:00",
+      "created_by": "7733ffa5-7ee7-40bb-97a4-caaafb3a2525",
+      "generation": 3,
+      "updated_at": "2026-10-24T02:55:31.058084+00:00",
+      "locked_actor": null,
+      "submitted_at": null,
+      "submitted_by": null,
+      "business_date": "2026-07-08",
+      "cutoff_minutes": 90,
+      "submitted_actor": null,
+      "catalog_version_id": "2468b32c-e910-4729-a5df-43c1382b0f2e"
+    }
+  ],
+  "closing_audit": [
+    {
+      "id": 1247,
+      "action": "CREATE",
+      "reason": null,
+      "menu_id": null,
+      "actor_id": "7733ffa5-7ee7-40bb-97a4-caaafb3a2525",
+      "outlet_id": "f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+      "actor_name": "Dummy admin",
+      "closing_id": "713d6cde-1fdb-4243-a16a-a7d2fba100d2",
+      "created_at": "2026-10-24T02:54:25.504746+00:00",
+      "generation": 1,
+      "operation_id": null,
+      "actor_username": "qahmvlsuej9pc5.admin",
+      "after_quantity": null,
+      "entry_revision": null,
+      "before_quantity": null,
+      "closing_revision": 0
+    },
+    {
+      "id": 1248,
+      "action": "CREATE",
+      "reason": null,
+      "menu_id": null,
+      "actor_id": "7733ffa5-7ee7-40bb-97a4-caaafb3a2525",
+      "outlet_id": "f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+      "actor_name": "Dummy admin",
+      "closing_id": "3c78f2a3-20fb-48c8-9cb1-baa001d658d0",
+      "created_at": "2026-10-24T02:54:38.548233+00:00",
+      "generation": 1,
+      "operation_id": null,
+      "actor_username": "qahmvlsuej9pc5.admin",
+      "after_quantity": null,
+      "entry_revision": null,
+      "before_quantity": null,
+      "closing_revision": 0
+    },
+    {
+      "id": 1249,
+      "action": "CREATE",
+      "reason": null,
+      "menu_id": null,
+      "actor_id": "7733ffa5-7ee7-40bb-97a4-caaafb3a2525",
+      "outlet_id": "f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+      "actor_name": "Dummy admin",
+      "closing_id": "d79582c7-1c96-4eaf-8649-b6762ef1bbc5",
+      "created_at": "2026-10-24T02:54:56.445638+00:00",
+      "generation": 1,
+      "operation_id": null,
+      "actor_username": "qahmvlsuej9pc5.admin",
+      "after_quantity": null,
+      "entry_revision": null,
+      "before_quantity": null,
+      "closing_revision": 0
+    },
+    {
+      "id": 1250,
+      "action": "SUBMIT",
+      "reason": null,
+      "menu_id": null,
+      "actor_id": "7733ffa5-7ee7-40bb-97a4-caaafb3a2525",
+      "outlet_id": "f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+      "actor_name": "Dummy admin",
+      "closing_id": "d79582c7-1c96-4eaf-8649-b6762ef1bbc5",
+      "created_at": "2026-10-24T02:55:02.95465+00:00",
+      "generation": 1,
+      "operation_id": "3ce4a9ba-500b-4440-841b-7e4c1c9b3b7b",
+      "actor_username": "qahmvlsuej9pc5.admin",
+      "after_quantity": null,
+      "entry_revision": null,
+      "before_quantity": null,
+      "closing_revision": 1
+    },
+    {
+      "id": 1251,
+      "action": "RETURN",
+      "reason": "Koreksi pulihan return 26581d5d",
+      "menu_id": null,
+      "actor_id": "7733ffa5-7ee7-40bb-97a4-caaafb3a2525",
+      "outlet_id": "f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+      "actor_name": "Dummy admin",
+      "closing_id": "d79582c7-1c96-4eaf-8649-b6762ef1bbc5",
+      "created_at": "2026-10-24T02:55:10.206452+00:00",
+      "generation": 2,
+      "operation_id": "aa3cde0e-1e65-4854-8aea-4140f204f6f9",
+      "actor_username": "qahmvlsuej9pc5.admin",
+      "after_quantity": null,
+      "entry_revision": null,
+      "before_quantity": null,
+      "closing_revision": 2
+    },
+    {
+      "id": 1252,
+      "action": "SUBMIT",
+      "reason": null,
+      "menu_id": null,
+      "actor_id": "7733ffa5-7ee7-40bb-97a4-caaafb3a2525",
+      "outlet_id": "f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+      "actor_name": "Dummy admin",
+      "closing_id": "d79582c7-1c96-4eaf-8649-b6762ef1bbc5",
+      "created_at": "2026-10-24T02:55:18.004781+00:00",
+      "generation": 2,
+      "operation_id": "c3c6997a-3638-4727-a0c9-ca504c219294",
+      "actor_username": "qahmvlsuej9pc5.admin",
+      "after_quantity": null,
+      "entry_revision": null,
+      "before_quantity": null,
+      "closing_revision": 3
+    },
+    {
+      "id": 1253,
+      "action": "LOCK",
+      "reason": null,
+      "menu_id": null,
+      "actor_id": "7733ffa5-7ee7-40bb-97a4-caaafb3a2525",
+      "outlet_id": "f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+      "actor_name": "Dummy admin",
+      "closing_id": "d79582c7-1c96-4eaf-8649-b6762ef1bbc5",
+      "created_at": "2026-10-24T02:55:24.717622+00:00",
+      "generation": 2,
+      "operation_id": "021465f2-c86a-4049-906e-eff7db11d990",
+      "actor_username": "qahmvlsuej9pc5.admin",
+      "after_quantity": null,
+      "entry_revision": null,
+      "before_quantity": null,
+      "closing_revision": 4
+    },
+    {
+      "id": 1254,
+      "action": "REOPEN",
+      "reason": "Koreksi pulihan reopen 26581d5d",
+      "menu_id": null,
+      "actor_id": "7733ffa5-7ee7-40bb-97a4-caaafb3a2525",
+      "outlet_id": "f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+      "actor_name": "Dummy admin",
+      "closing_id": "d79582c7-1c96-4eaf-8649-b6762ef1bbc5",
+      "created_at": "2026-10-24T02:55:31.062995+00:00",
+      "generation": 3,
+      "operation_id": "502ebe21-8b30-4ec7-a1b0-b0aa5a744913",
+      "actor_username": "qahmvlsuej9pc5.admin",
+      "after_quantity": null,
+      "entry_revision": null,
+      "before_quantity": null,
+      "closing_revision": 5
+    }
+  ],
+  "closing_reports": [
+    {
+      "id": "c7dee8f9-a31d-47cf-b8f0-a8a7173e8132",
+      "snapshot": {
+        "id": "c7dee8f9-a31d-47cf-b8f0-a8a7173e8132",
+        "format": "closing-count-report",
+        "closing": {
+          "id": "d79582c7-1c96-4eaf-8649-b6762ef1bbc5",
+          "state": "LOCKED",
+          "catalog": {
+            "menus": [
+              {
+                "id": "5d116932-8912-4446-ae90-1656d34f6edf",
+                "name": "Review Pulihan Cappuccino",
+                "active": true,
+                "sortOrder": 0,
+                "categoryId": "dba29449-3569-4eea-b54f-68c6debca54b",
+                "ingredientIds": [
+                  "32ce734f-3a37-49d4-b835-d7966ac750e8",
+                  "c5ade8ca-ba08-4c70-be32-5b25d1785101",
+                  "f4a7a89e-ff6b-4b82-95d6-694f5114a893"
+                ]
+              },
+              {
+                "id": "93c1c98d-8b38-4b00-8c25-d8d9cad8ca68",
+                "name": "Pulihan Latte",
+                "active": true,
+                "sortOrder": 1,
+                "categoryId": "dba29449-3569-4eea-b54f-68c6debca54b",
+                "ingredientIds": [
+                  "32ce734f-3a37-49d4-b835-d7966ac750e8",
+                  "f4a7a89e-ff6b-4b82-95d6-694f5114a893"
+                ]
+              }
+            ],
+            "ingredients": [
+              {
+                "id": "32ce734f-3a37-49d4-b835-d7966ac750e8",
+                "name": "Biji kopi",
+                "active": true,
+                "sortOrder": 0,
+                "categoryId": "5ac98489-ecb9-492d-9368-16060cf87680"
+              },
+              {
+                "id": "c5ade8ca-ba08-4c70-be32-5b25d1785101",
+                "name": "Powder cokelat",
+                "active": true,
+                "sortOrder": 2,
+                "categoryId": "5ac98489-ecb9-492d-9368-16060cf87680"
+              },
+              {
+                "id": "f4a7a89e-ff6b-4b82-95d6-694f5114a893",
+                "name": "Fresh milk",
+                "active": true,
+                "sortOrder": 1,
+                "categoryId": "5ac98489-ecb9-492d-9368-16060cf87680"
+              }
+            ],
+            "menuCategories": [
+              {
+                "id": "dba29449-3569-4eea-b54f-68c6debca54b",
+                "name": "Coffee",
+                "sortOrder": 0
+              }
+            ],
+            "ingredientCategories": [
+              {
+                "id": "5ac98489-ecb9-492d-9368-16060cf87680",
+                "name": "Bahan baku",
+                "sortOrder": 0
+              }
+            ]
+          },
+          "entries": [
+            {
+              "menuId": "5d116932-8912-4446-ae90-1656d34f6edf",
+              "quantity": 0,
+              "updatedAt": "2026-10-24T02:54:56.437Z",
+              "updatedBy": null,
+              "entryRevision": 0
+            },
+            {
+              "menuId": "93c1c98d-8b38-4b00-8c25-d8d9cad8ca68",
+              "quantity": 0,
+              "updatedAt": "2026-10-24T02:54:56.439Z",
+              "updatedBy": null,
+              "entryRevision": 0
+            }
+          ],
+          "lockedAt": "2026-10-24T02:55:24.683Z",
+          "lockedBy": {
+            "id": "7733ffa5-7ee7-40bb-97a4-caaafb3a2525",
+            "username": "qahmvlsuej9pc5.admin",
+            "displayName": "Dummy admin"
+          },
+          "outletId": "f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+          "timezone": "Asia/Makassar",
+          "createdAt": "2026-10-24T02:54:56.431Z",
+          "updatedAt": "2026-10-24T02:55:24.683Z",
+          "generation": 2,
+          "submittedAt": "2026-10-24T02:55:18.000Z",
+          "submittedBy": {
+            "id": "7733ffa5-7ee7-40bb-97a4-caaafb3a2525",
+            "username": "qahmvlsuej9pc5.admin",
+            "displayName": "Dummy admin"
+          },
+          "businessDate": "2026-07-08",
+          "cutoffMinutes": 90,
+          "closingRevision": 4,
+          "catalogVersionId": "2468b32c-e910-4729-a5df-43c1382b0f2e",
+          "ingredientTotals": []
+        },
+        "outletId": "f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+        "closingId": "d79582c7-1c96-4eaf-8649-b6762ef1bbc5",
+        "generation": 2,
+        "reviewedAt": "2026-10-24T02:55:24.683Z",
+        "reviewedBy": {
+          "id": "7733ffa5-7ee7-40bb-97a4-caaafb3a2525",
+          "username": "qahmvlsuej9pc5.admin",
+          "displayName": "Dummy admin"
+        },
+        "schemaVersion": 1,
+        "closingRevision": 4
+      },
+      "locked_at": "2026-10-24T02:55:24.683+00:00",
+      "locked_by": "7733ffa5-7ee7-40bb-97a4-caaafb3a2525",
+      "outlet_id": "f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+      "closing_id": "d79582c7-1c96-4eaf-8649-b6762ef1bbc5",
+      "generation": 2,
+      "closing_revision": 4
+    }
+  ],
+  "closing_entries": [
+    {
+      "closing_id": "3c78f2a3-20fb-48c8-9cb1-baa001d658d0",
+      "menu_id": "5d116932-8912-4446-ae90-1656d34f6edf",
+      "quantity": 0,
+      "revision": "0",
+      "updated_by": null
+    },
+    {
+      "closing_id": "3c78f2a3-20fb-48c8-9cb1-baa001d658d0",
+      "menu_id": "93c1c98d-8b38-4b00-8c25-d8d9cad8ca68",
+      "quantity": 0,
+      "revision": "0",
+      "updated_by": null
+    },
+    {
+      "closing_id": "713d6cde-1fdb-4243-a16a-a7d2fba100d2",
+      "menu_id": "5d116932-8912-4446-ae90-1656d34f6edf",
+      "quantity": 0,
+      "revision": "0",
+      "updated_by": null
+    },
+    {
+      "closing_id": "713d6cde-1fdb-4243-a16a-a7d2fba100d2",
+      "menu_id": "93c1c98d-8b38-4b00-8c25-d8d9cad8ca68",
+      "quantity": 0,
+      "revision": "0",
+      "updated_by": null
+    },
+    {
+      "closing_id": "d79582c7-1c96-4eaf-8649-b6762ef1bbc5",
+      "menu_id": "5d116932-8912-4446-ae90-1656d34f6edf",
+      "quantity": 0,
+      "revision": "0",
+      "updated_by": null
+    },
+    {
+      "closing_id": "d79582c7-1c96-4eaf-8649-b6762ef1bbc5",
+      "menu_id": "93c1c98d-8b38-4b00-8c25-d8d9cad8ca68",
+      "quantity": 0,
+      "revision": "0",
+      "updated_by": null
+    }
+  ],
+  "members": [
+    {
+      "id": "7733ffa5-7ee7-40bb-97a4-caaafb3a2525",
+      "username": "qahmvlsuej9pc5.admin",
+      "display_name": "Dummy admin",
+      "active": true,
+      "role": "ADMIN",
+      "member_active": true,
+      "revision": "0"
+    },
+    {
+      "id": "b8eb84de-9308-46c7-80b2-1ba82d1816dd",
+      "username": "qahmvlsuej9pc5.backupadmin",
+      "display_name": "Dummy backupadmin",
+      "active": true,
+      "role": "ADMIN",
+      "member_active": true,
+      "revision": "0"
+    },
+    {
+      "id": "8ab30896-7a62-45bb-b56d-d19319df860c",
+      "username": "qahmvlsuej9pc5.dimas",
+      "display_name": "Dummy dimas",
+      "active": true,
+      "role": "EMPLOYEE",
+      "member_active": true,
+      "revision": "0"
+    },
+    {
+      "id": "eff32049-949c-4c79-ab5b-8fd447bed9fe",
+      "username": "qahmvlsuej9pc5.rani",
+      "display_name": "Dummy rani",
+      "active": true,
+      "role": "EMPLOYEE",
+      "member_active": true,
+      "revision": "0"
+    },
+    {
+      "id": "96f33ef0-bffe-4930-8682-8b7e7c504cfa",
+      "username": "qa.recovered.26581d5d4dc84af5bae9",
+      "display_name": "Anggota pulihan 26581d5d",
+      "active": true,
+      "role": "SUPERVISOR",
+      "member_active": false,
+      "revision": "1"
+    }
+  ]
+}

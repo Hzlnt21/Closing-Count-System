@@ -1,0 +1,37 @@
+{
+  "passed": true,
+  "starts": [
+    {
+      "index": 1,
+      "user": 10,
+      "uid": 1010216,
+      "pid": 3465,
+      "fontScale": 1.0,
+      "night": "no",
+      "resumed": true,
+      "aliveAfterFourSeconds": true
+    },
+    {
+      "index": 2,
+      "user": 10,
+      "uid": 1010216,
+      "pid": 4145,
+      "fontScale": 2.0,
+      "night": "yes",
+      "resumed": true,
+      "aliveAfterFourSeconds": true
+    },
+    {
+      "index": 3,
+      "user": 10,
+      "uid": 1010216,
+      "pid": 4707,
+      "fontScale": 1.0,
+      "night": "no",
+      "resumed": true,
+      "aliveAfterFourSeconds": true
+    }
+  ],
+  "physicalPhoneAccessed": false,
+  "notAnInstrumentationTest": true
+}

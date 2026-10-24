@@ -1,0 +1,68 @@
+{
+  "passed": true,
+  "localUiAndInboxTests": 7,
+  "nativeQuantityJourneys": 4,
+  "cases": [
+    {
+      "case": "visual-light",
+      "fontScale": 1,
+      "dark": false,
+      "measuredScenes": 8,
+      "businessDate": "2026-07-01",
+      "serverAudit": [
+        4,
+        8
+      ],
+      "existingDataRestored": true
+    },
+    {
+      "case": "visual-dark",
+      "fontScale": 1,
+      "dark": true,
+      "measuredScenes": 8,
+      "businessDate": "2026-07-02",
+      "serverAudit": [
+        4,
+        8
+      ],
+      "existingDataRestored": true
+    },
+    {
+      "case": "visual-light-large",
+      "fontScale": 2,
+      "dark": false,
+      "measuredScenes": 8,
+      "businessDate": "2026-07-03",
+      "serverAudit": [
+        4,
+        8
+      ],
+      "existingDataRestored": true
+    },
+    {
+      "case": "visual-dark-large",
+      "fontScale": 2,
+      "dark": true,
+      "measuredScenes": 8,
+      "businessDate": "2026-07-04",
+      "serverAudit": [
+        4,
+        8
+      ],
+      "existingDataRestored": true
+    }
+  ],
+  "jvmTests": 25,
+  "lintErrors": 0,
+  "lintWarnings": 17,
+  "independentDatabaseAuditMatched": true,
+  "deviceSettingsAndUsersRestored": true,
+  "physicalPhoneAccessed": false,
+  "completePt07Acceptance": false,
+  "remaining": [
+    "Native administrative continuations",
+    "Actual native process stop/restart",
+    "PT08 complete acceptance",
+    "CCS08 demo packaging"
+  ]
+}

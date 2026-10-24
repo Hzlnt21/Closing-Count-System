@@ -1,5 +1,7 @@
 # Native administrative pending recovery R1
 
+Follow-up: the three semantic-copy findings recorded at this historical checkpoint are addressed in [current UI verification](PENDING_TRANSFER_COPY_R1.md). See [CCS07 local acceptance](TRANSFER_LOCAL_ACCEPTANCE_R1.md) for the combined scope; the original results and limitations below remain the historical record.
+
 Four normal MainActivity instrumentation invocations pass on one owned temporary Android-user installation: settings, team, catalog and lifecycle. They cover nine recovery cases: outlet settings, account creation, membership update, an editable complete catalog, then submit/return/submit/lock/reopen. Each starts from a strict-codec packet accepted into the inert inbox. This run does not repeat DocumentsUI picker coverage; that remains the prior four native quantity journeys.
 
 Every reviewed intent creates ordinary new-ID local work with its source fingerprint/provenance. The native continuation opens its normal panel, preserves values through Activity recreation, and leaves the server unchanged until explicit normal UI send/publication. A recovered account creation requires a fresh password entered in the normal dialog; neither packet nor stored draft/provenance contains it. Catalog recipes/categories/ordering/active state survive recovery and the editable draft; an additional menu edit is published explicitly. Existing closing snapshots retain the old catalog. The final lifecycle is DRAFT, generation3/revision5, while the locked generation2 report remains immutable.

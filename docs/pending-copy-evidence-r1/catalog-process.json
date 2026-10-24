@@ -1,0 +1,14 @@
+{
+    "phase":  "catalog",
+    "stdout":  "catalog-26581d5d-4dc8-4af5-bae9-a1fb8f22b600.stdout.log",
+    "stderr":  "catalog-26581d5d-4dc8-4af5-bae9-a1fb8f22b600.stderr.log",
+    "normalVerification":  true,
+    "exitCode":  0,
+    "nativeHandleCaptured":  true,
+    "elapsedSeconds":  29.151554899999997,
+    "timeoutSeconds":  360,
+    "appPid":  6798,
+    "appUid":  1010216,
+    "cumulativeCases":  4,
+    "phaseCases":  1
+}

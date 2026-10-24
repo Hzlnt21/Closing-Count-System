@@ -1,0 +1,75 @@
+{
+  "phase": "lifecycle",
+  "user": 10,
+  "uid": 1010216,
+  "run": "26581d5d-4dc8-4af5-bae9-a1fb8f22b600",
+  "appStopped": true,
+  "appUidQuiescent": true,
+  "guardMode": "exact-owned-user-package-uid-normal-teardown",
+  "liveStopClaim": false,
+  "inbox": [
+    {
+      "name": "088a716d681e90f0fcdc514d2285e94a69d0f35df0dbece60914256ffef286ce.json",
+      "bytes": 712,
+      "sha256": "088a716d681e90f0fcdc514d2285e94a69d0f35df0dbece60914256ffef286ce"
+    },
+    {
+      "name": "16a1d975f3f3f8d88fe78fd33cf36d65fcd412c3b011ad54a18dc56e65c8a7f7.json",
+      "bytes": 766,
+      "sha256": "16a1d975f3f3f8d88fe78fd33cf36d65fcd412c3b011ad54a18dc56e65c8a7f7"
+    },
+    {
+      "name": "18a85067cc64ca17a238697a6aa4c9684106422eece64ff252b3682ecc77bcaf.json",
+      "bytes": 801,
+      "sha256": "18a85067cc64ca17a238697a6aa4c9684106422eece64ff252b3682ecc77bcaf"
+    },
+    {
+      "name": "3b5e9e3085be3f5a62b0a268db2cbabfd468373a7f985413653d0aa64a668fc2.json",
+      "bytes": 768,
+      "sha256": "3b5e9e3085be3f5a62b0a268db2cbabfd468373a7f985413653d0aa64a668fc2"
+    },
+    {
+      "name": "a275ceb6e2d3fc63d86965b1ce8bb8c5b8ae66d3adf983f3d41ba53df4141d01.json",
+      "bytes": 798,
+      "sha256": "a275ceb6e2d3fc63d86965b1ce8bb8c5b8ae66d3adf983f3d41ba53df4141d01"
+    },
+    {
+      "name": "a7c5e79640151212feae25bafb54b8f83cb3eec05598e15132a67a7559157234.json",
+      "bytes": 1800,
+      "sha256": "a7c5e79640151212feae25bafb54b8f83cb3eec05598e15132a67a7559157234"
+    },
+    {
+      "name": "da6d229583877674c092da0cf7eb5b18b5bb7616580483ec7329b737399b84bb.json",
+      "bytes": 680,
+      "sha256": "da6d229583877674c092da0cf7eb5b18b5bb7616580483ec7329b737399b84bb"
+    },
+    {
+      "name": "df3e5e0078e8ce666e319cb350ab1942282af6ad1990aa25cb8926ddb6e668e7.json",
+      "bytes": 689,
+      "sha256": "df3e5e0078e8ce666e319cb350ab1942282af6ad1990aa25cb8926ddb6e668e7"
+    },
+    {
+      "name": "e7d04c4b71225b61db79ecbf3361cd352209d3e77ec0b21c27f91bb189b59986.json",
+      "bytes": 766,
+      "sha256": "e7d04c4b71225b61db79ecbf3361cd352209d3e77ec0b21c27f91bb189b59986"
+    }
+  ],
+  "room": [
+    {
+      "name": "closing_count.db",
+      "bytes": 208896,
+      "sha256": "a354427b750f4eb8ac3e7cec683934e5120fdfee1b5854ab372de1d1c5a59662"
+    },
+    {
+      "name": "closing_count.db-wal",
+      "bytes": 420272,
+      "sha256": "64c16b88dc8cf11cb740a3761e06458079d4cdf2ee6210aa3d42f7167436c99f"
+    },
+    {
+      "name": "closing_count.db-shm",
+      "bytes": 32768,
+      "sha256": "659292dd2715bf2d6db1e50ced9a237db3ff9bb9b7bd821672c029b0a7c8a5dc"
+    }
+  ],
+  "sessionCredentialsCollected": false
+}

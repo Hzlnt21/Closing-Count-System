@@ -1,0 +1,15 @@
+{
+  "readOnlyTransaction": true,
+  "ownershipGuardPassed": true,
+  "fixturePurpose": "pending-copy-r5",
+  "outlet": "177ec602-fe83-40c3-811d-199b9975a0d5",
+  "adminOutlet": "f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+  "collectedAt": "2026-10-24T06:33:09.376Z",
+  "fixtureListenerAbsent": true,
+  "fixtureHandleMissing": true,
+  "inMemoryInternalErrorTelemetryAvailable": false,
+  "nativeNormalPhases": 4,
+  "appDataReplayed": false,
+  "seedRerun": false,
+  "physicalPhoneAccessed": false
+}

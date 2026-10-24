@@ -1,0 +1,114 @@
+{
+  "passed": true,
+  "applicableLocalTransferGates": "PT01-PT08 / CCS07",
+  "evidence": [
+    {
+      "requirement": "Legacy strict codec/atomic rollback/online isolation",
+      "file": "docs/legacy-backup-evidence-r1/verification.json",
+      "sha256": "b7842a98234d83222a03ad3753d5336af3bb2f184db1edee8943853b8e3e51fb",
+      "inherited": true
+    },
+    {
+      "requirement": "Native legacy picker/preview/frozen provider/restore/export",
+      "file": "docs/local-transfer-evidence-r1/runtime-proof.json",
+      "sha256": "9f6b99a02f4a60155c683612907e6c526999632ab88891cd7c3429facb223eda",
+      "inherited": true
+    },
+    {
+      "requirement": "Frozen historical Excel and fresh access after save dialog",
+      "file": "docs/report-export-evidence-r1/runtime-proof.json",
+      "sha256": "c6b38987c3ee012102d0b1571aa16864dc2e03abac35521bbf512590d80b05d0",
+      "inherited": true
+    },
+    {
+      "requirement": "PT01 scoped strict format and capture",
+      "file": "docs/pending-format-evidence-r1/runtime-proof.json",
+      "sha256": "099bcc9a329f32c459bf05972608ef70e3152b32d0dcd9dfdcb0eb2314c50344",
+      "inherited": true
+    },
+    {
+      "requirement": "PT02 bounded frozen pending export",
+      "file": "docs/pending-export-evidence-r1/runtime-proof.json",
+      "sha256": "605c90e1db77af85c9d716fc9d6b4abdb122253103169dd492a03a30fa2ae5e2",
+      "inherited": true
+    },
+    {
+      "requirement": "PT03 actor/outlet read-only operation status",
+      "file": "docs/operation-status-evidence-r1/runtime-proof.json",
+      "sha256": "3a88c7ad18c5cb34bce7478e80ab2735f7df60e01dc4bb8b34a312b7d46dc417",
+      "inherited": true
+    },
+    {
+      "requirement": "PT04 quarantined durable inbox",
+      "file": "docs/pending-inbox-evidence-r1/runtime-proof.json",
+      "sha256": "cdfdd67f3ee51cccc08392047fd647867e8960f3cfc69cc016ddd1cfbd47328d",
+      "inherited": true
+    },
+    {
+      "requirement": "PT05 fresh quantity recovery/provenance",
+      "file": "docs/quantity-recovery-evidence-r1/runtime-proof.json",
+      "sha256": "129463cf3c6b54cf6542d70ffd682a4e1136c7a382c20455fac07ea352f979ee",
+      "inherited": true
+    },
+    {
+      "requirement": "PT06 all intent recovery core",
+      "file": "docs/intent-recovery-evidence-r1/runtime-proof.json",
+      "sha256": "a71a9ddeb1fe5d1be39cb2bf174c938c810b770bde3d99bb0de899160129b00e",
+      "inherited": true
+    },
+    {
+      "requirement": "PT07 native backup/import foundation",
+      "file": "docs/pending-ui-foundation-evidence-r1/runtime-proof.json",
+      "sha256": "ed077a6319527723612547bdccccc263f2fcb90e915184c2ffb372119748b52e",
+      "inherited": true
+    },
+    {
+      "requirement": "PT07 actual DocumentsUI light/dark/font100/200",
+      "file": "docs/pending-visual-evidence-r1/runtime-proof.json",
+      "sha256": "46895540a34b299552d1ddd472f4dec09e9b77031b68978c6a614cdab957e1fd",
+      "inherited": true
+    },
+    {
+      "requirement": "PT07 two live quantity process stops and fresh review",
+      "file": "docs/pending-native-restart-evidence-r1/runtime-proof.json",
+      "sha256": "5f002e9390ccdfce7a8b4d19c6319988cf609f1963500faebd078ae3fa6e7f1c",
+      "inherited": true
+    },
+    {
+      "requirement": "PT07 four normal admin phases/nine actions",
+      "file": "docs/pending-admin-native-evidence-r1/runtime-proof.json",
+      "sha256": "7003530d0c87ce164e73cef6cd7ccf3c47abd090b618c75622648f73faa5fa45",
+      "inherited": true
+    },
+    {
+      "requirement": "PT07 semantic copy/main-thread UI handoff/full admin retest",
+      "file": "docs/pending-copy-evidence-r1/runtime-proof.json",
+      "sha256": "dcd27ced59c32ceca2f35b806603d8432f064d96818efc381ef2b7d2fc3fb611",
+      "inherited": false
+    },
+    {
+      "requirement": "PT07 current controller/provider/configuration regressions",
+      "file": "docs/pending-copy-evidence-r1/visual-main/runtime-proof.json",
+      "sha256": "46895540a34b299552d1ddd472f4dec09e9b77031b68978c6a614cdab957e1fd",
+      "inherited": false
+    },
+    {
+      "requirement": "Date/cutoff/year/DST/numeric boundaries: inherited service units",
+      "file": "docs/operation-status-evidence-r1/unit.log",
+      "sha256": "e712ffd8b62adc04598d6761227c5dc822aa632cb8a9e1eb8926fe802ff5fb44",
+      "inherited": true
+    }
+  ],
+  "coreServiceRoomDependenciesUnchangedFrom": "6189fa7ea86db0135262b0dc6fda6dcd209ce544",
+  "currentChangesRestrictedToPresentationMainThreadUiHandoffAndQa": true,
+  "copyFindingsClosed": [
+    "COPY-01",
+    "COPY-02",
+    "COPY-03"
+  ],
+  "physicalUatComplete": false,
+  "publicAcceptanceComplete": false,
+  "ccs08Complete": false,
+  "fullEightProjectGoalComplete": false,
+  "sourceCheckpointTag": "ccs-transfer-local-r1"
+}

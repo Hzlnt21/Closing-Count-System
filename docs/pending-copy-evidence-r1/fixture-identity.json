@@ -1,0 +1,81 @@
+{
+  "outlet": "177ec602-fe83-40c3-811d-199b9975a0d5",
+  "adminOutlet": "f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+  "backupAdmin": "b8eb84de-9308-46c7-80b2-1ba82d1816dd",
+  "employee": "eff32049-949c-4c79-ab5b-8fd447bed9fe",
+  "colleague": "8ab30896-7a62-45bb-b56d-d19319df860c",
+  "admin": "7733ffa5-7ee7-40bb-97a4-caaafb3a2525",
+  "adminUsername": "qahmvlsuej9pc5.admin",
+  "adminDisplayName": "Dummy admin",
+  "adminOutletName": "Admin native QA qahmvlsuej9pc5",
+  "employeeUsername": "qahmvlsuej9pc5.rani",
+  "outletName": "HTTP QA qahmvlsuej9pc5",
+  "catalog": {
+    "ingredientCategories": [
+      {
+        "id": "5ac98489-ecb9-492d-9368-16060cf87680",
+        "name": "Bahan baku",
+        "sortOrder": 0
+      }
+    ],
+    "ingredients": [
+      {
+        "id": "32ce734f-3a37-49d4-b835-d7966ac750e8",
+        "categoryId": "5ac98489-ecb9-492d-9368-16060cf87680",
+        "name": "Biji kopi",
+        "sortOrder": 0,
+        "active": true
+      },
+      {
+        "id": "c5ade8ca-ba08-4c70-be32-5b25d1785101",
+        "categoryId": "5ac98489-ecb9-492d-9368-16060cf87680",
+        "name": "Powder cokelat",
+        "sortOrder": 2,
+        "active": true
+      },
+      {
+        "id": "f4a7a89e-ff6b-4b82-95d6-694f5114a893",
+        "categoryId": "5ac98489-ecb9-492d-9368-16060cf87680",
+        "name": "Fresh milk",
+        "sortOrder": 1,
+        "active": true
+      }
+    ],
+    "menuCategories": [
+      {
+        "id": "dba29449-3569-4eea-b54f-68c6debca54b",
+        "name": "Coffee",
+        "sortOrder": 0
+      }
+    ],
+    "menus": [
+      {
+        "id": "5d116932-8912-4446-ae90-1656d34f6edf",
+        "categoryId": "dba29449-3569-4eea-b54f-68c6debca54b",
+        "name": "Cappuccino",
+        "sortOrder": 0,
+        "active": true,
+        "ingredientIds": [
+          "32ce734f-3a37-49d4-b835-d7966ac750e8",
+          "c5ade8ca-ba08-4c70-be32-5b25d1785101",
+          "f4a7a89e-ff6b-4b82-95d6-694f5114a893"
+        ]
+      },
+      {
+        "id": "93c1c98d-8b38-4b00-8c25-d8d9cad8ca68",
+        "categoryId": "dba29449-3569-4eea-b54f-68c6debca54b",
+        "name": "Latte",
+        "sortOrder": 1,
+        "active": true,
+        "ingredientIds": [
+          "32ce734f-3a37-49d4-b835-d7966ac750e8",
+          "f4a7a89e-ff6b-4b82-95d6-694f5114a893"
+        ]
+      }
+    ]
+  },
+  "fixturePurpose": "pending-copy-r5",
+  "ownedDatabase": true,
+  "retained": true,
+  "limiterClockInjected": true
+}

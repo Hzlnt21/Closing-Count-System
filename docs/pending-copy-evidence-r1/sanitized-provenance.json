@@ -1,0 +1,243 @@
+{
+  "scope": "http://10.0.2.2:4371|7733ffa5-7ee7-40bb-97a4-caaafb3a2525|f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+  "roomSchema": 10,
+  "legacyRowsSha256": "fe8c299cc1529e75abea201aa7ecc1063fd99a52d629df7747efa5d3b2fc05e0",
+  "admin": [
+    {
+      "scope": "http://10.0.2.2:4371|7733ffa5-7ee7-40bb-97a4-caaafb3a2525|f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+      "originalOperationId": "52674a31-cf72-4fa9-8879-de6676a1137e",
+      "fingerprint": "da6d229583877674c092da0cf7eb5b18b5bb7616580483ec7329b737399b84bb",
+      "group": "SETTINGS",
+      "kind": "SETTINGS",
+      "operationId": "e3fda590-9d62-4500-ba4f-f1981df0f43a",
+      "expectedRevision": 0,
+      "status": "SENT",
+      "wasSent": 1,
+      "active": 0,
+      "payload": {
+        "name": "Pulihan outlet 26581d5d",
+        "timezone": "Asia/Makassar",
+        "cutoffMinutes": 90
+      },
+      "payloadSha256": "bef3800f110b9966f2b057a7dd9c2b9167677d1b3f6f7b553a3716eb2705c86b"
+    },
+    {
+      "scope": "http://10.0.2.2:4371|7733ffa5-7ee7-40bb-97a4-caaafb3a2525|f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+      "originalOperationId": "e343b4e3-d8a3-4fbd-9093-f07de961b84e",
+      "fingerprint": "088a716d681e90f0fcdc514d2285e94a69d0f35df0dbece60914256ffef286ce",
+      "group": "TEAM",
+      "kind": "TEAM_CREATE",
+      "operationId": "c5308f49-c62b-4f91-81cb-87ae862b4f0b",
+      "expectedRevision": null,
+      "status": "SENT",
+      "wasSent": 1,
+      "active": 0,
+      "payload": {
+        "username": "qa.recovered.26581d5d4dc84af5bae9",
+        "displayName": "Anggota pulihan 26581d5d",
+        "role": "EMPLOYEE"
+      },
+      "payloadSha256": "c9dfb86ca6280b86f1e349ba82dc9d57b4a99440f73b6a72e1770a05179bfae1"
+    },
+    {
+      "scope": "http://10.0.2.2:4371|7733ffa5-7ee7-40bb-97a4-caaafb3a2525|f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+      "originalOperationId": "d8d38866-c2c7-4362-b3f4-412d1825067e",
+      "fingerprint": "df3e5e0078e8ce666e319cb350ab1942282af6ad1990aa25cb8926ddb6e668e7",
+      "group": "TEAM",
+      "kind": "TEAM_UPDATE",
+      "operationId": "73d0ac49-000d-4860-9c09-b8b6b6038ce8",
+      "expectedRevision": 0,
+      "status": "SENT",
+      "wasSent": 1,
+      "active": 0,
+      "payload": {
+        "accountId": "96f33ef0-bffe-4930-8682-8b7e7c504cfa",
+        "role": "SUPERVISOR",
+        "active": false
+      },
+      "payloadSha256": "5650fb5463f9d2515936c6f10368e1d23bdb026d5ade1bec962043c8dc625603"
+    },
+    {
+      "scope": "http://10.0.2.2:4371|7733ffa5-7ee7-40bb-97a4-caaafb3a2525|f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+      "originalOperationId": "3aeb8c7f-7075-4b6a-bef5-41a957df0626",
+      "fingerprint": "a7c5e79640151212feae25bafb54b8f83cb3eec05598e15132a67a7559157234",
+      "group": "CATALOG",
+      "kind": "CATALOG",
+      "operationId": "58a0a98f-55c4-4b8e-8c3a-71a8a11b3291",
+      "expectedRevision": 1,
+      "status": "SENT",
+      "wasSent": 1,
+      "active": 0,
+      "payload": {
+        "ingredientCategories": [
+          {
+            "id": "5ac98489-ecb9-492d-9368-16060cf87680",
+            "name": "Bahan baku",
+            "sortOrder": 0
+          }
+        ],
+        "menuCategories": [
+          {
+            "id": "dba29449-3569-4eea-b54f-68c6debca54b",
+            "name": "Coffee",
+            "sortOrder": 0
+          }
+        ],
+        "ingredients": [
+          {
+            "id": "32ce734f-3a37-49d4-b835-d7966ac750e8",
+            "categoryId": "5ac98489-ecb9-492d-9368-16060cf87680",
+            "name": "Biji kopi",
+            "sortOrder": 0,
+            "active": true
+          },
+          {
+            "id": "c5ade8ca-ba08-4c70-be32-5b25d1785101",
+            "categoryId": "5ac98489-ecb9-492d-9368-16060cf87680",
+            "name": "Powder cokelat",
+            "sortOrder": 2,
+            "active": true
+          },
+          {
+            "id": "f4a7a89e-ff6b-4b82-95d6-694f5114a893",
+            "categoryId": "5ac98489-ecb9-492d-9368-16060cf87680",
+            "name": "Fresh milk",
+            "sortOrder": 1,
+            "active": true
+          }
+        ],
+        "menus": [
+          {
+            "id": "5d116932-8912-4446-ae90-1656d34f6edf",
+            "categoryId": "dba29449-3569-4eea-b54f-68c6debca54b",
+            "name": "Review Pulihan Cappuccino",
+            "sortOrder": 0,
+            "active": true,
+            "ingredientIds": [
+              "32ce734f-3a37-49d4-b835-d7966ac750e8",
+              "c5ade8ca-ba08-4c70-be32-5b25d1785101",
+              "f4a7a89e-ff6b-4b82-95d6-694f5114a893"
+            ]
+          },
+          {
+            "id": "93c1c98d-8b38-4b00-8c25-d8d9cad8ca68",
+            "categoryId": "dba29449-3569-4eea-b54f-68c6debca54b",
+            "name": "Pulihan Latte",
+            "sortOrder": 1,
+            "active": true,
+            "ingredientIds": [
+              "32ce734f-3a37-49d4-b835-d7966ac750e8",
+              "f4a7a89e-ff6b-4b82-95d6-694f5114a893"
+            ]
+          }
+        ]
+      },
+      "payloadSha256": "33793aad1b78fb89ed4e4e486d1d1f55a2634b9d6b112f7d39eb152934c226c6"
+    }
+  ],
+  "lifecycleClaims": [
+    {
+      "scope": "http://10.0.2.2:4371|7733ffa5-7ee7-40bb-97a4-caaafb3a2525|f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+      "originalOperationId": "8dd1bbae-45a0-4f57-a730-14d7536225bc",
+      "fingerprint": "16a1d975f3f3f8d88fe78fd33cf36d65fcd412c3b011ad54a18dc56e65c8a7f7",
+      "closingId": "d79582c7-1c96-4eaf-8649-b6762ef1bbc5",
+      "recoveredOperationId": "3ce4a9ba-500b-4440-841b-7e4c1c9b3b7b",
+      "createdAt": "2026-10-24T02:54:59.571078Z"
+    },
+    {
+      "scope": "http://10.0.2.2:4371|7733ffa5-7ee7-40bb-97a4-caaafb3a2525|f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+      "originalOperationId": "aebf5092-e836-411b-99b0-646ea23c6ed8",
+      "fingerprint": "18a85067cc64ca17a238697a6aa4c9684106422eece64ff252b3682ecc77bcaf",
+      "closingId": "d79582c7-1c96-4eaf-8649-b6762ef1bbc5",
+      "recoveredOperationId": "aa3cde0e-1e65-4854-8aea-4140f204f6f9",
+      "createdAt": "2026-10-24T02:55:07.868076Z"
+    },
+    {
+      "scope": "http://10.0.2.2:4371|7733ffa5-7ee7-40bb-97a4-caaafb3a2525|f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+      "originalOperationId": "279baeb6-3faa-4160-8516-1b6533aba8bf",
+      "fingerprint": "e7d04c4b71225b61db79ecbf3361cd352209d3e77ec0b21c27f91bb189b59986",
+      "closingId": "d79582c7-1c96-4eaf-8649-b6762ef1bbc5",
+      "recoveredOperationId": "c3c6997a-3638-4727-a0c9-ca504c219294",
+      "createdAt": "2026-10-24T02:55:15.818227Z"
+    },
+    {
+      "scope": "http://10.0.2.2:4371|7733ffa5-7ee7-40bb-97a4-caaafb3a2525|f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+      "originalOperationId": "d2ad8845-b8dc-4290-abca-13a97a6f22b0",
+      "fingerprint": "3b5e9e3085be3f5a62b0a268db2cbabfd468373a7f985413653d0aa64a668fc2",
+      "closingId": "d79582c7-1c96-4eaf-8649-b6762ef1bbc5",
+      "recoveredOperationId": "021465f2-c86a-4049-906e-eff7db11d990",
+      "createdAt": "2026-10-24T02:55:22.428736Z"
+    },
+    {
+      "scope": "http://10.0.2.2:4371|7733ffa5-7ee7-40bb-97a4-caaafb3a2525|f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+      "originalOperationId": "158bf631-70a6-43ad-9c7b-1099a721439c",
+      "fingerprint": "a275ceb6e2d3fc63d86965b1ce8bb8c5b8ae66d3adf983f3d41ba53df4141d01",
+      "closingId": "d79582c7-1c96-4eaf-8649-b6762ef1bbc5",
+      "recoveredOperationId": "502ebe21-8b30-4ec7-a1b0-b0aa5a744913",
+      "createdAt": "2026-10-24T02:55:28.909633Z"
+    }
+  ],
+  "localClosing": {
+    "closingId": "d79582c7-1c96-4eaf-8649-b6762ef1bbc5",
+    "generation": 3,
+    "revision": 5,
+    "state": "DRAFT"
+  },
+  "localEntries": [
+    {
+      "scope": "http://10.0.2.2:4371|7733ffa5-7ee7-40bb-97a4-caaafb3a2525|f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+      "closingId": "d79582c7-1c96-4eaf-8649-b6762ef1bbc5",
+      "menuId": "5d116932-8912-4446-ae90-1656d34f6edf",
+      "generation": 3,
+      "serverQuantity": 0,
+      "serverRevision": 0,
+      "localQuantity": 0,
+      "status": "SYNCED"
+    },
+    {
+      "scope": "http://10.0.2.2:4371|7733ffa5-7ee7-40bb-97a4-caaafb3a2525|f9c0a1e3-a685-4595-bd49-c84cfc9c18e6",
+      "closingId": "d79582c7-1c96-4eaf-8649-b6762ef1bbc5",
+      "menuId": "93c1c98d-8b38-4b00-8c25-d8d9cad8ca68",
+      "generation": 3,
+      "serverQuantity": 0,
+      "serverRevision": 0,
+      "localQuantity": 0,
+      "status": "SYNCED"
+    }
+  ],
+  "postgresCounts": {
+    "outlets": 1,
+    "memberships": 5,
+    "members": 5,
+    "catalog_versions": 2,
+    "operation_receipts": 9,
+    "outlet_settings_audit": 1,
+    "membership_audit": 2,
+    "closings": 3,
+    "closing_audit": 8,
+    "closing_entries": 6,
+    "closing_reports": 1
+  },
+  "postgresReceiptIds": [
+    "021465f2-c86a-4049-906e-eff7db11d990",
+    "3ce4a9ba-500b-4440-841b-7e4c1c9b3b7b",
+    "502ebe21-8b30-4ec7-a1b0-b0aa5a744913",
+    "58a0a98f-55c4-4b8e-8c3a-71a8a11b3291",
+    "73d0ac49-000d-4860-9c09-b8b6b6038ce8",
+    "aa3cde0e-1e65-4854-8aea-4140f204f6f9",
+    "c3c6997a-3638-4727-a0c9-ca504c219294",
+    "c5308f49-c62b-4f91-81cb-87ae862b4f0b",
+    "e3fda590-9d62-4500-ba4f-f1981df0f43a"
+  ],
+  "sourceOperationIdsNeverRecorded": [
+    "52674a31-cf72-4fa9-8879-de6676a1137e",
+    "e343b4e3-d8a3-4fbd-9093-f07de961b84e",
+    "d8d38866-c2c7-4362-b3f4-412d1825067e",
+    "3aeb8c7f-7075-4b6a-bef5-41a957df0626",
+    "8dd1bbae-45a0-4f57-a730-14d7536225bc",
+    "aebf5092-e836-411b-99b0-646ea23c6ed8",
+    "279baeb6-3faa-4160-8516-1b6533aba8bf",
+    "d2ad8845-b8dc-4290-abca-13a97a6f22b0",
+    "158bf631-70a6-43ad-9c7b-1099a721439c"
+  ]
+}

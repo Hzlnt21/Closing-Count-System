@@ -23,7 +23,7 @@ import kotlinx.coroutines.withContext
 import org.json.JSONObject
 
 data class RecoveryDestination(val kind:String,val outlet:String,val closing:String?=null,val date:String?=null)
-data class RecoveryValue(val label:String,val file:String,val current:String?)
+data class RecoveryValue(val label:String,val file:String,val current:String?,val fileLabel:String="Dari file",val currentLabel:String="Server sekarang")
 data class RecoveryCatalogLine(val title:String,val detail:String)
 data class OnlinePendingTransferUi(val opened:Boolean=false,val outlet:String="",val account:String="",val origin:String="",
     val busy:Boolean=false,val activity:String="",val message:String?=null,val failed:Boolean=false,
@@ -63,14 +63,14 @@ class OnlinePendingTransferViewModel private constructor(application:Application
         epoch++;job?.cancel();resetControllers();mutable.value=OnlinePendingTransferUi();true
     }
     private fun locked()=state.value.busy||state.value.waitingOpen||state.value.waitingSave!=null
-    fun reload(){task("Membaca inbox"){publish{it.copy(entries=inbox.inventory())}}}
+    fun reload(){task("Membaca inbox"){val entries=inbox.inventory();publishUi{it.copy(entries=entries)}}}
     fun clearMessage(){publish{it.copy(message=null)}}
     fun prepareExport() {val outlet=state.value.outlet;if(outlet.isBlank())return
         task("Menyiapkan cadangan") {
             clearReviews();val review=exporter.prepare(outlet)
             if(review.closings==0&&review.adminKinds.isEmpty()) {
-                exporter.discard(review.id);publish{it.copy(message="Tidak ada draft tertunda untuk outlet ini. Data yang sudah tersinkron tetap tersedia di server.")}
-            }else publish{it.copy(export=review)}
+                exporter.discard(review.id);publishUi{it.copy(message="Tidak ada draft tertunda untuk outlet ini. Data yang sudah tersinkron tetap tersedia di server.")}
+            }else publishUi{it.copy(export=review)}
         }
     }
     fun beginSave(id:String):String? {
@@ -82,8 +82,8 @@ class OnlinePendingTransferViewModel private constructor(application:Application
         publish{it.copy(waitingSave=null)}
         if(id==null){publish{it.copy(message="Pilihan penyimpanan sebelumnya sudah berakhir. Siapkan cadangan kembali.",failed=true)};return}
         task("Menyimpan cadangan") {
-            if(uri==null){exporter.discard(id);publish{it.copy(export=null,message="Penyimpanan dibatalkan. Draft tetap utuh.")}}
-            else {exporter.write(id,uri);publish{it.copy(export=null,message="Cadangan draft berhasil disimpan. Simpan file ini di tempat yang kamu percayai.")}}
+            if(uri==null){exporter.discard(id);publishUi{it.copy(export=null,message="Penyimpanan dibatalkan. Draft tetap utuh.")}}
+            else {exporter.write(id,uri);publishUi{it.copy(export=null,message="Cadangan draft berhasil disimpan. Simpan file ini di tempat yang kamu percayai.")}}
         }
     }
     fun beginOpen():Boolean {if(locked())return false;publish{it.copy(waitingOpen=true)};return true}
@@ -92,24 +92,24 @@ class OnlinePendingTransferViewModel private constructor(application:Application
         if(!state.value.waitingOpen){publish{it.copy(message="Pilihan file sebelumnya sudah berakhir. Pilih file kembali.",failed=true)};return}
         publish{it.copy(waitingOpen=false)}
         if(uri==null){publish{it.copy(message="Pemilihan file dibatalkan. Tidak ada data yang diubah.")};return}
-        task("Memeriksa file") {clearReviews();val review=importer.prepare(uri);publish{it.copy(importing=review)}}
+        task("Memeriksa file") {clearReviews();val review=importer.prepare(uri);publishUi{it.copy(importing=review)}}
     }
     fun acceptImport(id:String) {if(state.value.importing?.id!=id)return
         task("Menyimpan ke inbox") {
-            val result=importer.accept(id);val decoded=inbox.read(result.summary.sha256)
-            publish{it.copy(importing=null,file=result.summary,model=decoded.model,entries=inbox.inventory(),
+            val result=importer.accept(id);val decoded=inbox.read(result.summary.sha256);val entries=inbox.inventory()
+            publishUi{it.copy(importing=null,file=result.summary,model=decoded.model,entries=entries,
                 message=if(result.duplicate)"Salinan yang sama sudah ada di inbox. Pilih pekerjaan yang ingin ditinjau." else "File tersimpan di inbox. Belum ada draft yang diterapkan atau dikirim.")}
         }
     }
     fun inspectFile(fingerprint:String){task("Membuka cadangan") {
         clearReviews();val decoded=inbox.read(fingerprint)
-        publish{it.copy(file=OnlinePendingRecoveryInbox.summary(decoded),model=decoded.model,destination=null)}
+        publishUi{it.copy(file=OnlinePendingRecoveryInbox.summary(decoded),model=decoded.model,destination=null)}
     }}
     fun compareClosing(id:String){val file=state.value.file?:return;val closing=state.value.model?.closings?.singleOrNull{it.id==id}?:return
         task("Memeriksa data server") {
             clearReviews()
-            if(closing.lifecycle==null){val review=quantity.prepare(file.sha256,id);publish{it.copy(quantity=review)}}
-            else {val review=intent.prepareLifecycle(file.sha256,id);publish{it.copy(intent=review,values=intentValues(review))}}
+            if(closing.lifecycle==null){val review=quantity.prepare(file.sha256,id);publishUi{it.copy(quantity=review)}}
+            else {val review=intent.prepareLifecycle(file.sha256,id);val values=intentValues(review);publishUi{it.copy(intent=review,values=values)}}
         }
     }
     fun compareAdmin(id:String){val file=state.value.file?:return
@@ -117,13 +117,14 @@ class OnlinePendingTransferViewModel private constructor(application:Application
             clearReviews();val review=intent.prepareAdmin(file.sha256,id)
             val desired=if(review.kind=="CATALOG")catalogLines(OnlineCatalog.parse(JSONObject(review.sourcePayloadJson))) else emptyList()
             val current=if(review.kind=="CATALOG"&&review.currentPayloadJson!=null)catalogLines(OnlineCatalog.parse(JSONObject(review.currentPayloadJson))) else emptyList()
-            publish{it.copy(intent=review,values=intentValues(review),fileCatalog=desired,currentCatalog=current)}
+            val values=intentValues(review)
+            publishUi{it.copy(intent=review,values=values,fileCatalog=desired,currentCatalog=current)}
         }
     }
     fun applyQuantity(id:String){val review=state.value.quantity?.takeIf{it.id==id}?:return
         task("Menyiapkan draft closing") {
             val result=quantity.apply(id)
-            publish{it.copy(quantity=null,destination=if(result.newOperations.isEmpty())null else RecoveryDestination("CLOSING",review.outletId,review.closingId,review.date),
+            publishUi{it.copy(quantity=null,destination=if(result.newOperations.isEmpty())null else RecoveryDestination("CLOSING",review.outletId,review.closingId,review.date),
                 message=if(result.newOperations.isEmpty())"Referensi ini sudah ditangani. Tidak ada draft baru." else "Draft closing siap. Buka dan periksa angkanya, lalu tekan sinkronisasi saat siap mengirim.")}
         }
     }
@@ -131,7 +132,7 @@ class OnlinePendingTransferViewModel private constructor(application:Application
         task("Menyiapkan draft tindakan") {
             val result=intent.apply(id)
             val closing=state.value.model?.closings?.firstOrNull{it.id==review.closingId}
-            publish{it.copy(intent=null,values=emptyList(),fileCatalog=emptyList(),currentCatalog=emptyList(),
+            publishUi{it.copy(intent=null,values=emptyList(),fileCatalog=emptyList(),currentCatalog=emptyList(),
                 destination=if(result.newOperationId==null)null else RecoveryDestination(review.kind,review.outletId,review.closingId,closing?.date),
                 message=if(result.newOperationId==null)"Referensi ini sudah ditangani. Tidak ada draft baru." else "Draft siap di halaman terkait. Belum ada perubahan yang dikirim ke server.")}
         }
@@ -141,26 +142,32 @@ class OnlinePendingTransferViewModel private constructor(application:Application
         task("Menutup tinjauan") {
             val s=state.value;val hadReview=s.export!=null||s.importing!=null||s.quantity!=null||s.intent!=null
             clearReviews()
-            if(!hadReview)publish{it.copy(file=null,model=null,destination=null,entries=inbox.inventory())}
+            if(!hadReview){val entries=inbox.inventory();publishUi{it.copy(file=null,model=null,destination=null,entries=entries)}}
         }
     }
     fun showCatalog(side:String){if(!locked()&&side in setOf("file","current"))publish{it.copy(catalogSide=side)}}
-    fun prepareRemoval(fingerprint:String){task("Memeriksa salinan") {publish{it.copy(removal=inbox.prepareRemoval(fingerprint))}}}
-    fun cancelRemoval(){val id=state.value.removal?.id?:return;task("Membatalkan penghapusan"){inbox.cancelRemoval(id);publish{it.copy(removal=null)}}}
+    fun prepareRemoval(fingerprint:String){task("Memeriksa salinan") {val review=inbox.prepareRemoval(fingerprint);publishUi{it.copy(removal=review)}}}
+    fun cancelRemoval(){val id=state.value.removal?.id?:return;task("Membatalkan penghapusan"){inbox.cancelRemoval(id);publishUi{it.copy(removal=null)}}}
     fun remove(id:String){if(state.value.removal?.id!=id)return;task("Menghapus salinan inbox") {
-        val hash=inbox.remove(id);clearReviews()
-        publish{it.copy(removal=null,file=if(it.file?.sha256==hash)null else it.file,model=if(it.file?.sha256==hash)null else it.model,
-            entries=inbox.inventory(),destination=null,message="Salinan di inbox dihapus. Draft yang sudah dibuat dan data server tetap utuh.")}
+        val hash=inbox.remove(id);clearReviews();val entries=inbox.inventory()
+        publishUi{it.copy(removal=null,file=if(it.file?.sha256==hash)null else it.file,model=if(it.file?.sha256==hash)null else it.model,
+            entries=entries,destination=null,message="Salinan di inbox dihapus. Draft yang sudah dibuat dan data server tetap utuh.")}
     }}
     private data class Handles(val state:OnlinePendingTransferUi,val exporter:OnlinePendingBackupTransfer,
         val importer:OnlinePendingRecoveryTransfer,val quantity:OnlineQuantityRecovery,val intent:OnlineIntentRecovery)
     private fun ensureEpoch(){val run=taskEpoch.get();if(run!=null&&(run!=epoch))throw CancellationException("Transfer context changed")}
-    private fun publish(action:(OnlinePendingTransferUi)->OnlinePendingTransferUi)=synchronized(stateLock){ensureEpoch();mutable.update(action)}
+    private fun publish(action:(OnlinePendingTransferUi)->OnlinePendingTransferUi)=synchronized(stateLock){
+        check(android.os.Looper.myLooper()==android.os.Looper.getMainLooper()) { "Transfer UI state must be published on the main thread" }
+        ensureEpoch();mutable.update(action)
+    }
+    // Keep parsing, storage and network work on IO. Await the main-thread state
+    // handoff so epoch checks and successive actions retain their original order.
+    private suspend fun publishUi(action:(OnlinePendingTransferUi)->OnlinePendingTransferUi)=withContext(Dispatchers.Main.immediate){publish(action)}
     private suspend fun clearReviews() {
         val handles=synchronized(stateLock){ensureEpoch();Handles(state.value,exporter,importer,quantity,intent)}
         val s=handles.state;s.export?.let{handles.exporter.discard(it.id)};s.importing?.let{handles.importer.discard(it.id)}
         s.quantity?.let{handles.quantity.discard(it.id)};s.intent?.let{handles.intent.discard(it.id)}
-        publish{it.copy(export=null,importing=null,quantity=null,intent=null,values=emptyList(),fileCatalog=emptyList(),currentCatalog=emptyList(),catalogSide=null,destination=null)}
+        publishUi{it.copy(export=null,importing=null,quantity=null,intent=null,values=emptyList(),fileCatalog=emptyList(),currentCatalog=emptyList(),catalogSide=null,destination=null)}
     }
     private fun task(label:String,action:suspend()->Unit) {
         if(locked())return
@@ -196,8 +203,8 @@ class OnlinePendingTransferViewModel private constructor(application:Application
         fun value(label:String,key:String)=RecoveryValue(label,text(file,key).orEmpty(),text(current,key))
         return when(review.kind){
             "SETTINGS"->listOf(value("Nama outlet","name"),value("Zona waktu","timezone"),RecoveryValue("Batas hari kerja",clock(file.getInt("cutoffMinutes")),current?.optInt("cutoffMinutes")?.let(::clock)))
-            "TEAM_CREATE"->listOf(value("Username","username"),value("Nama pengguna","displayName"),RecoveryValue("Peran",role(file.getString("role")),null))
-            "TEAM_UPDATE"->listOf(RecoveryValue("Pengguna",current?.optString("displayName")?.takeIf{it.isNotBlank()}?:"Anggota dari file",current?.optString("username")),
+            "TEAM_CREATE"->listOf(RecoveryValue("Username",file.getString("username"),current?.optBoolean("existsInOutlet")?.let{if(it)"Sudah terdaftar di outlet ini" else "Belum terdaftar di outlet ini"},currentLabel="Status di outlet ini"),value("Nama pengguna","displayName"),RecoveryValue("Peran",role(file.getString("role")),null))
+            "TEAM_UPDATE"->listOf(RecoveryValue("Anggota yang dirujuk file",current?.optString("displayName")?.takeIf{it.isNotBlank()}?:"Nama belum tersedia",current?.optString("username"),fileLabel="Nama dari server",currentLabel="Username dari server"),
                 RecoveryValue("Peran",role(file.getString("role")),current?.optString("role")?.let(::role)),RecoveryValue("Akses outlet",if(file.getBoolean("active"))"Aktif" else "Nonaktif",current?.optBoolean("active")?.let{if(it)"Aktif" else "Nonaktif"}))
             "LIFECYCLE"->listOf(RecoveryValue("Tindakan",action(file.getString("action")),null),RecoveryValue("Alasan",file.getString("reason").ifBlank{"Tidak diperlukan"},null))
             else->emptyList()

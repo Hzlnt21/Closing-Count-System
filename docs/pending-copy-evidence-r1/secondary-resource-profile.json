@@ -1,0 +1,61 @@
+{
+  "user": 10,
+  "name": "PortfolioQAAdminNative26581d5d",
+  "disabled": [
+    {
+      "package": "com.google.android.gms",
+      "previouslyDisabled": false,
+      "disabledForTemporaryUserOnly": true
+    },
+    {
+      "package": "com.google.android.gsf",
+      "previouslyDisabled": false,
+      "disabledForTemporaryUserOnly": true
+    },
+    {
+      "package": "com.android.vending",
+      "previouslyDisabled": false,
+      "disabledForTemporaryUserOnly": true
+    },
+    {
+      "package": "com.google.android.googlequicksearchbox",
+      "previouslyDisabled": false,
+      "disabledForTemporaryUserOnly": true
+    },
+    {
+      "package": "com.google.android.apps.wellbeing",
+      "previouslyDisabled": false,
+      "disabledForTemporaryUserOnly": true
+    },
+    {
+      "package": "com.google.android.apps.messaging",
+      "previouslyDisabled": false,
+      "disabledForTemporaryUserOnly": true
+    },
+    {
+      "package": "com.google.android.tts",
+      "previouslyDisabled": false,
+      "disabledForTemporaryUserOnly": true
+    },
+    {
+      "package": "com.google.android.partnersetup",
+      "previouslyDisabled": false,
+      "disabledForTemporaryUserOnly": true
+    },
+    {
+      "package": "com.android.chrome",
+      "previouslyDisabled": false,
+      "disabledForTemporaryUserOnly": true
+    },
+    {
+      "package": "com.google.android.apps.photos",
+      "previouslyDisabled": false,
+      "disabledForTemporaryUserOnly": true
+    }
+  ],
+  "ownerPackagesChanged": false,
+  "applicationPermissionsChanged": false,
+  "documentsUiAndKeyboardUnchanged": true,
+  "physicalPhoneAccessed": false,
+  "customEmulatorEnvironment": true
+}

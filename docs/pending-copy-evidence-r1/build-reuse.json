@@ -1,0 +1,7 @@
+{
+  "sourceLog": "../closing-count-pending-copy-r4/build.log",
+  "sha256": "1879ee019ef62beda2c515b9dd51c3b6887a0ff697109b8bce066ae9bcf413b0",
+  "buildRerun": false,
+  "apkUnchanged": true,
+  "reason": "R4 failed before instrumentation during resource-stressed emulator startup; same completed build reused."
+}

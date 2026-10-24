@@ -9,6 +9,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.outlined.ArrowBack
 import androidx.compose.material3.*
@@ -133,7 +134,7 @@ private fun catalogIds(c:OnlineCatalog,kind:Int):List<String> = when(kind){
     val dirty=name!=catalogName(c,kind,id)||order!=initialOrder.toString()||category!=(menu?.categoryId?:ingredient?.categoryId?:categories.firstOrNull()?.id.orEmpty())||active!=(menu?.active?:ingredient?.active?:true)||selected!=menu?.ingredientIds?.joinToString(",").orEmpty()
     fun close(){if(!busy){if(dirty)leave=true else onClose()}}
     AlertDialog(onDismissRequest=::close,title={Text("${if(catalogName(c,kind,id).isEmpty())"Tambah" else "Ubah"} ${catalogSections[kind].lowercase()}")},text={Column(Modifier.heightIn(max=520.dp).verticalScroll(rememberScrollState()),verticalArrangement=Arrangement.spacedBy(12.dp)){
-        OutlinedTextField(name,{name=it},label={Text("Nama")},modifier=Modifier.fillMaxWidth().testTag("online.catalog.form.name"),singleLine=true,enabled=!busy)
+        OutlinedTextField(name,{name=it},label={Text("Nama")},modifier=Modifier.fillMaxWidth().testTag("online.catalog.form.name"),singleLine=true,enabled=!busy,keyboardOptions=KeyboardOptions(imeAction=ImeAction.Done))
         OutlinedTextField(order,{order=it},label={Text("Urutan tampilan")},keyboardOptions=KeyboardOptions(keyboardType=KeyboardType.Number),modifier=Modifier.fillMaxWidth().testTag("online.catalog.form.order"),singleLine=true,enabled=!busy)
         if(kind<2){Box{OutlinedButton(onClick={expanded=true},enabled=!busy,modifier=Modifier.fillMaxWidth().testTag("online.catalog.form.category")){Text(categories.find{it.id==category}?.name?:"Buat kategori terlebih dahulu")};DropdownMenu(expanded,onDismissRequest={expanded=false}){categories.sortedBy{it.sortOrder}.forEach{row->DropdownMenuItem(text={Text(row.name)},onClick={category=row.id;expanded=false},modifier=Modifier.testTag("online.catalog.category.${row.id}"))}}}
             Row(Modifier.fillMaxWidth(),verticalAlignment=Alignment.CenterVertically){Text("Aktif",Modifier.weight(1f));Switch(active,{active=it},enabled=!busy,modifier=Modifier.testTag("online.catalog.form.active"))}}

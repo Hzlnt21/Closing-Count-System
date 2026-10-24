@@ -1,0 +1,77 @@
+{
+  "outlet": "26360c3b-1a95-4170-b1c9-a55f97051a33",
+  "adminOutlet": "eda3a50f-a288-4cbd-8f9f-6a58bc237d64",
+  "backupAdmin": "bc2fe03e-6de6-4e0a-afea-66500f40a0ac",
+  "employee": "2e359496-7968-41e9-a515-30d50fd037d3",
+  "colleague": "9bbb1f35-dca7-4cfa-9485-e90db6d5f655",
+  "admin": "b9465d55-e556-4f97-9798-715e60c68e95",
+  "employeeUsername": "qahmvm0w061.rani",
+  "outletName": "HTTP QA qahmvm0w061",
+  "catalog": {
+    "ingredientCategories": [
+      {
+        "id": "1d0c9d50-9919-462c-a822-8074398b1565",
+        "name": "Bahan baku",
+        "sortOrder": 0
+      }
+    ],
+    "ingredients": [
+      {
+        "id": "36dcae7b-238b-4e6b-8dbf-02934e4bcf17",
+        "categoryId": "1d0c9d50-9919-462c-a822-8074398b1565",
+        "name": "Fresh milk",
+        "sortOrder": 1,
+        "active": true
+      },
+      {
+        "id": "48541d31-294f-4311-b328-a52c4f96d059",
+        "categoryId": "1d0c9d50-9919-462c-a822-8074398b1565",
+        "name": "Powder cokelat",
+        "sortOrder": 2,
+        "active": true
+      },
+      {
+        "id": "9d42c792-0df4-4bbd-8fa4-4862a4203416",
+        "categoryId": "1d0c9d50-9919-462c-a822-8074398b1565",
+        "name": "Biji kopi",
+        "sortOrder": 0,
+        "active": true
+      }
+    ],
+    "menuCategories": [
+      {
+        "id": "ce95f37a-0010-4038-86eb-5c5bddfade3c",
+        "name": "Coffee",
+        "sortOrder": 0
+      }
+    ],
+    "menus": [
+      {
+        "id": "b42ed0db-311b-435a-bb5d-1e92120f7be3",
+        "categoryId": "ce95f37a-0010-4038-86eb-5c5bddfade3c",
+        "name": "Latte",
+        "sortOrder": 1,
+        "active": true,
+        "ingredientIds": [
+          "36dcae7b-238b-4e6b-8dbf-02934e4bcf17",
+          "9d42c792-0df4-4bbd-8fa4-4862a4203416"
+        ]
+      },
+      {
+        "id": "d44cb3aa-1a09-498a-886c-8e49bbc21a28",
+        "categoryId": "ce95f37a-0010-4038-86eb-5c5bddfade3c",
+        "name": "Cappuccino",
+        "sortOrder": 0,
+        "active": true,
+        "ingredientIds": [
+          "36dcae7b-238b-4e6b-8dbf-02934e4bcf17",
+          "48541d31-294f-4311-b328-a52c4f96d059",
+          "9d42c792-0df4-4bbd-8fa4-4862a4203416"
+        ]
+      }
+    ]
+  },
+  "ownedDatabase": true,
+  "retained": true,
+  "limiterClockInjected": true
+}

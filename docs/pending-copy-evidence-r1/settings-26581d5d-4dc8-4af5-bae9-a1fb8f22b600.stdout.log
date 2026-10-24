@@ -1,0 +1,25 @@
+INSTRUMENTATION_STATUS: class=com.closingcount.app.OnlinePendingAdminNativeInstrumentedTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=
+com.closingcount.app.OnlinePendingAdminNativeInstrumentedTest:
+INSTRUMENTATION_STATUS: test=nativeAdministrativeRecoveryContinuesThroughNormalExplicitActions
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: ccsAdminNativeProof={"passed":true,"physicalPhoneAccessed":false,"packetsSeededDirectlyIntoInbox":true,"documentsPickerExercised":false,"completePt07Acceptance":false,"run":"26581d5d-4dc8-4af5-bae9-a1fb8f22b600","phase":"settings","user":10,"uid":1010216,"pid":5361,"outlet":"f9c0a1e3-a685-4595-bd49-c84cfc9c18e6","actor":"7733ffa5-7ee7-40bb-97a4-caaafb3a2525","legacyBeforeSha256":"362ca07086d8ed3240c02d3f22c9d0778c711adf6756f17c21f946e6c3e32686","targetedCopyQa":false,"actualFontScale":1,"actualNightMode":"light","phaseCases":[{"phase":"settings","kind":"SETTINGS","originalId":"52674a31-cf72-4fa9-8879-de6676a1137e","backupId":"9bf40657-b2d2-43a7-a910-458df7efd43b","sourceDevice":"aa4d5bfb-2777-43b3-a4ed-fc49f6f3a710","packetSha256":"da6d229583877674c092da0cf7eb5b18b5bb7616580483ec7329b737399b84bb","packetBytes":680,"sourcePayloadSha256":"bef3800f110b9966f2b057a7dd9c2b9167677d1b3f6f7b553a3716eb2705c86b","newId":"e3fda590-9d62-4500-ba4f-f1981df0f43a","expectedRevision":0,"finalRevision":1,"heldThroughContinuationAndRecreation":true,"finalPayloadSha256":"bef3800f110b9966f2b057a7dd9c2b9167677d1b3f6f7b553a3716eb2705c86b","archivedPayloadSha256":"bef3800f110b9966f2b057a7dd9c2b9167677d1b3f6f7b553a3716eb2705c86b","archiveInactive":true,"originalRecorded":false,"newRecorded":true,"duplicateActionBlocked":true}],"allCases":[{"phase":"settings","kind":"SETTINGS","originalId":"52674a31-cf72-4fa9-8879-de6676a1137e","backupId":"9bf40657-b2d2-43a7-a910-458df7efd43b","sourceDevice":"aa4d5bfb-2777-43b3-a4ed-fc49f6f3a710","packetSha256":"da6d229583877674c092da0cf7eb5b18b5bb7616580483ec7329b737399b84bb","packetBytes":680,"sourcePayloadSha256":"bef3800f110b9966f2b057a7dd9c2b9167677d1b3f6f7b553a3716eb2705c86b","newId":"e3fda590-9d62-4500-ba4f-f1981df0f43a","expectedRevision":0,"finalRevision":1,"heldThroughContinuationAndRecreation":true,"finalPayloadSha256":"bef3800f110b9966f2b057a7dd9c2b9167677d1b3f6f7b553a3716eb2705c86b","archivedPayloadSha256":"bef3800f110b9966f2b057a7dd9c2b9167677d1b3f6f7b553a3716eb2705c86b","archiveInactive":true,"originalRecorded":false,"newRecorded":true,"duplicateActionBlocked":true}],"inboxCount":1,"legacyAfterSha256":"362ca07086d8ed3240c02d3f22c9d0778c711adf6756f17c21f946e6c3e32686","legacyUnchanged":true,"allFinalSendsUsedProductionUi":true}
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: class=com.closingcount.app.OnlinePendingAdminNativeInstrumentedTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=nativeAdministrativeRecoveryContinuesThroughNormalExplicitActions
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_RESULT: stream=
+
+Time: 52,122
+
+OK (1 test)
+
+
+INSTRUMENTATION_CODE: -1

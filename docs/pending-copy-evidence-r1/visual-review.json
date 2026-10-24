@@ -1,0 +1,66 @@
+{
+  "reviewedBy": "Root Codex direct view_image inspection",
+  "selectedScreensInspected": true,
+  "screenshots": [
+    {
+      "file": "native-pending-admin-team-create-identity-source.png",
+      "sha256": "4c939e97876ce2990f6d01bd9f0189c4c2583edd1b4e57473e8db6ea3f0ecf03"
+    },
+    {
+      "file": "native-pending-admin-team-update-identity-source.png",
+      "sha256": "5b63036a321c22df24cb5c5fa93fe3f8b7bd72b30f665d3650b98a07af8d8791"
+    },
+    {
+      "file": "native-pending-admin-settings-held-after-recreation.png",
+      "sha256": "d15c3233890b0c04be95c7085307afb693be0fef264916dd2b31148c188662bd"
+    },
+    {
+      "file": "native-pending-admin-team-fresh-password-required.png",
+      "sha256": "07f35b52e070d56ec9289733550a4a52155840995df6534f3fd704b5466e872b"
+    },
+    {
+      "file": "native-pending-admin-team-update-held.png",
+      "sha256": "9f573c2c10b4422001f25a48aa0b11023da1a7e2e2e7abfcb9bfe512cee9ee3c"
+    },
+    {
+      "file": "native-pending-admin-catalog-editable-after-recreation.png",
+      "sha256": "15987d2a67340a8b003ebb9c585231c3b76ce3f14e7b91cab7dadc268fa1448e"
+    },
+    {
+      "file": "native-pending-admin-lifecycle-4-reopen-confirmed.png",
+      "sha256": "32c219a70981c77b905db573549c3a0b9a8dc745fd0e85111cec8c261e5c3b4a"
+    },
+    {
+      "file": "visual-main/visual-light-large/pending-ui-visual-light-large-export-review.png",
+      "sha256": "419d9c85996cf8335920c7147150cb002177348ef8b5f43aecf9eefd9d7e193c"
+    },
+    {
+      "file": "visual-main/visual-dark-large/pending-ui-visual-dark-large-quantity-review.png",
+      "sha256": "1ef115e6c22859ff7e24141639dbeff67c85ec897fbaddb83c50177072975620"
+    },
+    {
+      "file": "visual-main/visual-light/pending-ui-visual-light-held-draft.png",
+      "sha256": "aeb1acb97643000c4a70023ff9ae2b44cbd782cb8cfb87ce45dfa2876b74a0e4"
+    },
+    {
+      "file": "visual-main/visual-dark/pending-ui-visual-dark-inbox.png",
+      "sha256": "10e2c182fe58a8b32f38e7a5a142fdac09a9b5e7c5e72e4cd0431cbe8c5c07dc"
+    }
+  ],
+  "copyFindingsClosed": [
+    "COPY-01",
+    "COPY-02",
+    "COPY-03"
+  ],
+  "outletScopedAvailabilityVisible": true,
+  "resolvedIdentitySourceLabelsVisible": true,
+  "neverSentActionCopyVisible": true,
+  "mainThreadUiHandoffExercisedByCurrentSuites": true,
+  "sourceMainLooperAssertionEnabled": true,
+  "ioParsingAndStorageRemainBackground": true,
+  "selectedLayoutAndContrastReadable": true,
+  "ordinaryScrollingRequired": true,
+  "exhaustiveLayoutInspection": false,
+  "userApprovalClaim": false,
+  "physicalPhoneAccessed": false
+}

@@ -103,7 +103,7 @@ private fun roleLabel(value:String)=when(value){"ADMIN"->"Administrator";"SUPERV
                             if(review.sourceRevision!=null&&review.currentRevision!=null&&review.sourceRevision!=review.currentRevision)Text("Data server sudah berubah sejak cadangan dibuat. Usulan ini memakai versi server yang baru saja kamu periksa.")
                             if(review.sourceGeneration!=null&&review.currentGeneration!=null&&review.sourceGeneration!=review.currentGeneration)Text("Tindakan berasal dari putaran revisi sebelumnya. Pastikan tindakan dan alasannya masih tepat.",color=MaterialTheme.colorScheme.error)
                         }}
-                        items(s.values){value->PendingPaper{Text(value.label,fontWeight=FontWeight.Bold);PendingValue("Dari file",value.file,true);value.current?.let{PendingValue("Server sekarang",it)}}}
+                        items(s.values){value->PendingPaper{Text(value.label,fontWeight=FontWeight.Bold);PendingValue(value.fileLabel,value.file,true);value.current?.let{PendingValue(value.currentLabel,it)}}}
                         if(review.kind=="CATALOG")item{PendingPaper{
                             Text("Katalog dipulihkan sebagai draft editable",fontWeight=FontWeight.Bold);Text("Kategori, bahan, menu dan resep tetap tersedia. Publikasi dilakukan melalui halaman katalog setelah review.")
                             PendingSecondary("Lihat seluruh katalog file","online.pending.catalog.file",!locked){vm.showCatalog("file")}

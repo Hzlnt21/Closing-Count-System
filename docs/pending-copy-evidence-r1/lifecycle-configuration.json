@@ -1,0 +1,9 @@
+{
+    "phase":  "lifecycle",
+    "user":  10,
+    "requestedFontScale":  1,
+    "requestedNightMode":  "light",
+    "observedSettingFontScale":  "1.0",
+    "observedNightMode":  "Night mode: no",
+    "physicalPhoneAccessed":  false
+}

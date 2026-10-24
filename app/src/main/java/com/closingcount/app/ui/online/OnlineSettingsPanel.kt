@@ -52,12 +52,13 @@ private fun zoneLabel(zone:String)=when(zone){"Asia/Jakarta"->"WIB - Jakarta";"A
                     Text(it,color=MaterialTheme.colorScheme.error)
                     if(s.authRequired)TextButton(onClick=onLogin,enabled=!s.busy,modifier=Modifier.testTag("online.settings.login")){Text("Masuk kembali")}
                 } }
-                s.pending?.let { op -> SettingsCard {
+                s.pending?.let { op -> val notSent=op.status=="QUEUED"&&!op.wasSent;SettingsCard {
                     Text("Perubahan tersimpan",fontWeight=FontWeight.Bold,modifier=Modifier.testTag("online.settings.pending"))
                     Text(when(op.status){"CONFLICT","FAILED"->"Tindakan ditolak. Tutup tindakan ini dan periksa pengaturan terbaru sebelum mencoba lagi."
                         "AUTH_REQUIRED"->"Menunggu pemeriksaan sesi atau izin akun. Jangan kirim atas nama akun lain."
+                        "QUEUED"->if(notSent)"Perubahan belum dikirim. Periksa nilainya, lalu kirim saat sudah siap." else "Hasil belum terkonfirmasi. Aplikasi akan memeriksa tindakan yang sama, bukan membuat perubahan baru."
                         else->"Hasil belum terkonfirmasi. Aplikasi akan memeriksa tindakan yang sama, bukan membuat perubahan baru."},style=MaterialTheme.typography.bodySmall)
-                    if(op.status in setOf("QUEUED","SENT"))Button(onClick=vm::retry,enabled=!s.busy,modifier=Modifier.fillMaxWidth().testTag("online.settings.retry")){Text("Periksa konfirmasi")}
+                    if(op.status in setOf("QUEUED","SENT"))Button(onClick=vm::retry,enabled=!s.busy,modifier=Modifier.fillMaxWidth().testTag("online.settings.retry")){Text(if(notSent)"Kirim perubahan" else "Periksa konfirmasi")}
                     if(op.status=="AUTH_REQUIRED" && !s.authRequired)TextButton(onClick=onLogin,enabled=!s.busy){Text("Masuk kembali")}
                     if(op.status in setOf("CONFLICT","FAILED"))TextButton(onClick=vm::dismiss,enabled=!s.busy,modifier=Modifier.testTag("online.settings.dismiss")){Text("Tutup tindakan yang ditolak")}
                 } }

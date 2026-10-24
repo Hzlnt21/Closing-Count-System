@@ -10,7 +10,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.test.core.app.ActivityScenario
 import androidx.test.core.app.ApplicationProvider
-import androidx.test.espresso.Espresso
 import androidx.test.platform.app.InstrumentationRegistry
 import com.closingcount.app.data.online.*
 import com.closingcount.app.data.transfer.*
@@ -63,6 +62,7 @@ class OnlinePendingAdminNativeInstrumentedTest {
     private lateinit var phase: String
     private lateinit var outlet: String
     private lateinit var fixturePassword: String
+    private var copyQa = false
     private var phaseStartCaseCount = 0
     private val jobs = linkedSetOf<Job>()
     private val proof = JSONObject().put("passed", false).put("physicalPhoneAccessed", false)
@@ -75,6 +75,8 @@ class OnlinePendingAdminNativeInstrumentedTest {
         run = requireNotNull(args.getString("ccsAdminNativeRun"))
         check(UUID.fromString(run).toString() == run)
         phase = requireNotNull(args.getString("ccsAdminNativePhase")); check(phase in phases)
+        copyQa = args.getString("ccsAdminNativeCopyQa") == "true"
+        if (copyQa) check(phase in listOf("settings", "team"))
         val user = requireNotNull(args.getString("ccsAdminNativeUser")).toInt()
         check(user > 0 && Process.myUid() / 100000 == user)
         check(args.getString("ccsQaOrigin") == "http://10.0.2.2:4371")
@@ -126,6 +128,7 @@ class OnlinePendingAdminNativeInstrumentedTest {
         proof.put("run", run).put("phase", phase).put("user", user).put("uid", Process.myUid())
             .put("pid", Process.myPid()).put("outlet", outlet).put("actor", session.identity.id)
             .put("legacyBeforeSha256", saved.getString("legacySha256"))
+            .put("targetedCopyQa", copyQa)
         scenario.onActivity { activity ->
             val configuration = activity.resources.configuration
             proof.put("actualFontScale", configuration.fontScale.toDouble())
@@ -168,6 +171,10 @@ class OnlinePendingAdminNativeInstrumentedTest {
     private fun pendingClick(tag: String) {
         compose.onNodeWithTag("online.pending.page").performScrollToNode(hasTestTag(tag))
         click(tag)
+    }
+    private fun pendingText(value: String) {
+        compose.onNodeWithTag("online.pending.page").performScrollToNode(hasText(value))
+        compose.onNodeWithText(value).assertIsDisplayed()
     }
     private fun catalogClick(tag: String) {
         compose.onNodeWithTag("online.catalog.list").performScrollToNode(hasTestTag(tag))
@@ -288,7 +295,7 @@ class OnlinePendingAdminNativeInstrumentedTest {
         assertEquals(saved.getString("legacySha256"), legacyHash())
         val all = saved.getJSONArray("cases")
         val current = JSONArray((phaseStartCaseCount until all.length()).map { all.getJSONObject(it) })
-        if (phase == "lifecycle") api.logout(session)
+        if (phase == "lifecycle" || copyQa && phase == "team") api.logout(session)
         proof.put("phaseCases", current).put("allCases", all).put("inboxCount", expectedInbox.getValue(phase))
             .put("legacyAfterSha256", legacyHash()).put("legacyUnchanged", true)
             .put("allFinalSendsUsedProductionUi", true).put("passed", true)
@@ -316,6 +323,8 @@ class OnlinePendingAdminNativeInstrumentedTest {
         assertEquals("Asia/Makassar", settings.state.value.timezone)
         recreate()
         waitFor { settings.state.value.pending?.operationId == id && !settings.state.value.busy }
+        compose.onNodeWithText("Perubahan belum dikirim. Periksa nilainya, lalu kirim saat sudah siap.").performScrollTo().assertIsDisplayed()
+        compose.onNodeWithTag("online.settings.retry").assertTextContains("Kirim perubahan")
         assertEquals(before, api.outletSettings(session, outlet)); capture("held-after-recreation")
         click("online.settings.retry")
         waitFor { settings.state.value.pending == null && !settings.state.value.busy && settings.state.value.snapshot?.name == desiredName }
@@ -336,6 +345,7 @@ class OnlinePendingAdminNativeInstrumentedTest {
         val createPayload = JSONObject().put("username", username).put("displayName", displayName).put("role", "EMPLOYEE")
         val createdRow = seedAdmin("TEAM_CREATE", createPayload, null)
         inspect(createdRow); assertTrue(pending.state.value.intent!!.passwordRequired); capture("create-review")
+        pendingText("Status di outlet ini"); pendingText("Belum terdaftar di outlet ini"); capture("create-identity-source")
         val createId = applyReviewed(createdRow)
         assertEquals("QUEUED", app.onlineRepository.pendingTeam(outlet)!!.status)
         assertFalse(app.onlineRepository.pendingTeam(outlet)!!.wasSent)
@@ -345,6 +355,8 @@ class OnlinePendingAdminNativeInstrumentedTest {
         compose.onNodeWithTag("online.team.pending").performScrollTo().assertIsDisplayed()
         recreate()
         waitFor { team.state.value.pending?.operationId == createId && !team.state.value.busy }
+        compose.onNodeWithText("Tindakan ini belum dikirim. Periksa isinya sebelum melanjutkan.").performScrollTo().assertIsDisplayed()
+        compose.onNodeWithTag("online.team.retry").assertTextContains("Lanjutkan pembuatan akun")
         assertTrue(roster().none { it.username == username })
         click("online.team.retry")
         waitFor { team.state.value.passwordNeeded && !team.state.value.busy }
@@ -353,7 +365,7 @@ class OnlinePendingAdminNativeInstrumentedTest {
         assertTrue(roster().none { it.username == username })
         newPasswordTrigger(); capture("fresh-password-required")
         compose.onNodeWithTag("online.team.retry.password").performScrollTo().performTextReplacement(fixturePassword)
-        Espresso.closeSoftKeyboard(); newPasswordConfirm()
+        compose.onNodeWithTag("online.team.retry.password").performImeAction(); newPasswordConfirm()
         waitFor { team.state.value.pending == null && !team.state.value.busy }
         val member = roster().single { it.username == username }
         assertEquals(displayName, member.name); assertEquals("EMPLOYEE", member.role); assertTrue(member.active)
@@ -366,6 +378,8 @@ class OnlinePendingAdminNativeInstrumentedTest {
         val updatePayload = JSONObject().put("accountId", member.id).put("role", "SUPERVISOR").put("active", false)
         val updatedRow = seedAdmin("TEAM_UPDATE", updatePayload, member.revision)
         inspect(updatedRow); assertFalse(pending.state.value.intent!!.passwordRequired); capture("update-review")
+        pendingText("Anggota yang dirujuk file"); pendingText("Nama dari server"); pendingText(member.name)
+        pendingText("Username dari server"); pendingText(member.username); capture("update-identity-source")
         val updateId = applyReviewed(updatedRow)
         val operation = requireNotNull(app.onlineRepository.pendingTeam(outlet))
         assertEquals("UPDATE_MEMBERSHIP", operation.kind)
@@ -376,6 +390,7 @@ class OnlinePendingAdminNativeInstrumentedTest {
         waitFor { team.state.value.pending?.operationId == updateId && !team.state.value.busy }
         recreate()
         waitFor { team.state.value.pending?.operationId == updateId && !team.state.value.busy }
+        compose.onNodeWithTag("online.team.retry").performScrollTo().assertTextContains("Kirim perubahan akses")
         assertEquals(member, api.member(session, outlet, member.id)); capture("update-held")
         click("online.team.retry")
         waitFor { team.state.value.pending == null && !team.state.value.busy }
@@ -420,7 +435,7 @@ class OnlinePendingAdminNativeInstrumentedTest {
         val first = desired.menus.first(); val editedName = "Review " + first.name
         catalogClick("online.catalog.edit.${first.id}")
         compose.onNodeWithTag("online.catalog.form.name").performScrollTo().performTextReplacement(editedName)
-        Espresso.closeSoftKeyboard(); click("online.catalog.form.save", false)
+        compose.onNodeWithTag("online.catalog.form.name").performImeAction(); click("online.catalog.form.save", false)
         waitFor { !exists("online.catalog.form.save") && !catalog.state.value.busy }
         val edited = desired.copy(menus = desired.menus.map { if (it.id == first.id) it.copy(name = editedName) else it }).validated()
         assertEquals(edited, catalog.state.value.working)

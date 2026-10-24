@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -60,12 +61,12 @@ private fun parseMember(raw:String)=JSONObject(raw).let{OnlineTeamMember(it.getS
                 Text("Tutup halaman ini untuk memuat ulang akses yang sekarang tersedia.")
                 Button(onClick=onClose,modifier=Modifier.fillMaxWidth().testTag("online.team.access.close")){Text("Tutup dan perbarui akun")}
             }
-            s.pending?.let{op->val p=JSONObject(op.payload);TeamCard{
+            s.pending?.let{op->val p=JSONObject(op.payload);val notSent=op.status=="QUEUED"&&!op.wasSent;TeamCard{
                 Text("Tindakan tersimpan",fontWeight=FontWeight.Bold,modifier=Modifier.testTag("online.team.pending"))
                 Text(if(op.kind=="CREATE_ACCOUNT")"Buat akun ${p.getString("username")}" else "Perbarui akses anggota",fontWeight=FontWeight.SemiBold)
                 Text("${teamRole(p.getString("role"))}"+(if(op.kind=="UPDATE_MEMBERSHIP")if(p.getBoolean("active"))" / aktif" else " / nonaktif" else ""))
-                Text(if(op.status in setOf("CONFLICT","FAILED"))"Tindakan ditolak. Tutup lalu review versi terbaru untuk membuat tindakan baru." else "Hasil belum terkonfirmasi. Periksa ID yang sama sebelum membuat tindakan lain.",style=MaterialTheme.typography.bodySmall)
-                if(op.status in setOf("QUEUED","SENT"))Button(onClick={vm.retry()},enabled=!s.busy,modifier=Modifier.fillMaxWidth().testTag("online.team.retry")){Text("Periksa hasil tindakan")}
+                Text(if(op.status in setOf("CONFLICT","FAILED"))"Tindakan ditolak. Tutup lalu review versi terbaru untuk membuat tindakan baru." else if(notSent)"Tindakan ini belum dikirim. Periksa isinya sebelum melanjutkan." else "Hasil belum terkonfirmasi. Periksa ID yang sama sebelum membuat tindakan lain.",style=MaterialTheme.typography.bodySmall)
+                if(op.status in setOf("QUEUED","SENT"))Button(onClick={vm.retry()},enabled=!s.busy,modifier=Modifier.fillMaxWidth().testTag("online.team.retry")){Text(if(notSent)if(op.kind=="CREATE_ACCOUNT")"Lanjutkan pembuatan akun" else "Kirim perubahan akses" else "Periksa hasil tindakan")}
                 if(s.passwordNeeded)TextButton(onClick={passwordDialog=true},enabled=!s.busy,modifier=Modifier.testTag("online.team.retry.password.open")){Text(if(op.kind=="CREATE_ACCOUNT"&&!op.wasSent)"Tentukan password akun baru" else "Ketik ulang password pengajuan pertama")}
                 if(op.status=="AUTH_REQUIRED"&&!s.authRequired)TextButton(onClick=onLogin,enabled=!s.busy){Text("Masuk kembali")}
                 if(op.status in setOf("CONFLICT","FAILED"))TextButton(onClick=vm::dismiss,enabled=!s.busy,modifier=Modifier.testTag("online.team.dismiss")){Text("Tutup tindakan yang ditolak")}
@@ -133,7 +134,7 @@ private fun parseMember(raw:String)=JSONObject(raw).let{OnlineTeamMember(it.getS
     var password by remember{mutableStateOf("")}
     AlertDialog(onDismissRequest=onCancel,title={Text("Lanjutkan pembuatan akun")},text={Column(Modifier.verticalScroll(rememberScrollState()),verticalArrangement=Arrangement.spacedBy(12.dp)){
         Text(if(previouslySent)"Ketik password yang sama dengan pengajuan pertama. Nama, peran dan ID tindakan tetap sama." else "Tentukan password awal untuk akun baru ini. Nama, peran dan ID tindakan tetap sama. Password tidak disimpan di perangkat.")
-        OutlinedTextField(password,{password=it},label={Text(if(previouslySent)"Password pengajuan pertama" else "Password awal akun baru")},visualTransformation=PasswordVisualTransformation(),keyboardOptions=KeyboardOptions(keyboardType=KeyboardType.Password),singleLine=true,modifier=Modifier.fillMaxWidth().testTag("online.team.retry.password"))
+        OutlinedTextField(password,{password=it},label={Text(if(previouslySent)"Password pengajuan pertama" else "Password awal akun baru")},visualTransformation=PasswordVisualTransformation(),keyboardOptions=KeyboardOptions(keyboardType=KeyboardType.Password,imeAction=ImeAction.Done),singleLine=true,modifier=Modifier.fillMaxWidth().testTag("online.team.retry.password"))
     }},confirmButton={TextButton(onClick={onApply(password)},enabled=!busy&&password.codePointCount(0,password.length)>=12&&password.toByteArray().size<=256,modifier=Modifier.testTag("online.team.retry.password.confirm")){Text("Periksa dan lanjutkan")}},dismissButton={TextButton(onClick=onCancel){Text("Batal")}})
 }
 @Composable private fun TeamCard(content:@Composable ColumnScope.()->Unit){Surface(shape=RoundedCornerShape(20.dp),color=MaterialTheme.colorScheme.surface){Column(Modifier.fillMaxWidth().padding(18.dp),verticalArrangement=Arrangement.spacedBy(12.dp),content=content)}}

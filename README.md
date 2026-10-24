@@ -1,5 +1,11 @@
 # Closing Count System
 
+Local transfer acceptance: [CCS07 / PT01-08 evidence mapping](docs/TRANSFER_LOCAL_ACCEPTANCE_R1.md). Account-review/draft copy and main-thread UI publication are corrected; current admin and actual DocumentsUI/controller regressions pass with independent data checks. Physical/public acceptance and CCS08 complete demo packaging remain open.
+
+## Earlier implementation checkpoints
+
+The checkpoint notes below retain their original state; the current acceptance mapping above supersedes their next-step statements.
+
 Native administrative recovery: [four normal phases and nine recovered actions](docs/PENDING_TRANSFER_ADMIN_NATIVE_R1.md). Settings, account/access, editable catalog and submit/return/lock/reopen continue through normal explicit actions. Exact packet/Room/PostgreSQL checks match nine new-ID receipts. Team initial-password copy and dialog scrolling are improved; three review/pending-card copy findings, PT08 and CCS08 remain open.
 
 Native pending-transfer restart: [two live process stops and recovered review/draft](docs/PENDING_TRANSFER_NATIVE_RESTART_R1.md). Three distinct processes preserve the accepted inbox and held new-ID quantity draft; fresh review is required after restart and server4 changes to8 only on explicit sync. Two deliberately aborted ready stages and one normal final verification are recorded separately. Production code is unchanged; native admin continuations, PT08 and CCS08 remain open.
