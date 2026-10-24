@@ -208,21 +208,24 @@ class OnlineViewModel(application: Application) : AndroidViewModel(application) 
                 val json = JSONObject(header.snapshotJson); val catalog = json.getJSONObject("catalog")
                 val categories = catalog.getJSONArray("menuCategories")
                 val names = (0 until categories.length()).associate { val item = categories.getJSONObject(it); item.getString("id") to item.getString("name") }
-                val raw = catalog.getJSONArray("menus"); val actors = json.getJSONArray("entries")
+                val displayCatalog = OnlineCatalog.parse(catalog)
+                val displayMenus = displayCatalog.menusInDisplayOrder()
+                val actors = json.getJSONArray("entries")
                 val actorNames = (0 until actors.length()).associate { val item = actors.getJSONObject(it)
                     item.getString("menuId") to (item.optJSONObject("updatedBy")?.optString("displayName") ?: "Belum diubah") }
                 val byId = entries.associateBy { it.menuId }
-                val menus = (0 until raw.length()).mapNotNull { index ->
-                    val item = raw.getJSONObject(index); val row = byId[item.getString("id")] ?: return@mapNotNull null
-                    OnlineMenuUi(row.menuId, item.getString("name"), names[item.getString("categoryId")] ?: "Menu", row.localQuantity,
+                val menus = displayMenus.mapNotNull { item ->
+                    val row = byId[item.id] ?: return@mapNotNull null
+                    OnlineMenuUi(row.menuId, item.name, names[item.categoryId] ?: "Menu", row.localQuantity,
                         row.serverQuantity, row.serverRevision, row.generation, row.status, actorNames[row.menuId].orEmpty())
                 }
                 val serverQuantities = (0 until actors.length()).associate { val item = actors.getJSONObject(it); item.getString("menuId") to item.getLong("quantity") }
-                val reviewMenus = (0 until raw.length()).map { val item = raw.getJSONObject(it)
-                    OnlineReviewLine(item.getString("name"), serverQuantities[item.getString("id")] ?: 0L) }
+                val reviewMenus = displayMenus.map { item ->
+                    OnlineReviewLine(item.name, serverQuantities[item.id] ?: 0L) }
                 val rawTotals = json.getJSONArray("ingredientTotals")
-                val ingredients = (0 until rawTotals.length()).map { val item = rawTotals.getJSONObject(it)
-                    OnlineReviewLine(item.getString("name"), item.getLong("total")) }
+                val totalsById = (0 until rawTotals.length()).associate { val item = rawTotals.getJSONObject(it);item.getString("id") to item }
+                val ingredients = displayCatalog.ingredientsInDisplayOrder().mapNotNull { ingredient ->
+                    totalsById[ingredient.id]?.let { item -> OnlineReviewLine(item.getString("name"),item.getLong("total")) } }
                 RenderedClosing(header.state, header.revision, header.generation, menus, ops.size, lifecycle, reviewMenus,
                     ingredients, json.optJSONObject("submittedBy")?.optString("displayName"), json.optJSONObject("lockedBy")?.optString("displayName"))
             }.catch { mutable.update { it.copy(error = "Data tersimpan belum dapat dibaca. Coba muat ulang.") } }

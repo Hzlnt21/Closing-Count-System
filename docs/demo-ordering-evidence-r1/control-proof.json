@@ -1,0 +1,25 @@
+{
+  "passed": false,
+  "physicalPhoneAccessed": false,
+  "run": "2db80e97-7010-4916-8f8c-c3cdaab264b3",
+  "case": "control",
+  "user": 10,
+  "uid": 1010216,
+  "pid": 3636,
+  "version": "0.1.1",
+  "legacyBefore": "362ca07086d8ed3240c02d3f22c9d0778c711adf6756f17c21f946e6c3e32686",
+  "rawMenuOrder": [
+    "4303d774-ac6d-4525-bf46-84ee20ac92b2",
+    "8f019a5f-0141-4f1c-bd55-6da1925b9a8c"
+  ],
+  "inputOrder": [
+    "4303d774-ac6d-4525-bf46-84ee20ac92b2",
+    "8f019a5f-0141-4f1c-bd55-6da1925b9a8c"
+  ],
+  "expectedOrder": [
+    "8f019a5f-0141-4f1c-bd55-6da1925b9a8c",
+    "4303d774-ac6d-4525-bf46-84ee20ac92b2"
+  ],
+  "uiLogout": true,
+  "legacyAfter": "362ca07086d8ed3240c02d3f22c9d0778c711adf6756f17c21f946e6c3e32686"
+}

@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "version": "0.1.2",
+  "versionCode": 10,
+  "endpoint": "http://10.0.2.2:4372",
+  "unitTests": 27,
+  "unitFailures": 0,
+  "lintErrors": 0,
+  "lintWarnings": 17,
+  "apkInputs": [
+    {
+      "path": "D:\\Code\\Worktrees\\Closing-Count-Portfolio\\app\\build\\outputs\\apk\\debug\\app-debug.apk",
+      "sha256": "691c42a615873b2a3d1cf8adb8a41c14f910f79ddfc2821c0721180902b081cb"
+    },
+    {
+      "path": "D:\\Code\\Worktrees\\Closing-Count-Portfolio\\app\\build\\outputs\\apk\\androidTest\\debug\\app-debug-androidTest.apk",
+      "sha256": "751bbe287102c97261c4e32795f18eba23e846effa3353e9d75f5c18eedcf0bc"
+    }
+  ],
+  "physicalPhoneAccessed": false
+}

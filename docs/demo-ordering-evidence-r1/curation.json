@@ -1,0 +1,123 @@
+{
+  "attempt": "r2",
+  "files": [
+    {
+      "file": "verification.json",
+      "sha256": "f9627028d6d239a1559adb34b130589baa2afa90fd2acbab4eb29fc0781e091b",
+      "rawSha256": "f9627028d6d239a1559adb34b130589baa2afa90fd2acbab4eb29fc0781e091b"
+    },
+    {
+      "file": "business-before.json",
+      "sha256": "22bf05f4b68697fbafc8377394b92f2a996359c9ab1dc4c694b7b5c789cef77e",
+      "rawSha256": "22bf05f4b68697fbafc8377394b92f2a996359c9ab1dc4c694b7b5c789cef77e"
+    },
+    {
+      "file": "business-after.json",
+      "sha256": "22bf05f4b68697fbafc8377394b92f2a996359c9ab1dc4c694b7b5c789cef77e",
+      "rawSha256": "22bf05f4b68697fbafc8377394b92f2a996359c9ab1dc4c694b7b5c789cef77e"
+    },
+    {
+      "file": "source-inputs.json",
+      "sha256": "ba6f44ceeecaa5c9a3e64371d3665076a20615934bc5b1dbbd5536759f42bd60",
+      "rawSha256": "ba6f44ceeecaa5c9a3e64371d3665076a20615934bc5b1dbbd5536759f42bd60"
+    },
+    {
+      "file": "device-before.json",
+      "sha256": "13079f804a8bce61b95f5879e47446369747fd36a39febc2ad0f5bb19df7fe6e",
+      "rawSha256": "13079f804a8bce61b95f5879e47446369747fd36a39febc2ad0f5bb19df7fe6e"
+    },
+    {
+      "file": "device-after.json",
+      "sha256": "13079f804a8bce61b95f5879e47446369747fd36a39febc2ad0f5bb19df7fe6e",
+      "rawSha256": "13079f804a8bce61b95f5879e47446369747fd36a39febc2ad0f5bb19df7fe6e"
+    },
+    {
+      "file": "owner-before.sha256",
+      "sha256": "0e7d99078c55b1ccf8b47dab28bacba3ac762b1585b7b277a538b4a2eede616d",
+      "rawSha256": "a6b237fd6a018d183a3c5acb570da51363de9e23b9c745b3bbc664a4b696e281"
+    },
+    {
+      "file": "owner-after.sha256",
+      "sha256": "0e7d99078c55b1ccf8b47dab28bacba3ac762b1585b7b277a538b4a2eede616d",
+      "rawSha256": "a6b237fd6a018d183a3c5acb570da51363de9e23b9c745b3bbc664a4b696e281"
+    },
+    {
+      "file": "control-apks.json",
+      "sha256": "de0e709ad4e045e39bfff4b7668e9aa3ad44429460863eb3375b64aaf0b5d3bb",
+      "rawSha256": "de0e709ad4e045e39bfff4b7668e9aa3ad44429460863eb3375b64aaf0b5d3bb"
+    },
+    {
+      "file": "fixed-apks.json",
+      "sha256": "1c2a8ab9c16ce4fd942ce355678d7ea723c55145cf235399777b12aa96f16370",
+      "rawSha256": "1c2a8ab9c16ce4fd942ce355678d7ea723c55145cf235399777b12aa96f16370"
+    },
+    {
+      "file": "control.stdout.log",
+      "sha256": "6e7f405044ae6dc8831593c0f809b2bdfb6a51dc4492b265a1347f2c6807ff8f",
+      "rawSha256": "6e7f405044ae6dc8831593c0f809b2bdfb6a51dc4492b265a1347f2c6807ff8f"
+    },
+    {
+      "file": "fixed.stdout.log",
+      "sha256": "b4b939cfed4f788e59433da2fa49d1d9cf3c0c02cb9861cfa31b90e2a1556e29",
+      "rawSha256": "b4b939cfed4f788e59433da2fa49d1d9cf3c0c02cb9861cfa31b90e2a1556e29"
+    },
+    {
+      "file": "build-verification.json",
+      "sha256": "117af45660410d331d5de133731edec6e23a92c094ce9941a307bd31835ed394",
+      "rawSha256": "117af45660410d331d5de133731edec6e23a92c094ce9941a307bd31835ed394"
+    },
+    {
+      "file": "control-proof.json",
+      "sha256": "0f1906c111b682b084fa79e1cd121570730da464b774e1fb722277d834165eca",
+      "rawSha256": "0f1906c111b682b084fa79e1cd121570730da464b774e1fb722277d834165eca"
+    },
+    {
+      "file": "fixed-proof.json",
+      "sha256": "ef45df0582a909c83aba790822caa199aeeddc4e524a07e3097502faf7be700d",
+      "rawSha256": "ef45df0582a909c83aba790822caa199aeeddc4e524a07e3097502faf7be700d"
+    },
+    {
+      "file": "control-input.png",
+      "sha256": "1c9e09036b138885e157873ce29c0dae26a8302291409d056cedf9bfbb612d0a",
+      "rawSha256": "1c9e09036b138885e157873ce29c0dae26a8302291409d056cedf9bfbb612d0a"
+    },
+    {
+      "file": "fixed-input.png",
+      "sha256": "19ec005168383c9cfa1745cac63ac43bc992f13793613a898a3ae0548d4a93cd",
+      "rawSha256": "19ec005168383c9cfa1745cac63ac43bc992f13793613a898a3ae0548d4a93cd"
+    },
+    {
+      "file": "fixed-review.png",
+      "sha256": "ec1bd726b8255582f508a4e9c02525c1b37a248dc5a9471fc9d5db7c3af224ca",
+      "rawSha256": "ec1bd726b8255582f508a4e9c02525c1b37a248dc5a9471fc9d5db7c3af224ca"
+    },
+    {
+      "file": "fixed-report-menus.png",
+      "sha256": "fe96df6de85d2ec6bcf5969fb8888a14431f540fcae9ea424b668c364fe64373",
+      "rawSha256": "fe96df6de85d2ec6bcf5969fb8888a14431f540fcae9ea424b668c364fe64373"
+    },
+    {
+      "file": "fixed-report-ingredients.png",
+      "sha256": "b1b0e0df951eb190a35f0528aeca5ea69d895b2a5a610e218d41e0775e2c011b",
+      "rawSha256": "b1b0e0df951eb190a35f0528aeca5ea69d895b2a5a610e218d41e0775e2c011b"
+    },
+    {
+      "file": "Check-ClosingDemoOrderingR1.py",
+      "sha256": "c181047cbd2941e923799082ce0e96cdac3e8f8f125a64635d111c5df62e6d7f",
+      "rawSha256": "c181047cbd2941e923799082ce0e96cdac3e8f8f125a64635d111c5df62e6d7f"
+    },
+    {
+      "file": "Curate-ClosingDemoOrderingR1.py",
+      "sha256": "b189c667d78e109f16ce78594b227cff56d49d95a8f65f30207880480f7aa1a9",
+      "rawSha256": "b189c667d78e109f16ce78594b227cff56d49d95a8f65f30207880480f7aa1a9"
+    },
+    {
+      "file": "Checkpoint-ClosingDemoOrderingR1.py",
+      "sha256": "4ca9aa1701b54d0b5820a23561fa94cad0d4838b522d3c86a8c65929d1f8e62a",
+      "rawSha256": "4ca9aa1701b54d0b5820a23561fa94cad0d4838b522d3c86a8c65929d1f8e62a"
+    }
+  ],
+  "privateRuntimeAndDiagnosticsNotPublished": true,
+  "roomDatabasesNotPublished": true,
+  "scriptsAreArchivedWindowsWorkspaceDrivers": true
+}

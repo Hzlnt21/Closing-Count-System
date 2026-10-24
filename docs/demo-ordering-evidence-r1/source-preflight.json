@@ -1,0 +1,195 @@
+{
+  "passed": true,
+  "sourceBase": "02389596f4d21f5a9221fa36412b27e785e2f043",
+  "attempt": "r2",
+  "files": [
+    {
+      "file": "CHANGELOG.md",
+      "indexSha256": "6cde5cbd78190d7a69c488da60e9534badf0207d7720842163e09b6728eece17"
+    },
+    {
+      "file": "README.md",
+      "indexSha256": "6f7a170449f76151ce46269bface5d7bf2d0aca297575fe89221f0c4388409bb"
+    },
+    {
+      "file": "app/build.gradle.kts",
+      "indexSha256": "94fe686946a60db86dbf5829f4e43b0eac47b9d7bf44d4f8a013797200f814d0"
+    },
+    {
+      "file": "app/src/androidTest/java/com/closingcount/app/OnlineDemoOrderingInstrumentedTest.kt",
+      "indexSha256": "43e1948b2dd9b7496e2e7869bfd4cea0eca9b12a90c00cfe6040334e054a004c"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/data/online/OnlineCatalog.kt",
+      "indexSha256": "fad21453ff72904d5298333e55bad0a9489275de1e6fd81bb169eed729de4eb8"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/ui/online/OnlineClosingApp.kt",
+      "indexSha256": "db0fcfa0ede1af7ad85c7250ce5d1d707276b40e731542ae503c2dea0ce51f23"
+    },
+    {
+      "file": "app/src/main/java/com/closingcount/app/ui/online/OnlineViewModel.kt",
+      "indexSha256": "038ec8acd3d59d060ac37580e0b01d8cba6411f23becdb667f039cab19bca46e"
+    },
+    {
+      "file": "app/src/test/java/com/closingcount/app/OnlineCatalogDisplayOrderTest.kt",
+      "indexSha256": "37c7d93fad1ac6e20767f707e155f6e31bece7e019c31db4040e1fb5bb569ead"
+    },
+    {
+      "file": "docs/DEMO_LOCAL.md",
+      "indexSha256": "3ae6cb712ed3689ba17d50d0f36ebb704e8b4219b461f044327a95dd10db489a"
+    },
+    {
+      "file": "docs/DEMO_ORDERING_R1.md",
+      "indexSha256": "6370956bf132e27e12e1a2f9e4f32b2ba28b0fa292ee581c8c2608ad8b4e2873"
+    },
+    {
+      "file": "docs/DEMO_SCENARIOS.md",
+      "indexSha256": "f93becf45177f7857f831efde87c6409546d7d45d88dac563c1d20671b54cfe8"
+    },
+    {
+      "file": "docs/demo-ordering-evidence-r1/Check-ClosingDemoOrderingR1.py",
+      "indexSha256": "c181047cbd2941e923799082ce0e96cdac3e8f8f125a64635d111c5df62e6d7f"
+    },
+    {
+      "file": "docs/demo-ordering-evidence-r1/Checkpoint-ClosingDemoOrderingR1.py",
+      "indexSha256": "4ca9aa1701b54d0b5820a23561fa94cad0d4838b522d3c86a8c65929d1f8e62a"
+    },
+    {
+      "file": "docs/demo-ordering-evidence-r1/Curate-ClosingDemoOrderingR1.py",
+      "indexSha256": "b189c667d78e109f16ce78594b227cff56d49d95a8f65f30207880480f7aa1a9"
+    },
+    {
+      "file": "docs/demo-ordering-evidence-r1/build-verification.json",
+      "indexSha256": "5ff5795f63ce2bee51f48b4bc00d873e86ab56c4e16b44d4f57d00b910bf905b"
+    },
+    {
+      "file": "docs/demo-ordering-evidence-r1/business-after.json",
+      "indexSha256": "22bf05f4b68697fbafc8377394b92f2a996359c9ab1dc4c694b7b5c789cef77e"
+    },
+    {
+      "file": "docs/demo-ordering-evidence-r1/business-before.json",
+      "indexSha256": "22bf05f4b68697fbafc8377394b92f2a996359c9ab1dc4c694b7b5c789cef77e"
+    },
+    {
+      "file": "docs/demo-ordering-evidence-r1/control-apks.json",
+      "indexSha256": "e210f77466921004bc61abe34db1d68e0db1f9c5c15107b478d03585a8b0d03f"
+    },
+    {
+      "file": "docs/demo-ordering-evidence-r1/control-input.png",
+      "indexSha256": "1c9e09036b138885e157873ce29c0dae26a8302291409d056cedf9bfbb612d0a"
+    },
+    {
+      "file": "docs/demo-ordering-evidence-r1/control-proof.json",
+      "indexSha256": "0f1906c111b682b084fa79e1cd121570730da464b774e1fb722277d834165eca"
+    },
+    {
+      "file": "docs/demo-ordering-evidence-r1/control.stdout.log",
+      "indexSha256": "e75ac4eee3b004135770ab4b49816fb9ffc661f87c4b4a763a2650f89e839ed9"
+    },
+    {
+      "file": "docs/demo-ordering-evidence-r1/curation.json",
+      "indexSha256": "5a18dd131be0a63e7fdb771a38872b76876a7139ea762d156b4552cfbc7e656e"
+    },
+    {
+      "file": "docs/demo-ordering-evidence-r1/device-after.json",
+      "indexSha256": "b41197a0cb2a4f5a0adc42a3c2ef665e14866d027730ad2fcce599931c0dd8f2"
+    },
+    {
+      "file": "docs/demo-ordering-evidence-r1/device-before.json",
+      "indexSha256": "b41197a0cb2a4f5a0adc42a3c2ef665e14866d027730ad2fcce599931c0dd8f2"
+    },
+    {
+      "file": "docs/demo-ordering-evidence-r1/fixed-apks.json",
+      "indexSha256": "9db96a36b324fddda8e59bfbe9e1f0c9c0262a15c76385c73765afe417e7a1b5"
+    },
+    {
+      "file": "docs/demo-ordering-evidence-r1/fixed-input.png",
+      "indexSha256": "19ec005168383c9cfa1745cac63ac43bc992f13793613a898a3ae0548d4a93cd"
+    },
+    {
+      "file": "docs/demo-ordering-evidence-r1/fixed-proof.json",
+      "indexSha256": "ef45df0582a909c83aba790822caa199aeeddc4e524a07e3097502faf7be700d"
+    },
+    {
+      "file": "docs/demo-ordering-evidence-r1/fixed-report-ingredients.png",
+      "indexSha256": "b1b0e0df951eb190a35f0528aeca5ea69d895b2a5a610e218d41e0775e2c011b"
+    },
+    {
+      "file": "docs/demo-ordering-evidence-r1/fixed-report-menus.png",
+      "indexSha256": "fe96df6de85d2ec6bcf5969fb8888a14431f540fcae9ea424b668c364fe64373"
+    },
+    {
+      "file": "docs/demo-ordering-evidence-r1/fixed-review.png",
+      "indexSha256": "ec1bd726b8255582f508a4e9c02525c1b37a248dc5a9471fc9d5db7c3af224ca"
+    },
+    {
+      "file": "docs/demo-ordering-evidence-r1/fixed.stdout.log",
+      "indexSha256": "70ec9d6f5f8bd3ec5d7d4f087f80b906e66562935dfae59cfaec377b64ecd1ad"
+    },
+    {
+      "file": "docs/demo-ordering-evidence-r1/owner-after.sha256",
+      "indexSha256": "0e7d99078c55b1ccf8b47dab28bacba3ac762b1585b7b277a538b4a2eede616d"
+    },
+    {
+      "file": "docs/demo-ordering-evidence-r1/owner-before.sha256",
+      "indexSha256": "0e7d99078c55b1ccf8b47dab28bacba3ac762b1585b7b277a538b4a2eede616d"
+    },
+    {
+      "file": "docs/demo-ordering-evidence-r1/source-inputs.json",
+      "indexSha256": "084f850461736bff296a2cba8d558ef0274e7f8e01df3d8b4b86b8d35affd39a"
+    },
+    {
+      "file": "docs/demo-ordering-evidence-r1/verification.json",
+      "indexSha256": "4b554b27f9df113e8d8b36306e17b2e3c0f4df5469e57fdcf9717c054930b58a"
+    },
+    {
+      "file": "docs/demo-ordering-review-r1.html",
+      "indexSha256": "8d92db07508648c7bd6c7d63fff027b854b11c9e29646a47a332c2e309c7a98c"
+    }
+  ],
+  "canonicalGuards": [
+    {
+      "code": "ABS",
+      "headAndStatusMatchOriginal": true
+    },
+    {
+      "code": "CCS",
+      "headAndStatusMatchOriginal": true
+    },
+    {
+      "code": "ELZ",
+      "headPreserved": true,
+      "observedStatusPreserved": true,
+      "unresolvedPriorDrift": true,
+      "workingTreeWritesPerformed": false
+    },
+    {
+      "code": "EXV",
+      "headAndStatusMatchOriginal": true
+    },
+    {
+      "code": "KLG",
+      "headAndStatusMatchOriginal": true
+    },
+    {
+      "code": "KEC",
+      "headAndStatusMatchOriginal": true
+    },
+    {
+      "code": "KPS",
+      "headAndStatusMatchOriginal": true
+    },
+    {
+      "code": "TTK",
+      "headAndStatusMatchOriginal": true
+    }
+  ],
+  "exactExecutedSourceMatched": true,
+  "knownPrivateValuesAbsent": true,
+  "privateProfilesChecked": 9,
+  "serviceSqlDependenciesAndRoomSchemaUnchanged": true,
+  "physicalPhoneAccessed": false,
+  "publicAcceptance": false,
+  "completeCcs08": false
+}

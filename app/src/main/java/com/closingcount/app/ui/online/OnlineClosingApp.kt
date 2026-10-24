@@ -40,6 +40,7 @@ import androidx.lifecycle.compose.LifecycleEventEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.closingcount.app.R
+import com.closingcount.app.data.online.OnlineCatalog
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.Locale
@@ -563,7 +564,11 @@ private fun auditLabel(action: String) = when(action) {
     DisposableEffect(reportId) { onDispose { exporter.detached(reportId) } }
     val quantities = closing.getJSONArray("entries").let { entries -> (0 until entries.length()).associate {
         val row = entries.getJSONObject(it); row.getString("menuId") to row.getLong("quantity") } }
-    val menus = closing.getJSONObject("catalog").getJSONArray("menus"); val totals = closing.getJSONArray("ingredientTotals")
+    val displayCatalog = remember(raw) { OnlineCatalog.parse(closing.getJSONObject("catalog")) }
+    val menus = displayCatalog.menusInDisplayOrder()
+    val rawTotals = closing.getJSONArray("ingredientTotals")
+    val totalsById = (0 until rawTotals.length()).associate { val item=rawTotals.getJSONObject(it);item.getString("id") to item }
+    val totals = displayCatalog.ingredientsInDisplayOrder().mapNotNull { totalsById[it.id] }
     TextButton(onClick = onBack, enabled = !export.busy, modifier = Modifier.testTag("online.report.back")) {
         Icon(Icons.Outlined.ArrowBack, null, Modifier.size(18.dp)); Spacer(Modifier.width(8.dp)); Text("Jejak & laporan")
     }
@@ -595,19 +600,20 @@ private fun auditLabel(action: String) = when(action) {
     }
     Paper {
         Text("Menu pada laporan", fontWeight = FontWeight.Bold)
-        for (i in 0 until menus.length()) { val menu = menus.getJSONObject(i)
+        for (menu in menus) {
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-                Text(menu.getString("name"),Modifier.weight(1f)); Text(quantities[menu.getString("id")].toString(), fontWeight = FontWeight.SemiBold,
-                    modifier = Modifier.testTag("online.report.quantity.${menu.getString("id")}"))
+                Text(menu.name,Modifier.weight(1f)); Text(quantities[menu.id].toString(), fontWeight = FontWeight.SemiBold,
+                    modifier = Modifier.testTag("online.report.quantity.${menu.id}"))
             }
         }
         HorizontalDivider(); Text("Total ${quantities.values.sum()} porsi", fontWeight = FontWeight.Bold)
     }
     Paper {
         Text("Pemakaian bahan pada laporan", fontWeight = FontWeight.Bold)
-        for (i in 0 until totals.length()) { val line = totals.getJSONObject(i)
+        for (line in totals) {
             Row(Modifier.fillMaxWidth(),horizontalArrangement = Arrangement.SpaceBetween) {
-                Text(line.getString("name"),Modifier.weight(1f)); Text(line.getLong("total").toString(),fontWeight = FontWeight.SemiBold)
+                Text(line.getString("name"),Modifier.weight(1f)); Text(line.getLong("total").toString(),fontWeight = FontWeight.SemiBold,
+                    modifier = Modifier.testTag("online.report.ingredient.${line.getString("id")}"))
             }
         }
         Text("Menggunakan resep historis closing ini.", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)

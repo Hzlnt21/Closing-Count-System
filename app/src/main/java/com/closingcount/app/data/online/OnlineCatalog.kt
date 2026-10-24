@@ -8,6 +8,15 @@ data class CatalogIngredient(val id:String,val categoryId:String,val name:String
 data class CatalogMenu(val id:String,val categoryId:String,val name:String,val sortOrder:Int,val active:Boolean,val ingredientIds:List<String>)
 data class OnlineCatalog(val ingredientCategories:List<CatalogCategory>,val ingredients:List<CatalogIngredient>,
     val menuCategories:List<CatalogCategory>,val menus:List<CatalogMenu>){
+    /** Presentation order is separate from the UUID-canonical snapshot payload. */
+    fun menusInDisplayOrder():List<CatalogMenu>{
+        val categories=menuCategories.associate{it.id to it.sortOrder}
+        return menus.sortedWith(compareBy({categories.getValue(it.categoryId)},{it.sortOrder},{it.id}))
+    }
+    fun ingredientsInDisplayOrder():List<CatalogIngredient>{
+        val categories=ingredientCategories.associate{it.id to it.sortOrder}
+        return ingredients.sortedWith(compareBy({categories.getValue(it.categoryId)},{it.sortOrder},{it.id}))
+    }
     /** Match the server's bounded, whole-catalog validation. Never rewrite UUIDs or recipe meaning. */
     fun validated():OnlineCatalog{
         fun name(value:String)=value.trim().also{require(it.length in 1..120){"Nama harus berisi 1 sampai 120 karakter."}}

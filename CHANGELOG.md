@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.2 - catalog presentation ordering, 2026-10-24
+
+- Display shared-closing menus and ingredients by category/item sortOrder with stable ID ties, consistently across input, supervisor review and frozen reports.
+- Preserve canonical snapshot JSON, recipe links, quantities and historical authorship. The previous native demo baseline exposed UUID order changing the visible menu sequence after reset.
+- Verified27 JVM tests, lint0errors/17warnings and a normal positive native journey across input/review/frozen report. The old0.1.1 APK is an explicit failing ordering control; business PostgreSQL snapshots and owner/device baseline remain unchanged. [Evidence and scope](docs/DEMO_ORDERING_R1.md).
+- The nine-phase0.1.1 domain baseline remains separately recorded at `ccs-demo-native-r1`. Media and complete demo distribution remain open.
+
 ## Unreleased - local transfer UI R1, 2026-10-23
 
 - Clarified on-device versus shared-server data. Added validated filename/count/date review, one-use frozen restore identity, cancellation, off-main provider IO, busy state and success/error feedback.

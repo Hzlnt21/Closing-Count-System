@@ -8,8 +8,8 @@ val releaseKeystorePath = System.getenv("CLOSING_COUNT_KEYSTORE_PATH")
 val releaseKeystorePassword = System.getenv("CLOSING_COUNT_KEYSTORE_PASSWORD")
 val releaseKeyAlias = System.getenv("CLOSING_COUNT_KEY_ALIAS")
 val releaseKeyPassword = System.getenv("CLOSING_COUNT_KEY_PASSWORD")
-val appVersionCode = providers.gradleProperty("versionCodeOverride").orNull?.toInt() ?: 9
-val appVersionName = providers.gradleProperty("versionNameOverride").orNull ?: "0.1.1"
+val appVersionCode = providers.gradleProperty("versionCodeOverride").orNull?.toInt() ?: 10
+val appVersionName = providers.gradleProperty("versionNameOverride").orNull ?: "0.1.2"
 // Explicit QA-only second installation; release application identity never changes.
 val qaPeer = providers.gradleProperty("closingQaPeer").orNull == "true"
 if (qaPeer && gradle.startParameter.taskNames.any { it.contains("release", ignoreCase = true) }) {
