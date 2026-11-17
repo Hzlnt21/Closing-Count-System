@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.2-demo-local USB QA checkpoint - 2026-11-17
+
+- Added explicit debug DEMO USB loopback transport; default emulator transport, release identity and business/schema/dependency code remain unchanged. Four invalid build combinations refuse correctly.
+- Ten checks passed on an actual Android13 phone across native save, offline draft/recreation, process/server recovery, submit, supervisor lock/reopen, frozen report and logout.27 JVM tests and13 independent database checks passed. Original emulator archive retained.
+- [Physical scope, evidence and remaining acceptance](docs/DEMO_PHYSICAL_USB_R1.md). USB QA is separate from physical LAN, file-provider, public and Production acceptance.
+
 ## 0.1.2-demo-local - local candidate packaging, 2026-10-24
 
 - Added an opt-in debug-only local demo identity, launcher label and forced emulator origin4372. The .demo package is separate from the main app; release and QApeer combinations are refused.

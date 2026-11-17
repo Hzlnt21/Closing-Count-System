@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "physicalPhoneAccessed": true,
+  "run": "7a7603ff-66d2-49aa-b828-79d83bf58958",
+  "phase": "offline",
+  "model": "M2101K7BNY",
+  "android": "13",
+  "pid": 19054,
+  "legacyBefore": "362ca07086d8ed3240c02d3f22c9d0778c711adf6756f17c21f946e6c3e32686",
+  "checks": [
+    {
+      "name": "Offline native save retains desired6 as pending",
+      "passed": true
+    },
+    {
+      "name": "Activity recreation retains pending quantity without server acknowledgement",
+      "passed": true
+    }
+  ],
+  "legacyAfter": "362ca07086d8ed3240c02d3f22c9d0778c711adf6756f17c21f946e6c3e32686"
+}

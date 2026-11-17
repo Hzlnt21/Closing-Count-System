@@ -1,0 +1,37 @@
+{
+  "guards": [
+    {
+      "case": "unknown",
+      "refused": true,
+      "expectedMessage": "closingLocalDemoTransport must be emulator or usb",
+      "passed": true
+    },
+    {
+      "case": "usb-not-demo",
+      "refused": true,
+      "expectedMessage": "USB demo transport requires closingLocalDemo=true",
+      "passed": true
+    },
+    {
+      "case": "demo-release",
+      "refused": true,
+      "expectedMessage": "closingLocalDemo is restricted to debug",
+      "passed": true
+    },
+    {
+      "case": "demo-peer",
+      "refused": true,
+      "expectedMessage": "Choose local demo or QA peer",
+      "passed": true
+    }
+  ],
+  "unit": {
+    "tests": 27,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "usbEndpointInDex": true,
+  "newAppSha256": "8aa46e927491c5424756a73dc45e5fd9a5748bb90d2145e47d6ff4f0d9f6e8fe",
+  "oldArchiveSha256": "c1c53335be575401afb08a81b531b2e8cf701d0770e444fc57afc7ae91da6fac"
+}

@@ -13,6 +13,13 @@ val appVersionName = providers.gradleProperty("versionNameOverride").orNull ?: "
 // Explicit QA-only second installation; release application identity never changes.
 val qaPeer = providers.gradleProperty("closingQaPeer").orNull == "true"
 val localDemo = providers.gradleProperty("closingLocalDemo").orNull == "true"
+val localDemoTransport = providers.gradleProperty("closingLocalDemoTransport").orNull ?: "emulator"
+if (localDemoTransport !in setOf("emulator", "usb")) {
+    throw GradleException("closingLocalDemoTransport must be emulator or usb")
+}
+if (localDemoTransport == "usb" && !localDemo) {
+    throw GradleException("USB demo transport requires closingLocalDemo=true")
+}
 if (localDemo && qaPeer) throw GradleException("Choose local demo or QA peer, not both")
 if (localDemo && gradle.startParameter.taskNames.any { it.contains("release", ignoreCase = true) }) {
     throw GradleException("closingLocalDemo is restricted to debug local demonstration builds")
@@ -87,7 +94,9 @@ android {
                 versionNameSuffix = "-demo-local"
                 manifestPlaceholders["appLabel"] = "Closing Count Demo"
             }
-            val debugOrigin = if (localDemo) "http://10.0.2.2:4372" else providers.gradleProperty("closingApiOrigin").orNull ?: "http://10.0.2.2:4371"
+            val debugOrigin = if (localDemo) {
+                if (localDemoTransport == "usb") "http://127.0.0.1:4372" else "http://10.0.2.2:4372"
+            } else providers.gradleProperty("closingApiOrigin").orNull ?: "http://10.0.2.2:4371"
             buildConfigField("String", "ONLINE_API_ORIGIN", "\"$debugOrigin\"")
         }
         release {

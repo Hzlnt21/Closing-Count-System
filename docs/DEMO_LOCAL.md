@@ -1,5 +1,9 @@
 # Closing Count local demo
 
+17 November 2026: an explicit debug-only USB variant has scoped acceptance on one
+physical Android13 phone. See [USB build, ten native checks and remaining gates](DEMO_PHYSICAL_USB_R1.md).
+The original packaged emulator APK/ZIP below retain their original hashes and scope.
+
 The service/control-plane foundation, operator-payload relocation and bounded startup/interrupted-seed recovery are verified locally. The [nine-phase Android0.1.1 baseline](DEMO_NATIVE_R1.md) and [0.1.2 presentation correction](DEMO_ORDERING_R1.md) retain separate evidence. The [local candidate acceptance](DEMO_LOCAL_ACCEPTANCE_R1.md), [APK/payload guide](DEMO_DISTRIBUTION_R1.md) and [actual media](demo-media-r1/review.html) describe the isolated .demo candidate. This is not public deployment or physical-device acceptance. Use fictional data only. [Reviewer scenarios and expected results](DEMO_SCENARIOS.md).
 
 ## Prerequisites and first start

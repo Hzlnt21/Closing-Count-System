@@ -1,0 +1,89 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "Unchanged generations",
+      "passed": true
+    },
+    {
+      "name": "Unchanged identities",
+      "passed": true
+    },
+    {
+      "name": "Unchanged catalogs",
+      "passed": true
+    },
+    {
+      "name": "Every baseline reports row retained exactly",
+      "passed": true
+    },
+    {
+      "name": "Every baseline audits row retained exactly",
+      "passed": true
+    },
+    {
+      "name": "Every baseline receipts row retained exactly",
+      "passed": true
+    },
+    {
+      "name": "Previous-day closings retained exactly",
+      "passed": true
+    },
+    {
+      "name": "Previous-day entries retained exactly",
+      "passed": true
+    },
+    {
+      "name": "Same closing/catalog snapshot; six new revisions; draft generation2",
+      "passed": true
+    },
+    {
+      "name": "Final native draft is Cappuccino5 Latte6",
+      "passed": true
+    },
+    {
+      "name": "Exactly one new frozen generation1 report matches actual API proof",
+      "passed": true
+    },
+    {
+      "name": "Exactly six new receipts and six new audits",
+      "passed": true
+    },
+    {
+      "name": "Six new operations have unique original IDs and matching receipts",
+      "passed": true
+    }
+  ],
+  "baselineCounts": {
+    "generations": 1,
+    "identities": 1,
+    "closings": 2,
+    "entries": 4,
+    "reports": 1,
+    "audits": 8,
+    "receipts": 6,
+    "catalogs": 1
+  },
+  "afterCounts": {
+    "generations": 1,
+    "identities": 1,
+    "closings": 2,
+    "entries": 4,
+    "reports": 2,
+    "audits": 14,
+    "receipts": 12,
+    "catalogs": 1
+  },
+  "finalState": "DRAFT",
+  "generation": 2,
+  "finalQuantities": {
+    "Cappuccino": 5,
+    "Latte": 6
+  },
+  "frozenQuantities": {
+    "Cappuccino": 4,
+    "Latte": 6
+  },
+  "businessMutationsThroughNativeUi": true,
+  "legacyRoomHashUnchanged": true
+}

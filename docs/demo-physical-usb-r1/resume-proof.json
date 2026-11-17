@@ -1,0 +1,37 @@
+{
+  "passed": true,
+  "physicalPhoneAccessed": true,
+  "run": "7a7603ff-66d2-49aa-b828-79d83bf58958",
+  "phase": "resume",
+  "model": "M2101K7BNY",
+  "android": "13",
+  "pid": 19370,
+  "legacyBefore": "362ca07086d8ed3240c02d3f22c9d0778c711adf6756f17c21f946e6c3e32686",
+  "checks": [
+    {
+      "name": "Actual process restart and server recovery apply pending Latte6",
+      "passed": true
+    },
+    {
+      "name": "Employee submits through real UI without supervisor lock authority",
+      "passed": true
+    },
+    {
+      "name": "Supervisor locks the actual submitted closing through UI",
+      "passed": true
+    },
+    {
+      "name": "Supervisor reopens explicitly while frozen generation1 remains exact",
+      "passed": true
+    },
+    {
+      "name": "New native draft edits remain separate from locked historical report",
+      "passed": true
+    },
+    {
+      "name": "Native account logout finishes with no pending work",
+      "passed": true
+    }
+  ],
+  "legacyAfter": "362ca07086d8ed3240c02d3f22c9d0778c711adf6756f17c21f946e6c3e32686"
+}
