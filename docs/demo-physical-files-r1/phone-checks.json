@@ -1,0 +1,90 @@
+{
+  "checks": [
+    {
+      "name": "Actual Supervisor login on retained code10 and original marked outlet; no install/reset",
+      "passed": true
+    },
+    {
+      "name": "Actual native history opens retained frozen generation1 report, without reopening or replaying closing",
+      "passed": true
+    },
+    {
+      "name": "Actual DocumentsUI cancel returns to same frozen report with no false saved-success state",
+      "passed": true
+    },
+    {
+      "name": "Actual DocumentsUI saves uniquely named local XLSX and app confirms generation1 success; original file copied privately",
+      "passed": true
+    },
+    {
+      "name": "Independent actual XLSX CRC, two sheets, frozen numeric4/6 and ingredient totals; all15 DB rows and legacy Room exact",
+      "passed": true
+    },
+    {
+      "name": "Actual Supervisor logout after report export; native installation, data and saved workbook retained",
+      "passed": true
+    },
+    {
+      "name": "Actual original Employee login and synced retained5/6 state, before any new offline intent",
+      "passed": true
+    },
+    {
+      "name": "Exactly one NEW native offline Cappuccino6 intent retained with original UUID; actual API and database stopped",
+      "passed": true
+    },
+    {
+      "name": "Actual backup preview freezes exactly one pending closing/item on original employee and outlet while offline",
+      "passed": true
+    },
+    {
+      "name": "Actual pending JSON picker cancel retains SAME single original UUID/payload and displays truthful cancellation",
+      "passed": true
+    },
+    {
+      "name": "Actual DocumentsUI saves owned pending JSON while offline; original native UUID and payload unchanged",
+      "passed": true
+    },
+    {
+      "name": "Independent strict JSON matches SAME original UUID/quantity6/base5 and credential-free context; Room unchanged",
+      "passed": true
+    },
+    {
+      "name": "Actual OpenDocument and explicit inbox acceptance retain exact933-byte backup; ALL Room rows and SAME queued original unchanged",
+      "passed": true
+    },
+    {
+      "name": "Actual current-server review refuses recovery while SAME original local draft exists; no new queue/claim or Room change",
+      "passed": true
+    },
+    {
+      "name": "Closing transfer triggers normal foreground sync of SAME ordinary original; outbox0 and recovery claims0, no second Save",
+      "passed": true
+    },
+    {
+      "name": "Independent SQL: SAME original accepted once, one receipt/audit,6/6; old reports/rows exact",
+      "passed": true
+    },
+    {
+      "name": "Actual fresh-server review of imported file reports all references already handled; no new queue/claim or Room change",
+      "passed": true
+    },
+    {
+      "name": "Independent full15-table comparison: recorded-file review adds no receipt/audit/claim or data change",
+      "passed": true
+    },
+    {
+      "name": "Actual final Employee logout preserves acknowledged original, saved files and recovery inbox; no pending work",
+      "passed": true
+    },
+    {
+      "name": "Final full15-table/legacyRoom/UID/file preservation: one new original, two new sessions revoked, all native queues0",
+      "passed": true
+    },
+    {
+      "name": "Normal owned API/PostgreSQL stop, only reverse4372 removed, account logged out/app data retained and phone Home",
+      "passed": true
+    }
+  ],
+  "count": 21,
+  "next": "finished"
+}

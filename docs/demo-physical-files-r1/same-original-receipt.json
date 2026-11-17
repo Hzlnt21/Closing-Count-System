@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "originalIdSha256": "0b5504516a0300b0c73245f0964a9cfbe51c9b4705056cb950eb8c723a8cdce5",
+  "sameOriginalNativeBackupReceiptAndAudit": true,
+  "newReceipts": 1,
+  "newAudits": 1,
+  "auditAction": "ENTRY_UPDATED",
+  "currentQuantities": {
+    "Cappuccino": 6,
+    "Latte": 6
+  },
+  "exactlyOneClosingAndEntryRevisionIncrease": true,
+  "allPriorReceiptsAuditsAndFrozenReportsExact": true,
+  "allOther11DatabaseTablesExact": true,
+  "nativeOutboxAndRecoveryClaimsZero": true,
+  "ordinaryNativeForegroundSyncAfterTransferClosed": true,
+  "noSecondSaveRecoveryCloneOrNewBusinessKey": true,
+  "originalBackupAndWorkbookRetained": true,
+  "notFreshDeviceRestoreAcceptance": true
+}

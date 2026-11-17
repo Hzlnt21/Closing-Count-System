@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "bytes": 933,
+  "sha256": "229b7b430f8749690436d4993854ea8ce4c9d15551706f6099b965606e5a8b85",
+  "strictJsonNoDuplicateKeys": true,
+  "formatVersion": 1,
+  "oneClosingOneQuantityOriginal": true,
+  "originalIdSha256": "0b5504516a0300b0c73245f0964a9cfbe51c9b4705056cb950eb8c723a8cdce5",
+  "originalStatus": "QUEUED",
+  "localQuantity": 6,
+  "baseQuantity": 5,
+  "allOriginalUuidActorOutletOriginGenerationRevisionFieldsExact": true,
+  "noCredentialOrSessionFields": true,
+  "noLifecycleAdminOrNewOperation": true,
+  "allRoomTablesExactAcrossJsonCancelAndSave": true,
+  "actualLocalDocumentsUiSavedFile": true,
+  "notFreshDeviceRestoreAcceptance": true
+}

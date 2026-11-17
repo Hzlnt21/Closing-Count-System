@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "fullDatabaseTables": 15,
+  "allPriorReceiptsAuditsReportsAndMigrationsRetained": true,
+  "exactlyOneNewBusinessReceiptAndAudit": true,
+  "onlyTwoAuthorizedNewSessionsBothRevoked": true,
+  "allOldSessionsExact": true,
+  "legacyRoomTablesExact": 12,
+  "legacySqliteSequencesExact": true,
+  "nativeQuantityLifecycleRecoveryQueuesAndClaimsAllZero": true,
+  "sameInstalledUidCode10AndVersion": true,
+  "ownedXlsxJsonAndInboxBytesRetainedExact": true,
+  "noResetClearUninstallOrOldBusinessReplay": true,
+  "remainingNegativeForeignRestoreDeviceAndProviderGatesExplicit": true
+}

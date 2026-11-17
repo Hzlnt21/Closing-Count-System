@@ -1,5 +1,8 @@
 # Closing Count local demo
 
+Latest follow-up: [physical DocumentsUI files R1](DEMO_PHYSICAL_FILES_R1.md), 17 November2026:21 scoped mixed UI/oracle checks on the same code10. Current retained draft is6/6; frozen generation1 remains4/6. Earlier results below keep their original date/scope and are not fresh reruns. Remaining provider/restore and hardware gates are listed in the follow-up.
+
+
 17 November 2026: an explicit debug-only USB variant has scoped acceptance on one
 physical Android13 phone. See [USB build, ten native checks and remaining gates](DEMO_PHYSICAL_USB_R1.md).
 The original packaged emulator APK/ZIP below retain their original hashes and scope.

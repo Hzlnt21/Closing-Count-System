@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "normalOwnedApiAndPostgresStopped": true,
+  "ports4372And55437Idle": true,
+  "retainedInstanceVolumeAndAll15TablePrivateDump": true,
+  "onlyOwnedReverse4372RemovedOtherMappingsExact": true,
+  "phoneHome": true,
+  "accountLoggedOutNativeQueuesZero": true,
+  "installedUidCode10AndAppDataRetained": true,
+  "ownedXlsxJsonAndInboxRetained": true,
+  "noPersonalFilesGlobalSettingsOrOtherAppsChanged": true
+}

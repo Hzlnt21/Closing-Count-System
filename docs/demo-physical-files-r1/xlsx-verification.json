@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "bytes": 4587,
+  "sha256": "6a2e01692c09e81be6f2fe63ea61d79efff5f8ec241729d233bbf779d66bdbe9",
+  "sheets": [
+    "Pemakaian Bahan",
+    "Penjualan Menu"
+  ],
+  "zipCrcClean": true,
+  "actualDocumentsUiCreateDocument": true,
+  "frozenMenuQuantities": {
+    "Cappuccino": 4,
+    "Latte": 6
+  },
+  "frozenTotalNumericAndFormula": 10,
+  "allFrozenIngredientTotalsNumericAndExact": true,
+  "gen1RevisionAndBusinessDateExact": true,
+  "currentDraftStill5And6": true,
+  "all15DatabaseTablesExactAcrossPickerCancelAndFileExport": true,
+  "legacyRoomTablesExact": 12,
+  "nativePendingOperationsStillZero": true,
+  "rawWorkbookRetainedPrivateAndOnPhone": true,
+  "recipientAppOpeningNotClaimed": true
+}

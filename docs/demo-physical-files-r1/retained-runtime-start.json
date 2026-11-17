@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "normalOperatorStart": true,
+  "noInitResetSeedOrAppliedMigrationReplay": true,
+  "oldPrivateProfileInstanceAndVolumeRetained": true,
+  "initialMarkerOnlyStartupSnapshot": true,
+  "fullBusinessSchemasInitiallyOmittedByObserver": true,
+  "all15TablesCapturedBeforeAnyUiAction": true,
+  "allEightPriorBusinessGroupsMatchLegacySerialization": true,
+  "legacyTimestampComparisonUsesRecordedMillisecondPrecision": true,
+  "legacyCp1252MojibakeRoundTripComparedWithoutChangingData": true,
+  "currentFullRowsKeepDatabasePrecisionPrivately": true,
+  "noNewPhoneLoginOrBusinessOperationYet": true
+}

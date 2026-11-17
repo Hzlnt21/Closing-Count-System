@@ -1,5 +1,8 @@
 # Physical Android USB demo acceptance R1
 
+Latest follow-up: [physical DocumentsUI files R1](DEMO_PHYSICAL_FILES_R1.md), 17 November2026:21 scoped mixed UI/oracle checks on the same code10. Current retained draft is6/6; frozen generation1 remains4/6. Earlier results below keep their original date/scope and are not fresh reruns. Remaining provider/restore and hardware gates are listed in the follow-up.
+
+
 17 November 2026. Android 0.1.2/code10 DEMO, service 0.2.0-dev.8, one authorized
 M2101K7BNY phone on Android13/SDK33, primary user0. This adds an explicit USB
 transport for the debug demo and a separate physical test driver. Business code,
