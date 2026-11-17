@@ -1,0 +1,89 @@
+{
+  "passed": true,
+  "complete": true,
+  "scopedGroups": 19,
+  "nativeUiProviderAndProcessChecks": 16,
+  "independentPreservationBackupCleanupGroups": 3,
+  "checks": [
+    {
+      "name": "Original Employee login on same code10 and retained outlet; no new closing or business action",
+      "passed": true
+    },
+    {
+      "name": "Actual OpenDocument cancellation returns truthful message; all19 Room rows and original inbox exact",
+      "passed": true
+    },
+    {
+      "name": "Actual OpenDocument rejects malformed fixture without preview/inbox/Room or queue mutation",
+      "passed": true
+    },
+    {
+      "name": "Actual OpenDocument rejects duplicate fixture without preview/inbox/Room or queue mutation",
+      "passed": true
+    },
+    {
+      "name": "Actual OpenDocument rejects credential fixture without preview/inbox/Room or queue mutation",
+      "passed": true
+    },
+    {
+      "name": "Actual OpenDocument rejects version fixture without preview/inbox/Room or queue mutation",
+      "passed": true
+    },
+    {
+      "name": "Actual account foreign-context file is structurally readable but preview remains inert before explicit acceptance",
+      "passed": true
+    },
+    {
+      "name": "Actual account foreign-context warning and disabled compare preserve exact Room; accepted file is inert quarantine only",
+      "passed": true
+    },
+    {
+      "name": "Actual UI removes ONLY visually scoped new account quarantine copy; original inbox/Room and owned source file retained",
+      "passed": true
+    },
+    {
+      "name": "Actual origin foreign-context file is structurally readable but preview remains inert before explicit acceptance",
+      "passed": true
+    },
+    {
+      "name": "Actual origin foreign-context warning and disabled compare preserve exact Room; accepted file is inert quarantine only",
+      "passed": true
+    },
+    {
+      "name": "Actual UI removes ONLY visually scoped new origin quarantine copy; original inbox/Room and owned source file retained",
+      "passed": true
+    },
+    {
+      "name": "Actual own QA process terminates while Android OpenDocument stays foreground; no reset/clear/uninstall",
+      "passed": true
+    },
+    {
+      "name": "Actual OpenDocument return recreates QA process without accepting a stale import; all19 Room and original inbox exact",
+      "passed": true
+    },
+    {
+      "name": "Explicit fresh OpenDocument after process death restores valid inert preview; original bytes/inbox/Room unchanged",
+      "passed": true
+    },
+    {
+      "name": "Actual Logout after all negative/provider process checks; no file applied or draft queued",
+      "passed": true
+    },
+    {
+      "name": "Independent full15-table/19Room/file oracle: no new business row, one new revoked session, all originals preserved",
+      "passed": true
+    },
+    {
+      "name": "Private custom PostgreSQL backup readable with15 TABLE DATA; all15 row sets exact across backup, no restore replay",
+      "passed": true
+    },
+    {
+      "name": "Normal owned API/PostgreSQL stop, ports idle, only own reverse removed, same UID/data and phone Home; source/canonical/WIP exact",
+      "passed": true
+    }
+  ],
+  "sameInstalledCode": 10,
+  "actualOneAndroid13Phone": true,
+  "notNineteenNativeOnlyUniqueCases": true,
+  "notFullUatFreshDeviceCloudOrProduction": true
+}

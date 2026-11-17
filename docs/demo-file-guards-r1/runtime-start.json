@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "all15PriorFinalTableRowsExactBeforeApi": true,
+  "all15TableRowsExactAcrossNormalApiStartup": true,
+  "normalExistingMigrationChecksNoNewAppliedMigration": true,
+  "sameMarkedInstanceVolumeAndGeneration": true,
+  "normalExistingInstanceDatabaseChecksExecuted": true,
+  "noFreshInstanceInitializationResetReseedOrPriorBusinessReplay": true
+}

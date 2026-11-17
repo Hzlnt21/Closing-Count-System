@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "customPgDumpBytes": 51682,
+  "pgRestoreListReadable": true,
+  "tableDataEntries": 15,
+  "actualRestoreNotClaimed": true,
+  "privateBackupOnly": true
+}

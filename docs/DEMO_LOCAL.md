@@ -1,5 +1,8 @@
 # Closing Count local demo
 
+Latest18November: [physical file guards and picker process recovery R1](DEMO_PHYSICAL_FILE_GUARDS_R1.md) adds19 scoped mixed groups on unchanged code10, six synthetic file cases and real app process loss with picker foreground. No new business operation; current6/6/frozen4/6 and all original files/data retained. Earlier results below keep their original scope.
+
+
 Latest follow-up: [physical DocumentsUI files R1](DEMO_PHYSICAL_FILES_R1.md), 17 November2026:21 scoped mixed UI/oracle checks on the same code10. Current retained draft is6/6; frozen generation1 remains4/6. Earlier results below keep their original date/scope and are not fresh reruns. Remaining provider/restore and hardware gates are listed in the follow-up.
 
 

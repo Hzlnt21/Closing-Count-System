@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "kind": "version",
+  "syntheticOwnedFixture": true,
+  "fixtureBytes": 939,
+  "fixtureSha256": "ef24bf7f3319d05c91a867f0581446b7d32ce91d3fe6788585c6c18ecc223072",
+  "actualOpenDocumentSelection": true,
+  "actualUiMessage": "File atau akun tidak sesuai. Gunakan cadangan draft online Closing Count dan akun asalnya.",
+  "noImportPreviewOrAccept": true,
+  "all19RoomTablesExact": true,
+  "originalInboxExact": true,
+  "noRecoveryQueueOrNewBusinessKey": true
+}

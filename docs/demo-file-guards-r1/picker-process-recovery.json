@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "actualOwnAppProcessDeath": true,
+  "androidDocumentsUiStayedForeground": true,
+  "processIdChanged": true,
+  "processDeathMethod": "am-kill-qa-background",
+  "onlyOwnedOriginalFileSelected": true,
+  "expiredPickerMessageObserved": false,
+  "noStalePreviewOrInboxAccept": true,
+  "explicitFreshPickRestoresValidInertPreview": true,
+  "all19RoomTablesExact": true,
+  "originalInboxExact": true,
+  "noApplySaveNewBusinessKeyOrSessionLoginReplay": true,
+  "noResetClearUninstallGlobalSettingOrOtherAppStop": true,
+  "notOsPowerRebootOrAllActivityRecreationAcceptance": true
+}

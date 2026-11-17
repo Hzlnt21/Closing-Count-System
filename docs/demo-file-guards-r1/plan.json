@@ -1,0 +1,21 @@
+{
+  "sameInstalledCode10NoAppBuildInstallChange": true,
+  "sourceBase": "7103fa689dc87e259b234fb998a043a1470c36fb",
+  "syntheticNewOwnedFileFixturesOnly": true,
+  "originalPendingFileAndOperationBytesUntouched": true,
+  "caseKinds": [
+    "malformed",
+    "duplicate",
+    "credential",
+    "version",
+    "account",
+    "origin"
+  ],
+  "foreignFilesExpectedInertInboxWithCompareDisabled": true,
+  "malformedAndExtraCredentialVersionDuplicateMustNotReachPreview": true,
+  "allPreviousDataAndNativeQueuesPreserved": true,
+  "onlyNewOwnForeignInboxCopiesMayBeRemovedThroughActualUi": true,
+  "processDeathWithOpenDocumentConditionalOnSafeBaseline": true,
+  "noFreshDeviceRestoreOrBroaderProviderClaim": true,
+  "elzeeParkedProductionDeferred": true
+}

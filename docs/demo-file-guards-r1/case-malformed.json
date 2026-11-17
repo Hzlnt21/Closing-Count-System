@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "kind": "malformed",
+  "syntheticOwnedFixture": true,
+  "fixtureBytes": 66,
+  "fixtureSha256": "a1f485c1dbcb0baf1cbb2399741a6724c1db08d2e89a91564cc08320d6bf3627",
+  "actualOpenDocumentSelection": true,
+  "actualUiMessage": "File atau layanan belum dapat diakses. Periksa koneksi atau pilih lokasi file lain.",
+  "noImportPreviewOrAccept": true,
+  "all19RoomTablesExact": true,
+  "originalInboxExact": true,
+  "noRecoveryQueueOrNewBusinessKey": true
+}

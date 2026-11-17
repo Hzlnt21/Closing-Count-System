@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "kind": "account",
+  "syntheticOwnedFixture": true,
+  "fixtureBytes": 954,
+  "fixtureSha256": "1de2499e4682c23b756f7405edc3cf06cf4c15eed651651fb6ccda9f514c4ec2",
+  "actualOpenDocumentPreviewAndExplicitInboxAccept": true,
+  "exactQuarantinedBytes": true,
+  "foreignContextWarningVisible": true,
+  "compareButtonEffectivelyDisabledInNativeTree": true,
+  "all19RoomTablesExact": true,
+  "allPriorInboxFilesExact": true,
+  "noRecoveryQueueOrNewBusinessKey": true,
+  "ownNewQuarantineRemovalPending": false,
+  "noCompareOrApplyAttempted": true,
+  "onlyOwnNewQuarantineCopyRemovedThroughActualUi": true,
+  "uniqueOwnIdAndRemoveControlVisuallyReviewedBeforeTap": true,
+  "originalInboxRestoredExact": true,
+  "syntheticDownloadFileRetained": true
+}

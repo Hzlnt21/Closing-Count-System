@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "normalOwnedApiAndPostgresStopped": true,
+  "ports4372And55437Idle": true,
+  "onlyOwnReverse4372RemovedOthersExact": true,
+  "phoneHome": true,
+  "appLoggedOutAndAllNativeQueuesClaimsZero": true,
+  "sameUidCode10AndDataRetained": true,
+  "full15TableRowsExactAcrossBackup": true,
+  "originalBackupXlsxInboxAndAllSixOwnedSyntheticDownloadsRetained": true,
+  "onlyTwoNewQuarantineCopiesRemovedThroughActualUi": true,
+  "sourceTracked1465PlusTwoOldLogsRawHeadIndexStatusExact": true,
+  "canonical91RawHeadIndexStatusExact": true,
+  "oldTwoUntrackedJvmLogsPreservedUnstaged": true,
+  "privateInstanceVolumeBackupAndDataRetained": true,
+  "noPersonalFilesGlobalSettingsOrOtherAppStop": true
+}

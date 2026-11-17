@@ -1,5 +1,8 @@
 # Physical DocumentsUI files R1
 
+Latest18November: [physical file guards and picker process recovery R1](DEMO_PHYSICAL_FILE_GUARDS_R1.md) adds19 scoped mixed groups on unchanged code10, six synthetic file cases and real app process loss with picker foreground. No new business operation; current6/6/frozen4/6 and all original files/data retained. Earlier results below keep their original scope.
+
+
 17 November 2026. Scoped follow-up to [physical USB R1](DEMO_PHYSICAL_USB_R1.md)
 on the same authorized M2101K7BNY / Android13 SDK33 / ARM64 primary user0.
 Source base `38a259aa2ae498677ac579c854cd50ef92aa4212`; installed app

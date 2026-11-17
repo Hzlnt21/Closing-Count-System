@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "kind": "origin",
+  "syntheticOwnedFixture": true,
+  "fixtureBytes": 939,
+  "fixtureSha256": "8bfc019966ecff6e6fbbe6cd6a89d0882f99378f1379ea31f7ecad46e7a08404",
+  "actualOpenDocumentPreviewAndExplicitInboxAccept": true,
+  "exactQuarantinedBytes": true,
+  "foreignContextWarningVisible": true,
+  "compareButtonEffectivelyDisabledInNativeTree": true,
+  "all19RoomTablesExact": true,
+  "allPriorInboxFilesExact": true,
+  "noRecoveryQueueOrNewBusinessKey": true,
+  "ownNewQuarantineRemovalPending": false,
+  "noCompareOrApplyAttempted": true,
+  "onlyOwnNewQuarantineCopyRemovedThroughActualUi": true,
+  "uniqueOwnIdAndRemoveControlVisuallyReviewedBeforeTap": true,
+  "originalInboxRestoredExact": true,
+  "syntheticDownloadFileRetained": true
+}

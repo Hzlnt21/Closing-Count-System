@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "sameCode10UsbApkHash": true,
+  "noInstallClearUninstallOrUpgrade": true,
+  "qaRoomSnapshotIntegrityOk": true,
+  "oldAppDataRetained": true
+}
